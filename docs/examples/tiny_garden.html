@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 62. Tiny Garden</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Tiny Garden</h1><div class="subheading">Example 62 ★★</div>
+<div class="linkback">
+<a href="../WI_5.html#section_5" title="Text &gt; Text with lists">WI §5.5 Text with lists</a><br><a href="../RB_3.html#section_4" title="Place &gt; Continuous Spaces and The Outdoors">RB §3.4 Continuous Spaces and The Outdoors</a>
+</div>
+<p class="example-desc">A lawn made up of several rooms, with part of the description written automatically.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="control_center.html" title="Objects which automatically include a description of their component parts whenever they are examined.">61. Control Center</a></div><div class="doc-navbar-right"><a href="when.html" title="A door whose description says &quot;&hellip;leads east&quot; in one place and &quot;&hellip;leads west&quot; in the other.">63. When?</a></div></div>
+</header>
+<p>Sometimes we want to make a list of something too complicated to express in a say list&hellip; phrase. When this happens, we can instead mark all the items we want to mention as &quot;marked for listing&quot;.</p>
+<p>In this case, we have a lawn area made up of four rooms. We want each room to automatically describe the directions leading to the other parts of the lawn. To do this, we will first determine which directions are relevant and mark those for listing, then list them.</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex62">Play/modify Tiny Garden in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="Lawn/index.html">Play Tiny Garden in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Tiny Garden&quot;\n\nThe Herb Garden is a room. &quot;Along this side of the house run your great-aunt&apos;s herb beds.&quot;\n\nA Grassy Room is a kind of room. The printed name of a Grassy Room is usually &quot;Lawn&quot;. The description of a Grassy Room is &quot;The grass underfoot is thick and green. The lawn extends to [grassy directions] from here.&quot;\n\n\nTo say grassy directions:\n\trepeat with that way running through directions:\n\t\tif the room that way from the location is a grassy room,\n\t\t\tnow that way is marked for listing;\n\tsay &quot;[a list of directions which are marked for listing]&quot;;\n\tnow every direction is not marked for listing.\n\nLawn1 is west of the Herb Garden. It contains a picnic table and a wicker basket. Lawn2 is south of Lawn1 and southeast of Lawn4. Lawn3 is southwest of Lawn1, west of Lawn2, and south of Lawn4. Lawn4 is west of Lawn1. Lawn4 contains a birdbath. The birdbath is fixed in place.\n\nLawn1, Lawn2, Lawn3, and Lawn4 are Grassy Rooms.\n\nTest me with &quot;w / s / w / n&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Tiny Garden&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Herb Garden is a room. &quot;Along this side of the house run your great-aunt&#39;s herb beds.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A Grassy Room is a kind of room. The printed name of a Grassy Room is usually &quot;Lawn&quot;. The description of a Grassy Room is &quot;The grass underfoot is thick and green. The lawn extends to [grassy directions] from here.&quot;</div>
+</div><p>The following phrase goes through all the directions in the compass and marks the ones that are interesting to us at the moment.</p>
+<div class="codeblock"><div class="codeline">To say grassy directions:</div>
+<div class="codeline">&ensp;&ensp;repeat with that way running through directions:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;if the room that way from the location is a grassy room,</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now that way is marked for listing;</div>
+<div class="codeline">&ensp;&ensp;say &quot;[a list of directions which are marked for listing]&quot;;</div>
+<div class="codeline">&ensp;&ensp;now every direction is not marked for listing.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Lawn1 is west of the Herb Garden. It contains a picnic table and a wicker basket. Lawn2 is south of Lawn1 and southeast of Lawn4. Lawn3 is southwest of Lawn1, west of Lawn2, and south of Lawn4. Lawn4 is west of Lawn1. Lawn4 contains a birdbath. The birdbath is fixed in place.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Lawn1, Lawn2, Lawn3, and Lawn4 are Grassy Rooms.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;w / s / w / n&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "w / s / w / n".</summary><div class="testme-output">Herb Garden<br>Along this side of the house run your great-aunt's herb beds.<br><br>>(Testing.)<br><br>>[1] w<br><br>Lawn<br>The grass underfoot is thick and green. The lawn extends to the south, the southwest and the west from here.<br><br>You can see a picnic table and a wicker basket here.<br><br>>[2] s<br><br>Lawn<br>The grass underfoot is thick and green. The lawn extends to the north, the northwest and the west from here.<br><br>>[3] w<br><br>Lawn<br>The grass underfoot is thick and green. The lawn extends to the north, the northeast and the east from here.<br><br>>[4] n<br><br>Lawn<br>The grass underfoot is thick and green. The lawn extends to the south, the southeast and the east from here.<br><br>You can see a birdbath here.
+</div></details><div class="doc-navbar"><div class="doc-navbar-left"><a href="control_center.html" title="Objects which automatically include a description of their component parts whenever they are examined.">61. Control Center</a></div><div class="doc-navbar-right"><a href="when.html" title="A door whose description says &quot;&hellip;leads east&quot; in one place and &quot;&hellip;leads west&quot; in the other.">63. When?</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

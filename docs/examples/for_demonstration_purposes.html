@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 239. For Demonstration Purposes</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>For Demonstration Purposes</h1><div class="subheading">Example 239 ★★★</div>
+<div class="linkback">
+<a href="../WI_13.html#section_13" title="Relations &gt; Relations involving values">WI §13.13 Relations involving values</a><br><a href="../RB_7.html#section_14" title="Other Characters &gt; Obedient Characters">RB §7.14 Obedient Characters</a>
+</div>
+<p class="example-desc">A character who learns new actions by watching the player performing them.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="meet_market.html" title="A case in which relations give characters multiple values of the same kind.">238. Meet Market</a></div><div class="doc-navbar-right"><a href="number_study.html" title="The parity and joint magnitude relations explored.">240. Number Study</a></div></div>
+</header>
+<p>Suppose we want to have a character who can dynamically learn new actions by observing the player performing them. We could do this by adding the actions to a list of things the character can do, but using a relation to express the same idea allows for tidier, easier-to-read code.</p>
+<p>Thanks to Jesse McGrew for the initial design of this example.</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex239">Play/modify For Demonstration Purposes in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="ForDemonstrationPurposes/index.html">Play For Demonstration Purposes in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;For Demonstration Purposes&quot;\n\nSection 1 - Procedure\n\nCapability relates various people to various stored actions. The verb to be capable of means the capability relation.\n\nPersuasion rule:\n\tlet CA be the current action with no specific actor;\n\tif the person asked is capable of CA:\n\t\tpersuasion succeeds;\n\totherwise:\n\t\tsay &quot;[The person asked] look[s] confused. Maybe a demonstration would help.&quot;;\n\t\tpersuasion fails.\n\nThe action requester is an object that varies. The action requester variable translates into I6 as &quot;act_requester&quot;.\n\nTo decide which action is the current action with no specific actor:\n\tlet old actor be the person asked;\n\tlet old requester be the action requester;\n\tnow the person asked is the player;\n\tnow the action requester is nothing;\n\tlet CA be the current action;\n\tnow the person asked is the old actor;\n\tnow the action requester is the old requester;\n\tdecide on CA.\n\nThe learning by observation rule is listed after the report stage rule in the specific action-processing rules.\n\nDefinition: a person is other if he is not the player.\n\nThis is the learning by observation rule:\n\trepeat with the viewer running through other people who can see the player:\n\t\tif the player is the actor and viewer is not capable of the current action:\n\t\t\tsay &quot;[The viewer] watches your behavior with interest. Seems like [they] [are] learning.&quot;;\n\t\t\tnow the viewer is capable of the current action.\n\nSection 2 - Scenario\n\nThe Daily Planet is a room. Clark is here. He is a man.\n\nWhen play begins:\n\tnow Clark is capable of taking inventory.\n\nTest me with &quot;Clark, inventory / Clark, x me / x me / Clark, x me&quot;.`)">⧉</button><div class="codeline storytitle">&quot;For Demonstration Purposes&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline i7header">Section 1 - Procedure</div><div class="codeline">Capability relates various people to various stored actions. The verb to be capable of means the capability relation.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Persuasion rule:</div>
+<div class="codeline">&ensp;&ensp;let CA be the current action with no specific actor;</div>
+<div class="codeline">&ensp;&ensp;if the person asked is capable of CA:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;persuasion succeeds;</div>
+<div class="codeline">&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;[The person asked] look[s] confused. Maybe a demonstration would help.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;persuasion fails.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The action requester is an object that varies. The action requester variable translates into I6 as &quot;act_requester&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">To decide which action is the current action with no specific actor:</div>
+<div class="codeline">&ensp;&ensp;let old actor be the person asked;</div>
+<div class="codeline">&ensp;&ensp;let old requester be the action requester;</div>
+<div class="codeline">&ensp;&ensp;now the person asked is the player;</div>
+<div class="codeline">&ensp;&ensp;now the action requester is nothing;</div>
+<div class="codeline">&ensp;&ensp;let CA be the current action;</div>
+<div class="codeline">&ensp;&ensp;now the person asked is the old actor;</div>
+<div class="codeline">&ensp;&ensp;now the action requester is the old requester;</div>
+<div class="codeline">&ensp;&ensp;decide on CA.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The learning by observation rule is listed after the report stage rule in the specific action-processing rules.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Definition: a person is other if he is not the player.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">This is the learning by observation rule:</div>
+<div class="codeline">&ensp;&ensp;repeat with the viewer running through other people who can see the player:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;if the player is the actor and viewer is not capable of the current action:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[The viewer] watches your behavior with interest. Seems like [they] [are] learning.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the viewer is capable of the current action.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline i7header">Section 2 - Scenario</div><div class="codeline">The Daily Planet is a room. Clark is here. He is a man.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">When play begins:</div>
+<div class="codeline">&ensp;&ensp;now Clark is capable of taking inventory.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;Clark, inventory / Clark, x me / x me / Clark, x me&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "Clark, inventory / Clark, x me / x me / Clark, x me".</summary><div class="testme-output">Daily Planet<br>You can see Clark here.<br><br>Clark watches your behavior with interest. Seems like he is learning.<br><br>>(Testing.)<br><br>>[1] clark, inventory<br>Clark looks through his possessions.<br><br>>[2] clark, x me<br>Clark looks confused. Maybe a demonstration would help.<br><br>>[3] x me<br>As good-looking as ever.<br><br>Clark watches your behavior with interest. Seems like he is learning.<br><br>>[4] clark, x me<br>Clark looks closely at yourself.
+</div></details><div class="doc-navbar"><div class="doc-navbar-left"><a href="meet_market.html" title="A case in which relations give characters multiple values of the same kind.">238. Meet Market</a></div><div class="doc-navbar-right"><a href="number_study.html" title="The parity and joint magnitude relations explored.">240. Number Study</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

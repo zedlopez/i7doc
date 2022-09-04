@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 361. Kiwi</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Kiwi</h1><div class="subheading">Example 361 ★</div>
+<div class="linkback">
+<a href="../WI_18.html#section_28" title="Activities &gt; Printing a locale paragraph about">WI §18.28 Printing a locale paragraph about</a><br><a href="../RB_8.html#section_4" title="Vehicles, Animals and Furniture &gt; Furniture">RB §8.4 Furniture</a>
+</div>
+<p class="example-desc">Creating a raised supporter kind whose contents the player can&#39;t see or take from the ground.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="casino_banale.html" title="Creating room descriptions and object descriptions that change as the player learns new facts and pieces things together.">360. Casino Banale</a></div><div class="doc-navbar-right"><a href="copper_river.html" title="Manipulating room descriptions so that only interesting items are mentioned, while objects that are present but not currently useful to the player are ignored.">362. Copper River</a></div></div>
+</header>
+<p>Suppose we want there to be some high shelves in our game, which the player can&#39;t get at unless he&#39;s standing on a prop of some kind. (This is a pretty hoary and over-used puzzle, but there may still be occasions when it becomes useful again.)</p>
+<p>In order to resolve this, we want to set up a raised supporter kind. When something is on a raised supporter, it should be mentioned to the player only if the player is in the right position (i.e., standing on something) and otherwise omitted from the description entirely.</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex361">Play/modify Kiwi in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="Kiwi/index.html">Play Kiwi in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Kiwi&quot;\n\nSection 1 - Procedure\n\nA raised supporter is a kind of supporter.\n\nFor printing a locale paragraph about a raised supporter (called the high place):\n\tif the player is on a supporter (called the riser):\n\t\tsay &quot;Up on [the high place] (and only visible because you&apos;re on [the riser]) [is-are a list of things on the high place].&quot;;\n\totherwise:\n\t\tsay &quot;The [high place] is above you.&quot;\n\n\nDefinition: a thing (called target item) is out of reach:\n\tif the player is on a supporter, no;\n\tif the target item is on a raised supporter, yes;\n\tno.\n\n\nBefore doing something:\n\tif the noun is out of reach or the second noun is out of reach:\n\t\tsay &quot;You can&apos;t reach from down here.&quot; instead.\n\n\nInstead of putting something on a raised supporter when the player is not on a supporter:\n\tsay &quot;You can&apos;t reach from down here.&quot;\n\n\nInstead of searching or examining a raised supporter when the player is not on a supporter:\n\tsay &quot;You can&apos;t see from down here.&quot;\n\n\nDisallowed-all is a truth state that varies. Disallowed-all is false.\n\nRule for deciding whether all includes an out of reach thing:\n\tnow disallowed-all is true;\n\tit does not.\n\nRule for printing a parser error when the latest parser error is the nothing to do error and the player is not on a supporter:\n\tif disallowed-all is true:\n\t\tsay &quot;Whatever might be up there, you can&apos;t see or reach from down here.&quot;;\n\totherwise:\n\t\tmake no decision.\n\nA first action-processing rule:\n\tnow disallowed-all is false.\n\nSection 2 - Scenario\n\nThe Bottom of the Nursery is a room. &quot;Ever since you ate that mysterious cake, you&apos;ve been even shorter than usual.&quot;\n\nThe high shelf is a raised supporter in the Nursery. It is scenery. On the high shelf are a kiwi-green ball and a stuffed dodo.\n\nThe step-ladder is an enterable supporter in the Nursery. Understand &quot;ladder&quot; as the step-ladder.\n\nTest me with &quot;x shelf / search shelf / get dodo / get all from shelf / stand on ladder / get all from shelf / search shelf / get off / put all on shelf / get all from shelf / stand on ladder / put all on shelf&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Kiwi&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline i7header">Section 1 - Procedure</div><div class="codeline">A raised supporter is a kind of supporter.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">For printing a locale paragraph about a raised supporter (called the high place):</div>
+<div class="codeline">&ensp;&ensp;if the player is on a supporter (called the riser):</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;Up on [the high place] (and only visible because you&#39;re on [the riser]) [is-are a list of things on the high place].&quot;;</div>
+<div class="codeline">&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;The [high place] is above you.&quot;</div>
+</div><p>Note that here we don&#39;t continue the activity because we want to completely replace the normal behavior of describing what is on supporters.</p>
+<div class="codeblock"><div class="codeline">Definition: a thing (called target item) is out of reach:</div>
+<div class="codeline">&ensp;&ensp;if the player is on a supporter, no;</div>
+<div class="codeline">&ensp;&ensp;if the target item is on a raised supporter, yes;</div>
+<div class="codeline">&ensp;&ensp;no.</div>
+</div><p>Now we also need to prevent the player from interacting with things that are out of reach:</p>
+<div class="codeblock"><div class="codeline">Before doing something:</div>
+<div class="codeline">&ensp;&ensp;if the noun is out of reach or the second noun is out of reach:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;You can&#39;t reach from down here.&quot; instead.</div>
+</div><p>&hellip;or restoring things to the shelves while the player is in the wrong position&hellip;</p>
+<div class="codeblock"><div class="codeline">Instead of putting something on a raised supporter when the player is not on a supporter:</div>
+<div class="codeline">&ensp;&ensp;say &quot;You can&#39;t reach from down here.&quot;</div>
+</div><p>And raised supporters shouldn&#39;t be searchable from the ground either:</p>
+<div class="codeblock"><div class="codeline">Instead of searching or examining a raised supporter when the player is not on a supporter:</div>
+<div class="codeline">&ensp;&ensp;say &quot;You can&#39;t see from down here.&quot;</div>
+</div><p>Finally, we need to tackle the case where the player types GET ALL FROM SHELF, because we don&#39;t want to list the objects up there if the player can&#39;t even see them. We use a rule for deciding whether all includes in order to tell Inform not to consider items that can&#39;t be reached, and then we adjust the parser error so that it&#39;s a little more instructive than &quot;There are none at all available!&quot;, which is what the response would otherwise be:</p>
+<div class="codeblock"><div class="codeline">Disallowed-all is a truth state that varies. Disallowed-all is false.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Rule for deciding whether all includes an out of reach thing:</div>
+<div class="codeline">&ensp;&ensp;now disallowed-all is true;</div>
+<div class="codeline">&ensp;&ensp;it does not.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Rule for printing a parser error when the latest parser error is the nothing to do error and the player is not on a supporter:</div>
+<div class="codeline">&ensp;&ensp;if disallowed-all is true:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;Whatever might be up there, you can&#39;t see or reach from down here.&quot;;</div>
+<div class="codeline">&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;make no decision.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A first action-processing rule:</div>
+<div class="codeline">&ensp;&ensp;now disallowed-all is false.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline i7header">Section 2 - Scenario</div><div class="codeline">The Bottom of the Nursery is a room. &quot;Ever since you ate that mysterious cake, you&#39;ve been even shorter than usual.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The high shelf is a raised supporter in the Nursery. It is scenery. On the high shelf are a kiwi-green ball and a stuffed dodo.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The step-ladder is an enterable supporter in the Nursery. Understand &quot;ladder&quot; as the step-ladder.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;x shelf / search shelf / get dodo / get all from shelf / stand on ladder / get all from shelf / search shelf / get off / put all on shelf / get all from shelf / stand on ladder / put all on shelf&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "x shelf / search shelf / get dodo / get all from shelf / stand on ladder / get all from shelf / search shelf / get off / put all on shelf / get all from shelf / stand on ladder / put all on shelf".</summary><div class="testme-output">Bottom of the Nursery<br>Ever since you ate that mysterious cake, you've been even shorter than usual.<br><br>The high shelf is above you.<br><br>You can see a step-ladder here.<br><br>>(Testing.)<br><br>>[1] x shelf<br>You can't see from down here.<br><br>>[2] search shelf<br>You can't see from down here.<br><br>>[3] get dodo<br>You can't reach from down here.<br><br>>[4] get all from shelf<br>Whatever might be up there, you can't see or reach from down here.<br><br>>[5] stand on ladder<br>You get onto the step-ladder.<br><br>>[6] get all from shelf<br>kiwi-green ball: Taken.<br>stuffed dodo: Taken.<br><br>>[7] search shelf<br>There is nothing on the high shelf.<br><br>>[8] get off<br>You get off the step-ladder.<br><br>Bottom of the Nursery<br>Ever since you ate that mysterious cake, you've been even shorter than usual.<br><br>The high shelf is above you.<br><br>You can see a step-ladder here.<br><br>>[9] put all on shelf<br>stuffed dodo: You can't reach from down here.<br>kiwi-green ball: You can't reach from down here.<br><br>>[10] get all from shelf<br>The high shelf is empty.<br><br>>[11] stand on ladder<br>You get onto the step-ladder.<br><br>>[12] put all on shelf<br>stuffed dodo: Done.<br>kiwi-green ball: Done.
+</div></details><div class="doc-navbar"><div class="doc-navbar-left"><a href="casino_banale.html" title="Creating room descriptions and object descriptions that change as the player learns new facts and pieces things together.">360. Casino Banale</a></div><div class="doc-navbar-right"><a href="copper_river.html" title="Manipulating room descriptions so that only interesting items are mentioned, while objects that are present but not currently useful to the player are ignored.">362. Copper River</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

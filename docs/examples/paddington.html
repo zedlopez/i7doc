@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 195. Paddington</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Paddington</h1><div class="subheading">Example 195 ★★</div>
+<div class="linkback">
+<a href="../WI_12.html#section_9" title="Advanced Actions &gt; Check, carry out, report">WI §12.9 Check, carry out, report</a><br><a href="../RB_10.html#section_4" title="Physics: Substances, Ropes, Energy and Weight &gt; Glass and Other Damage-Prone Substances">RB §10.4 Glass and Other Damage-Prone Substances</a>
+</div>
+<p class="example-desc">A CUT [something] WITH [something] command which acts differently on different types of objects.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="dark_ages_revisited.html" title="An electric light kind of device which becomes lit when switched on and dark when switched off.">194. The Dark Ages Revisited</a></div><div class="doc-navbar-right"><a href="delicious_delicious_rocks.html" title="Adding a &quot;sanity-check&quot; stage to decide whether an action makes any sense, which occurs before any before rules, implicit taking, or check rules.">196. Delicious, Delicious Rocks</a></div></div>
+</header>
+<p>Suppose we intend a game in which the player needs to cut things open on a regular basis. We&#39;ll want to check whether he has the proper tools handy, and deal graciously with commands such as CUT [something] when no tool is specified. So:</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex195">Play/modify Paddington in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="Paddington/index.html">Play Paddington in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Paddington&quot;\n\nA blade is a kind of thing.\n\nUnderstand &quot;cut [something] with [something]&quot; as cutting it with.\n\nInstead of cutting something:\n\tif a blade (called the edge) is held by the player,\n\t\ttry cutting the noun with the edge;\n\totherwise say &quot;Your fingernails are not sharp enough.&quot;\n\nCutting it with is an action applying to two things.\n\nCheck cutting it with:\n\tif the noun is a person, say &quot;That would hurt.&quot; instead;\n\tif the second noun is not a blade, say &quot;[The second noun] has not got enough of a blade.&quot; instead.\n\nCarry out cutting it with:\n\tincrement the count of rips of the noun.\n\nReport cutting it with:\n\tsay &quot;You slash [the noun] with [the second noun].&quot;\n\n\nDefinition: a thing is ripped if the count of rips of it > 0.  A thing has a number called the count of rips. After examining something ripped, say &quot;You see [the count of rips of the noun in words] rip[s] in [the noun][if something is in the noun], revealing [a list of things in the noun][end if].&quot;\n\n\nThe examine containers rule does nothing when examining the teddy bear.\n\n\nCarry out cutting a container with something:\n\tnow the noun is open;\n\tnow the noun is unopenable.\n\n\nCarry out cutting something which is part of something with something:\n\tmove the noun to the player.\n\nCarry out cutting the quilt with something:\n\tnow the description of the quilt is &quot;Horribly tattered.&quot;\n\n\nReport cutting it with:\n\tif the noun is open and the noun contains something,\n\t\tsay &quot;Visible within [is-are a list of things in the noun].&quot;\n\n\nThe Safehouse is a room.\n\nThe teddy bear is a closed thing in the Safehouse. The description is &quot;Fluffy[if the head is part of the bear], with an outsized head[otherwise], but headless[end if].&quot; The head is a closed part of the teddy bear. In the bear is a large wad of stuffing. In the head are a small wad of stuffing and a packet of smuggled diamonds.\n\nThe quilt is in the Safehouse. The description is &quot;An old but comforting quilt.&quot;\n\nThe player carries a blade called a switchblade.\n\n\nAfter printing the name of a closed unopenable container:\n\tomit contents in listing.\n\nTest me with &quot;cut quilt with bear / cut quilt with switchblade / examine quilt / cut bear with switchblade / again / examine bear / cut head with switchblade / get diamonds / mourn loss of innocence&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Paddington&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A blade is a kind of thing.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Understand &quot;cut [something] with [something]&quot; as cutting it with.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of cutting something:</div>
+<div class="codeline">&ensp;&ensp;if a blade (called the edge) is held by the player,</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;try cutting the noun with the edge;</div>
+<div class="codeline">&ensp;&ensp;otherwise say &quot;Your fingernails are not sharp enough.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Cutting it with is an action applying to two things.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Check cutting it with:</div>
+<div class="codeline">&ensp;&ensp;if the noun is a person, say &quot;That would hurt.&quot; instead;</div>
+<div class="codeline">&ensp;&ensp;if the second noun is not a blade, say &quot;[The second noun] has not got enough of a blade.&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Carry out cutting it with:</div>
+<div class="codeline">&ensp;&ensp;increment the count of rips of the noun.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Report cutting it with:</div>
+<div class="codeline">&ensp;&ensp;say &quot;You slash [the noun] with [the second noun].&quot;</div>
+</div><p>We&#39;ll need a way to account for all these cuts and rips.</p>
+<div class="codeblock"><div class="codeline">Definition: a thing is ripped if the count of rips of it &gt; 0.  A thing has a number called the count of rips. After examining something ripped, say &quot;You see [the count of rips of the noun in words] rip[s] in [the noun][if something is in the noun], revealing [a list of things in the noun][end if].&quot;</div>
+</div><p>Moreover, because open containers normally list their contents when examined but we&#39;d prefer Paddington&#39;s to be mentioned in the ripping paragraph:</p>
+<div class="codeblock"><div class="codeline">The examine containers rule does nothing when examining the teddy bear.</div>
+</div><p>So far, so good. But suppose that we&#39;d like cutting also to make containers be permanently open and impossible to close again. We could write an &quot;instead&quot; rule, but that would mean that only our instead instructions would take effect, overriding the normal cutting it with rules entirely. Better would be to add a second carry out rule:</p>
+<div class="codeblock"><div class="codeline">Carry out cutting a container with something:</div>
+<div class="codeline">&ensp;&ensp;now the noun is open;</div>
+<div class="codeline">&ensp;&ensp;now the noun is unopenable.</div>
+</div><p>Now our rule will occur whenever a container is cut, but play will still go on to the reporting stage. And indeed we can add more of these, of varying degrees of specificity:</p>
+<div class="codeblock"><div class="codeline">Carry out cutting something which is part of something with something:</div>
+<div class="codeline">&ensp;&ensp;move the noun to the player.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Carry out cutting the quilt with something:</div>
+<div class="codeline">&ensp;&ensp;now the description of the quilt is &quot;Horribly tattered.&quot;</div>
+</div><p>For that matter, we might want to add a report rule as well, to occur after the &quot;You slash&hellip;&quot; rule, so that every time the player cuts something open which has contents, the contents will be listed.</p>
+<div class="codeblock"><div class="codeline">Report cutting it with:</div>
+<div class="codeline">&ensp;&ensp;if the noun is open and the noun contains something,</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;Visible within [is-are a list of things in the noun].&quot;</div>
+</div><p>This time we do not add the condition to the rule (i.e., Report cutting an open noun&hellip;) If we did, this report rule would be more specific than the general report rule, and would occur first.</p>
+<div class="codeblock"><div class="codeline">The Safehouse is a room.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The teddy bear is a closed thing in the Safehouse. The description is &quot;Fluffy[if the head is part of the bear], with an outsized head[otherwise], but headless[end if].&quot; The head is a closed part of the teddy bear. In the bear is a large wad of stuffing. In the head are a small wad of stuffing and a packet of smuggled diamonds.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The quilt is in the Safehouse. The description is &quot;An old but comforting quilt.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The player carries a blade called a switchblade.</div>
+</div><p>Here is a final nicety to get rid of the &quot;which is closed&quot; statement on our closed unopenable teddy bear, using an &quot;activity&quot; rule:</p>
+<div class="codeblock"><div class="codeline">After printing the name of a closed unopenable container:</div>
+<div class="codeline">&ensp;&ensp;omit contents in listing.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;cut quilt with bear / cut quilt with switchblade / examine quilt / cut bear with switchblade / again / examine bear / cut head with switchblade / get diamonds / mourn loss of innocence&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "cut quilt with bear / cut quilt with switchblade / examine quilt / cut bear with switchblade / again / examine bear / cut head with switchblade / get diamonds / mourn loss of innocence".</summary><div class="testme-output">Safehouse<br>You can see a teddy bear and a quilt here.<br><br>>(Testing.)<br><br>>[1] cut quilt with bear<br>The teddy bear has not got enough of a blade.<br><br>>[2] cut quilt with switchblade<br>You slash the quilt with the switchblade.<br><br>>[3] examine quilt<br>Horribly tattered.<br><br>You see one rip in the quilt.<br><br>>[4] cut bear with switchblade<br>You slash the teddy bear with the switchblade.<br><br>Visible within is a large wad of stuffing.<br><br>>[5] again<br>You slash the teddy bear with the switchblade.<br><br>Visible within is a large wad of stuffing.<br><br>>[6] examine bear<br>Fluffy, with an outsized head.<br><br>You see two rips in the teddy bear, revealing a large wad of stuffing.<br><br>>[7] cut head with switchblade<br>You slash the head with the switchblade.<br><br>Visible within are a small wad of stuffing and a packet of smuggled diamonds.<br><br>>[8] get diamonds<br>Taken.<br><br>>[9] mourn loss of innocence<br>That's not a verb I recognise.
+</div></details><div class="doc-navbar"><div class="doc-navbar-left"><a href="dark_ages_revisited.html" title="An electric light kind of device which becomes lit when switched on and dark when switched off.">194. The Dark Ages Revisited</a></div><div class="doc-navbar-right"><a href="delicious_delicious_rocks.html" title="Adding a &quot;sanity-check&quot; stage to decide whether an action makes any sense, which occurs before any before rules, implicit taking, or check rules.">196. Delicious, Delicious Rocks</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 427. Formicidae</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Formicidae</h1><div class="subheading">Example 427 ★★</div>
+<div class="linkback">
+<a href="../WI_21.html#section_6" title="Lists &gt; Lists of objects">WI §21.6 Lists of objects</a><br><a href="../RB_6.html#section_15" title="Commands &gt; Actions on Multiple Objects">RB §6.15 Actions on Multiple Objects</a>
+</div>
+<p class="example-desc">Manipulating the order in which items are handled after TAKE ALL.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="what_makes_you_tick.html" title="Building a fishing pole from several component parts that the player might put together in any order.">426. What Makes You Tick</a></div><div class="doc-navbar-right"><a href="robo2.html" title="A robot which watches and records the player&#39;s actions, then tries to repeat them back in the same order when he is switched into play-back mode.">428. Robo 2</a></div></div>
+</header>
+<p>Suppose we have an item that produces an interesting result the first time the player lifts it -- a rock with dangerous ants revealed underneath. The effect of the surprise is a little weakened, though, if the player sees that response as the result of a TAKE ALL, when it might be printed like this:</p>
+<div class="codeblock"><div class="codeline">&gt;[3] get all</div>
+<div class="codeline">tent peg: Taken.</div>
+<div class="codeline">water flask: Taken.</div>
+<div class="codeline">trading permit: Taken.</div>
+<div class="codeline">innocent-looking rock: You reach for the rock and turn it over to reveal a thriving colony of flesh-eating ants. Needless to say, you drop the rock and jump back with a decidedly effeminate scream. They can probably hear you all the way back in the base camp.</div>
+<div class="codeline">rusty nail: Taken.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">[Your score has just gone down by two points.]</div>
+</div><p>The calm response to &quot;rusty nail&quot; looks odd now, and the score change is disconnected from the event that caused it.</p>
+<p>To manage this, we might institute a system so that interesting objects are handled last in their list, like so:</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex427">Play/modify Formicidae in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="Formicidae/index.html">Play Formicidae in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Formicidae&quot;\n\nUse scoring.\n\nSection 1 - Procedure\n\nThe magic rule is listed before the generate action rule in the turn sequence rules.\n\nA thing has a number called dramatic potential.\n\nThis is the magic rule:\n\tlet L be the multiple object list;\n\tif the number of entries in L is greater than 1:\n\t\tsort L in dramatic potential order;\n\t\talter the multiple object list to L.\n\nSection 2 - Scenario\n\nThe Foothills is a room. &quot;The land has become hilly; though the soil is still mostly coarse yellow sand, clumps of grass are able to grow in the shadier places. Deep wagon ruts running from the southwest towards the mountains in the northeast show where generations of caravans have already passed.&quot;\n\nThe water flask, the tent peg, and the trading permit are things in Foothills.\n\nThe rock is a thing in Foothills. Before printing the name of the rock when the rock is not handled: say &quot;innocent-looking &quot;. The dramatic potential of the rock is 10.\n\nThe rusty nail is a thing in Foothills.\n\nThe ant colony is a fixed in place thing. &quot;A busy group of ants are crawling to and fro in the unaccustomed sun.&quot; Rule for deciding whether all includes the ant colony while taking: it does not.\n\nInstead of taking the rock when the rock is handled:\n\tsay &quot;It might still have a stray ant or two on it.&quot;\n\nAfter taking the rock:\n\tnow the rock is handled;\n\tmove ant colony to the location;\n\tmove the rock to the location;\n\tsay &quot;You reach for the rock and turn it over to reveal a thriving colony of flesh-eating ants. Needless to say, you drop the rock and jump back with a decidedly effeminate scream. They can probably hear you all the way back in the base camp.&quot;;\n\tdecrease score by 2.\n\nTest me with &quot;get peg / drop peg / get all / get rock&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Formicidae&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Use scoring.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline i7header">Section 1 - Procedure</div><div class="codeline">The magic rule is listed before the generate action rule in the turn sequence rules.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A thing has a number called dramatic potential.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">This is the magic rule:</div>
+<div class="codeline">&ensp;&ensp;let L be the multiple object list;</div>
+<div class="codeline">&ensp;&ensp;if the number of entries in L is greater than 1:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;sort L in dramatic potential order;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;alter the multiple object list to L.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline i7header">Section 2 - Scenario</div><div class="codeline">The Foothills is a room. &quot;The land has become hilly; though the soil is still mostly coarse yellow sand, clumps of grass are able to grow in the shadier places. Deep wagon ruts running from the southwest towards the mountains in the northeast show where generations of caravans have already passed.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The water flask, the tent peg, and the trading permit are things in Foothills.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The rock is a thing in Foothills. Before printing the name of the rock when the rock is not handled: say &quot;innocent-looking &quot;. The dramatic potential of the rock is 10.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The rusty nail is a thing in Foothills.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The ant colony is a fixed in place thing. &quot;A busy group of ants are crawling to and fro in the unaccustomed sun.&quot; Rule for deciding whether all includes the ant colony while taking: it does not.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of taking the rock when the rock is handled:</div>
+<div class="codeline">&ensp;&ensp;say &quot;It might still have a stray ant or two on it.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">After taking the rock:</div>
+<div class="codeline">&ensp;&ensp;now the rock is handled;</div>
+<div class="codeline">&ensp;&ensp;move ant colony to the location;</div>
+<div class="codeline">&ensp;&ensp;move the rock to the location;</div>
+<div class="codeline">&ensp;&ensp;say &quot;You reach for the rock and turn it over to reveal a thriving colony of flesh-eating ants. Needless to say, you drop the rock and jump back with a decidedly effeminate scream. They can probably hear you all the way back in the base camp.&quot;;</div>
+<div class="codeline">&ensp;&ensp;decrease score by 2.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;get peg / drop peg / get all / get rock&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "get peg / drop peg / get all / get rock".</summary><div class="testme-output">Foothills<br>The land has become hilly; though the soil is still mostly coarse yellow sand, clumps of grass are able to grow in the shadier places. Deep wagon ruts running from the southwest towards the mountains in the northeast show where generations of caravans have already passed.<br><br>You can see a water flask, a tent peg, a trading permit, an innocent-looking rock and a rusty nail here.<br><br>>(Testing.)<br><br>>[1] get peg<br>Taken.<br><br>>[2] drop peg<br>Dropped.<br><br>>[3] get all<br>tent peg: Taken.<br>water flask: Taken.<br>trading permit: Taken.<br>rusty nail: Taken.<br>innocent-looking rock: You reach for the rock and turn it over to reveal a thriving colony of flesh-eating ants. Needless to say, you drop the rock and jump back with a decidedly effeminate scream. They can probably hear you all the way back in the base camp.<br><br>[Your score has just gone down by two points.]<br><br>>[4] get rock<br>It might still have a stray ant or two on it.
+</div></details><p>Note that while one could also manipulate the object list to add or remove items at this stage, there&#39;s a simpler way to control what Inform considers &quot;ALL&quot; to mean in commands: see the activity &quot;Deciding whether all includes&quot; in the activities chapter.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="what_makes_you_tick.html" title="Building a fishing pole from several component parts that the player might put together in any order.">426. What Makes You Tick</a></div><div class="doc-navbar-right"><a href="robo2.html" title="A robot which watches and records the player&#39;s actions, then tries to repeat them back in the same order when he is switched into play-back mode.">428. Robo 2</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

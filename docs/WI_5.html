@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>WI 5. Text</title>
+<script src="i7doc.js"></script>
+<link rel="stylesheet" href="i7doc.css">
+</head>
+<nav><div class="nav-el"><a href="index.html">Contents</a></div> <div class="nav-el"><a href="examples/index.html">Examples</a></div> <div class="nav-el"><a href="general_index.html">Index</a></div> <div class="nav-el"><a href="search.html">Search</a></div></nav>
+<body><header><h1 class="title">Writing with Inform</h1></header>
+<h2 id="chapter_5">5. Text</h2>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="WI_4.html">4. Kinds</a></div><div class="doc-navbar-right"><a href="WI_6.html">6. Descriptions</a></div></div>
+<div class="section-block">
+<div class="section-row">
+<div class="section-chapter-num">§5.</div><div class="section-section-num">1</div><div class="section-name"><a href="WI_5.html#section_1">Text with substitutions</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§5.</div><div class="section-section-num">2</div><div class="section-name"><a href="WI_5.html#section_2">How Inform reads quoted text</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§5.</div><div class="section-section-num">3</div><div class="section-name"><a href="WI_5.html#section_3">Text which names things</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§5.</div><div class="section-section-num">4</div><div class="section-name"><a href="WI_5.html#section_4">Text with numbers</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§5.</div><div class="section-section-num">5</div><div class="section-name"><a href="WI_5.html#section_5">Text with lists</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§5.</div><div class="section-section-num">6</div><div class="section-name"><a href="WI_5.html#section_6">Text with variations</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§5.</div><div class="section-section-num">7</div><div class="section-name"><a href="WI_5.html#section_7">Text with random alternatives</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§5.</div><div class="section-section-num">8</div><div class="section-name"><a href="WI_5.html#section_8">Line breaks and paragraph breaks</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§5.</div><div class="section-section-num">9</div><div class="section-name"><a href="WI_5.html#section_9">Text with type styles</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§5.</div><div class="section-section-num">10</div><div class="section-name"><a href="WI_5.html#section_10">Accented letters</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§5.</div><div class="section-section-num">11</div><div class="section-name"><a href="WI_5.html#section_11">Unicode characters</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§5.</div><div class="section-section-num">12</div><div class="section-name"><a href="WI_5.html#section_12">Displaying quotations</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§5.</div><div class="section-section-num">13</div><div class="section-name"><a href="WI_5.html#section_13">Making new substitutions</a></div>
+</div>
+</div>
+<h3 id="section_1">WI §5.1 Text with substitutions</h3>
+<div class="sect-navbar"><div class="sect-navbar-center"><a href="#chapter_5">5. Text</a></div><div class="sect-navbar-right"><a href="#section_2">5.2 How Inform reads quoted text</a></div></div>
+<p>In the previous chapter, we gave properties to certain kinds of things in order to change their appearance and behaviour, and saw brief glimpses of one of Inform&#39;s most useful devices: text substitution. The following gives a more complete example:</p>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;The Undertomb&quot;\n\nA dead end is a kind of room with printed name &quot;Dead End&quot; and description &quot;This is a dead end. You&apos;ll have to go back the way you came, consoled only by [river sound].&quot; A dead end is usually dark.\n\nThe Undertomb is a dark room. East is a dead end. South is a dead end with printed name &quot;Collapsed Dead End&quot;. Northwest is a dead end called the Tortuous Alcove. In the Undertomb is the lantern. It is lit.\n\nA dead end has some text called river sound. The river sound of a dead end is usually &quot;a faint whispering of running water&quot;. The Tortuous Alcove has river sound &quot;a gurgle of running water&quot;.`)">⧉</button><div class="codeline storytitle">&quot;The Undertomb&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A dead end is a kind of room with printed name &quot;Dead End&quot; and description &quot;This is a dead end. You&#39;ll have to go back the way you came, consoled only by [river sound].&quot; A dead end is usually dark.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Undertomb is a dark room. East is a dead end. South is a dead end with printed name &quot;Collapsed Dead End&quot;. Northwest is a dead end called the Tortuous Alcove. In the Undertomb is the lantern. It is lit.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A dead end has some text called river sound. The river sound of a dead end is usually &quot;a faint whispering of running water&quot;. The Tortuous Alcove has river sound &quot;a gurgle of running water&quot;.</div>
+</div><p>The novelty here is the text in square brackets in the first paragraph. They imply more or less what they would when a journalist is quoting something in a newspaper article. The actual words &quot;river sound&quot; are not part of the text. Instead, when Inform prints up the description of a dead end, it will substitute the appropriate river sound in place of these words.</p>
+<p>Thus the description of the Collapsed Dead End is &quot;This is a dead end. You&#39;ll have to go back the way you came, consoled only by a faint whispering of running water.&quot;, whereas the description of the Tortuous Alcove is &quot;This is a dead end. You&#39;ll have to go back the way you came, consoled only by a gurgle of running water.&quot; As the player explores these dead ends, subtle differences will appear in their room descriptions.</p>
+<h3 id="section_2">WI §5.2 How Inform reads quoted text</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_1">5.1 Text with substitutions</a></div><div class="sect-navbar-center"><a href="#chapter_5">5. Text</a></div><div class="sect-navbar-right"><a href="#section_3">5.3 Text which names things</a></div></div>
+<p>Text is so fundamental to Inform that the basics had to be covered back in Chapter 2, so let&#39;s begin this new chapter with a recap.</p>
+<p>Literal text is written in double-quotation marks. It&#39;s mostly true that what you see is what you get: the literal text &quot;The Hands of the Silversmith&quot; means just</p>
+<div class="codeblock"><div class="codeline">The Hands of the Silversmith</div>
+</div><p>But four characters are read in unexpected ways: [, ], &#39; and &quot;. The rules are as follows:</p>
+<p><strong>Exception 1.</strong> Square brackets [ and ] are used to describe what Inform should say, but in a non-literal way. For example,</p>
+<div class="codeblock"><div class="codeline">&quot;Your watch reads [time of day].&quot;</div>
+</div><p>might produce</p>
+<div class="codeblock"><div class="codeline">Your watch reads 9:02 AM.</div>
+</div><p>These are called &quot;text substitutions&quot;. They&#39;re highly flexible, and they can take many different forms. But as useful as they are, they do seem to stop us from making actual [ and ] characters come through on screen. To get around that:</p>
+<div class="defn" id="phs_bracket"><span class="defn">say "[bracket]"</span><p>This text substitution expands to a single open square bracket, avoiding the problem that a literal [ in text would look to Inform like the opening of a substitution. Example:</p>
+<div class="codeblock"><div class="codeline">&quot;He [bracket]Lord Astor[close bracket] would, wouldn&#39;t he?&quot;</div>
+</div><p>prints as &quot;He [Lord Astor] would, wouldn&#39;t he?&quot;.</p>
+</div><div class="defn" id="phs_closebracket"><span class="defn">say "[close bracket]"</span><p>This text substitution expands to a single close square bracket, avoiding the problem that a literal ] in text would look to Inform like the closing of a substitution. Example:</p>
+<div class="codeblock"><div class="codeline">&quot;He [bracket]Lord Astor[close bracket] would, wouldn&#39;t he?&quot;</div>
+</div><p>prints as &quot;He [Lord Astor] would, wouldn&#39;t he?&quot;.</p>
+</div><p><strong>Exception 2.</strong> Single quotation marks at the edges of words are printed as double. So:</p>
+<div class="codeblock"><div class="codeline">&quot;Simon says, &#39;It&#39;s far too heavy to lift.&#39;&quot;</div>
+</div><p>produces</p>
+<div class="codeblock"><div class="codeline">Simon says, &quot;It&#39;s far too heavy to lift.&quot;</div>
+</div><p>This is good because typing a double quotation mark inside the quote wouldn&#39;t work &ndash; it would end the text then and there. Single quotation marks inside words, such as the one in &quot;it&#39;s&quot;, remain apostrophes.</p>
+<p>The rule looks odd at first, but turns out to be very practical. The only problem arises if we need an apostrophe at the start or end of a word, or a double inside one. Again, substitutions can fix this:</p>
+<div class="defn" id="phs_apostrophe"><span class="defn">say "[apostrophe/']"</span><p>This text substitution expands to a single quotation mark, avoiding Inform&#39;s ordinary rule of converting literal single quotation marks to double at the edges of words. Example:</p>
+<div class="codeblock"><div class="codeline">Instead of going outside, say &quot;Lucy snaps, &#39;What&#39;s the matter? You don&#39;t trust my cookin[apostrophe] mister?&#39;&quot;</div>
+</div><p>produces:</p>
+<div class="codeblock"><div class="codeline">Lucy snaps, &quot;What&#39;s the matter? You don&#39;t trust my cookin&#39; mister?&quot;</div>
+</div><p>A more abbreviated form would be:</p>
+<div class="codeblock"><div class="codeline">Instead of going outside, say &quot;Lucy snaps, &#39;What&#39;s the matter? You don&#39;t trust my cookin[&#39;] mister?&#39;&quot;</div>
+</div><p>which has exactly the same meaning.</p>
+</div><div class="defn" id="phs_quotemark"><span class="defn">say "[quotation mark]"</span><p>This text substitution expands to a double quotation mark. Most of the time this is unnecessary because of Inform&#39;s rule of converting literal single quotation marks to double at the edges of words, so it&#39;s needed only if we want a double-quote in the middle of a word for some reason. Example:</p>
+<div class="codeblock"><div class="codeline">&quot;The compass reads 41o21&#39;23[quotation mark]E.&quot;</div>
+</div><p>which produces: The compass reads 41o21&#39;23&quot;E. (Note that [&quot;] is not allowed; a double-quotation mark is never allowed inside double-quoted text, not even in a text substitution.)</p>
+</div><p><strong>Exception 3.</strong> Texts which end with sentence-ending punctuation &ndash; full stop, question mark, exclamation mark &ndash; are printed with a line break after them. So:</p>
+<div class="codeblock"><div class="codeline">say &quot;i don&#39;t know how this ends&quot;;</div>
+<div class="codeline">say &quot;I know just how this ends!&quot;;</div>
+</div><p>would come out quite differently &ndash; this doesn&#39;t affect the appearance of the text, but only the position where the next text will appear. Again, sometimes this is not what we want &ndash; the full rules are complicated enough to be worth a whole section later in the chapter.</p>
+<h3 id="section_3">WI §5.3 Text which names things</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_2">5.2 How Inform reads quoted text</a></div><div class="sect-navbar-center"><a href="#chapter_5">5. Text</a></div><div class="sect-navbar-right"><a href="#section_4">5.4 Text with numbers</a></div></div>
+<p>We can put almost any description of a value in square brackets in text, and Inform will work out what kind of value it is and print something accordingly. (Only almost any, because we aren&#39;t allowed to use commas or more quotation marks inside a square-bracketed substitution.)</p>
+<div class="defn" id="ph_say"><span class="defn">say "[</span><span class="neutral">(sayable value)</span><span class="defn">]"</span><p>This text substitution takes the value and produces a textual representation of it. Most kinds of value, and really all of the useful ones, are &quot;sayable&quot; &ndash; numbers, times, objects, rules, scenes, and so on. Example:</p>
+<div class="codeblock"><div class="codeline">The description of the wrist watch is &quot;The dial reads [time of day].&quot;</div>
+</div><p>Here &quot;time of day&quot; is a value &ndash; it&#39;s a time that varies, and time is a sayable kind of value, so we might get &quot;The dial reads 11:03 AM.&quot;</p>
+</div><p>The values we say most often are objects. If we simply put the name of what we want into square brackets, this will be substituted by the full printed name. We might find:</p>
+<div class="codeblock"><div class="codeline">&quot;You admire [lantern].&quot;</div>
+<div class="codeline">= &quot;You admire candle lantern.&quot;</div>
+</div><p>But this reads oddly &ndash; clearly &quot;the&quot; or &quot;a&quot; is missing. So the following substitutions are used very often:</p>
+<div class="defn" id="phs_a"><span class="defn">say "[a </span><span class="neutral">(object)</span><span class="defn">]"</span> [or&hellip;]<br><span class="defn">say "[an </span><span class="neutral">(object)</span><span class="defn">]"</span><p>This text substitution produces the name of the object along with its indefinite article. Example:</p>
+<div class="codeblock"><div class="codeline">Instead of examining something (called the whatever):</div>
+<div class="codeline">&ensp;&ensp;&quot;You can only just make out [a whatever].&quot;</div>
+</div><p>which might produce &quot;You can only just make out a lamp-post.&quot;, or &quot;You can only just make out Trevor.&quot;, or &quot;You can only just make out some soldiers.&quot; The &quot;a&quot; or &quot;an&quot; in the wording is replaced by whatever indefinite article applies, if any.</p>
+</div><div class="defn" id="phs_A"><span class="defn">say "[A </span><span class="neutral">(object)</span><span class="defn">]"</span> [or&hellip;]<br><span class="defn">say "[An </span><span class="neutral">(object)</span><span class="defn">]"</span><p>This text substitution produces the name of the object along with its indefinite article, capitalised. Example:</p>
+<div class="codeblock"><div class="codeline">Instead of examining something (called the whatever):</div>
+<div class="codeline">&ensp;&ensp;&quot;[A whatever] can be made out in the mist.&quot;</div>
+</div><p>which might produce &quot;A lamp-post can be made out in the mist.&quot;, or &quot;Trevor can be made out in the mist.&quot;, or &quot;Some soldiers can be made out in the mist.&quot; The &quot;A&quot; or &quot;An&quot; in the wording is replaced by whatever indefinite article applies, if any.</p>
+</div><div class="defn" id="phs_the"><span class="defn">say "[the </span><span class="neutral">(object)</span><span class="defn">]"</span><p>This text substitution produces the name of the object along with its definite article. Example:</p>
+<div class="codeblock"><div class="codeline">Instead of examining something (called the whatever):</div>
+<div class="codeline">&ensp;&ensp;&quot;You can only just make out [the whatever].&quot;</div>
+</div><p>which might produce &quot;You can only just make out the lamp-post.&quot;, or &quot;You can only just make out Trevor.&quot;, or &quot;You can only just make out the soldiers.&quot; The &quot;the&quot; in the wording is replaced by whatever definite article applies, if any.</p>
+</div><div class="defn" id="phs_The"><span class="defn">say "[The </span><span class="neutral">(object)</span><span class="defn">]"</span><p>This text substitution produces the name of the object along with its definite article, capitalised. Example:</p>
+<div class="codeblock"><div class="codeline">Instead of examining something (called the whatever):</div>
+<div class="codeline">&ensp;&ensp;&quot;[The whatever] may be a trick of the mist.&quot;</div>
+</div><p>which might produce &quot;The lamp-post may be a trick of the mist.&quot;, or &quot;Trevor may be a trick of the mist.&quot;, or &quot;The soldiers may be a trick of the mist.&quot; The &quot;The&quot; in the wording is replaced by whatever definite article applies, if any.</p>
+</div><p>This may not look very useful, because why not simply put &quot;the&quot;, or whatever, into the ordinary text? The answer is that there are times when we do not know in advance which object will be involved. For instance, as we shall later see, there is a special value called &quot;the noun&quot; which is the thing to which the player&#39;s current command is applied (thus, if the player typed TAKE BALL, it will be the ball). So:</p>
+<div class="codeblock"><div class="codeline">After taking something in the Classroom:</div>
+<div class="codeline">&ensp;&ensp;&quot;You find [a noun].&quot;</div>
+</div><p>might produce replies like &quot;You find a solid rubber ball.&quot;, &quot;You find an ink-stained blouse.&quot;, &quot;You find some elastic bands.&quot;, or even &quot;You find Mr Polycarp.&quot; (the school&#39;s pet hamster, perhaps).</p>
+<h3 id="section_4">WI §5.4 Text with numbers</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_3">5.3 Text which names things</a></div><div class="sect-navbar-center"><a href="#chapter_5">5. Text</a></div><div class="sect-navbar-right"><a href="#section_5">5.5 Text with lists</a></div></div>
+<p>When a numerical value is given in a square-bracketed substitution, it is ordinarily printed out in digits. Thus:</p>
+<div class="codeblock"><div class="codeline">&quot;You&#39;ve been wandering around for [turn count] turns now.&quot;</div>
+</div><p>might print as &quot;You&#39;ve been wandering around for 213 turns now.&quot;, if the story has been played out for exactly that many commands. But if we prefer:</p>
+<div class="defn" id="phs_numwords"><span class="defn">say "[</span><span class="neutral">(number)</span><span class="defn"> in words]"</span><p>This text substitution writes out the number in English text. Example:</p>
+<div class="codeblock"><div class="codeline">&quot;You&#39;ve been wandering around for [turn count in words] turns now.&quot;</div>
+</div><p>might produce &quot;You&#39;ve been wandering around for two hundred and thirteen turns now.&quot; The &quot;and&quot; here is natural on one side of the Atlantic but not the other &ndash; so with the &quot;Use American dialect.&quot; option in place, it disappears.</p>
+</div><p>Either way, though, there is some risk of the following:</p>
+<div class="codeblock"><div class="codeline">You&#39;ve been wandering around for one turns now.</div>
+</div><p>We can avoid this using the special substitution:</p>
+<div class="defn" id="phs_s"><span class="defn">say "[s]"</span><p>This text substitution prints a letter &quot;s&quot; unless the last number printed was 1. Example:</p>
+<div class="codeblock"><div class="codeline">&quot;You&#39;ve been wandering around for [turn count in words] turn[s] now.&quot;</div>
+</div><p>produces &quot;&hellip; for one turn now.&quot; or &quot;&hellip; for two turns now.&quot; as appropriate. Note that it reacts only to numbers, not to other arithmetic values like times (or, for instance, weights from the &quot;Metric Units&quot; extension).</p>
+</div><p>This only solves one case, but it&#39;s memorable, and the case is one which turns up often.</p>
+<div class="examples">
+<h4>Example</h4>
+<div class="example-short">60. ★★★ <a href="examples/ballpark.html">Ballpark</a><br>A new &quot;to say&quot; definition which allows the author to say &quot;[a number in round numbers]&quot; and get verbal descriptions like &quot;a couple of&quot; or &quot;a few&quot; as a result.</p></div><div class="linkback">
+<a href="RB_2.html#section_1" title="Adaptive Prose &gt; Varying What Is Written">RB §2.1 Varying What Is Written</a>
+</div>
+<h3 id="section_5">WI §5.5 Text with lists</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_4">5.4 Text with numbers</a></div><div class="sect-navbar-center"><a href="#chapter_5">5. Text</a></div><div class="sect-navbar-right"><a href="#section_6">5.6 Text with variations</a></div></div>
+<p>We often want running text to include lists of items.</p>
+<div class="defn" id="phs_listof"><span class="defn">say "[list of </span><span class="neutral">(description of objects)</span><span class="defn">]"</span><p>This text substitution produces a list, in sentence form, of everything matching the description. Example:</p>
+<div class="codeblock"><div class="codeline">&quot;Mr Darcy glares proudly at you. He is wearing [list of things worn by Darcy] and carrying [list of things carried by Darcy].&quot;</div>
+</div><p>And, if this were from a dramatisation of the novel by Miss Fielding rather than Miss Austen, we might find:</p>
+<div class="codeblock"><div class="codeline">Mr Darcy glares proudly at you. He is wearing a pair of Newcastle United boxer shorts and carrying a self-help book.</div>
+</div><p>If the description matches nothing &ndash; for instance, if Darcy has empty hands &ndash; then &quot;nothing&quot; is printed.</p>
+</div><p>As with all lists in Inform, the serial comma is only used if the &quot;Use serial comma.&quot; option is in force. So by default we would get &quot;a fishing pole, a hook and a sinker&quot;, rather than &quot;a fishing pole, a hook, and a sinker&quot;.</p>
+<p>We then need variations to add indefinite or definite articles, and to capitalise the first item. For example,</p>
+<div class="codeblock"><div class="codeline">&quot;Mr Darcy impatiently bundles [the list of things carried by Darcy] into your hands and stomps out of the room.&quot;</div>
+</div><p>might result in</p>
+<div class="codeblock"><div class="codeline">Mr Darcy impatiently bundles the self-help book and the Christmas card into your hands and stomps out of the room.</div>
+</div><div class="defn" id="phs_alistof"><span class="defn">say "[a list of </span><span class="neutral">(description of objects)</span><span class="defn">]"</span><p>This text substitution produces a list, in sentence form, of everything matching the description. Each item is prefaced by its indefinite article. Example:</p>
+<div class="codeblock"><div class="codeline">a maritime bill of lading, some hemp rope and Falconer&#39;s Naval Dictionary</div>
+</div></div><div class="defn" id="phs_Alistof"><span class="defn">say "[A list of </span><span class="neutral">(description of objects)</span><span class="defn">]"</span><p>This text substitution produces a list, in sentence form, of everything matching the description. Each item is prefaced by its indefinite article, and the first is capitalised, so that it can be used at the beginning of a sentence. Example:</p>
+<div class="codeblock"><div class="codeline">A maritime bill of lading, some hemp rope and Falconer&#39;s Naval Dictionary</div>
+</div></div><div class="defn" id="phs_thelistof"><span class="defn">say "[the list of </span><span class="neutral">(description of objects)</span><span class="defn">]"</span><p>This text substitution produces a list, in sentence form, of everything matching the description. Each item is prefaced by its definite article. Example:</p>
+<div class="codeblock"><div class="codeline">the maritime bill of lading, the hemp rope and Falconer&#39;s Naval Dictionary</div>
+</div></div><div class="defn" id="phs_Thelistof"><span class="defn">say "[The list of </span><span class="neutral">(description of objects)</span><span class="defn">]"</span><p>This text substitution produces a list, in sentence form, of everything matching the description. Each item is prefaced by its definite article, and the first is capitalised, so that it can be used at the beginning of a sentence. Example:</p>
+<div class="codeblock"><div class="codeline">The maritime bill of lading, the hemp rope and Falconer&#39;s Naval Dictionary</div>
+</div></div><p>So much for articles. A more insidious problem comes with something like this:</p>
+<div class="codeblock"><div class="codeline">&quot;The places you can go are [list of rooms].&quot;</div>
+</div><p>The trouble is that the list may end up either singular or plural. We might be expecting something like:</p>
+<div class="codeblock"><div class="codeline">The places you can go are Old Bailey, Bridget&#39;s Flat and TV Centre.</div>
+</div><p>But if there is only one room, then the result might be:</p>
+<div class="codeblock"><div class="codeline">The places you can go are Bridget&#39;s Flat.</div>
+</div><p>which is wrong. We can get around this with careful wording and a slightly different substitution:</p>
+<div class="codeblock"><div class="codeline">&quot;Nearby [is-are list of rooms].&quot;</div>
+</div><div class="defn" id="phs_islistof"><span class="defn">say "[is-are list of </span><span class="neutral">(description of objects)</span><span class="defn">]"</span><p>This text substitution produces a list, in sentence form, of everything matching the description. The whole list starts with &quot;is&quot; (if there&#39;s one item or none) or &quot;are&quot; (more than one). Examples:</p>
+<div class="codeblock"><div class="codeline">is marlin-spike</div>
+<div class="codeline">are maritime bill of lading, hemp rope and Falconer&#39;s Naval Dictionary</div>
+</div></div><div class="defn" id="phs_isalistof"><span class="defn">say "[is-are a list of </span><span class="neutral">(description of objects)</span><span class="defn">]"</span><p>This text substitution produces a list, in sentence form, of everything matching the description. Each item is prefaced by its indefinite article, and the whole list starts with &quot;is&quot; (if there&#39;s one item or none) or &quot;are&quot; (more than one). Examples:</p>
+<div class="codeblock"><div class="codeline">is a marlin-spike</div>
+<div class="codeline">are a maritime bill of lading, some hemp rope and Falconer&#39;s Naval Dictionary</div>
+</div></div><div class="defn" id="phs_isthelistof"><span class="defn">say "[is-are the list of </span><span class="neutral">(description of objects)</span><span class="defn">]"</span><p>This text substitution produces a list, in sentence form, of everything matching the description. Each item is prefaced by its definite article, and the whole list starts with &quot;is&quot; (if there&#39;s one item or none) or &quot;are&quot; (more than one). Examples:</p>
+<div class="codeblock"><div class="codeline">is the marlin-spike</div>
+<div class="codeline">are the maritime bill of lading, the hemp rope and Falconer&#39;s Naval Dictionary</div>
+</div></div><div class="defn" id="phs_alistofconts"><span class="defn">say "[a list of </span><span class="neutral">(description of objects)</span><span class="defn"> including contents]"</span><p>This text substitution produces a list, in sentence form, of everything matching the description, noting any contents in brackets. This is really intended only to be used by the Standard Rules.</p>
+</div><div class="examples">
+<h4>Examples</h4>
+<div class="example-short">61. ★ <a href="examples/control_center.html">Control Center</a><br>Objects which automatically include a description of their component parts whenever they are examined.</p></div><div class="linkback">
+<a href="RB_9.html#section_8" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Simple Machines">RB §9.8 Simple Machines</a>
+</div>
+<div class="example-short">62. ★★ <a href="examples/tiny_garden.html">Tiny Garden</a><br>A lawn made up of several rooms, with part of the description written automatically.</p></div><div class="linkback">
+<a href="RB_3.html#section_4" title="Place &gt; Continuous Spaces and The Outdoors">RB §3.4 Continuous Spaces and The Outdoors</a>
+</div>
+<h3 id="section_6">WI §5.6 Text with variations</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_5">5.5 Text with lists</a></div><div class="sect-navbar-center"><a href="#chapter_5">5. Text</a></div><div class="sect-navbar-right"><a href="#section_7">5.7 Text with random alternatives</a></div></div>
+<p>Text sometimes needs to take different forms in different circumstances. Perhaps it needs an extra sentence if something has happened, or perhaps only one altered word.</p>
+<div class="defn" id="phs_if"><span class="defn">say "[if </span><span class="neutral">(a condition)</span><span class="defn">]"</span><p>This text substitution produces no text. It&#39;s used only for a side-effect: it says that the text following should be said only if the condition is true. That continues until the end of the text, or until an &quot;[end if]&quot; substitution, whichever comes first. If the &quot;[otherwise]&quot; and &quot;[otherwise if]&quot; substitutions are also present, they allow alternatives to be added in case the condition is false. Example:</p>
+<div class="codeblock"><div class="codeline">The wine cask is a container. The printed name of the cask is &quot;[if open]broached, empty cask[otherwise]sealed wine cask&quot;.</div>
+</div><p>we find that the cask is described as &quot;a broached, empty cask&quot; when open, and &quot;a sealed wine cask&quot; when closed. A longer example which begins and ends with fixed text, but has two alternatives in the middle:</p>
+<div class="codeblock"><div class="codeline">The Customs Wharf is a room. &quot;Amid the bustle of the quayside, [if the cask is open]many eyes stray to your broached cask. [otherwise]nobody takes much notice of a man heaving a cask about. [end if]Sleek gondolas jostle at the plank pier.&quot;</div>
+</div></div><div class="defn" id="phs_unless"><span class="defn">say "[unless </span><span class="neutral">(a condition)</span><span class="defn">]"</span><p>This text substitution produces no text. It&#39;s used only for a side-effect: it says that the text following should be said only if the condition is false. That continues until the end of the text, or until an &quot;[end if]&quot; substitution, whichever comes first. If the &quot;[otherwise]&quot; and &quot;[otherwise if]&quot; substitutions are also present, they allow alternatives to be added in case the condition is true. Example:</p>
+<div class="codeblock"><div class="codeline">The Customs Hall is a room. &quot;With infinite slowness, with ledgers and quill pens, the clerks ruin their eyesight.[unless the player is a woman] They barely even glance in your direction.&quot;</div>
+</div></div><div class="defn" id="phs_otherwise"><span class="defn">say "[otherwise]"</span> [or&hellip;]<br><span class="defn">say "[else]"</span><p>This text substitution produces no text, and can be used only following an &quot;[if &hellip;]&quot; or &quot;[unless &hellip;]&quot; text substitution. It switches from text which appears if the condition is true, to text which appears if it is false. Example:</p>
+<div class="codeblock"><div class="codeline">The wine cask is a container. The printed name of the cask is &quot;[if open]broached, empty cask[otherwise]sealed wine cask&quot;.</div>
+</div></div><div class="defn" id="phs_endif"><span class="defn">say "[end if]"</span><p>This text substitution produces no text, and can be used only to close off a stretch of varying text which begins with &quot;[if &hellip;]&quot;.</p>
+</div><div class="defn" id="phs_endunless"><span class="defn">say "[end unless]"</span><p>This text substitution produces no text, and can be used only to close off a stretch of varying text which begins with &quot;[unless &hellip;]&quot;.</p>
+</div><div class="defn" id="phs_elseif"><span class="defn">say "[otherwise/else if </span><span class="neutral">(a condition)</span><span class="defn">]"</span><p>This text substitution produces no text, and can be used only following an &quot;[if &hellip;]&quot; or &quot;[unless &hellip;]&quot; text substitution. It gives an alternative text to use if the first condition didn&#39;t apply, but this one does. Example:</p>
+<div class="codeblock"><div class="codeline">The wine cask is a container. The printed name of the cask is &quot;[if open]broached, empty cask[otherwise if transparent]sealed cask half-full of sloshing wine[otherwise]sealed wine cask&quot;.</div>
+</div></div><div class="defn" id="phs_elseunless"><span class="defn">say "[otherwise/else unless </span><span class="neutral">(a condition)</span><span class="defn">]"</span><p>This text substitution produces no text, and can be used only following an &quot;[if &hellip;]&quot; or &quot;[unless &hellip;]&quot; text substitution. It gives an alternative text to use if the first condition didn&#39;t apply, and this one is false too.</p>
+</div><p>We sometimes need to be careful about the printing of line breaks:</p>
+<div class="codeblock"><div class="codeline">The Cell is a room. &quot;Ah, [if unvisited]the unknown cell. [otherwise]the usual cell.&quot;</div>
+</div><p>This room description has two possible forms: &quot;Ah, the unknown cell. &quot;, at first sight, and then &quot;Ah, the usual cell.&quot; subsequently. But the second form is rounded off with a line break because the last thing printed is a &quot;.&quot;, whereas the first form isn&#39;t, because it ended with a space. The right thing would have been:</p>
+<div class="codeblock"><div class="codeline">The Cell is a room. &quot;Ah, [if unvisited]the unknown cell.[otherwise]the usual cell.&quot;</div>
+</div><p>allowing no space after &quot;unknown cell.&quot;</p>
+<p>When varying descriptions are being given for kinds of rooms or things, it can be useful to make use of a special value called &quot;item described&quot;, which refers to the particular one being looked at right now. For example:</p>
+<div class="codeblock"><div class="codeline">A musical instrument is a kind of thing. The tuba and the xylophone are musical instruments. The description of a musical instrument is usually &quot;An especially shiny, well-tuned [item described].&quot;</div>
+</div><p>The tuba now has the description &quot;An especially shiny, well-tuned tuba.&quot;, and similarly for the xylophone.</p>
+<p>The &quot;item described&quot; value can similarly be used in any textual property of a room or thing, and in particular can be used with the &quot;initial appearance&quot; and &quot;printed name&quot; properties, which are also forms of description.</p>
+<div class="examples">
+<h4>Examples</h4>
+<div class="example-short">63. ★ <a href="examples/when.html">When?</a><br>A door whose description says &quot;...leads east&quot; in one place and &quot;...leads west&quot; in the other.</p></div><div class="linkback">
+<a href="RB_3.html#section_5" title="Place &gt; Doors, Staircases, and Bridges">RB §3.5 Doors, Staircases, and Bridges</a>
+</div>
+<div class="example-short">64. ★★★ <a href="examples/whence.html">Whence?</a><br>A kind of door that always automatically describes the direction it opens and what lies on the far side (if that other room has been visited).</p></div><div class="linkback">
+<a href="RB_3.html#section_5" title="Place &gt; Doors, Staircases, and Bridges">RB §3.5 Doors, Staircases, and Bridges</a>
+</div>
+<div class="example-short">65. ★★★ <a href="examples/persephone.html">Persephone</a><br>Separate the player&#39;s inventory listing into two parts, so that it says &quot;you are carrying...&quot; and then (if the player is wearing anything) &quot;You are also wearing...&quot;.</p></div><div class="linkback">
+<a href="RB_6.html#section_7" title="Commands &gt; Inventory">RB §6.7 Inventory</a>
+</div>
+<h3 id="section_7">WI §5.7 Text with random alternatives</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_6">5.6 Text with variations</a></div><div class="sect-navbar-center"><a href="#chapter_5">5. Text</a></div><div class="sect-navbar-right"><a href="#section_8">5.8 Line breaks and paragraph breaks</a></div></div>
+<p>Sometimes we would like to provide a little quirky variation in text, especially in messages which will be seen often. We can achieve this with the &quot;[one of]&hellip; [or] &hellip; [or] &hellip;&quot; construction.</p>
+<div class="defn" id="phs_oneof"><span class="defn">say "[one of]"</span><p>This text substitution produces no text. It&#39;s used only for a side-effect: it switches between a number of alternative texts, which follow it and are divided by &quot;[or]&quot; substitutions, according to a strategy given in a closing substitution. Example:</p>
+<div class="codeblock"><div class="codeline">&quot;You flip the coin. [one of]Heads[or]Tails[purely at random]!&quot;</div>
+</div><p>Here there are just two alternatives, and the strategy is &quot;purely at random&quot;. Exactly half of the time the text will be printed as &quot;You flip the coin. Heads!&quot;; and the other half, &quot;You flip the coin. Tails!&quot;.</p>
+</div><div class="defn" id="phs_or"><span class="defn">say "[or]"</span><p>This text substitution produces no text, and can be used only in a &quot;[one of]&hellip;&quot; construction. It divides alternative wordings. Example:</p>
+<div class="codeblock"><div class="codeline">&quot;You flip the coin. [one of]Heads[or]Tails[purely at random]!&quot;</div>
+</div></div><p>There are seven possible endings, each making the choice of which text to follow in a different way:</p>
+<div class="defn" id="phs_purelyrandom"><span class="defn">say "[purely at random]"</span><p>This text substitution produces no text, and can be used only to end a &quot;[one of]&hellip;&quot; construction. It indicates that the alternatives are chosen uniformly randomly.</p>
+</div><div class="defn" id="phs_thenpurelyrandom"><span class="defn">say "[then purely at random]"</span><p>This text substitution produces no text, and can be used only to end a &quot;[one of]&hellip;&quot; construction. It indicates that the alternatives are chosen in sequence until all have been seen, but that after that they are chosen uniformly randomly.</p>
+</div><div class="defn" id="phs_random"><span class="defn">say "[at random]"</span><p>This text substitution produces no text, and can be used only to end a &quot;[one of]&hellip;&quot; construction. It indicates that the alternatives are chosen at random except that the same choice cannot come up twice running. This is useful to avoid the deadening effect of repeating the exact same message. Example:</p>
+<div class="codeblock"><div class="codeline">&quot;The light changes randomly again; now it&#39;s [one of]green[or]amber[or]red[at random].&quot;</div>
+</div><p>Here we can safely say the light &quot;changes&quot;, because the new colour cannot be the same as the one printed the last time.</p>
+</div><div class="defn" id="phs_thenrandom"><span class="defn">say "[then at random]"</span><p>This text substitution produces no text, and can be used only to end a &quot;[one of]&hellip;&quot; construction. It indicates that the alternatives are chosen in sequence until all have been seen, and then after that, at random except that the same choice cannot come up twice running. Example:</p>
+<div class="codeblock"><div class="codeline">&quot;Maybe the murderer is [one of]Colonel Mustard[or]Professor Plum[or]Cardinal Cerise[then at random].&quot;</div>
+</div></div><div class="defn" id="phs_sticky"><span class="defn">say "[sticky random]"</span><p>This text substitution produces no text, and can be used only to end a &quot;[one of]&hellip;&quot; construction. It indicates that a random choice is made the first time the text is printed, but that it sticks from there on. Example:</p>
+<div class="codeblock"><div class="codeline">&quot;The newspaper headline is: [one of]War Casualties[or]Terrorists[or]Banks[sticky random] [one of]Continue To Expand[or]Lose Out[sticky random].&quot;</div>
+</div><p>Although the newspaper headline will change with each playing, it will not alter during play.</p>
+</div><div class="defn" id="phs_decreasing"><span class="defn">say "[as decreasingly likely outcomes]"</span><p>This text substitution produces no text, and can be used only to end a &quot;[one of]&hellip;&quot; construction. It indicates that the alternatives are chosen at random, except that the first is most likely to be chosen, the second is next most likely, and so on down to the rarest at the end. Example:</p>
+<div class="codeblock"><div class="codeline">&quot;Zorro strides by, [one of]looking purposeful[or]grim-faced[or]deep in thought[or]suppressing a yawn[or]scratching his ribs[or]trying to conceal that he has cut himself shaving[as decreasingly likely outcomes].&quot;</div>
+</div><p>There are six outcomes here: the first is six times as likely as the last, and those in between are similarly scaled, so Zorro cuts himself shaving only once in 21 tries, while he looks purposeful almost a third of the time.</p>
+</div><p>But suppose we want to tuck some useful information in these messages, and we want to be sure that the player will see it. Because all of the above options involve randomness, it&#39;s possible that an unlucky player might miss a clue placed into only one variant of the message. One fix for this is to make sure that everything turns up sooner or later:</p>
+<div class="defn" id="phs_order"><span class="defn">say "[in random order]"</span><p>This text substitution produces no text, and can be used only to end a &quot;[one of]&hellip;&quot; construction. A random order is chosen for the alternative passages of text, and they are used in that order as the text is printed again and again. When one random cycle finishes, a new one begins. The effect is somewhat like the &quot;shuffle album&quot; feature on an iPod. Example:</p>
+<div class="codeblock"><div class="codeline">&quot;You dip into the chapter on [one of]freshwater fish[or]hairless mammals[or]extinct birds[or]amphibians such as the black salamander[in random order].&quot;</div>
+</div><p>One small restriction: if there are more than 32 variations, purely random choices will be printed, and there will be no guarantee that repeats are prevented.</p>
+</div><p>Another fix is to avoid randomness altogether:</p>
+<div class="defn" id="phs_cycling"><span class="defn">say "[cycling]"</span><p>This text substitution produces no text, and can be used only to end a &quot;[one of]&hellip;&quot; construction. It indicates that the alternatives are used one at a time, in turn: after the last one is reached, we start again from the first. Example:</p>
+<div class="codeblock"><div class="codeline">&quot;The pundits discuss [one of]the weather[or]world events[or]celebrity gossip[cycling].&quot;</div>
+</div></div><div class="defn" id="phs_stopping"><span class="defn">say "[stopping]"</span><p>This text substitution produces no text, and can be used only to end a &quot;[one of]&hellip;&quot; construction. It indicates that the alternatives are used one at a time, in turn: once the last one is reached, it&#39;s used forever after. Example:</p>
+<div class="codeblock"><div class="codeline">&quot;[one of]The phone rings[or]The phone rings a second time[or]The phone rings again[stopping].&quot;</div>
+</div></div><p>Finally, here&#39;s a convenient shorthand for one of the commonest things needed:</p>
+<div class="defn" id="phs_firsttime"><span class="defn">say "[first time]"</span> [or&hellip;]<br><span class="defn">say "[only]"</span><p>This pair of text substitutions causes whatever is between them to be printed only the first time the text is printed. Example:</p>
+<div class="codeblock"><div class="codeline">&quot;The screen door squeaks loudly as when you open it. [first time]Well, you&#39;ll get used to it eventually. [only]&quot;</div>
+</div><p>This is exactly equivalent to</p>
+<div class="codeblock"><div class="codeline">&quot;The screen door squeaks loudly as when you open it. [one of]Well, you&#39;ll get used to it eventually. [or][stopping]&quot;;</div>
+</div><p>but easier to read.</p>
+</div><p>Something to watch out for is that texts are sometimes being printed internally for purposes other than actual output which the player can see, and this is particularly true of names. For example:</p>
+<div class="codeblock"><div class="codeline">Before printing the name of the traffic signal: say &quot;[one of]green[or]amber[or]red[cycling] &quot;.</div>
+</div><p>This looks good for some purposes, but may not cycle in the sequence expected, and can result in incorrect indefinite articles being printed -- &quot;an red traffic signal&quot;, for example. What&#39;s happening is that the name is being printed internally to see whether it begins with a vowel; that prints &quot;amber traffic signal&quot;, but invisibly to us, and since this does begin with a vowel, &quot;an&quot; is visibly printed; then the name is visibly printed, but now it has changed to &quot;red traffic signal&quot;, and so the result on screen is &quot;an red traffic signal&quot;. There are many ways to avoid this (for example, to give the traffic signal a state which changes every turn, not every time the name is printed), but it&#39;s a trap to look out for.</p>
+<div class="examples">
+<h4>Examples</h4>
+<div class="example-short">66. ★ <a href="examples/radio_daze.html">Radio Daze</a><br>A radio that produces a cycle of output using varying text.</p></div><div class="linkback">
+<a href="RB_9.html#section_9" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Televisions and Radios">RB §9.9 Televisions and Radios</a>
+</div>
+<div class="example-short">67. ★★ <a href="examples/camp_bethel.html">Camp Bethel</a><br>Creating characters who change their behavior from turn to turn, and a survey of other common uses for alternative texts.</p></div><div class="linkback">
+<a href="RB_7.html#section_2" title="Other Characters &gt; Liveliness">RB §7.2 Liveliness</a>
+</div>
+<h3 id="section_8">WI §5.8 Line breaks and paragraph breaks</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_7">5.7 Text with random alternatives</a></div><div class="sect-navbar-center"><a href="#chapter_5">5. Text</a></div><div class="sect-navbar-right"><a href="#section_9">5.9 Text with type styles</a></div></div>
+<p>Inform controls the flow of text being said so that it will read, to the player, in a natural way. There are two principles:</p>
+<p>(a) pieces of text ending with full stop, exclamation or question marks will be followed by line breaks (or &quot;new lines&quot;, as some computer programming languages would call them); and</p>
+<p>(b) pieces of text produced by different rules in Inform will be separated by paragraph breaks.</p>
+<p>The effect is that authors can forget about paragraph spacing most of the time, but the mechanism is not impossible to fool, so text substitutions are provided to override the usual principles. First, to manipulate line breaks:</p>
+<div class="defn" id="phs_linebreak"><span class="defn">say "[line break]"</span><p>This text substitution produces a line break. Example:</p>
+<div class="codeblock"><div class="codeline">&quot;There is an endless sense of[line break]falling and[line break]falling.&quot;</div>
+</div><p>Line breaks are not paragraph breaks, so the result is:</p>
+<div class="codeblock"><div class="codeline">There is an endless sense of</div>
+<div class="codeline">falling and</div>
+<div class="codeline">falling.</div>
+</div><p>with no extra vertical spacing between these lines.</p>
+</div><div class="defn" id="phs_nolinebreak"><span class="defn">say "[no line break]"</span><p>This text substitution produces no text. It&#39;s used only for a side-effect: it prevents a line break where Inform might otherwise assume one. Example:</p>
+<div class="codeblock"><div class="codeline">&quot;The chorus sing [one of]Jerusalem[or]Rule, Britannia![no line break][at random].&quot;</div>
+</div><p>Here the &quot;[no line break]&quot; stops Inform from thinking that the exclamation mark means a sentence ending &ndash; it&#39;s part of the name of the song &quot;Rule, Britannia!&quot;. So we get</p>
+<div class="codeblock"><div class="codeline">The chorus sing Rule, Britannia!.</div>
+</div><p>with no line break between the &quot;!&quot; and &quot;.&quot;.</p>
+</div><p>And similarly for paragraph breaks. Because Inform can be pretty trigger-happy with these, the first need is for a way to stop them:</p>
+<div class="defn" id="phs_runparaon"><span class="defn">say "[run paragraph on]"</span><p>This text substitution produces no text. It&#39;s used only for a side-effect: it prevents a paragraph break occurring after the present text is printed, in case Inform might be tempted to place one there. Example:</p>
+<div class="codeblock"><div class="codeline">Before taking something, say &quot;Very well. [run paragraph on]&quot;.</div>
+</div><p>This allows the reply to, say, TAKE ENVELOPE to be</p>
+<div class="codeblock"><div class="codeline">Very well. Taken.</div>
+</div><p>rather than</p>
+<div class="codeblock"><div class="codeline">Very well.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Taken.</div>
+</div><p>which is how texts produced by different rules would normally be shown. (It&#39;s a traditional printer&#39;s term. See Oldfield&#39;s Manual of Typography, 1892, under &quot;When two paragraphs are required to be made into one, or, in technical language, &#39;to run on&#39;.&quot;)</p>
+</div><p>But sometimes we actually want paragraph breaks in unexpected places. One way is to force them outright:</p>
+<div class="defn" id="phs_parabreak"><span class="defn">say "[paragraph break]"</span><p>This text substitution produces a paragraph break. Example:</p>
+<div class="codeblock"><div class="codeline">&quot;This is not right.[paragraph break]No, something is terribly wrong.&quot;</div>
+</div><p>Paragraph breaks have a little vertical spacing in them, unlike mere line breaks, so the result is:</p>
+<div class="codeblock"><div class="codeline">This is not right.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">No, something is terribly wrong.</div>
+</div></div><p>More subtly, we can give Inform the option:</p>
+<div class="defn" id="phs_condparabreak"><span class="defn">say "[conditional paragraph break]"</span><p>This text substitution either produces a paragraph break, or no text at all. It marks a place where Inform can put a paragraph break if necessary; in effect it simulates what Inform does every time a &quot;before&quot; or similar rule finishes. If there is text already printed, and text then follows on, a paragraph break is made. But if not, nothing is done. This is sometimes useful when producing a large amount of text which changes with the circumstances so that it is hard to predict in advance whether a paragraph break is needed or not.</p>
+</div><p>Really finicky authors might possibly want to know this:</p>
+<div class="defn" id="ph_breakpending"><span class="defn">if a paragraph break is pending:</span><p>This condition is true if text has recently been said in such a way that Inform expects to add a paragraph break at the next opportunity (for instance when the present rule ends and another one says something, or when a &quot;[conditional paragraph break]&quot; is made).</p>
+</div><p>Finally, there are two special sorts of paragraph break for special circumstances. They are mainly used by the Standard Rules, and imitate the textual layout styles of traditional IF.</p>
+<div class="defn" id="phs_clarifbreak"><span class="defn">say "[command clarification break]"</span><p>This text substitution produces a line break, and then also a paragraph break if the text immediately following is a room description brought about by having gone to to a different room and looking around, in which case a line break should be added. In traditional IF, this is used when clarifying what Inform thinks the player intended by a given command. Example:</p>
+<div class="codeblock"><div class="codeline">say &quot;(first opening [the noun])[command clarification break]&quot;;</div>
+</div><p>might result in</p>
+<div class="codeblock"><div class="codeline">(first opening the valise)</div>
+<div class="codeline">You rummage through the valise for tickets, but find nothing.</div>
+</div></div><div class="defn" id="phs_runparaonsls"><span class="defn">say "[run paragraph on with special look spacing]"</span><p>This text substitution produces no text. It&#39;s used only for a side-effect: it indicates that the current printing position does not follow a skipped line, and that further material is expected which will run on from the previous paragraph, but that if no further material turns up then a skipped line would be needed before the next command prompt. (It&#39;s very likely that only the Standard Rules will ever need this.)</p>
+</div><div class="examples">
+<h4>Example</h4>
+<div class="example-short">68. ★★ <a href="examples/beekeepers_apprentice.html">Beekeeper's Apprentice</a><br>Making the SEARCH command examine all the scenery in the current location.</p></div><div class="linkback">
+<a href="RB_6.html#section_5" title="Commands &gt; Examining">RB §6.5 Examining</a>
+</div>
+<h3 id="section_9">WI §5.9 Text with type styles</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_8">5.8 Line breaks and paragraph breaks</a></div><div class="sect-navbar-center"><a href="#chapter_5">5. Text</a></div><div class="sect-navbar-right"><a href="#section_10">5.10 Accented letters</a></div></div>
+<p>Inform does not go in for the use of fonts: a work of IF will be rendered with different fonts on different machines anyway, from tiny personal organisers up to huge workstations. However, it does allow for a modest amount of styling.</p>
+<div class="defn" id="phs_bold"><span class="defn">say "[bold type]"</span><p>This text substitution produces no text. It&#39;s used only for a side-effect: to make the text following it appear in bold face. &quot;[roman type]&quot; should be used to switch back to normal. Example:</p>
+<div class="codeblock"><div class="codeline">&quot;Jane looked down. [bold type]Danger[roman type], the sign read.&quot;</div>
+</div></div><div class="defn" id="phs_italic"><span class="defn">say "[italic type]"</span><p>This text substitution produces no text. It&#39;s used only for a side-effect: to make the text following it appear in italics. &quot;[roman type]&quot; should be used to switch back to normal. Example:</p>
+<div class="codeblock"><div class="codeline">&quot;This is [italic type]very suspicious[roman type], said Peter.&quot;</div>
+</div></div><div class="defn" id="phs_roman"><span class="defn">say "[roman type]"</span><p>This text substitution produces no text. It&#39;s used only for a side-effect: to return to ordinary Roman type after a previous use of &quot;[bold type]&quot; or &quot;[italic type]&quot;.</p>
+</div><p>but there is one other effect we can employ:</p>
+<div class="defn" id="phs_fixedspacing"><span class="defn">say "[fixed letter spacing]"</span><p>This text substitution produces no text. It&#39;s used only for a side-effect: to make the text following it appear with fixed letter spacing. In variable letter spacing, a lower case &quot;m&quot; is much wider than an &quot;l&quot;, which is natural to the eye since it has been printing practice since the Renaissance. Fixed letter spacing is more like typewriting, and it is best used to reproduce typewritten text or printed notices; it can also be convenient for making simple diagrams. Example:</p>
+<div class="codeblock"><div class="codeline">&quot;On the door is written: [fixed letter spacing]J45--O-O-O[variable letter spacing].&quot;</div>
+</div></div><div class="defn" id="phs_varspacing"><span class="defn">say "[variable letter spacing]"</span><p>This text substitution produces no text. It&#39;s used only for a side-effect: to return to ordinary letter spacing after a previous use of &quot;[fixed letter spacing]&quot;.</p>
+</div><p>Whichever effect we use, we should be careful to ensure that we return to normal -- roman type and variable letter spacing -- after any specially-treated text has been printed. Combining these effects (for, say, bold fixed-spaced lettering) is not guaranteed to work, though on some platforms it will.</p>
+<div class="examples">
+<h4>Example</h4>
+<div class="example-short">69. ★ <a href="examples/garibaldi2.html">Garibaldi 2</a><br>Adding coloured text to the example of door-status readouts.</p></div><div class="linkback">
+<a href="RB_12.html#section_1" title="Typography, Layout, and Multimedia Effects &gt; Typography">RB §12.1 Typography</a>
+</div>
+<h3 id="section_10">WI §5.10 Accented letters</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_9">5.9 Text with type styles</a></div><div class="sect-navbar-center"><a href="#chapter_5">5. Text</a></div><div class="sect-navbar-right"><a href="#section_11">5.11 Unicode characters</a></div></div>
+<p>Inform 7 is infused by the English language, so it&#39;s a challenge using it to write a work of IF in any other language. (With that said, extensions do exist which have made considerable progress on this problem: nil desperandum.) But even a book in English contains occasional quotations or words borrowed from other tongues, so we are going to need more than plain A to Z.</p>
+<p>The world has a bewildering range of letters, accents, diacritics, markers and signs. Inform tries to support the widest range possible, but the works of IF produced by Inform are programs which then have to be run on a (virtual) computer whose abilities are more constrained: few players will have an Ethiopian font installed, after all. So a degree of caution is called for.</p>
+<p>(a) <strong>Definitely safe to use.</strong> Inform&#39;s highest level of support is for the letters found on a typical English typewriter keyboard, including both the $ and £ signs (but not the Yen or Euro symbols ¥ and €), and in addition the following:</p>
+<div class="codeblock"><div class="codeline">ä, á, à, ã, å, â and Ä, Á, À, Ã, Å, Â</div>
+<div class="codeline">ë, é, è, ê and Ë, É, È, Ê</div>
+<div class="codeline">ï, í, ì, î and Ï, Í, Ì, Î</div>
+<div class="codeline">ö, ó, ò, õ, ø, ô  and Ö, Ó, Ò, Õ, Ø, Ô</div>
+<div class="codeline">ü, ú, ù, û and Ü, Ú, Ù, Û</div>
+<div class="codeline">ÿ, ý and Ý (but not Ÿ)</div>
+<div class="codeline">ñ and Ñ</div>
+<div class="codeline">ç and Ç</div>
+<div class="codeline">æ and Æ (but not œ or Œ)</div>
+<div class="codeline">ß</div>
+<div class="codeline">¡, ¿</div>
+</div><p>These characters can be typed directly into the Source panel, and can be used outside quotation marks: we can call a room the Église, for instance.</p>
+<p>(b) <strong>Characters which can safely be used, but will be simplified.</strong> As it reads in the text, Inform silently converts all kinds of dash (en-rules, em-rules, etc.) to simple hyphens; converts the multiplication symbol to a lower case &quot;x&quot;; converts all kinds of space other than tabs (em-spaces, non-breaking spaces, etc.) to simple spaces, and all kinds of quotation marks to &quot;straight&quot; (non-smart) marks.</p>
+<p>(c) <strong>Characters which can be used provided they are in quoted text (other than boxed quotations), and which will probably but not certainly be visible to the player</strong>. All other Latin letter-forms, including the œ ligature, East European forms such as ő, ş and ž, and Portuguese forms such as ũ; the Greek and Cyrillic alphabets, with their associated variants and accents; and the principal currency symbols, such as € and ¥. Such characters are not legal in unquoted text: so we could write</p>
+<div class="codeblock"><div class="codeline">The Churchyard is a room. The printed name of the Churchyard is &quot;Łodz Churchyard&quot;.</div>
+</div><p>but not</p>
+<div class="codeblock"><div class="codeline">Łodz Churchyard is a room.</div>
+</div><p>Moreover, the player is not allowed to type these characters in commands during play: or rather, they will not be recognised if he does. They are for printing only.</p>
+<p>(d) <strong>Characters which might work in quoted text, or might not</strong>. The Arabic and Hebrew alphabets are fairly likely to be available; miscellaneous symbols are sometimes legible to the player, sometimes not. Other alphabets are chancier still. (If a work of IF depends on these being visible, it may be necessary to instruct players to use specific interpreters, or to provide a way for the player to test that all will be well.)</p>
+<h3 id="section_11">WI §5.11 Unicode characters</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_10">5.10 Accented letters</a></div><div class="sect-navbar-center"><a href="#chapter_5">5. Text</a></div><div class="sect-navbar-right"><a href="#section_12">5.12 Displaying quotations</a></div></div>
+<p>As we have seen, Inform allows us to type a wide range of characters into the source text, although the more exotic ones may only appear inside quotation marks. But they become more and more difficult to type as they become more obscure. Inform therefore allows us to describe a letter using a text substitution rather than typing it directly.</p>
+<p>Unicode characters can be named (or numbered) directly in text. For example:</p>
+<div class="codeblock"><div class="codeline">&quot;[unicode 321]odz Churchyard&quot;</div>
+</div><p>produces a Polish slashed L. If the Unicode Character Names or Unicode Full Character Names extensions are included, characters can also be named as well as numbered:</p>
+<div class="codeblock"><div class="codeline">&quot;[unicode Latin capital letter L with stroke]odz Churchyard&quot;</div>
+</div><p>The Unicode standard assigns character numbers to essentially every marking used in text from any human language: its full range is enormous. (Note that Inform writes these numbers in decimal: many reference charts show them in hexadecimal, or base 16, which can cause confusion.) Inform can only handle codes [unicode 32] up to [unicode 65535], so it is not quite so catholic, but the range is still enormous enough that code numbers are unfamiliar to the eye. Inform therefore allows us to use the official Unicode 4.1 names for characters, instead of their decimal numbers, <em>provided</em> we have Included the necessary extension like so:</p>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Include Unicode Character Names by Graham Nelson.`)">⧉</button><div class="codeline">Include Unicode Character Names by Graham Nelson.</div>
+</div><p>This extension provides names for some 2900 of the most commonly used characters. It means, for instance, that we can write text such as:</p>
+<div class="codeblock"><div class="codeline">&quot;Dr Zarkov unveils the new [unicode Hebrew letter alef] Nought drive.&quot;</div>
+<div class="codeline">&quot;Omar plays 4[unicode black spade suit] with an air of triumph.&quot;</div>
+</div><p>Admittedly, these can get a little verbose:</p>
+<div class="codeblock"><div class="codeline">&quot;[unicode Greek small letter omega with psili and perispomeni and ypogegrammeni]&quot;</div>
+</div><p>But before getting carried away, we should remember the hazards: Inform allows us to type, say, &quot;[unicode Saturn]&quot; (an astrological sign) but it appears only as a black square if the resulting story is played by an interpreter using a font which lacks the relevant sign. For instance, Zoom for OS X uses the Lucida Grande and Apple Symbol fonts by default, and this combination does contain the Saturn sign: but Windows Frotz tends to use the Tahoma font by default, which does not. (Another issue is that the fixed letter spacing font, such as used in the status line, may not contain all the characters that the font of the main text contains.) To write something with truly outré characters is therefore a little chancy: users would have to be told quite carefully what interpreter and font to use to play it.</p>
+<p>The &quot;Unicode Character Names&quot; extension, which is pre-installed in the standard distribution of Inform, defines names for the Latin, Greek, Cyrillic, Hebrew and Braille alphabets, together with currency and miscellaneous other symbols, including some for drawing boxes and arrows. It is only optionally installed because even this is quite large: but in case it should still prove inadequate, an alternative can be used:</p>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Include Unicode Full Character Names by Graham Nelson.`)">⧉</button><div class="codeline">Include Unicode Full Character Names by Graham Nelson.</div>
+</div><p>This includes all 12,997 named characters in the 16-bit range of the Unicode 4.1 standard: it is the size of a small novel and its inclusion will slow Inform down. But if you want to experiment with Arabic, ecclesiastical Georgian, Cherokee, Tibetan, Syriac, the International Phonetic Alphabet, hexagrams or the unified Canadian aboriginal syllabics, &quot;Unicode Full Character Names&quot; (again built into Inform) is the extension for you.</p>
+<div class="examples">
+<h4>Example</h4>
+<div class="example-short">70. ★★★ <a href="examples/übercomplète_clavier.html">The Über-complète clavier</a><br>This example provides a fairly stringent test of exotic lettering.</p></div><div class="linkback">
+<a href="RB_12.html#section_1" title="Typography, Layout, and Multimedia Effects &gt; Typography">RB §12.1 Typography</a>
+</div>
+<h3 id="section_12">WI §5.12 Displaying quotations</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_11">5.11 Unicode characters</a></div><div class="sect-navbar-center"><a href="#chapter_5">5. Text</a></div><div class="sect-navbar-right"><a href="#section_13">5.13 Making new substitutions</a></div></div>
+<p>Text is normally printed in between the typed commands of the player, rolling upwards from the bottom of the screen, as if a dialogue is being typed by an old-fashioned teletype. But it can also be displayed in a bolder way, floating above the main text, and this is sometimes used to display quotations.</p>
+<div class="defn" id="ph_boxed"><span class="defn">display the boxed quotation </span><span class="neutral">(text)</span><p>This phrase displays the given text on screen in an overlaid box. For reasons to do with the way such quotations are plotted onto the screen, their text is treated literally: no substitutions in square brackets are obeyed. The quotation will only ever appear once, regardless of the number of times the &quot;display the boxed quotation &hellip;&quot; phrase is reached. Rather than being shown immediately &ndash; and thus, probably, scrolling away before it can be seen &ndash; the display is held back until the next command prompt is shown to the player. Example:</p>
+<div class="codeblock"><div class="codeline">After looking in the Wabe, display the boxed quotation</div>
+<div class="codeline">&ensp;&ensp;&quot;And &#39;the wabe&#39; is the grass-plot round</div>
+<div class="codeline">&ensp;&ensp;a sun-dial, I suppose? said Alice,</div>
+<div class="codeline">&ensp;&ensp;surprised at her own ingenuity.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;Of course it is. It&#39;s called &#39;wabe,&#39;</div>
+<div class="codeline">&ensp;&ensp;you know, because it goes a long way</div>
+<div class="codeline">&ensp;&ensp;before it, and a long way behind it --</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;-- Lewis Carroll&quot;.</div>
+</div><p>This was the original example used in <em>Trinity</em>, by Brian Moriarty, which invented the idea. A player exploring Kensington Gardens comes upon a location enigmatically called The Wabe; and by way of explanation, this quotation pops up.</p>
+</div><p>Note that exotic accented characters, such as the &quot;Ł&quot; in &quot;Łodz&quot;, can&#39;t be displayed in boxed quotations. This is only a simple feature, and we should go in search of a suitable extension for fancier screen effects if we would like to do more.</p>
+<h3 id="section_13">WI §5.13 Making new substitutions</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_12">5.12 Displaying quotations</a></div><div class="sect-navbar-center"><a href="#chapter_5">5. Text</a></div></div>
+<p>If we have some textual effect which needs to occur in several different messages, we might want to create a new text substitution for it. For instance:</p>
+<div class="codeblock"><div class="codeline">The Missile Base is a room. &quot;[security notice]Seems to be a futuristic missile base.&quot; M&#39;s Office is east of the Missile Base. &quot;[security notice]Admiral Sir M.- M.- glares up from his desk.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">To say security notice:</div>
+<div class="codeline">&ensp;&ensp;say &quot;This area is a Prohibited Place within the meaning of the Official Secrets Act 1939. &quot;</div>
+</div><p>This is only the tip of the iceberg in how to define ways to do things using &quot;To&hellip;&quot;, as we shall see. The definition makes &quot;say the security notice&quot; a new phrase known to Inform. A text substitution is exactly a phrase whose name begins with &quot;say&quot; (well &ndash; except for the &quot;say&quot; phrase itself), so the effect is that &quot;[security notice]&quot; is a new text substitution. Several of the examples in this chapter make use of this trick.</p>
+<p>Inform often ignores the casing of the text it reads, but sometimes uses it as a clue to meaning. We have already seen that &quot;[an item]&quot; and &quot;[An item]&quot; produce different results, for instance. Similarly, it&#39;s possible to define two text substitutions which are the same except for the initial casing. We might write:</p>
+<div class="codeblock"><div class="codeline">To say Security Notice:</div>
+<div class="codeline">&ensp;&ensp;say &quot;THIS AREA IS A PROHIBITED PLACE WITHIN THE MEANING OF THE OFFICIAL SECRETS ACT 1939. &quot;</div>
+</div><p>And now Inform will act on &quot;[Security Notice]&quot; differently from &quot;[security notice]&quot;.</p>
+<div class="see-also">
+<h4>See Also</h4>
+<p><a href="WI_11.html#section_2" title="Phrases &gt; The phrasebook">The phrasebook</a> for other forms of phrase besides To say....<br></p></div><div class="examples">
+<h4>Examples</h4>
+<div class="example-short">71. ★ <a href="examples/fifty_ways_to_leave_your_larva.html">Fifty Ways to Leave Your Larva</a><br>Using text substitution to make characters reply differently under the same circumstances.</p></div><div class="linkback">
+<a href="RB_2.html#section_1" title="Adaptive Prose &gt; Varying What Is Written">RB §2.1 Varying What Is Written</a>
+</div>
+<div class="example-short">72. ★★★ <a href="examples/fifty_times_fifty_ways.html">Fifty Times Fifty Ways</a><br>Writing your own rules for how to carry out substitutions.</p></div><div class="linkback">
+<a href="RB_2.html#section_1" title="Adaptive Prose &gt; Varying What Is Written">RB §2.1 Varying What Is Written</a>
+</div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="WI_4.html">4. Kinds</a></div><div class="doc-navbar-right"><a href="WI_6.html">6. Descriptions</a></div></div>
+<nav><div class="nav-el"><a href="index.html">Contents</a></div> <div class="nav-el"><a href="examples/index.html">Examples</a></div> <div class="nav-el"><a href="general_index.html">Index</a></div> <div class="nav-el"><a href="search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="license.html">Artistic License 2.0</a>.</p><p class="about"><a href="about.html">About this edition</a></p></footer>
+</body></html>

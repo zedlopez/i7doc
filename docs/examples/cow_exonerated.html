@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 417. The Cow Exonerated</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>The Cow Exonerated</h1><div class="subheading">Example 417 ★★</div>
+<div class="linkback">
+<a href="../WI_20.html#section_7" title="Advanced Text &gt; Making new text with text substitutions">WI §20.7 Making new text with text substitutions</a><br><a href="../RB_10.html#section_8" title="Physics: Substances, Ropes, Energy and Weight &gt; Fire">RB §10.8 Fire</a>
+</div>
+<p class="example-desc">Creating a class of matches that burn for a time and then go out, with elegant reporting when several matches go out at once.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="mirror_mirror.html" title="The sorcerer&#39;s mirror can, when held up high, form an impression of its surroundings which it then preserves.">416. Mirror, Mirror</a></div><div class="doc-navbar-right"><a href="blackout.html" title="Filtering the names of rooms printed while in darkness.">418. Blackout</a></div></div>
+</header>
+<p>Here we create a class of matches that can be used to burn other objects. Our objectives are as follow:</p>
+<p>Burned objects other than matches should be removed from play instantly (just as edible objects are instantly eaten). We could give everything its own burning duration, but that complicates matters and allows for fire to spread from one object to another; for an example of how to do that, see the example &quot;In Fire or in Flood&quot;.</p>
+<p>Matches should be described to show whether they are burning or extinguished, and when the parser chooses one of several identical matches, it should make very clear which match it has selected.</p>
+<p>The game must sensibly select and, if necessary, automatically light new matches to carry out a &gt;BURN THING command.</p>
+<p>The matches must burn for a set number of turns before going out, never to be used again.</p>
+<p>And finally, the part for which the text will be useful: when several matches go out in the same turn, we want the game to print</p>
+<div class="codeblock"><div class="codeline">Four matches go out.</div>
+</div><p>rather than</p>
+<div class="codeblock"><div class="codeline">A match goes out.</div>
+<div class="codeline">A match goes out.</div>
+<div class="codeline">A match goes out.</div>
+<div class="codeline">A match goes out.</div>
+</div><p>This last function appears down in Section 3, if we wish to skip ahead and look at it.</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex417">Play/modify The Cow Exonerated in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="CowExonerated/index.html">Play The Cow Exonerated in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;The Cow Exonerated&quot;\n\nSection 1 - Simple Burning\n\nUnderstand the commands &quot;light&quot; and &quot;burn&quot; as something new.\n\nUnderstand &quot;burn [something] with [strikable-match]&quot; as burning it with. Understand &quot;burn [something] with [something preferably held]&quot; as burning it with. Burning it with is an action applying to one thing and one carried thing.\n\nUnderstand the command &quot;light&quot; as &quot;burn&quot;.\n\nA thing can be flammable or impervious. A thing is usually impervious.\n\nCheck burning something with something (this is the burn only with flaming matches rule):\n\tif the second noun is not a strikable-match, say &quot;You can only light things with matches.&quot; instead;\n\tif the second noun is not flaming, say &quot;[The second noun] needs to be burning first.&quot; instead.\n\nCheck burning something with something (this is the burn only flammable things rule):\n\tif the noun is impervious, say &quot;[The noun] cannot be burned.&quot; instead.\n\nCheck burning something with something (this is the burn only things not held rule):\n\tsay &quot;[one of]It occurs to you to set down [the noun] before burning, just for safety&apos;s sake. [or]Again, you decide to put down [the noun] prior to burning. [or]You try setting down [the noun] as usual. [stopping][run paragraph on]&quot;;\n\tsilently try the player dropping the noun;\n\tif the player encloses the noun, stop the action.\n\nCarry out burning something with something (this is the simplistic burning rule):\n\tnow the noun is nowhere.\n\nReport burning something with something:\n\tsay &quot;You burn up [the noun].&quot;\n\nRule for implicitly taking the second noun while burning something with something which is not a strikable-match:\n\tsay &quot;You can only light things with matches.&quot;;\n\tstop the action.\n\nSection 2 - Matches\n\n\nA strikable-match is a kind of thing. The plural of strikable-match is s-matches.\n\nA strikable-match has a number called duration. The duration of a strikable-match is usually 3.\n\nRule for printing the name of a strikable-match: say &quot;match&quot;.\nRule for printing the plural name of a strikable-match: say &quot;matches&quot;.\n\nUnderstand &quot;match&quot; as a strikable-match. Understand &quot;matches&quot; as a strikable-match.\n\nFlame-state is a kind of value. The flame-states are burnt, flaming, and new. Understand &quot;burning&quot; or &quot;lit&quot; as flaming. Understand &quot;unused&quot; as new.\n\nA strikable-match has a flame-state. A strikable-match is usually new. Understand the flame-state property as describing a strikable-match.\n\nBefore printing the name of a strikable-match while asking which do you mean:\n\tsay &quot;[flame-state] &quot;.\n\nBefore printing the name of a strikable-match while taking inventory:\n\tsay &quot;[flame-state] &quot;.\nBefore printing the plural name of a strikable-match while taking inventory:\n\tsay &quot;[flame-state] &quot;.\n\nBefore printing the name of a strikable-match while clarifying the parser&apos;s choice of something:\n\tif not taking inventory, say &quot;[flame-state] &quot;.\n\nAfter printing the name of a strikable-match (called special-target) while clarifying the parser&apos;s choice of something:\n\tif the player carries the special-target:\n\t\tsay &quot; you&apos;re carrying&quot;;\n\totherwise if the special-target is in the location:\n\t\tsay &quot; on the ground&quot;;\n\totherwise:\n\t\tsay &quot; [if the holder of the special-target is a container]in[otherwise]on[end if] [the holder of the special-target]&quot;.\n\nUnderstand &quot;strike [something]&quot; as attacking.\n\nUnderstand &quot;strike [strikable-match]&quot; as striking. Striking is an action applying to one carried thing.\n\nUnderstand &quot;burn [strikable-match]&quot; as striking.\n\nDoes the player mean striking a new strikable-match:\n\tit is very likely.\n\nDoes the player mean striking a burnt strikable-match:\n\tit is unlikely.\n\nCheck striking a strikable-match (this is the strike only new matches rule):\n\tif the noun is burnt, say &quot;[The noun] has already burnt down and cannot be relit.&quot; instead;\n\tif the noun is flaming, say &quot;[The noun] is already burning.&quot; instead.\n\nCarry out striking a strikable-match (this is the standard striking rule):\n\tnow the noun is flaming;\n\tnow the noun is lit.\n\nReport striking a strikable-match (this is the standard report striking rule):\n\tsay &quot;You light [the noun].&quot;\n\nBefore burning something with a new strikable-match (this is the prior lighting rule):\n\tsay &quot;(first [if the player does not carry the second noun]taking and [end if]lighting [the second noun])[command clarification break]&quot;;\n\tsilently try striking the second noun;\n\tif the second noun is not flaming, stop the action.\n\nRule for implicitly taking a strikable-match (called target) while striking:\n\ttry silently taking the target.\n\nDoes the player mean burning something with a flaming strikable-match:\n\tit is very likely.\n\nDoes the player mean burning something with a new strikable-match:\n\tit is likely.\n\nDoes the player mean burning something with a burnt strikable-match:\n\tit is unlikely.\n\nInstead of burning a burnt strikable-match with something:\n\tsay &quot;[The noun] is completely consumed and cannot be relit.&quot;\n\nSection 3 - Putting the Matches Out\n\nEvery turn:\n\tlet N be 0; [here we track how many matches are being put out during this turn, so that we don&apos;t have to mention each match individually if several go out during the same move]\n\trepeat with item running through flaming s-matches:\n\t\tdecrement the duration of the item;\n\t\tif the duration of the item is 0:\n\t\t\tnow the item is burnt;\n\t\t\tnow the item is unlit;\n\t\t\tif the item is visible, increment N;\n\tif N is 1:\n\t\tsay &quot;[if the number of visible flaming s-matches is greater than 0]One of the matches [otherwise if the number of burnt visible s-matches is greater than 1]Your last burning match [otherwise]The match [end if]goes out.&quot;;\n\totherwise if N is greater than 1:\n\t\tlet enumeration be &quot;[N in words]&quot;;\n\t\tif N is the number of visible s-matches:\n\t\t\tif N is two, say &quot;Both&quot;;\n\t\t\totherwise say &quot;All [enumeration]&quot;;\n\t\totherwise:\n\t\t\tsay &quot;[enumeration in title case]&quot;;\n\t\tsay &quot; matches go out[if a visible strikable-match is flaming], leaving [number of visible flaming s-matches in words] still lit[end if].&quot;\n\nSection 4 - Scenario\n\nOld Chicago is a room.\n\nThe player carries a flammable thing called a log. Understand &quot;wooden&quot; and &quot;wood&quot; as the log.\n\nThe player carries two s-matches. The matchbox is an open openable container. It contains five s-matches. The player carries the matchbox.\n\nWhen play begins:\n\tnow every strikable-match carried by the player is flaming;\n\tnow every strikable-match carried by the player is lit.\n\nTest me with &quot;i / burn match / i / i / burn log with match / burn matchbox with match / i&quot;.`)">⧉</button><div class="codeline storytitle">&quot;The Cow Exonerated&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline i7header">Section 1 - Simple Burning</div><div class="codeline">Understand the commands &quot;light&quot; and &quot;burn&quot; as something new.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Understand &quot;burn [something] with [strikable-match]&quot; as burning it with. Understand &quot;burn [something] with [something preferably held]&quot; as burning it with. Burning it with is an action applying to one thing and one carried thing.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Understand the command &quot;light&quot; as &quot;burn&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A thing can be flammable or impervious. A thing is usually impervious.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Check burning something with something (this is the burn only with flaming matches rule):</div>
+<div class="codeline">&ensp;&ensp;if the second noun is not a strikable-match, say &quot;You can only light things with matches.&quot; instead;</div>
+<div class="codeline">&ensp;&ensp;if the second noun is not flaming, say &quot;[The second noun] needs to be burning first.&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Check burning something with something (this is the burn only flammable things rule):</div>
+<div class="codeline">&ensp;&ensp;if the noun is impervious, say &quot;[The noun] cannot be burned.&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Check burning something with something (this is the burn only things not held rule):</div>
+<div class="codeline">&ensp;&ensp;say &quot;[one of]It occurs to you to set down [the noun] before burning, just for safety&#39;s sake. [or]Again, you decide to put down [the noun] prior to burning. [or]You try setting down [the noun] as usual. [stopping][run paragraph on]&quot;;</div>
+<div class="codeline">&ensp;&ensp;silently try the player dropping the noun;</div>
+<div class="codeline">&ensp;&ensp;if the player encloses the noun, stop the action.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Carry out burning something with something (this is the simplistic burning rule):</div>
+<div class="codeline">&ensp;&ensp;now the noun is nowhere.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Report burning something with something:</div>
+<div class="codeline">&ensp;&ensp;say &quot;You burn up [the noun].&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Rule for implicitly taking the second noun while burning something with something which is not a strikable-match:</div>
+<div class="codeline">&ensp;&ensp;say &quot;You can only light things with matches.&quot;;</div>
+<div class="codeline">&ensp;&ensp;stop the action.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline i7header">Section 2 - Matches</div></div><p>The word &quot;matches&quot; is used by Inform to compare snippets of text (see &quot;Reading a command&quot; in the Activities chapter). This can sometimes cause awkwardness if we also have a kind called &quot;match&quot;, so for the occasion we will give our matches a more specialized name, never visible to the player:</p>
+<div class="codeblock"><div class="codeline">A strikable-match is a kind of thing. The plural of strikable-match is s-matches.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A strikable-match has a number called duration. The duration of a strikable-match is usually 3.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Rule for printing the name of a strikable-match: say &quot;match&quot;.</div>
+<div class="codeline">Rule for printing the plural name of a strikable-match: say &quot;matches&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Understand &quot;match&quot; as a strikable-match. Understand &quot;matches&quot; as a strikable-match.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Flame-state is a kind of value. The flame-states are burnt, flaming, and new. Understand &quot;burning&quot; or &quot;lit&quot; as flaming. Understand &quot;unused&quot; as new.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A strikable-match has a flame-state. A strikable-match is usually new. Understand the flame-state property as describing a strikable-match.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Before printing the name of a strikable-match while asking which do you mean:</div>
+<div class="codeline">&ensp;&ensp;say &quot;[flame-state] &quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Before printing the name of a strikable-match while taking inventory:</div>
+<div class="codeline">&ensp;&ensp;say &quot;[flame-state] &quot;.</div>
+<div class="codeline">Before printing the plural name of a strikable-match while taking inventory:</div>
+<div class="codeline">&ensp;&ensp;say &quot;[flame-state] &quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Before printing the name of a strikable-match while clarifying the parser&#39;s choice of something:</div>
+<div class="codeline">&ensp;&ensp;if not taking inventory, say &quot;[flame-state] &quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">After printing the name of a strikable-match (called special-target) while clarifying the parser&#39;s choice of something:</div>
+<div class="codeline">&ensp;&ensp;if the player carries the special-target:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot; you&#39;re carrying&quot;;</div>
+<div class="codeline">&ensp;&ensp;otherwise if the special-target is in the location:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot; on the ground&quot;;</div>
+<div class="codeline">&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot; [if the holder of the special-target is a container]in[otherwise]on[end if] [the holder of the special-target]&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Understand &quot;strike [something]&quot; as attacking.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Understand &quot;strike [strikable-match]&quot; as striking. Striking is an action applying to one carried thing.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Understand &quot;burn [strikable-match]&quot; as striking.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Does the player mean striking a new strikable-match:</div>
+<div class="codeline">&ensp;&ensp;it is very likely.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Does the player mean striking a burnt strikable-match:</div>
+<div class="codeline">&ensp;&ensp;it is unlikely.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Check striking a strikable-match (this is the strike only new matches rule):</div>
+<div class="codeline">&ensp;&ensp;if the noun is burnt, say &quot;[The noun] has already burnt down and cannot be relit.&quot; instead;</div>
+<div class="codeline">&ensp;&ensp;if the noun is flaming, say &quot;[The noun] is already burning.&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Carry out striking a strikable-match (this is the standard striking rule):</div>
+<div class="codeline">&ensp;&ensp;now the noun is flaming;</div>
+<div class="codeline">&ensp;&ensp;now the noun is lit.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Report striking a strikable-match (this is the standard report striking rule):</div>
+<div class="codeline">&ensp;&ensp;say &quot;You light [the noun].&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Before burning something with a new strikable-match (this is the prior lighting rule):</div>
+<div class="codeline">&ensp;&ensp;say &quot;(first [if the player does not carry the second noun]taking and [end if]lighting [the second noun])[command clarification break]&quot;;</div>
+<div class="codeline">&ensp;&ensp;silently try striking the second noun;</div>
+<div class="codeline">&ensp;&ensp;if the second noun is not flaming, stop the action.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Rule for implicitly taking a strikable-match (called target) while striking:</div>
+<div class="codeline">&ensp;&ensp;try silently taking the target.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Does the player mean burning something with a flaming strikable-match:</div>
+<div class="codeline">&ensp;&ensp;it is very likely.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Does the player mean burning something with a new strikable-match:</div>
+<div class="codeline">&ensp;&ensp;it is likely.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Does the player mean burning something with a burnt strikable-match:</div>
+<div class="codeline">&ensp;&ensp;it is unlikely.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of burning a burnt strikable-match with something:</div>
+<div class="codeline">&ensp;&ensp;say &quot;[The noun] is completely consumed and cannot be relit.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline i7header">Section 3 - Putting the Matches Out</div><div class="codeline">Every turn:</div>
+<div class="codeline">&ensp;&ensp;let N be 0; [here we track how many matches are being put out during this turn, so that we don&#39;t have to mention each match individually if several go out during the same move]</div>
+<div class="codeline">&ensp;&ensp;repeat with item running through flaming s-matches:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;decrement the duration of the item;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;if the duration of the item is 0:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the item is burnt;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the item is unlit;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the item is visible, increment N;</div>
+<div class="codeline">&ensp;&ensp;if N is 1:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;[if the number of visible flaming s-matches is greater than 0]One of the matches [otherwise if the number of burnt visible s-matches is greater than 1]Your last burning match [otherwise]The match [end if]goes out.&quot;;</div>
+<div class="codeline">&ensp;&ensp;otherwise if N is greater than 1:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;let enumeration be &quot;[N in words]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;if N is the number of visible s-matches:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if N is two, say &quot;Both&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;otherwise say &quot;All [enumeration]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[enumeration in title case]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot; matches go out[if a visible strikable-match is flaming], leaving [number of visible flaming s-matches in words] still lit[end if].&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline i7header">Section 4 - Scenario</div><div class="codeline">Old Chicago is a room.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The player carries a flammable thing called a log. Understand &quot;wooden&quot; and &quot;wood&quot; as the log.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The player carries two s-matches. The matchbox is an open openable container. It contains five s-matches. The player carries the matchbox.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">When play begins:</div>
+<div class="codeline">&ensp;&ensp;now every strikable-match carried by the player is flaming;</div>
+<div class="codeline">&ensp;&ensp;now every strikable-match carried by the player is lit.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;i / burn match / i / i / burn log with match / burn matchbox with match / i&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "i / burn match / i / i / burn log with match / burn matchbox with match / i".</summary><div class="testme-output">Old Chicago<br><br>>(Testing.)<br><br>>[1] i<br>You are carrying:<br>  a log<br>  two flaming matches (providing light)<br>  a matchbox (open)<br>    five new matches<br><br>>[2] burn match<br>(the new match in the matchbox)<br>You light the match.<br><br>>[3] i<br>You are carrying:<br>  three flaming matches (providing light)<br>  a log<br>  a matchbox (open)<br>    four new matches<br><br>Two matches go out, leaving one still lit.<br><br>>[4] i<br>You are carrying:<br>  a flaming match (providing light)<br>  a log<br>  two burnt matches<br>  a matchbox (open)<br>    four new matches<br><br>Your last burning match goes out.<br><br>>[5] burn log with match<br>(the new match in the matchbox)<br>(first taking and lighting the match)<br>It occurs to you to set down the log before burning, just for safety's sake. You burn up the log.<br><br>>[6] burn matchbox with match<br>(the flaming match you're carrying)<br>The matchbox cannot be burned.<br><br>>[7] i<br>You are carrying:<br>  a flaming match (providing light)<br>  three burnt matches<br>  a matchbox (open)<br>    three new matches<br><br>Your last burning match goes out.
+</div></details><div class="doc-navbar"><div class="doc-navbar-left"><a href="mirror_mirror.html" title="The sorcerer&#39;s mirror can, when held up high, form an impression of its surroundings which it then preserves.">416. Mirror, Mirror</a></div><div class="doc-navbar-right"><a href="blackout.html" title="Filtering the names of rooms printed while in darkness.">418. Blackout</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

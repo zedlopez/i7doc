@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 210. Spellbreaker</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Spellbreaker</h1><div class="subheading">Example 210 ★</div>
+<div class="linkback">
+<a href="../WI_12.html#section_15" title="Advanced Actions &gt; Out of world actions">WI §12.15 Out of world actions</a><br><a href="../RB_11.html#section_2" title="Out Of World Actions and Effects &gt; Saving and Undoing">RB §11.2 Saving and Undoing</a>
+</div>
+<p class="example-desc">P. David Lebling&#39;s classic &quot;Spellbreaker&quot; (1986) includes a room where the game cannot be saved: here is an Inform implementation.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="fate_steps_in.html" title="Fate entity which attempts to make things happen, by hook or by crook, including taking preliminary actions to set the player up a bit.">209. Fate Steps In</a></div><div class="doc-navbar-right"><a href="point_for_never_saving_the_game.html" title="In some of the late 1970s &quot;cave crawl&quot; adventure games, an elaborate scoring system might still leave the player perplexed as to why an apparently perfect play-through resulted in a score which was still one point short of the supposed maximum. Why only 349 out of 350? The answer varied, but sometimes the last point was earned by never saving the game &ndash; in other words by playing it right through with nothing to guard against mistakes (except perhaps UNDO for the last command), and in one long session.">211. A point for never saving the game</a></div></div>
+</header>
+<p>The answer is easy, but there is a trap:</p>
+<div class="codeblock"><div class="codeline">Check saving the game when the location is the Vault: say &quot;That spell does not work here.&quot; instead.</div>
+</div><p>The trap is that &quot;Before saving the game&hellip;&quot;, which might have been our first guess, does not work: because out of world actions are exempt from Before, Instead and After rules.</p>
+<p>&quot;Spellbreaker&quot; pulls this unpleasant, but in context witty, stunt as part of a situation which is engineered to force the player to reason through a weighing-objects puzzle using the perfect strategy rather than by guesswork. The illusion that the situation is fair &ndash; not rigged against the player, that is &ndash; would collapse if the player could save the game and keep retrying possibilities in the light of knowledge gained from earlier attempts. The moral of this story is that any attempt to use in-world situations to influence out-of-world commands should be <em>extremely uncommon</em>.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="fate_steps_in.html" title="Fate entity which attempts to make things happen, by hook or by crook, including taking preliminary actions to set the player up a bit.">209. Fate Steps In</a></div><div class="doc-navbar-right"><a href="point_for_never_saving_the_game.html" title="In some of the late 1970s &quot;cave crawl&quot; adventure games, an elaborate scoring system might still leave the player perplexed as to why an apparently perfect play-through resulted in a score which was still one point short of the supposed maximum. Why only 349 out of 350? The answer varied, but sometimes the last point was earned by never saving the game &ndash; in other words by playing it right through with nothing to guard against mistakes (except perhaps UNDO for the last command), and in one long session.">211. A point for never saving the game</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 56. Being Prepared</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Being Prepared</h1><div class="subheading">Example 56 ★</div>
+<div class="linkback">
+<a href="../WI_4.html#section_15" title="Kinds &gt; Assemblies and body parts">WI §4.15 Assemblies and body parts</a><br><a href="../RB_9.html#section_3" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Clothing">RB §9.3 Clothing</a>
+</div>
+<p class="example-desc">A kind for jackets, which always includes a container called a pocket.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="early_childhood.html" title="A child&#39;s set of building blocks, which come in three different colours &ndash; red, green and blue &ndash; but which can be repainted during play.">55. Early Childhood</a></div><div class="doc-navbar-right"><a href="model_shop.html" title="An &quot;on/off button&quot; which controls whatever device it is part of.">57. Model Shop</a></div></div>
+</header>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex56">Play/modify Being Prepared in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="Prepared/index.html">Play Being Prepared in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Being Prepared&quot;\n\nA jacket is a kind of thing. A jacket is always wearable.\n\nA pocket is a kind of container. A pocket is part of every jacket. The carrying capacity of a pocket is always 2.\n\nAfter examining a jacket:\n\tlet target be a random pocket which is part of the noun;\n\tsay &quot;[The target] contains [a list of things in the target].&quot;\n\n\nTent is a room. &quot;A dome made of two flexible rods and a lot of bright green ripstop nylon. It bills itself as a one-man tent, but you&apos;d call it a two-dwarf tent: there is no way to arrange yourself on its square floor so that you can stretch out completely.&quot;\n\nThe hoodie is a jacket. &quot;Your hoodie is balled up in the corner.&quot; The description of the hoodie is &quot;Both elbows are stained from yesterday&apos;s entrenching project.&quot;\n\nThe hoodie&apos;s pocket contains a Swiss army knife and a folded map. The hoodie is in the Tent.\n\n\nThe player wears a whistle. The description of the whistle is &quot;To frighten bears.&quot;\n\nTest me with &quot;x hoodie / get hoodie / get knife / get map / i / put hoodie in pocket / put whistle in pocket / put map in pocket / put knife in pocket / i&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Being Prepared&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A jacket is a kind of thing. A jacket is always wearable.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A pocket is a kind of container. A pocket is part of every jacket. The carrying capacity of a pocket is always 2.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">After examining a jacket:</div>
+<div class="codeline">&ensp;&ensp;let target be a random pocket which is part of the noun;</div>
+<div class="codeline">&ensp;&ensp;say &quot;[The target] contains [a list of things in the target].&quot;</div>
+</div><p>Now we&#39;ve created the rules that will govern any specific jackets we might happen to put in our game: each one will always have one pocket, which will be able to contain no more than two things. The description of &quot;a list of things&quot; is text with a list, which we will learn about further in a few sections.</p>
+<p>Next we might want to create the environment and an actual example of the jacket kind:</p>
+<div class="codeblock"><div class="codeline">Tent is a room. &quot;A dome made of two flexible rods and a lot of bright green ripstop nylon. It bills itself as a one-man tent, but you&#39;d call it a two-dwarf tent: there is no way to arrange yourself on its square floor so that you can stretch out completely.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The hoodie is a jacket. &quot;Your hoodie is balled up in the corner.&quot; The description of the hoodie is &quot;Both elbows are stained from yesterday&#39;s entrenching project.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The hoodie&#39;s pocket contains a Swiss army knife and a folded map. The hoodie is in the Tent.</div>
+</div><p>Notice that, since Inform has created a pocket for the hoodie, we can now refer to it by name in our source, giving it any additional properties we need to define. Here we simply put a few items into it.</p>
+<div class="codeblock"><div class="codeline">The player wears a whistle. The description of the whistle is &quot;To frighten bears.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;x hoodie / get hoodie / get knife / get map / i / put hoodie in pocket / put whistle in pocket / put map in pocket / put knife in pocket / i&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "x hoodie / get hoodie / get knife / get map / i / put hoodie in pocket / put whistle in pocket / put map in pocket / put knife in pocket / i".</summary><div class="testme-output">Tent<br>A dome made of two flexible rods and a lot of bright green ripstop nylon. It bills itself as a one-man tent, but you'd call it a two-dwarf tent: there is no way to arrange yourself on its square floor so that you can stretch out completely.<br><br>Your hoodie is balled up in the corner.<br><br>>(Testing.)<br><br>>[1] x hoodie<br>Both elbows are stained from yesterday's entrenching project.<br><br>The hoodie's pocket contains a Swiss army knife and a folded map.<br><br>>[2] get hoodie<br>Taken.<br><br>>[3] get knife<br>Taken.<br><br>>[4] get map<br>Taken.<br><br>>[5] i<br>You are carrying:<br>  a folded map<br>  a Swiss army knife<br>  a hoodie<br>  a whistle (being worn)<br><br>>[6] put hoodie in pocket<br>You can't put something inside itself.<br><br>>[7] put whistle in pocket<br>(first taking it off)<br>You put the whistle into the hoodie's pocket.<br><br>>[8] put map in pocket<br>You put the folded map into the hoodie's pocket.<br><br>>[9] put knife in pocket<br>There is no more room in the hoodie's pocket.<br><br>>[10] i<br>You are carrying:<br>  a Swiss army knife<br>  a hoodie
+</div></details><p>Notice that Inform automatically refuses to put the hoodie into its own pocket: as a default, a container cannot contain something of which it is itself a part.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="early_childhood.html" title="A child&#39;s set of building blocks, which come in three different colours &ndash; red, green and blue &ndash; but which can be repainted during play.">55. Early Childhood</a></div><div class="doc-navbar-right"><a href="model_shop.html" title="An &quot;on/off button&quot; which controls whatever device it is part of.">57. Model Shop</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

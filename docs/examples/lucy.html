@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 92. Lucy</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Lucy</h1><div class="subheading">Example 92 ★</div>
+<div class="linkback">
+<a href="../WI_7.html#section_6" title="Basic Actions &gt; Reading and talking">WI §7.6 Reading and talking</a><br><a href="../RB_6.html#section_14" title="Commands &gt; Remembering, Converting and Combining Actions">RB §6.14 Remembering, Converting and Combining Actions</a>
+</div>
+<p class="example-desc">Redirecting a question about one topic to ask about another.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="sybil.html" title="Direct all ASK, TELL, and ANSWER commands to ASK, and accept multiple words for certain cases.">91. Sybil 1</a></div><div class="doc-navbar-right"><a href="sybil2.html" title="Making the character understand YES, SAY YES TO CHARACTER, TELL CHARACTER YES, ANSWER YES, and CHARACTER, YES.">93. Sybil 2</a></div></div>
+</header>
+<p>Occasionally we will want to replace the player&#39;s question topic with another of our own devising. We can do this in the simplest possible case like so:</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex92">Play/modify Lucy in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="Lucy/index.html">Play Lucy in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Lucy&quot;\n\nThe International Boardgame Championship is a room. Lucy is a woman in the Championship.\n\nInstead of asking Lucy about &quot;checkers&quot;:\n\ttry asking Lucy about &quot;games&quot;.\n\nInstead of asking Lucy about &quot;games&quot;,\n\tsay &quot;&apos;I don&apos;t like games,&apos; she sniffs.&quot;\n\nTest me with &quot;ask lucy about checkers / ask lucy about games&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Lucy&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The International Boardgame Championship is a room. Lucy is a woman in the Championship.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of asking Lucy about &quot;checkers&quot;:</div>
+<div class="codeline">&ensp;&ensp;try asking Lucy about &quot;games&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of asking Lucy about &quot;games&quot;,</div>
+<div class="codeline">&ensp;&ensp;say &quot;&#39;I don&#39;t like games,&#39; she sniffs.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;ask lucy about checkers / ask lucy about games&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "ask lucy about checkers / ask lucy about games".</summary><div class="testme-output">International Boardgame Championship<br>You can see Lucy here.<br><br>>(Testing.)<br><br>>[1] ask lucy about checkers<br>"I don't like games," she sniffs.<br><br>>[2] ask lucy about games<br>"I don't like games," she sniffs.
+</div></details><p>Note that this syntax did not work in older versions of Inform; it is now safe.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="sybil.html" title="Direct all ASK, TELL, and ANSWER commands to ASK, and accept multiple words for certain cases.">91. Sybil 1</a></div><div class="doc-navbar-right"><a href="sybil2.html" title="Making the character understand YES, SAY YES TO CHARACTER, TELL CHARACTER YES, ANSWER YES, and CHARACTER, YES.">93. Sybil 2</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

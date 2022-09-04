@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 363. Peeled</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Peeled</h1><div class="subheading">Example 363 ★</div>
+<div class="linkback">
+<a href="../WI_18.html#section_29" title="Activities &gt; Deciding the scope of something">WI §18.29 Deciding the scope of something</a><br><a href="../RB_3.html#section_7" title="Place &gt; Lighting">RB §3.7 Lighting</a>
+</div>
+<p class="example-desc">Two different approaches to adjusting what the player can interact with, compared.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="copper_river.html" title="Manipulating room descriptions so that only interesting items are mentioned, while objects that are present but not currently useful to the player are ignored.">362. Copper River</a></div><div class="doc-navbar-right"><a href="four_stars2.html" title="Using &quot;deciding the scope&quot; to change the content of lists such as &quot;the list of audible things which can be touched by the player&quot;.">364. Four Stars 2</a></div></div>
+</header>
+<p>Suppose we have a situation where the player is in darkness, but is allowed to feel and interact with (except for examining) any large objects. In that case, we write a scope rule that puts those large objects into scope all the time, and trust the &quot;requires light&quot; aspect of verbs like examining to prevent the player from doing any actions that he shouldn&#39;t:</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex363a">Play/modify Peeled in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="Grapes_1/index.html">Play Peeled in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Peeled&quot;\n\nA thing can be large or small.\n\nBefore touching a large thing when in darkness: say &quot;You grope for [the noun]...&quot;\n\nAfter deciding the scope of the player:\n\trepeat with item running through large things in the location:\n\t\tplace item in scope.\n\nSome generic surroundings are backdrop. They are everywhere. Understand &quot;walls&quot; or &quot;wall&quot; or &quot;ceiling&quot; or &quot;ground&quot; or &quot;floor&quot; or &quot;area&quot; or &quot;room&quot; or &quot;here&quot; as the generic surroundings. Instead of touching the generic surroundings: say &quot;You encounter nothing extraordinary.&quot; Instead of touching the generic surroundings when in darkness: say &quot;You try feeling your way around and reach [a list of large things in the location].&quot; After deciding the scope of the player when in darkness: place the surroundings in scope.\n\nThe Room of Mystery is a dark room. The bearskin rug is a large thing in the Room of Mystery. Instead of touching the rug: say &quot;It feels furry!&quot;\n\nThe peeled grape is a small thing in the Room of Mystery. Instead of touching the peeled grape: say &quot;Gosh, is that an eyeball?&quot;\n\nTest me with &quot;feel floor / feel rug / eat rug / examine rug / get grape&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Peeled&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A thing can be large or small.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Before touching a large thing when in darkness: say &quot;You grope for [the noun]...&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">After deciding the scope of the player:</div>
+<div class="codeline">&ensp;&ensp;repeat with item running through large things in the location:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;place item in scope.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Some generic surroundings are backdrop. They are everywhere. Understand &quot;walls&quot; or &quot;wall&quot; or &quot;ceiling&quot; or &quot;ground&quot; or &quot;floor&quot; or &quot;area&quot; or &quot;room&quot; or &quot;here&quot; as the generic surroundings. Instead of touching the generic surroundings: say &quot;You encounter nothing extraordinary.&quot; Instead of touching the generic surroundings when in darkness: say &quot;You try feeling your way around and reach [a list of large things in the location].&quot; After deciding the scope of the player when in darkness: place the surroundings in scope.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Room of Mystery is a dark room. The bearskin rug is a large thing in the Room of Mystery. Instead of touching the rug: say &quot;It feels furry!&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The peeled grape is a small thing in the Room of Mystery. Instead of touching the peeled grape: say &quot;Gosh, is that an eyeball?&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;feel floor / feel rug / eat rug / examine rug / get grape&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "feel floor / feel rug / eat rug / examine rug / get grape".</summary><div class="testme-output">Darkness<br>It is pitch dark, and you can't see a thing.<br><br>>(Testing.)<br><br>>[1] feel floor<br>You try feeling your way around and reach a bearskin rug.<br><br>>[2] feel rug<br>You grope for the bearskin rug...<br><br>It feels furry!<br><br>>[3] eat rug<br>That's plainly inedible.<br><br>>[4] examine rug<br>It is pitch dark, and you can't see a thing.<br><br>>[5] get grape<br>You can't see any such thing.
+</div></details><p>Sadly, because the grape is small, the player will never encounter this horror.</p>
+<p>Alternatively, suppose we have a situation in which the player can use one command to interact with a kind of thing that isn&#39;t normally in scope. It&#39;s usually most convenient to write the &quot;understand&quot; rule appropriately rather than use the scope activity.</p>
+<p>(Note that we define &quot;inquiring about&quot; as applying to one *visible* thing; otherwise we would be required to be able to touch the catsuit in order to inquire about it. More on this restriction may be found in the Advanced Actions chapter on the topic of visible, touchable, and carried things.)</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex363b">Play/modify Peeled in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="Grapes_2/index.html">Play Peeled in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Peeled&quot;\n\nMr Steed&apos;s Flat is a room.\n\nUnderstand &quot;ask about [any subject]&quot; as inquiring about. A subject is a kind of thing. The skintight catsuit is a subject. Inquiring about is an action applying to one visible thing.\n\nCarry out inquiring about something:\n\tsay &quot;&apos;What can you tell me about [the noun]?&apos; you demand. Mr Steed raises his eyebrows, but does not reply.&quot;\n\nTest me with &quot;ask about catsuit / x catsuit&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Peeled&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Mr Steed&#39;s Flat is a room.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Understand &quot;ask about [any subject]&quot; as inquiring about. A subject is a kind of thing. The skintight catsuit is a subject. Inquiring about is an action applying to one visible thing.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Carry out inquiring about something:</div>
+<div class="codeline">&ensp;&ensp;say &quot;&#39;What can you tell me about [the noun]?&#39; you demand. Mr Steed raises his eyebrows, but does not reply.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;ask about catsuit / x catsuit&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "ask about catsuit / x catsuit".</summary><div class="testme-output">Mr Steed's Flat<br><br>>(Testing.)<br><br>>[1] ask about catsuit<br>"What can you tell me about the skintight catsuit?" you demand. Mr Steed raises his eyebrows, but does not reply.<br><br>>[2] x catsuit<br>You can't see any such thing.
+</div></details><p>All this said, there do arise certain complex situations when we want an activity-specific scoping.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="copper_river.html" title="Manipulating room descriptions so that only interesting items are mentioned, while objects that are present but not currently useful to the player are ignored.">362. Copper River</a></div><div class="doc-navbar-right"><a href="four_stars2.html" title="Using &quot;deciding the scope&quot; to change the content of lists such as &quot;the list of audible things which can be touched by the player&quot;.">364. Four Stars 2</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 45. Something Narsty</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Something Narsty</h1><div class="subheading">Example 45 ★</div>
+<div class="linkback">
+<a href="../WI_4.html#section_3" title="Kinds &gt; Degrees of certainty">WI §4.3 Degrees of certainty</a><br><a href="../RB_3.html#section_5" title="Place &gt; Doors, Staircases, and Bridges">RB §3.5 Doors, Staircases, and Bridges</a>
+</div>
+<p class="example-desc">A staircase always open and never openable.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="odin.html" title="Replacing &quot;You see nothing special&hellip;&quot; with a different default message for looking at something nondescript.">44. Odin</a></div><div class="doc-navbar-right"><a href="get_me_to_the_church_on_time.html" title="Using kinds of clothing to prevent the player from wearing several pairs of trousers at the same time.">46. Get Me to the Church on Time</a></div></div>
+</header>
+<p>In a game with many staircases, we might want:</p>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`A staircase is a kind of door. A staircase is always open. A staircase is never openable.`)">⧉</button><div class="codeline">A staircase is a kind of door. A staircase is always open. A staircase is never openable.</div>
+</div><p>Defining the staircase this way means that we will never be able to get away with (for instance) a folding ladder into the attic which is sometimes closed up. So alternatively we might do</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex45">Play/modify Something Narsty in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="Staircase/index.html">Play Something Narsty in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Something Narsty&quot;\n\nA staircase is a kind of door. A staircase is usually open. A staircase is seldom openable.\n\n\nThe ladder is a staircase. It is above the Woodshed and below the Scary Loft.\n\nTest me with &quot;up&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Something Narsty&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A staircase is a kind of door. A staircase is usually open. A staircase is seldom openable.</div>
+</div><p>We could then write a rule so that whenever the player types CLIMB [any staircase], the command is diverted to an enter command, while all other doors refuse to respond to such treatment. Still, this kind is now usable, as we see in this trivial example:</p>
+<div class="codeblock"><div class="codeline">The ladder is a staircase. It is above the Woodshed and below the Scary Loft.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;up&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "up".</summary><div class="testme-output">Woodshed<br>You can see a ladder here.<br><br>>(Testing.)<br><br>>[1] up<br><br>Scary Loft<br>You can see a ladder here.
+</div></details><p>But these are refinements for a later chapter.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="odin.html" title="Replacing &quot;You see nothing special&hellip;&quot; with a different default message for looking at something nondescript.">44. Odin</a></div><div class="doc-navbar-right"><a href="get_me_to_the_church_on_time.html" title="Using kinds of clothing to prevent the player from wearing several pairs of trousers at the same time.">46. Get Me to the Church on Time</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

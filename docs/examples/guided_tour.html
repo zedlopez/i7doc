@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 351. Guided Tour</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Guided Tour</h1><div class="subheading">Example 351 ★★</div>
+<div class="linkback">
+<a href="../WI_18.html#section_23" title="Activities &gt; Constructing the status line">WI §18.23 Constructing the status line</a><br><a href="../RB_12.html#section_2" title="Typography, Layout, and Multimedia Effects &gt; The Status Line">RB §12.2 The Status Line</a>
+</div>
+<p class="example-desc">A status line that lists the available exits from the current location, changing the names of these exits depending on whether the room has been visited or not.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="ways_out.html" title="A status line that lists the available exits from the current location.">350. Ways Out</a></div><div class="doc-navbar-right"><a href="reflections.html" title="Emphasizing the reflective quality of shiny objects whenever they are described in the presence of the torch.">352. Reflections</a></div></div>
+</header>
+<p>It may sometimes be helpful to prompt the player with a list of exits printed up in the status line. For instance, here is a status line that will print the names of nearby rooms, as well as all the doors the player can see:</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex351">Play/modify Guided Tour in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="Exits/index.html">Play Guided Tour in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Guided Tour&quot;\n\nWhen play begins:\n\tnow left hand status line is &quot;Nearby: [if a room is adjacent][the list of adjacent rooms][end if][if a room is adjacent and a door is visible] and [end if][if a door is visible][the list of visible doors][end if]&quot;;\n\tnow right hand status line is &quot;&quot;.\n\n\nRule for printing the name of an unvisited room (called the target) while constructing the status line:\n\tlet aim be the best route from the location to the target;\n\tsay &quot;something [aim]&quot;.\n\n\nAfter printing the name of a visited room (called the target) while constructing the status line:\n\tlet aim be the best route from the location to the target;\n\tsay &quot; ([aim])&quot;.\n\n\nRule for printing the name of a direction (called the aim) while constructing the status line:\n\tchoose row with a heading of the aim in the Table of Abbreviation;\n\tsay &quot;[shortcut entry]&quot;.\n\nTable of Abbreviation\nheading\tshortcut\nnorth\t&quot;N&quot;\nnortheast\t&quot;NE&quot;\nnorthwest\t&quot;NW&quot;\neast\t&quot;E&quot;\nsoutheast\t&quot;SE&quot;\nsouth\t&quot;S&quot;\nsouthwest\t&quot;SW&quot;\nwest\t&quot;W&quot;\nup\t&quot;U&quot;\ndown\t&quot;D&quot;\ninside\t&quot;in&quot;\noutside\t&quot;out&quot;\n\n\nDome is a room. North of Dome is North Chapel. South of the Dome is South Chapel. West of the Dome is Western End. Quiet Corner is northwest of the Dome, north of Western End, and west of North Chapel. Loud Corner is east of North Chapel, northeast of Dome, and north of Eastern End. Eastern End is north of Dim Corner and east of Dome. Dim Corner is southeast of Dome and east of South Chapel. Ruined Corner is southwest of Dome, west of South Chapel, and south of Western End.\n\nThe church door is east of Eastern End and west of the Courtyard. The church door is a door.\n\nTest me with &quot;n / w / s&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Guided Tour&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">When play begins:</div>
+<div class="codeline">&ensp;&ensp;now left hand status line is &quot;Nearby: [if a room is adjacent][the list of adjacent rooms][end if][if a room is adjacent and a door is visible] and [end if][if a door is visible][the list of visible doors][end if]&quot;;</div>
+<div class="codeline">&ensp;&ensp;now right hand status line is &quot;&quot;.</div>
+</div><p>Of course, we may not want to tell the player what glories are to be found in locations he hasn&#39;t yet explored.</p>
+<div class="codeblock"><div class="codeline">Rule for printing the name of an unvisited room (called the target) while constructing the status line:</div>
+<div class="codeline">&ensp;&ensp;let aim be the best route from the location to the target;</div>
+<div class="codeline">&ensp;&ensp;say &quot;something [aim]&quot;.</div>
+</div><p>Even when we have seen a room, we might still want a reminder about how to get there:</p>
+<div class="codeblock"><div class="codeline">After printing the name of a visited room (called the target) while constructing the status line:</div>
+<div class="codeline">&ensp;&ensp;let aim be the best route from the location to the target;</div>
+<div class="codeline">&ensp;&ensp;say &quot; ([aim])&quot;.</div>
+</div><p>We may also find that printing out full directions makes the status line unpleasantly crowded. Fortunately, it isn&#39;t hard to provide a set of abbreviations to use in this context:</p>
+<div class="codeblock"><div class="codeline">Rule for printing the name of a direction (called the aim) while constructing the status line:</div>
+<div class="codeline">&ensp;&ensp;choose row with a heading of the aim in the Table of Abbreviation;</div>
+<div class="codeline">&ensp;&ensp;say &quot;[shortcut entry]&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline tablename">Table of Abbreviation</div><table>
+<tr><td>heading</td><td>shortcut</td></tr><tr><td>north</td><td>&quot;N&quot;</td></tr><tr><td>northeast</td><td>&quot;NE&quot;</td></tr><tr><td>northwest</td><td>&quot;NW&quot;</td></tr><tr><td>east</td><td>&quot;E&quot;</td></tr><tr><td>southeast</td><td>&quot;SE&quot;</td></tr><tr><td>south</td><td>&quot;S&quot;</td></tr><tr><td>southwest</td><td>&quot;SW&quot;</td></tr><tr><td>west</td><td>&quot;W&quot;</td></tr><tr><td>up</td><td>&quot;U&quot;</td></tr><tr><td>down</td><td>&quot;D&quot;</td></tr><tr><td>inside</td><td>&quot;in&quot;</td></tr><tr><td>outside</td><td>&quot;out&quot;</td></tr></table>
+</div><p>Everywhere else, the names of directions will still be printed out in full in the usual way. And now we give it a little map to work with:</p>
+<div class="codeblock"><div class="codeline">Dome is a room. North of Dome is North Chapel. South of the Dome is South Chapel. West of the Dome is Western End. Quiet Corner is northwest of the Dome, north of Western End, and west of North Chapel. Loud Corner is east of North Chapel, northeast of Dome, and north of Eastern End. Eastern End is north of Dim Corner and east of Dome. Dim Corner is southeast of Dome and east of South Chapel. Ruined Corner is southwest of Dome, west of South Chapel, and south of Western End.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The church door is east of Eastern End and west of the Courtyard. The church door is a door.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;n / w / s&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "n / w / s".</summary><div class="testme-output">Dome<br><br>>(Testing.)<br><br>>[1] n<br><br>North Chapel<br><br>>[2] w<br><br>Quiet Corner<br><br>>[3] s<br><br>Western End
+</div></details><p>Note that while this looks fine in some places, other locations exceed the limits of what the status-line can hold: if any given room is going to have a large number of exits, this kind of listing will almost certainly not fit. So apply cautiously.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="ways_out.html" title="A status line that lists the available exits from the current location.">350. Ways Out</a></div><div class="doc-navbar-right"><a href="reflections.html" title="Emphasizing the reflective quality of shiny objects whenever they are described in the presence of the torch.">352. Reflections</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 108. Zorb</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Zorb</h1><div class="subheading">Example 108 ★★★</div>
+<div class="linkback">
+<a href="../WI_7.html#section_14" title="Basic Actions &gt; Going by, going through, going with">WI §7.14 Going by, going through, going with</a><br><a href="../RB_6.html#section_9" title="Commands &gt; Going, Pushing Things in Directions">RB §6.9 Going, Pushing Things in Directions</a>
+</div>
+<p class="example-desc">Replacing the message the player receives when attempting to push something that isn&#39;t pushable, and also to remove the restriction that objects cannot be pushed up or down.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="provenance_unknown.html" title="Allowing something like PUSH TELEVISION EAST to push the cart on which the television rests.">107. Provenance Unknown</a></div><div class="doc-navbar-right"><a href="dearth_and_the_maiden.html" title="Our heroine, fallen among gentleman highwaymen, is restrained by her own modesty and seemliness.">109. Dearth and the Maiden</a></div></div>
+</header>
+<p>There are two aspects of Inform&#39;s handling of pushable objects that are particularly prime for modification. One is that we may want to change the language used to refuse the pushing of unpushable objects.</p>
+<p>Second, Inform by default assumes that it is impossible to push objects in up or down directions. This makes lots of sense if the player is trying to push a wheelbarrow up a ladder; it makes less sense if instead we&#39;re pushing a ball up a slope.</p>
+<p>We solve both problems with some syntax borrowed from the chapter on rulebooks: in the first case, we replace the old rule with a new one with more friendly phrasing; in the second, we remove the rule entirely. More about how to do this is described in the rulebooks chapter; and in general we can find out what rules contribute to any given action by looking at the Actions index. In this case, the action is &quot;pushing it to&quot;, which has its own set of prerequisites (called check rules) that make sure the object can safely be pushed, before turning processing over to the going action.</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex108">Play/modify Zorb in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="Zorb/index.html">Play Zorb in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Zorb&quot;\n\nSection 1 - Procedure\n\nThe new can&apos;t push unpushable things rule is listed instead of the can&apos;t push unpushable things rule in the check pushing it to rules.\n\nThis is the new can&apos;t push unpushable things rule:\n\tif the noun is not pushable between rooms:\n\t\tsay &quot;[The noun] [are] not amenable to being pushed from place to place.&quot; instead.\n\nThe can&apos;t push vertically rule is not listed in any rulebook.\n\n\nSection 2 - Scenario\n\nThe Steep Hill is a room. The Crest is above Steep Hill. The Valley is below Steep Hill.\n\nThe flat rock is a fixed in place thing in the Steep Hill.\n\nThe Zorb is a transparent open enterable container in the Steep Hill. &quot;[if the player props the Zorb]The Zorb rests here, kept from further rolling by your support[otherwise]The Zorb is here[end if].&quot;. It is pushable between rooms. The description of the Zorb is &quot;A giant plastic inflatable ball, like a hamster ball for humans[if someone is in the Zorb]. Inside [is-are list of people in the Zorb][end if].&quot;\n\nLucy is a woman in the Zorb.\n\nCarry out going with the Zorb when the Zorb contains Lucy:\n\tsay &quot;Lucy whoops delightedly as she rides along in the Zorb.&quot;\n\nEvery turn when the Zorb is not in the Valley and the player does not prop the Zorb:\n\tlet next room be the room down from the location of the Zorb;\n\tif the player is not in the Zorb and the player can see the Zorb:\n\t\tsay &quot;The Zorb succumbs to gravity and rolls down toward [the next room].&quot;;\n\tmove the Zorb to the next room;\n\tif the player is in the Zorb:\n\t\tsay &quot;The Zorb rolls you down the hill!&quot;;\n\t\ttry looking;\n\totherwise if the player can see the Zorb:\n\t\tsay &quot;The Zorb rolls ponderously but inevitably into the vicinity.&quot;;\n\nPropping relates one person to one thing. The verb to prop means the propping relation.\n\nCarry out going with the Zorb:\n\tnow the player props the Zorb.\n\nBefore doing something when the action requires a touchable noun:\n\tif the noun is not the Zorb, now the player does not prop the Zorb.\n\nCheck waving hands when the player is propping something (called casualty):\n\ttry the player releasing the casualty.\n\nCarry out entering the Zorb:\n\tnow the player does not prop the Zorb.\n\nUnderstand &quot;let go of [something]&quot; or &quot;let [something] go&quot; or &quot;release [something]&quot; or &quot;free [something]&quot; as releasing. Releasing is an action applying to one thing.\n\nCheck releasing:\n\tif the player carries the noun:\n\t\ttry dropping the noun instead.\n\nCheck releasing:\n\tif the player does not prop the noun:\n\t\tsay &quot;You are not supporting [the noun].&quot; instead.\n\nCarry out releasing:\n\tnow the player does not prop the noun.\n\nReport releasing:\n\tsay &quot;You let go of [the noun].&quot;\n\nTest me with &quot;d / push zorb up / look / push zorb up / wave / d / d / push zorb up / release zorb / d / push zorb up / touch rock / push the flat rock south&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Zorb&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline i7header">Section 1 - Procedure</div><div class="codeline">The new can&#39;t push unpushable things rule is listed instead of the can&#39;t push unpushable things rule in the check pushing it to rules.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">This is the new can&#39;t push unpushable things rule:</div>
+<div class="codeline">&ensp;&ensp;if the noun is not pushable between rooms:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;[The noun] [are] not amenable to being pushed from place to place.&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The can&#39;t push vertically rule is not listed in any rulebook.</div>
+</div><p>And now to provide a scenario where the player can push something up and down a hillside. Most of the rest of the example is there for local color and to provide a way to demonstrate these rule adjustments:</p>
+<div class="codeblock"><div class="codeline i7header">Section 2 - Scenario</div><div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Steep Hill is a room. The Crest is above Steep Hill. The Valley is below Steep Hill.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The flat rock is a fixed in place thing in the Steep Hill.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Zorb is a transparent open enterable container in the Steep Hill. &quot;[if the player props the Zorb]The Zorb rests here, kept from further rolling by your support[otherwise]The Zorb is here[end if].&quot;. It is pushable between rooms. The description of the Zorb is &quot;A giant plastic inflatable ball, like a hamster ball for humans[if someone is in the Zorb]. Inside [is-are list of people in the Zorb][end if].&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Lucy is a woman in the Zorb.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Carry out going with the Zorb when the Zorb contains Lucy:</div>
+<div class="codeline">&ensp;&ensp;say &quot;Lucy whoops delightedly as she rides along in the Zorb.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Every turn when the Zorb is not in the Valley and the player does not prop the Zorb:</div>
+<div class="codeline">&ensp;&ensp;let next room be the room down from the location of the Zorb;</div>
+<div class="codeline">&ensp;&ensp;if the player is not in the Zorb and the player can see the Zorb:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;The Zorb succumbs to gravity and rolls down toward [the next room].&quot;;</div>
+<div class="codeline">&ensp;&ensp;move the Zorb to the next room;</div>
+<div class="codeline">&ensp;&ensp;if the player is in the Zorb:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;The Zorb rolls you down the hill!&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;try looking;</div>
+<div class="codeline">&ensp;&ensp;otherwise if the player can see the Zorb:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;The Zorb rolls ponderously but inevitably into the vicinity.&quot;;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Propping relates one person to one thing. The verb to prop means the propping relation.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Carry out going with the Zorb:</div>
+<div class="codeline">&ensp;&ensp;now the player props the Zorb.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Before doing something when the action requires a touchable noun:</div>
+<div class="codeline">&ensp;&ensp;if the noun is not the Zorb, now the player does not prop the Zorb.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Check waving hands when the player is propping something (called casualty):</div>
+<div class="codeline">&ensp;&ensp;try the player releasing the casualty.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Carry out entering the Zorb:</div>
+<div class="codeline">&ensp;&ensp;now the player does not prop the Zorb.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Understand &quot;let go of [something]&quot; or &quot;let [something] go&quot; or &quot;release [something]&quot; or &quot;free [something]&quot; as releasing. Releasing is an action applying to one thing.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Check releasing:</div>
+<div class="codeline">&ensp;&ensp;if the player carries the noun:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;try dropping the noun instead.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Check releasing:</div>
+<div class="codeline">&ensp;&ensp;if the player does not prop the noun:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;You are not supporting [the noun].&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Carry out releasing:</div>
+<div class="codeline">&ensp;&ensp;now the player does not prop the noun.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Report releasing:</div>
+<div class="codeline">&ensp;&ensp;say &quot;You let go of [the noun].&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;d / push zorb up / look / push zorb up / wave / d / d / push zorb up / release zorb / d / push zorb up / touch rock / push the flat rock south&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "d / push zorb up / look / push zorb up / wave / d / d / push zorb up / release zorb / d / push zorb up / touch rock / push the flat rock south".</summary><div class="testme-output">Steep Hill<br>The Zorb is here.<br><br>You can also see a flat rock here.<br><br>>(Testing.)<br><br>>[1] d<br><br>Valley<br>The Zorb rolls ponderously but inevitably into the vicinity.<br><br>>[2] push zorb up<br>Lucy whoops delightedly as she rides along in the Zorb.<br><br>Steep Hill<br>You can see a flat rock here.<br><br>>[3] look<br>Steep Hill<br>The Zorb rests here, kept from further rolling by your support.<br><br>You can also see a flat rock here.<br><br>>[4] push zorb up<br>Lucy whoops delightedly as she rides along in the Zorb.<br><br>Crest<br><br>>[5] wave<br>You let go of the Zorb.<br><br>You wave.<br><br>The Zorb succumbs to gravity and rolls down toward the Steep Hill.<br><br>>[6] d<br><br>Steep Hill<br>The Zorb is here.<br><br>You can also see a flat rock here.<br><br>The Zorb succumbs to gravity and rolls down toward the Valley.<br><br>>[7] d<br><br>Valley<br>The Zorb is here.<br><br>>[8] push zorb up<br>Lucy whoops delightedly as she rides along in the Zorb.<br><br>Steep Hill<br>You can see a flat rock here.<br><br>>[9] release zorb<br>You let go of the Zorb.<br><br>The Zorb succumbs to gravity and rolls down toward the Valley.<br><br>>[10] d<br><br>Valley<br>The Zorb is here.<br><br>>[11] push zorb up<br>Lucy whoops delightedly as she rides along in the Zorb.<br><br>Steep Hill<br>You can see a flat rock here.<br><br>>[12] touch rock<br>You feel nothing unexpected.<br><br>The Zorb succumbs to gravity and rolls down toward the Valley.<br><br>>[13] push the flat rock south<br>The flat rock is not amenable to being pushed from place to place.
+</div></details><div class="doc-navbar"><div class="doc-navbar-left"><a href="provenance_unknown.html" title="Allowing something like PUSH TELEVISION EAST to push the cart on which the television rests.">107. Provenance Unknown</a></div><div class="doc-navbar-right"><a href="dearth_and_the_maiden.html" title="Our heroine, fallen among gentleman highwaymen, is restrained by her own modesty and seemliness.">109. Dearth and the Maiden</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

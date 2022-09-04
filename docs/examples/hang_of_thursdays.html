@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 183. The Hang of Thursdays</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>The Hang of Thursdays</h1><div class="subheading">Example 183 ★★★</div>
+<div class="linkback">
+<a href="../WI_11.html#section_18" title="Phrases &gt; The value after and the value before">WI §11.18 The value after and the value before</a><br><a href="../RB_4.html#section_1" title="Time and Plot &gt; The Passage Of Time">RB §4.1 The Passage Of Time</a>
+</div>
+<p class="example-desc">Turns take a quarter day each, and the game rotates through the days of the week.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="entropy.html" title="All objects in the game have a heat, but if not kept insulated they will tend toward room temperature (and at a somewhat exaggerated rate).">182. Entropy</a></div><div class="doc-navbar-right"><a href="virtue.html" title="Defining certain kinds of behavior as inappropriate, so that other characters will refuse indignantly to do any such thing.">184. Virtue</a></div></div>
+</header>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex183">Play/modify The Hang of Thursdays in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="QuarterDay/index.html">Play The Hang of Thursdays in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;The Hang of Thursdays&quot;\n\nThe Stage is a room. Rule for printing the name of the stage: say &quot;[current weekday] [current time period]&quot; instead.\n\nA weekday is a kind of value. The weekdays are Saturday, Sunday, Monday, Tuesday, Wednesday, Thursday, Friday. The current weekday is a weekday that varies. The current weekday is Saturday.\n\nA time period is a kind of value. The time periods are morning, afternoon, evening, night. The current time period is a time period that varies. The current time period is afternoon.\n\nThis is the new advance time rule:\n\tif the current time period is less than night:\n\t\tnow the current time period is the time period after the current time period;\n\totherwise:\n\t\tnow the current time period is morning;\n\t\tnow the current weekday is the weekday after the current weekday.\n\n\nThe new advance time rule is listed instead of the advance time rule in the turn sequence rules.\n\nTest me with &quot;z / z / z / z / z&quot;.`)">⧉</button><div class="codeline storytitle">&quot;The Hang of Thursdays&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Stage is a room. Rule for printing the name of the stage: say &quot;[current weekday] [current time period]&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A weekday is a kind of value. The weekdays are Saturday, Sunday, Monday, Tuesday, Wednesday, Thursday, Friday. The current weekday is a weekday that varies. The current weekday is Saturday.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A time period is a kind of value. The time periods are morning, afternoon, evening, night. The current time period is a time period that varies. The current time period is afternoon.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">This is the new advance time rule:</div>
+<div class="codeline">&ensp;&ensp;if the current time period is less than night:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;now the current time period is the time period after the current time period;</div>
+<div class="codeline">&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;now the current time period is morning;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;now the current weekday is the weekday after the current weekday.</div>
+</div><p>Now we need to borrow from a later chapter to make these instructions apply to the passage of time:</p>
+<div class="codeblock"><div class="codeline">The new advance time rule is listed instead of the advance time rule in the turn sequence rules.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;z / z / z / z / z&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "z / z / z / z / z".</summary><div class="testme-output">Saturday afternoon<br><br>>(Testing.)<br><br>>[1] z<br>Time passes.<br><br>>[2] z<br>Time passes.<br><br>>[3] z<br>Time passes.<br><br>>[4] z<br>Time passes.<br><br>>[5] z<br>Time passes.
+</div></details><div class="doc-navbar"><div class="doc-navbar-left"><a href="entropy.html" title="All objects in the game have a heat, but if not kept insulated they will tend toward room temperature (and at a somewhat exaggerated rate).">182. Entropy</a></div><div class="doc-navbar-right"><a href="virtue.html" title="Defining certain kinds of behavior as inappropriate, so that other characters will refuse indignantly to do any such thing.">184. Virtue</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

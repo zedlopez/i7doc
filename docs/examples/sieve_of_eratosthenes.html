@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 436. Sieve of Eratosthenes</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Sieve of Eratosthenes</h1><div class="subheading">Example 436 ★</div>
+<div class="linkback">
+<a href="../WI_21.html#section_11" title="Lists &gt; Variations: arrays, logs, queues, stacks, sets, sieves and rings">WI §21.11 Variations: arrays, logs, queues, stacks, sets, sieves and rings</a><br><a href="../RB_10.html#section_11" title="Physics: Substances, Ropes, Energy and Weight &gt; Mathematics">RB §10.11 Mathematics</a>
+</div>
+<p class="example-desc">The haughty Eratosthenes of Cyrene will nevertheless consent to sieve prime numbers on request.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="lugubrious_petes_delicatessen.html" title="In this evocation of supermarket deli counter life, a list is used as a queue to keep track of who is waiting to be served.">435. Lugubrious Pete's Delicatessen</a></div><div class="doc-navbar-right"><a href="your_mother_doesnt_work_here.html" title="Your hard-working mother uses a list as a stack: urgent tasks are added to the end of the list, interrupting longer-term plans.">437. Your Mother Doesn't Work Here</a></div></div>
+</header>
+<p>In the words of Wikipedia: &quot;Eratosthenes of Cyrene (Greek Eρατοσθένης; 276 BC-194 BC) was a Greek mathematician, poet, athlete, geographer and astronomer.&quot; In the words of Tom Lehrer: &quot;It&#39;s people like that who make you realise how little you&#39;ve achieved in life.&quot;</p>
+<p>A prime number is a number greater than 1 which is not a multiple of anything, so we can find the primes by starting with all the numbers and sieving out all the multiples of 2, then all the multiples of 3, and so on. Here we make our sieve of the unacceptable numbers (the &quot;composite&quot; or non-prime ones) first, then form a list of all the numbers, then sieve out the composites: what are left must be the primes.</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex436">Play/modify Sieve of Eratosthenes in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="SieveOfEratosthenes/index.html">Play Sieve of Eratosthenes in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Sieve of Eratosthenes&quot;\n\nAlexandria is a room. Eratosthenes is a man in Alexandria. &quot;The haughty Greek mathematician, Eratosthenes, glowers at you.&quot;\n\nSieving is an action applying to one number. Understand &quot;sieve [number]&quot; as sieving.\n\nInstead of sieving, say &quot;You make a feeble attempt, sketching in the sand, but it goes nowhere. Eratosthenes smirks. &apos;I expect your friends call you gamma, then?&apos;&quot;\n\nPersuasion rule for asking Eratosthenes to try sieving: persuasion succeeds.\n\nReport Eratosthenes sieving:\n\tlet N be the number understood;\n\tlet the composites be a list of numbers;\n\tlet I be 2;\n\twhile I times I is at most N:\n\t\tif I is not listed in the composites:\n\t\t\tlet J be I times 2;\n\t\t\twhile J is at most N:\n\t\t\t\tadd J to the composites, if absent;\n\t\t\t\tincrease J by I;\n\t\tincrement I;\n\tsort the composites;\n\tlet the primes be a list of numbers;\n\trepeat with P running from 2 to N:\n\t\tadd P to the primes;\n\tremove the composites from the primes;\n\tsay &quot;Eratosthenes sketches lines in the sand with the air of much practice. &apos;The primes up to [N] are [the primes]. The composites are [the composites].&apos;&quot;\n\nTest me with &quot;sieve 10 / eratosthenes, sieve 100&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Sieve of Eratosthenes&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Alexandria is a room. Eratosthenes is a man in Alexandria. &quot;The haughty Greek mathematician, Eratosthenes, glowers at you.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Sieving is an action applying to one number. Understand &quot;sieve [number]&quot; as sieving.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of sieving, say &quot;You make a feeble attempt, sketching in the sand, but it goes nowhere. Eratosthenes smirks. &#39;I expect your friends call you gamma, then?&#39;&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Persuasion rule for asking Eratosthenes to try sieving: persuasion succeeds.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Report Eratosthenes sieving:</div>
+<div class="codeline">&ensp;&ensp;let N be the number understood;</div>
+<div class="codeline">&ensp;&ensp;let the composites be a list of numbers;</div>
+<div class="codeline">&ensp;&ensp;let I be 2;</div>
+<div class="codeline">&ensp;&ensp;while I times I is at most N:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;if I is not listed in the composites:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;let J be I times 2;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;while J is at most N:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;add J to the composites, if absent;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;increase J by I;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;increment I;</div>
+<div class="codeline">&ensp;&ensp;sort the composites;</div>
+<div class="codeline">&ensp;&ensp;let the primes be a list of numbers;</div>
+<div class="codeline">&ensp;&ensp;repeat with P running from 2 to N:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;add P to the primes;</div>
+<div class="codeline">&ensp;&ensp;remove the composites from the primes;</div>
+<div class="codeline">&ensp;&ensp;say &quot;Eratosthenes sketches lines in the sand with the air of much practice. &#39;The primes up to [N] are [the primes]. The composites are [the composites].&#39;&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;sieve 10 / eratosthenes, sieve 100&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "sieve 10 / eratosthenes, sieve 100".</summary><div class="testme-output">Alexandria<br>The haughty Greek mathematician, Eratosthenes, glowers at you.<br><br>>(Testing.)<br><br>>[1] sieve 10<br>You make a feeble attempt, sketching in the sand, but it goes nowhere. Eratosthenes smirks. "I expect your friends call you gamma, then?"<br><br>>[2] eratosthenes, sieve 100<br>Eratosthenes sketches lines in the sand with the air of much practice. "The primes up to 100 are 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89 and 97. The composites are 4, 6, 8, 9, 10, 12, 14, 15, 16, 18, 20, 21, 22, 24, 25, 26, 27, 28, 30, 32, 33, 34, 35, 36, 38, 39, 40, 42, 44, 45, 46, 48, 49, 50, 51, 52, 54, 55, 56, 57, 58, 60, 62, 63, 64, 65, 66, 68, 69, 70, 72, 74, 75, 76, 77, 78, 80, 81, 82, 84, 85, 86, 87, 88, 90, 91, 92, 93, 94, 95, 96, 98, 99 and 100."
+</div></details><p>While this could all be done more efficiently with an array, that&#39;s only because what we are sieving are numbers: sieving is a technique which can be used for non-numerical decisions, too.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="lugubrious_petes_delicatessen.html" title="In this evocation of supermarket deli counter life, a list is used as a queue to keep track of who is waiting to be served.">435. Lugubrious Pete's Delicatessen</a></div><div class="doc-navbar-right"><a href="your_mother_doesnt_work_here.html" title="Your hard-working mother uses a list as a stack: urgent tasks are added to the end of the list, interrupting longer-term plans.">437. Your Mother Doesn't Work Here</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 370. Walls and Noses</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Walls and Noses</h1><div class="subheading">Example 370 ★★★</div>
+<div class="linkback">
+<a href="../WI_18.html#section_31" title="Activities &gt; Asking which do you mean">WI §18.31 Asking which do you mean</a><br><a href="../RB_6.html#section_17" title="Commands &gt; Clarification and Correction">RB §6.17 Clarification and Correction</a>
+</div>
+<p class="example-desc">Responding to &quot;EXAMINE WALL&quot; with &quot;In which direction?&quot;, and to &quot;EXAMINE NOSE&quot; with &quot;Whose nose do you mean, Frederica&#39;s, Betty&#39;s, Wilma&#39;s or your own?&quot;</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="originals.html" title="Allowing the player to create models of anything in the game world; parsing the name &quot;model [thing]&quot; or even just &quot;[thing]&quot; to refer to these newly-created models; asking &quot;which do you mean, the model [thing] or the actual [thing]&quot; when there is ambiguity.">369. Originals</a></div><div class="doc-navbar-right"><a href="latin_lessons.html" title="Supplying missing nouns and second nouns for other characters besides the player.">371. Latin Lessons</a></div></div>
+</header>
+<p>Suppose we want our game to respond to &quot;EXAMINE WALL&quot; with &quot;In which direction?&quot;, and to &quot;EXAMINE NOSE&quot; with &quot;Whose nose do you mean, Frederica&#39;s, Betty&#39;s, Wilma&#39;s or your own?&quot;</p>
+<p>For the case of EXAMINE WALL, we need a way to determine whether every item being disambiguated is a direction. We&#39;ll start by making a &quot;matched&quot; adjective which will identify items being disambiguated:</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex370">Play/modify Walls and Noses in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="WallsAndNoses/index.html">Play Walls and Noses in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Walls and Noses&quot;\n\nEight-Walled Chamber is a room. &quot;A perfectly octagonal room whose walls are tinted in various hues.&quot;\n\nUnderstand &quot;wall&quot; as a direction.\n\nDefinition: a direction is matched if it fits the parse list.\nDefinition: a room is matched if it fits the parse list.\nDefinition: a thing is matched if it fits the parse list.\n\nRule for asking which do you mean when everything matched is direction:\n\tsay &quot;In which direction?&quot;\n\n\nTo decide whether (N - an object) fits the parse list:\n\t(- (FindInParseList({N})) -)\n\nInclude (-\n[ FindInParseList obj i k marker;\n\tmarker = 0;\n\tfor (i=1 : i<=number_of_classes : i++) {\n\twhile (((match_classes-->marker) ~= i) && ((match_classes-->marker) ~= -i)) marker++;\n\tk = match_list-->marker;\n\tif (k==obj) rtrue;\n\t}\n\trfalse;\n];\n-)\n\n\nInclude Complex Listing by Emily Short.\n\nWilma, Betty, and Frederica are women in the Eight-Walled Chamber. Understand &quot;lady&quot; or &quot;woman&quot; as a woman. A nose is a kind of thing. A nose is part of every person.\n\nRule for asking which do you mean when everything matched is a nose:\n\tprepare a list of matched things;\n\tif your nose is an output listed in the Table of Scored Listing:\n\t\tchoose row with an output of your nose in the Table of Scored Listing;\n\t\tnow the assigned score entry is -1;\n\tsay &quot;Whose nose do you mean, [the prepared list delimited in disjunctive style]?&quot;\n\nRule for printing the name of a nose (called target) while asking which do you mean :\n\tif everything matched is a nose:\n\t\tif the target is part of a person (called owner):\n\t\t\tif the owner is the player, say &quot;your own&quot;;\n\t\t\totherwise say &quot;[the owner][apostrophe]s&quot;;\n\totherwise:\n\t\tmake no decision.\n\nUnderstand &quot;own&quot; or &quot;mine&quot; as your nose.\n\nTest me with &quot;x wall / north / x nose / mine&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Walls and Noses&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Eight-Walled Chamber is a room. &quot;A perfectly octagonal room whose walls are tinted in various hues.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Understand &quot;wall&quot; as a direction.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Definition: a direction is matched if it fits the parse list.</div>
+<div class="codeline">Definition: a room is matched if it fits the parse list.</div>
+<div class="codeline">Definition: a thing is matched if it fits the parse list.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Rule for asking which do you mean when everything matched is direction:</div>
+<div class="codeline">&ensp;&ensp;say &quot;In which direction?&quot;</div>
+</div><p>Checking the parse list requires a bit of behind-the-scenes work with Inform 6. Fortunately, you don&#39;t have to understand this entirely in order to use the rest of the example:</p>
+<div class="codeblock"><div class="codeline">To decide whether (N - an object) fits the parse list:</div>
+<div class="codeline">&ensp;&ensp;(- (FindInParseList({N})) -)</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Include (-</div>
+<div class="codeline">[ FindInParseList obj i k marker;</div>
+<div class="codeline">&ensp;&ensp;marker = 0;</div>
+<div class="codeline">&ensp;&ensp;for (i=1 : i&lt;=number_of_classes : i++) {</div>
+<div class="codeline">&ensp;&ensp;while (((match_classes--&gt;marker) ~= i) &amp;&amp; ((match_classes--&gt;marker) ~= -i)) marker++;</div>
+<div class="codeline">&ensp;&ensp;k = match_list--&gt;marker;</div>
+<div class="codeline">&ensp;&ensp;if (k==obj) rtrue;</div>
+<div class="codeline">&ensp;&ensp;}</div>
+<div class="codeline">&ensp;&ensp;rfalse;</div>
+<div class="codeline">];</div>
+<div class="codeline">-)</div>
+</div><p>Now that we&#39;ve defined our &quot;matched&quot; adjective, we can use it for other purposes as well -- even generating our own lists. Our second challenge was to respond to EXAMINE NOSE with &quot;Whose nose do you mean, Frederica&#39;s, Betty&#39;s, Wilma&#39;s or your own?&quot;</p>
+<p>Here we need to change the way the question is worded (not &quot;which do you mean&quot; but &quot;whose nose do you mean&quot;). We also have to the names of the noses as they&#39;re printed in this particular context, so that they don&#39;t repeat the word &quot;nose&quot; over and over. And -- as a point of good English style -- we also want &quot;your own&quot; nose always to be last on the list.</p>
+<p>For this purpose we may want to use the built-in &quot;Complex Listing&quot; extension, which allows us to print specially ordered lists. So:</p>
+<div class="codeblock"><div class="codeline">Include Complex Listing by Emily Short.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Wilma, Betty, and Frederica are women in the Eight-Walled Chamber. Understand &quot;lady&quot; or &quot;woman&quot; as a woman. A nose is a kind of thing. A nose is part of every person.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Rule for asking which do you mean when everything matched is a nose:</div>
+<div class="codeline">&ensp;&ensp;prepare a list of matched things;</div>
+<div class="codeline">&ensp;&ensp;if your nose is an output listed in the Table of Scored Listing:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;choose row with an output of your nose in the Table of Scored Listing;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;now the assigned score entry is -1;</div>
+<div class="codeline">&ensp;&ensp;say &quot;Whose nose do you mean, [the prepared list delimited in disjunctive style]?&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Rule for printing the name of a nose (called target) while asking which do you mean :</div>
+<div class="codeline">&ensp;&ensp;if everything matched is a nose:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;if the target is part of a person (called owner):</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the owner is the player, say &quot;your own&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;otherwise say &quot;[the owner][apostrophe]s&quot;;</div>
+<div class="codeline">&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;make no decision.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Understand &quot;own&quot; or &quot;mine&quot; as your nose.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;x wall / north / x nose / mine&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "x wall / north / x nose / mine".</summary><div class="testme-output">Eight-Walled Chamber<br>A perfectly octagonal room whose walls are tinted in various hues.<br><br>You can see Wilma, Betty and Frederica here.<br><br>>(Testing.)<br><br>>[1] x wall<br>In which direction?<br><br>>[2] north<br>You see nothing unexpected in that direction.<br><br>>[3] x nose<br>Whose nose do you mean, your own, Wilma's, Betty's or Frederica's?<br><br>>[4] mine<br>You see nothing special about your nose.
+</div></details><div class="doc-navbar"><div class="doc-navbar-left"><a href="originals.html" title="Allowing the player to create models of anything in the game world; parsing the name &quot;model [thing]&quot; or even just &quot;[thing]&quot; to refer to these newly-created models; asking &quot;which do you mean, the model [thing] or the actual [thing]&quot; when there is ambiguity.">369. Originals</a></div><div class="doc-navbar-right"><a href="latin_lessons.html" title="Supplying missing nouns and second nouns for other characters besides the player.">371. Latin Lessons</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 44. Odin</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Odin</h1><div class="subheading">Example 44 ★</div>
+<div class="linkback">
+<a href="../WI_4.html#section_3" title="Kinds &gt; Degrees of certainty">WI §4.3 Degrees of certainty</a><br><a href="../RB_6.html#section_5" title="Commands &gt; Examining">RB §6.5 Examining</a>
+</div>
+<p class="example-desc">Replacing &quot;You see nothing special...&quot; with a different default message for looking at something nondescript.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="vouvray.html" title="Adding synonyms to an entire kind of thing.">43. Vouvray</a></div><div class="doc-navbar-right"><a href="something_narsty.html" title="A staircase always open and never openable.">45. Something Narsty</a></div></div>
+</header>
+<p>In recent years there has been a strong trend towards providing unique descriptions for all implemented objects. Often this is a good idea, but there are also contexts in which we may want to discourage the player from looking too closely at some things and concentrate his attention on just a few interesting ones.</p>
+<p>The trick here is that leaving items completely undescribed leads to rather dull exchanges like this:</p>
+<div class="codeblock"><div class="codeline">&gt;x table</div>
+<div class="codeline">You see nothing special about the table.</div>
+</div><p>&hellip;which can leave the player with the impression that the author was simply too lazy to describe everything. So it can be a good idea to replace that default message with a different one more appropriate to the game. For instance:</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex44">Play/modify Odin in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="Odin/index.html">Play Odin in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Odin&quot;\n\nThe House of a Mortal Farmer is a room. &quot;Having two separate rooms, this house testifies to considerable wealth and success at agriculture.&quot;\n\nThe Bedroom is inside from the House.\n\nA chair is a kind of supporter. A chair is always enterable.\n\nIn the House are a table, two chairs, a basket, and a hearth. On the table is a loaf of bread.\n\nThe description of a thing is usually &quot;You give [the noun] a glance, but it is plainly beneath your attention.&quot;\n\n\nThe infant is a man in the basket. The description of the infant is &quot;So strong and fat that you wonder whether one of your fellow gods is acquainted with the mistress of the house-- but it&apos;s no concern of yours, of course.&quot;\n\nTest me with &quot;x table / x chair / x infant&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Odin&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The House of a Mortal Farmer is a room. &quot;Having two separate rooms, this house testifies to considerable wealth and success at agriculture.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Bedroom is inside from the House.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A chair is a kind of supporter. A chair is always enterable.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">In the House are a table, two chairs, a basket, and a hearth. On the table is a loaf of bread.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The description of a thing is usually &quot;You give [the noun] a glance, but it is plainly beneath your attention.&quot;</div>
+</div><p>Because the description is attached to a whole kind (&quot;thing&quot;), it is really a blanket instruction about many objects at once. More specific instructions always override less specific ones, so we can easily make exceptions. For instance, the following will work correctly:</p>
+<div class="codeblock"><div class="codeline">The infant is a man in the basket. The description of the infant is &quot;So strong and fat that you wonder whether one of your fellow gods is acquainted with the mistress of the house-- but it&#39;s no concern of yours, of course.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;x table / x chair / x infant&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "x table / x chair / x infant".</summary><div class="testme-output">House of a Mortal Farmer<br>Having two separate rooms, this house testifies to considerable wealth and success at agriculture.<br><br>You can see a table (on which is a loaf of bread), a basket (in which is an infant), a hearth and two chairs here.<br><br>>(Testing.)<br><br>>[1] x table<br>You give the table a glance, but it is plainly beneath your attention.<br><br>On the table is a loaf of bread.<br><br>>[2] x chair<br>You give the chair a glance, but it is plainly beneath your attention.<br><br>>[3] x infant<br>So strong and fat that you wonder whether one of your fellow gods is acquainted with the mistress of the house-- but it's no concern of yours, of course.
+</div></details><div class="doc-navbar"><div class="doc-navbar-left"><a href="vouvray.html" title="Adding synonyms to an entire kind of thing.">43. Vouvray</a></div><div class="doc-navbar-right"><a href="something_narsty.html" title="A staircase always open and never openable.">45. Something Narsty</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

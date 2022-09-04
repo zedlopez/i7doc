@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 409. Endurance</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Endurance</h1><div class="subheading">Example 409 ★★</div>
+<div class="linkback">
+<a href="../WI_19.html#section_15" title="Rulebooks &gt; Two rulebooks used internally">WI §19.15 Two rulebooks used internally</a><br><a href="../RB_4.html#section_1" title="Time and Plot &gt; The Passage Of Time">RB §4.1 The Passage Of Time</a>
+</div>
+<p class="example-desc">Giving different actions a range of durations using a time allotment rulebook.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="timeless.html" title="A set of actions which do not take any game time at all.">408. Timeless</a></div><div class="doc-navbar-right"><a href="escape_from_the_seraglio.html" title="Replacing the usual response to TAKE ALL so that instead of output such as &quot;grapes: Taken. orange: Taken.&quot;, Inform produces variable responses in place of &quot;grapes:&quot;.">410. Escape from the Seraglio</a></div></div>
+</header>
+<p>Here we move to a systematic way of giving different durations to different actions, including even variations on the same act -- so that for instance climbing a steep hill might take several minutes more than other going actions. We do this by setting a number, &quot;work duration&quot;, to represent the number of minutes consumed by a given action, and then consulting a rulebook to find out how long the past turn&#39;s action should take. By default, an action will take 1 minute.</p>
+<p>We&#39;ll start by emulating the behavior of &quot;Uptempo&quot;: each turn we&#39;ll set the clock forward most of the way, then check to see what has changed since the last turn, print any relevant events, and only then set the clock forward the final minute. The exception is when an action is set to take no time at all; in that case, we&#39;ll skip the rest of the turn sequence rules entirely.</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex409">Play/modify Endurance in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="Endurance/index.html">Play Endurance in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Endurance&quot;\n\nWork duration is a number that varies.\n\nEvery turn:\n\tnow work duration is 0;\n\tincrement the turn count;\n\tfollow the time allotment rules;\n\tif work duration is 0, rule succeeds;\n\tincrease the time of day by (work duration minutes - 1 minute).\n\nThe time allotment rules are a rulebook.\n\nA time allotment rule for examining or looking:\n\tnow work duration is 0;\n\trule succeeds.\n\nA time allotment rule for going:\n\tnow work duration is 2;\n\trule succeeds.\n\nA time allotment rule for going up:\n\tnow work duration is 5;\n\trule succeeds.\n\nA time allotment rule for waiting:\n\tnow work duration is 10;\n\trule succeeds.\n\nThe last time allotment rule:\n\tnow work duration is 1.\n\nWhen play begins: now the right hand status line is &quot;[time of day]&quot;.\n\nThe Quai is a room. &quot;An attractive park at the edge of the river Aude: here you can wander among palm trees, and watch cyclists go by on the bike path; in the water there are ducks. In the cafe to your north, patrons sip their pastis; and above you is the medieval walled city and its castle.&quot;\n\nThe Cafe is north of the Quai. &quot;A charming collection of umbrella-shaded tables, from which one can watch the river and the walls of the city beyond. The noise of traffic is only a minor distraction.&quot;\n\nThe City is above the Quai.\n\nAfter going to the City:\n\tsay &quot;You struggle uphill for some distance...&quot;;\n\tcontinue the action.\n\nAt 9:15 AM:\n\tsay &quot;The bells ring out from Place Carnot.&quot;\n\nTest me with &quot;z / n / s / u&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Endurance&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Work duration is a number that varies.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Every turn:</div>
+<div class="codeline">&ensp;&ensp;now work duration is 0;</div>
+<div class="codeline">&ensp;&ensp;increment the turn count;</div>
+<div class="codeline">&ensp;&ensp;follow the time allotment rules;</div>
+<div class="codeline">&ensp;&ensp;if work duration is 0, rule succeeds;</div>
+<div class="codeline">&ensp;&ensp;increase the time of day by (work duration minutes - 1 minute).</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The time allotment rules are a rulebook.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A time allotment rule for examining or looking:</div>
+<div class="codeline">&ensp;&ensp;now work duration is 0;</div>
+<div class="codeline">&ensp;&ensp;rule succeeds.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A time allotment rule for going:</div>
+<div class="codeline">&ensp;&ensp;now work duration is 2;</div>
+<div class="codeline">&ensp;&ensp;rule succeeds.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A time allotment rule for going up:</div>
+<div class="codeline">&ensp;&ensp;now work duration is 5;</div>
+<div class="codeline">&ensp;&ensp;rule succeeds.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A time allotment rule for waiting:</div>
+<div class="codeline">&ensp;&ensp;now work duration is 10;</div>
+<div class="codeline">&ensp;&ensp;rule succeeds.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The last time allotment rule:</div>
+<div class="codeline">&ensp;&ensp;now work duration is 1.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">When play begins: now the right hand status line is &quot;[time of day]&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Quai is a room. &quot;An attractive park at the edge of the river Aude: here you can wander among palm trees, and watch cyclists go by on the bike path; in the water there are ducks. In the cafe to your north, patrons sip their pastis; and above you is the medieval walled city and its castle.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Cafe is north of the Quai. &quot;A charming collection of umbrella-shaded tables, from which one can watch the river and the walls of the city beyond. The noise of traffic is only a minor distraction.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The City is above the Quai.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">After going to the City:</div>
+<div class="codeline">&ensp;&ensp;say &quot;You struggle uphill for some distance...&quot;;</div>
+<div class="codeline">&ensp;&ensp;continue the action.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">At 9:15 AM:</div>
+<div class="codeline">&ensp;&ensp;say &quot;The bells ring out from Place Carnot.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;z / n / s / u&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "z / n / s / u".</summary><div class="testme-output">Quai<br>An attractive park at the edge of the river Aude: here you can wander among palm trees, and watch cyclists go by on the bike path; in the water there are ducks. In the cafe to your north, patrons sip their pastis; and above you is the medieval walled city and its castle.<br><br>>(Testing.)<br><br>>[1] z<br>Time passes.<br><br>>[2] n<br><br>Cafe<br>A charming collection of umbrella-shaded tables, from which one can watch the river and the walls of the city beyond. The noise of traffic is only a minor distraction.<br><br>>[3] s<br><br>Quai<br>An attractive park at the edge of the river Aude: here you can wander among palm trees, and watch cyclists go by on the bike path; in the water there are ducks. In the cafe to your north, patrons sip their pastis; and above you is the medieval walled city and its castle.<br><br>>[4] u<br>You struggle uphill for some distance...<br><br>City<br>The bells ring out from Place Carnot.
+</div></details><div class="doc-navbar"><div class="doc-navbar-left"><a href="timeless.html" title="A set of actions which do not take any game time at all.">408. Timeless</a></div><div class="doc-navbar-right"><a href="escape_from_the_seraglio.html" title="Replacing the usual response to TAKE ALL so that instead of output such as &quot;grapes: Taken. orange: Taken.&quot;, Inform produces variable responses in place of &quot;grapes:&quot;.">410. Escape from the Seraglio</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 175. Wonka's Revenge</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Wonka's Revenge</h1><div class="subheading">Example 175 ★</div>
+<div class="linkback">
+<a href="../WI_11.html#section_10" title="Phrases &gt; Repeat">WI §11.10 Repeat</a><br><a href="../RB_9.html#section_5" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Dice and Playing Cards">RB §9.5 Dice and Playing Cards</a>
+</div>
+<p class="example-desc">A lottery drum which redistributes the tickets inside whenever the player spins it.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="numberless.html" title="A simple exercise in printing the names of random numbers, comparing the use of &quot;otherwise if&hellip;&quot;, a switch statement, or a table-based alternative.">174. Numberless</a></div><div class="doc-navbar-right"><a href="strictly_ballroom.html" title="People who select partners for dance lessons each turn.">176. Strictly Ballroom</a></div></div>
+</header>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex175">Play/modify Wonka's Revenge in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="Lottery/index.html">Play Wonka's Revenge in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Wonka&apos;s Revenge&quot;\n\nThe Caribou Lodge is a room. &quot;Hundreds of expectant faces are turned your way from every table.&quot; A lottery drum is in the Lodge. &quot;Before you is the lottery drum[if we have spun the drum], ready to disgorge a ticket[otherwise], waiting to be spun[end if].&quot; In the drum are a red ticket, an orange ticket, a yellow ticket, a green ticket, a blue ticket, a purple ticket, and a ticket of pure gold. The drum is closed and openable.\n\nUnderstand &quot;spin [something]&quot; as spinning.\n\nSpinning is an action applying to one thing.\n\nCheck spinning: if the noun is an open container which contains something, say &quot;[The list of things in the noun] would fly out.&quot; instead.\n\nCarry out spinning a container:\n\tshuffle the contents of the noun.\n\nReport spinning:\n\tif the noun contains something, say &quot;You rattle [if the noun is transparent][the list of things in the noun][otherwise]the stuff[end if] in [the noun].&quot;;\n\totherwise say &quot;Nothing results of your shaking [the noun].&quot;\n\n\nTo shuffle the contents of (basket - a container):\n\tlet moves be the number of things in the basket;\n\trepeat with counter running from 1 to moves:\n\t\tmove a random thing in the basket to the basket.\n\nAfter opening the drum when we have spun the drum for the first time:\n\tif something (called the pick) is in the drum:\n\t\ttry searching the drum;\n\t\tsay &quot;[The pick] it is, then.&quot;;\n\t\tsilently try taking the pick;\n\t\tif the pick is the ticket of pure gold, end the story finally;\n\t\totherwise end the story saying &quot;Oh well, better luck next time.&quot;\n\nTest me with &quot;open drum / look in drum / close drum / spin drum / open drum&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Wonka&#39;s Revenge&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Caribou Lodge is a room. &quot;Hundreds of expectant faces are turned your way from every table.&quot; A lottery drum is in the Lodge. &quot;Before you is the lottery drum[if we have spun the drum], ready to disgorge a ticket[otherwise], waiting to be spun[end if].&quot; In the drum are a red ticket, an orange ticket, a yellow ticket, a green ticket, a blue ticket, a purple ticket, and a ticket of pure gold. The drum is closed and openable.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Understand &quot;spin [something]&quot; as spinning.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Spinning is an action applying to one thing.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Check spinning: if the noun is an open container which contains something, say &quot;[The list of things in the noun] would fly out.&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Carry out spinning a container:</div>
+<div class="codeline">&ensp;&ensp;shuffle the contents of the noun.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Report spinning:</div>
+<div class="codeline">&ensp;&ensp;if the noun contains something, say &quot;You rattle [if the noun is transparent][the list of things in the noun][otherwise]the stuff[end if] in [the noun].&quot;;</div>
+<div class="codeline">&ensp;&ensp;otherwise say &quot;Nothing results of your shaking [the noun].&quot;</div>
+</div><p>Inform keeps track of the order in which things have been put into a container. If we want to change that order without the player&#39;s intervention, we can move the things ourselves.</p>
+<div class="codeblock"><div class="codeline">To shuffle the contents of (basket - a container):</div>
+<div class="codeline">&ensp;&ensp;let moves be the number of things in the basket;</div>
+<div class="codeline">&ensp;&ensp;repeat with counter running from 1 to moves:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;move a random thing in the basket to the basket.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">After opening the drum when we have spun the drum for the first time:</div>
+<div class="codeline">&ensp;&ensp;if something (called the pick) is in the drum:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;try searching the drum;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;[The pick] it is, then.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;silently try taking the pick;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;if the pick is the ticket of pure gold, end the story finally;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;otherwise end the story saying &quot;Oh well, better luck next time.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;open drum / look in drum / close drum / spin drum / open drum&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "open drum / look in drum / close drum / spin drum / open drum".</summary><div class="testme-output">Caribou Lodge<br>Hundreds of expectant faces are turned your way from every table.<br><br>Before you is the lottery drum, waiting to be spun.<br><br>>(Testing.)<br><br>>[1] open drum<br>You open the lottery drum, revealing a red ticket, an orange ticket, a yellow ticket, a green ticket, a blue ticket, a purple ticket and a ticket of pure gold.<br><br>>[2] look in drum<br>In the lottery drum are a red ticket, an orange ticket, a yellow ticket, a green ticket, a blue ticket, a purple ticket and a ticket of pure gold.<br><br>>[3] close drum<br>You close the lottery drum.<br><br>>[4] spin drum<br>You rattle the stuff in the lottery drum.<br><br>>[5] open drum<br>In the lottery drum are a blue ticket, a red ticket, an orange ticket, a purple ticket, a yellow ticket, a green ticket and a ticket of pure gold.<br><br>The blue ticket it is, then.<br><br><br><br>    *** Oh well, better luck next time. ***<br><br><br><br>Would you like to RESTART, RESTORE a saved game, QUIT or UNDO the last command?<br>>
+</div></details><div class="doc-navbar"><div class="doc-navbar-left"><a href="numberless.html" title="A simple exercise in printing the names of random numbers, comparing the use of &quot;otherwise if&hellip;&quot;, a switch statement, or a table-based alternative.">174. Numberless</a></div><div class="doc-navbar-right"><a href="strictly_ballroom.html" title="People who select partners for dance lessons each turn.">176. Strictly Ballroom</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

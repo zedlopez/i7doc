@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 243. Mathematical view of relations</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Mathematical view of relations</h1><div class="subheading">Example 243 ★★★</div>
+<div class="linkback">
+<a href="../WI_13.html#section_16" title="Relations &gt; What are relations for?">WI §13.16 What are relations for?</a><br><a href="../RB_1.html#section_4" title="How to Use The Recipe Book &gt; Information Only">RB §1.4 Information Only</a>
+</div>
+<p class="example-desc">Some notes on relations from a mathematical point of view, provided only to clarify some technicalities for those who are interested.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="what_not_to_wear.html" title="A general-purpose clothing system that handles a variety of different clothing items layered in different combinations over different areas of the body.">242. What Not To Wear</a></div><div class="doc-navbar-right"><a href="graphtheory_view_of_relations.html" title="Some notes on relations from the point of view of graph theory.">244. Graph-theory view of relations</a></div></div>
+</header>
+<p>Inform uses the term &quot;relation&quot; in a broader sense than mathematics. Properly speaking, the term &quot;relation&quot; in its mathematical sense only applies to the case where the domain for the left and right objects are the same: for simplicity&#39;s sake, let us talk only about the case where they are.</p>
+<p>In mathematics, the properties most often looked for in a relation are that it should be:</p>
+<p>(a) Reflexive: A &lt;=&gt; A for every A. This is not especially useful for Inform, and seldom appears in practical examples.</p>
+<p>(b) Symmetric: A &lt;=&gt; B if and only if B &lt;=&gt; A. Generally, Inform relations are not symmetric, but there are two important cases which are:</p>
+<div class="codeblock"><div class="codeline">Meeting relates people to each other.</div>
+<div class="codeline">Marriage relates one person to another.</div>
+</div><p>These are automatically symmetric, so that to assert one way round is to assert the other as well.</p>
+<p>(c) Transitive: A &lt;=&gt; B and B &lt;=&gt; C means that A &lt;=&gt; C as well. Again, Inform relations are not generally transitive. In many relations, there can be long chains of things, each perhaps related to the one in front and the one behind, so that there is some indirect sense in which the two ends of the chain are connected to each other: but they are not related as such. For instance, a journey across the map might pass through ten rooms, each adjacent to the last and next, but the two ends would not themselves be adjacent. The concept we need is the &quot;transitive closure&quot; of the original relation, defined as the smallest transitive relation including the original. If R is a relation between &quot;things&quot;, then the following:</p>
+<div class="codeblock"><div class="codeline">TC relates a thing (called A) to a thing (called B) when the number of steps via R from A to B is greater than 0.</div>
+</div><p>is the transitive closure of R. In particular,</p>
+<div class="codeblock"><div class="codeline">Accessibility relates a room (called A) to a room (called B) when the number of moves from B to A is greater than 0. The verb to be accessible from means the accessibility relation.</div>
+</div><p>calculates the transitive closure of adjacency. Here, though, the way we normally understand &quot;accessible from&quot; suggests that it would be better to write:</p>
+<div class="codeblock"><div class="codeline">Accessibility relates a room (called A) to a room (called B) when the number of moves from B to A is at least 0.</div>
+</div><p>which is reflexive as well as transitive. The usefulness of Inform&#39;s &quot;next step via R from A to B&quot; construction, in a wide variety of settings, reflects the importance of transitivity as an idea.</p>
+<p>A relation which has all three properties of being reflexive, symmetric and transitive is called an &quot;equivalence relation&quot;. (If all the map connections are two-way, then the accessibility relation above is symmetric and therefore a full equivalence relation: but if not, it may not be.) Inform has a special construction for making equivalence relations:</p>
+<div class="codeblock"><div class="codeline">Nationality relates people to each other in groups.</div>
+</div><p>This language &ndash; &quot;in groups&quot; &ndash; relies on the standard theorem that every equivalence relation on a set naturally defines a partition of that set, and vice versa. The &quot;groups&quot; referred to are what are normally called &quot;equivalence classes&quot;. (Inform does little with these equivalence classes: it might be interesting to do so, in effect forming quotient kinds.)</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="what_not_to_wear.html" title="A general-purpose clothing system that handles a variety of different clothing items layered in different combinations over different areas of the body.">242. What Not To Wear</a></div><div class="doc-navbar-right"><a href="graphtheory_view_of_relations.html" title="Some notes on relations from the point of view of graph theory.">244. Graph-theory view of relations</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

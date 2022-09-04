@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 75. Versailles</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Versailles</h1><div class="subheading">Example 75 ★★</div>
+<div class="linkback">
+<a href="../WI_6.html#section_9" title="Descriptions &gt; Which and who">WI §6.9 Which and who</a><br><a href="../RB_8.html#section_5" title="Vehicles, Animals and Furniture &gt; Kitchen and Bathroom">RB §8.5 Kitchen and Bathroom</a>
+</div>
+<p class="example-desc">A mirror which will reflect some random object in the room.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="only_you.html" title="Smoke which spreads through the rooms of the map, but only every other turn.">74. Only You...</a></div><div class="doc-navbar-right"><a href="lean_and_hungry.html" title="A thief who will identify and take any valuable thing lying around that he is able to touch.">76. Lean and Hungry</a></div></div>
+</header>
+<p>One of the advantages of descriptions is that we can use them to pick an item randomly from a specified category. (For more on this possibility, see the Change chapter sections on randomness.)</p>
+<p>For instance, suppose we wanted to create a mirror in which the player would see some item from the room reflected. We might write</p>
+<div class="codeblock"><div class="codeline">Instead of searching the mirror:</div>
+<div class="codeline">&ensp;&ensp;say &quot;You see [a random thing in the location] reflected back at you.&quot;</div>
+</div><p>This is the same as &quot;a random thing which is in the location&quot;: phrase &quot;in&hellip;&quot; can be used briefly in Inform as it can in English.</p>
+<p>But, on a little more thought, we might want to expand on this: the mirror perhaps should reflect not only things that are in the room, but anything that the player can see (even if it&#39;s on a supporter or carried by someone). So then we might instead write</p>
+<div class="codeblock"><div class="codeline">Instead of searching the mirror:</div>
+<div class="codeline">&ensp;&ensp;say &quot;You see [a random visible thing] reflected back at you.&quot;</div>
+</div><p>There&#39;s still a risk, though, that this will produce the response</p>
+<div class="codeblock"><div class="codeline">You see the mirror reflected back at you.</div>
+</div><p>because, of course, the mirror is itself visible. So instead we might write</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex75">Play/modify Versailles in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="Versailles/index.html">Play Versailles in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Versailles&quot;\n\nThe Hall of Plywood Boards is a room. &quot;The Hall of Mirrors is under reconstruction: it is currently a dank tunnel enlivened only by short placards about the history of the room.\n\nAs though to mock tourists such as yourself who bought their tickets without knowing this, the officials have left uncovered a single panel of mirror.&quot;\n\nThe mirror is scenery in the Hall of Plywood Boards. Understand &quot;panel&quot; or &quot;panel of mirror&quot; as the mirror. The description is &quot;Lovingly restored to shimmering brilliance, it suggests how marvelous this room would be if you had had the good sense to arrive after the renovations were complete.&quot;\n\nSome tourists are a person in the Hall of Plywood Boards. The tourists are scenery.\n\nInstead of searching the mirror:\n\tsay &quot;You see [a random visible thing which is not the mirror] reflected back at you.&quot;\n\nTest me with &quot;x mirror / look in mirror / g&quot;.`)">⧉</button><div class="codeline">Instead of searching the mirror:</div>
+<div class="codeline">&ensp;&ensp;say &quot;You see [a random visible thing which is not the mirror] reflected back at you.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&quot;Versailles&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Hall of Plywood Boards is a room. &quot;The Hall of Mirrors is under reconstruction: it is currently a dank tunnel enlivened only by short placards about the history of the room.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">As though to mock tourists such as yourself who bought their tickets without knowing this, the officials have left uncovered a single panel of mirror.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The mirror is scenery in the Hall of Plywood Boards. Understand &quot;panel&quot; or &quot;panel of mirror&quot; as the mirror. The description is &quot;Lovingly restored to shimmering brilliance, it suggests how marvelous this room would be if you had had the good sense to arrive after the renovations were complete.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Some tourists are a person in the Hall of Plywood Boards. The tourists are scenery.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of searching the mirror:</div>
+<div class="codeline">&ensp;&ensp;say &quot;You see [a random visible thing which is not the mirror] reflected back at you.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;x mirror / look in mirror / g&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "x mirror / look in mirror / g".</summary><div class="testme-output">Hall of Plywood Boards<br>The Hall of Mirrors is under reconstruction: it is currently a dank tunnel enlivened only by short placards about the history of the room.<br><br>As though to mock tourists such as yourself who bought their tickets without knowing this, the officials have left uncovered a single panel of mirror.<br><br>>(Testing.)<br><br>>[1] x mirror<br>Lovingly restored to shimmering brilliance, it suggests how marvelous this room would be if you had had the good sense to arrive after the renovations were complete.<br><br>>[2] look in mirror<br>You see yourself reflected back at you.<br><br>>[3] g<br>You see yourself reflected back at you.
+</div></details><p>A final note: we use &quot;searching&quot; here because Inform understands both SEARCH THING and LOOK IN THING as the searching action, and the player is most likely to type LOOK IN MIRROR in order to see the reflection there. In the absence of an example, we can discover the relationship between actions and their command vocabulary in one of two ways. A complete list of actions and the vocabulary associated with them is available in the Actions index. Alternatively, we can type ACTIONS at a prompt, followed by LOOK IN MIRROR, and get the response</p>
+<div class="codeblock"><div class="codeline">[searching the mirror]</div>
+<div class="codeline">You find nothing of interest.</div>
+<div class="codeline">[searching the mirror - failed the can&#39;t search unless container or supporter rule]</div>
+</div><p>&hellip;which tells us that Inform is understanding the action as &quot;searching the mirror&quot;.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="only_you.html" title="Smoke which spreads through the rooms of the map, but only every other turn.">74. Only You...</a></div><div class="doc-navbar-right"><a href="lean_and_hungry.html" title="A thief who will identify and take any valuable thing lying around that he is able to touch.">76. Lean and Hungry</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

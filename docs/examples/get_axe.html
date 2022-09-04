@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 206. Get Axe</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Get Axe</h1><div class="subheading">Example 206 ★</div>
+<div class="linkback">
+<a href="../WI_12.html#section_12" title="Advanced Actions &gt; Check rules for actions by other people">WI §12.12 Check rules for actions by other people</a><br><a href="../RB_6.html#section_10" title="Commands &gt; Entering and Exiting, Sitting and Standing">RB §6.10 Entering and Exiting, Sitting and Standing</a>
+</div>
+<p class="example-desc">Changing the check rules to try automatically leaving a container before attempting to take it. (And arranging things so that other people will do likewise.)</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="under_contract.html" title="Creating a person who accepts most instructions and reacts correctly when a request leads implicitly to inappropriate behavior.">205. Under Contract</a></div><div class="doc-navbar-right"><a href="barter_barter.html" title="Allowing characters other than the player to give objects to one another, accounting for the possibility that some items may not be desired by the intended recipients.">207. Barter Barter</a></div></div>
+</header>
+<p>We could now re-write the check rules so that any time someone (the player or someone else) tries to pick up a container which he is in, he will first get out:</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex206">Play/modify GET AXE in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="TakeCoffin/index.html">Play GET AXE in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;GET AXE&quot;\n\nThis is the clever can&apos;t take what you&apos;re inside rule:\n\tif the person asked is in the noun, try the person asked exiting;\n\tif the person asked is in the noun, rule fails.\n\nThe clever can&apos;t take what you&apos;re inside rule is listed instead of the can&apos;t take what you&apos;re inside rule in the check taking rules.\n\nAttic is a room. The unused coffin is in the Attic. The coffin is enterable and openable and open. Raskolnikov is a man in the coffin.\n\nPersuasion rule for asking Raskolnikov to try doing something:\n\tpersuasion succeeds.\n\nTest me with &quot;raskolnikov, get coffin&quot;.`)">⧉</button><div class="codeline storytitle">&quot;GET AXE&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">This is the clever can&#39;t take what you&#39;re inside rule:</div>
+<div class="codeline">&ensp;&ensp;if the person asked is in the noun, try the person asked exiting;</div>
+<div class="codeline">&ensp;&ensp;if the person asked is in the noun, rule fails.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The clever can&#39;t take what you&#39;re inside rule is listed instead of the can&#39;t take what you&#39;re inside rule in the check taking rules.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Attic is a room. The unused coffin is in the Attic. The coffin is enterable and openable and open. Raskolnikov is a man in the coffin.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Persuasion rule for asking Raskolnikov to try doing something:</div>
+<div class="codeline">&ensp;&ensp;persuasion succeeds.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;raskolnikov, get coffin&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "raskolnikov, get coffin".</summary><div class="testme-output">Attic<br>You can see an unused coffin (in which is Raskolnikov) here.<br><br>>(Testing.)<br><br>>[1] raskolnikov, get coffin<br>Raskolnikov gets out of the unused coffin.<br><br>Raskolnikov picks up the unused coffin.
+</div></details><div class="doc-navbar"><div class="doc-navbar-left"><a href="under_contract.html" title="Creating a person who accepts most instructions and reacts correctly when a request leads implicitly to inappropriate behavior.">205. Under Contract</a></div><div class="doc-navbar-right"><a href="barter_barter.html" title="Allowing characters other than the player to give objects to one another, accounting for the possibility that some items may not be desired by the intended recipients.">207. Barter Barter</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

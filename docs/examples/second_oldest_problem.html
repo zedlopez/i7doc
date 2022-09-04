@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 200. The Second Oldest Problem</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>The Second Oldest Problem</h1><div class="subheading">Example 200 ★</div>
+<div class="linkback">
+<a href="../WI_12.html#section_10" title="Advanced Actions &gt; Action variables">WI §12.10 Action variables</a><br><a href="../RB_6.html#section_9" title="Commands &gt; Going, Pushing Things in Directions">RB §6.9 Going, Pushing Things in Directions</a>
+</div>
+<p class="example-desc">Adapting the going action so that something special can happen when going from a dark room to another dark room.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="further_reasons_why_all_poets_are_liars.html" title="The young William Wordsworth, pushing a box about in his room, must struggle to achieve a Romantic point of view.">199. Further Reasons Why All Poets Are Liars</a></div><div class="doc-navbar-right"><a href="puff_of_orange_smoke.html" title="A system in which every character has a body, which is left behind when the person dies; attempts to do something to the body are redirected to the person while the person is alive.">201. Puff of Orange Smoke</a></div></div>
+</header>
+<p>Text in this example is drawn from Will Crowther&#39;s original 1976 FORTRAN implementation of ADVENTURE, the founding work of the genre, whose source code was rediscovered by Dennis G. Jerz in 2007. Note the capitals: the program ran on an early computer without lower case lettering. They look a little mimsy now, but picture them glowing green on an old-style cathode ray tube monitor in a darkened room late at night.</p>
+<p>The problem alluded to is that the player is forbidden to walk between two dark rooms, so that he must always have light to see by from at least one end of any movement. Writing source text to achieve this is tricky to get right in every case, because the determination of light is hard to do. Here we interleave the necessary rules into the existing &quot;going&quot; action, using a new action variable to record the number of ends which are dark as experienced by the player, which might be 0, 1 or 2:</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex200">Play/modify THE SECOND OLDEST PROBLEM in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="SecondOldest/index.html">Play THE SECOND OLDEST PROBLEM in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;THE SECOND OLDEST PROBLEM&quot;\n\nThe going action has a number called the dark terminus count.\nSetting action variables for going:\n\tnow the dark terminus count is 0;\n\tif in darkness, increment the dark terminus count.\nThe last carry out going rule:\n\tif in darkness, increment the dark terminus count;\n\tif the dark terminus count is 2, end the story saying &quot;YOU FELL INTO A PIT AND BROKE EVERY BONE IN YOUR BODY!&quot; instead.\n\n\nCOBBLE CRAWL is a room. &quot;YOU ARE CRAWLING OVER COBBLES IN A LOW PASSAGE. THERE IS A DIM LIGHT AT THE EAST END OF THE PASSAGE.&quot;\n\nDEBRIS ROOM is west of COBBLE CRAWL. &quot;YOU ARE IN A DEBRIS ROOM, FILLED WITH STUFF WASHED IN FROM THE SURFACE. A LOW WIDE PASSAGE WITH COBBLES BECOMES PLUGGED WITH MUD AND DEBRIS HERE,BUT AN AWKWARD CANYON LEADS UPWARD AND WEST.&quot;\n\nAWKWARD CANYON is west of DEBRIS ROOM. &quot;YOU ARE IN AN AWKWARD SLOPING EAST/WEST CANYON.&quot;\n\nDEBRIS ROOM and AWKWARD CANYON are dark.\n\nRule for printing the name of a dark room: say &quot;DARKNESS&quot; instead.\nRule for printing the description of a dark room: say &quot;IT IS NOW PITCH BLACK. IF YOU PROCEED YOU WILL LIKELY FALL INTO A PIT.&quot; instead.\n\nTest me with &quot;w / e / w / w&quot;.`)">⧉</button><div class="codeline storytitle">&quot;THE SECOND OLDEST PROBLEM&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The going action has a number called the dark terminus count.</div>
+<div class="codeline">Setting action variables for going:</div>
+<div class="codeline">&ensp;&ensp;now the dark terminus count is 0;</div>
+<div class="codeline">&ensp;&ensp;if in darkness, increment the dark terminus count.</div>
+<div class="codeline">The last carry out going rule:</div>
+<div class="codeline">&ensp;&ensp;if in darkness, increment the dark terminus count;</div>
+<div class="codeline">&ensp;&ensp;if the dark terminus count is 2, end the story saying &quot;YOU FELL INTO A PIT AND BROKE EVERY BONE IN YOUR BODY!&quot; instead.</div>
+</div><p>And now three early rooms to try this out.</p>
+<div class="codeblock"><div class="codeline">COBBLE CRAWL is a room. &quot;YOU ARE CRAWLING OVER COBBLES IN A LOW PASSAGE. THERE IS A DIM LIGHT AT THE EAST END OF THE PASSAGE.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">DEBRIS ROOM is west of COBBLE CRAWL. &quot;YOU ARE IN A DEBRIS ROOM, FILLED WITH STUFF WASHED IN FROM THE SURFACE. A LOW WIDE PASSAGE WITH COBBLES BECOMES PLUGGED WITH MUD AND DEBRIS HERE,BUT AN AWKWARD CANYON LEADS UPWARD AND WEST.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">AWKWARD CANYON is west of DEBRIS ROOM. &quot;YOU ARE IN AN AWKWARD SLOPING EAST/WEST CANYON.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">DEBRIS ROOM and AWKWARD CANYON are dark.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Rule for printing the name of a dark room: say &quot;DARKNESS&quot; instead.</div>
+<div class="codeline">Rule for printing the description of a dark room: say &quot;IT IS NOW PITCH BLACK. IF YOU PROCEED YOU WILL LIKELY FALL INTO A PIT.&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;w / e / w / w&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "w / e / w / w".</summary><div class="testme-output">COBBLE CRAWL<br>YOU ARE CRAWLING OVER COBBLES IN A LOW PASSAGE. THERE IS A DIM LIGHT AT THE EAST END OF THE PASSAGE.<br><br>>(Testing.)<br><br>>[1] w<br><br>DARKNESS<br>IT IS NOW PITCH BLACK. IF YOU PROCEED YOU WILL LIKELY FALL INTO A PIT.<br><br>>[2] e<br><br>COBBLE CRAWL<br>YOU ARE CRAWLING OVER COBBLES IN A LOW PASSAGE. THERE IS A DIM LIGHT AT THE EAST END OF THE PASSAGE.<br><br>>[3] w<br><br>DARKNESS<br>IT IS NOW PITCH BLACK. IF YOU PROCEED YOU WILL LIKELY FALL INTO A PIT.<br><br>>[4] w<br><br><br>    *** YOU FELL INTO A PIT AND BROKE EVERY BONE IN YOUR BODY! ***<br><br><br><br>Would you like to RESTART, RESTORE a saved game, QUIT or UNDO the last command?<br>>
+</div></details><p>This is only the second oldest problem in the IF literature: the earliest puzzle is unlocking the steel grate which bars entrance to the cave.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="further_reasons_why_all_poets_are_liars.html" title="The young William Wordsworth, pushing a box about in his room, must struggle to achieve a Romantic point of view.">199. Further Reasons Why All Poets Are Liars</a></div><div class="doc-navbar-right"><a href="puff_of_orange_smoke.html" title="A system in which every character has a body, which is left behind when the person dies; attempts to do something to the body are redirected to the person while the person is alive.">201. Puff of Orange Smoke</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

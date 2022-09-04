@@ -1,0 +1,646 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>WI 17. Understanding</title>
+<script src="i7doc.js"></script>
+<link rel="stylesheet" href="i7doc.css">
+</head>
+<nav><div class="nav-el"><a href="index.html">Contents</a></div> <div class="nav-el"><a href="examples/index.html">Examples</a></div> <div class="nav-el"><a href="general_index.html">Index</a></div> <div class="nav-el"><a href="search.html">Search</a></div></nav>
+<body><header><h1 class="title">Writing with Inform</h1></header>
+<h2 id="chapter_17">17. Understanding</h2>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="WI_16.html">16. Tables</a></div><div class="doc-navbar-right"><a href="WI_18.html">18. Activities</a></div></div>
+<div class="section-block">
+<div class="section-row">
+<div class="section-chapter-num">§17.</div><div class="section-section-num">1</div><div class="section-name"><a href="WI_17.html#section_1">Understand</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§17.</div><div class="section-section-num">2</div><div class="section-name"><a href="WI_17.html#section_2">New commands for old grammar</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§17.</div><div class="section-section-num">3</div><div class="section-name"><a href="WI_17.html#section_3">Overriding existing commands</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§17.</div><div class="section-section-num">4</div><div class="section-name"><a href="WI_17.html#section_4">Standard tokens of grammar</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§17.</div><div class="section-section-num">5</div><div class="section-name"><a href="WI_17.html#section_5">The text token</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§17.</div><div class="section-section-num">6</div><div class="section-name"><a href="WI_17.html#section_6">Actions applying to kinds of value</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§17.</div><div class="section-section-num">7</div><div class="section-name"><a href="WI_17.html#section_7">Understanding any, understanding rooms</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§17.</div><div class="section-section-num">8</div><div class="section-name"><a href="WI_17.html#section_8">Understanding names</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§17.</div><div class="section-section-num">9</div><div class="section-name"><a href="WI_17.html#section_9">Understanding kinds of value</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§17.</div><div class="section-section-num">10</div><div class="section-name"><a href="WI_17.html#section_10">Commands consisting only of nouns</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§17.</div><div class="section-section-num">11</div><div class="section-name"><a href="WI_17.html#section_11">Understanding values</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§17.</div><div class="section-section-num">12</div><div class="section-name"><a href="WI_17.html#section_12">This/that</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§17.</div><div class="section-section-num">13</div><div class="section-name"><a href="WI_17.html#section_13">New tokens</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§17.</div><div class="section-section-num">14</div><div class="section-name"><a href="WI_17.html#section_14">Tokens can produce values</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§17.</div><div class="section-section-num">15</div><div class="section-name"><a href="WI_17.html#section_15">Understanding things by their properties</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§17.</div><div class="section-section-num">16</div><div class="section-name"><a href="WI_17.html#section_16">Understanding things by their relations</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§17.</div><div class="section-section-num">17</div><div class="section-name"><a href="WI_17.html#section_17">Context: understanding when</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§17.</div><div class="section-section-num">18</div><div class="section-name"><a href="WI_17.html#section_18">Changing the meaning of pronouns</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§17.</div><div class="section-section-num">19</div><div class="section-name"><a href="WI_17.html#section_19">Does the player mean...</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§17.</div><div class="section-section-num">20</div><div class="section-name"><a href="WI_17.html#section_20">Multiple action processing</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§17.</div><div class="section-section-num">21</div><div class="section-name"><a href="WI_17.html#section_21">Understanding mistakes</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§17.</div><div class="section-section-num">22</div><div class="section-name"><a href="WI_17.html#section_22">Precedence</a></div>
+</div>
+</div>
+<h3 id="section_1">WI §17.1 Understand</h3>
+<div class="sect-navbar"><div class="sect-navbar-center"><a href="#chapter_17">17. Understanding</a></div><div class="sect-navbar-right"><a href="#section_2">17.2 New commands for old grammar</a></div></div>
+<p>During play, the computer and the player alternate in writing messages to each other: in the player&#39;s case, these are short instructions, usually saying what to do next. A wide range of such &quot;commands&quot; are automatically understood, but these only apply to the standard built-in actions. (This wide range is conveniently tabulated in the Commands part of the Actions index.) If we want the player to be able to command new actions, then we need to specify what is to be understood as what. For this, we supply special sentences starting with the word &quot;Understand&quot;.</p>
+<p>Suppose we return to the earlier example of a newly created action:</p>
+<div class="codeblock"><div class="codeline">Photographing is an action applying to one visible thing and requiring light.</div>
+</div><p>We then supply lines of grammar (as they are called) for Inform to recognise, like so:</p>
+<div class="codeblock"><div class="codeline">Understand &quot;photograph [someone]&quot; as photographing.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Understand &quot;photograph [an open door]&quot; as photographing.</div>
+</div><p>As usual, the square brackets indicate something which stands for text, rather than text to be taken verbatim. &quot;[someone]&quot; needs to be the name of anything of the kind &quot;person&quot;, for instance (though as usual that person will need to be in sight of the player for the name to be accepted). The first word &ndash; in these examples &quot;photograph&quot; &ndash; must be something definite, not a substitution like this.</p>
+<p>For obvious reasons, this pattern of words needs to match the expectations of the action. Photographing applies to &quot;one visible thing&quot; &ndash; the &quot;visible&quot; just means it does not need to be touched, only seen &ndash; so neither of these would be allowable:</p>
+<div class="codeblock"><div class="codeline">Understand &quot;photograph&quot; as photographing.</div>
+<div class="codeline">Understand &quot;photograph [someone] standing next to [something]&quot; as photographing.</div>
+</div><p>The first is probably bad because it supplies no things at all, the second is certainly because it supplies two: what we want, of course, is just the one. (The reason the first is only probably bad is that it&#39;s possible to tell Inform how to choose the object if the player doesn&#39;t: see the &quot;supplying a missing noun&quot; activity.)</p>
+<div class="examples">
+<h4>Examples</h4>
+<div class="example-short">286. ★ <a href="examples/indirection.html">Indirection</a><br>Renaming the directions of the compass so that &quot;white&quot; corresponds to north, &quot;red&quot; to east, &quot;yellow&quot; to south, and &quot;black&quot; to west.</p></div><div class="linkback">
+<a href="RB_3.html#section_2" title="Place &gt; Map">RB §3.2 Map</a>
+</div>
+<div class="example-short">287. ★ <a href="examples/xyzzy.html">XYZZY</a><br>Basics of adding a new command reviewed, for the case of the simple magic word XYZZY.</p></div><div class="linkback">
+<a href="RB_6.html#section_13" title="Commands &gt; Magic Words">RB §6.13 Magic Words</a>
+</div>
+<div class="example-short">288. ★★ <a href="examples/xylan.html">Xylan</a><br>Creating a new command that does require an object to be named; and some comments about the choice of vocabulary, in general.</p></div><div class="linkback">
+<a href="RB_10.html#section_2" title="Physics: Substances, Ropes, Energy and Weight &gt; Liquids">RB §10.2 Liquids</a>
+</div>
+<h3 id="section_2">WI §17.2 New commands for old grammar</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_1">17.1 Understand</a></div><div class="sect-navbar-center"><a href="#chapter_17">17. Understanding</a></div><div class="sect-navbar-right"><a href="#section_3">17.3 Overriding existing commands</a></div></div>
+<p>In the photography example, we are providing entirely new grammar for an action  not ordinarily built in to Inform. But we often want simply to provide alternative grammar for existing actions, or even to put new interpretations on commands that Inform already recognises. For instance:</p>
+<div class="codeblock"><div class="codeline">Understand &quot;deposit [something] in [an open container]&quot; as inserting it into.</div>
+</div><p>The inserting action is built in to Inform, but the command &quot;deposit&quot; is not, so this is created as new. It is occasionally useful to put a twist on this:</p>
+<div class="codeblock"><div class="codeline">Understand &quot;fill [an open container] with [something]&quot; as inserting it into (with nouns reversed).</div>
+</div><p>The clause &quot;(with nouns reversed)&quot; tells Inform to exchange the two nouns parsed, which is necessary because the inserting action expects the noun to be the item and the second noun to be the container, not vice versa.</p>
+<p>The following example:</p>
+<div class="codeblock"><div class="codeline">Understand &quot;access [something]&quot; as opening.</div>
+</div><p>might look as if it makes &quot;access&quot; behave just like &quot;open&quot; when the player types it, but that&#39;s not so: &quot;open&quot; can also be used in constructions like &quot;open the door with the brass key&quot;, in which case it is understood as the unlocking action. We could add another line to make &quot;access&quot; behave this way too, but if what we really want is to make &quot;access&quot; behave just like &quot;open&quot;, it&#39;s easier simply to say so:</p>
+<div class="codeblock"><div class="codeline">Understand the command &quot;access&quot; as &quot;open&quot;.</div>
+</div><p>This is very useful when adding a new command which needs synonyms:</p>
+<div class="codeblock"><div class="codeline">Understand the commands &quot;snap&quot; and &quot;picture&quot; as &quot;photograph&quot;.</div>
+</div><p>We can check the current stock of commands by looking at the table in the Actions index: for instance, before making &quot;snap&quot; synonymous with &quot;photograph&quot;, it might be wise to check that it is not already defined as a command for breaking something.</p>
+<div class="examples">
+<h4>Examples</h4>
+<div class="example-short">289. ★ <a href="examples/alpaca_farm.html">Alpaca Farm</a><br>A generic USE action which behaves sensibly with a range of different objects.</p></div><div class="linkback">
+<a href="RB_6.html#section_17" title="Commands &gt; Clarification and Correction">RB §6.17 Clarification and Correction</a>
+</div>
+<div class="example-short">290. ★ <a href="examples/anchorite.html">Anchorite</a><br>By default, Inform understands GET OFF, GET UP, or GET OUT when the player is sitting or standing on an enterable object. We might also want to add GET DOWN and DOWN as exit commands, though.</p></div><div class="linkback">
+<a href="RB_6.html#section_10" title="Commands &gt; Entering and Exiting, Sitting and Standing">RB §6.10 Entering and Exiting, Sitting and Standing</a>
+</div>
+<div class="example-short">291. ★★★★ <a href="examples/cloak_of_darkness.html">Cloak of Darkness</a><br>Implementation of &quot;Cloak of Darkness&quot;, a simple example game that for years has been used to demonstrate the features of IF languages.</p></div><div class="linkback">
+<a href="RB_3.html#section_7" title="Place &gt; Lighting">RB §3.7 Lighting</a>
+</div>
+<h3 id="section_3">WI §17.3 Overriding existing commands</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_2">17.2 New commands for old grammar</a></div><div class="sect-navbar-center"><a href="#chapter_17">17. Understanding</a></div><div class="sect-navbar-right"><a href="#section_4">17.4 Standard tokens of grammar</a></div></div>
+<p>Suppose we are devising specialist commands for a game of whist, and we want &quot;discard&quot; as one of them. Looking at the table of commands in the Action index, we find that, inconveniently enough, &quot;discard&quot; already has a meaning: it is synonymous with &quot;drop&quot;, and while that might be sensible most of the time, it is perfectly wrong now. We need a way to free up &quot;discard&quot; for our own use. We can do that by:</p>
+<div class="codeblock"><div class="codeline">Understand the command &quot;discard&quot; as something new.</div>
+</div><p>This cuts it loose, so to speak, and ready to be given new meanings. If we check the Actions index again, we find no mention of &quot;discard&quot; &ndash; it is now a blank slate &ndash; but &quot;drop&quot; is still exactly as it was. We could now say something like:</p>
+<div class="codeblock"><div class="codeline">Understand &quot;discard [something]&quot; as discarding.</div>
+</div><p>(If we had declared that &quot;drop&quot; was something new, the whole thing would have happened in reverse, with &quot;discard&quot; retaining all of the original grammar. Inform does not distinguish between a command and its synonym.)</p>
+<p>The &quot;&hellip; as something new&quot; sentence works even for a command which did not exist anyway, for instance with:</p>
+<div class="codeblock"><div class="codeline">Understand the command &quot;zylqix&quot; as something new.</div>
+</div><p>Of course this does nothing &ndash; but it is intentional that it generates no problem messages: it means that the sentence can be used to force a command to be fresh and untouched by previous definitions, which might be useful when working with extensions by other people.</p>
+<p>It is also possible to clear out all the commands leading to a given action:</p>
+<div class="codeblock"><div class="codeline">Understand nothing as taking.</div>
+</div><p>The commands &quot;take&quot; and &quot;get&quot; will still exist, but now they&#39;ll only have their other senses (for taking off clothes, for getting out of boxes).</p>
+<div class="examples">
+<h4>Examples</h4>
+<div class="example-short">292. ★ <a href="examples/trouble_with_printing.html">The Trouble with Printing</a><br>Making a READ command, distinct from EXAMINE, for legible objects.</p></div><div class="linkback">
+<a href="RB_9.html#section_6" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Reading Matter">RB §9.6 Reading Matter</a>
+</div>
+<div class="example-short">293. ★★ <a href="examples/lanista2.html">Lanista 2</a><br>Randomized combat in which the damage done depends on what weapons the characters are wielding, and in which an ATTACK IT WITH action is created to replace regular attacking. Also folds a new DIAGNOSE command into the system.</p></div><div class="linkback">
+<a href="RB_7.html#section_5" title="Other Characters &gt; Combat and Death">RB §7.5 Combat and Death</a>
+</div>
+<h3 id="section_4">WI §17.4 Standard tokens of grammar</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_3">17.3 Overriding existing commands</a></div><div class="sect-navbar-center"><a href="#chapter_17">17. Understanding</a></div><div class="sect-navbar-right"><a href="#section_5">17.5 The text token</a></div></div>
+<p>We have already seen &quot;[something]&quot; and &quot;[someone]&quot;, which are standard examples of &quot;tokens of grammar&quot; &ndash; patterns matched by suitable named things. There are several other standard tokens, provided not so much from necessity but to allow the story parser to be more graceful and responsive. &quot;[someone]&quot; matches the same possibilities as &quot;[a person]&quot; would, but the parser handles it a little better in cases of failure. These special tokens are best explained by looking at some of the examples in the standard grammar, which can be browsed in the Index of any story.</p>
+<div class="codeblock"><div class="codeline">Understand &quot;wear [something preferably held]&quot; as wearing.</div>
+</div><p>Here we expect that the named item will be one that is held by the player, and the parser will use this to resolve ambiguities between names of things carried and not carried. (If the action is one which positively requires that its noun be something carried, a command matching this token against something not carried will generate an automatic attempt to take it.)</p>
+<div class="codeblock"><div class="codeline">Understand &quot;take [things]&quot; as taking.</div>
+<div class="codeline">Understand &quot;drop [things preferably held]&quot; as dropping.</div>
+</div><p>&quot;[things]&quot; is like &quot;[something]&quot; but allows a list of items, or a vague plural like &quot;all&quot;, to be typed. The result will be a sequence of actions, one for each item thus described. &quot;[things preferably held]&quot; is the analogous token for &quot;[something preferably held]&quot;.</p>
+<div class="codeblock"><div class="codeline">Understand &quot;take [things inside] from [something]&quot; as removing.</div>
+</div><p>&quot;[things inside]&quot; matches only what is inside the second-named thing, and ensures that (for instance) the command &quot;take all from box&quot; does not also try to take the box.</p>
+<div class="codeblock"><div class="codeline">Understand &quot;put [other things] in/inside/into [something]&quot; as inserting it into.</div>
+</div><p>Similarly, &quot;[other things]&quot; will allow anything except the second-named thing. (Like &quot;[things inside]&quot; it is really only needed for handling containers.)</p>
+<p>Finally there is &quot;[any things]&quot;, which should be used only with care. This is like &quot;[things]&quot; but with no restriction at all on where the item comes from: it might be invisible, or from a different room, or out of play altogether. If we use this, we had better remember that it would match ALL, with quite extravagant consequences.</p>
+<div class="examples">
+<h4>Examples</h4>
+<div class="example-short">294. ★ <a href="examples/shawns_bad_day.html">Shawn's Bad Day</a><br>Allowing the player to EXAMINE ALL.</p></div><div class="linkback">
+<a href="RB_6.html#section_15" title="Commands &gt; Actions on Multiple Objects">RB §6.15 Actions on Multiple Objects</a>
+</div>
+<div class="example-short">295. ★★★ <a href="examples/left_hand_of_autumn.html">The Left Hand of Autumn</a><br>The possibility of using a [things] token opens up some interesting complications, because we may want actions on multiple items to be reported differently from actions on just one. Here we look at how to make a multiple examination command that describes groups in special ways.</p></div><div class="linkback">
+<a href="RB_6.html#section_5" title="Commands &gt; Examining">RB §6.5 Examining</a>
+</div>
+<h3 id="section_5">WI §17.5 The text token</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_4">17.4 Standard tokens of grammar</a></div><div class="sect-navbar-center"><a href="#chapter_17">17. Understanding</a></div><div class="sect-navbar-right"><a href="#section_6">17.6 Actions applying to kinds of value</a></div></div>
+<p>Most actions involve items: taking a vase, perhaps. As we shall see, they might also involve values, or a mixture of the two: turning a dial to 17 would involve both a thing (the dial) and a number (17). A few of Inform&#39;s built-in actions, however, can act on any text at all. For instance, asking the Sybil about the Persian army would involve a thing (the Sybil) and some text (&quot;Persian army&quot;). Inform does not try to understand automatically what that text might mean, or to relate it to any items, places or values it knows about: instead, Inform leaves that to the specific story to work out for itself, since the answer is bound to depend on the context. (In the chapter on Tables, we saw ways to compile tables of responses to particular topics of conversation.)</p>
+<p>The token for &quot;accept any text here&quot; is just &quot;[text]&quot;. For instance, if we create an action with:</p>
+<div class="codeblock"><div class="codeline">Getting help about is an action applying to one topic.</div>
+</div><p>We can then provide grammar for this action like so:</p>
+<div class="codeblock"><div class="codeline">Understand &quot;help on [text]&quot; as getting help about.</div>
+</div><p>When text like this is successfully matched, it is placed in a value called &quot;the topic understood&quot;. (The term &quot;topic&quot; is used traditionally, really: most of the times one needs this feature, it&#39;s for a topic of conversation, or a topic being looked up in a book.)</p>
+<p>The fact that &quot;[text]&quot; can match anything means that it&#39;s difficult to tell which version of a command was intended if they disagree only from a &quot;[text]&quot; onwards. For example, given:</p>
+<div class="codeblock"><div class="codeline">Yelling specifically is an action applying to one topic. Understand &quot;yell [text]&quot; as yelling specifically. Understand &quot;yell [text] at/to [someone]&quot; as answering it that (with nouns reversed).</div>
+</div><p>&hellip;Inform will in fact try the second possibility first, as being the more specific, but the result may freeze out the first possibility altogether due to autocompletion of commands.</p>
+<div class="examples">
+<h4>Examples</h4>
+<div class="example-short">296. ★ <a href="examples/ish.html">Ish.</a><br>A (very) simple HELP command, using tokens to accept and interpret the player&#39;s  text whatever it might be.</p></div><div class="linkback">
+<a href="RB_11.html#section_3" title="Out Of World Actions and Effects &gt; Helping and Hinting">RB §11.3 Helping and Hinting</a>
+</div>
+<div class="example-short">297. ★★ <a href="examples/nameless.html">Nameless</a><br>ASKing someone about an object rather than about a topic.</p></div><div class="linkback">
+<a href="RB_7.html#section_7" title="Other Characters &gt; Saying Simple Things">RB §7.7 Saying Simple Things</a>
+</div>
+<h3 id="section_6">WI §17.6 Actions applying to kinds of value</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_5">17.5 The text token</a></div><div class="sect-navbar-center"><a href="#chapter_17">17. Understanding</a></div><div class="sect-navbar-right"><a href="#section_7">17.7 Understanding any, understanding rooms</a></div></div>
+<p>Almost all actions apply to things: the player picks them up, pushes them, looks at them and so on. We only occasionally need to recognise other kinds of value, but when we do, we can. For instance:</p>
+<div class="codeblock"><div class="codeline">Adjusting it to is an action applying to one thing and one number.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Understand &quot;adjust [something] to [a number]&quot; as adjusting it to.</div>
+</div><p>The substitution &quot;[a number]&quot; matches any number (actually any whole number that is not too large) typed by the player. Inform checks the various kinds being used to make sure that everything matches, so, for instance, this would be disallowed:</p>
+<div class="codeblock"><div class="codeline">Understand &quot;adjust [something] to [something]&quot; as adjusting it to.</div>
+</div><div class="examples">
+<h4>Examples</h4>
+<div class="example-short">298. ★ <a href="examples/safety.html">Safety</a><br>A safe whose dial can be turned with SPIN SAFE TO 1131, and which will open only with the correct combination.</p></div><div class="linkback">
+<a href="RB_9.html#section_2" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Bags, Bottles, Boxes and Safes">RB §9.2 Bags, Bottles, Boxes and Safes</a>
+</div>
+<div class="example-short">299. ★ <a href="examples/toms_midnight_garden.html">Tom's Midnight Garden</a><br>A clock kind that can be set to any time using &quot;the time understood&quot;; may be turned on and off; and will advance itself only when running. Time on the face is also reported differently depending on whether the clock is analog or digital.</p></div><div class="linkback">
+<a href="RB_9.html#section_11" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Clocks and Scientific Instruments">RB §9.11 Clocks and Scientific Instruments</a>
+</div>
+<div class="example-short">300. ★★ <a href="examples/ibid.html">Ibid.</a><br>A system which allows the author to assign footnotes to descriptions, and permits the player to retrieve them again by number, using &quot;the number understood&quot;. Footnotes will automatically number themselves, according to the order in which the player discovers them.</p></div><div class="linkback">
+<a href="RB_12.html#section_3" title="Typography, Layout, and Multimedia Effects &gt; Footnotes">RB §12.3 Footnotes</a>
+</div>
+<h3 id="section_7">WI §17.7 Understanding any, understanding rooms</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_6">17.6 Actions applying to kinds of value</a></div><div class="sect-navbar-center"><a href="#chapter_17">17. Understanding</a></div><div class="sect-navbar-right"><a href="#section_8">17.8 Understanding names</a></div></div>
+<p>Ordinarily, if we write</p>
+<div class="codeblock"><div class="codeline">Understand &quot;manipulate [something]&quot;.</div>
+</div><p>then the &quot;[something]&quot; will only match what is within reach or sight: this is the concept of &quot;scope&quot;, which is what prevents a player from spookily acting on objects from a distance. The parser itself prevents the manipulation rules from ever being invoked on such distant items, which is as it should be.</p>
+<p>Sometimes, though, we positively want to allow this possibility. If we use the special word &quot;any&quot;, as in</p>
+<div class="codeblock"><div class="codeline">Understand &quot;manipulate [any door]&quot;.</div>
+</div><p>then any door, anywhere in the model world, can be allowed in the player&#39;s command. (Of course, the manipulation rules may not do what the player hopes: all that has happened is that the command is now possible to type.) The &quot;any&quot; can be followed by any description of items or rooms, and the latter opens up new possibilities, since rooms are ordinarily never allowed to be named in the player&#39;s commands.</p>
+<p>For example, the following gives the player the ability to walk between rooms without giving explicit directions of movement.</p>
+<div class="codeblock"><div class="codeline">Going by name is an action applying to one thing.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Carry out going by name: say &quot;You walk to [the noun].&quot;; move the player to the noun.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Understand &quot;go to [any adjacent visited room]&quot; as going by name.</div>
+</div><p>(This is really only a sketch: in a finished work, &quot;go to&quot; would produce helpful errors if non-adjacent but visited rooms were named, and we might also worry about rules applying to movement, because the method above will circumvent them.)</p>
+<p>As might be expected, &quot;[anything]&quot; means the same as &quot;[any thing]&quot;; &quot;[anybody]&quot; and &quot;[anyone]&quot; mean the same as &quot;[any person]&quot;; and &quot;[anywhere]&quot; means the same as &quot;[any room]&quot;.</p>
+<div class="examples">
+<h4>Examples</h4>
+<div class="example-short">301. ★ <a href="examples/one_of_those_mornings.html">One of Those Mornings</a><br>A FIND command that allows the player to find a lost object anywhere</p></div><div class="linkback">
+<a href="RB_5.html#section_4" title="The Viewpoint Character &gt; Background">RB §5.4 Background</a>
+</div>
+<div class="example-short">302. ★★ <a href="examples/actaeon.html">Actaeon</a><br>A FOLLOW command allowing the player to pursue a person who has just left the room.</p></div><div class="linkback">
+<a href="RB_7.html#section_13" title="Other Characters &gt; Traveling Characters">RB §7.13 Traveling Characters</a>
+</div>
+<h3 id="section_8">WI §17.8 Understanding names</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_7">17.7 Understanding any, understanding rooms</a></div><div class="sect-navbar-center"><a href="#chapter_17">17. Understanding</a></div><div class="sect-navbar-right"><a href="#section_9">17.9 Understanding kinds of value</a></div></div>
+<p>So far in this chapter, Understand sentences have been used to give names to actions, but they can also be used to name objects &ndash; in particular, things and rooms.</p>
+<p>This normally happens automatically. For instance, writing</p>
+<div class="codeblock"><div class="codeline">The St Bernard is an animal in the Monastery Cages.</div>
+</div><p>makes ST BERNARD refer to the dog, and MONASTERY CAGES refer to the room. But sometimes, as here, that isn&#39;t really enough. Why shouldn&#39;t the player type EXAMINE DOG? One way to allow this is to write:</p>
+<div class="codeblock"><div class="codeline">Understand &quot;dog&quot; as the St Bernard.</div>
+</div><p>Matters become more complicated when the player wants to refer to more than one object at once.	When a kind is created, and the source text constructs multiple duplicate items of that kind, Inform generates a plural of the kind&#39;s name in order to understand commands referring to these multiples. For instance, given&hellip;</p>
+<div class="codeblock"><div class="codeline">The Lake is a room. A duck is a kind of animal. Four ducks are in</div>
+<div class="codeline">&ensp;&ensp;the Lake.</div>
+</div><p>&hellip;the player can type TAKE DUCKS to try to pick up all four.</p>
+<p>Once again the automatic behaviour can be enhanced:</p>
+<div class="codeblock"><div class="codeline">Understand &quot;birds&quot; and &quot;ruddy ducks&quot; as the plural of duck.</div>
+</div><p>Now TAKE BIRDS and TAKE DUCKS are equivalent. Plurals can even, strange as it may seem, be given for single things:</p>
+<div class="codeblock"><div class="codeline">The magpie is in the Lake. Understand &quot;birds&quot; as the plural of the magpie.</div>
+</div><p>And now TAKE BIRDS tries to take all four ducks and the magpie too.</p>
+<h3 id="section_9">WI §17.9 Understanding kinds of value</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_8">17.8 Understanding names</a></div><div class="sect-navbar-center"><a href="#chapter_17">17. Understanding</a></div><div class="sect-navbar-right"><a href="#section_10">17.10 Commands consisting only of nouns</a></div></div>
+<p>In many cases, if K is the name of a kind of value, then Inform automatically makes an Understand token called &quot;[K]&quot; which matches only values of K. An example is &quot;[number]&quot;, which matches text like 203 or SEVEN. There is a chart of the kinds of value in the Kinds index for a project, showing which ones can be understood in this way.</p>
+<p>In particular, any newly created kind of value can always be understood. We make good use of that in the example story &quot;Studious&quot;:</p>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Studious&quot;\n\nThe Studio is a room. &quot;The unreal world of the photographic studio, full of fake furniture, cantilevered stands and silver-white shades like miniature parachutes.&quot; The lumpy black camera is in the Studio. &quot;A lumpy black camera hangs from a tripod.&quot;\n\nThe rake-thin model is a woman in the Studio. &quot;A rake-thin model, exquisitely bored and boringly exquisite, angles herself indolently.&quot;\n\nLimb is a kind of value. The limbs are left leg, left arm, right leg and right arm.\n\nDetailing is an action applying to one limb and one visible thing, requiring light. Check detailing: if the camera is not carried then say &quot;You can hardly photograph without a camera, now can you?&quot; instead. Report detailing: say &quot;Click! You take a detail photograph of the [limb understood] of [the second noun].&quot;\n\nUnderstand &quot;photograph [limb] of [a person]&quot; as detailing.\n\nTest me with &quot;get camera / photograph left leg of model&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Studious&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Studio is a room. &quot;The unreal world of the photographic studio, full of fake furniture, cantilevered stands and silver-white shades like miniature parachutes.&quot; The lumpy black camera is in the Studio. &quot;A lumpy black camera hangs from a tripod.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The rake-thin model is a woman in the Studio. &quot;A rake-thin model, exquisitely bored and boringly exquisite, angles herself indolently.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Limb is a kind of value. The limbs are left leg, left arm, right leg and right arm.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Detailing is an action applying to one limb and one visible thing, requiring light. Check detailing: if the camera is not carried then say &quot;You can hardly photograph without a camera, now can you?&quot; instead. Report detailing: say &quot;Click! You take a detail photograph of the [limb understood] of [the second noun].&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Understand &quot;photograph [limb] of [a person]&quot; as detailing.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;get camera / photograph left leg of model&quot;.</div>
+</div><p>Note the way we can refer to the limb mentioned by the player as the &quot;limb understood&quot;. Similarly, we could talk about the &quot;number understood&quot; if the value parsed had been a number, and so on.</p>
+<p>One of the built-in kinds of value is worth special note: time. A time can hold either a specific time of day, such as 10:23 PM, or a duration of something, such as 21 minutes. The &quot;[a time]&quot; token matches times of day, such as 10:15 AM or MIDNIGHT. But 10 MINUTES wouldn&#39;t be recognised by &quot;[a time]&quot; since it isn&#39;t a specific moment in the day. To get around this, an alternative version called &quot;[a time period]&quot; is available. So:</p>
+<div class="codeblock"><div class="codeline">Understand &quot;wait for [a time period]&quot; as ...</div>
+</div><p>would match WAIT FOR AN HOUR or WAIT FOR TWO HOURS 12 MINUTES.</p>
+<div class="examples">
+<h4>Examples</h4>
+<div class="example-short">303. ★ <a href="examples/pages.html">Pages</a><br>A book with pages that can be read by number (as in &quot;read page 3 in...&quot;) and which accepts relative page references as well (such as &quot;read the last page of...&quot;, &quot;read the next page&quot;, and so on).</p></div><div class="linkback">
+<a href="RB_9.html#section_6" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Reading Matter">RB §9.6 Reading Matter</a>
+</div>
+<div class="example-short">304. ★★ <a href="examples/down_in_oodville.html">Down in Oodville</a><br>Offering the player a choice of numbered options at certain times, without otherwise interfering with his ability to give regular commands.</p></div><div class="linkback">
+<a href="RB_6.html#section_18" title="Commands &gt; Alternatives To Standard Parsing">RB §6.18 Alternatives To Standard Parsing</a>
+</div>
+<div class="example-short">305. ★★★ <a href="examples/straw_into_gold.html">Straw Into Gold</a><br>Creating a Rumpelstiltskin character who is always referred to as &quot;dwarf&quot;, &quot;guy&quot;, &quot;dude&quot;, or &quot;man&quot; -- depending on which the player last used -- until the first time the player refers to him as &quot;Rumpelstiltskin&quot;.</p></div><div class="linkback">
+<a href="RB_2.html#section_1" title="Adaptive Prose &gt; Varying What Is Written">RB §2.1 Varying What Is Written</a>
+</div>
+<h3 id="section_10">WI §17.10 Commands consisting only of nouns</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_9">17.9 Understanding kinds of value</a></div><div class="sect-navbar-center"><a href="#chapter_17">17. Understanding</a></div><div class="sect-navbar-right"><a href="#section_11">17.11 Understanding values</a></div></div>
+<p>In every example so far, and in almost all practical cases, the first word in a command which results in an action will be something fixed: a verb, in fact. When we write</p>
+<div class="codeblock"><div class="codeline">Understand &quot;photograph [something]&quot; as photographing.</div>
+</div><p>we are saying that the first word of such a command will always be &quot;photograph&quot;. Occasionally, though, we would like to understand a noun as a command, perhaps in a situation where the command is obvious. If we say:</p>
+<div class="codeblock"><div class="codeline">Understand &quot;[something]&quot; as examining.</div>
+</div><p>then the command &quot;examine&quot; will be implicit when the player types a bare noun:</p>
+<div class="codeblock"><div class="codeline">A red box and a blue ball are here.</div>
+<div class="codeline">&gt; BALL</div>
+<div class="codeline">The blue ball is plaited from many small leather patches.</div>
+</div><p>so that the command &quot;ball&quot; has resulted in the action &quot;examining the blue ball&quot;.</p>
+<p>This is a feature which should be used sparingly, since it could easily lead to confusion if not carefully explained to the player. By default, it is not used at all.</p>
+<p>It also has what may be a serious limitation: verbless commands like this work only when typed by the player as actions to follow &ndash; they do not work as instructions for other people. So for instance SVEN, BALL would not ask Sven to try examining the ball &ndash; instead it would generate the action &quot;answering ball to Sven&quot;. (This is because the Inform parser decides whether PERSON, SOME TEXT is a request or just conversation by looking at the first word after the comma to see if it&#39;s a command.)</p>
+<div class="examples">
+<h4>Examples</h4>
+<div class="example-short">306. ★ <a href="examples/misadventure.html">Misadventure</a><br>A going by name command which does respect movement rules, and accepts names of rooms as commands.</p></div><div class="linkback">
+<a href="RB_6.html#section_9" title="Commands &gt; Going, Pushing Things in Directions">RB §6.9 Going, Pushing Things in Directions</a>
+</div>
+<div class="example-short">307. ★★ <a href="examples/safari_guide.html">Safari Guide</a><br>The same functionality, but making the player continue to move until he reaches his destination or a barrier, handling all openable doors on the way.</p></div><div class="linkback">
+<a href="RB_6.html#section_9" title="Commands &gt; Going, Pushing Things in Directions">RB §6.9 Going, Pushing Things in Directions</a>
+</div>
+<h3 id="section_11">WI §17.11 Understanding values</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_10">17.10 Commands consisting only of nouns</a></div><div class="sect-navbar-center"><a href="#chapter_17">17. Understanding</a></div><div class="sect-navbar-right"><a href="#section_12">17.12 This/that</a></div></div>
+<p>&quot;Understand&quot; can be used to supply new ways to talk about both things and other values. For instance, if we create:</p>
+<div class="codeblock"><div class="codeline">A brass lantern is in the Building.</div>
+</div><p>then it can be called &quot;brass&quot;, or &quot;lantern&quot;, but not &quot;lamp&quot;: Inform does not really know what these words mean, and has no grasp of synonyms. We can arrange for &quot;lamp&quot; to work as well like so:</p>
+<div class="codeblock"><div class="codeline">Understand &quot;lamp&quot; as the lantern.</div>
+<div class="codeline">Understand &quot;old lamp&quot; as the lantern.</div>
+</div><p>With care, we can do the same trick for entire kinds of thing at once. It is not ordinarily the case that a thing can be called by the name of its kind: if we put a woman called April into a room, then she can usually be called &quot;April&quot;, but not &quot;woman&quot;. (The exception is when we do not specify any name for her &ndash; in that case, Inform will give up and call her just &quot;woman&quot;.) So there is not usually any form of words which can refer to anything of a given kind. If we should want this, we have to say so explicitly:</p>
+<div class="codeblock"><div class="codeline">Understand &quot;machine&quot; as a device.</div>
+</div><p>Device is a kind, so now the word &quot;machine&quot; can be used to refer to any device: if there are two in the same place, the result might play out like so:</p>
+<div class="codeblock"><div class="codeline">&gt;switch machine on</div>
+<div class="codeline">Which do you mean, the bale twiner or the grain thresher?</div>
+<div class="codeline">&gt;twiner</div>
+<div class="codeline">You watch absorbed as a perfect cube of hay is trussed up like a parcel.</div>
+</div><p>Similarly, we might conceivably want to allow new ways to recognise values &ndash; in this case, a number:</p>
+<div class="codeblock"><div class="codeline">Understand &quot;eleventy-one&quot; as 111.</div>
+</div><p>When making complicated names, we need to watch out for the possibility of writing a definition which will cause Inform to go around in circles (something which will show up as a &quot;Too many activities at once&quot; run-time problem). For instance,</p>
+<div class="codeblock"><div class="codeline">Understand &quot;[thing] substitute&quot; as the placebo.</div>
+</div><p>will fail because Inform, working left to right, needs to look for every possible object name before it can progress: one possibility is the placebo itself: to check that, it needs to look for every possible object name: and so on, never finishing. A definition like this one very likely matches too much in any case (would we really want to accept PLACEBO SUBSTITUTE or CIGARETTE SUBSTITUTE SUBSTITUTE SUBSTITUTE here, as the definition implies?).</p>
+<div class="examples">
+<h4>Examples</h4>
+<div class="example-short">308. ★ <a href="examples/palette.html">Palette</a><br>An artist&#39;s workshop in which the canvas can be painted in any colour, and where painterly names for pigments (&quot;cerulean&quot;) are accepted alongside everyday ones (&quot;blue&quot;).</p></div><div class="linkback">
+<a href="RB_9.html#section_7" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Painting and Labeling Devices">RB §9.7 Painting and Labeling Devices</a>
+</div>
+<div class="example-short">309. ★★★ <a href="examples/baritone_bass.html">Baritone, Bass</a><br>Letting the player pick a gender (or perhaps other characteristics) before starting play.</p></div><div class="linkback">
+<a href="RB_5.html#section_2" title="The Viewpoint Character &gt; Traits Determined By the Player">RB §5.2 Traits Determined By the Player</a>
+</div>
+<h3 id="section_12">WI §17.12 This/that</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_11">17.11 Understanding values</a></div><div class="sect-navbar-center"><a href="#chapter_17">17. Understanding</a></div><div class="sect-navbar-right"><a href="#section_13">17.13 New tokens</a></div></div>
+<p>We have already seen &quot;or&quot; used in &quot;Understand&quot; sentences:</p>
+<div class="codeblock"><div class="codeline">Understand &quot;scarlet&quot; or &quot;crimson&quot; as red.</div>
+</div><p>In general, any number of alternative forms can be given which are to be understood as the same thing (in this case the colour red). When the alternatives are in any way complicated, &quot;or&quot; should always be used, but a shorthand form is allowed for simple cases where it is only a matter of a single word having several possibilities:</p>
+<div class="codeblock"><div class="codeline">Understand &quot;reach underneath/under/beneath [something]&quot; as looking under.</div>
+</div><p>This is shorthand for:</p>
+<div class="codeblock"><div class="codeline">Understand &quot;reach underneath [something]&quot; or &quot;reach under [something]&quot; or &quot;reach beneath [something]&quot; as looking under.</div>
+</div><p>Which in turn is shorthand for:</p>
+<div class="codeblock"><div class="codeline">Understand &quot;reach underneath [something]&quot; as looking under. Understand &quot;reach under [something]&quot; as looking under. Understand &quot;reach beneath [something]&quot; as looking under.</div>
+</div><p>It&#39;s possible also to make that second word optional:</p>
+<div class="codeblock"><div class="codeline">Understand &quot;reach underneath/under/beneath/-- [something]&quot; as looking under.</div>
+</div><p>because &quot;--&quot; is read by Inform as &quot;no word at all&quot;. If &quot;--&quot; is an option, it can only be given once and at the end of the list of possibilities.</p>
+<p>To recapitulate: the slash &quot;/&quot; can only be used between single, literal words, and is best for the wayward prepositions of English (&quot;in/into/inside&quot;, and so forth). For anything more complex, always use &quot;or&quot;.</p>
+<h3 id="section_13">WI §17.13 New tokens</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_12">17.12 This/that</a></div><div class="sect-navbar-center"><a href="#chapter_17">17. Understanding</a></div><div class="sect-navbar-right"><a href="#section_14">17.14 Tokens can produce values</a></div></div>
+<p>We have now made good use of square-bracketed tokens, such as &quot;[something]&quot;, in a variety of &quot;Understand&hellip;&quot; sentences. It is sometimes convenient to create new tokens of our own, to match whatever grammar we choose: this enables complicated knots of grammar to be used in many different &quot;Understand&hellip;&quot; sentences without having to write it all out each time.</p>
+<p>For instance, here are new tokens: one for each of two groups of alternative prepositions.</p>
+<div class="codeblock"><div class="codeline">Understand &quot;beneath/under/by/near/beside/alongside/against&quot; or &quot;next to&quot; or &quot;in front of&quot; as &quot;[beside]&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Understand &quot;on/in/inside&quot; or &quot;on top of&quot; as &quot;[within]&quot;.</div>
+</div><p>Again, note that the slash indicates a choice between words only, not between entire phrases. For instance, if we write:</p>
+<div class="codeblock"><div class="codeline">Understand &quot;red bird/robin&quot; as &quot;[robin]&quot;.</div>
+</div><p>then the two alternative forms are &quot;red bird&quot; and &quot;red robin&quot;, not &quot;red bird&quot; and &quot;robin&quot;. By contrast,</p>
+<div class="codeblock"><div class="codeline">Understand &quot;red bird&quot; or &quot;robin&quot; as &quot;[robin]&quot;.</div>
+</div><p>will understand either &quot;red bird&quot; or &quot;robin&quot; but not &quot;red robin&quot;. If we want to capture all three forms, we might define</p>
+<div class="codeblock"><div class="codeline">Understand &quot;red bird/robin&quot; or &quot;robin&quot; as &quot;[robin]&quot;.</div>
+</div><div class="examples">
+<h4>Example</h4>
+<div class="example-short">310. ★ <a href="examples/lies.html">Lies</a><br>Commands to allow the player to lie down in three different ways.</p></div><div class="linkback">
+<a href="RB_6.html#section_10" title="Commands &gt; Entering and Exiting, Sitting and Standing">RB §6.10 Entering and Exiting, Sitting and Standing</a>
+</div>
+<h3 id="section_14">WI §17.14 Tokens can produce values</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_13">17.13 New tokens</a></div><div class="sect-navbar-center"><a href="#chapter_17">17. Understanding</a></div><div class="sect-navbar-right"><a href="#section_15">17.15 Understanding things by their properties</a></div></div>
+<p>The examples just seen were tokens which simply matched specific words typed by the player, but newly created tokens can also produce values:</p>
+<div class="codeblock"><div class="codeline">Colour is a kind of value. The colours are red, green and blue. Understand &quot;colour [a colour]&quot; or &quot;[a colour] shade&quot; as &quot;[tint]&quot;.</div>
+</div><p>Here the &quot;[tint]&quot; token matches, for instance, &quot;colour red&quot; and &quot;blue shade&quot;, which would result in the values red and blue, respectively.</p>
+<p>Tokens are not allowed to produce more than one value, and if several patterns are given to define them then those patterns have to be compatible. That means the following is disallowed, since it might work out to a colour, or to an object, leaving Inform unable to judge whether an action can safely be applied to the result.</p>
+<div class="codeblock"><div class="codeline">Understand &quot;colour [a colour]&quot; or &quot;[something]&quot; as &quot;[tint]&quot;.</div>
+</div><h3 id="section_15">WI §17.15 Understanding things by their properties</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_14">17.14 Tokens can produce values</a></div><div class="sect-navbar-center"><a href="#chapter_17">17. Understanding</a></div><div class="sect-navbar-right"><a href="#section_16">17.16 Understanding things by their relations</a></div></div>
+<p>Items are ordinarily understood only by their original given names. For instance, if we have:</p>
+<div class="codeblock"><div class="codeline">In the Herb Garden is a china pot.</div>
+</div><p>then the player could refer to this as &quot;pot&quot;, &quot;china pot&quot; or &quot;china&quot;. We can embellish this by adding extra forms:</p>
+<div class="codeblock"><div class="codeline">Understand &quot;chinese pot&quot; or &quot;chinese vase&quot; as the china pot.</div>
+</div><p>But suppose the pot changes its nature in the course of play? If we have:</p>
+<div class="codeblock"><div class="codeline">The china pot can be unbroken or broken. The china pot is unbroken.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">After dropping the china pot:</div>
+<div class="codeline">&ensp;&ensp;say &quot;Crack!&quot;;</div>
+<div class="codeline">&ensp;&ensp;now the china pot is broken;</div>
+<div class="codeline">&ensp;&ensp;now the printed name of the pot is &quot;broken pot&quot;.</div>
+</div><p>So now the player would reasonably expect to call it &quot;broken pot&quot;, a wording which would have been rejected before. We can achieve this by writing:</p>
+<div class="codeblock"><div class="codeline">Understand the unbroken property as describing the pot.</div>
+</div><p>which allows &quot;unbroken&quot; or &quot;broken&quot; to describe the pot, depending on its state. And, since the player might well use a different adjective but with the same idea in mind, we can even add:</p>
+<div class="codeblock"><div class="codeline">Understand &quot;shattered&quot; or &quot;cracked&quot; or &quot;smashed&quot; as broken. Understand &quot;pristine&quot; as unbroken.</div>
+</div><p>This is something of a toy example, but the feature looks rather more useful when there are more pots than just one:</p>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Terracotta&quot;\n\nA flowerpot is a kind of thing. A flowerpot can be unbroken or broken. Understand the broken property as describing a flowerpot.\n\nAfter dropping an unbroken flowerpot:\n\tsay &quot;Crack!&quot;;\n\tnow the noun is broken;\n\tnow the printed name of the noun is &quot;broken flowerpot&quot;;\n\tnow the printed plural name of the noun is &quot;broken flowerpots&quot;.\n\nThe Herb Garden is a room. In the Herb Garden are ten unbroken flowerpots.`)">⧉</button><div class="codeline storytitle">&quot;Terracotta&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A flowerpot is a kind of thing. A flowerpot can be unbroken or broken. Understand the broken property as describing a flowerpot.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">After dropping an unbroken flowerpot:</div>
+<div class="codeline">&ensp;&ensp;say &quot;Crack!&quot;;</div>
+<div class="codeline">&ensp;&ensp;now the noun is broken;</div>
+<div class="codeline">&ensp;&ensp;now the printed name of the noun is &quot;broken flowerpot&quot;;</div>
+<div class="codeline">&ensp;&ensp;now the printed plural name of the noun is &quot;broken flowerpots&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Herb Garden is a room. In the Herb Garden are ten unbroken flowerpots.</div>
+</div><p>We then have the dialogue:</p>
+<div class="codeblock"><div class="codeline">Herb Garden</div>
+<div class="codeline">You can see ten flowerpots here.</div>
+<div class="codeline">&gt;get two flowerpots</div>
+<div class="codeline">flowerpot: Taken.</div>
+<div class="codeline">flowerpot: Taken.</div>
+<div class="codeline">&gt;drop all</div>
+<div class="codeline">flowerpot: Crack!</div>
+<div class="codeline">flowerpot: Crack!</div>
+<div class="codeline">&gt;look</div>
+<div class="codeline">Herb Garden</div>
+<div class="codeline">You can see two broken flowerpots and eight flowerpots here.</div>
+<div class="codeline">&gt;get an unbroken flowerpot</div>
+<div class="codeline">Taken.</div>
+</div><p>and so on and so forth.</p>
+<p>There are in fact two slightly different forms of this kind of sentence:</p>
+<div class="codeblock"><div class="codeline">Understand the broken property as describing a flowerpot.</div>
+<div class="codeline">Understand the broken property as referring to a flowerpot.</div>
+</div><p>The only difference is that in the &quot;describing&quot; case, the property&#39;s name alone can mean the thing in question &ndash; so &quot;take unbroken&quot; will work; whereas, in the &quot;referring to&quot;, the property&#39;s name can only be used as an adjective preceding the name of thing itself &ndash; so &quot;take unbroken flowerpot&quot; will work but &quot;take unbroken&quot; will not.</p>
+<div class="examples">
+<h4>Examples</h4>
+<div class="example-short">311. ★ <a href="examples/aspect.html">Aspect</a><br>Understanding aspect ratios (a unit) in the names of televisions.</p></div><div class="linkback">
+<a href="RB_9.html#section_9" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Televisions and Radios">RB §9.9 Televisions and Radios</a>
+</div>
+<div class="example-short">312. ★ <a href="examples/hymenaeus.html">Hymenaeus</a><br>Understanding &quot;flaming torch&quot; and &quot;extinguished torch&quot; to refer to torches when lit and unlit.</p></div><div class="linkback">
+<a href="RB_3.html#section_7" title="Place &gt; Lighting">RB §3.7 Lighting</a>
+</div>
+<div class="example-short">313. ★★ <a href="examples/channel.html">Channel 1</a><br>Understanding channels (a number) in the names of televisions.</p></div><div class="linkback">
+<a href="RB_9.html#section_9" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Televisions and Radios">RB §9.9 Televisions and Radios</a>
+</div>
+<div class="example-short">314. ★★ <a href="examples/terracottissima.html">Terracottissima</a><br>The flowerpots once again, but this time arranged so that after the first breakage all undamaged pots are said to be &quot;unbroken&quot;, to distinguish them from the others.</p></div><div class="linkback">
+<a href="RB_10.html#section_4" title="Physics: Substances, Ropes, Energy and Weight &gt; Glass and Other Damage-Prone Substances">RB §10.4 Glass and Other Damage-Prone Substances</a>
+</div>
+<div class="example-short">315. ★★ <a href="examples/peers.html">Peers</a><br>The peers of the English realm come in six flavours - Baron, Viscount, Earl, Marquess, Duke and Prince - and must always be addressed properly. While a peerage is for life, it may at the royal pleasure be promoted.</p></div><div class="linkback">
+<a href="RB_7.html#section_1" title="Other Characters &gt; Getting Acquainted">RB §7.1 Getting Acquainted</a>
+</div>
+<div class="example-short">316. ★★★ <a href="examples/channel2.html">Channel 2</a><br>Understanding channels (a number) in the names of televisions, with more sophisticated parsing of the change channel action.</p></div><div class="linkback">
+<a href="RB_9.html#section_9" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Televisions and Radios">RB §9.9 Televisions and Radios</a>
+</div>
+<div class="example-short">317. ★★★ <a href="examples/terracottissima_maxima.html">Terracottissima Maxima</a><br>Flowerpots with textual names that might change during play.</p></div><div class="linkback">
+<a href="RB_2.html#section_3" title="Adaptive Prose &gt; Using the Player&#39;s Input">RB §2.3 Using the Player's Input</a>
+</div>
+<div class="example-short">318. ★★★ <a href="examples/tilt.html">Tilt 1</a><br>A deck of cards with fully implemented individual cards, which can be separately drawn and discarded, and referred to by name.</p></div><div class="linkback">
+<a href="RB_9.html#section_5" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Dice and Playing Cards">RB §9.5 Dice and Playing Cards</a>
+</div>
+<h3 id="section_16">WI §17.16 Understanding things by their relations</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_15">17.15 Understanding things by their properties</a></div><div class="sect-navbar-center"><a href="#chapter_17">17. Understanding</a></div><div class="sect-navbar-right"><a href="#section_17">17.17 Context: understanding when</a></div></div>
+<p>Sometimes it makes sense for the name of something to involve the names of other things to which it is related. For instance, if we say TAKE THE BOTTLE OF WINE, we mean that the bottle currently contains wine &ndash; if it were the very same bottle containing water, we would call it something else.</p>
+<p>For names which must involve related names, a special form of token is provided. For instance, we could say:</p>
+<div class="codeblock"><div class="codeline">A box is a kind of container. Understand &quot;box of [something related by containment]&quot; as a box.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Toyshop is a room. The red box is a box in the Toyshop. Some crayons are in the red box.</div>
+</div><p>and now TAKE BOX OF CRAYONS will work, because CRAYONS matches against &quot;[something related by containment]&quot; for the red box &ndash; or it does for as long as the crayons are there. We can have similar matches against relations of all kinds, but have to name the relation explicitly. (See the examples at the end of this section for plenty of cases.)</p>
+<p>We can also reverse the sense. If we write:</p>
+<div class="codeblock"><div class="codeline">A box is a kind of container. Understand &quot;box in [something related by reversed containment]&quot; as a box.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Toyshop is a room. The crate and the hammock are in the Toyshop. In the crate is a box. In the hammock is a box.</div>
+</div><p>then TAKE THE BOX IN THE HAMMOCK will work: here, the relation goes the other way, because the box is being contained by the other-named item, rather than doing the containing.</p>
+<div class="examples">
+<h4>Examples</h4>
+<div class="example-short">319. ★ <a href="examples/cinco.html">Cinco</a><br>A taco shell that can be referred to (when it contains things) in terms of its contents.</p></div><div class="linkback">
+<a href="RB_9.html#section_2" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Bags, Bottles, Boxes and Safes">RB §9.2 Bags, Bottles, Boxes and Safes</a>
+</div>
+<div class="example-short">320. ★ <a href="examples/puncak_jaya.html">Puncak Jaya</a><br>When a character is not visible, responding to such commands as EXAMINE PETER and PETER, HELLO with a short note that the person in question is no longer visible.</p></div><div class="linkback">
+<a href="RB_5.html#section_5" title="The Viewpoint Character &gt; Memory and Knowledge">RB §5.5 Memory and Knowledge</a>
+</div>
+<div class="example-short">321. ★ <a href="examples/whither.html">Whither?</a><br>A door whose description says where it leads; and which automatically understands references such as &quot;the west door&quot; and &quot;the east door&quot; depending on which direction it leads from the location.</p></div><div class="linkback">
+<a href="RB_3.html#section_5" title="Place &gt; Doors, Staircases, and Bridges">RB §3.5 Doors, Staircases, and Bridges</a>
+</div>
+<div class="example-short">322. ★★ <a href="examples/claims_adjustment.html">Claims Adjustment</a><br>An instant camera that spits out photographs of anything the player chooses to take a picture of.</p></div><div class="linkback">
+<a href="RB_9.html#section_12" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Cameras and Recording Devices">RB §9.12 Cameras and Recording Devices</a>
+</div>
+<h3 id="section_17">WI §17.17 Context: understanding when</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_16">17.16 Understanding things by their relations</a></div><div class="sect-navbar-center"><a href="#chapter_17">17. Understanding</a></div><div class="sect-navbar-right"><a href="#section_18">17.18 Changing the meaning of pronouns</a></div></div>
+<p>We have now seen several different forms of &quot;Understand&quot; sentence: for instance,</p>
+<div class="codeblock"><div class="codeline">Understand the colour property as describing a building block.</div>
+<div class="codeline">Understand &quot;mix [colour] paint&quot; as mixing paint.</div>
+<div class="codeline">Understand &quot;rouge&quot; as red.</div>
+<div class="codeline">Understand &quot;curious girl&quot; as Alice.</div>
+</div><p>Any of these may optionally have a condition tacked on: for instance,</p>
+<div class="codeblock"><div class="codeline">Understand &quot;mix [colour] paint&quot; as mixing paint when the location is the Workshop.</div>
+<div class="codeline">Understand &quot;rouge&quot; as red when the make-up set is visible.</div>
+</div><p>In principle, &quot;when &hellip;&quot; can take in any condition at all. In practice a little care should be exercised not to do anything too slow, or which might have side-effects. (For instance, referring the decision to a phrase which then printed text up would be a bad idea.) Moreover, we must remember that the &quot;noun&quot; and &quot;second noun&quot; are not known yet, nor do we know what the action will be. So we cannot safely say &quot;when the noun is the fir cone&quot;, for instance, or refer to things like &quot;the number understood&quot;. (We aren&#39;t done understanding yet.) If we want more sophisticated handling of such cases, we need to write checking rules and so on in the usual way.</p>
+<p>Contexts can be useful to make sense of things having different names depending on who is being spoken to, as here:</p>
+<div class="codeblock"><div class="codeline">Understand &quot;your&quot; as a thing when the item described is held by the person asked.</div>
+</div><p>With this rule in place FRODO, GIVE ME YOUR RING means that Frodo will know which ring is meant, even if there are a couple of dozen other rings present.</p>
+<p>If the name of something has to change completely, perhaps because the player&#39;s understanding of events has changed completely, then Inform&#39;s standard way of handling names can be a nuisance. When an item or room is created, Inform automatically makes its name understood as referring to it (in fact, it makes each individual word in that name understood). For instance,</p>
+<div class="codeblock"><div class="codeline">The Wabe is a room. The blue peacock and the sundial are in the Wabe.</div>
+</div><p>means that the player can type EXAMINE BLUE PEACOCK or PUSH SUNDIAL or SHOWME WABE or TAKE BLUE, and so on. This is almost always a good thing, and here there&#39;s no problem, because peacocks and sundials are not usually disguised. But here is a case where a disguise is needed:</p>
+<div class="codeblock"><div class="codeline">The secret document is a privately-named thing in the drawer.</div>
+<div class="codeline">The printed name of the secret document is &quot;[if the secret document is handled]secret document[otherwise]dusty paper&quot;.</div>
+<div class="codeline">Understand &quot;dusty&quot; and &quot;paper&quot; as the secret document.</div>
+<div class="codeline">Understand &quot;secret&quot; and &quot;document&quot; as the secret document when the secret document is handled.</div>
+<div class="codeline">After taking the secret document for the first time: say &quot;Heavens! It is the secret document!&quot;</div>
+</div><p>As this demonstrates, the either/or property &quot;privately-named&quot; makes Inform create a thing or room which starts out with no automatic understandings at all. The name it happens to have in the source text is ignored. If we simply write:</p>
+<div class="codeblock"><div class="codeline">The ungraspable concept is a privately-named thing in the Dining Room.</div>
+</div><p>then nothing the player can type will ever refer to it; though he will see it, and even be able to pick it up by typing TAKE ALL.</p>
+<p>The reverse property is &quot;publicly-named&quot;, which all things and rooms are by default.</p>
+<p>Inform has four built-in kinds of object (room, thing, direction and region), and all of those have this either/or property. When we create new kinds, they&#39;re normally kinds of those four fundamental ones, so they pick up the same behaviour. But if we create a new kind of object outside of these four, that won&#39;t be true unless we make it so:</p>
+<div class="codeblock"><div class="codeline">A concept is a kind of object. A concept can be privately-named or publicly-named. A concept is usually publicly-named.</div>
+</div><p>(Privately-named is a property which only affects how Inform creates the object, and it can&#39;t usefully be given or taken away during play. &quot;Understand &hellip; when &hellip;&quot; is the way to change names during play.)</p>
+<div class="examples">
+<h4>Examples</h4>
+<div class="example-short">323. ★ <a href="examples/quiz_show.html">Quiz Show</a><br>In this example by Mike Tarbert, the player can occasionally be quizzed on random data from a table; the potential answers will only be understood if a question has just been asked.</p></div><div class="linkback">
+<a href="RB_2.html#section_2" title="Adaptive Prose &gt; Varying What Is Read">RB §2.2 Varying What Is Read</a>
+</div>
+<div class="example-short">324. ★★ <a href="examples/bibliophilia.html">Bibliophilia</a><br>A bookshelf with a number of books, where the player&#39;s command to examine something will be interpreted as an attempt to look up titles if the bookshelf is present, but otherwise given the usual response.</p></div><div class="linkback">
+<a href="RB_9.html#section_6" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Reading Matter">RB §9.6 Reading Matter</a>
+</div>
+<h3 id="section_18">WI §17.18 Changing the meaning of pronouns</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_17">17.17 Context: understanding when</a></div><div class="sect-navbar-center"><a href="#chapter_17">17. Understanding</a></div><div class="sect-navbar-right"><a href="#section_19">17.19 Does the player mean...</a></div></div>
+<p>The pronouns IT, HIM, HER and THEM are constantly adjusted during play, to save the player time when typing commands. If the player types EXAMINE NECKLACE on one turn, it&#39;s sufficient to type TAKE IT on the next, and IT will be understood as meaning whatever NECKLACE meant last turn.</p>
+<p>All of that happens automatically, but once in a while the result can be unfortunate. Suppose that when the player examines the necklace, a security system automatically drugs her unconscious, and she wakes up in a cell, hours later, and is told that the cell is bare except for a key on the floor. If she types TAKE IT, she clearly doesn&#39;t mean IT to mean the necklace any more; she means the key. Inform&#39;s parser can&#39;t make guesses like this, so the following phrase can be used to help it.</p>
+<div class="defn" id="ph_setpronouns"><span class="defn">set pronouns from </span><span class="neutral">(object)</span><p>This phrase adjusts the meaning of pronouns like IT, HIM, HER and THEM in the command parser as if the object mentioned has become the subject of conversation. Example: the combination of</p>
+<div class="codeblock"><div class="codeline">set pronouns from the key;</div>
+<div class="codeline">set pronouns from Bunny;</div>
+</div><p>might change IT to mean the silver key and HIM to mean Harry &quot;Bunny&quot; Manders, while leaving HER and THEM unaltered.</p>
+</div><div class="examples">
+<h4>Example</h4>
+<div class="example-short">325. ★ <a href="examples/pot_of_petunias.html">Pot of Petunias</a><br>Responding sensibly to a pot of petunias falling from the sky.</p></div><div class="linkback">
+<a href="RB_2.html#section_2" title="Adaptive Prose &gt; Varying What Is Read">RB §2.2 Varying What Is Read</a>
+</div>
+<h3 id="section_19">WI §17.19 Does the player mean...</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_18">17.18 Changing the meaning of pronouns</a></div><div class="sect-navbar-center"><a href="#chapter_17">17. Understanding</a></div><div class="sect-navbar-right"><a href="#section_20">17.20 Multiple action processing</a></div></div>
+<p>When the player types an ambiguous reference, we need to work out what is meant. Consider the following source text:</p>
+<div class="codeblock"><div class="codeline">The Champs du Mars is a room. The great Eiffel Tower is here. &quot;The great Tower stands high over you.&quot; The souvenir model Eiffel Tower is here. &quot;Comparatively tiny is the souvenir version.&quot;</div>
+</div><p>Now suppose the player types GET TOWER. The response will be:</p>
+<div class="codeblock"><div class="codeline">Which do you mean, the great Eiffel Tower or the souvenir model Eiffel Tower?</div>
+</div><p>Which is a silly question, exposing our work of IF as something artificial. It&#39;s obvious to the author of the source text, and to the player, that the souvenir must be what is meant: but this is not obvious to the computer program running the story. Works of IF gain a subtle feeling of quality from being able to understand ambiguous references of the kind above, and Inform provides us with a way to do this by giving the parser clues in the form of &quot;Does the player mean&hellip;&quot; rules. For instance, if we add:</p>
+<div class="codeblock"><div class="codeline">Does the player mean taking the great Eiffel Tower: it is very unlikely.</div>
+</div><p>then the response to GET TOWER will now be:</p>
+<div class="codeblock"><div class="codeline">(the souvenir model Eiffel Tower)</div>
+<div class="codeline">Taken.</div>
+</div><p>&quot;Does the player mean&hellip;&quot; rules look at the actions which are possible interpretations of what the player typed, and grade them according to how likely they seem. (Note that these rules are only ever used to handle ambiguities: if the player unambiguously types GET GREAT EIFFEL TOWER, that will be the action. And the rules are only used where they are able to make a decision: if there are still multiple equally plausible meanings, the parser will ask about all possibilities, not just the most likely ones.) Rules in this rulebook can either decide nothing, or come up with one of the following verdicts:</p>
+<div class="codeblock"><div class="codeline">it is very likely</div>
+<div class="codeline">it is likely</div>
+<div class="codeline">it is possible</div>
+<div class="codeline">it is unlikely</div>
+<div class="codeline">it is very unlikely</div>
+</div><p>If there are no &quot;does the player mean&quot; rules, or the rules make no decision on a given possible action, it will be ranked as &quot;it is possible&quot;.</p>
+<p>We may use these rules to affect all sorts of interaction with a specific object or kind of object, as in</p>
+<div class="codeblock"><div class="codeline">Does the player mean doing something with the cursed dagger of Thog: it is very unlikely.</div>
+<div class="codeline">Does the player mean doing something with the cursed dagger of Thog when the player is hypnotized: it is likely.</div>
+</div><p>&hellip;and so on.</p>
+<p>Notice that we can also make rules about actions that apply to two objects, so for instance:</p>
+<div class="codeblock"><div class="codeline">Does the player mean throwing the can of shoe polish at the shoe polish vending machine: it is likely.</div>
+</div><p>which nicely clarifies THROW POLISH AT POLISH, but does not comment on the likelihood of throwing the can at other things or of throwing other things at the vending machine. Moreover, the (suspected) identity of the first item will be known when the rule is consulted; thus</p>
+<div class="codeblock"><div class="codeline">Does the player mean tying the noun to the noun: it is very unlikely.</div>
+</div><p>will tell Inform to prefer not to tie something to itself if other interpretations are available.</p>
+<p>But there is a caveat. There are some cases where this mechanism will not in fact help Inform to choose its way out of an ambiguous command, because of the way it parses one noun at a time. It usually needs to understand the first noun before it will even try to make sense of the second. So a rule like:</p>
+<div class="codeblock"><div class="codeline">Does the player mean throwing the can of shoe polish at the tree: it is likely.</div>
+</div><p>may not work if the player types THROW POLISH AT TREE and POLISH is ambiguous, because when the parser is trying to understand POLISH, it hasn&#39;t yet seen to the end of the command and realised that the second noun will be the tree; so the second noun is unset and the rule won&#39;t match.</p>
+<p>As a caveat to the caveat, the &quot;inserting it into&quot;, &quot;removing it from&quot; and &quot;putting it on&quot; actions have this slightly back to front. These are parsed using the (little-used) &quot;[other things]&quot; or &quot;[things inside]&quot; tokens, and the Inform parser tries to detect the second noun before the first one, since the identity of the first has to depend on the second. So for instance if the situation contains &quot;an oak tree&quot; and also &quot;an oak chest&quot;, we could write:</p>
+<div class="codeblock"><div class="codeline">Does the player mean inserting into the oak chest:</div>
+<div class="codeline">&ensp;&ensp;it is very likely.</div>
+</div><p>which would successfully make PUT COIN IN OAK mean the chest, not the tree. (Note the way we write &quot;inserting into&quot; without saying anything about what&#39;s being inserted, not even that it&#39;s &quot;something&quot;.)</p>
+<div class="examples">
+<h4>Example</h4>
+<div class="example-short">326. ★ <a href="examples/masochism_deli.html">Masochism Deli</a><br>Multiple potatoes, with rules to make the player drop the hot potato first and pick it up last.</p></div><div class="linkback">
+<a href="RB_10.html#section_9" title="Physics: Substances, Ropes, Energy and Weight &gt; Heat">RB §10.9 Heat</a>
+</div>
+<h3 id="section_20">WI §17.20 Multiple action processing</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_19">17.19 Does the player mean...</a></div><div class="sect-navbar-center"><a href="#chapter_17">17. Understanding</a></div><div class="sect-navbar-right"><a href="#section_21">17.21 Understanding mistakes</a></div></div>
+<p>When the player types a command like DROP ALL, this is (usually) a request to carry out more than one action. After the command parser has decided what constitutes &quot;ALL&quot; (a process which can be influenced using the &quot;deciding whether all includes&quot; activity), it forms up a list and then runs through it, starting an action for each in turn. The result usually looks something like this:</p>
+<div class="codeblock"><div class="codeline">&gt;GET ALL</div>
+<div class="codeline">foxglove: Taken.</div>
+<div class="codeline">snake&#39;s head fritillary: Taken.</div>
+</div><p>However, by adding rules to the rulebook:</p>
+<div class="codeblock"><div class="codeline">multiple action processing rules</div>
+</div><p>we can take a look at the actions intended, and rearrange or indeed change them before they take effect. To do that, we have to deal with a special list of objects. For two technical reasons this isn&#39;t stored as a &quot;list of objects that varies&quot; &ndash; first because it needs to exist even in low-memory situations where we can&#39;t afford full list-processing, and second because there are times when changing it might be hazardous. Instead, two phrases are provided to read the list and to write it back:</p>
+<div class="defn" id="ph_multipleobjectlist"><span class="defn">multiple object list</span> &rArr; <em>list of objects</em><p>This phrase produces the current multiple object list as a value. The list will be the collection of objects found to match a plural noun like ALL in the most recent command typed by the player. If there is no multiple object, say if the command was TAKE PEAR, the list will be empty: it won&#39;t be a list of size 1.</p>
+</div><div class="defn" id="ph_altermultipleobjectlist"><span class="defn">alter the multiple object list to </span><span class="neutral">(list of objects)</span><p>This phrase sets the multiple object list to the given value. The list is ordinarily the collection of objects found to match a plural noun like ALL in the most recent command typed by the player, but using this phrase at the right moment (before the &quot;generate action rule&quot; in the turn sequence rules takes effect).</p>
+</div><div class="examples">
+<h4>Examples</h4>
+<div class="example-short">327. ★★ <a href="examples/best_till_last.html">The Best Till Last</a><br>Reordering multiple objects for dramatic effect.</p></div><div class="linkback">
+<a href="RB_6.html#section_15" title="Commands &gt; Actions on Multiple Objects">RB §6.15 Actions on Multiple Objects</a>
+</div>
+<div class="example-short">328. ★★ <a href="examples/western_art_history305.html">Western Art History 305</a><br>Allowing EXAMINE to see multiple objects with a single command.</p></div><div class="linkback">
+<a href="RB_6.html#section_15" title="Commands &gt; Actions on Multiple Objects">RB §6.15 Actions on Multiple Objects</a>
+</div>
+<h3 id="section_21">WI §17.21 Understanding mistakes</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_20">17.20 Multiple action processing</a></div><div class="sect-navbar-center"><a href="#chapter_17">17. Understanding</a></div><div class="sect-navbar-right"><a href="#section_22">17.22 Precedence</a></div></div>
+<p>When inspiration strikes the player, he can usually be relied upon to make a good-faith effort to communicate the new idea: he will guess the right command. If he guesses wrongly, the mistake is probably the author&#39;s, because a good author will try to anticipate all possible wordings and make all of them work.</p>
+<p>Nevertheless it is sometimes good practice to nudge the player towards the right wording &ndash; particularly if the player has the right idea but is not explicit enough: for instance, typing TALK TO JUDGE when we really want to know what is to be said (JUDGE, GUILTY); or if the player tries something like PLAY CHESS rather than MOVE PAWN TO KING 4. Similarly, if we make a casual reference such as &quot;In your childhood days, you loved sliding in stocking feet across this hallway&quot;, a player might type SLIDE IN STOCKING FEET: a nice idea, and which deserves a nice response, even though it asks to do something beyond the scope of the story.</p>
+<p>Inform provides a simple mechanism for recognising a command but at the same time recognising that <em>it does not properly specify an action</em>. Such commands are called &quot;mistakes&quot;, for the sake of a memorable term, but the player has not really behaved badly, and should be helped rather than reproved. For instance:</p>
+<div class="codeblock"><div class="codeline">Understand &quot;act&quot; as a mistake.</div>
+</div><p>While that works &ndash; the command to &quot;act&quot; is indeed rejected &ndash; it is not very good, because no very helpful message is brought up. The following is much better:</p>
+<div class="codeblock"><div class="codeline">Understand &quot;act&quot; as a mistake (&quot;To join the actors, you have to adopt a role in the play! Try PLAY HAMLET or similar.&quot;).</div>
+</div><p>Or we could once again insist on a given context:</p>
+<div class="codeblock"><div class="codeline">Understand &quot;act&quot; as a mistake (&quot;To join the actors, you have to adopt a role in the play! Try PLAY HAMLET or similar.&quot;) when the location is the Garden Theatre.</div>
+</div><p>That still has the drawback that the command &quot;act hamlet&quot; will not be recognised: so the final version we want is probably</p>
+<div class="codeblock"><div class="codeline">Understand &quot;act [text]&quot; as a mistake (&quot;To join the actors, you have to adopt a role in the play! Try PLAY HAMLET or similar.&quot;) when the location is the Garden Theatre.</div>
+</div><p>since the &quot;[text]&quot; part will soak up any words the player types (or none), meaning that any command at all whose first word is &quot;act&quot; will be matched.</p>
+<p>We need to be careful to avoid circular things like this:</p>
+<div class="codeblock"><div class="codeline">Understand &quot;[text]&quot; as a mistake (&quot;&#39;[the topic understood]&#39; is something I really wish you wouldn&#39;t say.&quot;) when the topic understood is a topic listed in table 1.</div>
+</div><p>This doesn&#39;t work because the topic understood isn&#39;t set until the line has been understood, but Inform checks the &quot;when&hellip;&quot; condition before it tries to understand the line. Indeed, even this:</p>
+<div class="codeblock"><div class="codeline">Understand &quot;[text]&quot; as a mistake (&quot;&#39;[the topic understood]&#39; is something I really wish you wouldn&#39;t say.&quot;).</div>
+</div><p>is unsafe (quite apart from being unwise!) &ndash; again, &quot;topic understood&quot; doesn&#39;t exist for a mistake, because in a mistake, nothing is understood.</p>
+<p>The following is often useful during beta-testing of a new work, though we would not want it in the final published edition. Many authors like to ask their testers not to try anything in particular, simply to play naturally: but to record the transcript of the session, and email it back to the author. The following command is a device to allow the tester to type a comment in to the transcript:</p>
+<div class="codeblock"><div class="codeline">Understand &quot;* [text]&quot; as a mistake (&quot;Noted.&quot;).</div>
+</div><p>For instance, the tester might type &quot;* DIDN&#39;T WE SAY DARCY WAS TALL?&quot;, to which the story would reply &quot;Noted.&quot; &ndash; and the author can search for such comments when receiving the transcript.</p>
+<p>If we are careful, we can make the reply depend on what was typed in the mistaken command:</p>
+<div class="codeblock"><div class="codeline">Understand &quot;steal [something]&quot; as a mistake (&quot;Just TAKE [the noun] and leave without paying: that&#39;s stealing in my book.&quot;).</div>
+</div><p>The care comes in because Inform applies much less checking to mistakes than to other actions, and odd errors will result if we try to refer to (say) &quot;the second noun&quot; in a command which did not have a second noun.</p>
+<p>It&#39;s probably wise to take particular care if using &quot;as a mistake&quot; with any command which might include the mistake among what the player calls ALL: for example, if &quot;take [sydney harbour bridge]&quot; is understood as a mistake, then TAKE ALL will may result in this, even though the player doesn&#39;t intend any such thing.</p>
+<div class="examples">
+<h4>Examples</h4>
+<div class="example-short">329. ★ <a href="examples/query.html">Query</a><br>Catching all questions that begin with WHO, WHAT, WHERE, and similar question words, and responding with the instruction to use commands, instead.</p></div><div class="linkback">
+<a href="RB_11.html#section_3" title="Out Of World Actions and Effects &gt; Helping and Hinting">RB §11.3 Helping and Hinting</a>
+</div>
+<div class="example-short">330. ★ <a href="examples/gorge_at_george.html">The Gorge at George</a><br>If the player tries to TALK TO a character, suggest alternative modes of conversation.</p></div><div class="linkback">
+<a href="RB_7.html#section_6" title="Other Characters &gt; Getting Started with Conversation">RB §7.6 Getting Started with Conversation</a>
+</div>
+<div class="example-short">331. ★★★ <a href="examples/hot_glass_looks_like_cold_glass.html">Hot Glass Looks Like Cold Glass</a><br>Responding to references to a property that the player isn&#39;t yet allowed to mention (or when not to use &quot;understand as a mistake&quot;).</p></div><div class="linkback">
+<a href="RB_10.html#section_9" title="Physics: Substances, Ropes, Energy and Weight &gt; Heat">RB §10.9 Heat</a>
+</div>
+<h3 id="section_22">WI §17.22 Precedence</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_21">17.21 Understanding mistakes</a></div><div class="sect-navbar-center"><a href="#chapter_17">17. Understanding</a></div></div>
+<p>When several different lines of grammar are supplied to meet the same circumstances, it makes a big difference what order they are tried in. For instance, suppose we have:</p>
+<div class="codeblock"><div class="codeline">Understand &quot;photograph [a door]&quot; as photographing.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Understand &quot;photograph [an open door]&quot; as photographing.</div>
+</div><p>The second line is more specific than the first, so Inform takes these grammar lines the other way around: it checks for &quot;open door&quot; before it checks for &quot;door&quot;. That didn&#39;t matter here, since both lines came out with the same result (the action of photographing), but it matters very much in the next example:</p>
+<div class="codeblock"><div class="codeline">Understand &quot;employ [a door]&quot; as opening.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Understand &quot;employ [an open door]&quot; as entering.</div>
+</div><p>More subtle is a line already seen:</p>
+<div class="codeblock"><div class="codeline">Understand &quot;on/in/inside&quot; or &quot;on top of&quot; as &quot;[within]&quot;.</div>
+</div><p>Here Inform puts &quot;on top of&quot; before &quot;on/in/inside&quot;, since otherwise only the &quot;on&quot; of &quot;on top of&quot; will be recognised.</p>
+<p>Mistakes always take precedence over non-mistakes: this is intended to make sure that</p>
+<div class="codeblock"><div class="codeline">Understand &quot;take umbrage&quot; as a mistake (&quot;Nobody takes umbrage in this story, mister.&quot;).</div>
+</div><p>will take precedence over</p>
+<div class="codeblock"><div class="codeline">Understand &quot;take [something]&quot; as taking.</div>
+</div><p>even if there is, in fact, a character called Mr Nimbus Umbrage so that the command could conceivably make sense.</p>
+<p>Finally, there are a few grammars where the number of values produced is different in different lines. For example, the Standard Rules include these among the possible &quot;put&quot; commands:</p>
+<div class="codeblock"><div class="codeline">Understand &quot;put [something preferably held] on&quot; as wearing.</div>
+<div class="codeline">Understand &quot;put [other things] on/onto [something]&quot; as putting it on.</div>
+</div><p>One produces a single object, the other produces two. Inform gives precedence to the first of these, that is, it tries the one with fewer values first. This is important when reading commands like &quot;PUT MARCH ON WASHINGTON SHIRT ON&quot;, and also prevents bogus auto-completions, in which PUT HAT ON might wrongly be auto-completed as if it were PUT HAT ON THE TABLE.</p>
+<div class="examples">
+<h4>Examples</h4>
+<div class="example-short">332. ★ <a href="examples/some_assembly_required.html">Some Assembly Required</a><br>Building different styles of shirt from component sleeves and collars.</p></div><div class="linkback">
+<a href="RB_9.html#section_3" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Clothing">RB §9.3 Clothing</a>
+</div>
+<div class="example-short">333. ★★★ <a href="examples/lakeside_living.html">Lakeside Living</a><br>Similar to &quot;Lemonade&quot;, but with bodies of liquid that can never be depleted, and some adjustments to the &quot;fill&quot; command so that it will automatically attempt to fill from a large liquid source if possible.</p></div><div class="linkback">
+<a href="RB_10.html#section_2" title="Physics: Substances, Ropes, Energy and Weight &gt; Liquids">RB §10.2 Liquids</a>
+</div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="WI_16.html">16. Tables</a></div><div class="doc-navbar-right"><a href="WI_18.html">18. Activities</a></div></div>
+<nav><div class="nav-el"><a href="index.html">Contents</a></div> <div class="nav-el"><a href="examples/index.html">Examples</a></div> <div class="nav-el"><a href="general_index.html">Index</a></div> <div class="nav-el"><a href="search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="license.html">Artistic License 2.0</a>.</p><p class="about"><a href="about.html">About this edition</a></p></footer>
+</body></html>

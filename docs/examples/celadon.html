@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 224. Celadon</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Celadon</h1><div class="subheading">Example 224 ★</div>
+<div class="linkback">
+<a href="../WI_13.html#section_4" title="Relations &gt; To carry, to wear, to have">WI §13.4 To carry, to wear, to have</a><br><a href="../RB_6.html#section_8" title="Commands &gt; Taking, Dropping, Inserting and Putting">RB §6.8 Taking, Dropping, Inserting and Putting</a>
+</div>
+<p class="example-desc">Using the enclosure relation to let the player drop things which he only indirectly carries.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="formal_syntax_of_sentences.html" title="A more formal description of the sentence grammar used by Inform for both assertions and conditions.">223. Formal syntax of sentences</a></div><div class="doc-navbar-right"><a href="interrogation.html" title="A wand which, when waved, reveals the concealed items carried by people the player can see.">225. Interrogation</a></div></div>
+</header>
+<p>By default, Inform only lets the player drop those things which he is carrying -- that is, those directly in his possession. Things inside satchels or on portable trays have to be taken first.</p>
+<p>If we want to change this behavior, we might add a dropping rule that distinguishes between carrying and mere enclosure (introduced back in &quot;The location of something&quot; in the chapter on Things):</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex224">Play/modify Celadon in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="Celadon/index.html">Play Celadon in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Celadon&quot;\n\nThe Tea Room is a room. The player carries a black lacquer tray. The lacquer tray is portable. On the lacquer tray are a celadon teapot and a napkin.\n\nBefore dropping something:\n\tif the player does not carry the noun and the player encloses the noun:\n\t\tsay &quot;(first taking [the noun] from [the holder of the noun])[command clarification break]&quot;;\n\t\tsilently try taking the noun;\n\t\tif the player does not carry the noun, stop the action.\n\nInstead of taking the napkin:\n\tsay &quot;It seems to be stuck to the tray, possibly by an underlying wad of gum.&quot;\n\nTest me with &quot;i / drop teapot / i / look / drop teapot / drop napkin / i / drop tray&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Celadon&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Tea Room is a room. The player carries a black lacquer tray. The lacquer tray is portable. On the lacquer tray are a celadon teapot and a napkin.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Before dropping something:</div>
+<div class="codeline">&ensp;&ensp;if the player does not carry the noun and the player encloses the noun:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;(first taking [the noun] from [the holder of the noun])[command clarification break]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;silently try taking the noun;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;if the player does not carry the noun, stop the action.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of taking the napkin:</div>
+<div class="codeline">&ensp;&ensp;say &quot;It seems to be stuck to the tray, possibly by an underlying wad of gum.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;i / drop teapot / i / look / drop teapot / drop napkin / i / drop tray&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "i / drop teapot / i / look / drop teapot / drop napkin / i / drop tray".</summary><div class="testme-output">Tea Room<br><br>>(Testing.)<br><br>>[1] i<br>You are carrying:<br>  a black lacquer tray<br>    a celadon teapot<br>    a napkin<br><br>>[2] drop teapot<br>(first taking the celadon teapot from the black lacquer tray)<br>Dropped.<br><br>>[3] i<br>You are carrying:<br>  a black lacquer tray<br>    a napkin<br><br>>[4] look<br>Tea Room<br>You can see a celadon teapot here.<br><br>>[5] drop teapot<br>The celadon teapot is already here.<br><br>>[6] drop napkin<br>(first taking the napkin from the black lacquer tray)<br>It seems to be stuck to the tray, possibly by an underlying wad of gum.<br><br>>[7] i<br>You are carrying:<br>  a black lacquer tray<br>    a napkin<br><br>>[8] drop tray<br>Dropped.
+</div></details><div class="doc-navbar"><div class="doc-navbar-left"><a href="formal_syntax_of_sentences.html" title="A more formal description of the sentence grammar used by Inform for both assertions and conditions.">223. Formal syntax of sentences</a></div><div class="doc-navbar-right"><a href="interrogation.html" title="A wand which, when waved, reveals the concealed items carried by people the player can see.">225. Interrogation</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

@@ -1,0 +1,640 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>WI 3. Things</title>
+<script src="i7doc.js"></script>
+<link rel="stylesheet" href="i7doc.css">
+</head>
+<nav><div class="nav-el"><a href="index.html">Contents</a></div> <div class="nav-el"><a href="examples/index.html">Examples</a></div> <div class="nav-el"><a href="general_index.html">Index</a></div> <div class="nav-el"><a href="search.html">Search</a></div></nav>
+<body><header><h1 class="title">Writing with Inform</h1></header>
+<h2 id="chapter_3">3. Things</h2>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="WI_2.html">2. The Source Text</a></div><div class="doc-navbar-right"><a href="WI_4.html">4. Kinds</a></div></div>
+<div class="section-block">
+<div class="section-row">
+<div class="section-chapter-num">§3.</div><div class="section-section-num">1</div><div class="section-name"><a href="WI_3.html#section_1">Descriptions</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§3.</div><div class="section-section-num">2</div><div class="section-name"><a href="WI_3.html#section_2">Rooms and the map</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§3.</div><div class="section-section-num">3</div><div class="section-name"><a href="WI_3.html#section_3">One-way connections</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§3.</div><div class="section-section-num">4</div><div class="section-name"><a href="WI_3.html#section_4">Regions and the index map</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§3.</div><div class="section-section-num">5</div><div class="section-name"><a href="WI_3.html#section_5">Kinds</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§3.</div><div class="section-section-num">6</div><div class="section-name"><a href="WI_3.html#section_6">Either/or properties</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§3.</div><div class="section-section-num">7</div><div class="section-name"><a href="WI_3.html#section_7">Properties depend on kind</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§3.</div><div class="section-section-num">8</div><div class="section-name"><a href="WI_3.html#section_8">Scenery</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§3.</div><div class="section-section-num">9</div><div class="section-name"><a href="WI_3.html#section_9">Backdrops</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§3.</div><div class="section-section-num">10</div><div class="section-name"><a href="WI_3.html#section_10">Properties holding text</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§3.</div><div class="section-section-num">11</div><div class="section-name"><a href="WI_3.html#section_11">Two descriptions of things</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§3.</div><div class="section-section-num">12</div><div class="section-name"><a href="WI_3.html#section_12">Doors</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§3.</div><div class="section-section-num">13</div><div class="section-name"><a href="WI_3.html#section_13">Locks and keys</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§3.</div><div class="section-section-num">14</div><div class="section-name"><a href="WI_3.html#section_14">Devices and descriptions</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§3.</div><div class="section-section-num">15</div><div class="section-name"><a href="WI_3.html#section_15">Light and darkness</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§3.</div><div class="section-section-num">16</div><div class="section-name"><a href="WI_3.html#section_16">Vehicles and pushable things</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§3.</div><div class="section-section-num">17</div><div class="section-name"><a href="WI_3.html#section_17">Men, women and animals</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§3.</div><div class="section-section-num">18</div><div class="section-name"><a href="WI_3.html#section_18">Articles and proper names</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§3.</div><div class="section-section-num">19</div><div class="section-name"><a href="WI_3.html#section_19">Carrying capacity</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§3.</div><div class="section-section-num">20</div><div class="section-name"><a href="WI_3.html#section_20">Possessions and clothing</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§3.</div><div class="section-section-num">21</div><div class="section-name"><a href="WI_3.html#section_21">The player's holdall</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§3.</div><div class="section-section-num">22</div><div class="section-name"><a href="WI_3.html#section_22">Food</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§3.</div><div class="section-section-num">23</div><div class="section-name"><a href="WI_3.html#section_23">Parts of things</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§3.</div><div class="section-section-num">24</div><div class="section-name"><a href="WI_3.html#section_24">Concealment</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§3.</div><div class="section-section-num">25</div><div class="section-name"><a href="WI_3.html#section_25">The location of something</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§3.</div><div class="section-section-num">26</div><div class="section-name"><a href="WI_3.html#section_26">Directions</a></div>
+</div>
+</div>
+<h3 id="section_1">WI §3.1 Descriptions</h3>
+<div class="sect-navbar"><div class="sect-navbar-center"><a href="#chapter_3">3. Things</a></div><div class="sect-navbar-right"><a href="#section_2">3.2 Rooms and the map</a></div></div>
+<p>At its simplest, the interactive fiction will be simulating a physical world to explore. The forerunner of today&#39;s IF is generally agreed to be a computer simulation by Will Crowther of the exploration of a cave system in the Mammoth and Flint Ridge chain of caves in Kentucky, a part of which might be described in Inform thus:</p>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Cave Entrance&quot;\n\nThe Cobble Crawl is a room. &quot;You are crawling over cobbles in a low passage. There is a dim light at the east end of the passage.&quot;\n\nA wicker cage is here. &quot;There is a small wicker cage discarded nearby.&quot;\n\nThe Debris Room is west of the Crawl. &quot;You are in a debris room filled with stuff washed in from the surface. A low wide passage with cobbles becomes plugged with mud and debris here, but an awkward canyon leads upward and west. A note on the wall says, &apos;Magic word XYZZY&apos;.&quot;\n\nThe black rod is here. &quot;A three foot black rod with a rusty star on one end lies nearby.&quot;\n\nAbove the Debris Room is the Sloping E/W Canyon. West of the Canyon is the Orange River Chamber.`)">⧉</button><div class="codeline storytitle">&quot;Cave Entrance&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Cobble Crawl is a room. &quot;You are crawling over cobbles in a low passage. There is a dim light at the east end of the passage.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A wicker cage is here. &quot;There is a small wicker cage discarded nearby.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Debris Room is west of the Crawl. &quot;You are in a debris room filled with stuff washed in from the surface. A low wide passage with cobbles becomes plugged with mud and debris here, but an awkward canyon leads upward and west. A note on the wall says, &#39;Magic word XYZZY&#39;.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The black rod is here. &quot;A three foot black rod with a rusty star on one end lies nearby.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Above the Debris Room is the Sloping E/W Canyon. West of the Canyon is the Orange River Chamber.</div>
+</div><p>Here we sketch in four of Crowther&#39;s locations, and two objects: just enough to be able to walk around the caves and pick up the rod and the cage. The text in quotation marks will appear verbatim as paragraphs shown to the player as the caves are explored. The first paragraph, as we have seen, is the title of the work. The other quotations describe the places and objects introduced.</p>
+<p>If we play this story, we find that we can type TAKE CAGE or TAKE WICKER CAGE, for instance, but not TAKE SMALL CAGE. Inform saw that we called this &quot;a wicker cage&quot; when it first appeared in the source text, and assumed that the player would call it that, too. (Whereas it didn&#39;t look inside the descriptive text to allow for TAKE SMALL CAGE or TAKE DISCARDED CAGE or TAKE NEARBY CAGE.) A small limitation here is that probably only the first 9 letters of each word are read from the player&#39;s command. This is plenty for handling the wicker cage and the black rod, but it might be embarrassing at a meeting of the Justice League to find that KISS SUPERHERO and KISS SUPERHEROINE read as if they are the same command.</p>
+<p>So we have already found that Inform has made some assumptions about what we want, and imposed some limitations on how much computational effort to go to when the work of IF is finally played. If Inform guesses what we need wrongly, we need to know more advanced features of the language in order to overcome these problems. (We shall see how to change the way the player&#39;s commands are read in the chapter on Understanding.)</p>
+<p>This is often how Inform works: make the standard way of doing things as simple as possible to describe, but allow almost any behaviour to be altered by more elaborate source text. As an example of that, the player begins in the Cobble Crawl because it was the first room created in the source text, but we could instead have written text like:</p>
+<div class="codeblock"><div class="codeline">The player is in the Cobble Crawl.</div>
+</div><p>to override that. This can make the source text easier to follow if the rooms are sometimes being created in a less obvious way. For example, if we write:</p>
+<div class="codeblock"><div class="codeline">The silver bars are in the Y2 Rock Room.</div>
+<div class="codeline">The Cobble Crawl is a room. South of the Crawl is Y2.</div>
+</div><p>then the first room to be created will actually be the Y2 Rock Room, so that&#39;s where the player will be starting unless we say otherwise.</p>
+<div class="examples">
+<h4>Examples</h4>
+<div class="example-short">2. ★ <a href="examples/bic.html">Bic</a><br>Testing to make sure that all objects have been given descriptions.</p></div><div class="linkback">
+<a href="RB_13.html#section_1" title="Testing and Publishing &gt; Testing">RB §13.1 Testing</a>
+</div>
+<div class="example-short">3. ★ <a href="examples/verbosity.html">Verbosity 1</a><br>Making rooms give brief room descriptions when revisited.</p></div><div class="linkback">
+<a href="RB_6.html#section_4" title="Commands &gt; Looking">RB §6.4 Looking</a>
+</div>
+<div class="example-short">4. ★★ <a href="examples/slightly_wrong.html">Slightly Wrong</a><br>A room whose description changes slightly after our first visit there.</p></div><div class="linkback">
+<a href="RB_3.html#section_1" title="Place &gt; Room Descriptions">RB §3.1 Room Descriptions</a>
+</div>
+<h3 id="section_2">WI §3.2 Rooms and the map</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_1">3.1 Descriptions</a></div><div class="sect-navbar-center"><a href="#chapter_3">3. Things</a></div><div class="sect-navbar-right"><a href="#section_3">3.3 One-way connections</a></div></div>
+<p>Rooms are joined together at their edges by &quot;map connections&quot;, most of which are pathways in one of the eight cardinal compass directions: north, northeast (written without a hyphen), east, southeast, south, southwest, west, northwest. We also have up and down, suitable for staircases or ladders. In real life, people are seldom conscious of their compass bearing when walking around buildings, but it makes a concise and unconfusing way for the player to say where to go next, so is generally accepted as a convention of the genre.</p>
+<p>Two more directions are provided by Inform: &quot;inside&quot; and &quot;outside&quot;. These are best used when one location is, say, a meadow and the other is a woodcutter&#39;s hut in the middle of it; we might then say</p>
+<div class="codeblock"><div class="codeline">Inside from the Meadow is the woodcutter&#39;s hut.</div>
+</div><p>The &quot;from&quot; is important, as it clarifies that we intend to link two different locations, not to create an item &ndash; the hut &ndash; in a single location &ndash; the meadow.</p>
+<p>A problem which sometimes arises when laying out maps is that Inform allows short forms of room names to be used as abbreviations. This is usually a good idea, but has unfortunate results if we write:</p>
+<div class="codeblock"><div class="codeline">The Airport Road is west of the Fish Packing Plant. The Airport is west of the Airport Road.</div>
+</div><p>&hellip;because &quot;Airport&quot; is taken as a reference to &quot;Airport Road&quot;, so Inform makes only two locations, one of which supernaturally leads to itself. We can avoid this by writing:</p>
+<div class="codeblock"><div class="codeline">The Airport Road is west of the Fish Packing Plant. A room called the Airport is west of the Airport Road.</div>
+</div><p>Using &quot;called&quot; is often a good way to specify something whose name might give rise to confusion otherwise. It always makes something new, and it is also neatly concise, because we can establish something&#39;s kind and name in the same sentence. As another example, suppose we want to create a room called &quot;South of the Hut&quot;, to south of the Hut. We can&#39;t do so like this:</p>
+<div class="codeblock"><div class="codeline">South of the Hut is a room. South of the Hut is south of the Hut.</div>
+</div><p>&hellip;because Inform will read that first sentence as placing a (nameless) room to the south of a room called &quot;Hut&quot;. Once again &quot;called&quot; can save the day:</p>
+<div class="codeblock"><div class="codeline">South of the Hut is a room called South of the Hut.</div>
+</div><p>It is best to use &quot;called&quot; in the simplest way possible, and in particular, best not to use &quot;called&quot; twice in the same sentence. Consider:</p>
+<div class="codeblock"><div class="codeline">The kitchen cabinet contains a container called a mixing bowl and a portable supporter called a platter.</div>
+</div><p>It is unlikely that anyone would want to name something &quot;a mixing bowl and a portable supporter called a platter&quot;, but not impossible, and Inform tends not to be a good judge of what is likely.</p>
+<p>(If we really want to get rid of this issue once and for all, starting the source text with the use option &quot;Use unabbreviated object names.&quot; will do it, but the effect is drastic. This instructs Inform not to recognise names other than in full. For example:</p>
+<div class="codeblock"><div class="codeline">West of the Kitchen is the Roaring Range. South of the Range is the Pantry.</div>
+</div><p>is ordinarily read by Inform as constructing three rooms (Kitchen, Roaring Range, Pantry); but with this use option set, it makes four (Kitchen, Roaring Range, Range, Pantry), in two disconnected pieces of map. Handle with care.)</p>
+<div class="examples">
+<h4>Examples</h4>
+<div class="example-short">5. ★ <a href="examples/port_royal.html">Port Royal 1</a><br>A partial implementation of Port Royal, Jamaica, set before the earthquake of 1692 demolished large portions of the city.</p></div><div class="linkback">
+<a href="RB_3.html#section_2" title="Place &gt; Map">RB §3.2 Map</a>
+</div>
+<div class="example-short">6. ★★ <a href="examples/up_and_up.html">Up and Up</a><br>Adding a short message as the player approaches a room, before the room description itself appears.</p></div><div class="linkback">
+<a href="RB_6.html#section_9" title="Commands &gt; Going, Pushing Things in Directions">RB §6.9 Going, Pushing Things in Directions</a>
+</div>
+<div class="example-short">7. ★★★ <a href="examples/starry_void.html">Starry Void</a><br>Creating a booth that can be seen from the outside, opened and closed, and entered as a separate room.</p></div><div class="linkback">
+<a href="RB_3.html#section_3" title="Place &gt; Position Within Rooms">RB §3.3 Position Within Rooms</a>
+</div>
+<h3 id="section_3">WI §3.3 One-way connections</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_2">3.2 Rooms and the map</a></div><div class="sect-navbar-center"><a href="#chapter_3">3. Things</a></div><div class="sect-navbar-right"><a href="#section_4">3.4 Regions and the index map</a></div></div>
+<p>Connections are ordinarily two-way, but do not have to be. One of the map connections in the Mammoth Cave simulation was made by the sentence:</p>
+<div class="codeblock"><div class="codeline">The Debris Room is west of the Crawl.</div>
+</div><p>Besides reading this sentence at face value, Inform also deduced that the Crawl was probably meant to be east of the Debris Room: in other words, that the path between them is a two-way one. When Inform makes guesses like this, it treats them as being less certain than anything explicitly stated in the source. Inform will quietly overturn its assumption if information comes to hand which shows that it was wrong. That might happen in this case if another sentence read:</p>
+<div class="codeblock"><div class="codeline">The Hidden Alcove is east of the Debris Room.</div>
+</div><p>These two sentences are not contradictory: Inform allows them both, simply accepting that the world is more complicated than it first assumed. There are relatively few situations where Inform has to make educated guesses, but when it does, it tries always to follow Occam&#39;s Razor by constructing the simplest model world consistent with the information in the Source text.</p>
+<p>We can even explicitly make a route which turns around as it leads between two rooms:</p>
+<div class="codeblock"><div class="codeline">West of the Garden is south of the Meadow.</div>
+</div><p>If we want to establish a route which cannot be retraced at all, we can specify that a particular direction leads nowhere:</p>
+<div class="codeblock"><div class="codeline">East of the Debris Room is nowhere.</div>
+</div><p>Finally, note that Inform&#39;s assumptions about two-way directions are only applied to simple sentences. When the source text seems to be saying something complicated, Inform takes it as a precise description of what&#39;s wanted. So, for example, in:</p>
+<div class="codeblock"><div class="codeline">The Attic is above the Parlour.</div>
+<div class="codeline">The Attic is a dark room above the Parlour.</div>
+</div><p>Inform makes guesses about the first sentence, and makes a two-way connection; but it accepts the second sentence more precisely, with just a one-way connection.</p>
+<div class="examples">
+<h4>Examples</h4>
+<div class="example-short">8. ★ <a href="examples/port_royal2.html">Port Royal 2</a><br>Another part of Port Royal, with less typical map connections.</p></div><div class="linkback">
+<a href="RB_3.html#section_2" title="Place &gt; Map">RB §3.2 Map</a>
+</div>
+<div class="example-short">9. ★ <a href="examples/unbuttoned_elevator_affair.html">The Unbuttoned Elevator Affair</a><br>A simple elevator connecting two floors which is operated simply by walking in and out, and has no buttons or fancy doors.</p></div><div class="linkback">
+<a href="RB_8.html#section_2" title="Vehicles, Animals and Furniture &gt; Ships, Trains and Elevators">RB §8.2 Ships, Trains and Elevators</a>
+</div>
+<h3 id="section_4">WI §3.4 Regions and the index map</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_3">3.3 One-way connections</a></div><div class="sect-navbar-center"><a href="#chapter_3">3. Things</a></div><div class="sect-navbar-right"><a href="#section_5">3.5 Kinds</a></div></div>
+<p>Rooms represent individual places to which one can go, but we tend to think of the world around us in larger pieces: we think of a house and a garden, rather than each of the single rooms of the house and all corners of its garden. To Inform a collection of rooms is called a &quot;region&quot;, and we can create one like so:</p>
+<div class="codeblock"><div class="codeline">The Arboretum is east of the Botanical Gardens. Northwest of the Gardens is the Tropical Greenhouse.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Public Area is a region. The Arboretum and Gardens are in the Public Area.</div>
+</div><p>The real usefulness of creating regions like &quot;Public Area&quot; will only appear later, when we begin defining rules of play which apply in some areas but not others, but in the mean time we can see the effect by turning to the World tab of the Index. In the World Index, Inform draws a map &ndash; or at least a stylised attempt at a diagram of the rooms and their connections: this will not always correspond to how we imagine things, but with any luck it should mostly be right.</p>
+<p>Rooms are represented by coloured squares, and the colour-coding is done by region. In the above example, the two &quot;Public Area&quot; rooms are coloured green (as it happens); the Greenhouse, since it belongs to no region, is a neutral grey.</p>
+<p>Regions can be put inside each other:</p>
+<div class="codeblock"><div class="codeline">The University Parks is a region. The Public Area is in the University Parks.</div>
+</div><p>but they are not allowed to overlap other than by one being entirely inside the other.</p>
+<div class="see-also">
+<h4>See Also</h4>
+<p><a href="WI_25.html#section_18" title="Releasing &gt; Improving the index map">Improving the index map</a> for ways to adjust the way the index map is drawn or exported for publication.<br></p></div><div class="examples">
+<h4>Example</h4>
+<div class="example-short">10. ★ <a href="examples/port_royal3.html">Port Royal 3</a><br>Division of Port Royal into regions.</p></div><div class="linkback">
+<a href="RB_3.html#section_2" title="Place &gt; Map">RB §3.2 Map</a>
+</div>
+<h3 id="section_5">WI §3.5 Kinds</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_4">3.4 Regions and the index map</a></div><div class="sect-navbar-center"><a href="#chapter_3">3. Things</a></div><div class="sect-navbar-right"><a href="#section_6">3.6 Either/or properties</a></div></div>
+<p>The following description runs to only 33 words, but makes a surprisingly intricate design. It not only places things within rooms, but also places them very specifically with respect to each other:</p>
+<div class="codeblock"><div class="codeline">&quot;Midsummer Day&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">East of the Garden is the Gazebo. Above is the Treehouse. A billiards table is in the Gazebo. On it is a trophy cup. A starting pistol is in the cup.</div>
+</div><p>Inform needs to identify the places and objects being described by the nouns here, and to guess what it can about them. For instance, the pistol can be picked up but not walked inside, whereas the Treehouse is the reverse. (This is obvious to someone who knows what these words mean, less obvious to a computer which does not, but the text contains sufficient clues.) Inform does this by sorting the various nouns into different categories, which are called &quot;kinds&quot;. For instance:</p>
+<div class="codeblock"><div class="codeline">Garden, Gazebo, Treehouse - <strong>room</strong></div>
+<div class="codeline">billiards table - <strong>supporter</strong></div>
+<div class="codeline">cup - <strong>container</strong></div>
+<div class="codeline">starting pistol - <strong>thing</strong></div>
+<div class="codeline">East, up (implied by &quot;above&quot;) - <strong>direction</strong></div>
+</div><p>(A container is something which can contain other things, and a supporter similarly.) For instance Inform knows that if one thing is in another, then the second thing is either a room or a container, and if one thing is on another, the second thing is a supporter. This worked nicely for the design above, but:</p>
+<div class="codeblock"><div class="codeline">In the Treehouse is a cardboard box.</div>
+</div><p>results in the cardboard box being made only a &quot;thing&quot;: because nothing has been put inside it, there is no reason for Inform &ndash; which does not know what a cardboard box looks like &ndash; to guess that it is a &quot;container&quot;. So we need to add:</p>
+<div class="codeblock"><div class="codeline">The box is a container.</div>
+</div><p>It is rather clumsy to have to write two sentences like this, so we would normally write this instead:</p>
+<div class="codeblock"><div class="codeline">In the Treehouse is a container called the cardboard box.</div>
+</div><div class="examples">
+<h4>Examples</h4>
+<div class="example-short">11. ★ <a href="examples/first_name_basis.html">First Name Basis</a><br>Allowing the player to use different synonyms to refer to something.</p></div><div class="linkback">
+<a href="RB_2.html#section_2" title="Adaptive Prose &gt; Varying What Is Read">RB §2.2 Varying What Is Read</a>
+</div>
+<div class="example-short">12. ★ <a href="examples/midsummer_day.html">Midsummer Day</a><br>A few sentences laying out a garden together with some things which might be found in it.</p></div><div class="linkback">
+<a href="RB_1.html#section_1" title="How to Use The Recipe Book &gt; Preface">RB §1.1 Preface</a>
+</div>
+<h3 id="section_6">WI §3.6 Either/or properties</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_5">3.5 Kinds</a></div><div class="sect-navbar-center"><a href="#chapter_3">3. Things</a></div><div class="sect-navbar-right"><a href="#section_7">3.7 Properties depend on kind</a></div></div>
+<p>Some containers, like bottles, can be opened: others, like buckets, cannot. If they can be opened, then sometimes they will be open, and sometimes closed. These are examples of properties, which can change during play. The following source sets some properties:</p>
+<div class="codeblock"><div class="codeline">The cardboard box is a closed container. The glass bottle is a transparent open container. The box is fixed in place and openable.</div>
+</div><p>There are only four different properties referred to here. Closed means not open, and vice versa, so these two adjectives both refer to the same property. (As might be expected, when a container is open, one can see inside and place things within, or take them out.) The glass bottle and the box being containers is a matter of their kinds, which is something fundamental and immutable, so &quot;container&quot; does not count as a property.</p>
+<p>A &quot;transparent&quot; container is one which we can see inside even when it is closed, and the opposite is an &quot;opaque&quot; container.</p>
+<p>The property of being &quot;fixed in place&quot; ensures that the player cannot pick the item up and walk away with it: this is useful for such things as oak trees or heavy furniture. The opposite condition is to be &quot;portable&quot;.</p>
+<p>A container which is &quot;openable&quot; can be opened or closed by the player; as might be expected, the opposite is &quot;unopenable&quot;.</p>
+<p>With a really large cardboard box, we might imagine that the player could get inside: such a container should be declared &quot;enterable&quot;.</p>
+<div class="examples">
+<h4>Example</h4>
+<div class="example-short">13. ★ <a href="examples/tamed.html">Tamed</a><br>Examples of a container and a supporter that can be entered, as well as nested rooms.</p></div><div class="linkback">
+<a href="RB_8.html#section_4" title="Vehicles, Animals and Furniture &gt; Furniture">RB §8.4 Furniture</a>
+</div>
+<h3 id="section_7">WI §3.7 Properties depend on kind</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_6">3.6 Either/or properties</a></div><div class="sect-navbar-center"><a href="#chapter_3">3. Things</a></div><div class="sect-navbar-right"><a href="#section_8">3.8 Scenery</a></div></div>
+<p>Properties depend very much on kind. It makes no sense to ask whether a room is transparent or opaque, for instance, so Inform will not allow this either to be specified or queried.</p>
+<p>Another way that kind influences properties can be seen from an earlier example:</p>
+<div class="codeblock"><div class="codeline">The Gazebo is a room. A billiards table is in the Gazebo. On it is a trophy cup. A starting pistol is in the cup.</div>
+</div><p>The cup, the pistol and the table are all allowed to have the &quot;fixed in place&quot; property, but in fact only the table actually has it: the cup and the pistol are created as &quot;portable&quot; instead. This is because Inform knows that most things are portable, but that supporters &ndash; such as the table &ndash; are usually fixed in place. If this assumption is wrong, we need only add the line:</p>
+<div class="codeblock"><div class="codeline">The table is portable.</div>
+</div><div class="examples">
+<h4>Example</h4>
+<div class="example-short">14. ★ <a href="examples/disenchantment_bay.html">Disenchantment Bay 1</a><br>A running example in this chapter, Disenchantment Bay, involves chartering a boat. This is the first step: creating the cabin.</p></div><div class="linkback">
+<a href="RB_1.html#section_3" title="How to Use The Recipe Book &gt; Disenchantment Bay">RB §1.3 Disenchantment Bay</a>
+</div>
+<h3 id="section_8">WI §3.8 Scenery</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_7">3.7 Properties depend on kind</a></div><div class="sect-navbar-center"><a href="#chapter_3">3. Things</a></div><div class="sect-navbar-right"><a href="#section_9">3.9 Backdrops</a></div></div>
+<p>As we have just seen, making something &quot;fixed in place&quot; will prevent it from being picked up or moved. But it remains substantial enough to be described in its own paragraph of text when the player visits its location. This can be unfortunate if it has also been described already in the body of the main description for that location. For instance, if we wrote:</p>
+<div class="codeblock"><div class="codeline">The Orchard is a room. &quot;Within this quadrille of pear trees, a single gnarled old oak remains as a memory of centuries past.&quot; The gnarled old oak tree is fixed in place in the Orchard.</div>
+</div><p>This would end up describing the oak twice, once in the paragraph about the Orchard, then again in a list of things within it:</p>
+<div class="codeblock"><div class="codeline"><strong>Orchard</strong></div>
+<div class="codeline">Within this quadrille of pear trees, a single gnarled old oak remains as a memory of centuries past.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">You can see a gnarled old oak tree here.</div>
+</div><p>We avoid this by making it &quot;scenery&quot; instead of &quot;fixed in place&quot;:</p>
+<div class="codeblock"><div class="codeline">The gnarled old oak tree is scenery in the Orchard.</div>
+</div><p>Any thing can be scenery, and this does not bar it from playing a part in the story: it simply means that it will be immobile and that it will not be described independently of its room. Being immobile, scenery should not be used for portable objects that are meant to be left out of the room description.</p>
+<p>If a supporter is scenery, it may still be mentioned in the room description after all, but only as part of a paragraph about other items, such as</p>
+<div class="codeblock"><div class="codeline">On the teak table are a candlestick and a copy of the Financial Times.</div>
+</div><p>If the player takes the candlestick and the Times, the teak table will disappear from mention. (Scenery containers do not behave in this way: their contents are assumed to be less immediately visible, and will be mentioned only if the player looks inside them.)</p>
+<div class="examples">
+<h4>Examples</h4>
+<div class="example-short">15. ★ <a href="examples/disenchantment_bay2.html">Disenchantment Bay 2</a><br>Disenchantment Bay: creating some of the objects in the cabin&#39;s description.</p></div><div class="linkback">
+<a href="RB_1.html#section_3" title="How to Use The Recipe Book &gt; Disenchantment Bay">RB §1.3 Disenchantment Bay</a>
+</div>
+<div class="example-short">16. ★ <a href="examples/replanting.html">Replanting</a><br>Changing the response when the player tries to take something that is scenery.</p></div><div class="linkback">
+<a href="RB_6.html#section_8" title="Commands &gt; Taking, Dropping, Inserting and Putting">RB §6.8 Taking, Dropping, Inserting and Putting</a>
+</div>
+<h3 id="section_9">WI §3.9 Backdrops</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_8">3.8 Scenery</a></div><div class="sect-navbar-center"><a href="#chapter_3">3. Things</a></div><div class="sect-navbar-right"><a href="#section_10">3.10 Properties holding text</a></div></div>
+<p>It is a cardinal rule that nothing can be in more than one place at the same time, but rules were made to be broken, and an exception is allowed for a special kind of thing called a &quot;backdrop&quot;. For instance:</p>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Streaming&quot;\n\nThe Upper Cave is above the Rock Pool.\n\nThe stream is a backdrop. It is in the Upper Cave and the Rock Pool.`)">⧉</button><div class="codeline storytitle">&quot;Streaming&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Upper Cave is above the Rock Pool.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The stream is a backdrop. It is in the Upper Cave and the Rock Pool.</div>
+</div><p>Backdrops are ordinarily in the background: if the sky needed to be referred to in the course of play, it might be represented by a backdrop, for instance. Here we have a stream of water running through two rooms, though it might be any number. Backdrops are always fixed in place.</p>
+<p>Backdrops can be put in regions as well as rooms, and if so, then they are present at every room in the given region (or regions), as well as any specific rooms they may also be put into. For instance:</p>
+<div class="codeblock"><div class="codeline">The Outdoors Area is a region. The Moon is a backdrop. The Moon is in the Outdoors Area. The Moon is in the Skylight Room.</div>
+</div><p>The special place &quot;everywhere&quot; can be given as the location of a backdrop to make it omnipresent:</p>
+<div class="codeblock"><div class="codeline">The sky is a backdrop. The sky is everywhere.</div>
+</div><p>Inform assumes that backdrops are also scenery unless told otherwise, so this will not result in messages like &quot;You can also see the sky here.&quot; being included in room descriptions. In the case of the stream above, we could artfully mention it in passing in the room descriptions of the Upper Cave and the Rock Pool.</p>
+<div class="see-also">
+<h4>See Also</h4>
+<p><a href="WI_8.html#section_8" title="Change &gt; Moving backdrops">Moving backdrops</a> for ways to place backdrops in dynamically changing selections of rooms.<br></p></div><div class="examples">
+<h4>Example</h4>
+<div class="example-short">17. ★ <a href="examples/disenchantment_bay3.html">Disenchantment Bay 3</a><br>Disenchantment Bay: adding a view of the glacier.</p></div><div class="linkback">
+<a href="RB_1.html#section_3" title="How to Use The Recipe Book &gt; Disenchantment Bay">RB §1.3 Disenchantment Bay</a>
+</div>
+<h3 id="section_10">WI §3.10 Properties holding text</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_9">3.9 Backdrops</a></div><div class="sect-navbar-center"><a href="#chapter_3">3. Things</a></div><div class="sect-navbar-right"><a href="#section_11">3.11 Two descriptions of things</a></div></div>
+<p>The properties we have seen so far have all been either/or: either open or closed, either transparent or opaque, either fixed in place or portable, either openable or not openable. However, some properties can have a much wider range of possibilities. For instance, the &quot;description&quot; of a room is the text revealed when the player first enters it, or types &quot;look&quot;. This needs to be textual: Inform would complain if, for instance, we tried to set the description of something to the number 42. We have already seen a concise way to set the description of a room:</p>
+<div class="codeblock"><div class="codeline">The Painted Room is north of the Undertomb. &quot;This is the Painted Room, where strange wall drawings leap out of the dark at the gleam of your candle: men with long wings and great eyes, serene and morose.&quot;</div>
+</div><p>This does the same thing as:</p>
+<div class="codeblock"><div class="codeline">The Painted Room is north of the Undertomb. The description of the Painted Room is &quot;This is the Painted Room, where strange wall drawings leap out of the dark at the gleam of your candle: men with long wings and great eyes, serene and morose.&quot;</div>
+</div><p>Or even:</p>
+<div class="codeblock"><div class="codeline">The Painted Room is north of the Undertomb. The description is &quot;This is the Painted Room, where strange wall drawings leap out of the dark at the gleam of your candle: men with long wings and great eyes, serene and morose.&quot;</div>
+</div><h3 id="section_11">WI §3.11 Two descriptions of things</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_10">3.10 Properties holding text</a></div><div class="sect-navbar-center"><a href="#chapter_3">3. Things</a></div><div class="sect-navbar-right"><a href="#section_12">3.12 Doors</a></div></div>
+<p>The player&#39;s first sight of something is the text used as its &quot;initial appearance&quot;:</p>
+<div class="codeblock"><div class="codeline">The plain ring is here. &quot;Cast aside, as if worthless, is a plain brass ring.&quot;</div>
+</div><p>This text appears as a separate paragraph in the text describing the Painted Room. It will continue to be used until the first time player picks the ring up (if this ever happens), so it normally describes things in their original, undisturbed context. (Inform uses an either/or property called &quot;handled&quot; for this: something is &quot;handled&quot; if it has at some point been held by the player.)</p>
+<p>Thus when a piece of text stands alone as a sentence in its own right, then this is either the &quot;description&quot; of the most recently discussed room, or the &quot;initial appearance&quot; of the most recently discussed thing. Either way, it is used verbatim as a paragraph in the text shown to the player visiting the room in question.</p>
+<p>But a thing also has an ordinary &quot;description&quot;, which is used to give a close-up look at it. This text is ordinarily only revealed to the player when a command like &quot;examine ring&quot; is keyed in:</p>
+<div class="codeblock"><div class="codeline">The description of the plain ring is &quot;No better than the loops of metal the old women use for fastening curtains.&quot;</div>
+</div><div class="see-also">
+<h4>See Also</h4>
+<p><a href="WI_10.html#section_2" title="Scenes &gt; Creating a scene">Creating a scene</a> for the description of a scene, which is set in the same way.<br></p></div><div class="examples">
+<h4>Examples</h4>
+<div class="example-short">18. ★ <a href="examples/disenchantment_bay4.html">Disenchantment Bay 4</a><br>Disenchantment Bay: fleshing out the descriptions of things on the boat.</p></div><div class="linkback">
+<a href="RB_1.html#section_3" title="How to Use The Recipe Book &gt; Disenchantment Bay">RB §1.3 Disenchantment Bay</a>
+</div>
+<div class="example-short">19. ★★ <a href="examples/laura.html">Laura</a><br>Some general advice about creating objects with unusual or awkward names, and a discussion of the use of printed names.</p></div><div class="linkback">
+<a href="RB_2.html#section_2" title="Adaptive Prose &gt; Varying What Is Read">RB §2.2 Varying What Is Read</a>
+</div>
+<h3 id="section_12">WI §3.12 Doors</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_11">3.11 Two descriptions of things</a></div><div class="sect-navbar-center"><a href="#chapter_3">3. Things</a></div><div class="sect-navbar-right"><a href="#section_13">3.13 Locks and keys</a></div></div>
+<p>The map of an interactive fiction is the layout of rooms and the entrances and exits which connect them. So far, these map connections have always run from one room to another, like so:</p>
+<div class="codeblock"><div class="codeline">The Painted Room is north of the Undertomb.</div>
+</div><p>However, we can also interpose doors between rooms, like so:</p>
+<div class="codeblock"><div class="codeline">The heavy iron grating is east of the Orchard and west of the Undertomb. The grating is a door.</div>
+</div><p>The second sentence is needed since otherwise Inform will take &quot;heavy iron grating&quot; to be the name of a third room, whereas what we want is for the grating to be something physically present in both the Orchard and in the Undertomb, and acting as a conduit between them. To this end it needs to be a &quot;door&quot;, a kind we have not so far seen. In the absence of any other instruction, a newly created door will be fixed in place, closed and openable.</p>
+<p>The grating really does come in between the two rooms: the grating is what lies immediately east of the Orchard, not the Undertomb room. So if we wrote the following:</p>
+<div class="codeblock"><div class="codeline">The Undertomb is east of the Orchard. The heavy iron grating is east of the Orchard and west of the Undertomb. The grating is a door.</div>
+</div><p>then Inform would say that this is a contradiction: we said the Undertomb was east of the Orchard, but then we said that the grating was east of the Orchard.</p>
+<p>Inform&#39;s &quot;door&quot; kind can be used for all manner of conduits, so the word door need not be taken literally. In Ursula K. Le Guin&#39;s beguiling novel &quot;The Tombs of Atuan&quot;, from which the above rooms are stolen, it is not a grating which interposes, but: </p>
+<div class="codeblock"><div class="codeline">The red rock stair is east of the Orchard and above the Undertomb. The stair is an open door. The stair is not openable.</div>
+</div><p>In real life, most doors are two-sided, and can be used from either of the rooms which they join, but this is not always convenient for interactive fiction. Here is a one-sided door:</p>
+<div class="codeblock"><div class="codeline">The blue door is a door. It is south of Notting Hill. Through it is the Flat Landing.</div>
+</div><p>(Note the use of &quot;it&quot; here as an optional abbreviation.) This will make a door visible only on the Notting Hill side; no map connection will be made in the reverse direction, unless we ask for one.</p>
+<p>So much for creating and describing individual doors. Once we need to write about doors in general, we are likely to want a way to find out where a given door sits in the map. The following phrases reveal this:</p>
+<div class="defn" id="ph_frontside"><span class="defn">front side of </span><span class="neutral">(object)</span> &rArr; <em>room</em><p>This phrase produces the first of the one or two rooms containing a door &ndash; first in the order given in the source text. Example: if</p>
+<div class="codeblock"><div class="codeline">The red rock stair is east of the Orchard and above the Undertomb.</div>
+</div><p>then &quot;front side of the red rock stair&quot; produces the Orchard. For a one-sided door, this produces the only room containing the door.</p>
+</div><div class="defn" id="ph_backside"><span class="defn">back side of </span><span class="neutral">(object)</span> &rArr; <em>room</em><p>This phrase produces the last of the one or two rooms containing a door &ndash; last in the order given in the source text. Example: if</p>
+<div class="codeblock"><div class="codeline">The red rock stair is east of the Orchard and above the Undertomb.</div>
+</div><p>then &quot;back side of the red rock stair&quot; produces the Undertomb. A one-sided door has no &quot;back side.&quot;</p>
+</div><p>More often, we are dealing with a door and want to know what it leads to, but that depends where we&#39;re standing:</p>
+<div class="defn" id="ph_othersideof"><span class="defn">other side of </span><span class="neutral">(door)</span><span class="defn"> from </span><span class="neutral">(room)</span> &rArr; <em>object</em><p>This phrase produces the room on the other side of the door, as seen from the given vantage point, which needs to be one of its sides. Example: if</p>
+<div class="codeblock"><div class="codeline">The red rock stair is east of the Orchard and above the Undertomb.</div>
+</div><p>then &quot;other side of the red rock stair from the Undertomb&quot; produces the Orchard, and vice versa.</p>
+</div><div class="defn" id="ph_directionofdoor"><span class="defn">direction of </span><span class="neutral">(door)</span><span class="defn"> from </span><span class="neutral">(room)</span> &rArr; <em>object</em><p>This phrase produces the direction in which the door leads, as seen from the given vantage point, which needs to be one of its sides. Example: if</p>
+<div class="codeblock"><div class="codeline">The red rock stair is east of the Orchard and above the Undertomb.</div>
+</div><p>then &quot;direction of the red rock stair from the Undertomb&quot; produces up.</p>
+</div><div class="see-also">
+<h4>See Also</h4>
+<p><a href="WI_6.html#section_14" title="Descriptions &gt; Adjacent rooms and routes through the map">Adjacent rooms and routes through the map</a> for more phrases which can look at the current map layout.<br></p></div><div class="examples">
+<h4>Examples</h4>
+<div class="example-short">20. ★ <a href="examples/disenchantment_bay5.html">Disenchantment Bay 5</a><br>Disenchantment Bay: adding the door and the deck to our charter boat.</p></div><div class="linkback">
+<a href="RB_1.html#section_3" title="How to Use The Recipe Book &gt; Disenchantment Bay">RB §1.3 Disenchantment Bay</a>
+</div>
+<div class="example-short">21. ★★ <a href="examples/escape.html">Escape</a><br>Window that can be climbed through or looked through.</p></div><div class="linkback">
+<a href="RB_3.html#section_6" title="Place &gt; Windows">RB §3.6 Windows</a>
+</div>
+<div class="example-short">22. ★★★ <a href="examples/garibaldi.html">Garibaldi 1</a><br>Providing a security readout device by which the player can check on the status of all doors in the game.</p></div><div class="linkback">
+<a href="RB_3.html#section_5" title="Place &gt; Doors, Staircases, and Bridges">RB §3.5 Doors, Staircases, and Bridges</a>
+</div>
+<h3 id="section_13">WI §3.13 Locks and keys</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_12">3.12 Doors</a></div><div class="sect-navbar-center"><a href="#chapter_3">3. Things</a></div><div class="sect-navbar-right"><a href="#section_14">3.14 Devices and descriptions</a></div></div>
+<p>It seems unwise for a door in Notting Hill to be unlocked, so:</p>
+<div class="codeblock"><div class="codeline">The blue door is lockable and locked. The matching key of the blue door is the brass Yale key.</div>
+</div><p>Since the second sentence here is a little clumsy, we can equivalently say</p>
+<div class="codeblock"><div class="codeline">The brass Yale key unlocks the blue door.</div>
+</div><p>Yet a third way to say this is:</p>
+<div class="codeblock"><div class="codeline">The blue door has matching key the brass Yale key.</div>
+</div><p>This introduces three new properties: a door can be locked or unlocked; lockable or not lockable; and it can have a matching key, which must be another thing. The same thing can be the matching key of many different locks: and note that a door can be locked and even lockable without having a matching key at all, in which case the player trying to open it will be permanently out of luck. Doors are ordinarily unlocked, not lockable, and without a matching key.</p>
+<p>Containers can also have locks, in exactly the same way, and are allowed to have the same properties. On the other hand supporters never have locks: it makes no sense to be able to lock a tabletop, for instance, and Inform will not allow any discussion of the matching key of a supporter, or of a supporter being locked or unlocked.</p>
+<div class="examples">
+<h4>Examples</h4>
+<div class="example-short">23. ★ <a href="examples/disenchantment_bay6.html">Disenchantment Bay 6</a><br>Disenchantment Bay: locking up the charter boat&#39;s fishing rods.</p></div><div class="linkback">
+<a href="RB_1.html#section_3" title="How to Use The Recipe Book &gt; Disenchantment Bay">RB §1.3 Disenchantment Bay</a>
+</div>
+<div class="example-short">24. ★★ <a href="examples/neighborhood_watch.html">Neighborhood Watch</a><br>A locked door that can be locked or unlocked without a key from one side, but not from the other.</p></div><div class="linkback">
+<a href="RB_3.html#section_5" title="Place &gt; Doors, Staircases, and Bridges">RB §3.5 Doors, Staircases, and Bridges</a>
+</div>
+<h3 id="section_14">WI §3.14 Devices and descriptions</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_13">3.13 Locks and keys</a></div><div class="sect-navbar-center"><a href="#chapter_3">3. Things</a></div><div class="sect-navbar-right"><a href="#section_15">3.15 Light and darkness</a></div></div>
+<p>A &quot;device&quot; is another of the standard kinds of thing, and should be used for anything which can be switched on or off: a light switch, say, or a slide projector. Devices are generally machines, clockwork or electrical. A device is always either &quot;switched on&quot; or &quot;switched off&quot;, but is switched off unless we specify otherwise.</p>
+<p>That makes three kinds of thing which will likely change their appearance according to which of their two possible states they are in: doors and containers, which can be open or closed; and devices, which can be switched on or switched off. We would like to produce text accordingly, and we can do this using Inform&#39;s ability to make (almost) any piece of text change with circumstances. For instance:</p>
+<div class="codeblock"><div class="codeline">The coffin is an openable container in the Undertomb. &quot;[if open]The lid of a plank coffin yawns open.[otherwise]A plank coffin lies upon the dirt floor of the Tomb.&quot;</div>
+</div><p>We could use a similar trick to make the appearance of a device change &quot;if switched on&quot;. There will be much more about text substitutions, as instructions in square brackets like these are called, in later chapters.</p>
+<div class="see-also">
+<h4>See Also</h4>
+<p><a href="WI_5.html#section_1" title="Text &gt; Text with substitutions">Text with substitutions</a> for more on varying what is printed.<br></p></div><div class="examples">
+<h4>Examples</h4>
+<div class="example-short">25. ★ <a href="examples/disenchantment_bay7.html">Disenchantment Bay 7</a><br>Disenchantment Bay: making the radar and instruments switch on and off.</p></div><div class="linkback">
+<a href="RB_1.html#section_3" title="How to Use The Recipe Book &gt; Disenchantment Bay">RB §1.3 Disenchantment Bay</a>
+</div>
+<div class="example-short">26. ★★ <a href="examples/down_below.html">Down Below</a><br>A light switch which makes the room it is in dark or light.</p></div><div class="linkback">
+<a href="RB_3.html#section_7" title="Place &gt; Lighting">RB §3.7 Lighting</a>
+</div>
+<h3 id="section_15">WI §3.15 Light and darkness</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_14">3.14 Devices and descriptions</a></div><div class="sect-navbar-center"><a href="#chapter_3">3. Things</a></div><div class="sect-navbar-right"><a href="#section_16">3.16 Vehicles and pushable things</a></div></div>
+<p>Rooms can be &quot;dark&quot; or &quot;lighted&quot;, though they are lighted by default, and are lighted in all the examples we have seen so far.</p>
+<div class="codeblock"><div class="codeline">The Sinister Cave is a dark room. &quot;A profoundly disquieting rock formation, apparently sculptured by some demonic hand, this is not a cave in which to relax.&quot;</div>
+</div><p>When the player is in a dark room, he can still go in various directions, but he cannot see the room description or interact with any of the objects in the room, except those he is holding. This means that, unless we should change the Cave in some way during play, the text above (&quot;A profoundly&hellip;&quot;) will only be read if the player succeeds in bringing light into the Cave, perhaps by bringing along the following:</p>
+<div class="codeblock"><div class="codeline">The flaming torch is in the Sandy Passage. &quot;Stuck loosely into the sand is a flaming torch.&quot; The flaming torch is lit.</div>
+</div><p>A thing with the property of being &quot;lit&quot; will enable the player to see inside dark rooms, and to carry out other activities requiring light, such as examining items. A lit thing in an open container will still light up a room; a lit thing in a closed container will not, unless the container has been given the &quot;transparent&quot; property.</p>
+<p>It is possible to adjust the way darkness behaves, and we will see more on this topic in the chapter on Activities.</p>
+<div class="see-also">
+<h4>See Also</h4>
+<p><a href="WI_18.html#section_18" title="Activities &gt; Printing a refusal to act in the dark">Printing a refusal to act in the dark</a> for the first of several ways to control what is printed in the dark.<br></p></div><h3 id="section_16">WI §3.16 Vehicles and pushable things</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_15">3.15 Light and darkness</a></div><div class="sect-navbar-center"><a href="#chapter_3">3. Things</a></div><div class="sect-navbar-right"><a href="#section_17">3.17 Men, women and animals</a></div></div>
+<p>Next in the tour of standard kinds is the &quot;vehicle&quot;. This behaves like (indeed, is) an enterable container, except that it will not be portable unless this is specified.</p>
+<div class="codeblock"><div class="codeline">In the Garage is a vehicle called the red sports car.</div>
+</div><p>The player can enter the sports car and then move around riding inside it, by typing directions exactly as if on foot: and the story will print names of rooms with &quot;(in the red sports car)&quot; appended, lest this be forgotten.</p>
+<p>We have already seen that some things are portable, others fixed in place. In fact we can also make a third sort of thing: those which, although not portable, can be pushed from one room to another with commands like &quot;push the wheelbarrow north&quot;. At a pinch, we might just be willing to allow:</p>
+<div class="codeblock"><div class="codeline">The red sports car is pushable between rooms.</div>
+</div><p>But of course this is a property which almost any thing can have, not just a vehicle. (Only &quot;almost&quot; because Inform will not allow a door to be pushable between rooms, in the interests of realism rather than surrealism.)</p>
+<p>If we need vehicles which the passenger sits on top of, like a horse or a tractor, the standard &quot;vehicle&quot; kind will not be ideal. However, by loading one of the extensions which comes ready-installed:</p>
+<div class="codeblock"><div class="codeline">Include Rideable Vehicles by Graham Nelson.</div>
+</div><p>&hellip;we are provided with two more kinds, &quot;rideable vehicle&quot; and &quot;rideable animal&quot;, just right for the tractor and the horse respectively. (As with all extensions, the documentation can be seen by clicking Go on some source which contains the above line, and then turning to the Contents index; or from the Installed Extensions tab of the Extensions panel.)</p>
+<div class="see-also">
+<h4>See Also</h4>
+<p><a href="WI_7.html#section_14" title="Basic Actions &gt; Going by, going through, going with">Going by, going through, going with</a> for further ways to customize vehicle behaviour.<br></p></div><div class="examples">
+<h4>Examples</h4>
+<div class="example-short">27. ★ <a href="examples/peugeot.html">Peugeot</a><br>A journey from one room to another that requires the player to be on a vehicle.</p></div><div class="linkback">
+<a href="RB_8.html#section_1" title="Vehicles, Animals and Furniture &gt; Bicycles, Cars and Boats">RB §8.1 Bicycles, Cars and Boats</a>
+</div>
+<div class="example-short">28. ★★ <a href="examples/disenchantment_bay8.html">Disenchantment Bay 8</a><br>Disenchantment Bay: a pushable chest of ice for the boat.</p></div><div class="linkback">
+<a href="RB_1.html#section_3" title="How to Use The Recipe Book &gt; Disenchantment Bay">RB §1.3 Disenchantment Bay</a>
+</div>
+<div class="example-short">29. ★★★ <a href="examples/hover.html">Hover</a><br>Letting the player see a modified room description when he&#39;s viewing the place from inside a vehicle.</p></div><div class="linkback">
+<a href="RB_8.html#section_1" title="Vehicles, Animals and Furniture &gt; Bicycles, Cars and Boats">RB §8.1 Bicycles, Cars and Boats</a>
+</div>
+<h3 id="section_17">WI §3.17 Men, women and animals</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_16">3.16 Vehicles and pushable things</a></div><div class="sect-navbar-center"><a href="#chapter_3">3. Things</a></div><div class="sect-navbar-right"><a href="#section_18">3.18 Articles and proper names</a></div></div>
+<p>Rounding out the standard kinds provided by Inform are four for living things: &quot;person&quot;, which is a kind of thing, and &quot;man&quot;, &quot;woman&quot; and &quot;animal&quot;, all kinds of person. For instance:</p>
+<div class="codeblock"><div class="codeline">In the Ballroom is a man called Mr Darcy.</div>
+</div><p>For the time being, men and women will be little more than waxworks: they will come to life only when we go beyond the present stage of creating an initial state of the world.</p>
+<p>People can be male or female: this is an either/or property for the &quot;person&quot; kind, and it affects play at run-time a little, because the player can use &quot;him&quot; and &quot;her&quot; to refer to male or female people encountered. Men and women are always male and female respectively, and for animals we can choose either way, for example making a stallion male or a nanny goat female. Animals are male unless we say otherwise.</p>
+<p>If our animal is instead something like a beetle or an earthworm, where gender doesn&#39;t seem to matter or even to exist, we can use the further property &quot;neuter&quot;:</p>
+<div class="codeblock"><div class="codeline">The spider is a neuter animal in the Bathroom.</div>
+</div><p>The Standard Rules don&#39;t make people behave differently according to their genders, and the main difference comes down to language: whether we want the animal to be called &quot;her&quot;, or &quot;it&quot;. Because of the existence of &quot;neuter&quot;, we sometimes need to be cautious about the use of the adjective &quot;male&quot;: since Inform, partly for historical reasons, uses an either/or property for masculinity, neuter animals are also &quot;male&quot;.</p>
+<div class="examples">
+<h4>Example</h4>
+<div class="example-short">30. ★ <a href="examples/disenchantment_bay9.html">Disenchantment Bay 9</a><br>Disenchantment Bay: enter the charter boat&#39;s Captain.</p></div><div class="linkback">
+<a href="RB_1.html#section_3" title="How to Use The Recipe Book &gt; Disenchantment Bay">RB §1.3 Disenchantment Bay</a>
+</div>
+<h3 id="section_18">WI §3.18 Articles and proper names</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_17">3.17 Men, women and animals</a></div><div class="sect-navbar-center"><a href="#chapter_3">3. Things</a></div><div class="sect-navbar-right"><a href="#section_19">3.19 Carrying capacity</a></div></div>
+<p>Suppose we have said that:</p>
+<div class="codeblock"><div class="codeline">In the Ballroom is a man called Mr Darcy.</div>
+</div><p>When the Ballroom is visited, the man is listed in the description of the room as &quot;Mr Darcy&quot;, not as &quot;a Mr Darcy&quot;. This happened not because Inform recognised that Darcy is a proper name, or even because men tend to have proper names, but because Inform noticed that we did not use &quot;a&quot;, &quot;an&quot;, &quot;the&quot; or &quot;some&quot; in the sentence which created him. The following shows most of the options:</p>
+<div class="codeblock"><div class="codeline">The Belfry is a room. A bat is in the Belfry. The bell is in the Belfry. Some woodworm are in the Belfry. A man called William Snelson is in the Belfry. A woman called the sexton&#39;s wife is in the Belfry. A man called a bellringer is in the Belfry.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">In the Belfry is a man called the vicar. The indefinite article of the vicar is &quot;your local&quot;.</div>
+</div><p>In the resulting story, we read:</p>
+<div class="codeblock"><div class="codeline">You can see a bat, a bell, some woodworm, William Snelson, the sexton&#39;s wife, a bellringer and your local vicar here.</div>
+</div><p>The subtlest rule here is in the handling of &quot;the&quot;. We wrote &quot;The bell is in the Belfry&quot;, but this did not result in the bell always being called &quot;the&quot; bell: in fact, writing &quot;A bell is in the Belfry&quot; would have had the same effect. On the other hand, &quot;A woman called the sexton&#39;s wife is in the Belfry.&quot; led to the wife always being known as &quot;the&quot; sexton&#39;s wife, not &quot;a&quot; sexton&#39;s wife, because Inform thinks the choice of article after &quot;called&quot; shows more of our intention than it would elsewhere. These rules will never be perfect in all situations, so we are also allowed to specify indefinite articles by hand, as the vicar&#39;s case shows.</p>
+<p>&quot;Some&quot; is worth a closer look, because English uses it in several different ways. By introducing the woodworm with &quot;some&quot;, above, we established that it was plural. We might imagine that there are many worms, even though they are represented by a single thing in Inform. We can expect to see text in the story such as:</p>
+<div class="codeblock"><div class="codeline">You can see some woodworm here.</div>
+<div class="codeline">The woodworm are fixed in place.</div>
+</div><p>But suppose we wanted something which there is an amount of, but which is not made up of individual items &ndash; a so-called mass noun like &quot;water&quot;, or &quot;bread&quot;. Now we can write:</p>
+<div class="codeblock"><div class="codeline">The water is here. The indefinite article is &quot;some&quot;.</div>
+</div><p>and this time Inform does not treat the &quot;some water&quot; thing as a plural, so we might read:</p>
+<div class="codeblock"><div class="codeline">You can see some water here.</div>
+<div class="codeline">The water is hardly portable.</div>
+</div><p>rather than &quot;The water are hardly portable.&quot;</p>
+<p>Finally, we can override these settings, if they still come out not as we intend, by explicitly changing the either/or properties &quot;singular-named&quot; (vs &quot;plural-named&quot;) and &quot;proper-named&quot; (vs &quot;improper-named&quot;).</p>
+<div class="examples">
+<h4>Examples</h4>
+<div class="example-short">31. ★ <a href="examples/belfry.html">Belfry</a><br>You can see a bat, a bell, some woodworm, William Snelson, the sexton&#39;s wife, a bellringer and your local vicar here.</p></div><div class="linkback">
+<a href="RB_7.html#section_1" title="Other Characters &gt; Getting Acquainted">RB §7.1 Getting Acquainted</a>
+</div>
+<div class="example-short">32. ★★ <a href="examples/gopherwood.html">Gopher-wood</a><br>Changing the name of a character in the middle of play, removing the article.</p></div><div class="linkback">
+<a href="RB_7.html#section_1" title="Other Characters &gt; Getting Acquainted">RB §7.1 Getting Acquainted</a>
+</div>
+<h3 id="section_19">WI §3.19 Carrying capacity</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_18">3.18 Articles and proper names</a></div><div class="sect-navbar-center"><a href="#chapter_3">3. Things</a></div><div class="sect-navbar-right"><a href="#section_20">3.20 Possessions and clothing</a></div></div>
+<p>The containers and supporters created so far have been boundlessly capacious: or rather, though we seldom notice the difference, have had a maximum carrying capacity of 100 items. This is clearly unrealistic for a small purse or a modest mantelpiece. We can impose upper limits with sentences like so:</p>
+<div class="codeblock"><div class="codeline">The carrying capacity of the jewelled purse is 2.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The bijou mantelpiece has carrying capacity 3.</div>
+</div><p>Attempts by the player to overfill, or overload, will now be rebuffed with a message such as &quot;There is no room on the mantelpiece&quot;.</p>
+<p>The player is not a container or a supporter, but nevertheless does have a carrying capacity: this is interpreted to mean the maximum number of items which can be carried at once.</p>
+<div class="codeblock"><div class="codeline">The carrying capacity of the player is 4.</div>
+</div><p>These restrictions only apply to the player (and other in-world characters): as the omnipotent creators, we are not restrained by them. Nothing prevents this:</p>
+<div class="codeblock"><div class="codeline">The carrying capacity of the jewelled purse is 2. The diamond, the ruby and the sapphire are in the purse.</div>
+</div><p>The player will be able to remove all three items, but only put two of them back. (This is probably something we only want very occasionally: perhaps to create a sack stuffed almost to bursting point.)</p>
+<h3 id="section_20">WI §3.20 Possessions and clothing</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_19">3.19 Carrying capacity</a></div><div class="sect-navbar-center"><a href="#chapter_3">3. Things</a></div><div class="sect-navbar-right"><a href="#section_21">3.21 The player's holdall</a></div></div>
+<p>We have seen how to place objects in rooms, and in containers or on supporters. But what about people? Perhaps it could be said that they &quot;contain&quot; the fillings in their teeth, or &quot;support&quot; a top hat, but this is not very natural. Inform therefore never speaks of things being &quot;in&quot; or &quot;on&quot; people. Instead, they have two sorts of possessions: the things they carry, and the things they wear. (Body parts, such as arms and legs, are different again: see &quot;parts&quot; below for a clue to how to do these.) Thus:</p>
+<div class="codeblock"><div class="codeline">Mr Darcy wears a top hat. Mr Darcy carries a silver sword.</div>
+</div><p>In fact, Inform deduces from this not only who owns the hat and the sword, but also that Darcy has the kind &quot;person&quot;, because only people can wear or carry.</p>
+<p>As all the assertion verbs do, &quot;to wear&quot; and &quot;to carry&quot; have participles which Inform knows about. So we could equally well write:</p>
+<div class="codeblock"><div class="codeline">The scarlet coat is worn by Mr Wickham. The duelling pistol is carried by Mr Wickham.</div>
+</div><p>If we do not specify who does the wearing, or carrying, then this is assumed to be the player. Thus:</p>
+<div class="codeblock"><div class="codeline">A brass lantern and a rusty iron key are carried. The mosquito-repellent hat is worn.</div>
+</div><p>It would make no sense to &quot;wear&quot; the key, for instance, so Inform needs to distinguish between what is clothing and what is not. It does this with an either/or property called &quot;wearable&quot;: if something has this property then the player will be allowed to wear it, provided it can first be picked up. Anything which is worn by somebody at the start of play is assumed to be wearable (unless we say otherwise). But if nobody is initially wearing the item in question, then we have to be explicit:</p>
+<div class="codeblock"><div class="codeline">The player carries a scarlet gown. The gown is wearable.</div>
+</div><p>(When we come to asking questions about the current situation, we will need to remember that &quot;to carry&quot; and &quot;to wear&quot; are different. Thus &quot;if Lancelot carries the plate armour&quot; will not be true if he is wearing it rather than carrying it under his arm. As we will later see, we can instead vaguely say &quot;if Lancelot has the plate armour&quot; to mean either carrying or wearing.)</p>
+<div class="see-also">
+<h4>See Also</h4>
+<p><a href="WI_13.html#section_4" title="Relations &gt; To carry, to wear, to have">To carry, to wear, to have</a> for a more detailed explanation of carrying, wearing, and possessing as Inform understands them.<br></p></div><div class="examples">
+<h4>Example</h4>
+<div class="example-short">33. ★ <a href="examples/disenchantment_bay10.html">Disenchantment Bay 10</a><br>Disenchantment Bay: things for the player and the characters to wear and carry.</p></div><div class="linkback">
+<a href="RB_1.html#section_3" title="How to Use The Recipe Book &gt; Disenchantment Bay">RB §1.3 Disenchantment Bay</a>
+</div>
+<h3 id="section_21">WI §3.21 The player's holdall</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_20">3.20 Possessions and clothing</a></div><div class="sect-navbar-center"><a href="#chapter_3">3. Things</a></div><div class="sect-navbar-right"><a href="#section_22">3.22 Food</a></div></div>
+<p>When the player has only limited carrying capacity, play is likely to be tiresome, but we can make life easier by providing a way for the player to carry endless items without dozens of free hands to hold them all:</p>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Sackcloth&quot;\n\nThe Attic is a room. The old blue rucksack is a player&apos;s holdall. The player is wearing the rucksack.\n\nThe carrying capacity of the player is 3.\n\nIn the Attic are a CD entitled No Smoke Without Fire, a 70s photograph of an American winning Wimbledon, a fraxinus branch, an urn holding your late great-aunt&apos;s remains, a convention badge from the American Society of Hypertension and a ghost story by M R James.`)">⧉</button><div class="codeline storytitle">&quot;Sackcloth&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Attic is a room. The old blue rucksack is a player&#39;s holdall. The player is wearing the rucksack.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The carrying capacity of the player is 3.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">In the Attic are a CD entitled No Smoke Without Fire, a 70s photograph of an American winning Wimbledon, a fraxinus branch, an urn holding your late great-aunt&#39;s remains, a convention badge from the American Society of Hypertension and a ghost story by M R James.</div>
+</div><p>This example story introduces a new kind of container, the &quot;player&#39;s holdall&quot;. This is a kind of which most stories will contain at most one example, but in principle there can be any number. A player&#39;s holdall is a capacious bag into which the player automatically places surplus items whenever his or her hands are full: trying the above example story and getting the items one by one will give the general idea.</p>
+<p>Of course, if the carrying capacity of the player is never reached then there will never be any surplus items and a player&#39;s holdall will behave just like any other (portable, usually openable) container.</p>
+<div class="see-also">
+<h4>See Also</h4>
+<p><a href="WI_15.html#section_8" title="Numbers and Equations &gt; Units">Units</a> for the tools to implement a more sophisticated capacity system.<br></p></div><div class="examples">
+<h4>Example</h4>
+<div class="example-short">34. ★ <a href="examples/disenchantment_bay11.html">Disenchantment Bay 11</a><br>Disenchantment Bay: making a holdall of the backpack.</p></div><div class="linkback">
+<a href="RB_1.html#section_3" title="How to Use The Recipe Book &gt; Disenchantment Bay">RB §1.3 Disenchantment Bay</a>
+</div>
+<h3 id="section_22">WI §3.22 Food</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_21">3.21 The player's holdall</a></div><div class="sect-navbar-center"><a href="#chapter_3">3. Things</a></div><div class="sect-navbar-right"><a href="#section_23">3.23 Parts of things</a></div></div>
+<p>We have nearly reached the end of the chapter on Things, but one either/or property for things remains: every thing is either &quot;edible&quot; or &quot;inedible&quot;. Unless we say otherwise, things are inedible. But for instance we might write:</p>
+<div class="codeblock"><div class="codeline">The player carries a Macintosh apple. The Macintosh is edible.</div>
+</div><p>(The type of computer is named after a variety of apple descended from a tree cultivated in 1811 by John McIntosh of Ontario.) Edible things are just like inedible ones, except that the player can EAT them. This will usually only consume the foodstuff in question, effectively destroying it, but using techniques from later chapters we could make the consequences more interesting.</p>
+<h3 id="section_23">WI §3.23 Parts of things</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_22">3.22 Food</a></div><div class="sect-navbar-center"><a href="#chapter_3">3. Things</a></div><div class="sect-navbar-right"><a href="#section_24">3.24 Concealment</a></div></div>
+<p>Everything has one and only one kind. This is both good and bad: good for clarity, bad if something needs to behave in two different ways at once. How might we simulate a car with an ignition key, given that no single thing can be both a &quot;vehicle&quot; and a &quot;device&quot; at the same time?</p>
+<p>The Inform world model takes the view that such a car is too complicated to be simulated with a single thing. Instead it should be simulated as a vehicle (the car) which has a device (the ignition) attached. This is done using a third kind of containment to those seen so far (&quot;in&hellip;&quot; and &quot;on&hellip;&quot;): &quot;part of&quot;.</p>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Buttons&quot;\n\nThe Confectionary Workshop is a room. The Chocolate Machine is here. &quot;The Chocolate Machine has pride of place. A lever and two buttons, one white, the other brown, seem to be the only controls. On top is a hopper.&quot;\n\nA container called the hopper is part of the Chocolate Machine. The lever, the white button and the brown button are parts of the Chocolate Machine.\n\nThe Chocolatier&apos;s desk is here. &quot;The Chocolatier evidently works at the imposing green-leather topped desk facing the Machine. It has three drawers with brass handles.&quot;\n\nThe upper drawer, the middle drawer and the lower drawer are parts of the desk. The upper drawer, the middle drawer and the lower drawer are openable closed containers. In the middle drawer is a sugared almond. In the lower drawer is a Battenburg cake. On the desk is a liquorice twist.\n\nThe cake, the twist and the almond are edible.`)">⧉</button><div class="codeline storytitle">&quot;Buttons&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Confectionary Workshop is a room. The Chocolate Machine is here. &quot;The Chocolate Machine has pride of place. A lever and two buttons, one white, the other brown, seem to be the only controls. On top is a hopper.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A container called the hopper is part of the Chocolate Machine. The lever, the white button and the brown button are parts of the Chocolate Machine.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Chocolatier&#39;s desk is here. &quot;The Chocolatier evidently works at the imposing green-leather topped desk facing the Machine. It has three drawers with brass handles.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The upper drawer, the middle drawer and the lower drawer are parts of the desk. The upper drawer, the middle drawer and the lower drawer are openable closed containers. In the middle drawer is a sugared almond. In the lower drawer is a Battenburg cake. On the desk is a liquorice twist.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The cake, the twist and the almond are edible.</div>
+</div><p>The machine and the desk each have several &quot;parts&quot; representing subsidiary pieces of themselves. The desk is a &quot;supporter&quot; (it needs to be, for the liquorice twist to be on top) but also has three &quot;containers&quot; attached, each of which can be opened or closed independently.</p>
+<p>In the interests of realism, the standard rules of play protect these composite things. Thus if the desk were to be moved elsewhere (rolling on sugar casters perhaps) then its parts would move with it, and the player is not allowed to detach parts of things: the drawers can be opened or closed, but not pulled out altogether.</p>
+<p>Note that rooms and regions are not allowed to have parts. (Rooms are already parts of regions, and to divide up rooms, we can either make several rooms or place containers or other obstacles in a single one.)</p>
+<div class="examples">
+<h4>Examples</h4>
+<div class="example-short">35. ★★★ <a href="examples/fallout_enclosure.html">Fallout Enclosure</a><br>Adding an enclosure kind that includes both containers and supporters in order to simplify text that would apply to both.</p></div><div class="linkback">
+<a href="RB_9.html#section_2" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Bags, Bottles, Boxes and Safes">RB §9.2 Bags, Bottles, Boxes and Safes</a>
+</div>
+<div class="example-short">36. ★★★ <a href="examples/brown.html">Brown</a><br>A red sticky label which can be attached to anything in the game, or removed again.</p></div><div class="linkback">
+<a href="RB_9.html#section_7" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Painting and Labeling Devices">RB §9.7 Painting and Labeling Devices</a>
+</div>
+<div class="example-short">37. ★★★★ <a href="examples/disenchantment_bay12.html">Disenchantment Bay 12</a><br>A final trip to Disenchantment Bay: the scenario turned into a somewhat fuller scene, with various features that have not yet been explained.</p></div><div class="linkback">
+<a href="RB_1.html#section_3" title="How to Use The Recipe Book &gt; Disenchantment Bay">RB §1.3 Disenchantment Bay</a>
+</div>
+<h3 id="section_24">WI §3.24 Concealment</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_23">3.23 Parts of things</a></div><div class="sect-navbar-center"><a href="#chapter_3">3. Things</a></div><div class="sect-navbar-right"><a href="#section_25">3.25 The location of something</a></div></div>
+<p>Though realism can become tiresome in interactive fiction, there are times when we cannot go along with Inform&#39;s normal assumption that all of a person&#39;s possessions are visible to everybody else. People are not like containers, which either show all of their holdings or not, according to whether they are open or transparent. If a man is carrying a fishing rod and a wallet, one will be on open show, the other not. Some clothing is outwardly visible, but not all.</p>
+<p>Whether or not something is concealed is not like the either/or properties we have seen so far &ndash; such as being &quot;open&quot; or &quot;closed&quot; &ndash; because it is not really a property of the thing itself, but depends on the habitual behaviour of its current owner. To talk about behaviour we have to use sentences of a kind not seen so far, and which will not fully be explained for some chapters to come.</p>
+<p>But straightforward cases are easy to write, if only by imitating the following examples.</p>
+<p>Here we make the Cloaked Villain invariably conceal anything she is holding or wearing:</p>
+<div class="codeblock"><div class="codeline">Rule for deciding the concealed possessions of the Cloaked Villain: yes.</div>
+</div><p>At which point we think about it more carefully, and then rewrite:</p>
+<div class="codeblock"><div class="codeline">Rule for deciding the concealed possessions of the Cloaked Villain: if the particular possession is the sable cloak, no; otherwise yes.</div>
+</div><p>(A rule which says neither &quot;yes&quot; nor &quot;no&quot; will decide yes, but it&#39;s best to spell out exactly what&#39;s wanted.)</p>
+<p>Parts are treated exactly as if clothes or items being held, and the following will make the face and inscription on a coin invisible unless the player is holding it &ndash; the idea being that they are too small to be seen from farther away.</p>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The coin is in the Roman Villa. The face and inscription are parts of the coin. Rule for deciding the concealed possessions of the coin: if the coin is carried, no; otherwise yes.`)">⧉</button><div class="codeline">The coin is in the Roman Villa. The face and inscription are parts of the coin. Rule for deciding the concealed possessions of the coin: if the coin is carried, no; otherwise yes.</div>
+</div><p>There is also an either/or property called &quot;described&quot;/&quot;undescribed&quot;, intended to be used only as a last resort, but which has the ability to hide something from room descriptions. This not really hiding: the idea is that &quot;undescribed&quot; should be used only for cases where some other text already reveals the item, or where its presence is implicit. Even then, it should only be used when the item is intended to be taken or moved by the player at some point &ndash; if the item isn&#39;t intended to move, it&#39;s much better to make it &quot;scenery&quot;. (There&#39;s only one commonly-found example &ndash; the player&#39;s own body, the &quot;yourself&quot;, is undescribed.)</p>
+<p>Note that the &quot;undescribed&quot; property is automatically removed from anything carried by, worn by or part of the player, even indirectly; and that nothing on top of an &quot;undescribed&quot; supporter will be visible in a room description, even if it itself is &quot;described&quot;. (Scenery supporters don&#39;t suffer from that restriction, which is one reason scenery is a better option when possible.)</p>
+<div class="examples">
+<h4>Example</h4>
+<div class="example-short">38. ★★★ <a href="examples/search_and_seizure.html">Search and Seizure</a><br>A smuggler who has items, some of which are hidden.</p></div><div class="linkback">
+<a href="RB_7.html#section_3" title="Other Characters &gt; Reactive Characters">RB §7.3 Reactive Characters</a>
+</div>
+<h3 id="section_25">WI §3.25 The location of something</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_24">3.24 Concealment</a></div><div class="sect-navbar-center"><a href="#chapter_3">3. Things</a></div><div class="sect-navbar-right"><a href="#section_26">3.26 Directions</a></div></div>
+<p>The model world created by Inform is partitioned into rooms. This means that everything which exists in the model world, exists in one of the rooms. If we write a sentence such as</p>
+<div class="codeblock"><div class="codeline">Professor Wilderspin is a man.</div>
+</div><p>and say nothing more about Wilderspin, then he does not physically exist at the start of the story: he is said to be &quot;out of play&quot;, and stays that way until we move him into one of the rooms. A better metaphor might be that he is waiting in the wings, ready to come onto the stage.</p>
+<p>Every thing is either out of play, or can be found in one of the rooms, and the property &quot;location of X&quot; gives us the room in question. The following condition tests, in effect, whether Wilderspin is in play:</p>
+<div class="codeblock"><div class="codeline">if the location of Wilderspin is a room, ...</div>
+</div><p>Which uses a new phrase:</p>
+<div class="defn" id="ph_locationof"><span class="defn">location of </span><span class="neutral">(object)</span> &rArr; <em>room</em><p>This phrase produces the room which, perhaps indirectly, contains the object given. Example: if the player stands in Biblioll College and wears a waistcoat, inside which is a fob watch, then</p>
+<div class="codeblock"><div class="codeline">location of the fob watch</div>
+</div><p>is Biblioll College. In general, a thing cannot be in two rooms at once, but there are two exceptions: two-sided doors, present on both sides, and backdrops. The &quot;location of&quot; a door is its front side, but a backdrop has no location. (Objects which are not things at all, such as rooms and directions, also have no location.)</p>
+</div><p>We very often want to know the location of the player, and this is more simply called just &quot;the location&quot;. (This is actually a value that varies rather than a phrase, but that&#39;s a technicality we can ignore here.)</p>
+<p>The idea of indirect containment is useful enough to have a name: Inform calls it &quot;enclosure&quot;. A thing encloses whatever is a part of itself, or inside itself, or on top of itself, and it also encloses anything that they enclose. And when something moves around, anything it encloses will move with it. In the example above, Biblioll College (a room) and the player (a person) both enclose the fob watch and the waistcoat. (The small print: a door is enclosed by the rooms on both sides; a backdrop is never enclosed.)</p>
+<p>Enclosure is only useful when being used as a question. So the following is fine:</p>
+<div class="codeblock"><div class="codeline">if the player encloses the fob watch, ...</div>
+</div><p>But these will produce problem messages:</p>
+<div class="codeblock"><div class="codeline">The player encloses the fob watch. The location of the trilobite is the Museum.</div>
+</div><p>because they are too vague. Inform needs to know exactly where the fob watch and the trilobite will begin the story, whereas these sentences leave room for doubt about who or what is actually holding them.</p>
+<div class="examples">
+<h4>Example</h4>
+<div class="example-short">39. ★★ <a href="examples/van_helsing.html">Van Helsing</a><br>A character who approaches the player, then follows him from room to room.</p></div><div class="linkback">
+<a href="RB_7.html#section_13" title="Other Characters &gt; Traveling Characters">RB §7.13 Traveling Characters</a>
+</div>
+<h3 id="section_26">WI §3.26 Directions</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_25">3.25 The location of something</a></div><div class="sect-navbar-center"><a href="#chapter_3">3. Things</a></div></div>
+<p>&quot;Direction&quot; is a kind which is quite unlike most of those seen so far. While it has to do with the physical world, a direction does not exactly belong to it. One cannot find &quot;southeast&quot; sitting on a shelf. &quot;Direction&quot; is not a kind of thing, nor a kind of room: it is a kind in its own right.</p>
+<p>Every direction has an &quot;opposite&quot; property, which is always another direction. These occur in matched pairs. The opposite of north is south, just as the opposite of south is north. The opposite of southeast is northwest, the opposite of inside is outside, and so on. When Inform reads a sentence like&hellip;</p>
+<div class="codeblock"><div class="codeline">Bangkok is south of Nakhon Sawan.</div>
+</div><p>&hellip;it assumes that the opposite map connection is probably also valid, so that</p>
+<div class="codeblock"><div class="codeline">Nakhon Sawan is north of Bangkok.</div>
+</div><p>The chapter began with the twelve directions built into Inform:</p>
+<div class="codeblock"><div class="codeline">north, northeast, east, southeast, south, southwest, west, northwest, up, down, inside, outside</div>
+</div><p>But the built-in set is not always appropriate. Sometimes this is too many; if we wanted to write about a Flatland, for instance, then up and down ought to go. But in practice it is better not to abolish them as directions but instead to forbid travelling in them. (See the Recipe Book for examples.)</p>
+<p>But away from our familiar Earth, the usual frame of reference loses its meaning. Terry Pratchett&#39;s &quot;Discworld&quot; comedies, set on a rotating disc, use the directions turnwise, widdershins, hubwards and rimwards. On board a Zeppelin airship, which constantly changes its course, the cockpit has no fixed compass bearing from the passenger cabin: it is not very naturally &quot;north&quot;. In zero gravity, there is no up or down. Mars does not have a magnetic core, so a compass doesn&#39;t work there.</p>
+<p>New directions must always be created in opposing pairs, and each <strong>must</strong> be declared with a clear simple sentence of the form &quot;X is a direction.&quot; For instance:</p>
+<div class="codeblock"><div class="codeline">Turnwise is a direction. The opposite of turnwise is widdershins.</div>
+<div class="codeline">Widdershins is a direction. The opposite of widdershins is turnwise.</div>
+<div class="codeline">Hubwards is a direction. The opposite of hubwards is rimwards.</div>
+<div class="codeline">Rimwards is a direction. The opposite of rimwards is hubwards.</div>
+</div><p>It is then possible to write, say, that:</p>
+<div class="codeblock"><div class="codeline">Ankh-Morpork is hubwards of Lancre and turnwise from Borogravia.</div>
+</div><p>Of course the Map page of the Index for the project normally draws a map based on compass bearings, so it will get a little befuddled by this. But the map drawn in the Index can be given hints to improve its legibility. More on this later, but for now note that</p>
+<div class="codeblock"><div class="codeline">Index map with turnwise mapped as east.</div>
+</div><p>maps turnwise directions as if they were east, that is, pointing rightwards on the page. (This has no effect on the story file produced; it does not mean turnwise is simply a new name for east; it affects only the look of the Index map, which is only a convenience for the author in any case.)</p>
+<p>At one time, directions had to have shortish names (up to three words only), but that&#39;s no longer true:</p>
+<div class="codeblock"><div class="codeline">Just the tiniest smidge off magnetic north is a direction. The opposite of</div>
+<div class="codeline">just the tiniest smidge off magnetic north is just the tiniest smidge</div>
+<div class="codeline">off magnetic south.</div>
+<div class="codeline">Just the tiniest smidge off magnetic south is a direction. The opposite of</div>
+<div class="codeline">just the tiniest smidge off magnetic south is just the tiniest smidge</div>
+<div class="codeline">off magnetic north.</div>
+</div><div class="examples">
+<h4>Examples</h4>
+<div class="example-short">40. ★★ <a href="examples/prisoners_dilemma.html">Prisoner's Dilemma</a><br>A button that causes a previously non-existent exit to come into being.</p></div><div class="linkback">
+<a href="RB_3.html#section_2" title="Place &gt; Map">RB §3.2 Map</a>
+</div>
+<div class="example-short">41. ★★ <a href="examples/world_of_charles_s_roberts.html">The World of Charles S. Roberts</a><br>Replacing the ordinary compass bearings with a set of six directions to impose a hexagonal rather than square grid on the landscape.</p></div><div class="linkback">
+<a href="RB_3.html#section_2" title="Place &gt; Map">RB §3.2 Map</a>
+</div>
+<div class="example-short">42. ★★★ <a href="examples/fore.html">Fore</a><br>Understand &quot;fore&quot;, &quot;aft&quot;, &quot;port&quot;, and &quot;starboard&quot;, but only when the player is on a vessel.</p></div><div class="linkback">
+<a href="RB_8.html#section_2" title="Vehicles, Animals and Furniture &gt; Ships, Trains and Elevators">RB §8.2 Ships, Trains and Elevators</a>
+</div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="WI_2.html">2. The Source Text</a></div><div class="doc-navbar-right"><a href="WI_4.html">4. Kinds</a></div></div>
+<nav><div class="nav-el"><a href="index.html">Contents</a></div> <div class="nav-el"><a href="examples/index.html">Examples</a></div> <div class="nav-el"><a href="general_index.html">Index</a></div> <div class="nav-el"><a href="search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="license.html">Artistic License 2.0</a>.</p><p class="about"><a href="about.html">About this edition</a></p></footer>
+</body></html>

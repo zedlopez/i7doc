@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 345. Wesponses</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Wesponses</h1><div class="subheading">Example 345 ★</div>
+<div class="linkback">
+<a href="../WI_18.html#section_15" title="Activities &gt; Issuing the response text of something">WI §18.15 Issuing the response text of something</a><br><a href="../RB_2.html#section_1" title="Adaptive Prose &gt; Varying What Is Written">RB §2.1 Varying What Is Written</a>
+</div>
+<p class="example-desc">Parser messages that are delivered with a speech impediment.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="unpeeled.html" title="Calling an onion &quot;a single yellow onion&quot; when (and only when) it is being listed as the sole content of a room or container.">344. Unpeeled</a></div><div class="doc-navbar-right"><a href="rules_of_attraction.html" title="A magnet which picks up nearby metal objects, and describes itself appropriately in room descriptions and inventory listings, but otherwise goes by its ordinary name.">346. Rules of Attraction</a></div></div>
+</header>
+<p>If we want to change individual responses to player action, then the best thing to do is to use the response facility to modify those selections, as shown in the chapter on Responses.</p>
+<p>However, suppose what we want is to give the parser a speech impediment that slightly alters all of the responses it issues. For this purpose, we might need to do a bit of text replacement&hellip;</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex345">Play/modify Wesponses in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="Wesponses/index.html">Play Wesponses in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Wesponses&quot;\n\nThe Office is a room. Barry Kripke is a man in the Office.\n\nThe response inhibition is initially false.\n\nRule for issuing the response text of a response (called R) when response inhibition is false:\n\tnow response inhibition is true;\n\tlet output be &quot;[text of R]&quot;;\n\tnow response inhibition is false;\n\treplace the text &quot;r&quot; in output with &quot;w&quot;;\n\treplace the text &quot;R&quot; in output with &quot;W&quot;;\n\tsay &quot;[output]&quot;.\n\nTest me with &quot;i / x barry / listen / waffle / jump&quot;`)">⧉</button><div class="codeline storytitle">&quot;Wesponses&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Office is a room. Barry Kripke is a man in the Office.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The response inhibition is initially false.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Rule for issuing the response text of a response (called R) when response inhibition is false:</div>
+<div class="codeline">&ensp;&ensp;now response inhibition is true;</div>
+<div class="codeline">&ensp;&ensp;let output be &quot;[text of R]&quot;;</div>
+<div class="codeline">&ensp;&ensp;now response inhibition is false;</div>
+<div class="codeline">&ensp;&ensp;replace the text &quot;r&quot; in output with &quot;w&quot;;</div>
+<div class="codeline">&ensp;&ensp;replace the text &quot;R&quot; in output with &quot;W&quot;;</div>
+<div class="codeline">&ensp;&ensp;say &quot;[output]&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;i / x barry / listen / waffle / jump&quot;</div>
+</div><details class="testme-output"><summary>Test me with "i / x barry / listen / waffle / jump"</summary><div class="testme-output">Office<br>You can see Barry Kripke hewe.<br><br>>(Testing.)<br><br>>[1] i<br>You awe cawwying nothing.<br><br>>[2] x barry<br>You see nothing special about Bawwy Kwipke.<br><br>>[3] listen<br>You heaw nothing unexpected.<br><br>>[4] waffle<br>That's not a vewb I wecognise.<br><br>>[5] jump<br>You jump on the spot.
+</div></details><p>Notice that this doesn&#39;t affect the printed names of objects in the room description or other kinds of output text -- only those that are issued by the response mechanism.</p>
+<p>It would also not work to try to give our parser a nervous personality by simply adding &quot;Um, &quot; to the beginning of each response, because responses are not guaranteed to be full standalone sentences. For example, we could imagine writing</p>
+<div class="codeblock"><div class="codeline">Rule for issuing the response text of a response (called R) when response inhibition is false:</div>
+<div class="codeline">&ensp;&ensp;now response inhibition is true;</div>
+<div class="codeline">&ensp;&ensp;let output be &quot;Um, [text of R]&quot;;</div>
+<div class="codeline">&ensp;&ensp;now response inhibition is false;</div>
+<div class="codeline">&ensp;&ensp;say &quot;[output]&quot;.</div>
+</div><p>but here is what the room description would say as a result:</p>
+<div class="codeblock"><div class="codeline">Office</div>
+<div class="codeline">Um, You Um, can see Barry KripkeUm,  here</div>
+</div><div class="doc-navbar"><div class="doc-navbar-left"><a href="unpeeled.html" title="Calling an onion &quot;a single yellow onion&quot; when (and only when) it is being listed as the sole content of a room or container.">344. Unpeeled</a></div><div class="doc-navbar-right"><a href="rules_of_attraction.html" title="A magnet which picks up nearby metal objects, and describes itself appropriately in room descriptions and inventory listings, but otherwise goes by its ordinary name.">346. Rules of Attraction</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

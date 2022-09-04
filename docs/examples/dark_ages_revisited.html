@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 194. The Dark Ages Revisited</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>The Dark Ages Revisited</h1><div class="subheading">Example 194 ★</div>
+<div class="linkback">
+<a href="../WI_12.html#section_9" title="Advanced Actions &gt; Check, carry out, report">WI §12.9 Check, carry out, report</a><br><a href="../RB_3.html#section_7" title="Place &gt; Lighting">RB §3.7 Lighting</a>
+</div>
+<p class="example-desc">An electric light kind of device which becomes lit when switched on and dark when switched off.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="3_am.html" title="A shake command which agitates soda and makes items thump around in boxes.">193. 3 AM</a></div><div class="doc-navbar-right"><a href="paddington.html" title="A CUT [something] WITH [something] command which acts differently on different types of objects.">195. Paddington</a></div></div>
+</header>
+<p>This will be explored more in subsequent examples, but one of the things we can do with carry out rules is extend the function of existing commands so that they do more, or have special effects in specific situations. For instance, suppose we want to have a class of electric light:</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex194">Play/modify The Dark Ages Revisited in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="Electric/index.html">Play The Dark Ages Revisited in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;The Dark Ages Revisited&quot;\n\nAn electric light is a kind of device. Carry out switching on an electric light: now the noun is lit. Carry out switching off an electric light: now the noun is unlit.\n\n\nThe Stooped Corridor is a room. &quot;A low, square-cut corridor, running north to south, stooping you over.&quot;\n\nThe sodium lamp is an electric light in the Stooped Corridor. &quot;[if switched on]The sodium lamp squats on the ground, burning away.[otherwise]The sodium lamp squats heavily on the ground.[end if]&quot;. The description is &quot;It is a heavy-duty archaeologist&apos;s lamp, [if switched off]currently off.[otherwise]blazing with brilliant yellow light.[end if]&quot;\n\nInstead of burning the sodium lamp, try switching on the lamp.\n\n\nThe examine devices rule is not listed in the carry out examining rules.\n\nTest me with &quot;x lamp / switch lamp on / look / x lamp&quot;.`)">⧉</button><div class="codeline storytitle">&quot;The Dark Ages Revisited&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">An electric light is a kind of device. Carry out switching on an electric light: now the noun is lit. Carry out switching off an electric light: now the noun is unlit.</div>
+</div><p>This will not affect the behavior of any other devices when switched; it will also not change the way in which switching lights on and off is reported. The player will still see &quot;You switch the sodium lamp on.&quot; or the like. In this case that is probably what we want. If we wanted a special way of describing turning on electric lights as opposed to all other devices, we could also add an after rule for the electric light class. Adding this rule to the carry out train does guarantee, though, that in no case will we manage to make the lamp lit without actually making it switched on (or vice versa).</p>
+<div class="codeblock"><div class="codeline">The Stooped Corridor is a room. &quot;A low, square-cut corridor, running north to south, stooping you over.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The sodium lamp is an electric light in the Stooped Corridor. &quot;[if switched on]The sodium lamp squats on the ground, burning away.[otherwise]The sodium lamp squats heavily on the ground.[end if]&quot;. The description is &quot;It is a heavy-duty archaeologist&#39;s lamp, [if switched off]currently off.[otherwise]blazing with brilliant yellow light.[end if]&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of burning the sodium lamp, try switching on the lamp.</div>
+</div><p>So far so easy. Since we&#39;ve built the description of its light or darkness into the lamp&#39;s description, though, we may want to get rid of the &quot;&hellip;is switched on&quot; line that automatically follows when we look at something. For this we do need to borrow from a later chapter:</p>
+<div class="codeblock"><div class="codeline">The examine devices rule is not listed in the carry out examining rules.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;x lamp / switch lamp on / look / x lamp&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "x lamp / switch lamp on / look / x lamp".</summary><div class="testme-output">Stooped Corridor<br>A low, square-cut corridor, running north to south, stooping you over.<br><br>The sodium lamp squats heavily on the ground.<br><br>>(Testing.)<br><br>>[1] x lamp<br>It is a heavy-duty archaeologist's lamp, currently off.<br><br>>[2] switch lamp on<br>You switch the sodium lamp on.<br><br>>[3] look<br>Stooped Corridor<br>A low, square-cut corridor, running north to south, stooping you over.<br><br>The sodium lamp squats on the ground, burning away.<br><br>>[4] x lamp<br>It is a heavy-duty archaeologist's lamp, blazing with brilliant yellow light.
+</div></details><div class="doc-navbar"><div class="doc-navbar-left"><a href="3_am.html" title="A shake command which agitates soda and makes items thump around in boxes.">193. 3 AM</a></div><div class="doc-navbar-right"><a href="paddington.html" title="A CUT [something] WITH [something] command which acts differently on different types of objects.">195. Paddington</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

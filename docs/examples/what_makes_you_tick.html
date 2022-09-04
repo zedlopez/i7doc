@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 426. What Makes You Tick</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>What Makes You Tick</h1><div class="subheading">Example 426 ★</div>
+<div class="linkback">
+<a href="../WI_21.html#section_6" title="Lists &gt; Lists of objects">WI §21.6 Lists of objects</a><br><a href="../RB_9.html#section_8" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Simple Machines">RB §9.8 Simple Machines</a>
+</div>
+<p class="example-desc">Building a fishing pole from several component parts that the player might put together in any order.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="robo.html" title="A robot which watches and records the player&#39;s actions, then tries to repeat them back in the same order when he is switched into play-back mode.">425. Robo 1</a></div><div class="doc-navbar-right"><a href="formicidae.html" title="Manipulating the order in which items are handled after TAKE ALL.">427. Formicidae</a></div></div>
+</header>
+<p>Suppose we want to let the player build a fishing pole out of three parts: a hook, a string, and a stick.</p>
+<p>There are several things we must account for here. One is that our combination verb should be insensitive to ordering: it shouldn&#39;t matter whether the player types COMBINE STICK WITH STRING or COMBINE STRING WITH STICK.</p>
+<p>Second, we need to make sure that our implementation handles intervening stages of assembly gracefully. The player should be able to combine string and hook first, or string and stick first, and be able to complete the assembly in either case.</p>
+<p>Our implementation here uses a table of lists to determine which combinations of inputs should produce which result object. Because we sort our lists before comparing them, we guarantee that the player&#39;s ordering doesn&#39;t matter: COMBINE STICK WITH STRING will have the same effect as COMBINE STRING WITH STICK.</p>
+<p>What&#39;s more, our implementation could be expanded to account for many other assemblages, if we wanted object-building to be a running theme of puzzles in our game.</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex426">Play/modify What Makes You Tick in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="WhatMakesYouTick/index.html">Play What Makes You Tick in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;What Makes You Tick&quot;\n\nUnderstand &quot;combine [something] with [something]&quot; as combining it with. Combining it with is an action applying to two carried things. Understand the command &quot;connect&quot; as &quot;combine&quot;.\n\nUnderstand the command &quot;attach&quot; as something new. Understand &quot;attach [something] to [something]&quot; as combining it with.\n\nThe combining it with action has an object called the item built.\n\nSetting action variables for combining something with something:\n\tlet X be a list of objects;\n\tadd the noun to X;\n\tadd the second noun to X;\n\tsort X;\n\trepeat through the Table of Outcome Objects:\n\t\tlet Y be the component list entry;\n\t\tsort Y;\n\t\tif X is Y:\n\t\t\tnow the item built is the result entry.\n\nCheck combining it with:\n\tif the item built is nothing or the item built is not in limbo,\n\t\tsay &quot;You can&apos;t combine [the noun] and [the second noun] into anything useful.&quot; instead.\n\nCarry out combining it with:\n\tmove the item built to the holder of the noun;\n\tnow the noun is nowhere;\n\tnow the second noun is nowhere.\n\nReport combining it with:\n\tsay &quot;You now have [an item built].&quot;\n\nLimbo is a container. Limbo contains a hookless fishing pole, a hooked line, and a complete fishing pole.\n\nStreamside is a room. The player carries a stick, a wire hook, and a string.\n\nTable of Outcome Objects\ncomponent list\tresult\n{stick, string}\thookless fishing pole\n{wire hook, string}\thooked line\n{hooked line, stick}\tcomplete fishing pole\n{hookless fishing pole, wire hook}\tcomplete fishing pole\n\nTest me with &quot;combine stick with string / i / combine pole with hook / i&quot;.`)">⧉</button><div class="codeline storytitle">&quot;What Makes You Tick&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Understand &quot;combine [something] with [something]&quot; as combining it with. Combining it with is an action applying to two carried things. Understand the command &quot;connect&quot; as &quot;combine&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Understand the command &quot;attach&quot; as something new. Understand &quot;attach [something] to [something]&quot; as combining it with.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The combining it with action has an object called the item built.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Setting action variables for combining something with something:</div>
+<div class="codeline">&ensp;&ensp;let X be a list of objects;</div>
+<div class="codeline">&ensp;&ensp;add the noun to X;</div>
+<div class="codeline">&ensp;&ensp;add the second noun to X;</div>
+<div class="codeline">&ensp;&ensp;sort X;</div>
+<div class="codeline">&ensp;&ensp;repeat through the Table of Outcome Objects:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;let Y be the component list entry;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;sort Y;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;if X is Y:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the item built is the result entry.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Check combining it with:</div>
+<div class="codeline">&ensp;&ensp;if the item built is nothing or the item built is not in limbo,</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;You can&#39;t combine [the noun] and [the second noun] into anything useful.&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Carry out combining it with:</div>
+<div class="codeline">&ensp;&ensp;move the item built to the holder of the noun;</div>
+<div class="codeline">&ensp;&ensp;now the noun is nowhere;</div>
+<div class="codeline">&ensp;&ensp;now the second noun is nowhere.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Report combining it with:</div>
+<div class="codeline">&ensp;&ensp;say &quot;You now have [an item built].&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Limbo is a container. Limbo contains a hookless fishing pole, a hooked line, and a complete fishing pole.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Streamside is a room. The player carries a stick, a wire hook, and a string.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline tablename">Table of Outcome Objects</div><table>
+<tr><td>component list</td><td>result</td></tr><tr><td>{stick, string}</td><td>hookless fishing pole</td></tr><tr><td>{wire hook, string}</td><td>hooked line</td></tr><tr><td>{hooked line, stick}</td><td>complete fishing pole</td></tr><tr><td>{hookless fishing pole, wire hook}</td><td>complete fishing pole</td></tr></table>
+<div class="codeline">Test me with &quot;combine stick with string / i / combine pole with hook / i&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "combine stick with string / i / combine pole with hook / i".</summary><div class="testme-output">Streamside<br><br>>(Testing.)<br><br>>[1] combine stick with string<br>You now have a hookless fishing pole.<br><br>>[2] i<br>You are carrying:<br>  a hookless fishing pole<br>  a wire hook<br><br>>[3] combine pole with hook<br>You now have a complete fishing pole.<br><br>>[4] i<br>You are carrying:<br>  a complete fishing pole
+</div></details><p>This kind of implementation makes sense if we don&#39;t intend the player to take the fishing pole apart again, or to refer to any of its component parts once it is built. For an alternate approach that does allow assembled objects to be taken apart again, see &quot;Some Assembly Required&quot;.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="robo.html" title="A robot which watches and records the player&#39;s actions, then tries to repeat them back in the same order when he is switched into play-back mode.">425. Robo 1</a></div><div class="doc-navbar-right"><a href="formicidae.html" title="Manipulating the order in which items are handled after TAKE ALL.">427. Formicidae</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

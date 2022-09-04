@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 101. A&E</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>A&E</h1><div class="subheading">Example 101 ★★</div>
+<div class="linkback">
+<a href="../WI_7.html#section_13" title="Basic Actions &gt; Going from, going to">WI §7.13 Going from, going to</a><br><a href="../RB_3.html#section_2" title="Place &gt; Map">RB §3.2 Map</a>
+</div>
+<p class="example-desc">Using regions to block access to an entire area when the player does not carry a pass, regardless of which entrance he uses.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="veronica.html" title="An effect that occurs only when the player leaves a region entirely.">100. Veronica</a></div><div class="doc-navbar-right"><a href="bumping_into_walls.html" title="Offering the player a list of valid directions if he tries to go in a direction that leads nowhere.">102. Bumping into Walls</a></div></div>
+</header>
+<p>Rules about going to regions make it easy to exclude the player from a large portion of the map, even if there are many connecting paths to the region. For instance, in this story it would be annoying to have to write a rule about all four exits by which the player could reach the film set area:</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex101">Play/modify A&E in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="VIP/index.html">Play A&E in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;A&E&quot;\n\nWinding Street is a room. Winding Street is west of Duck Pond. Sloping Street is north of Winding Street, northwest of Duck Pond, west of Stately Lawn, and southwest of Stately Home. Stately Lawn is north of Duck Pond. Stately Home is north of Stately Lawn.\n\nFilm Set is a region. Duck Pond, Stately Lawn, and Stately Home are in Film Set.\n\nInstead of going to Film Set when the player does not carry the VIP Pass: say &quot;A burly studio guard materializes in your path, convincing you that you would prefer to be elsewhere.&quot;\n\nThe VIP Pass is in the garbage can. The garbage can is in Sloping Street.\n\nAfter going to the Film Set:\n\tsay &quot;Success! At last you are inside the set of &apos;Prouder and More Prejudiced&apos;. Next step: locating Mr Firth.&quot;;\n\tend the story finally.\n\nTest me with &quot;e / n / e / get pass / e&quot;.`)">⧉</button><div class="codeline storytitle">&quot;A&amp;E&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Winding Street is a room. Winding Street is west of Duck Pond. Sloping Street is north of Winding Street, northwest of Duck Pond, west of Stately Lawn, and southwest of Stately Home. Stately Lawn is north of Duck Pond. Stately Home is north of Stately Lawn.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Film Set is a region. Duck Pond, Stately Lawn, and Stately Home are in Film Set.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of going to Film Set when the player does not carry the VIP Pass: say &quot;A burly studio guard materializes in your path, convincing you that you would prefer to be elsewhere.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The VIP Pass is in the garbage can. The garbage can is in Sloping Street.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">After going to the Film Set:</div>
+<div class="codeline">&ensp;&ensp;say &quot;Success! At last you are inside the set of &#39;Prouder and More Prejudiced&#39;. Next step: locating Mr Firth.&quot;;</div>
+<div class="codeline">&ensp;&ensp;end the story finally.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;e / n / e / get pass / e&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "e / n / e / get pass / e".</summary><div class="testme-output">Winding Street<br><br>>(Testing.)<br><br>>[1] e<br>A burly studio guard materializes in your path, convincing you that you would prefer to be elsewhere.<br><br>>[2] n<br><br>Sloping Street<br>You can see a garbage can (in which is a VIP Pass) here.<br><br>>[3] e<br>A burly studio guard materializes in your path, convincing you that you would prefer to be elsewhere.<br><br>>[4] get pass<br>Taken.<br><br>>[5] e<br>Success! At last you are inside the set of "Prouder and More Prejudiced". Next step: locating Mr Firth.<br><br><br><br>    *** The End ***<br><br><br><br><br>Would you like to RESTART, RESTORE a saved game, QUIT or UNDO the last command?<br>>
+</div></details><div class="doc-navbar"><div class="doc-navbar-left"><a href="veronica.html" title="An effect that occurs only when the player leaves a region entirely.">100. Veronica</a></div><div class="doc-navbar-right"><a href="bumping_into_walls.html" title="Offering the player a list of valid directions if he tries to go in a direction that leads nowhere.">102. Bumping into Walls</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

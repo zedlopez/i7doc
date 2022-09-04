@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>WI 20. Advanced Text</title>
+<script src="i7doc.js"></script>
+<link rel="stylesheet" href="i7doc.css">
+</head>
+<nav><div class="nav-el"><a href="index.html">Contents</a></div> <div class="nav-el"><a href="examples/index.html">Examples</a></div> <div class="nav-el"><a href="general_index.html">Index</a></div> <div class="nav-el"><a href="search.html">Search</a></div></nav>
+<body><header><h1 class="title">Writing with Inform</h1></header>
+<h2 id="chapter_20">20. Advanced Text</h2>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="WI_19.html">19. Rulebooks</a></div><div class="doc-navbar-right"><a href="WI_21.html">21. Lists</a></div></div>
+<div class="section-block">
+<div class="section-row">
+<div class="section-chapter-num">§20.</div><div class="section-section-num">1</div><div class="section-name"><a href="WI_20.html#section_1">Changing texts</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§20.</div><div class="section-section-num">2</div><div class="section-name"><a href="WI_20.html#section_2">Memory limitations</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§20.</div><div class="section-section-num">3</div><div class="section-name"><a href="WI_20.html#section_3">Characters, words, punctuated words, unpunctuated words, lines, paragraphs</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§20.</div><div class="section-section-num">4</div><div class="section-name"><a href="WI_20.html#section_4">Upper and lower case letters</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§20.</div><div class="section-section-num">5</div><div class="section-name"><a href="WI_20.html#section_5">Matching and exactly matching</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§20.</div><div class="section-section-num">6</div><div class="section-name"><a href="WI_20.html#section_6">Regular expression matching</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§20.</div><div class="section-section-num">7</div><div class="section-name"><a href="WI_20.html#section_7">Making new text with text substitutions</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§20.</div><div class="section-section-num">8</div><div class="section-name"><a href="WI_20.html#section_8">Replacements</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§20.</div><div class="section-section-num">9</div><div class="section-name"><a href="WI_20.html#section_9">Summary of regular expression notation</a></div>
+</div>
+</div>
+<h3 id="section_1">WI §20.1 Changing texts</h3>
+<div class="sect-navbar"><div class="sect-navbar-center"><a href="#chapter_20">20. Advanced Text</a></div><div class="sect-navbar-right"><a href="#section_2">20.2 Memory limitations</a></div></div>
+<p>So far, we have dealt with text as something which comes in little packets: we have printed it out, read it in from the keyboard, and compared it with other text. But we have never tried to open the packets and get at the contents, letter by letter, or to make any alterations, or look for certain combinations of letters. These tricks are surprisingly seldom needed &ndash; a surprise, that is, given that everything Inform does is textual &ndash; but they are in fact open to us. For example:</p>
+<div class="codeblock"><div class="codeline">if character number 1 in &quot;[time of day]&quot; is &quot;1&quot;, ...</div>
+</div><p>will be true at, for example, 11:30 PM and 1:22 AM, but not at 3:15 PM. What happens here is that Inform expands the time of day into a text, say &quot;11:30 PM&quot;, then extracts the first character, say &quot;1&quot;, and tests it.</p>
+<p>Until 2012, Inform had two kinds of text &ndash; plain &quot;text&quot;, and &quot;indexed text&quot; &ndash; but there&#39;s now only &quot;text&quot;, which has all of the abilities of both.</p>
+<h3 id="section_2">WI §20.2 Memory limitations</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_1">20.1 Changing texts</a></div><div class="sect-navbar-center"><a href="#chapter_20">20. Advanced Text</a></div><div class="sect-navbar-right"><a href="#section_3">20.3 Characters, words, punctuated words, unpunctuated words, lines, paragraphs</a></div></div>
+<p>Inform creates &quot;story files&quot; for very small virtual computers (capable of running on phones, for instance) where memory is tight. If we create a number variable and keep on adding 1 to it, the value simply gets bigger. But if we make some text and keep on adding a letter &quot;x&quot; to it, the text takes up more and more space, growing into longer and longer runs of &quot;x&quot;s until there is no more space to hold it.</p>
+<p>The following warnings are rather like the tiny print about side-effects on medicine bottles: that is, we mostly ignore them, and if the drugs should kill us, well, at least we have the consolation of knowing we were warned. There are basically three limitations on text:</p>
+<p>(1) An amount of memory has to be set aside for text (and other flexible-sized data), and Inform guesses the amount needed. Story files using the Glulx format (see the Settings panel) are able to increase this as necessary in play, so there&#39;s no problem if the guess was wrong. But Z-machine story files are stuck with whatever amount of memory was initially chosen.</p>
+<p>That choice can be increased with a use option, like so:</p>
+<div class="codeblock"><div class="codeline">Use dynamic memory allocation of at least 16384.</div>
+</div><p>Inform raises its estimate of the amount needed to ensure that this amount is always at least its own guess, and also at least any amount declared like this. (And then it rounds up to the nearest power of 2, as it happens.) The default value of &quot;dynamic memory allocation&quot; is 8192. In practice, this use option isn&#39;t needed much, though, because any story needing large amounts of dynamic memory will likely be on Glulx in any case.</p>
+<p>(2) Text has a maximum length. This maximum is normally 1000 characters, which ought to be plenty, but can be raised by sentences such as:</p>
+<div class="codeblock"><div class="codeline">Use maximum text length of at least 2000.</div>
+</div><p>What happens if this is broken, that is, if we try to use text overrunning this length? The Z-machine may simply crash, so if there is any chance that any single text may grow unpredictably large, Glulx should always be used. On Glulx, overrunning text is truncated safely, except that under Glulx 3.1.0 or better the story file will try to use dynamic memory allocation to expand the limit as needed to avoid truncation. (Testing shows that text is slow to manipulate once it grows beyond about 20,000 characters in length, but this is not really surprising.)</p>
+<p>(3) Under the Z-machine, text may only contain characters from the so-called &quot;ZSCII&quot; character set &ndash; standard numbers, letters, punctuation marks and the commonest West European accented letters. Anything more exotic is likely to be flattened into a question mark &quot;?&quot;. Under Glulx, any character can be used.</p>
+<p>All of this makes the Z-machine sound very inferior, for text purposes. But note that Z can handle all of the examples in this chapter perfectly happily.</p>
+<h3 id="section_3">WI §20.3 Characters, words, punctuated words, unpunctuated words, lines, paragraphs</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_2">20.2 Memory limitations</a></div><div class="sect-navbar-center"><a href="#chapter_20">20. Advanced Text</a></div><div class="sect-navbar-right"><a href="#section_4">20.4 Upper and lower case letters</a></div></div>
+<p>Inform can get at the contents of text in a variety of ways. The lowest-level is by character &ndash; a character is a letter, digit, punctuation symbol, space or other letter-form. (We use the term &quot;character&quot; rather than &quot;letter&quot; because otherwise we would have to call &quot;5&quot; a letter, and so on.) Characters number upwards from 1: character number 1, to repeat that, starts the text. We can get the Nth character with:</p>
+<div class="defn" id="ph_charnum"><span class="defn">character number </span><span class="neutral">(number)</span><span class="defn"> in </span><span class="neutral">(text)</span> &rArr; <em>text</em><p>This phrase produces the Nth character from the text, counting from 1. Characters include letters, digits, punctuation symbols, spaces or other letter-forms. Example:</p>
+<div class="codeblock"><div class="codeline">character number 8 in &quot;numberless projects of social reform&quot;</div>
+</div><p>produces &quot;e&quot;. If the index is less than 1 or more than the length of the text, the result is an empty text, &quot;&quot;.</p>
+</div><p>The maximum character number varies with the current length of the text, and can be evaluated as:</p>
+<div class="defn" id="ph_numchars"><span class="defn">number of characters in </span><span class="neutral">(text)</span> &rArr; <em>number</em><p>This phrase produces the number of characters from the text. Characters include letters, digits, punctuation symbols, spaces or other letter-forms. Examples:</p>
+<div class="codeblock"><div class="codeline">number of characters in &quot;War and Peace&quot;</div>
+<div class="codeline">number of characters in &quot;&quot;</div>
+</div><p>produce 13 and 0 respectively.</p>
+</div><p>We can also use the adjective &quot;empty&quot;:</p>
+<div class="codeblock"><div class="codeline">if the description of the location is empty, ...</div>
+</div><p>The empty text, &quot;&quot;, is the only one with 0 characters.</p>
+<p>We can also extract the contents by word, again numbered from 1. Thus:</p>
+<div class="defn" id="ph_wordnum"><span class="defn">word number </span><span class="neutral">(number)</span><span class="defn"> in </span><span class="neutral">(text)</span> &rArr; <em>text</em><p>This phrase produces the Nth word from the text, counting from 1. Words for this purpose are what&#39;s left after breaking the text up at punctuation or spacing (spaces, line breaks, paragraph breaks) and then removing that punctuation or spacing. Example:</p>
+<div class="codeblock"><div class="codeline">word number 3 in &quot;ice-hot, don&#39;t you think?&quot;</div>
+</div><p>produces &quot;don&#39;t&quot;. If the index is less than 1 or more than the number of words in the text, the result is an empty text, &quot;&quot;.</p>
+</div><div class="defn" id="ph_numwords"><span class="defn">number of words in </span><span class="neutral">(text)</span> &rArr; <em>number</em><p>This phrase produces the number of words from the text. Words for this purpose are what&#39;s left after breaking the text up at punctuation or spacing (spaces, line breaks, paragraph breaks) and then removing that punctuation or spacing. Example:</p>
+<div class="codeblock"><div class="codeline">number of words in &quot;ice-hot, don&#39;t you think?&quot;</div>
+</div><p>produces 5.</p>
+</div><p>Note that the contraction apostrophe in &quot;don&#39;t&quot; doesn&#39;t count as punctuation. Because this is not always quite what we want, Inform offers two variations:</p>
+<div class="defn" id="ph_pwordnum"><span class="defn">punctuated word number </span><span class="neutral">(number)</span><span class="defn"> in </span><span class="neutral">(text)</span> &rArr; <em>text</em><p>This phrase produces the Nth word from the text, counting from 1. Words for this purpose are what&#39;s left after breaking the text up at punctuation or spacing (spaces, line breaks, paragraph breaks) and then removing the spacing, but leaving the punctuation as independent words. Example:</p>
+<div class="codeblock"><div class="codeline">punctuated word number 2 in &quot;ice-hot, don&#39;t you think?&quot;</div>
+</div><p>produces &quot;-&quot;. The punctuated words here are &quot;ice&quot;, &quot;-&quot;, &quot;hot&quot;, &quot;,&quot;, &quot;don&#39;t&quot;, &quot;you&quot;, &quot;think&quot;, &quot;?&quot;. If two or more punctuation marks are adjacent, they are counted as different words, except for runs of dashes or periods: thus &quot;,,&quot; has two punctuated words, but &quot;--&quot; and &quot;&hellip;&quot; have only one each. If the index is less than 1 or more than the number of punctuated words in the text, the result is an empty text, &quot;&quot;.</p>
+</div><div class="defn" id="ph_numpwords"><span class="defn">number of punctuated words in </span><span class="neutral">(text)</span> &rArr; <em>number</em><p>This phrase produces the number of words from the text. Words for this purpose are what&#39;s left after breaking the text up at punctuation or spacing (spaces, line breaks, paragraph breaks) and then removing the spacing, but leaving the punctuation as independent words. Example:</p>
+<div class="codeblock"><div class="codeline">number of punctuated words in &quot;ice-hot, don&#39;t you think?&quot;</div>
+</div><p>produces 8; see if you can find them all.</p>
+</div><div class="defn" id="ph_upwordnum"><span class="defn">unpunctuated word number </span><span class="neutral">(number)</span><span class="defn"> in </span><span class="neutral">(text)</span> &rArr; <em>text</em><p>This phrase produces the Nth word from the text, counting from 1. Words for this purpose are what&#39;s left after breaking the text up at spacing (spaces, line breaks, paragraph breaks) but including all punctuation as if it were part of the spelling of the words it joins to. Example:</p>
+<div class="codeblock"><div class="codeline">unpunctuated word number 1 in &quot;ice-hot, don&#39;t you think?&quot;</div>
+</div><p>produces &quot;ice-hot,&quot;. The unpunctuated words in &quot;ice-hot, don&#39;t you think?&quot; are &quot;ice-hot,&quot;, &quot;don&#39;t&quot;, &quot;you&quot;, &quot;think?&quot;. If the index is less than 1 or more than the number of punctuated words in the text, the result is an empty text, &quot;&quot;.</p>
+</div><div class="defn" id="ph_numupwords"><span class="defn">number of unpunctuated words in </span><span class="neutral">(text)</span> &rArr; <em>number</em><p>This phrase produces the number of words from the text. Words for this purpose are what&#39;s left after breaking the text up at spacing (spaces, line breaks, paragraph breaks) but including all punctuation as if it were part of the spelling of the words it joins to. Example:</p>
+<div class="codeblock"><div class="codeline">number of unpunctuated words in &quot;ice-hot, don&#39;t you think?&quot;</div>
+</div><p>produces just 4.</p>
+</div><p>Finally, on the larger scale still, we also have:</p>
+<div class="defn" id="ph_linenum"><span class="defn">line number </span><span class="neutral">(number)</span><span class="defn"> in </span><span class="neutral">(text)</span> &rArr; <em>text</em><p>This phrase produces the Nth line from the text, counting from 1. Unless explicit use is made of line-breaking, lines and paragraphs will be the same &ndash; it doesn&#39;t refer to lines as visible on screen, because we have no way of knowing what size screen the player might have.</p>
+</div><div class="defn" id="ph_numlines"><span class="defn">number of lines in </span><span class="neutral">(text)</span> &rArr; <em>number</em><p>This phrase produces the number of lines in the text. Unless explicit use is made of line-breaking, lines and paragraphs will be the same &ndash; it doesn&#39;t refer to lines as visible on screen, because we have no way of knowing what size screen the player might have. Example: the number of lines in</p>
+<div class="codeblock"><div class="codeline">&quot;Sensational news just in![paragraph break]The Martians have invaded Miranda.[line break](One of the moons of Uranus, that is.)&quot;</div>
+</div><p>is 3.</p>
+</div><div class="defn" id="ph_paranum"><span class="defn">paragraph number </span><span class="neutral">(number)</span><span class="defn"> in </span><span class="neutral">(text)</span> &rArr; <em>text</em><p>This phrase produces the Nth paragraph from the text, counting from 1.</p>
+</div><div class="defn" id="ph_numparas"><span class="defn">number of paragraphs in </span><span class="neutral">(text)</span> &rArr; <em>number</em><p>This phrase produces the number of paragraphs in the text. Example: the number of paragraphs in</p>
+<div class="codeblock"><div class="codeline">&quot;Sensational news just in![paragraph break]The Martians have invaded Miranda.[line break](One of the moons of Uranus, that is.)&quot;</div>
+</div><p>is 2.</p>
+</div><p>(Attempting to make large enough texts to have a serious paragraph count is slightly risky if there is not much memory to play with, as on the Z-machine. But the facilities do exist.)</p>
+<h3 id="section_4">WI §20.4 Upper and lower case letters</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_3">20.3 Characters, words, punctuated words, unpunctuated words, lines, paragraphs</a></div><div class="sect-navbar-center"><a href="#chapter_20">20. Advanced Text</a></div><div class="sect-navbar-right"><a href="#section_5">20.5 Matching and exactly matching</a></div></div>
+<p>In most European languages the same letters can appear in two forms: as capitals, like &quot;X&quot;, mainly used to mark a name or the start of a sentence; or in their ordinary less prominent form, like &quot;x&quot;. These forms are called upper and lower case because, historically, typesetters kept lead castings of letters in two wooden cases, one above the other on the workbench. Lower case letters were in the lower box closer to hand, being more often needed.</p>
+<p>Human languages are complicated. Not every lower case letter has an upper case partner: ordinal markers in Hispanic languages don&#39;t, for instance, and the German &quot;ß&quot; is never used in upper case. Sometimes two different lower case letters have the same upper case form: &quot;ς&quot; and &quot;σ&quot;, two versions of the Greek sigma, both capitalise to &quot;Σ&quot;. Inform follows the international Unicode standard in coping with all this.</p>
+<p>We can test whether text is in either case like so:</p>
+<div class="defn" id="ph_inlower"><span class="defn">if </span><span class="neutral">(text)</span><span class="defn"> is in lower case:</span><p>This condition is true if every character in the text is a lower case letter. Examples: this is true for &quot;wax&quot;, but false for &quot;wax seal&quot; or &quot;eZ mOnEy&quot;.</p>
+</div><div class="defn" id="ph_inupper"><span class="defn">if </span><span class="neutral">(text)</span><span class="defn"> is in upper case:</span><p>This condition is true if every character in the text is in upper case. Examples: this is true for &quot;BEESWAX&quot;, but false for &quot;ROOM 101&quot;.</p>
+</div><p>We can change the casing of text using:</p>
+<div class="defn" id="ph_lowercase"><span class="neutral">(text)</span><span class="defn"> in lower case</span> &rArr; <em>text</em><p>This phrase produces a new version of the given text, but with all upper case letters reduced to lower case. Example: &quot;a ticket to Tromsø via Østfold&quot; becomes</p>
+<div class="codeblock"><div class="codeline">&quot;a ticket to tromsø via østfold&quot;</div>
+</div></div><div class="defn" id="ph_uppercase"><span class="neutral">(text)</span><span class="defn"> in upper case</span> &rArr; <em>text</em><p>This phrase produces a new version of the given text, but with all upper case letters reduced to lower case. Example: &quot;a ticket to Tromsø via Østfold&quot; becomes</p>
+<div class="codeblock"><div class="codeline">&quot;A TICKET TO TROMSØ VIA ØSTFOLD&quot;</div>
+</div></div><div class="defn" id="ph_titlecase"><span class="neutral">(text)</span><span class="defn"> in title case</span> &rArr; <em>text</em><p>This phrase produces a new version of the given text, but with casing of words changed to title casing: this capitalises the first letter of each word, and lowers the rest. Example: &quot;a ticket to Tromsø via Østfold&quot; becomes</p>
+<div class="codeblock"><div class="codeline">&quot;A Ticket To Tromsø Via Østfold&quot;</div>
+</div></div><div class="defn" id="ph_sentencecase"><span class="neutral">(text)</span><span class="defn"> in sentence case</span> &rArr; <em>text</em><p>This phrase produces a new version of the given text, but with casing of words changed to sentence casing: this capitalises the first letter of each sentence and reduces the rest to lower case. Example: &quot;a ticket to Tromsø via Østfold&quot; becomes</p>
+<div class="codeblock"><div class="codeline">&quot;A ticket to tromsø via østfold&quot;</div>
+</div></div><p>Accents are preserved in case changes. So (if we are using Glulx and have Unicode available) title case can turn Aristophanes&#39; discomfortingly lower-case lines</p>
+<div class="codeblock"><div class="codeline">ἐξ οὗ γὰρ ἡμᾶς προὔδοσαν μιλήσιοι,</div>
+<div class="codeline">οὐκ εἶδον οὐδ᾽ ὄλισβον ὀκτωδάκτυλον,</div>
+<div class="codeline">ὃς ἦν ἂν ἡμῖν σκυτίνη &quot;πικουρία</div>
+</div><p>by raising them proudly up like so:</p>
+<div class="codeblock"><div class="codeline">Ἐξ Οὗ Γὰρ Ἡμᾶς Προὔδοσαν Μιλήσιοι,</div>
+<div class="codeline">Οὐκ Εἶδον Οὐδ᾽ Ὄλισβον Ὀκτωδάκτυλον,</div>
+<div class="codeline">Ὃς Ἦν Ἂν Ἡμῖν Σκυτίνη &quot;Πικουρία.</div>
+</div><p>Title and sentence casing can only be approximate if done by computer. Inform looks at the letters, but is blind to the words and sentences they make up. (Note the way sentence casing did not realise &quot;Tromsø&quot; and &quot;Østfold&quot; were proper nouns.) If asked to put the name &quot;MCKAY&quot; into title casing, Inform will opt for &quot;Mckay&quot;, not recognising this as the Scottish patronymic surname &quot;McKay&quot;. Given &quot;baym dnieper&quot;, the title of David Bergelson&#39;s great Yiddish novel of 1932, it will opt for &quot;BAYM DNIEPER&quot;: but properly speaking Yiddish does not have upper case lettering at all, though nowadays it is sometimes printed as if it did. And conventions are very variable about which words should be capitalised in titles: English publishers mostly agree that connectives, articles and prepositions should be in lower case, but in France almost anything goes, with Académie Française rules giving way to avant-garde book design. In short, we cannot rely on Inform&#39;s title casing to produce a result which a human reader will always think perfect.</p>
+<p>This discussion has all been about how Inform prints, not about how it reads commands from the keyboard, because the latter is done case-insensitively. The virtual machines for which Inform creates programs normally flatten all command input to lower case, and in any case Understand comparison ignores casing. Thus</p>
+<div class="codeblock"><div class="codeline">Understand &quot;mckay&quot; as the Highland Piper.</div>
+</div><p>means that &quot;examine McKay&quot;, &quot;examine MCKAY&quot;, &quot;examine mckay&quot;, and so forth are all equivalent. The text of the player&#39;s command probably doesn&#39;t preserve the original casing typed in any event.</p>
+<p>One more caution, though it will affect hardly anyone. For projects using the Z-machine, only a restricted character set is available in texts: for more, we must use Glulx. A mad anomaly of ZSCII, the Z-machine character set, is that it contains the lower case letter &quot;ÿ&quot; but not its upper case form &quot;Ÿ&quot;, so that</p>
+<div class="codeblock"><div class="codeline">&quot;ÿ&quot; in upper case</div>
+</div><p>produces &quot;Ÿ&quot; in Glulx but &quot;ÿ&quot; in the Z-machine. This will come as a blow to Queensrÿche fans, but in all other respects any result on the Z-machine should agree with its counterpart on Glulx.</p>
+<div class="examples">
+<h4>Examples</h4>
+<div class="example-short">411. ★ <a href="examples/capital_city.html">Capital City</a><br>To arrange that the location information normally given on the left-hand side of the status line appears in block capitals.</p></div><div class="linkback">
+<a href="RB_12.html#section_2" title="Typography, Layout, and Multimedia Effects &gt; The Status Line">RB §12.2 The Status Line</a>
+</div>
+<div class="example-short">412. ★ <a href="examples/rocket_man.html">Rocket Man</a><br>Using case changes on any text produced by a &quot;to say...&quot; phrase.</p></div><div class="linkback">
+<a href="RB_2.html#section_1" title="Adaptive Prose &gt; Varying What Is Written">RB §2.1 Varying What Is Written</a>
+</div>
+<h3 id="section_5">WI §20.5 Matching and exactly matching</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_4">20.4 Upper and lower case letters</a></div><div class="sect-navbar-center"><a href="#chapter_20">20. Advanced Text</a></div><div class="sect-navbar-right"><a href="#section_6">20.6 Regular expression matching</a></div></div>
+<p>Up to now, we have only been able to judge two texts by seeing if they are equal, but we can now ask more subtle questions.</p>
+<div class="defn" id="ph_matches"><span class="defn">if </span><span class="neutral">(text)</span><span class="defn"> matches the text </span><span class="neutral">(text)</span><span class="defn">:</span><p>This condition is true if the second text occurs anywhere inside the first. Examples:</p>
+<div class="codeblock"><div class="codeline">if &quot;[score]&quot; matches the text &quot;3&quot;, ...</div>
+</div><p>tests whether the digit 3 occurs anywhere in the score, as printed out; and</p>
+<div class="codeblock"><div class="codeline">if the printed name of the location matches the text &quot;the&quot;, ...</div>
+</div><p>tests to see whether &quot;the&quot; can be found anywhere in the current room&#39;s name. Note that the location &quot;Smotheringly Hot Jungle&quot; would pass this test &ndash; it&#39;s there if you look. On the other hand, &quot;The Orangery&quot; would not, because &quot;The&quot; does not match against &quot;the&quot;. We can get around this in a variety of ways, one of which is to tell Inform to be insensitive to the case (upper or lower) of letters:</p>
+<div class="codeblock"><div class="codeline">if the printed name of the location matches the text &quot;the&quot;, case insensitively: ...</div>
+</div></div><div class="defn" id="ph_exactlymatches"><span class="defn">if </span><span class="neutral">(text)</span><span class="defn"> exactly matches the text </span><span class="neutral">(text)</span><span class="defn">:</span><p>This condition is true if the second text matches the first, starting at the beginning and finishing at the end. This appears to be the same as testing if one is equal to the other, but that&#39;s not quite true: for example,</p>
+<div class="codeblock"><div class="codeline">if &quot;[score]&quot; exactly matches the text &quot;[best score]&quot;, ...</div>
+</div><p>is true if the score and best score currently print out as the same text, which will be true if they are currently equal as numbers; but</p>
+<div class="codeblock"><div class="codeline">if &quot;[score]&quot; is &quot;[best score]&quot;, ...</div>
+</div><p>is never true &ndash; these are different texts, even if they sometimes look the same.</p>
+</div><p>In the next section we shall see that &quot;matches&quot; and &quot;exactly matches&quot; can do much more than the simple text matching demonstrated above.</p>
+<p>We can also see how many times something matches:</p>
+<div class="defn" id="ph_nummatches"><span class="defn">number of times </span><span class="neutral">(text)</span><span class="defn"> matches the text </span><span class="neutral">(text)</span> &rArr; <em>number</em><p>This produces the number of times the second text occurs within the first. The matches are not allowed to overlap. Example:</p>
+<div class="codeblock"><div class="codeline">number of times &quot;pell-mell sally&quot; matches the text &quot;ll&quot; = 3</div>
+<div class="codeline">number of times &quot;xyzzy&quot; matches the text &quot;Z&quot; = 0</div>
+<div class="codeline">number of times &quot;xyzzy&quot; matches the text &quot;Z&quot;, case insensitively = 2</div>
+<div class="codeline">number of times &quot;aaaaaaaa&quot; matches the text &quot;aaaa&quot; = 2</div>
+</div></div><p>There&#39;s no &quot;number of times WHATEVER exactly matches the text FIND&quot; phrase since this is by definition going to have to be 0 or 1.</p>
+<h3 id="section_6">WI §20.6 Regular expression matching</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_5">20.5 Matching and exactly matching</a></div><div class="sect-navbar-center"><a href="#chapter_20">20. Advanced Text</a></div><div class="sect-navbar-right"><a href="#section_7">20.7 Making new text with text substitutions</a></div></div>
+<p>When playing around with text, we tend to get into longer and trickier wrangles of matching &ndash; we find that we want to look not for simple text like &quot;gold&quot;, but for &quot;gold&quot; used only as a separate word, or for a date in YYYY-MM-DD format, or for a seemingly endless range of other possibilities. What we need is not just for Inform to provide a highly flexible matching program, but also a good notation in which to describe what we want.</p>
+<p>Fortunately, such a notation already exists. This is the &quot;regular expression&quot; notation, named for a 1950s mathematical model by the logician Stephen Kleene, applied to computing in the late 60s by Ken Thompson, borrowed almost at once by the early Unix tools of the 70s, and developed further by Henry Spencer in the 80s and Philip Hazel in the 90s. The glue holding the Internet together &ndash; the Apache web-server, the scripting languages Perl and Python, and so forth &ndash; makes indispensable use of regular expressions.</p>
+<p>As might be expected from the previous section, we simply have to describe the FIND text as &quot;regular expression&quot; rather than &quot;text&quot; and then the same facilities are available:</p>
+<div class="defn" id="ph_matchesre"><span class="defn">if </span><span class="neutral">(text)</span><span class="defn"> matches the regular expression </span><span class="neutral">(text)</span><span class="defn">:</span><p>This condition is true if any contiguous part of the text can be matched against the given regular expression. Examples:</p>
+<div class="codeblock"><div class="codeline">if &quot;taramasalata&quot; matches the regular expression &quot;a.*l&quot;, ...</div>
+</div><p>is true, since this looks for a part of &quot;taramasalata&quot; which begins with &quot;a&quot;, continues with any number of characters, and finishes with &quot;l&quot;; so it matches &quot;aramasal&quot;. (Not &quot;asal&quot;, because it gets the makes the leftmost match it can.) The option &quot;case insensitively&quot; causes lower and upper case letters to be treated as equivalent.</p>
+</div><div class="defn" id="ph_exactlymatchesre"><span class="defn">if </span><span class="neutral">(text)</span><span class="defn"> exactly matches the regular expression </span><span class="neutral">(text)</span><span class="defn">:</span><p>This condition is true if the whole text (starting from the beginning and finishing at the end) can be matched against the given regular expression. The option &quot;case insensitively&quot; causes lower and upper case letters to be treated as equivalent.</p>
+</div><p>And once again:</p>
+<div class="defn" id="ph_nummatchesre"><span class="defn">number of times </span><span class="neutral">(text)</span><span class="defn"> matches the regular expression </span><span class="neutral">(text)</span> &rArr; <em>number</em><p>This produces the number of times that contiguous pieces of the text can be matched against the regular expression, without allowing them to overlap.</p>
+</div><p>Since a regular expression can match quite a variety of possibilities (for instance &quot;b\w+t&quot; could match &quot;boast&quot;, &quot;boat&quot;, &quot;bonnet&quot; and so on), it&#39;s sometimes useful to find what the match actually was:</p>
+<div class="defn" id="ph_matchtext"><span class="defn">text matching regular expression</span> &rArr; <em>text</em><p>This phrase is only meaningful immediately after a successful match of a regular expression against text, and it produces the text which matched. Example:</p>
+<div class="codeblock"><div class="codeline">if &quot;taramasalata&quot; matches the regular expression &quot;m.*l&quot;:</div>
+<div class="codeline">&ensp;&ensp;say &quot;[text matching regular expression].&quot;;</div>
+</div><p>says &quot;masal.&quot;</p>
+</div><p>Perhaps fairly, perhaps not, regular expressions have a reputation for being inscrutable. The basic idea is that although alphanumeric characters (letters, numbers and spaces) mean just what they look like, punctuation characters are commands with sometimes dramatic effects. Thus:</p>
+<div class="codeblock"><div class="codeline">if WHATEVER matches the regular expression &quot;fish&quot;, ...</div>
+<div class="codeline">if WHATEVER matches the regular expression &quot;f.*h&quot;, ...</div>
+</div><p>behave very differently. The first is just like matching the text &quot;fish&quot;, but the second matches on any sequence of characters starting with an &quot;f&quot; and ending with an &quot;h&quot;. This is not at all obvious at first sight: reading regular expressions is a skill which must be learned, like reading a musical score. A really complex regular expression can look like a soup of punctuation and even an expert will blink for a few minutes before telling you what it does &ndash; but a beginner can pick up the basics very quickly. Newcomers might like to try out and become comfortable with the features a few at a time, reading down the following list.</p>
+<p><strong>1. Golden rule</strong>. Don&#39;t try to remember all the characters with weird effects. Instead, if you actually mean any symbol other than a letter, digit or space to be taken literally, place a backslash &quot;\&quot; in front of it. For instance, matching the regular expression</p>
+<div class="codeblock"><div class="codeline">&quot;\*A\* of the Galactic Patrol&quot;</div>
+</div><p>is the same as matching the text &quot;*A* of the Galactic Patrol&quot;, because the asterisks are robbed of their normal powers. This includes backslash itself: &quot;\\&quot; means a literal backslash. (Don&#39;t backslash letters or digits &ndash; that turns out to have a meaning all its own, but anyway, there is never any need.)</p>
+<p><strong>2. Alternatives</strong>. The vertical stroke &quot;|&quot; &ndash; not a letter I or L, nor the digit 1 &ndash; divides alternatives. Thus</p>
+<div class="codeblock"><div class="codeline">&quot;the fish|fowl|crawling thing&quot;</div>
+</div><p>is the same as saying match &quot;the fish&quot;, or &quot;fowl&quot;, or &quot;crawling thing&quot;.</p>
+<p><strong>3. Dividing with brackets</strong>. Round brackets &quot;(&quot; and &quot;)&quot; group parts of the expression together.</p>
+<div class="codeblock"><div class="codeline">&quot;the (fish|fowl|crawling thing) in question&quot;</div>
+</div><p>is the same as saying match &quot;the fish in question&quot;, or &quot;the fowl in question&quot;, or &quot;the crawling thing in question&quot;. Note that the &quot;|&quot; ranges outwards only as far as the group it is in.</p>
+<p><strong>4. Any character</strong>. The period &quot;.&quot; means any single character. So</p>
+<div class="codeblock"><div class="codeline">&quot;a...z&quot;</div>
+</div><p>matches on any sequence of five characters so long as the first is &quot;a&quot; and the last is &quot;z&quot;.</p>
+<p><strong>5. Character alternatives</strong>. The angle brackets &quot;&lt;&quot; and &quot;&gt;&quot; are a more concise way of specifying alternatives for a single character. Thus</p>
+<div class="codeblock"><div class="codeline">&quot;b&lt;aeiou&gt;b&quot;</div>
+</div><p>matches on &quot;bab&quot;, &quot;beb&quot;, &quot;bib&quot;, &quot;bob&quot; or &quot;bub&quot;, but not &quot;baob&quot; or &quot;beeb&quot; &ndash; any single character within the angle brackets is accepted. Beginning the range with &quot;^&quot; means &quot;any single character so long as it is not one of these&quot;: thus</p>
+<div class="codeblock"><div class="codeline">&quot;b&lt;^aeiou&gt;b&quot;</div>
+</div><p>matches on &quot;blb&quot; but not &quot;bab&quot;, &quot;beb&quot;, etc., nor on &quot;blob&quot; or &quot;bb&quot;. Because long runs like this can be a little tiresome, we are also allowed to use &quot;-&quot; to indicate whole ranges. Thus</p>
+<div class="codeblock"><div class="codeline">&quot;b&lt;a-z&gt;b&quot;</div>
+</div><p>matches a &quot;b&quot;, then any lower case English letter, then another &quot;b&quot;.</p>
+<p>In traditional regular expression language, square brackets rather than angle brackets are used for character ranges. In fact Inform does understand this notation if there are actual square brackets &quot;[&quot; and &quot;]&quot; in the pattern text, but in practice this would be tiresome to achieve, since Inform uses those to achieve text substitutions. So Inform allows &quot;b&lt;a-z&gt;b&quot; rather than making us type something like</p>
+<div class="codeblock"><div class="codeline">&quot;b[bracket]a-z[close bracket]b&quot;</div>
+</div><p>to create the text &quot;b[a-z]b&quot;.</p>
+<p><strong>6. Popular character ranges</strong>. The range &quot;&lt;0-9&gt;&quot;, matching any decimal digit, is needed so often that it has an abbreviation: &quot;\d&quot;. Thus</p>
+<div class="codeblock"><div class="codeline">&quot;\d\d\d\d-\d\d-\d\d&quot;</div>
+</div><p>matches, say, &quot;2006-12-03&quot;. Similarly, &quot;\s&quot; means &quot;any spacing character&quot; &ndash; a space, tab or line break. &quot;\p&quot; is a punctuation character, in the same sense used for word division in the previous section: it actually matches any of</p>
+<div class="codeblock"><div class="codeline">. , ! ? - / &quot; : ; ( ) [ ] { }</div>
+</div><p>&quot;\w&quot; means &quot;any character appearing in a word&quot;, and Inform defines it as anything not matching &quot;\s&quot; or &quot;\p&quot;.</p>
+<p>&quot;\l&quot; and &quot;\u&quot; match lower and upper case letters, respectively. These are much stronger than &quot;&lt;a-z&gt;&quot; and &quot;&lt;A-Z&gt;&quot;, since they use the complete definition in the Unicode 4.0.0 standard, so that letter-forms from all languages are catered for: for example &quot;δ&quot; matches &quot;\l&quot; and &quot;Δ&quot; matches &quot;\u&quot;.</p>
+<p>The reverse of these is achieved by capitalising the letter. So &quot;\D&quot; means &quot;anything not a digit&quot;, &quot;\P&quot; means &quot;anything not punctuation&quot;, &quot;\W&quot; means &quot;anything not a word character&quot;, &quot;\L&quot; means &quot;anything not a lower case letter&quot; and so on.</p>
+<p><strong>7. Positional restrictions</strong>. The notation &quot;^&quot; does not match anything, as such, but instead requires that we be positioned at the start of the text. Thus</p>
+<div class="codeblock"><div class="codeline">&quot;^fish&quot;</div>
+</div><p>matches only &quot;fish&quot; at the start of the text, not occurring anywhere later on. Similarly, &quot;$&quot; requires that the position be the end of the text. So</p>
+<div class="codeblock"><div class="codeline">&quot;fish$&quot;</div>
+</div><p>matches only if the last four characters are &quot;fish&quot;. Matching &quot;^fish$&quot; is the same thing as what Inform calls exactly matching &quot;fish&quot;.</p>
+<p>Another useful notation is &quot;\b&quot;, which matches a word boundary: that is, it matches no actual text, but requires the position to be a junction between a word character and a non-word character (a &quot;\w&quot; and a &quot;\W&quot;) or vice versa. Thus</p>
+<div class="codeblock"><div class="codeline">&quot;\bfish\b&quot;</div>
+</div><p>matches &quot;fish&quot; in &quot;some fish&quot; and also &quot;some fish, please!&quot;, but not in &quot;shellfish&quot;. (The regular expression &quot;\w*fish\b&quot; catches all words ending in &quot;fish&quot;, as we will see below.) As usual, the capitalised version &quot;\B&quot; negates this, and means &quot;not at a word boundary&quot;.</p>
+<p><strong>8. Line break and tab</strong>. The notations &quot;\n&quot; and &quot;\t&quot; are used for a line break (&quot;n&quot; for &quot;new line&quot;) and tab, respectively. Tabs normally do not occur in Inform strings, but can do when reading from files. It makes no sense to reverse these, so &quot;\N&quot; and &quot;\T&quot; produce errors.</p>
+<p><strong>9. Repetition</strong>. Placing a number in braces &quot;{&quot; and &quot;}&quot; after something says that it should be repeated that many times. Thus</p>
+<div class="codeblock"><div class="codeline">&quot;ax{25}&quot;</div>
+</div><p>matches only on &quot;axxxxxxxxxxxxxxxxxxxxxxxxx&quot;. More usefully, perhaps, we can specify a range of the number of repetitions:</p>
+<div class="codeblock"><div class="codeline">&quot;ax{2,6}&quot;</div>
+</div><p>matches only on &quot;axx&quot;, &quot;axxx&quot;, &quot;axxxx&quot;, &quot;axxxxx&quot;, &quot;axxxxxx&quot;. And we can leave the top end open: &quot;ax{2,}&quot; means &quot;a&quot; followed by at least two &quot;x&quot;s.</p>
+<p>Note that the braces attach only to most recent thing &ndash; so &quot;ax{2}&quot; means &quot;a&quot; followed by two of &quot;x&quot; &ndash; but, as always, we can use grouping brackets to change that. So &quot;(ax){2,}&quot; matches &quot;axax&quot;, &quot;axaxax&quot;, &quot;axaxaxax&quot;,&hellip;</p>
+<p>(It&#39;s probably best not to use Inform to try to match the human genome against &quot;&lt;acgt&gt;{3000000000}&quot;, but one of the most important practical uses of regular expression matching in science is in treating DNA as a string of nucleotides represented by the letters &quot;a&quot;, &quot;c&quot;, &quot;g&quot;, &quot;t&quot;, and looking for patterns.)</p>
+<p><strong>10. Popular repetitions.</strong> Three cases are so often needed that they have standard short forms:</p>
+<p>&quot;{0,1}&quot;, which means 0 or 1 repetition of something &ndash; in other words, doesn&#39;t so much repeat it as make it optional &ndash; is written &quot;?&quot;. Thus &quot;ax?y&quot; matches only on &quot;ay&quot; or &quot;axy&quot;.</p>
+<p>&quot;{0,}&quot;, which means 0 or more repetitions &ndash; in other words, any number at all &ndash; is written &quot;*&quot;. Thus &quot;ax*y&quot; matches on &quot;ay&quot;, &quot;axy&quot;, &quot;axxy&quot;, &quot;axxxy&quot;, &hellip; and the omnivorous &quot;.*&quot; &ndash; which means &quot;anything, any number of times&quot; &ndash; matches absolutely every text. (Perhaps unexpectedly, replacing &quot;.*&quot; in a text with &quot;X&quot; will produce &quot;XX&quot;, not &quot;X&quot;, because the &quot;.*&quot; first matches the text, then matches the empty gap at the end. To match the entire text just once, try &quot;^.*$&quot;.)</p>
+<p>&quot;{1,}&quot;, which means 1 or more repetitions, is written &quot;+&quot;. So &quot;\d+&quot; matches any run of digits, for instance.</p>
+<p><strong>11. Greedy vs lazy.</strong> Once we allow things to repeat an unknown number of times, we run into an ambiguity. Sure, &quot;\d+&quot; matches the text &quot;16339b&quot;. But does it look only as far as the &quot;1&quot;, then reason that it now has one or more digits in a row, and stop? Or does it run onward devouring digits until it can do so no longer, so matching the &quot;16339&quot; part? These two strategies are called &quot;lazy&quot; and &quot;greedy&quot; respectively.</p>
+<p>Do we care? Well, the strategy used makes no difference to whether there is a match, but it does affect what part of the text is matched, and the number of matches there are. Unless we mark for it, all repetitions are greedy. Usually this is good, but it means that, for instance,</p>
+<div class="codeblock"><div class="codeline">&quot;-.+-&quot;</div>
+</div><p>applied to &quot;-alpha- -beta- -gamma-&quot; will match the whole text, because &quot;.+&quot; picks up all of &quot;alpha- -beta- -gamma&quot;. To get around this, we can mark any of the repetition operators as lazy by adding a question mark &quot;?&quot;. Thus:</p>
+<div class="codeblock"><div class="codeline">&quot;-.+?-&quot;</div>
+</div><p>applied to &quot;-alpha- -beta- -gamma-&quot; matches three times, producing &quot;-alpha-&quot; then &quot;-beta-&quot; then &quot;-gamma-&quot;.</p>
+<p>A logical but sometimes confusing consequence is that a doubled question mark &quot;??&quot; means &quot;repeat 0 or 1 times, but prefer 0 matches to 1 if both are possibilities&quot;: whereas a single question mark &quot;?&quot;, being greedy, means &quot;repeat 0 or 1 times, but prefer 1 match to 0 if both are possibilities&quot;.</p>
+<p><strong>12. Numbered groups.</strong> We have already seen that round brackets are useful to clump together parts of the regular expression &ndash; to choose within them, or repeat them. In fact, Inform numbers these from 1 upwards as they are used from left to right, and we can subsequently refer back to their contents with the notation &quot;\1&quot;, &quot;\2&quot;, &hellip; After a successful match, we can find the results of these subexpressions with:</p>
+<div class="defn" id="ph_subexpressiontext"><span class="defn">text matching subexpression </span><span class="neutral">(number)</span> &rArr; <em>text</em><p>This phrase is only meaningful immediately after a successful match of a regular expression against text, and it produces the text which matched. The number must be from 1 to 9, and must correspond to one of the bracketed groups in the expression just matched. Example: after</p>
+<div class="codeblock"><div class="codeline">if &quot;taramasalata&quot; matches the regular expression &quot;a(r.*l)a(.)&quot;:</div>
+</div><p>the &quot;text matching regular expression&quot; is &quot;aramasalat&quot;, the &quot;text matching subexpression 1&quot; is &quot;ramasal&quot;, and &quot;text matching subexpression 2&quot; is &quot;t&quot;.</p>
+</div><p>For instance:</p>
+<div class="codeblock"><div class="codeline">&quot;(\w)\w*\1&quot;</div>
+</div><p>matches any run of two or more word-characters, subject to the restriction that the last one has to be the same as the first &ndash; so it matches &quot;xerox&quot; but not &quot;alphabet&quot;. When Inform matches this against &quot;xerox&quot;, first it matches the initial &quot;x&quot; against the group &quot;(\w)&quot;. It then matches &quot;\w*&quot; (&quot;any number of word-characters&quot;) against &quot;ero&quot;, so that the &quot;*&quot; runs up to 3 repetitions. It then matches &quot;\1&quot; against the final &quot;x&quot;, because &quot;\1&quot; requires it to match against whatever last matched in sub-expression 1 &ndash; which was an &quot;x&quot;.</p>
+<p>Numbered groups allow wicked tricks in matching, it&#39;s true, but really come into their own when it comes to replacing &ndash; as we shall see.</p>
+<p><strong>13. Switching case sensitivity on and off.</strong> The special notations &quot;(?i)&quot; and &quot;(?-i)&quot; switch sensitivity to upper vs. lower case off and on, mid-expression. Thus &quot;a(?i)bcd(?-i)e&quot; matches &quot;abcde&quot;, &quot;aBcDe&quot;, etc., but not &quot;Abcde&quot; or &quot;abcdE&quot;.</p>
+<p><strong>14. Groups with special meanings.</strong> This is the last of the special syntaxes: but it&#39;s a doozy. A round-bracketed group can be marked to behave in a special way by following the open bracket by a symbol with a special meaning. Groups like this have no number and are not counted as part of \1, \2, and so forth &ndash; they are intended not to gather up material but to have some effect of their own.</p>
+<div class="codeblock"><div class="codeline">&quot;(# ...)&quot;</div>
+</div><p>Is a comment, that is, causes the group to do nothing and match against anything.</p>
+<div class="codeblock"><div class="codeline">&quot;(?= ...)&quot;</div>
+</div><p>Is a lookahead: it is a form of positional requirement, like &quot;\b&quot; or &quot;^&quot;, but one which requires that the text ahead of us matches whatever is in the brackets. (It doesn&#39;t consume that text &ndash; only checks to see that it&#39;s there.) For instance &quot;\w+(?=;)&quot; matches a word followed by a semicolon, but does not match the semicolon itself.</p>
+<div class="codeblock"><div class="codeline">&quot;(?! ...)&quot;</div>
+</div><p>Is the same but negated: it requires that the text ahead of us does not match the material given. For instance, &quot;a+(?!z)&quot; matches any run of &quot;a&quot;s not followed by a &quot;z&quot;.</p>
+<div class="codeblock"><div class="codeline">&quot;(?&lt;= ...)&quot; and &quot;(?&lt;! ...)&quot;</div>
+</div><p>Are the same but looking behind (hence the &quot;&lt;&quot;), not forward. These are restricted to cases where Inform can determine that the material to be matched has a definite known width. For instance, &quot;(?&lt;!shell)fish&quot; matches any &quot;fish&quot; not occurring in &quot;shellfish&quot;.</p>
+<div class="codeblock"><div class="codeline">&quot;(&gt; ...)&quot;</div>
+</div><p>Is a possessive, that is, causes the material to be matched and, once matched, never lets go. No matter what subsequently turns out to be convenient, it will never change its match. For instance, &quot;\d+8&quot; matches against &quot;768&quot; because Inform realises that &quot;\d+&quot; cannot be allowed to eat the &quot;8&quot; if there is to be a match, and stops it. But &quot;(&gt;\d+)8&quot; does not match against &quot;768&quot; because now the &quot;\d+&quot;, which initially eats &quot;768&quot;, is possessive and refuses to give up the &quot;8&quot; once taken.</p>
+<div class="codeblock"><div class="codeline">&quot;(?(1)...)&quot; and &quot;(?(1)...|...)&quot;</div>
+</div><p>Are conditionals. These require us to match the material given if \1 has successfully matched already; in the second version, the material after the &quot;|&quot; must be matched if \1 has not successfully matched yet. And the same for 2, 3, &hellip;, 9, of course.</p>
+<p>Finally, conditionals can also use lookaheads or lookbehinds as their conditions. So for instance:</p>
+<div class="codeblock"><div class="codeline">&quot;(?(?=\d)\d\d\d\d|AY-\d\d\d\d)&quot;</div>
+</div><p>means if you start with a digit, match four digits; otherwise match &quot;AY-&quot; followed by four digits. There are easier ways to do this, of course, but the really juicy uses of conditionals are only borderline legible and make poor examples &ndash; perhaps this is telling us something.</p>
+<div class="examples">
+<h4>Examples</h4>
+<div class="example-short">413. ★ <a href="examples/alpha.html">Alpha</a><br>Creating a beta-testing command that matches any line starting with punctuation.</p></div><div class="linkback">
+<a href="RB_13.html#section_1" title="Testing and Publishing &gt; Testing">RB §13.1 Testing</a>
+</div>
+<div class="example-short">414. ★ <a href="examples/about_informs_regular_expression_support.html">About Inform's regular expression support</a><br>Some footnotes on Inform&#39;s regular expressions, and how they compare to those of other programming languages.</p></div><div class="linkback">
+<a href="RB_1.html#section_4" title="How to Use The Recipe Book &gt; Information Only">RB §1.4 Information Only</a>
+</div>
+<h3 id="section_7">WI §20.7 Making new text with text substitutions</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_6">20.6 Regular expression matching</a></div><div class="sect-navbar-center"><a href="#chapter_20">20. Advanced Text</a></div><div class="sect-navbar-right"><a href="#section_8">20.8 Replacements</a></div></div>
+<p>Substitutions are most often used just for printing, like so:</p>
+<div class="codeblock"><div class="codeline">say &quot;The clock reads [time of day].&quot;;</div>
+</div><p>But they can also produce text which can be stored up or used in other ways. For example, defining</p>
+<div class="codeblock"><div class="codeline">To decide what text is (T - text) doubled:</div>
+<div class="codeline">&ensp;&ensp;decide on &quot;[T][T]&quot;.</div>
+</div><p>makes</p>
+<div class="codeblock"><div class="codeline">let the Gerard Kenny reference be &quot;NewYork&quot; doubled;</div>
+</div><p>set this temporary variable to &quot;NewYorkNewYork&quot;.</p>
+<p>There is, however, a subtlety here. A text with a substitution in it, like:</p>
+<div class="codeblock"><div class="codeline">&quot;The clock reads [time of day].&quot;</div>
+</div><p>is always waiting to be substituted, that is, to become something like:</p>
+<div class="codeblock"><div class="codeline">&quot;The clock reads 11:12 AM.&quot;</div>
+</div><p>If all we do with text is to print it, there&#39;s nothing to worry about. But if we&#39;re storing it up, especially for multiple turns, there are ambiguities. For example, suppose we&#39;re changing the look of the black status line bar at the top of the text window:</p>
+<div class="codeblock"><div class="codeline">now the left hand status line is &quot;[time of day]&quot;;</div>
+</div><p>Just copying &quot;[time of day]&quot; to the &quot;left hand status line&quot; variable doesn&#39;t make it substitute &ndash; which is just as well, or the top of the screen would perpetually show &quot;9:00 AM&quot;.</p>
+<p>On the other hand, looking back at the phrase example:</p>
+<div class="codeblock"><div class="codeline">To decide what text is (T - text) doubled:</div>
+<div class="codeline">&ensp;&ensp;decide on &quot;[T][T]&quot;.</div>
+</div><p>&quot;[T][T]&quot; is substituted immediately it&#39;s formed. That&#39;s also a good thing, because &quot;T&quot; loses its meaning the moment the phrase finishes, which would make &quot;[T][T]&quot; meaningless anywhere else.</p>
+<p>What&#39;s going on here is this: Inform substitutes text immediately if it contains references to a temporary value such as &quot;T&quot;, and otherwise only if it needs to access the contents. This is why &quot;[time of day]&quot; isn&#39;t substituted until we need to print it out (or, say, access the third character): &quot;time of day&quot; is a value which always exists, not a temporary one.</p>
+<p>Another case where that might be important is if we want to set a text to an elaborated version of itself. For example, suppose there is a variable (not a temporary one) called &quot;the accumulated tally&quot;, and consider this:</p>
+<div class="codeblock"><div class="codeline">now the accumulated tally is &quot;[the accumulated tally]X&quot;;</div>
+</div><p>The intention of the writer here was to add an &quot;X&quot; each time this happens. But the result is a hang, because what it actually means is that accumulated tally can only be printed if the accumulated tally is printed first&hellip; an infinite regress. The safe way to do this would be:</p>
+<div class="codeblock"><div class="codeline">now the accumulated tally is the substituted form of &quot;[the accumulated tally]X&quot;;</div>
+</div><p>Using the adjectives &quot;substituted&quot; and &quot;unsubstituted&quot;, it&#39;s always possible to test whether a given text is in either state, should this ever be useful. For example,</p>
+<div class="codeblock"><div class="codeline">now the left hand status line is &quot;[time of day]&quot;;</div>
+<div class="codeline">if the left hand status line is unsubstituted, say &quot;Yes!&quot;;</div>
+</div><p>will say &quot;Yes!&quot;: the LHSL is like a bomb waiting to go off. Speaking of which:</p>
+<div class="codeblock"><div class="codeline">The player is holding a temporal bomb.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">When play begins:</div>
+<div class="codeline">&ensp;&ensp;now the left hand status line is &quot;Clock reads: [time of day]&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">After dropping the temporal bomb:</div>
+<div class="codeline">&ensp;&ensp;now the left hand status line is the substituted form of the left hand status line;</div>
+<div class="codeline">&ensp;&ensp;say &quot;Time itself is now broken. Well done.&quot;</div>
+</div><p>This is making use of:</p>
+<div class="defn" id="ph_subform"><span class="defn">substituted form of </span><span class="neutral">(text)</span> &rArr; <em>text</em><p>This takes a text and makes substitution occur immediately. For example,</p>
+<div class="codeblock"><div class="codeline">substituted form of &quot;time of death, [time of day]&quot;</div>
+</div><p>produces something like &quot;time of death, 9:15 AM&quot; rather than &quot;time of death, [time of day]&quot;. It&#39;s entirely legal to apply this to text which never had any substitutions in, so</p>
+<div class="codeblock"><div class="codeline">substituted form of &quot;balloon&quot;</div>
+</div><p>produces &quot;balloon&quot;.</p>
+</div><p>Note that there&#39;s no analogous phrase for &quot;unsubstituted form of&hellip;&quot;, because once text has substituted, there&#39;s no way to go back.</p>
+<div class="examples">
+<h4>Examples</h4>
+<div class="example-short">415. ★ <a href="examples/identity_theft.html">Identity Theft</a><br>Allowing the player to enter a name to be used for the player character during the game.</p></div><div class="linkback">
+<a href="RB_5.html#section_2" title="The Viewpoint Character &gt; Traits Determined By the Player">RB §5.2 Traits Determined By the Player</a>
+</div>
+<div class="example-short">416. ★ <a href="examples/mirror_mirror.html">Mirror, Mirror</a><br>The sorcerer&#39;s mirror can, when held up high, form an impression of its surroundings which it then preserves.</p></div><div class="linkback">
+<a href="RB_9.html#section_12" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Cameras and Recording Devices">RB §9.12 Cameras and Recording Devices</a>
+</div>
+<div class="example-short">417. ★★ <a href="examples/cow_exonerated.html">The Cow Exonerated</a><br>Creating a class of matches that burn for a time and then go out, with elegant reporting when several matches go out at once.</p></div><div class="linkback">
+<a href="RB_10.html#section_8" title="Physics: Substances, Ropes, Energy and Weight &gt; Fire">RB §10.8 Fire</a>
+</div>
+<h3 id="section_8">WI §20.8 Replacements</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_7">20.7 Making new text with text substitutions</a></div><div class="sect-navbar-center"><a href="#chapter_20">20. Advanced Text</a></div><div class="sect-navbar-right"><a href="#section_9">20.9 Summary of regular expression notation</a></div></div>
+<p>Suppose V is a text which varies &ndash; perhaps a property of something, or a variable defined everywhere, or a temporary &quot;let&quot;-named value. How do we change its contents? The easiest way is simply to assign text to it. Thus:</p>
+<div class="codeblock"><div class="codeline">let V be &quot;It is now [the time of the day in words].&quot;</div>
+</div><p>And, for instance,</p>
+<div class="codeblock"><div class="codeline">let V be &quot;[V]!&quot;</div>
+</div><p>adds an exclamation mark at the end of V.</p>
+<p>Otherwise, it is more useful (also a little faster) to modify V by changing its characters, words and so on. Thus:</p>
+<div class="defn" id="ph_replacechar"><span class="defn">replace character number </span><span class="neutral">(number)</span><span class="defn"> in </span><span class="neutral">(text)</span><span class="defn"> with </span><span class="neutral">(text)</span><p>This phrase acts on the named text by placing the given text in place of the Nth character, counting from 1. Example:</p>
+<div class="codeblock"><div class="codeline">let V be &quot;mope&quot;;</div>
+<div class="codeline">replace character number 3 in V with &quot;lecul&quot;;</div>
+<div class="codeline">say V;</div>
+</div><p>says &quot;molecule&quot;.</p>
+</div><div class="defn" id="ph_replaceword"><span class="defn">replace word number </span><span class="neutral">(number)</span><span class="defn"> in </span><span class="neutral">(text)</span><span class="defn"> with </span><span class="neutral">(text)</span><p>This phrase acts on the named text by placing the given text in place of the Nth word, counting from 1, and dividing words at spacing or punctuation. Example:</p>
+<div class="codeblock"><div class="codeline">let V be &quot;Does the well run dry?&quot;;</div>
+<div class="codeline">replace word number 3 in V with &quot;jogger&quot;;</div>
+<div class="codeline">say V;</div>
+</div><p>says &quot;Does the jogger run dry?&quot;.</p>
+</div><div class="defn" id="ph_replacepword"><span class="defn">replace punctuated word number </span><span class="neutral">(number)</span><span class="defn"> in </span><span class="neutral">(text)</span><span class="defn"> with </span><span class="neutral">(text)</span><p>This phrase acts on the named text by placing the given text in place of the Nth word, counting from 1, and dividing words at spacing, counting punctuation runs as words in their own right. Example:</p>
+<div class="codeblock"><div class="codeline">let V be &quot;Frankly, yes, I agree.&quot;;</div>
+<div class="codeline">replace punctuated word number 2 in V with &quot;:&quot;;</div>
+<div class="codeline">say V;</div>
+</div><p>says &quot;Frankly: yes, I agree.&quot;.</p>
+</div><div class="defn" id="ph_replaceupword"><span class="defn">replace unpunctuated word number </span><span class="neutral">(number)</span><span class="defn"> in </span><span class="neutral">(text)</span><span class="defn"> with </span><span class="neutral">(text)</span><p>This phrase acts on the named text by placing the given text in place of the Nth word, counting from 1, and dividing words at spacing, counting punctuation as part of a word just as if it were lettering. Example:</p>
+<div class="codeblock"><div class="codeline">let V be &quot;Frankly, yes, I agree.&quot;;</div>
+<div class="codeline">replace unpunctuated word number 2 in V with &quot;of course&quot;;</div>
+<div class="codeline">say V;</div>
+</div><p>says &quot;Frankly, of course I agree.&quot;.</p>
+</div><div class="defn" id="ph_replaceline"><span class="defn">replace line number </span><span class="neutral">(number)</span><span class="defn"> in </span><span class="neutral">(text)</span><span class="defn"> with </span><span class="neutral">(text)</span><p>This phrase acts on the named text by placing the given text in place of the Nth line, counting from 1. Lines are divided by paragraph or line breaks.</p>
+</div><div class="defn" id="ph_replacepara"><span class="defn">replace paragraph number </span><span class="neutral">(number)</span><span class="defn"> in </span><span class="neutral">(text)</span><span class="defn"> with </span><span class="neutral">(text)</span><p>This phrase acts on the named text by placing the given text in place of the Nth paragraph, counting from 1.</p>
+</div><p>Last, but not least, we can replace text wherever it occurs:</p>
+<div class="defn" id="ph_replace"><span class="defn">replace the text </span><span class="neutral">(text)</span><span class="defn"> in </span><span class="neutral">(text)</span><span class="defn"> with </span><span class="neutral">(text)</span><p>This phrase acts on the named text by searching and replacing, as many non-overlapping times as possible. Example:</p>
+<div class="codeblock"><div class="codeline">replace the text &quot;a&quot; in V with &quot;z&quot;</div>
+</div><p>changes every lower-case &quot;a&quot; to &quot;z&quot;: the same thing done with the &quot;case insensitively&quot; option would change each &quot;a&quot; or &quot;A&quot; to &quot;z&quot;.</p>
+</div><p>All very well for letters, but it can be unfortunate to try</p>
+<div class="codeblock"><div class="codeline">replace the text &quot;Bob&quot; in V with &quot;Robert&quot;</div>
+</div><p>if V happens to contain, say &quot;The Olympic Bobsleigh Team&quot;: it would become &quot;The Olympic Robertsleigh Team&quot;. What we want, of course, is for Bob to become Robert only when it&#39;s a whole word. We can get that with:</p>
+<div class="defn" id="ph_replacewordin"><span class="defn">replace the word </span><span class="neutral">(text)</span><span class="defn"> in </span><span class="neutral">(text)</span><span class="defn"> with </span><span class="neutral">(text)</span><p>This phrase acts on the named text by searching and replacing, as many non-overlapping times as possible, where the search text must occur as a whole word. Example:</p>
+<div class="codeblock"><div class="codeline">replace the word &quot;Bob&quot; in V with &quot;Robert&quot;</div>
+</div><p>changes &quot;Bob got on the Bobsleigh&quot; to &quot;Robert got on the Bobsleigh&quot;.</p>
+</div><div class="defn" id="ph_replacepwordin"><span class="defn">replace the punctuated word </span><span class="neutral">(text)</span><span class="defn"> in </span><span class="neutral">(text)</span><span class="defn"> with </span><span class="neutral">(text)</span><p>This phrase acts on the named text by searching and replacing, as many non-overlapping times as possible, where the search text must occur as a whole word or run of punctuation.</p>
+</div><p>But these are all just special cases of the grand-daddy of all replacement phrases:</p>
+<div class="defn" id="ph_replacere"><span class="defn">replace the regular expression </span><span class="neutral">(text)</span><span class="defn"> in </span><span class="neutral">(text)</span><span class="defn"> with </span><span class="neutral">(text)</span><p>This phrase acts on the named text by matching the regular expression and replacing anything which fits it, as many non-overlapping times as possible. Example:</p>
+<div class="codeblock"><div class="codeline">replace the regular expression &quot;\d+&quot; in V with &quot;...&quot;</div>
+</div><p>changes &quot;The Battle of Waterloo, 1815, rivalled Trafalgar, 1805&quot; to &quot;The Battle of Waterloo, &hellip;, rivalled Trafalgar, &hellip;&quot;. The &quot;case insensitively&quot; causes lower and upper case letters to be treated as if the same letter.</p>
+<p>When replacing a regular expression, the replacement text also has a few special meanings (though, thankfully, many fewer than for the expression itself). Once again &quot;\n&quot; and &quot;\t&quot; can be used for line break and tab characters, and &quot;\\&quot; must be used for an actual backslash. But, very usefully, &quot;\1&quot; to &quot;\9&quot; expand as the contents of groups numbered 1 to 9, and &quot;\0&quot; to the exact text matched. So:</p>
+<div class="codeblock"><div class="codeline">replace the regular expression &quot;\d+&quot; in V with &quot;roughly \0&quot;</div>
+</div><p>adds the word &quot;roughly&quot; in front of any run of digits in V, because \0 becomes in turn whichever run of digits matched. And</p>
+<div class="codeblock"><div class="codeline">replace the regular expression &quot;(\w+) (.*)&quot; in V with &quot;\2, \1&quot;</div>
+</div><p>performs the transformation &quot;Frank Booth&quot; to &quot;Booth, Frank&quot;.</p>
+<p>Finally, prefixing the number by &quot;l&quot; or &quot;u&quot; forces the text it represents into lower or upper case, respectively. For instance:</p>
+<div class="codeblock"><div class="codeline">replace the regular expression &quot;\b(\w)(\w*)&quot; in X with &quot;\u1\l2&quot;;</div>
+</div><p>changes the casing of X to &quot;title casing&quot;, where each individual word is capitalised. (This is a little slow on large texts, since so many matches and replacements are made: it&#39;s more efficient to use the official phrases for changing case.)</p>
+</div><div class="examples">
+<h4>Examples</h4>
+<div class="example-short">418. ★ <a href="examples/blackout.html">Blackout</a><br>Filtering the names of rooms printed while in darkness.</p></div><div class="linkback">
+<a href="RB_2.html#section_1" title="Adaptive Prose &gt; Varying What Is Written">RB §2.1 Varying What Is Written</a>
+</div>
+<div class="example-short">419. ★ <a href="examples/fido.html">Fido</a><br>A dog the player can name and un-name at will.</p></div><div class="linkback">
+<a href="RB_8.html#section_3" title="Vehicles, Animals and Furniture &gt; Animals">RB §8.3 Animals</a>
+</div>
+<div class="example-short">420. ★ <a href="examples/igpay_atinlay.html">Igpay Atinlay</a><br>A pig Latin filter for the player&#39;s commands.</p></div><div class="linkback">
+<a href="RB_2.html#section_3" title="Adaptive Prose &gt; Using the Player&#39;s Input">RB §2.3 Using the Player's Input</a>
+</div>
+<div class="example-short">421. ★★ <a href="examples/mr_burns_repast.html">Mr. Burns' Repast</a><br>Letting the player guess types for an unidentifiable fish.</p></div><div class="linkback">
+<a href="RB_2.html#section_3" title="Adaptive Prose &gt; Using the Player&#39;s Input">RB §2.3 Using the Player's Input</a>
+</div>
+<div class="example-short">422. ★★ <a href="examples/northstar.html">Northstar</a><br>Making Inform understand ASK JOSH TO TAKE INVENTORY as JOSH, TAKE INVENTORY. This requires us to use a regular expression on the player&#39;s command, replacing some of the content.</p></div><div class="linkback">
+<a href="RB_7.html#section_14" title="Other Characters &gt; Obedient Characters">RB §7.14 Obedient Characters</a>
+</div>
+<div class="example-short">423. ★★★ <a href="examples/cavetroll.html">Cave-troll</a><br>Determining that the command the player typed is invalid, editing it, and re-examining it to see whether it now reads correctly.</p></div><div class="linkback">
+<a href="RB_6.html#section_17" title="Commands &gt; Clarification and Correction">RB §6.17 Clarification and Correction</a>
+</div>
+<h3 id="section_9">WI §20.9 Summary of regular expression notation</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_8">20.8 Replacements</a></div><div class="sect-navbar-center"><a href="#chapter_20">20. Advanced Text</a></div></div>
+<p><strong>MATCHING</strong></p>
+<p>Positional restrictions</p>
+<div class="codeblock"><table>
+<tr><td>^</td><td>Matches (accepting no text) only at the start of the text</td></tr><tr><td>$</td><td>Matches (accepting no text) only at the end of the text</td></tr><tr><td>\b</td><td>Word boundary: matches at either end of text or between a \w and a \W</td></tr><tr><td>\B</td><td>Matches anywhere where \b does not match</td></tr></table>
+</div><p>Backslashed character classes</p>
+<div class="codeblock"><div class="codeline">&ensp;&ensp;</div>
+<table>
+<tr><td>\char</td><td>If char is other than a-z, A-Z, 0-9 or space, matches that literal char</td></tr><tr><td>\\</td><td>For example, this matches literal backslash &quot;\&quot;</td></tr><tr><td>\n</td><td>Matches literal line break character</td></tr><tr><td>\t</td><td>Matches literal tab character (but use this only with external files)</td></tr><tr><td>\d</td><td>Matches any single digit</td></tr><tr><td>\l</td><td>Matches any lower case letter (by Unicode 4.0.0 definition)</td></tr><tr><td>\p</td><td>Matches any single punctuation mark: . , ! ? - / &quot; : ; ( ) [ ] { }</td></tr><tr><td>\s</td><td>Matches any single spacing character (space, line break, tab)</td></tr><tr><td>\u</td><td>Matches any upper case letter (by Unicode 4.0.0 definition)</td></tr><tr><td>\w</td><td>Matches any single word character (neither \p nor \s)</td></tr><tr><td>\D</td><td>Matches any single non-digit</td></tr><tr><td>\L</td><td>Matches any non-lower-case-letter</td></tr><tr><td>\P</td><td>Matches any single non-punctuation-mark</td></tr><tr><td>\S</td><td>Matches any single non-spacing-character</td></tr><tr><td>\U</td><td>Matches any non-upper-case-letter</td></tr><tr><td>\W</td><td>Matches any single non-word-character (i.e., matches either \p or \s)</td></tr></table>
+</div><p>Other character classes</p>
+<div class="codeblock"><table>
+<tr><td>.</td><td>Matches any single character</td></tr><tr><td>&lt;...&gt;</td><td>Character range: matches any single character inside</td></tr><tr><td>&lt;^...&gt;</td><td>Negated character range: matches any single character not inside</td></tr></table>
+</div><p>Inside a character range</p>
+<div class="codeblock"><table>
+<tr><td>e-h</td><td>Any character in the run &quot;e&quot; to &quot;h&quot; inclusive (and so on for other runs)</td></tr><tr><td>&gt;...</td><td>Starting with &quot;&gt;&quot; means that a literal close angle bracket is included</td></tr><tr><td>\</td><td>Backslash has the same meaning as for backslashed character classes: see above</td></tr></table>
+</div><p>Structural</p>
+<div class="codeblock"><table>
+<tr><td>|</td><td>Divides alternatives: &quot;fish|fowl&quot; matches either</td></tr><tr><td>(?i)</td><td>Always matches: switches to case-insensitive matching from here on</td></tr><tr><td>(?-i)</td><td>Always matches: switches to case-sensitive matching from here on</td></tr></table>
+</div><p>Repetitions</p>
+<div class="codeblock"><table>
+<tr><td>...?</td><td>Matches &quot;...&quot; either 0 or 1 times, i.e., makes &quot;...&quot; optional</td></tr><tr><td>...*</td><td>Matches &quot;...&quot; 0 or more times: e.g. &quot;\s*&quot; matches an optional run of space</td></tr><tr><td>...+</td><td>Matches &quot;...&quot; 1 or more times: e.g. &quot;x+&quot; matches any run of &quot;x&quot;s</td></tr><tr><td>...{6}</td><td>Matches &quot;...&quot; exactly 6 times (similarly for other numbers, of course)</td></tr><tr><td>...{2,5}</td><td>Matches &quot;...&quot; between 2 and 5 times</td></tr><tr><td>...{3,}</td><td>Matches &quot;...&quot; 3 or more times</td></tr><tr><td>....?</td><td>&quot;?&quot; after any repetition makes it &quot;lazy&quot;, matching as few repeats as it can</td></tr></table>
+</div><p>Numbered subexpressions</p>
+<div class="codeblock"><table>
+<tr><td>(...)</td><td>Groups part of the expression together: matches if the interior matches</td></tr><tr><td>\1</td><td>Matches the contents of the 1st subexpression reading left to right</td></tr><tr><td>\2</td><td>Matches the contents of the 2nd, and so on up to &quot;\9&quot; (but no further)</td></tr></table>
+</div><p>Unnumbered subexpressions</p>
+<div class="codeblock"><table>
+<tr><td>(# ...)</td><td>Comment: always matches, and the contents are ignored</td></tr><tr><td>(?= ...)</td><td>Lookahead: matches if the text ahead matches &quot;...&quot;, but doesn&#39;t consume it</td></tr><tr><td>(?! ...)</td><td>Negated lookahead: matches if lookahead fails</td></tr><tr><td>(?&lt;= ...)</td><td>Lookbehind: matches if the text behind matches &quot;...&quot;, but doesn&#39;t consume it</td></tr><tr><td>(?&lt;! ...)</td><td>Negated lookbehind: matches if lookbehind fails</td></tr><tr><td>(&gt; ...)</td><td>Possessive: tries to match &quot;...&quot; and if it succeeds, never backtracks on this</td></tr><tr><td>(?(1)...)</td><td>Conditional: if \1 has matched by now, require that &quot;...&quot; be matched</td></tr><tr><td>(?(1)...|...)</td><td>Conditional: ditto, but if \1 has not matched, require the second part</td></tr><tr><td>(?(?=...)...|...)</td><td>Conditional with lookahead as its condition for which to match</td></tr><tr><td>(?(?&lt;=...)...|...)</td><td>Conditional with lookbehind as its condition for which to match</td></tr></table>
+</div><p><strong>IN REPLACEMENT TEXT</strong></p>
+<div class="codeblock"><table>
+<tr><td>\char</td><td>If char is other than a-z, A-Z, 0-9 or space, expands to that literal char</td></tr><tr><td>\\</td><td>In particular, &quot;\\&quot; expands to a literal backslash &quot;\&quot;</td></tr><tr><td>\n</td><td>Expands to a line break character</td></tr><tr><td>\t</td><td>Expands to a tab character (but use this only with external files)</td></tr><tr><td>\0</td><td>Expands to the full text matched</td></tr><tr><td>\1</td><td>Expands to whatever the 1st bracketed subexpression matched</td></tr><tr><td>\2</td><td>Expands to whatever the 2nd matched, and so on up to &quot;\9&quot; (but no further)</td></tr><tr><td>\l0</td><td>Expands to \0 converted to lower case (and so on for &quot;\l1&quot; to &quot;\l9&quot;)</td></tr><tr><td>\u0</td><td>Expands to \0 converted to upper case (and so on for &quot;\u1&quot; to &quot;\u9&quot;)</td></tr></table>
+</div><div class="doc-navbar"><div class="doc-navbar-left"><a href="WI_19.html">19. Rulebooks</a></div><div class="doc-navbar-right"><a href="WI_21.html">21. Lists</a></div></div>
+<nav><div class="nav-el"><a href="index.html">Contents</a></div> <div class="nav-el"><a href="examples/index.html">Examples</a></div> <div class="nav-el"><a href="general_index.html">Index</a></div> <div class="nav-el"><a href="search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="license.html">Artistic License 2.0</a>.</p><p class="about"><a href="about.html">About this edition</a></p></footer>
+</body></html>

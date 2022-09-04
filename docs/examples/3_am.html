@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 193. 3 AM</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>3 AM</h1><div class="subheading">Example 193 ★★★</div>
+<div class="linkback">
+<a href="../WI_12.html#section_7" title="Advanced Actions &gt; New actions">WI §12.7 New actions</a><br><a href="../RB_10.html#section_2" title="Physics: Substances, Ropes, Energy and Weight &gt; Liquids">RB §10.2 Liquids</a>
+</div>
+<p class="example-desc">A shake command which agitates soda and makes items thump around in boxes.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="frizz.html" title="Liquid flows within containers and soaks objects that are not waterproof; any contact with a wet object can dampen our gloves.">192. Frizz</a></div><div class="doc-navbar-right"><a href="dark_ages_revisited.html" title="An electric light kind of device which becomes lit when switched on and dark when switched off.">194. The Dark Ages Revisited</a></div></div>
+</header>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex193">Play/modify 3 AM in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="Wawa/index.html">Play 3 AM in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;3 AM&quot;\n\nUnderstand &quot;shake [something preferably held]&quot; as shaking.\n\nShaking is an action applying to one carried thing.\n\nCarry out shaking:\n\tsay &quot;Nothing results of your shaking [the noun].&quot;\n\nInstead of shaking a closed container when something is in the noun:\n\tsay &quot;Something rattles inside [the noun].&quot;\n\nInstead of shaking a closed transparent container when something is in the noun:\n\tsay &quot;Inside [the noun] there are banging noises produced by [the list of things contained by the noun].&quot;\n\nInstead of shaking an open container which contains something:\n\tsay &quot;[The list of things contained by the noun] might fly out.&quot;\n\nThe Wawa is a room. &quot;A convenience store, if you like to call it that, vending the usual assortment of chips, donuts, soda, and beer. There is something of a line at the sandwich counter.&quot;\n\nThe box of enrobed cakes is in the Wawa. &quot;A box of Tastykake Enrobed Cakes has fallen off its shelf.&quot; The description is &quot;&apos;Enrobed Cakes&apos; is a fancy term for &apos;strange sponge-like baked good, covered in a thin shell of waxy chocolate&apos;. They are addictive, but not in a way that lets you respect yourself in the morning.&quot; The box is a closed openable container. In the box is a cake.\n\nInstead of opening the box, say &quot;The Wawa clerks frown on the consumption of unpurchased foodstuffs.&quot;\n\nThe can of root beer is a closed openable container carried by the player. The can of root beer is either agitated or calm.\n\n\nInstead of shaking the can of root beer:\n\tthe can calms down in five turns from now;\n\tsay &quot;You give the can a good hard shake.&quot;;\n\tnow the can is agitated.\n\nInstead of listening to the can: say &quot;It sounds [if agitated]fizzy[otherwise]calm[end if]!&quot;\n\nAt the time when the can calms down:\n\tnow the can is calm.\n\nThe sticky mess is fixed in place. &quot;There is a sticky mess on the ground.&quot;\n\nInstead of opening the agitated can of root beer:\n\tnow the can of root beer is nowhere;\n\tnow the sticky mess is in the location;\n\tsay &quot;You open the can and fizzing sweet soda goes absolutely everywhere.&quot;\n\nInstead of opening the calm can of root beer when the can has been agitated:\n\tnow the can of root beer is nowhere;\n\tsay &quot;The root beer is disappointingly flat. That&apos;s what you get for shaking it up!&quot;\n\nTest me with &quot;get box / shake box / open box / shake box / listen to can / shake can / listen to can / wait / wait / wait / wait / wait / listen to can / open can&quot;.`)">⧉</button><div class="codeline storytitle">&quot;3 AM&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Understand &quot;shake [something preferably held]&quot; as shaking.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Shaking is an action applying to one carried thing.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Carry out shaking:</div>
+<div class="codeline">&ensp;&ensp;say &quot;Nothing results of your shaking [the noun].&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of shaking a closed container when something is in the noun:</div>
+<div class="codeline">&ensp;&ensp;say &quot;Something rattles inside [the noun].&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of shaking a closed transparent container when something is in the noun:</div>
+<div class="codeline">&ensp;&ensp;say &quot;Inside [the noun] there are banging noises produced by [the list of things contained by the noun].&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of shaking an open container which contains something:</div>
+<div class="codeline">&ensp;&ensp;say &quot;[The list of things contained by the noun] might fly out.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Wawa is a room. &quot;A convenience store, if you like to call it that, vending the usual assortment of chips, donuts, soda, and beer. There is something of a line at the sandwich counter.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The box of enrobed cakes is in the Wawa. &quot;A box of Tastykake Enrobed Cakes has fallen off its shelf.&quot; The description is &quot;&#39;Enrobed Cakes&#39; is a fancy term for &#39;strange sponge-like baked good, covered in a thin shell of waxy chocolate&#39;. They are addictive, but not in a way that lets you respect yourself in the morning.&quot; The box is a closed openable container. In the box is a cake.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of opening the box, say &quot;The Wawa clerks frown on the consumption of unpurchased foodstuffs.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The can of root beer is a closed openable container carried by the player. The can of root beer is either agitated or calm.</div>
+</div><p>Because the can of root beer should have some reactions to having been shaken later in the game, we need to borrow a few ideas from the chapter on Time:</p>
+<div class="codeblock"><div class="codeline">Instead of shaking the can of root beer:</div>
+<div class="codeline">&ensp;&ensp;the can calms down in five turns from now;</div>
+<div class="codeline">&ensp;&ensp;say &quot;You give the can a good hard shake.&quot;;</div>
+<div class="codeline">&ensp;&ensp;now the can is agitated.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of listening to the can: say &quot;It sounds [if agitated]fizzy[otherwise]calm[end if]!&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">At the time when the can calms down:</div>
+<div class="codeline">&ensp;&ensp;now the can is calm.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The sticky mess is fixed in place. &quot;There is a sticky mess on the ground.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of opening the agitated can of root beer:</div>
+<div class="codeline">&ensp;&ensp;now the can of root beer is nowhere;</div>
+<div class="codeline">&ensp;&ensp;now the sticky mess is in the location;</div>
+<div class="codeline">&ensp;&ensp;say &quot;You open the can and fizzing sweet soda goes absolutely everywhere.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of opening the calm can of root beer when the can has been agitated:</div>
+<div class="codeline">&ensp;&ensp;now the can of root beer is nowhere;</div>
+<div class="codeline">&ensp;&ensp;say &quot;The root beer is disappointingly flat. That&#39;s what you get for shaking it up!&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;get box / shake box / open box / shake box / listen to can / shake can / listen to can / wait / wait / wait / wait / wait / listen to can / open can&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "get box / shake box / open box / shake box / listen to can / shake can / listen to can / wait / wait / wait / wait / wait / listen to can / open can".</summary><div class="testme-output">Wawa<br>A convenience store, if you like to call it that, vending the usual assortment of chips, donuts, soda, and beer. There is something of a line at the sandwich counter.<br><br>A box of Tastykake Enrobed Cakes has fallen off its shelf.<br><br>>(Testing.)<br><br>>[1] get box<br>Taken.<br><br>>[2] shake box<br>Something rattles inside the box of enrobed cakes.<br><br>>[3] open box<br>The Wawa clerks frown on the consumption of unpurchased foodstuffs.<br><br>>[4] shake box<br>Something rattles inside the box of enrobed cakes.<br><br>>[5] listen to can<br>It sounds calm!<br><br>>[6] shake can<br>You give the can a good hard shake.<br><br>>[7] listen to can<br>It sounds fizzy!<br><br>>[8] wait<br>Time passes.<br><br>>[9] wait<br>Time passes.<br><br>>[10] wait<br>Time passes.<br><br>>[11] wait<br>Time passes.<br><br>>[12] wait<br>Time passes.<br><br>>[13] listen to can<br>It sounds calm!<br><br>>[14] open can<br>The root beer is disappointingly flat. That's what you get for shaking it up!
+</div></details><div class="doc-navbar"><div class="doc-navbar-left"><a href="frizz.html" title="Liquid flows within containers and soaks objects that are not waterproof; any contact with a wet object can dampen our gloves.">192. Frizz</a></div><div class="doc-navbar-right"><a href="dark_ages_revisited.html" title="An electric light kind of device which becomes lit when switched on and dark when switched off.">194. The Dark Ages Revisited</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

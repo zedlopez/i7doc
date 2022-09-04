@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 203. The Man of Steel</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>The Man of Steel</h1><div class="subheading">Example 203 ★★</div>
+<div class="linkback">
+<a href="../WI_12.html#section_11" title="Advanced Actions &gt; Making actions work for other people">WI §12.11 Making actions work for other people</a><br><a href="../RB_7.html#section_15" title="Other Characters &gt; Goal-Seeking Characters">RB §7.15 Goal-Seeking Characters</a>
+</div>
+<p class="example-desc">An escaping action which means &quot;go to any room you can reach from here&quot;, and is only useful to non-player characters.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="croft.html" title="Adding special reporting and handling for objects dropped when the player is on a supporter, and special entering rules for moving from one supporter to another.">202. Croft</a></div><div class="doc-navbar-right"><a href="trying_taking_manhattan.html" title="Replacing the inventory reporting rule with another which does something slightly different.">204. Trying Taking Manhattan</a></div></div>
+</header>
+<p>It will sometimes be handy to write actions that are only available to the non-player characters and not to the player. To do this, we just define an action which has no &quot;understand&quot;: the player will never be able to specify this command himself, but other characters can try it.</p>
+<p>This is particularly useful for creating abstract or general actions for when we want a character to eat something, wear something, or go somewhere, but aren&#39;t too particular as to what the object is; as here, where we just want Clark to move away from the kryptonite, regardless of direction:</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex203">Play/modify The Man of Steel in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="ClarkEscape/index.html">Play The Man of Steel in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;The Man of Steel&quot;\n\nEscaping is an action applying to nothing.\n\nCarry out someone escaping:\n\tlet space be the holder of the person asked;\n\tlet place be a random room which is adjacent to the space;\n\tlet way be the best route from the space to the place;\n\ttry the person asked going way.\n\nEvery turn:\n\tif Clark Kent can see kryptonite, try Clark Kent escaping.\n\nThe Daily Planet Newsroom is a room.\n\nPerry White&apos;s Office is west of the Newsroom. In Perry White&apos;s Office are a desk and a poster of Elvis. On the desk is a lead-lined box. The box is openable. In the box is the green kryptonite crystal.\n\nThe Supply Closet is east of the Newsroom. The Elevator Bank is north of the Newsroom.\n\nClark Kent is a man in the Newsroom. &quot;Clark [if Clark can see the kryptonite]looks a bit ill[otherwise]is here, frowning as he revises his latest article[end if].&quot;\n\nTest me with &quot;west / get box / east / close box / east / west / north / south / west&quot;.`)">⧉</button><div class="codeline storytitle">&quot;The Man of Steel&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Escaping is an action applying to nothing.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Carry out someone escaping:</div>
+<div class="codeline">&ensp;&ensp;let space be the holder of the person asked;</div>
+<div class="codeline">&ensp;&ensp;let place be a random room which is adjacent to the space;</div>
+<div class="codeline">&ensp;&ensp;let way be the best route from the space to the place;</div>
+<div class="codeline">&ensp;&ensp;try the person asked going way.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Every turn:</div>
+<div class="codeline">&ensp;&ensp;if Clark Kent can see kryptonite, try Clark Kent escaping.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Daily Planet Newsroom is a room.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Perry White&#39;s Office is west of the Newsroom. In Perry White&#39;s Office are a desk and a poster of Elvis. On the desk is a lead-lined box. The box is openable. In the box is the green kryptonite crystal.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Supply Closet is east of the Newsroom. The Elevator Bank is north of the Newsroom.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Clark Kent is a man in the Newsroom. &quot;Clark [if Clark can see the kryptonite]looks a bit ill[otherwise]is here, frowning as he revises his latest article[end if].&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;west / get box / east / close box / east / west / north / south / west&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "west / get box / east / close box / east / west / north / south / west".</summary><div class="testme-output">Daily Planet Newsroom<br>Clark is here, frowning as he revises his latest article.<br><br>>(Testing.)<br><br>>[1] west<br><br>Perry White's Office<br>You can see a desk (on which is a lead-lined box (in which is a green kryptonite crystal)) and a poster of Elvis here.<br><br>>[2] get box<br>Taken.<br><br>>[3] east<br><br>Daily Planet Newsroom<br>Clark looks a bit ill.<br><br>Clark Kent goes west.<br><br>>[4] close box<br>You close the lead-lined box.<br><br>>[5] east<br><br>Supply Closet<br><br>>[6] west<br><br>Daily Planet Newsroom<br><br>>[7] north<br><br>Elevator Bank<br><br>>[8] south<br><br>Daily Planet Newsroom<br><br>>[9] west<br><br>Perry White's Office<br>Clark is here, frowning as he revises his latest article.<br><br>You can also see a desk and a poster of Elvis here.
+</div></details><div class="doc-navbar"><div class="doc-navbar-left"><a href="croft.html" title="Adding special reporting and handling for objects dropped when the player is on a supporter, and special entering rules for moving from one supporter to another.">202. Croft</a></div><div class="doc-navbar-right"><a href="trying_taking_manhattan.html" title="Replacing the inventory reporting rule with another which does something slightly different.">204. Trying Taking Manhattan</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

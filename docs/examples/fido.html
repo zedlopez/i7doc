@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 419. Fido</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Fido</h1><div class="subheading">Example 419 ★</div>
+<div class="linkback">
+<a href="../WI_20.html#section_8" title="Advanced Text &gt; Replacements">WI §20.8 Replacements</a><br><a href="../RB_8.html#section_3" title="Vehicles, Animals and Furniture &gt; Animals">RB §8.3 Animals</a>
+</div>
+<p class="example-desc">A dog the player can name and un-name at will.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="blackout.html" title="Filtering the names of rooms printed while in darkness.">418. Blackout</a></div><div class="doc-navbar-right"><a href="igpay_atinlay.html" title="A pig Latin filter for the player&#39;s commands.">420. Igpay Atinlay</a></div></div>
+</header>
+<p>Suppose we&#39;d like to have a dog which the player is allowed to name himself. We&#39;d like to deal correctly with both</p>
+<div class="codeblock"><div class="codeline">&gt;name the dog fido</div>
+</div><p>and</p>
+<div class="codeblock"><div class="codeline">&gt;name the dog &quot;fido&quot;</div>
+</div><p>so we&#39;ll also need to strip quotation marks out of the command. We can do this as follows:</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex419">Play/modify Fido in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="Fido/index.html">Play Fido in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Fido&quot;\n\nThe Back Yard is a room.\n\nA dog is an animal in Back Yard. The dog has some text called the nickname. The nickname of the dog is &quot;nothing&quot;. Understand the nickname property as describing the dog.\n\nRule for printing the name of the dog when the nickname of the dog is not &quot;nothing&quot;:\n\tsay &quot;[nickname of the dog]&quot;\n\nNaming it with is an action applying to one thing and one topic. Understand &quot;name [something] [text]&quot; as naming it with. Check naming it with: say &quot;You can&apos;t name that.&quot;\n\nInstead of naming the dog with &quot;nothing&quot;:\n\tnow the nickname of the dog is &quot;nothing&quot;;\n\tnow the dog is improper-named;\n\tsay &quot;You revoke your choice of dog-name.&quot;\n\nInstead of naming the dog with something:\n\tlet N be &quot;[the topic understood]&quot;;\n\treplace the text &quot;&apos;&quot; in N with &quot;&quot;;\n\tnow the nickname of the dog is &quot;[N]&quot;;\n\tnow the dog is proper-named;\n\tsay &quot;The dog is now known as [nickname of the dog].&quot;\n\nTest me with &quot;name the dog Fido / name the dog Lawrence / look / x lawrence / name Lawrence nothing / look / x lawrence&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Fido&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Back Yard is a room.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A dog is an animal in Back Yard. The dog has some text called the nickname. The nickname of the dog is &quot;nothing&quot;. Understand the nickname property as describing the dog.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Rule for printing the name of the dog when the nickname of the dog is not &quot;nothing&quot;:</div>
+<div class="codeline">&ensp;&ensp;say &quot;[nickname of the dog]&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Naming it with is an action applying to one thing and one topic. Understand &quot;name [something] [text]&quot; as naming it with. Check naming it with: say &quot;You can&#39;t name that.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of naming the dog with &quot;nothing&quot;:</div>
+<div class="codeline">&ensp;&ensp;now the nickname of the dog is &quot;nothing&quot;;</div>
+<div class="codeline">&ensp;&ensp;now the dog is improper-named;</div>
+<div class="codeline">&ensp;&ensp;say &quot;You revoke your choice of dog-name.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of naming the dog with something:</div>
+<div class="codeline">&ensp;&ensp;let N be &quot;[the topic understood]&quot;;</div>
+<div class="codeline">&ensp;&ensp;replace the text &quot;&#39;&quot; in N with &quot;&quot;;</div>
+<div class="codeline">&ensp;&ensp;now the nickname of the dog is &quot;[N]&quot;;</div>
+<div class="codeline">&ensp;&ensp;now the dog is proper-named;</div>
+<div class="codeline">&ensp;&ensp;say &quot;The dog is now known as [nickname of the dog].&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;name the dog Fido / name the dog Lawrence / look / x lawrence / name Lawrence nothing / look / x lawrence&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "name the dog Fido / name the dog Lawrence / look / x lawrence / name Lawrence nothing / look / x lawrence".</summary><div class="testme-output">Back Yard<br>You can see a dog here.<br><br>>(Testing.)<br><br>>[1] name the dog fido<br>The dog is now known as fido.<br><br>>[2] name the dog lawrence<br>The dog is now known as lawrence.<br><br>>[3] look<br>Back Yard<br>You can see lawrence here.<br><br>>[4] x lawrence<br>You see nothing special about lawrence.<br><br>>[5] name lawrence nothing<br>You revoke your choice of dog-name.<br><br>>[6] look<br>Back Yard<br>You can see a dog here.<br><br>>[7] x lawrence<br>You can't see any such thing.
+</div></details><div class="doc-navbar"><div class="doc-navbar-left"><a href="blackout.html" title="Filtering the names of rooms printed while in darkness.">418. Blackout</a></div><div class="doc-navbar-right"><a href="igpay_atinlay.html" title="A pig Latin filter for the player&#39;s commands.">420. Igpay Atinlay</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

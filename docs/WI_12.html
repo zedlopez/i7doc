@@ -1,0 +1,630 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>WI 12. Advanced Actions</title>
+<script src="i7doc.js"></script>
+<link rel="stylesheet" href="i7doc.css">
+</head>
+<nav><div class="nav-el"><a href="index.html">Contents</a></div> <div class="nav-el"><a href="examples/index.html">Examples</a></div> <div class="nav-el"><a href="general_index.html">Index</a></div> <div class="nav-el"><a href="search.html">Search</a></div></nav>
+<body><header><h1 class="title">Writing with Inform</h1></header>
+<h2 id="chapter_12">12. Advanced Actions</h2>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="WI_11.html">11. Phrases</a></div><div class="doc-navbar-right"><a href="WI_13.html">13. Relations</a></div></div>
+<div class="section-block">
+<div class="section-row">
+<div class="section-chapter-num">§12.</div><div class="section-section-num">1</div><div class="section-name"><a href="WI_12.html#section_1">A recap of actions</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§12.</div><div class="section-section-num">2</div><div class="section-name"><a href="WI_12.html#section_2">How actions are processed</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§12.</div><div class="section-section-num">3</div><div class="section-name"><a href="WI_12.html#section_3">Giving instructions to other people</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§12.</div><div class="section-section-num">4</div><div class="section-name"><a href="WI_12.html#section_4">Persuasion</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§12.</div><div class="section-section-num">5</div><div class="section-name"><a href="WI_12.html#section_5">Unsuccessful attempts</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§12.</div><div class="section-section-num">6</div><div class="section-name"><a href="WI_12.html#section_6">Spontaneous actions by other people</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§12.</div><div class="section-section-num">7</div><div class="section-name"><a href="WI_12.html#section_7">New actions</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§12.</div><div class="section-section-num">8</div><div class="section-name"><a href="WI_12.html#section_8">Irregular English verbs</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§12.</div><div class="section-section-num">9</div><div class="section-name"><a href="WI_12.html#section_9">Check, carry out, report</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§12.</div><div class="section-section-num">10</div><div class="section-name"><a href="WI_12.html#section_10">Action variables</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§12.</div><div class="section-section-num">11</div><div class="section-name"><a href="WI_12.html#section_11">Making actions work for other people</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§12.</div><div class="section-section-num">12</div><div class="section-name"><a href="WI_12.html#section_12">Check rules for actions by other people</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§12.</div><div class="section-section-num">13</div><div class="section-name"><a href="WI_12.html#section_13">Report rules for actions by other people</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§12.</div><div class="section-section-num">14</div><div class="section-name"><a href="WI_12.html#section_14">Actions for any actor</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§12.</div><div class="section-section-num">15</div><div class="section-name"><a href="WI_12.html#section_15">Out of world actions</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§12.</div><div class="section-section-num">16</div><div class="section-name"><a href="WI_12.html#section_16">Reaching inside and reaching outside rules</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§12.</div><div class="section-section-num">17</div><div class="section-name"><a href="WI_12.html#section_17">Visible vs touchable vs carried</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§12.</div><div class="section-section-num">18</div><div class="section-name"><a href="WI_12.html#section_18">Changing reachability</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§12.</div><div class="section-section-num">19</div><div class="section-name"><a href="WI_12.html#section_19">Changing visibility</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§12.</div><div class="section-section-num">20</div><div class="section-name"><a href="WI_12.html#section_20">Stored actions</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§12.</div><div class="section-section-num">21</div><div class="section-name"><a href="WI_12.html#section_21">Guidelines on how to write rules about actions</a></div>
+</div>
+</div>
+<h3 id="section_1">WI §12.1 A recap of actions</h3>
+<div class="sect-navbar"><div class="sect-navbar-center"><a href="#chapter_12">12. Advanced Actions</a></div><div class="sect-navbar-right"><a href="#section_2">12.2 How actions are processed</a></div></div>
+<p>Actions are impulses to do something, which arise sometimes through typed commands:</p>
+<div class="codeblock"><div class="codeline">&gt;examine tapestry</div>
+</div><p>and sometimes through &quot;try&quot; phrases occurring in other rules:</p>
+<div class="codeblock"><div class="codeline">Before examining the tapestry, try switching the ultraviolet light on.</div>
+</div><p>Every action either succeeds or fails, though failure may not be a bad thing (something better may have happened). Besides any rules applied in the source text, actions are subject to basic realism rules. A general rule ensures that actions are rejected if the actor would need to touch something which is out of reach, or see something which is invisible; and a couple of hundred other built-in rules police individual actions. For instance, if the ACTIONS testing command has been used to switch monitoring on, then:</p>
+<div class="codeblock"><div class="codeline">&gt;unlock cage with watermelon</div>
+<div class="codeline">[unlocking cage with watermelon]</div>
+<div class="codeline">That doesn&#39;t seem to fit the lock.</div>
+<div class="codeline">[unlocking cage with watermelon - failed the can&#39;t unlock without the correct key rule]</div>
+</div><p>Actions generated by &quot;try&quot; phrases are allowed to run &quot;silently&quot;, which means that if nothing out of the way happens and they succeed, then nothing is printed. For instance:</p>
+<div class="codeblock"><div class="codeline">Before examining the tapestry: say &quot;(Switching on the lamp first.)&quot;; silently try switching the ultraviolet light on.</div>
+</div><p>There are many ways to impose extra rules on actions, and we have seen three main kinds: Before rules, intended so that preliminary activities like the one above can happen before the action is tried; Instead rules, which block or divert the intention, or may cause something spectacularly different to happen; and After rules, which allow for unexpected consequences after the action has taken place.</p>
+<h3 id="section_2">WI §12.2 How actions are processed</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_1">12.1 A recap of actions</a></div><div class="sect-navbar-center"><a href="#chapter_12">12. Advanced Actions</a></div><div class="sect-navbar-right"><a href="#section_3">12.3 Giving instructions to other people</a></div></div>
+<p>The following flow chart shows the natural course of events when Inform deals with a new action &ndash; a &quot;taking&quot; action in the case drawn. For quite a long time, the action may still fail, and it may be that nothing actually happens: but eventually a deciding line is crossed, and once that happens the action will certainly succeed.</p>
+<p><img src="doc_images/achart.png"></p>
+<p>The coloured boxes on this chart represent &quot;rulebooks&quot;, that is, collections of rules with a common purpose. The orange boxes for Before, Instead and After were covered in the Basic Actions chapter, but the blue boxes are new. The orange boxes are where we put rules to handle unusual situations, or unexpected events: special rules to cover the opening of a container which happens to be booby-trapped, or walking through a doorway into a room where a surprise party is about to be sprung.</p>
+<p>Blue boxes hold the mundane, everyday rules &ndash; the generic ways that particular actions behave. Every action provides these: &quot;Check&quot; rules, to see if it makes sense &ndash; for instance, to see that the player is not trying to take his or her own body, or a whole room, or something he or she already has; then &quot;Carry out&quot; rules, to actually do what the action is supposed to do &ndash; in the case of taking, to move an object into the player&#39;s possession; and finally &quot;Report&quot; rules, which tell the player what has happened &ndash; perhaps printing up &quot;Taken.&quot;</p>
+<p>When we create a new action, we add a new column to the blue rows in this diagram. As we shall see, we can also put new rules into the existing blue boxes: for instance, if we wanted to increase physical realism by forbidding the player to carry more than a certain weight, we would want to add a new &quot;check taking&quot; rule, and this is entirely legal.</p>
+<p>In subsequent chapters, we will see ways to intervene at almost every point in the above diagram &ndash; from how &quot;Can we see or touch things?&quot; is reckoned, to each and every individual rule in all of these books. Action-processing may be the single most important thing Inform does, so the system is designed to be immensely flexible. On the other hand, that does make it a lot to take in at one look. Newcomers should probably concentrate on &quot;Instead&quot; and &quot;After&quot; as the basic tools for designing the situations turning up routinely in interactive fiction. There are guidelines at the end of this chapter offering advice on which tricks to use when it comes to more complicated needs.</p>
+<h3 id="section_3">WI §12.3 Giving instructions to other people</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_2">12.2 How actions are processed</a></div><div class="sect-navbar-center"><a href="#chapter_12">12. Advanced Actions</a></div><div class="sect-navbar-right"><a href="#section_4">12.4 Persuasion</a></div></div>
+<p>So far, all actions have been carried out by the player: which is fine for exploring the passive world of an empty warehouse, but less good for a drama in which other characters have to be contended with. In fact, an action can be carried out by anybody &ndash; by any instance of the &quot;person&quot; kind, that is, which includes all the men, women and animals in the story, and not only the player.</p>
+<p>In interactive fiction, players conventionally ask other characters to do something with commands like so:</p>
+<div class="codeblock"><div class="codeline">&gt; will, go west</div>
+</div><p>Clearly &quot;will, go west&quot; should not produce the same action as &quot;go west&quot;, because a different person will be trying it: this person is called the &quot;actor&quot;, and while the actor is ordinarily the player, here it is the character called Will. Inform distinguishes these two actions like so:</p>
+<div class="codeblock"><div class="codeline">going west</div>
+<div class="codeline">asking Will to try going west</div>
+</div><p>As a result, we can write rules like so:</p>
+<div class="codeblock"><div class="codeline">Instead of asking Will to try going west, say &quot;Will scratches his head, baffled by this talk of westward. Is not the ocean without bound?&quot;</div>
+</div><p>To write rules like this, we sometimes want to generalise about who is supposed to do the deed. To do this we can refer to &quot;person asked&quot;, just as the &quot;noun&quot; stands for whatever noun was typed:</p>
+<div class="codeblock"><div class="codeline">Instead of asking somebody to try taking something, say &quot;I don&#39;t think we ought to tempt [the person asked] into theft, surely?&quot;</div>
+</div><p>So if the player types &quot;Algy, take sandwich&quot;, the &quot;person asked&quot; would be Algy; the &quot;noun&quot; would be the sandwich; and there would be no &quot;second noun&quot;.</p>
+<div class="examples">
+<h4>Examples</h4>
+<div class="example-short">184. ★ <a href="examples/virtue.html">Virtue</a><br>Defining certain kinds of behavior as inappropriate, so that other characters will refuse indignantly to do any such thing.</p></div><div class="linkback">
+<a href="RB_7.html#section_14" title="Other Characters &gt; Obedient Characters">RB §7.14 Obedient Characters</a>
+</div>
+<div class="example-short">185. ★★★ <a href="examples/latris_theon.html">Latris Theon</a><br>A person who can accept instructions to go to new destinations and move towards them according to the most reasonable path.</p></div><div class="linkback">
+<a href="RB_7.html#section_13" title="Other Characters &gt; Traveling Characters">RB §7.13 Traveling Characters</a>
+</div>
+<h3 id="section_4">WI §12.4 Persuasion</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_3">12.3 Giving instructions to other people</a></div><div class="sect-navbar-center"><a href="#chapter_12">12. Advanced Actions</a></div><div class="sect-navbar-right"><a href="#section_5">12.5 Unsuccessful attempts</a></div></div>
+<p>&quot;Asking &hellip; to try &hellip;&quot; actions run through their Before and Instead rules like any other actions, but then (if no rule has intervened) something different happens: Inform has to decide whether the person asked consents to try the action or not. By default, the answer is always no, and text like the following will be printed:</p>
+<div class="codeblock"><div class="codeline">&gt; will, go west</div>
+<div class="codeline">Will has better things to do.</div>
+</div><p>However, we can intervene to make the answer &quot;yes&quot;, using a special kind of rule which produces a yes/no answer. The following examples show how we can give broad or narrow permission, as we choose:</p>
+<div class="codeblock"><div class="codeline">Persuasion rule for asking people to try going: persuasion succeeds.</div>
+<div class="codeline">Persuasion rule for asking Will to try going west: persuasion succeeds.</div>
+</div><p>Such a rule can either declare that &quot;persuasion succeeds&quot;, or that &quot;persuasion fails&quot;, or make no decision and leave it to another rule to say. If it decides that persuasion fails, it is also allowed to say something, describing why: in that event, the standard message (&quot;Will has better things to do.&quot;) is suppressed. For example,</p>
+<div class="codeblock"><div class="codeline">Persuasion rule for asking Will to try going:</div>
+<div class="codeline">&ensp;&ensp;say &quot;Will looks put out, and mutters under his breath.&quot;;</div>
+<div class="codeline">&ensp;&ensp;persuasion fails.</div>
+</div><p>The following rule, which is really only suitable for testing, makes everybody infinitely obliging:</p>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Persuasion rule for asking people to try doing something: persuasion succeeds.`)">⧉</button><div class="codeline">Persuasion rule for asking people to try doing something: persuasion succeeds.</div>
+</div><p>Supposing that Will does decide to cooperate, a new action is generated:</p>
+<div class="codeblock"><div class="codeline">Will going west</div>
+</div><p>and this is then subject to all of the usual action machinery. For instance, we could write a rule such as:</p>
+<div class="codeblock"><div class="codeline">Instead of Will going west, say &quot;He runs out into the waves, but soon returns, rueful.&quot;</div>
+</div><p>So in this case the new action (&quot;Will going west&quot;) failed: but the original action, &quot;asking Will to try going west&quot;, is still deemed to have succeeded &ndash; after all, Will <em>did</em> try. To put it more formally, &quot;asking X to try A&quot; succeeds if the persuasion rules succeed, and otherwise fails.</p>
+<p>Note also that &quot;Instead of&hellip;&quot; rules written for other people will be treated by Inform as failures, even if we write something like</p>
+<div class="codeblock"><div class="codeline">Instead of Will pulling the cord:</div>
+<div class="codeline">&ensp;&ensp;say &quot;The bell rings.&quot;</div>
+</div><p>and thus may produce unsatisfactory results such as</p>
+<div class="codeblock"><div class="codeline">&gt;WILL, PULL CORD</div>
+<div class="codeline">The bell rings.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Will is unable to do that.</div>
+</div><p>If we wish to write new successful actions for another character, we will need to create appropriate carry out and report rules for them: these will be explained in the sections to follow.</p>
+<p>(Finally, note that the mechanism Inform uses to see if we have printed a refusal message of our own, in the event of persuasion rules failing, can be fooled if we write a persuasion rule explicitly ending with a &quot;[paragraph break]&quot; text substitution.)</p>
+<div class="examples">
+<h4>Examples</h4>
+<div class="example-short">186. ★ <a href="examples/hypnotist_of_blois.html">The Hypnotist of Blois</a><br>A hypnotist who can make people obedient and then set them free again.</p></div><div class="linkback">
+<a href="RB_7.html#section_14" title="Other Characters &gt; Obedient Characters">RB §7.14 Obedient Characters</a>
+</div>
+<div class="example-short">187. ★ <a href="examples/police_state.html">Police State</a><br>Several friends who obey you; a policeman who doesn&#39;t (but who takes a dim view of certain kinds of antics).</p></div><div class="linkback">
+<a href="RB_7.html#section_3" title="Other Characters &gt; Reactive Characters">RB §7.3 Reactive Characters</a>
+</div>
+<h3 id="section_5">WI §12.5 Unsuccessful attempts</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_4">12.4 Persuasion</a></div><div class="sect-navbar-center"><a href="#chapter_12">12. Advanced Actions</a></div><div class="sect-navbar-right"><a href="#section_6">12.6 Spontaneous actions by other people</a></div></div>
+<p>Suppose, finally, that Will not only consents to try the action, but it also survives its passage through Before and Instead rules. What happens then? In principle, what happens to Will is exactly what would have happened to the player in his place. For instance:</p>
+<div class="codeblock"><div class="codeline">&gt; will, go east</div>
+<div class="codeline">Will leaves to the east.</div>
+</div><p>If on the other hand Will&#39;s attempt is frustrated because one of the checking rules stops him, then Will&#39;s action fails. For instance, if Will tries going northeast but there is no room to northeast, one of the rules checking the &quot;going&quot; action will stop him. We will then see this:</p>
+<div class="codeblock"><div class="codeline">&gt; will, go northeast</div>
+<div class="codeline">Will is unable to do that.</div>
+</div><p>This is rather a generic message, and we may want something more interesting. We can provide that using yet another special kind of rule:</p>
+<div class="codeblock"><div class="codeline">Unsuccessful attempt by Will going: say &quot;Will blunders around going nowhere, as usual.&quot;</div>
+</div><p>Even that is still a little generic, though, because it treats all of the various ways that &quot;going&quot; can fail as the same. If we have ACTIONS switched on, we can see what goes on behind the scenes when we ask Will to walk into a door:</p>
+<div class="codeblock"><div class="codeline">&gt;will, go west</div>
+<div class="codeline">[asking Will to try going west]</div>
+<div class="codeline">[(1) Will going west]</div>
+<div class="codeline">[(1) Will going west - failed the can&#39;t go through closed doors rule]</div>
+<div class="codeline">Will blunders around going nowhere, as usual.</div>
+<div class="codeline">[asking Will to try going west - succeeded]</div>
+</div><p>(The &quot;(1)&quot; lets us know that a new action is starting during the old one, and before the old one finishes: sometimes we go up to three or four deep, though seldom more in practical cases.) We can now rewrite the &quot;unsuccessful attempt&quot; rule like so:</p>
+<div class="codeblock"><div class="codeline">Unsuccessful attempt by Will going:</div>
+<div class="codeline">&ensp;&ensp;if the reason the action failed is the can&#39;t go through closed doors rule, say &quot;Will looks doubtful and mumbles about doors.&quot;;</div>
+<div class="codeline">&ensp;&ensp;otherwise say &quot;Will blunders around going nowhere, as usual.&quot;</div>
+</div><p>The value &quot;reason the action failed&quot; is set to whichever checking rule threw out the action which Will tried. The names of these rules try to be self-explanatory &ndash; at any rate, those with gnomic names are not useful for this sort of thing, and can be ignored &ndash; and can be found out either using ACTIONS or by consulting the Actions index.</p>
+<p>Finally, note that &quot;unsuccessful attempt&quot; rules apply only when the person in question is being asked to perform the action by somebody else &ndash; as in the examples above.</p>
+<div class="examples">
+<h4>Example</h4>
+<div class="example-short">188. ★★ <a href="examples/generation_x.html">Generation X</a><br>A person who goes along with the player&#39;s instructions, but reluctantly, and will get annoyed after too many repetitions of the same kind of unsuccessful command.</p></div><div class="linkback">
+<a href="RB_7.html#section_14" title="Other Characters &gt; Obedient Characters">RB §7.14 Obedient Characters</a>
+</div>
+<h3 id="section_6">WI §12.6 Spontaneous actions by other people</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_5">12.5 Unsuccessful attempts</a></div><div class="sect-navbar-center"><a href="#chapter_12">12. Advanced Actions</a></div><div class="sect-navbar-right"><a href="#section_7">12.7 New actions</a></div></div>
+<p>The player&#39;s actions happen not only when he types a command, but can also happen spontaneously as a result of a &quot;try&quot; phrase.</p>
+<div class="codeblock"><div class="codeline">try going west</div>
+<div class="codeline">try asking Will to try going west</div>
+</div><p>The latter might, of course, result in Will trying going west: or it might not &ndash; that depends on the persuasion rules. But as the author, we have the ultimate powers of persuasion, and can make Will act in any way we like, without asking:</p>
+<div class="codeblock"><div class="codeline">try Will going west</div>
+</div><p>Nobody in the simulated world requested this: it is an impulse felt by Will alone, so that &ndash; from the player&#39;s point of view &ndash; Will is acting spontaneously. The player need not be anywhere nearby, and may never know what happened. Recall that when actions work their way down through the flow-chart, they are stopped before reaching the &quot;report&quot; stage &ndash; when the player is told about them &ndash; if they are running &quot;silently&quot;. This is also where Inform stops an action which is not witnessed by the player.</p>
+<p>To repeat a point in the previous section: &quot;unsuccessful attempt&quot; rules do not apply to actions which the author has caused to happen, using &quot;try&quot;. When such actions fail, they invoke no special set of rules. Indeed, when &quot;try&quot; causes somebody other than the player to try an action, nothing will be printed to report back on success or failure. If Will can&#39;t go west, that&#39;s his problem.</p>
+<p>Note that the text &quot;try Will going west&quot; involves the actor&#39;s name immediately placed next to the action he is to try, which in a very few cases might cause ambiguities. If the actor&#39;s name contains a participle like &quot;going&quot; &ndash; say, if Will&#39;s full name turned out to be Mr Will Going &ndash; then we would have to write out the action name in full, using &quot;trying&quot; to clarify matters:</p>
+<div class="codeblock"><div class="codeline">try Will Going trying going west</div>
+</div><div class="examples">
+<h4>Examples</h4>
+<div class="example-short">189. ★ <a href="examples/iq_test.html">IQ Test</a><br>Introducing Ogg, a person who will unlock and open a container when the player tells him to get something inside.</p></div><div class="linkback">
+<a href="RB_7.html#section_15" title="Other Characters &gt; Goal-Seeking Characters">RB §7.15 Goal-Seeking Characters</a>
+</div>
+<div class="example-short">190. ★★★★ <a href="examples/boston_cream.html">Boston Cream</a><br>A fuller implementation of Ogg, giving him a motivation of his own and allowing him to react to the situation created by the player.</p></div><div class="linkback">
+<a href="RB_7.html#section_15" title="Other Characters &gt; Goal-Seeking Characters">RB §7.15 Goal-Seeking Characters</a>
+</div>
+<h3 id="section_7">WI §12.7 New actions</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_6">12.6 Spontaneous actions by other people</a></div><div class="sect-navbar-center"><a href="#chapter_12">12. Advanced Actions</a></div><div class="sect-navbar-right"><a href="#section_8">12.8 Irregular English verbs</a></div></div>
+<p>It is not often that we need to create new actions, but a large work of interactive fiction with no novelty actions is a flavourless dish. Here we shall create an action for photographing things.</p>
+<div class="codeblock"><div class="codeline">The Ruins is a room. &quot;You find this clearing in the rainforest oddly familiar.&quot; The camera is in the Ruins. &quot;Your elephantine camera hangs from a convenient branch.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Photographing is an action applying to one visible thing and requiring light.</div>
+</div><p>In theory that text is already sufficient to make the new action, but what we have so far is rudimentary to say the least. The two qualifications give Inform the useful information that we cannot photograph in the dark, and that we need to be photographing something &ndash; not, as in the case of waiting or taking inventory, acting without reference to any particular thing external to ourselves.</p>
+<p>The word &quot;visible&quot; here tells Inform that we do not need to be able to touch the thing in question: a line of sight is good enough. These two stipulations were necessary because the default arrangement is that any object must be in touching range, and that most actions can be performed in darkness. (Also, note that if you invent an action which needs to apply to directions like &quot;north&quot; or &quot;south&quot;, you need to make this apply to visible things, because the object used inside Inform to represent the idea of &quot;north&quot; can be seen but not touched. So for understanding purposes, &quot;visible thing&quot; is understood as meaning any visible thing or direction: it&#39;s more general than &quot;thing&quot;, not more specific.)</p>
+<p>Occasionally, when writing general rules about actions, it can be useful to find out what the current action&#39;s requirements are: the following conditions do what they suggest.</p>
+<div class="defn" id="ph_requirestouch"><span class="defn">if action requires a touchable noun:</span><p>This condition is true if the action being processed is one whose (first) noun is an object which needs to be touchable by the actor. For example, it&#39;s true for &quot;taking&quot;, but false for &quot;examining&quot;.</p>
+</div><div class="defn" id="ph_requirestouch2"><span class="defn">if action requires a touchable second noun:</span><p>This condition is true if the action being processed is one whose second noun is an object which needs to be touchable by the actor. For example, it&#39;s true for &quot;putting the brick in the sack&quot;, but false for &quot;throwing the brick at the window&quot;.</p>
+</div><div class="defn" id="ph_requirescarried"><span class="defn">if action requires a carried noun:</span><p>This condition is true if the action being processed is one whose (first) noun is an object which needs to be carried by the actor. For example, it&#39;s true for &quot;dropping&quot;, but false for &quot;taking&quot;.</p>
+</div><div class="defn" id="ph_requirescarried2"><span class="defn">if action requires a carried second noun:</span><p>This condition is true if the action being processed is one whose second noun is an object which needs to be carried by the actor.</p>
+</div><div class="defn" id="ph_requireslight"><span class="defn">if action requires light:</span><p>This condition is true if the action being processed is one which can only be performed if the actor has light to see by. For example, it&#39;s true for &quot;examining&quot;, but false for &quot;dropping&quot;.</p>
+</div><p>As further examples, here we create &quot;blinking&quot; and &quot;scraping X with Y&quot;. Note the use of &quot;it&quot; to indicate that the name of an object should go here.</p>
+<div class="codeblock"><div class="codeline">Blinking is an action applying to nothing. Scraping it with is an action applying to two things.</div>
+</div><p>The photographing action now exists, but with two provisos: (a) it never happens, because Inform does not know what commands by the player should cause it, and (b) even if it were to happen, nothing would follow, because Inform does not know what to do. (There are no check, carry out or report rules yet.)</p>
+<p>The first problem is easily overcome:</p>
+<div class="codeblock"><div class="codeline">Understand &quot;photograph [something]&quot; as photographing.</div>
+</div><p>We will return to the whole subject of parsing, as this process of understanding the player&#39;s commands is called, later. But this gives the gist of it.</p>
+<div class="see-also">
+<h4>See Also</h4>
+<p><a href="WI_17.html#section_1" title="Understanding &gt; Understand">Understand</a> for the full story.<br></p></div><div class="examples">
+<h4>Examples</h4>
+<div class="example-short">191. ★ <a href="examples/red_cross.html">Red Cross</a><br>A DIAGNOSE command which allows the player to check on the health of someone.</p></div><div class="linkback">
+<a href="RB_7.html#section_5" title="Other Characters &gt; Combat and Death">RB §7.5 Combat and Death</a>
+</div>
+<div class="example-short">192. ★★★ <a href="examples/frizz.html">Frizz</a><br>Liquid flows within containers and soaks objects that are not waterproof; any contact with a wet object can dampen our gloves.</p></div><div class="linkback">
+<a href="RB_10.html#section_2" title="Physics: Substances, Ropes, Energy and Weight &gt; Liquids">RB §10.2 Liquids</a>
+</div>
+<div class="example-short">193. ★★★ <a href="examples/3_am.html">3 AM</a><br>A shake command which agitates soda and makes items thump around in boxes.</p></div><div class="linkback">
+<a href="RB_10.html#section_2" title="Physics: Substances, Ropes, Energy and Weight &gt; Liquids">RB §10.2 Liquids</a>
+</div>
+<h3 id="section_8">WI §12.8 Irregular English verbs</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_7">12.7 New actions</a></div><div class="sect-navbar-center"><a href="#chapter_12">12. Advanced Actions</a></div><div class="sect-navbar-right"><a href="#section_9">12.9 Check, carry out, report</a></div></div>
+<p>Our three example actions can be recognised in play using the following:</p>
+<div class="codeblock"><div class="codeline">Understand &quot;photograph [something]&quot; as photographing.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Understand &quot;blink&quot; as blinking.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Understand &quot;scrape [something] with [something]&quot; as scraping it with.</div>
+</div><p>The last of these examples shows why Inform does not risk generating this automatically: English is so full of irregular verbs. Inform could have guessed &quot;blink&quot; and &quot;photograph&quot;, but might then have opted for &quot;scrap&quot; instead of &quot;scrape&quot;.</p>
+<p>Inform does risk automatically generating the past participle of an action. (Many past participles are never needed, so the stakes are lower if Inform gets this wrong.) What usually happens is that the &quot;-ing&quot; is replaced with &quot;-ed&quot;, thus photographed, blinked, scraped &ndash; but Inform has a dictionary of some 460 irregular exceptions, such as caught, fled, crossbred, taken, woven. So with luck Inform will guess correctly. If not, we can get around this like so:</p>
+<div class="codeblock"><div class="codeline">Squicking is an action with past participle squacked, applying to one thing.</div>
+</div><h3 id="section_9">WI §12.9 Check, carry out, report</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_8">12.8 Irregular English verbs</a></div><div class="sect-navbar-center"><a href="#chapter_12">12. Advanced Actions</a></div><div class="sect-navbar-right"><a href="#section_10">12.10 Action variables</a></div></div>
+<p>The normal behaviour of an action is specified by its three associated rulebooks &ndash; check, carry out and report. In the case of our &quot;photographing&quot; example, these rulebooks will be:</p>
+<div class="codeblock"><div class="codeline"><strong>Check photographing</strong>. Here, for instance, we need to verify that the player has the camera. If any of our checks fail, we should say why and stop the action. If they succeed, we say nothing.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline"><strong>Carry out photographing</strong>. At this stage no further checking is needed (or allowed): the action now definitively takes place. At this point we might, for instance, deduct one from the number of exposures left on the film in the camera, or award the player points for capturing something interesting for posterity. But we should say nothing.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline"><strong>Report photographing</strong>. At this stage no further activity is needed (or allowed): whatever effect the action had, it has happened and is now over. All we can do is to say what has taken place.</div>
+</div><p>So far we have not really gone into the business of what rulebooks are, and we don&#39;t do so here either &ndash; suffice to say that we can now create whatever rules we need:</p>
+<div class="codeblock"><div class="codeline">A check photographing rule:</div>
+<div class="codeline">&ensp;&ensp;if the camera is not carried:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;You can hardly photograph without a camera, now can you?&quot; instead.</div>
+</div><p>In fact, writing &quot;a check photographing rule&quot; is over-formal. We can more simply label our rules like so:</p>
+<div class="codeblock"><div class="codeline">Check photographing:</div>
+<div class="codeline">&ensp;&ensp;if we have photographed the noun:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;You&#39;ve already snapped [the noun].&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Report photographing: say &quot;Click!&quot;</div>
+</div><p>For the sake of brevity, photography has no interesting consequence (no points to be won, no film to use up), so there are no carry out rules here. Note the way we used the word &quot;instead&quot; once again to stop actions in their tracks.</p>
+<p>We can continue to add rules at any point, and a classic thing that happens when testing a new work is that the designer realises there is a case which has not been thought of:</p>
+<div class="codeblock"><div class="codeline">Check photographing:</div>
+<div class="codeline">&ensp;&ensp;if the noun is the camera:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;That would require some sort of contraption with mirrors.&quot; instead.</div>
+</div><div class="examples">
+<h4>Examples</h4>
+<div class="example-short">194. ★ <a href="examples/dark_ages_revisited.html">The Dark Ages Revisited</a><br>An electric light kind of device which becomes lit when switched on and dark when switched off.</p></div><div class="linkback">
+<a href="RB_3.html#section_7" title="Place &gt; Lighting">RB §3.7 Lighting</a>
+</div>
+<div class="example-short">195. ★★ <a href="examples/paddington.html">Paddington</a><br>A CUT [something] WITH [something] command which acts differently on different types of objects.</p></div><div class="linkback">
+<a href="RB_10.html#section_4" title="Physics: Substances, Ropes, Energy and Weight &gt; Glass and Other Damage-Prone Substances">RB §10.4 Glass and Other Damage-Prone Substances</a>
+</div>
+<div class="example-short">196. ★★★ <a href="examples/delicious_delicious_rocks.html">Delicious, Delicious Rocks</a><br>Adding a &quot;sanity-check&quot; stage to decide whether an action makes any sense, which occurs before any before rules, implicit taking, or check rules.</p></div><div class="linkback">
+<a href="RB_9.html#section_1" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Food">RB §9.1 Food</a>
+</div>
+<div class="example-short">197. ★★★ <a href="examples/noisemaking.html">Noisemaking</a><br>Creating a stage after the report stage of an action, during which other characters may observe and react.</p></div><div class="linkback">
+<a href="RB_7.html#section_3" title="Other Characters &gt; Reactive Characters">RB §7.3 Reactive Characters</a>
+</div>
+<h3 id="section_10">WI §12.10 Action variables</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_9">12.9 Check, carry out, report</a></div><div class="sect-navbar-center"><a href="#chapter_12">12. Advanced Actions</a></div><div class="sect-navbar-right"><a href="#section_11">12.11 Making actions work for other people</a></div></div>
+<p>For some complex situations, it can be useful to keep track of a few values throughout the processing of the action. This is not an everyday occurrence: in the Standard Rules, for instance, only two or three out of 90 actions need to do this. But suppose we want to write a more deluxe version of our &quot;photographing&quot; action. This time, rather than having a single thing called the &quot;camera&quot;, we will provide a whole range of possible cameras, varying in quality:</p>
+<div class="codeblock"><div class="codeline">Photographing is an action applying to one visible thing and requiring light. Understand &quot;photograph [something]&quot; as photographing.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Studio is a room. Sally is a woman in the Studio. A foam-lined tote bag is in the Studio.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A camera is a kind of thing. A camera has a number called picture quality. The digital SLR camera is a camera in the tote bag. The player carries a camera called the instant one-shot camera. The picture quality of the SLR camera is 10. The picture quality of the one-shot is 2. Definition: a camera is sharp if its picture quality is 5 or more.</div>
+</div><p>And we will want the photographing action to have the player use the best-quality camera which comes to hand. We will give the action a variable called the &#39;camera photographed with&#39;, thus:</p>
+<div class="codeblock"><div class="codeline">The photographing action has an object called the camera photographed with.</div>
+</div><p>Every action&#39;s variables must be named differently from those of all other actions, because there are some &quot;before&quot; rules (for instance) which take effect for many different actions, and which might need access to any of their variables. So action variables should be named in a way marking out to which action they belong. The best way to do this is to include the past participle of the action name &ndash; just as &quot;camera photographed with&quot; contains the past participle &quot;photographed&quot; of the action &quot;photographing&quot;.</p>
+<p>This value is created when the action begins, and disappears when the action ends. (If the action should happen a second time before the first time was completed, a second copy of the value is created, leaving the original undisturbed.) When the action begins, the value starts out as something neutral &ndash; so if it is a number, it starts out as 0, if a text, it starts out as the blank text &quot;&quot;, and so on. Here it is an object, so it starts out as nothing &ndash; the value meaning no object at all. But of course we want to give it a value ourselves. We can do that using the &quot;setting action variables&quot; rulebook. For instance:</p>
+<div class="codeblock"><div class="codeline">Setting action variables for photographing:</div>
+<div class="codeline">&ensp;&ensp;now the camera photographed with is the sharpest camera which is carried by the actor.</div>
+</div><p>The &quot;setting action variables&quot; rulebook is run through before even the before rules, and it has no power to stop or change the action. Its rules should say nothing and do nothing other than to set rulebook variables like this one. Note that it is intended to work for any actor, not only the player: so rather than referring to the player as the performer of the action, we need to write &quot;the actor&quot;, as in the example above. (See subsequent sections for more on actors.)</p>
+<p>We can now write rules such as:</p>
+<div class="codeblock"><div class="codeline">A check photographing rule:</div>
+<div class="codeline">&ensp;&ensp;if the camera photographed with is nothing:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;You can hardly photograph without a camera, now can you?&quot; instead.</div>
+</div><p>Only rules to do with the photographing action &ndash; before, instead, after, check, carry out, or report rules, and so on &ndash; are allowed to see the &#39;camera photographed with&#39; value: it&#39;s the private property of the action.</p>
+<p>A further elaboration allows us to make rules about photographing neater to write. If we create our variable like so:</p>
+<div class="codeblock"><div class="codeline">The photographing action has an object called the camera photographed with (matched as &quot;using&quot;).</div>
+</div><p>&hellip;then we are now allowed to add an optional &#39;using &hellip;&#39; clause onto a description of the action. The clause has to be introduced with a single word: here, it&#39;s &#39;using&#39;. For instance, we could write rules such as</p>
+<div class="codeblock"><div class="codeline">Instead of photographing something using the one-shot camera:</div>
+<div class="codeline">&ensp;&ensp;say &quot;But you promised to give this to Sally&#39;s nephew.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Check photographing something using the noun:</div>
+<div class="codeline">&ensp;&ensp;say &quot;That would require some sort of contraption with mirrors.&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Report photographing something using a sharp camera:</div>
+<div class="codeline">&ensp;&ensp;say &quot;You feel cool and important as the shutter clicks.&quot;</div>
+</div><p>(This is the method used by the Standard Rules to attach optional clauses such as &#39;to&#39;, &#39;with&#39; and &#39;through&#39; to the going action.)</p>
+<div class="examples">
+<h4>Examples</h4>
+<div class="example-short">198. ★ <a href="examples/removal.html">Removal</a><br>TAKE expanded to give responses such as &quot;You take the book from the shelf.&quot; or &quot;You pick up the toy from the ground.&quot;</p></div><div class="linkback">
+<a href="RB_6.html#section_8" title="Commands &gt; Taking, Dropping, Inserting and Putting">RB §6.8 Taking, Dropping, Inserting and Putting</a>
+</div>
+<div class="example-short">199. ★ <a href="examples/further_reasons_why_all_poets_are_liars.html">Further Reasons Why All Poets Are Liars</a><br>The young William Wordsworth, pushing a box about in his room, must struggle to achieve a Romantic point of view.</p></div><div class="linkback">
+<a href="RB_3.html#section_3" title="Place &gt; Position Within Rooms">RB §3.3 Position Within Rooms</a>
+</div>
+<div class="example-short">200. ★ <a href="examples/second_oldest_problem.html">The Second Oldest Problem</a><br>Adapting the going action so that something special can happen when going from a dark room to another dark room.</p></div><div class="linkback">
+<a href="RB_6.html#section_9" title="Commands &gt; Going, Pushing Things in Directions">RB §6.9 Going, Pushing Things in Directions</a>
+</div>
+<div class="example-short">201. ★★ <a href="examples/puff_of_orange_smoke.html">Puff of Orange Smoke</a><br>A system in which every character has a body, which is left behind when the person dies; attempts to do something to the body are redirected to the person while the person is alive.</p></div><div class="linkback">
+<a href="RB_7.html#section_5" title="Other Characters &gt; Combat and Death">RB §7.5 Combat and Death</a>
+</div>
+<div class="example-short">202. ★★★ <a href="examples/croft.html">Croft</a><br>Adding special reporting and handling for objects dropped when the player is on a supporter, and special entering rules for moving from one supporter to another.</p></div><div class="linkback">
+<a href="RB_6.html#section_8" title="Commands &gt; Taking, Dropping, Inserting and Putting">RB §6.8 Taking, Dropping, Inserting and Putting</a>
+</div>
+<h3 id="section_11">WI §12.11 Making actions work for other people</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_10">12.10 Action variables</a></div><div class="sect-navbar-center"><a href="#chapter_12">12. Advanced Actions</a></div><div class="sect-navbar-right"><a href="#section_12">12.12 Check rules for actions by other people</a></div></div>
+<p>The &quot;photographing&quot; action now works very nicely when the player does it. But not when others try. Suppose that neither the player, nor Clark Gable, is holding the camera:</p>
+<div class="codeblock"><div class="codeline">&gt;photograph clark</div>
+<div class="codeline">You can hardly photograph without a camera, now can you?</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&gt;clark, photograph me</div>
+<div class="codeline">&gt;</div>
+</div><p>An uncanny silence. What has happened is that the rules written so far are all implicitly restricted to the player only. This is because when we write -</p>
+<div class="codeblock"><div class="codeline">Check photographing:</div>
+<div class="codeline">&ensp;&ensp;if the camera is not carried:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;You can hardly photograph without a camera, now can you?&quot; instead.</div>
+</div><p>the action is &quot;photographing&quot;, not &quot;Clark photographing&quot;. In the next few sections we shall see how to make the rules work nicely for everybody. This is a little bit harder, so it should be noted right away that in many projects there is no need. In a story which has no other characters who succumb to persuasion, for instance, only the player will ever try the action.</p>
+<div class="examples">
+<h4>Examples</h4>
+<div class="example-short">203. ★★ <a href="examples/man_of_steel.html">The Man of Steel</a><br>An escaping action which means &quot;go to any room you can reach from here&quot;, and is only useful to non-player characters.</p></div><div class="linkback">
+<a href="RB_7.html#section_15" title="Other Characters &gt; Goal-Seeking Characters">RB §7.15 Goal-Seeking Characters</a>
+</div>
+<div class="example-short">204. ★★★ <a href="examples/trying_taking_manhattan.html">Trying Taking Manhattan</a><br>Replacing the inventory reporting rule with another which does something slightly different.</p></div><div class="linkback">
+<a href="RB_6.html#section_7" title="Commands &gt; Inventory">RB §6.7 Inventory</a>
+</div>
+<div class="example-short">205. ★★★★ <a href="examples/under_contract.html">Under Contract</a><br>Creating a person who accepts most instructions and reacts correctly when a request leads implicitly to inappropriate behavior.</p></div><div class="linkback">
+<a href="RB_7.html#section_14" title="Other Characters &gt; Obedient Characters">RB §7.14 Obedient Characters</a>
+</div>
+<h3 id="section_12">WI §12.12 Check rules for actions by other people</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_11">12.11 Making actions work for other people</a></div><div class="sect-navbar-center"><a href="#chapter_12">12. Advanced Actions</a></div><div class="sect-navbar-right"><a href="#section_13">12.13 Report rules for actions by other people</a></div></div>
+<p>If we want to impose the restriction about carrying the camera on other people, we need a rule like the following:</p>
+<div class="codeblock"><div class="codeline">Check someone photographing: if the person asked does not carry the camera, stop the action.</div>
+</div><p>Implicitly, that &quot;someone&quot; excludes the player. Note that we say nothing in this rule, stopping the action without a word: after all, Clark might well be out of sight when trying this. If he is within sight, then we read:</p>
+<div class="codeblock"><div class="codeline">&gt;clark, photograph me</div>
+<div class="codeline">Clark Gable is unable to do that.</div>
+</div><p>We saw before that Inform&#39;s built-in rules all have handy names (the &quot;can&#39;t drop what&#39;s already dropped rule&quot;, and such), and that these are useful when writing better &quot;unable to&hellip;&quot; messages. So for a deluxe version, we end up with:</p>
+<div class="codeblock"><div class="codeline">Check someone trying photographing (this is the other people can&#39;t photograph without the camera rule): if the person asked does not carry the camera, stop the action.</div>
+</div><p>And now, with ACTIONS on, we find that:</p>
+<div class="codeblock"><div class="codeline">&gt;clark, photograph me</div>
+<div class="codeline">[asking Clark Gable to try photographing yourself]</div>
+<div class="codeline">[(1) Clark Gable photographing yourself]</div>
+<div class="codeline">[(1) Clark Gable photographing yourself - failed the other people can&#39;t photograph without the camera rule]</div>
+<div class="codeline">Clark Gable is unable to do that.</div>
+<div class="codeline">[asking Clark Gable to try photographing yourself - succeeded]</div>
+</div><p>which means that we could have, say,</p>
+<div class="codeblock"><div class="codeline">Unsuccessful attempt by Clark photographing:</div>
+<div class="codeline">&ensp;&ensp;if the reason the action failed is the other people can&#39;t photograph without the camera rule, say &quot;Clark is too suave to be embarrassed. &#39;Frankly, my dear, I don&#39;t have a camera.&#39;&quot;;</div>
+<div class="codeline">&ensp;&ensp;otherwise say &quot;Clark tries, and fails, to take a photograph.&quot;</div>
+</div><div class="examples">
+<h4>Examples</h4>
+<div class="example-short">206. ★ <a href="examples/get_axe.html">Get Axe</a><br>Changing the check rules to try automatically leaving a container before attempting to take it. (And arranging things so that other people will do likewise.)</p></div><div class="linkback">
+<a href="RB_6.html#section_10" title="Commands &gt; Entering and Exiting, Sitting and Standing">RB §6.10 Entering and Exiting, Sitting and Standing</a>
+</div>
+<div class="example-short">207. ★★★ <a href="examples/barter_barter.html">Barter Barter</a><br>Allowing characters other than the player to give objects to one another, accounting for the possibility that some items may not be desired by the intended recipients.</p></div><div class="linkback">
+<a href="RB_7.html#section_4" title="Other Characters &gt; Barter and Exchange">RB §7.4 Barter and Exchange</a>
+</div>
+<h3 id="section_13">WI §12.13 Report rules for actions by other people</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_12">12.12 Check rules for actions by other people</a></div><div class="sect-navbar-center"><a href="#chapter_12">12. Advanced Actions</a></div><div class="sect-navbar-right"><a href="#section_14">12.14 Actions for any actor</a></div></div>
+<p>Report rules for the player&#39;s actions are easy to write, and for many actions, they are not much harder for other people either:</p>
+<div class="codeblock"><div class="codeline">Report photographing: say &quot;Click!&quot;</div>
+<div class="codeline">Report someone photographing: say &quot;Click! [The person asked] takes a snapshot of [the noun].&quot;</div>
+</div><p>But once other people are involved, we have to go to some trouble to get all of the possibilities right. Here is a case which did not immediately occur to the author of the &quot;going&quot; action, for instance:</p>
+<div class="codeblock"><div class="codeline">&gt;get in cage</div>
+<div class="codeline">You get into the cage.</div>
+<div class="codeline">&gt;clark, get in automobile</div>
+<div class="codeline">Clark Gable gets into the automobile.</div>
+<div class="codeline">&gt;clark, push cage west</div>
+<div class="codeline">Clark Gable goes west in the automobile, pushing the cage in front, and you along too.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline"><strong>The Lot</strong> (in the cage)</div>
+<div class="codeline">In the Lot you can see an automobile (in which is Clark Gable).</div>
+</div><p>We said before that report rules are skipped if the action is running &quot;silently&quot;, or if the action is one that the player does not witness. But that is also a tricky concept. Inform&#39;s doctrine is that you witness an action if you can see any of the actor, the noun or the second noun at either the beginning or the end of the action; except that being able to see a backdrop does not count. Thus if Clark Gable, in Beverly Hills, photographs the Hollywood sign then we do not witness this from Sunset Boulevard merely because we, too, can see the Hollywood sign.</p>
+<p>While the report rules for actions by the player must actually report something, report rules for other people&#39;s actions are under no such obligation. For instance, if Clark unlocks a door from the other side to the player, then this counts as an action that the player witnesses &ndash; and after all, it could be argued that the player should hear the key turning in the lock &ndash; but in fact the standard rules for reporting locking choose to say nothing.</p>
+<div class="examples">
+<h4>Examples</h4>
+<div class="example-short">208. ★★ <a href="examples/man_of_steel_excuses_himself.html">The Man of Steel Excuses Himself</a><br>Elaborating the report rules to be more interesting than &quot;Clark goes west.&quot;</p></div><div class="linkback">
+<a href="RB_7.html#section_15" title="Other Characters &gt; Goal-Seeking Characters">RB §7.15 Goal-Seeking Characters</a>
+</div>
+<div class="example-short">209. ★★★ <a href="examples/fate_steps_in.html">Fate Steps In</a><br>Fate entity which attempts to make things happen, by hook or by crook, including taking preliminary actions to set the player up a bit.</p></div><div class="linkback">
+<a href="RB_4.html#section_6" title="Time and Plot &gt; Plot Management">RB §4.6 Plot Management</a>
+</div>
+<h3 id="section_14">WI §12.14 Actions for any actor</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_13">12.13 Report rules for actions by other people</a></div><div class="sect-navbar-center"><a href="#chapter_12">12. Advanced Actions</a></div><div class="sect-navbar-right"><a href="#section_15">12.15 Out of world actions</a></div></div>
+<p>In the previous sections, we created a new action by providing one set of rules for the player and another for anybody else who might try to perform it. These rules began with action descriptions in one of the following forms:</p>
+<div class="codeblock"><div class="codeline">Instead of taking a container, ...</div>
+<div class="codeline">Instead of P taking a container, ...</div>
+</div><p>The first form implies that the player must be performing the action: the second allows for any person matching P to be the action, except that this person must not be the player. That means that all rules seen so far either affect only the player, or only other people.</p>
+<p>This is often convenient, but sometimes we need to set up a complicated action which really does work in the same way for every actor &ndash; for instance, the built-in Inform actions provided by the Standard Rules aim to do this. We can write such rules thus:</p>
+<div class="codeblock"><div class="codeline">Instead of an actor taking a container, ...</div>
+</div><p>Here the rule applies to anyone who tries taking a container, player or not. Inside such a rule, the special value &#39;the actor&#39; is the person performing the action. For instance, the Standard Rules include this one:</p>
+<div class="codeblock"><div class="codeline">Carry out an actor wearing (this is the standard wearing rule):</div>
+<div class="codeline">&ensp;&ensp;now the actor wears the noun.</div>
+</div><h3 id="section_15">WI §12.15 Out of world actions</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_14">12.14 Actions for any actor</a></div><div class="sect-navbar-center"><a href="#chapter_12">12. Advanced Actions</a></div><div class="sect-navbar-right"><a href="#section_16">12.16 Reaching inside and reaching outside rules</a></div></div>
+<p>The actions seen so far are all impulses causing the protagonist inside the fictional world to do something, or at least try to. But when the player types &quot;quit&quot; or &quot;save&quot;, that is not a request for anything to happen in the fictional world: it is an instruction to the program simulating that world. In fact, just the same, such requests are treated as actions, but of a special category called &quot;out of world&quot; actions. They do not cause time to pass by, so the turn counter does not advance, nor does this command cycle count as a turn at all; and they are altogether exempt from &quot;Before&quot;, &quot;Instead&quot; and &quot;After&quot; rules. Only the player is allowed to try them.</p>
+<p>We can also create new out-of-world actions. Suppose we want a dialogue like so:</p>
+<div class="codeblock"><div class="codeline">&gt;ROOMS</div>
+<div class="codeline">You have been to 1 out of 8 rooms.</div>
+</div><p>Here is a complete implementation:</p>
+<div class="codeblock"><div class="codeline">Requesting the room tally is an action out of world.</div>
+<div class="codeline">Report requesting the room tally: say &quot;You have been to [number of visited rooms] out of [number of rooms] room[s].&quot;</div>
+<div class="codeline">Understand &quot;rooms&quot; as requesting the room tally.</div>
+</div><p>It is important not to use &quot;out of world&quot; actions for anything affecting what goes on in the fictional world, or realism will collapse, and action-processing may also fail to work in the usual way. &quot;Out of world&quot; actions should be reserved for providing commands like ROOMS, which monitor events rather than participate in them.</p>
+<div class="examples">
+<h4>Examples</h4>
+<div class="example-short">210. ★ <a href="examples/spellbreaker.html">Spellbreaker</a><br>P. David Lebling&#39;s classic &quot;Spellbreaker&quot; (1986) includes a room where the game cannot be saved: here is an Inform implementation.</p></div><div class="linkback">
+<a href="RB_11.html#section_2" title="Out Of World Actions and Effects &gt; Saving and Undoing">RB §11.2 Saving and Undoing</a>
+</div>
+<div class="example-short">211. ★★★ <a href="examples/point_for_never_saving_the_game.html">A point for never saving the game</a><br>In some of the late 1970s &quot;cave crawl&quot; adventure games, an elaborate scoring system might still leave the player perplexed as to why an apparently perfect play-through resulted in a score which was still one point short of the supposed maximum. Why only 349 out of 350? The answer varied, but sometimes the last point was earned by never saving the game - in other words by playing it right through with nothing to guard against mistakes (except perhaps UNDO for the last command), and in one long session.</p></div><div class="linkback">
+<a href="RB_11.html#section_2" title="Out Of World Actions and Effects &gt; Saving and Undoing">RB §11.2 Saving and Undoing</a>
+</div>
+<h3 id="section_16">WI §12.16 Reaching inside and reaching outside rules</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_15">12.15 Out of world actions</a></div><div class="sect-navbar-center"><a href="#chapter_12">12. Advanced Actions</a></div><div class="sect-navbar-right"><a href="#section_17">12.17 Visible vs touchable vs carried</a></div></div>
+<p>The flow chart back at the start of this chapter shows that, early on in processing an action (between Before and Instead), Inform asks the question &quot;Can we see or touch things?&quot; This is where it enforces the requirements in the action&#39;s definition:</p>
+<div class="codeblock"><div class="codeline">Photographing is an action applying to one visible thing and requiring light.</div>
+<div class="codeline">Scraping it with is an action applying to two things.</div>
+</div><p>Seeing and touching are two different questions, which Inform answers in different ways. We shall see ways to modify or entirely alter what can be seen using the &quot;deciding the scope of something&quot; activity when we get to the Understanding and Activities chapters, and later in this chapter we will change the definition of touchability. What both have in common is that they are complicated questions, affected by the circumstances. We cannot simply declare that the player can touch a given lever, or can see in a given room: we must arrange for there to be no barriers between the player and the lever, or for there to be a light source in the room.</p>
+<p>An example of rules applying to given objects is provided by the way that Inform decides whether the player can reach something or not. For instance, suppose the following:</p>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Laboratory is a room. In the Laboratory is a conical flask. The flask is closed and transparent. In the flask is an antibumping granule.`)">⧉</button><div class="codeline">The Laboratory is a room. In the Laboratory is a conical flask. The flask is closed and transparent. In the flask is an antibumping granule.</div>
+</div><p>The player will be able to examine the granule but not to take it, as that would require reaching through glass. Suppose the player does type TAKE GRANULE: then Inform looks for potential barriers between the player and the granule, and of course finds the conical flask. If, as in this case, the thing to be touched is on the inside, then Inform asks the &quot;reaching inside&quot; rules for permission. There are two reaching inside rules built in to Inform:</p>
+<div class="codeblock"><div class="codeline">can&#39;t reach inside rooms rule</div>
+<div class="codeline">can&#39;t reach inside closed containers rule</div>
+</div><p>and in fact the second of these rules will cause the taking action to fail, because the conical flask is a closed container. (The other rule has to do with a player in one room able to see another room through, say, a telescope &ndash; merely having a line of sight doesn&#39;t give the ability to reach into the frame.)</p>
+<p>Symmetrically, Inform also has &quot;reaching outside&quot; rules, used if the player is inside something and wants to reach an object in the wider room. (From a bed, probably yes; from a cage, probably no.) This ordinarily contains just one rule:</p>
+<div class="codeblock"><div class="codeline">can&#39;t reach outside closed containers rule</div>
+</div><div class="examples">
+<h4>Example</h4>
+<div class="example-short">212. ★★ <a href="examples/carnivale.html">Carnivale</a><br>An alternative to backdrops when we want something to be visible from a distance but only touchable from one room.</p></div><div class="linkback">
+<a href="RB_3.html#section_4" title="Place &gt; Continuous Spaces and The Outdoors">RB §3.4 Continuous Spaces and The Outdoors</a>
+</div>
+<h3 id="section_17">WI §12.17 Visible vs touchable vs carried</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_16">12.16 Reaching inside and reaching outside rules</a></div><div class="sect-navbar-center"><a href="#chapter_12">12. Advanced Actions</a></div><div class="sect-navbar-right"><a href="#section_18">12.18 Changing reachability</a></div></div>
+<p>To recap, actions are created like so:</p>
+<div class="codeblock"><div class="codeline">Photographing is an action applying to one visible thing and requiring light.</div>
+<div class="codeline">Depositing it in is an action applying to two things.</div>
+<div class="codeline">Taking inventory is an action applying to nothing.</div>
+</div><p>Actions can involve up to two different things. We can place additional requirements on any of these things by describing them as a &quot;visible thing&quot;, &quot;touchable thing&quot; or &quot;carried thing&quot;. (If we simply say &quot;thing&quot; or &quot;things&quot;, as in the second example, Inform assumes the requirement to be &quot;touchable&quot;.) These three conditions are increasingly strong:</p>
+<p>- To be &quot;visible&quot;, something needs only to be possible to refer to by the player, which in practice means that it must be visible to the player-character. The noun or second noun produced by any action resulting from a command at the keyboard will always satisfy this minimal condition.</p>
+<p>- To be &quot;touchable&quot;, the player-character must be able to physically touch the thing in question: this normally means that it must be in the same room, and there must be no physical barriers in between.</p>
+<p>- To be &quot;carried&quot;, the player-character must (directly) carry the thing in question. (But if the player types a command using an action requiring something &quot;carried&quot;, like WEAR HAT, the thing in question &ndash; the hat &ndash; will sometimes be picked up automatically. This is called &quot;implicit taking&quot;, and results in text like &quot;(first taking the top hat)&quot; being printed.)</p>
+<p>If an action involves two things, they need not have the same requirement as each other:</p>
+<div class="codeblock"><div class="codeline">Waving it at is an action applying to one carried thing and one visible thing.</div>
+</div><p>Thus to &quot;wave magic wand at banyan tree&quot;, the player must be holding the wand, but need only be able to see the tree.</p>
+<p>Note one special case. Requirements on touchability are waived in the case of &quot;try&quot; actions applied to people other than the player where the things they would need to touch are doors or backdrops. (This is a compromise to avoid difficulties arising from the ambiguous locations of such items.)</p>
+<div class="examples">
+<h4>Examples</h4>
+<div class="example-short">213. ★★ <a href="examples/eddystone.html">Eddystone</a><br>Creating new commands involving the standard compass directions.</p></div><div class="linkback">
+<a href="RB_3.html#section_4" title="Place &gt; Continuous Spaces and The Outdoors">RB §3.4 Continuous Spaces and The Outdoors</a>
+</div>
+<div class="example-short">214. ★★★ <a href="examples/slogars_revenge.html">Slogar's Revenge</a><br>Creating an amulet of tumblers that can be used to lock and unlock things even when it is worn, overriding the usual requirement that keys be carried.</p></div><div class="linkback">
+<a href="RB_6.html#section_3" title="Commands &gt; Modifying Existing Commands">RB §6.3 Modifying Existing Commands</a>
+</div>
+<h3 id="section_18">WI §12.18 Changing reachability</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_17">12.17 Visible vs touchable vs carried</a></div><div class="sect-navbar-center"><a href="#chapter_12">12. Advanced Actions</a></div><div class="sect-navbar-right"><a href="#section_19">12.19 Changing visibility</a></div></div>
+<p>The question of what the player can, and cannot, reach to touch is important in interactive fiction. It contains some of the subtlest ideas in the model world, though they often go unnoticed. For instance, if a key is on a shelf which is part of a closed box, can we reach for the key? This comes down to whether the shelf, described only as &quot;part of&quot; the box, is on the inside or the outside: and in fact, because it cannot know which is the case, Inform allows either. So in general it is best to regard &quot;parts&quot; as being exterior parts, but to avoid having parts on containers that might in the course of play be closed up with the player inside.</p>
+<p>We can, if we wish, change the principles of what can be touched by writing new reaching inside or reaching outside rules. Returning to the example of the conical flask:</p>
+<div class="codeblock"><div class="codeline">A rule for reaching inside the flask: say &quot;Your hand passes through the glass as if it were not there, chilling you to the bone.&quot;; allow access.</div>
+</div><p>(Or this could equally be called &quot;a reaching inside rule for the flask&quot;.) More generally, we could give the usual flexible description of what the rule applies to:</p>
+<div class="codeblock"><div class="codeline">A rule for reaching inside open containers: say &quot;Your hands seem enigmatically too large for [the container in question].&quot;; deny access.</div>
+</div><p>The &quot;container in question&quot; is the one to which the rule is being applied. Note that a reaching inside rule can &quot;deny access&quot; (stopping with failure), or &quot;allow access&quot; (stopping with success), or neither, in which case the decision is left up to any subsequent rules in the rulebook to make. If none of them decide, access is allowed.</p>
+<p>If it seems possible that these rules will be employed by people other than the player, then we need to write them a little more carefully, and in particular we need to ensure that they print nothing for other people. In the first case below, anybody can reach through the glass; in the second case, only the player cannot reach into open containers.</p>
+<div class="codeblock"><div class="codeline">A rule for reaching inside the flask:</div>
+<div class="codeline">&ensp;&ensp;if the person reaching is the player, say &quot;Your hand passes through the glass as if it were not there, chilling you to the bone.&quot;;</div>
+<div class="codeline">&ensp;&ensp;allow access.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A rule for reaching inside open containers:</div>
+<div class="codeline">&ensp;&ensp;if the person reaching is the player:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;Your hands seem enigmatically too large for [the container in question].&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;deny access.</div>
+</div><p>The &quot;person reaching&quot; is, as its name suggests, the person trying to reach through the barrier in question.</p>
+<div class="examples">
+<h4>Examples</h4>
+<div class="example-short">215. ★ <a href="examples/magnetos_revenge.html">Magneto's Revenge</a><br>Kitty Pryde of the X-Men is able to reach through solid objects, so we might implement her with special powers that the player does not have...</p></div><div class="linkback">
+<a href="RB_10.html#section_10" title="Physics: Substances, Ropes, Energy and Weight &gt; Magic (Breaking the Laws of Physics)">RB §10.10 Magic (Breaking the Laws of Physics)</a>
+</div>
+<div class="example-short">216. ★ <a href="examples/waterworld.html">Waterworld</a><br>A backdrop which the player can examine, but cannot interact with in any other way.</p></div><div class="linkback">
+<a href="RB_3.html#section_4" title="Place &gt; Continuous Spaces and The Outdoors">RB §3.4 Continuous Spaces and The Outdoors</a>
+</div>
+<div class="example-short">217. ★★ <a href="examples/dinner_is_served.html">Dinner is Served</a><br>A window between two locations. When the window is open, the player can reach through into the other location; when it isn&#39;t, access is barred.</p></div><div class="linkback">
+<a href="RB_3.html#section_6" title="Place &gt; Windows">RB §3.6 Windows</a>
+</div>
+<h3 id="section_19">WI §12.19 Changing visibility</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_18">12.18 Changing reachability</a></div><div class="sect-navbar-center"><a href="#chapter_12">12. Advanced Actions</a></div><div class="sect-navbar-right"><a href="#section_20">12.20 Stored actions</a></div></div>
+<p>Ordinarily, Inform has a simple model for visibility: it is either fully light or it is fully dark, and certain actions are impossible in the dark, such as examining something.</p>
+<p>We first need to remember that darkness affects what actions are even tried, as far as the player&#39;s typed commands go. If the player is in a dark room, and there is a screwdriver on the floor, the command EXAMINE SCREWDRIVER will not try any action: the screwdriver is not &quot;in scope&quot;, which means that the parser thinks the player does not have any means of knowing it exists. (The rules for scope can be modified &ndash; see the chapter on Activities.) But let&#39;s suppose that the player types EXAMINE BOOK, and is holding the book in question. The book is now &quot;in scope&quot;, so the action &quot;examining the book&quot; is tried.</p>
+<p>Some actions require light to be present, and &quot;examining&quot; is one of those. So Inform consults the visibility rules to see if it can go ahead. By default, there is only one visibility rule, which says &quot;yes&quot; in the light and &quot;no&quot; in darkness. Here, though, we create another one:</p>
+<div class="codeblock"><div class="codeline">Visibility rule when in darkness:</div>
+<div class="codeline">&ensp;&ensp;if examining the book:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;You have to squint. Still...&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;there is sufficient light;</div>
+<div class="codeline">&ensp;&ensp;there is insufficient light.</div>
+</div><p>A visibility rule must always conclude &quot;there is sufficient light&quot;, or &quot;there is insufficient light&quot;, or else do nothing and leave it to other rules to decide.</p>
+<p>It is a possibly unexpected fact that &quot;looking&quot; does not require light, but instead behaves differently in darkness &ndash; it prints a pseudo-room-description such as</p>
+<div class="codeblock"><div class="codeline"><strong>Darkness</strong></div>
+<div class="codeline">It is pitch dark, and you can&#39;t see a thing.</div>
+</div><p>instead of printing the description of the player&#39;s current room. This means that the &quot;looking&quot; action is unaffected by visibility rules. All the same, what &quot;looking&quot; does in the dark can be changed by using the two activities &quot;printing the name of a dark room&quot; and &quot;printing the description of a dark room&quot; (see the Activities chapter for details).</p>
+<div class="examples">
+<h4>Example</h4>
+<div class="example-short">218. ★ <a href="examples/flashlight.html">Flashlight</a><br>Visibility set so that looking under objects produces no result unless the player has a light source to shine there (regardless of the light level of the room).</p></div><div class="linkback">
+<a href="RB_6.html#section_6" title="Commands &gt; Looking Under and Hiding">RB §6.6 Looking Under and Hiding</a>
+</div>
+<h3 id="section_20">WI §12.20 Stored actions</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_19">12.19 Changing visibility</a></div><div class="sect-navbar-center"><a href="#chapter_12">12. Advanced Actions</a></div><div class="sect-navbar-right"><a href="#section_21">12.21 Guidelines on how to write rules about actions</a></div></div>
+<p>As we have seen, to describe an action fully takes a complicated little bundle of information &ndash; we need to know what is to be done, who will do it, and what it will be done to. There are times when we would like to remember an action and look back on it later (perhaps many turns later, after many other actions have taken effect) &ndash; but this is not easy to do with only the techniques we have seen so far. There are quite a few cases to get right, and it would be easy to not store quite enough of the details.</p>
+<p>Fortunately, Inform provides a kind of value called &quot;action&quot; which can do all of this automatically. (In older versions of Inform this was called &quot;stored action&quot;, but the word &quot;stored&quot; is now unnecessary, and makes no difference.) As with most other kinds of value, actions can be held in variables, &quot;let&quot; values, properties or table columns. For example:</p>
+<div class="codeblock"><div class="codeline">The best idea yet is an action that varies.</div>
+</div><p>creates a variable called &quot;the best idea yet&quot; which holds an action.</p>
+<p>This will normally be created holding the default value &ndash; the player waiting. We really only have two ways to make more interesting actions. One is by typing them out explicitly, like so:</p>
+<div class="codeblock"><div class="codeline">now the best idea yet is pushing the button;</div>
+</div><p>Here &quot;pushing the button&quot; is a constant of the kind &quot;action&quot;, so it goes into happily into &quot;best idea yet&quot; in the same way that a number like 3 could go into a number that varies. The action must be specific in every respect, so &quot;taking something&quot; or &quot;doing something&quot; will not work &ndash; &quot;taking something&quot; is really a general description of many possible actions, not an action in its own right.</p>
+<p>The other way to produce a useful action is:</p>
+<div class="defn" id="ph_currentaction"><span class="defn">current action</span> &rArr; <em>action</em><p>This phrase produces the action currently being processed as a value &ndash; it literally stores the action, and remembers, if necessary, the exact wording of the player&#39;s command at the time it was stored &ndash; so that even actions arising from commands like LOOK UP X100 IN THE CODE BOOK can be stored faithfully. Examples:</p>
+<div class="codeblock"><div class="codeline">let the present whim be the current action;</div>
+<div class="codeline">say &quot;How you would like to be [current action].&quot;;</div>
+</div><p>This only makes sense if an action is currently going on, so it shouldn&#39;t be used in &quot;every turn&quot; rules, for instance.</p>
+</div><p>So much for making actions: now for making use of them. The first obvious idea is to store up an action for several turns and then have it take effect later. That&#39;s easily done: just as we can &quot;try&quot; any action written out explicitly, so we can also try a stored one. The phrase to do this has exactly the same wording either way, since it does the same thing either way.</p>
+<p>But actions can still be useful even if we never intend to try them. For one thing, we can say them, and this produces a fairly natural description of what the action is:</p>
+<div class="codeblock"><div class="codeline">Before doing something in the presence of the bearded psychiatrist: say &quot;&#39;Zo, the subject vishes to engage in [the current action]. Zis is very interesting.&#39;&quot;</div>
+</div><p>will produce text such as:</p>
+<div class="codeblock"><div class="codeline">&quot;So, the subject vishes to engage in rubbing the fireman&#39;s pole. Zis is very interesting.&quot;</div>
+</div><p>One of Inform&#39;s most convenient features is its ability to test if the action being processed matches vague or complicated descriptions of whole classes of actions. For example,</p>
+<div class="codeblock"><div class="codeline">if the best idea yet is taking something, ...</div>
+</div><p>works even though &quot;taking something&quot; is not a single action; it&#39;s a description which could apply to many different actions (taking a box, taking a ball, and so on). What Inform tests is whether the &quot;best idea yet&quot; value, a single action, fits this description or not. We can be even vaguer:</p>
+<div class="codeblock"><div class="codeline">if the best idea yet is doing something to the lever, ...</div>
+</div><p>Just occasionally, this can lead to ambiguities. For instance,</p>
+<div class="codeblock"><div class="codeline">if the current action is wearing something, ...</div>
+</div><p>fails because Inform thinks &quot;wearing&quot; is meant in the sense of the current action having clothes on, so it produces a problem message. To avoid this, simply write:</p>
+<div class="codeblock"><div class="codeline">if the current action is trying wearing something, ...</div>
+</div><p>which can&#39;t be misunderstood. Something else to be aware of is that the terms &quot;actor&quot;, &quot;noun&quot; and so on will refer to that action: for instance, in</p>
+<div class="codeblock"><div class="codeline">if the best idea yet is taking the noun, ...</div>
+</div><p>&quot;noun&quot; here refers to the noun in &quot;best idea yet&quot;, not to its meaning outside of this phrase (if indeed it has such a meaning).</p>
+<p>When dealing with actions, we sometimes want to know what they are dealing with. We can extract this information using the following phrases:</p>
+<div class="defn" id="ph_actionpart"><span class="defn">action name part of </span><span class="neutral">(action)</span> &rArr; <em>action name</em><p>This phrase produces the action name part of an action. Example: suppose the current actor is Algy, who is throwing the brick at Biggles. Then</p>
+<div class="codeblock"><div class="codeline">action name part of the current action = throwing it at action</div>
+</div></div><div class="defn" id="ph_nounpart"><span class="defn">noun part of </span><span class="neutral">(action)</span> &rArr; <em>object</em><p>This phrase produces the (first) noun of an action. Example: suppose the current actor is Algy, who is throwing the brick at Biggles. Then</p>
+<div class="codeblock"><div class="codeline">noun part of the current action = the brick</div>
+</div><p>If the noun is something other than an object, this produces just &quot;nothing&quot;, the non-object.</p>
+</div><div class="defn" id="ph_secondpart"><span class="defn">second noun part of </span><span class="neutral">(action)</span> &rArr; <em>object</em><p>This phrase produces the second noun of an action. Example: suppose the current actor is Algy, who is throwing the brick at Biggles. Then</p>
+<div class="codeblock"><div class="codeline">second noun part of the current action = Biggles</div>
+</div><p>If the second noun is something other than an object (for instance for the command SET DIAL TO 3417 it would be the number 3417), this produces just &quot;nothing&quot;, the non-object.</p>
+</div><div class="defn" id="ph_actorpart"><span class="defn">actor part of </span><span class="neutral">(action)</span> &rArr; <em>object</em><p>This phrase produces the person who would be carrying out the action if it were being tried. Example: suppose the current actor is Algy, who is throwing the brick at Biggles. Then</p>
+<div class="codeblock"><div class="codeline">actor part of the current action = Algy</div>
+</div></div><p>The following phrase is a convenient shorthand form:</p>
+<div class="defn" id="ph_involves"><span class="defn">if </span><span class="neutral">(action)</span><span class="defn"> involves </span><span class="neutral">(object)</span><span class="defn">:</span><p>This condition is true if the object appears as any of the actor, the noun or the second noun in the action. Example:</p>
+<div class="codeblock"><div class="codeline">if the current action involves Algy</div>
+</div><p>would be true for &quot;give revolver to Algy&quot;, &quot;Algy trying flying the Sopwith Camel&quot;, &quot;examine Algy&quot; and so on, but false for &quot;ask Raymond about secret airfield&quot;.</p>
+</div><div class="defn" id="ph_actionof"><span class="defn">action of </span><span class="neutral">(an action)</span> &rArr; <em>action</em><p>This phrase is now seldom needed. It produces a literally typed action as a value. Example:</p>
+<div class="codeblock"><div class="codeline">now the best idea yet is the action of pushing the button;</div>
+</div><p>Nowadays in most contexts we can just type &quot;pushing the button&quot; as a value, and that will work fine, so this phrase is retained only to keep old code working.</p>
+</div><div class="examples">
+<h4>Examples</h4>
+<div class="example-short">219. ★ <a href="examples/bosch.html">Bosch</a><br>Creating a list of actions that will earn the player points, and using this both to change the score and to give FULL SCORE reports.</p></div><div class="linkback">
+<a href="RB_11.html#section_4" title="Out Of World Actions and Effects &gt; Scoring">RB §11.4 Scoring</a>
+</div>
+<div class="example-short">220. ★ <a href="examples/cactus_will_outlive_us_all.html">Cactus Will Outlive Us All</a><br>For every character besides the player, there is an action that will cause that character to wither right up and die.</p></div><div class="linkback">
+<a href="RB_6.html#section_14" title="Commands &gt; Remembering, Converting and Combining Actions">RB §6.14 Remembering, Converting and Combining Actions</a>
+</div>
+<div class="example-short">221. ★★ <a href="examples/actors_studio.html">Actor's Studio</a><br>A video camera that records actions performed in its presence, and plays them back with time-stamps.</p></div><div class="linkback">
+<a href="RB_9.html#section_12" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Cameras and Recording Devices">RB §9.12 Cameras and Recording Devices</a>
+</div>
+<div class="example-short">222. ★★ <a href="examples/anteaters.html">Anteaters</a><br>The player carries a gizmo that is able to record actions performed by the player, then force him to repeat them when the gizmo is dropped. This includes storing actions that apply to topics, as in &quot;look up anteater colonies in the guide&quot;.</p></div><div class="linkback">
+<a href="RB_6.html#section_14" title="Commands &gt; Remembering, Converting and Combining Actions">RB §6.14 Remembering, Converting and Combining Actions</a>
+</div>
+<h3 id="section_21">WI §12.21 Guidelines on how to write rules about actions</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_20">12.20 Stored actions</a></div><div class="sect-navbar-center"><a href="#chapter_12">12. Advanced Actions</a></div></div>
+<p>Looking at the action-processing diagram, there seem to be a bewildering number of ways to intervene. For instance, suppose it must be fatal to pick up a land mine. All six of the following rules would do the business:</p>
+<div class="codeblock"><div class="codeline">Before taking the land mine: end the story saying &quot;Bang!&quot;</div>
+<div class="codeline">Instead of taking the land mine: end the story saying &quot;Bang!&quot;</div>
+<div class="codeline">Check taking the land mine: end the story saying &quot;Bang!&quot;</div>
+<div class="codeline">Carry out taking the land mine: end the story saying &quot;Bang!&quot;</div>
+<div class="codeline">After taking the land mine: end the story saying &quot;Bang!&quot;</div>
+<div class="codeline">Report taking the land mine: end the story saying &quot;Bang!&quot;</div>
+</div><p>So which should we use? Of course, we could decide that it really doesn&#39;t matter: what works, works. But it is a good idea to play along with the conventions used by Inform, if only because that will make our rules interact better with each other and with rules by other people which we may someday want to borrow. So this chapter ends by offering a few guidelines. Let us suppose that we have some effect which we want to achieve.</p>
+<p><strong>1. Are we just trying to correct the player&#39;s typing?</strong></p>
+<p>For instance, responding to the command &quot;STEAL GOLDEN EAGLE&quot; with a reply like &quot;To steal something, just try to TAKE it.&quot; It is bad style to make a special action for this, which does nothing except to print up this text: better is to use the &quot;Understand &hellip; as a mistake&quot; technique, which will come up in the chapter on Understanding.</p>
+<p><strong>2. Does the effect apply only to a particular situation, or is it a general phenomenon?</strong></p>
+<p>In other words, does the effect apply only to particular people, things or places, or is it a generic rule of play? In the case of the land mine, this is an easy question to answer: it is a unique situation. On the other hand, stopping the player from carrying unduly heavy weights would be a generic rule of play.</p>
+<p>Rules like the one saying that photography is only possible if one holds the camera are, by convention, also counted as generic rules of play: they are not really special rules about the camera, but apply to all possible acts of photography anywhere, so are actually generic.</p>
+<p>Sometimes we can choose our own answer to this question, and go either way. Suppose we want a certain place to be muddy-floored, affecting things that happen there. One way would be to write exceptional rules applying to that one room. But we could alternatively create a general concept of muddiness (&quot;A room can be clean or muddy. A room is usually clean.&quot;) and then regard the new behaviour as being a set of generic rules applying in muddy rooms. We could then, of course, create a second muddy room with much greater ease, or transplant these rules to other works and have muddy rooms in those too.</p>
+<p><strong>3. Particular situations: use Instead or After (or sometimes Before).</strong></p>
+<p>The next question is: does the effect kick in after the hoped-for action has taken place, or not? In the case of the land mine, to answer that means deciding whether we think the detonator is sensitive to the slightest touch &ndash; in which case the explosion would happen at the first touch, and should be in an &quot;Instead&quot; rule &ndash; or whether one must actually pick up and disturb the mine &ndash; in which case an &quot;After&quot; should be used.</p>
+<p>That leaves us a choice of two rulebooks if the effect takes place when the merest impulse towards the action is felt: &quot;Before&quot; and &quot;Instead&quot;. Which to use? In cases of doubt, choose &quot;Instead&quot;. But if the effect is intended to absolutely suppress all such impulses &ndash; for instance, in a silent examination room there must be no talking &ndash; then &quot;Before&quot; might be more appropriate. We could imagine that someone about to say something first has a mental impulse to speak, then opens his mouth so that it becomes visible to others that some talking is about to go on, and finally utters words. Here are three possible responses:</p>
+<div class="codeblock"><div class="codeline">&quot;You cannot contemplate breaking this smothering silence.&quot; (<em>Before</em>)</div>
+<div class="codeline">&quot;The invigilator stares you down through her horn-rimmed glasses.&quot; (<em>Instead</em>)</div>
+<div class="codeline">&quot;Everyone turns, appalled, as the silence is broken like the surface of a swimming pool by a falling elephant.&quot; (<em>After</em>)</div>
+</div><p><strong>4. Generic situations: work with action rules (or sometimes Before).</strong></p>
+<p>(a) If the effect takes place only when an action is definitely being tried, then we should use one of the action&#39;s three rulebooks: check, carry out or report. Check rules should do nothing, and should say nothing either unless they block the action (in which case, they should say why).</p>
+<p>Carry out rules must not block the action &ndash; it is too late for that &ndash; and should not say anything &ndash; that hasn&#39;t happened yet. (There are a few exceptions: if the action is to look at something, then carrying it out is in a sense the same thing as reporting it. But in all cases of doubt, a carry out rule should say nothing.) Adding a carry out rule to an existing action can make it do something extra.</p>
+<p>Report rules must neither block the action nor do anything. Working with new report rules is a way to make more natural-seeming, or more informative, messages appear. For instance, an effect where we want to be able to see through a door when it is first opened (&quot;You open the panelled door, through which is the Board Room.&quot;) would be a case for a report rule.</p>
+<p>In all cases, it is good style to write check, carry out or report rules in such a way that they could be used in other works too, or in situations that could conceivably have happened in this one (even if in fact it never does). We may one day want to put our new rules into an extension to be used by other people or in other projects, after all.</p>
+<p>In this chapter, we have only seen the addition of new rules. We could add a new &quot;check taking&quot; rule, for instance, with the techniques seen so far. But what if the effect we want is not a matter of adding a rule but taking away, or restricting the applicability, of an existing one? In that case, we will need to say that the rule &quot;does nothing&quot; under certain circumstances (see the Rulebooks chapter). The check, carry out and report rules for all of the built-in actions are named, and they appear in the Actions index.</p>
+<p>(b) If the effect takes place to divert or supplement an action, before that action actually takes place, then this should be done with a &quot;Before&quot; rule. This is the biggest practical use of &quot;Before&quot; rules: to try other actions, either instead or as well as the one just getting under way.</p>
+<p>For example, if we want an automatic mechanism to try opening a container before taking something inside it, that would be a classic case for &quot;Before&quot;. Indeed, that is the only way it could work &ndash; &quot;Before&quot; rules have a chance to get in before the touchability conditions are tested.</p>
+<p>If we wanted a special &quot;stealing&quot; action for the act of taking another person&#39;s possessions, we might want to divert any taking action for such items into our new &quot;stealing&quot; action &ndash; that too would be a &quot;Before&quot;. This would ensure that any &quot;Instead&quot; rules to do with taking do not apply.</p>
+<p><strong>5. Changing the behaviour of out-of-world actions.</strong></p>
+<p>Remember that &quot;Instead&quot;, &quot;Before&quot; and &quot;After&quot; do not apply: so use &quot;check&quot; rules to forbid certain out-of-world activities, or specify that their rules do nothing (see the Rulebooks chapter).</p>
+<p><strong>Finally&hellip;</strong></p>
+<p>These are only guidelines. The system is designed to be flexible in order to give the author the widest possible range of options, and nobody should feel ashamed of making use of them.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="WI_11.html">11. Phrases</a></div><div class="doc-navbar-right"><a href="WI_13.html">13. Relations</a></div></div>
+<nav><div class="nav-el"><a href="index.html">Contents</a></div> <div class="nav-el"><a href="examples/index.html">Examples</a></div> <div class="nav-el"><a href="general_index.html">Index</a></div> <div class="nav-el"><a href="search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="license.html">Artistic License 2.0</a>.</p><p class="about"><a href="about.html">About this edition</a></p></footer>
+</body></html>

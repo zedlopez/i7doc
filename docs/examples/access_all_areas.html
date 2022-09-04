@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 398. Access All Areas</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Access All Areas</h1><div class="subheading">Example 398 ★</div>
+<div class="linkback">
+<a href="../WI_19.html#section_5" title="Rulebooks &gt; Changing the behaviour of rules">WI §19.5 Changing the behaviour of rules</a><br><a href="../RB_10.html#section_10" title="Physics: Substances, Ropes, Energy and Weight &gt; Magic (Breaking the Laws of Physics)">RB §10.10 Magic (Breaking the Laws of Physics)</a>
+</div>
+<p class="example-desc">The Pointy Hat of Liminal Transgression allows its wearer to walk clean through closed doors.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="swigmore_u.html" title="Adding a new kind of supporter called a perch, where everything dropped lands on the floor.">397. Swigmore U.</a></div><div class="doc-navbar-right"><a href="solitude.html" title="Novice mode that prefaces every prompt with a list of possible commands the player could try, and highlights every important word used, to alert players to interactive items in the scenery.">399. Solitude</a></div></div>
+</header>
+<p>If somebody tries to walk through a closed door, the &quot;can&#39;t go through closed doors rule&quot; usually stops them. This is a rule belonging to the &quot;check going&quot; rulebook. These names are fairly explanatory when written out, but hard to remember: fortunately we don&#39;t need to remember them, as the Index panel contains a full inventory of the check, carry out and report rules for every action, showing all of their names and the order in which they are checked. (We can also find out which rules are stopping an action by typing the testing command ACTIONS.)</p>
+<p>Here we make the rule do nothing provided a condition holds:</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex398">Play/modify Access All Areas in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="Liminal/index.html">Play Access All Areas in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Access All Areas&quot;\n\nThe extremely difficult door is north of the Standing Room and south of the Room of Walking Upside Down.  It is a locked door.\n\nThe player is carrying the Pointy Hat of Liminal Transgression. The hat is wearable.\n\nThe can&apos;t go through closed doors rule does nothing when the Hat is worn.\n\nTest me with &quot;n / wear hat / n&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Access All Areas&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The extremely difficult door is north of the Standing Room and south of the Room of Walking Upside Down.  It is a locked door.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The player is carrying the Pointy Hat of Liminal Transgression. The hat is wearable.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The can&#39;t go through closed doors rule does nothing when the Hat is worn.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;n / wear hat / n&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "n / wear hat / n".</summary><div class="testme-output">Standing Room<br>You can see an extremely difficult door here.<br><br>>(Testing.)<br><br>>[1] n<br>(first opening the extremely difficult door)<br>It seems to be locked.<br><br>>[2] wear hat<br>You put on the Pointy Hat of Liminal Transgression.<br><br>>[3] n<br><br>Room of Walking Upside Down<br>You can see an extremely difficult door here.
+</div></details><p>(The Pointy Hat may be useful in debugging a game, even if it never makes it into the final published work.)</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="swigmore_u.html" title="Adding a new kind of supporter called a perch, where everything dropped lands on the floor.">397. Swigmore U.</a></div><div class="doc-navbar-right"><a href="solitude.html" title="Novice mode that prefaces every prompt with a list of possible commands the player could try, and highlights every important word used, to alert players to interactive items in the scenery.">399. Solitude</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

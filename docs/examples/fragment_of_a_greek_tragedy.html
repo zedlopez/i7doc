@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 374. Fragment of a Greek Tragedy</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Fragment of a Greek Tragedy</h1><div class="subheading">Example 374 ★★</div>
+<div class="linkback">
+<a href="../WI_18.html#section_33" title="Activities &gt; Reading a command">WI §18.33 Reading a command</a><br><a href="../RB_6.html#section_18" title="Commands &gt; Alternatives To Standard Parsing">RB §6.18 Alternatives To Standard Parsing</a>
+</div>
+<p class="example-desc">Responding to the player&#39;s input based on keywords only, and overriding the original parser entirely.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="cloves.html" title="Accepting adverbs anywhere in a command, registering what the player typed but then cutting them out before interpreting the command.">373. Cloves</a></div><div class="doc-navbar-right"><a href="north_by_northwest.html" title="Creating additional compass directions between those that already exist (for instance, NNW) -- and dealing with an awkwardness that arises when the player tries to type &quot;north-northwest&quot;. The example demonstrates a way around the nine-character limit on parsed words.">375. North by Northwest</a></div></div>
+</header>
+<p>Apologies to the shade of A. E. Housman.</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex374">Play/modify Fragment of a Greek Tragedy in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="Housman/index.html">Play Fragment of a Greek Tragedy in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Fragment of a Greek Tragedy&quot;\n\nUnderstand &quot;restart/restore/save/quit&quot; as &quot;[meta-command]&quot;.\n\nAfter reading a command:\n\tif the player&apos;s command matches &quot;[meta-command]&quot;, make no decision;\n\tsay line break;\n\trepeat through Table of Current Topics:\n\t\tif the player&apos;s command includes topic entry:\n\t\t\tsay &quot;CHORUS: [reply entry][paragraph break]&quot;;\n\t\t\tfollow the advance time rule;\n\t\t\trule succeeds;\n\tsay &quot;[italic type]   Pause.[roman type][line break]&quot;;\n\tfollow the advance time rule;\n\trule succeeds.\n\nTable of Current Topics\ntopic\treply\n&quot;journey/trip/travel/came/arrived&quot;\t&quot;Sailing on horseback, or with feet for oars?&quot;\n&quot;horseback/legs/feet/oars&quot;\t&quot;Beneath a shining or a rainy Zeus?&quot;\n&quot;shining/rainy/weather/zeus&quot;\t&quot;Mud&apos;s sister, not herself, adorns thy boots.&quot;\n\n\nBefore reading a command while the turn count is 1:\n\tsay &quot;CHORUS: O suitably-attired-in-leather-boots\n\tHead of a traveller, wherefore seeking whom\n\tWhence by what way how purposed art thou come\n\tTo this well-nightingaled vicinity?\n\tMy object in inquiring is to know.\n\tBut if you happen to be deaf and dumb\n\tAnd do not understand a word I say,\n\tThen wave your hand, to signify as much.&quot;\n\n\nThe Stage is a room.\n\nThe room description heading rule is not listed in the carry out looking rules.\n\nWhen play begins:\n\tnow the command prompt is &quot;YOU: &quot;;\n\tnow left hand status line is &quot;Fragment of a Greek Tragedy&quot;;\n\tnow right hand status line is &quot;A. E. Housman&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Fragment of a Greek Tragedy&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Understand &quot;restart/restore/save/quit&quot; as &quot;[meta-command]&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">After reading a command:</div>
+<div class="codeline">&ensp;&ensp;if the player&#39;s command matches &quot;[meta-command]&quot;, make no decision;</div>
+<div class="codeline">&ensp;&ensp;say line break;</div>
+<div class="codeline">&ensp;&ensp;repeat through Table of Current Topics:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;if the player&#39;s command includes topic entry:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;CHORUS: [reply entry][paragraph break]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;follow the advance time rule;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;rule succeeds;</div>
+<div class="codeline">&ensp;&ensp;say &quot;[italic type]   Pause.[roman type][line break]&quot;;</div>
+<div class="codeline">&ensp;&ensp;follow the advance time rule;</div>
+<div class="codeline">&ensp;&ensp;rule succeeds.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline tablename">Table of Current Topics</div><table>
+<tr><td>topic</td><td>reply</td></tr><tr><td>&quot;journey/trip/travel/came/arrived&quot;</td><td>&quot;Sailing on horseback, or with feet for oars?&quot;</td></tr><tr><td>&quot;horseback/legs/feet/oars&quot;</td><td>&quot;Beneath a shining or a rainy Zeus?&quot;</td></tr><tr><td>&quot;shining/rainy/weather/zeus&quot;</td><td>&quot;Mud&#39;s sister, not herself, adorns thy boots.&quot;</td></tr></table>
+</div><p>This would be a bit bare if we didn&#39;t provide the player with some sort of context at the outset, so let&#39;s put some remarks before the first command prompt:</p>
+<div class="codeblock"><div class="codeline">Before reading a command while the turn count is 1:</div>
+<div class="codeline">&ensp;&ensp;say &quot;CHORUS: O suitably-attired-in-leather-boots</div>
+<div class="codeline">&ensp;&ensp;Head of a traveller, wherefore seeking whom</div>
+<div class="codeline">&ensp;&ensp;Whence by what way how purposed art thou come</div>
+<div class="codeline">&ensp;&ensp;To this well-nightingaled vicinity?</div>
+<div class="codeline">&ensp;&ensp;My object in inquiring is to know.</div>
+<div class="codeline">&ensp;&ensp;But if you happen to be deaf and dumb</div>
+<div class="codeline">&ensp;&ensp;And do not understand a word I say,</div>
+<div class="codeline">&ensp;&ensp;Then wave your hand, to signify as much.&quot;</div>
+</div><p>This &quot;turn count&quot; condition is why it was useful to follow the advance time rule in &quot;after reading a command&quot;: the game (or drama, if you like) will continue to count moves elapsed even though the rest of Inform&#39;s command parsing and world model is being ignored. In a longer and more ambitious implementation of this idea, we might want to allow scenes to govern the behavior and responses of the Chorus.</p>
+<p>And then to give the whole exchange a play&#39;s format:</p>
+<div class="codeblock"><div class="codeline">The Stage is a room.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The room description heading rule is not listed in the carry out looking rules.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">When play begins:</div>
+<div class="codeline">&ensp;&ensp;now the command prompt is &quot;YOU: &quot;;</div>
+<div class="codeline">&ensp;&ensp;now left hand status line is &quot;Fragment of a Greek Tragedy&quot;;</div>
+<div class="codeline">&ensp;&ensp;now right hand status line is &quot;A. E. Housman&quot;.</div>
+</div><p>(Because this example manipulates commands outside of the normal parser, the mechanism for TEST will not work here. Try typing commands such as: TELL CHORUS ABOUT JOURNEY / TELL CHORUS ABOUT FEET / TELL CHORUS ABOUT SHROPSHIRE / TELL CHORUS ABOUT ZEUS)</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="cloves.html" title="Accepting adverbs anywhere in a command, registering what the player typed but then cutting them out before interpreting the command.">373. Cloves</a></div><div class="doc-navbar-right"><a href="north_by_northwest.html" title="Creating additional compass directions between those that already exist (for instance, NNW) -- and dealing with an awkwardness that arises when the player tries to type &quot;north-northwest&quot;. The example demonstrates a way around the nine-character limit on parsed words.">375. North by Northwest</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

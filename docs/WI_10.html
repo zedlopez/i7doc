@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>WI 10. Scenes</title>
+<script src="i7doc.js"></script>
+<link rel="stylesheet" href="i7doc.css">
+</head>
+<nav><div class="nav-el"><a href="index.html">Contents</a></div> <div class="nav-el"><a href="examples/index.html">Examples</a></div> <div class="nav-el"><a href="general_index.html">Index</a></div> <div class="nav-el"><a href="search.html">Search</a></div></nav>
+<body><header><h1 class="title">Writing with Inform</h1></header>
+<h2 id="chapter_10">10. Scenes</h2>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="WI_9.html">9. Time</a></div><div class="doc-navbar-right"><a href="WI_11.html">11. Phrases</a></div></div>
+<div class="section-block">
+<div class="section-row">
+<div class="section-chapter-num">§10.</div><div class="section-section-num">1</div><div class="section-name"><a href="WI_10.html#section_1">Introduction to scenes</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§10.</div><div class="section-section-num">2</div><div class="section-name"><a href="WI_10.html#section_2">Creating a scene</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§10.</div><div class="section-section-num">3</div><div class="section-name"><a href="WI_10.html#section_3">Using the Scene index</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§10.</div><div class="section-section-num">4</div><div class="section-name"><a href="WI_10.html#section_4">During scenes</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§10.</div><div class="section-section-num">5</div><div class="section-name"><a href="WI_10.html#section_5">Linking scenes together</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§10.</div><div class="section-section-num">6</div><div class="section-name"><a href="WI_10.html#section_6">More general linkages</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§10.</div><div class="section-section-num">7</div><div class="section-name"><a href="WI_10.html#section_7">Multiple beginnings and repeats</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§10.</div><div class="section-section-num">8</div><div class="section-name"><a href="WI_10.html#section_8">Multiple endings</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§10.</div><div class="section-section-num">9</div><div class="section-name"><a href="WI_10.html#section_9">Why are scenes designed this way?</a></div>
+</div>
+</div>
+<h3 id="section_1">WI §10.1 Introduction to scenes</h3>
+<div class="sect-navbar"><div class="sect-navbar-center"><a href="#chapter_10">10. Scenes</a></div><div class="sect-navbar-right"><a href="#section_2">10.2 Creating a scene</a></div></div>
+<p>As we have seen, Inform divides up space into individual places called &quot;rooms&quot;, and allows us to group rooms together into &quot;regions&quot; if we find that convenient. And Inform also divides time up, into individual turns. These too we can group together: the equivalent of a region is a &quot;scene&quot;.</p>
+<p>To put this another way, if we think of the interactive fiction as a stage play, then up to now it has simply contained endless dialogue and stage directions &ndash; there has been no convenient way to divide up its running time into dramatic episodes, in the same way that a playwright might make Act II take place in the same drawing-room as Act I, but (let us say) six months later, after many things have changed. The script contains cues for one scene to end and another to begin: when those cues are reached, the stage hands rearrange props, actors reposition themselves and so on.</p>
+<p>Inform also allows us to create scenes, with cues for them to start and end, and some stage machinery (so to speak) making it easy to move the action on. But interactive fiction is <em>interactive</em>, so the metaphor of the theatre only goes so far. We can have several different scenes going on at once &ndash; perhaps with the relevant events taking place in different rooms, which the player is free to walk between. And the player may make a choice which changes the story-line, causing scenes to happen which otherwise would not have happened, and so on. Scenes can even be &quot;recurring&quot;, that is, can repeat themselves.</p>
+<p>So organising the story-line into scenes is not simply a matter of making a list (Scene 1, then Scene 2, then Scene 3, <em>finis</em>). It is more like a chart in which one scene can lead in several possible ways to others &ndash; a sort of map of time, which as we shall see Inform displays in its &quot;Scenes&quot; index.</p>
+<h3 id="section_2">WI §10.2 Creating a scene</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_1">10.1 Introduction to scenes</a></div><div class="sect-navbar-center"><a href="#chapter_10">10. Scenes</a></div><div class="sect-navbar-right"><a href="#section_3">10.3 Using the Scene index</a></div></div>
+<p>As usual, we only need to say that something is a scene to make it so:</p>
+<div class="codeblock"><div class="codeline">Train Stop is a scene.</div>
+</div><p>We conventionally write scene names with capital letters, as this demonstrates.</p>
+<p>This works, and shows up in the &quot;Scenes&quot; index, but does nothing. We have given no instructions on when it begins &ndash; no cue, in stage-play terms &ndash; so it never will begin, and even if it did, nobody would notice since it does nothing. First, to give it a beginning:</p>
+<div class="codeblock"><div class="codeline">Train Stop begins when the player is in the Station for the third turn.</div>
+</div><p>In theory any condition can be used to cue the scene &ndash; here, it&#39;s &quot;the player is in the Station for the third turn&quot; &ndash; but it&#39;s wise to look for a state of affairs which will last at least a brief time, because scene changes only happen at the start and end of turns. (Something like &quot;&hellip;when examining the timetable&quot; may be true only for a part of the middle of a turn, and so go unnoticed.)</p>
+<p>Every scene has two rulebooks attached, one at each end, so to speak. These look very like &quot;when play begins&quot; and &quot;when play ends&quot;, and work in the same way. Thus:</p>
+<div class="codeblock"><div class="codeline">When Train Stop begins:</div>
+<div class="codeline">&ensp;&ensp;now the Flying Scotsman is in the Station;</div>
+<div class="codeline">&ensp;&ensp;say &quot;The Flying Scotsman pulls up at the platform, to a billow of steam and hammering.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">When Train Stop ends:</div>
+<div class="codeline">&ensp;&ensp;now the Flying Scotsman is nowhere;</div>
+<div class="codeline">&ensp;&ensp;if the player is in the Station, say &quot;The Flying Scotsman inches away, with a squeal of released brakes, gathering speed invincibly until it disappears around the hill. All is abruptly still once more.&quot;</div>
+</div><p>Thus when the scene begins, our imaginary stage-hands wheel in a steam train; when it ends, they get rid of it again. Note that we know where the player will be at the start of the scene, but by the end he may have wandered off across the fields, so we must be careful not to report something he might not be in a position to see.</p>
+<p>When Train Stop begins, we printed some text, but we did this by hand. We didn&#39;t need to, because Inform automatically prints out the description of a scene (if it has one) when the scene begins. Scenes can have properties, just like objects, and in particular they have the &quot;description&quot; property. For example, we could write:</p>
+<div class="codeblock"><div class="codeline">Arrival is a scene. &quot;There&#39;s a flourish of trumpets.&quot;</div>
+</div><p>which saves us the trouble of writing the rule:</p>
+<div class="codeblock"><div class="codeline">When Arrival begins: say &quot;There&#39;s a flourish of trumpets.&quot;</div>
+</div><p>We can also write rules like this which apply to a whole variety of scenes at once. For instance:</p>
+<div class="codeblock"><div class="codeline">A scene can be bright or dim. A scene is usually dim. Dawn is a bright scene.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">When a scene which is bright ends: say &quot;So passes the bright [scene being changed].&quot;</div>
+</div><p>Here, instead of naming a scene (&quot;Train Stop&quot;), we&#39;ve given a description (&quot;a scene which is bright&quot;). When a scene begins, these general rules come before those which name the scene exactly; when it ends, the reverse is true.</p>
+<div class="examples">
+<h4>Examples</h4>
+<div class="example-short">154. ★ <a href="examples/pine.html">Pine 1</a><br>Pine: Using a scene to watch for the solution of a puzzle, however arrived-at by the player.</p></div><div class="linkback">
+<a href="RB_7.html#section_3" title="Other Characters &gt; Reactive Characters">RB §7.3 Reactive Characters</a>
+</div>
+<div class="example-short">155. ★★ <a href="examples/entrapment.html">Entrapment</a><br>A scene in which the player is allowed to explore as much as he likes, but another character strolls in as soon as he has gotten himself into an awkward or embarrassing situation.</p></div><div class="linkback">
+<a href="RB_4.html#section_2" title="Time and Plot &gt; Scripted Scenes">RB §4.2 Scripted Scenes</a>
+</div>
+<h3 id="section_3">WI §10.3 Using the Scene index</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_2">10.2 Creating a scene</a></div><div class="sect-navbar-center"><a href="#chapter_10">10. Scenes</a></div><div class="sect-navbar-right"><a href="#section_4">10.4 During scenes</a></div></div>
+<p>But when we test the previous section&#39;s example, we find that after a brief wait, the train pulls up: but it never goes away again. We have given instructions on how the scene ends, but not when it ends, and as a result the scene goes on forever once started.</p>
+<p>Even with simple story-lines, and this one could hardly be simpler, it is surprisingly easy to overlook something so that the whole story-line is derailed.</p>
+<p>The Scenes page of the index is intended to help with this. The Plot section shows all of the scenes and how they are to begin, along with a key to the symbols used on it. One scene always included is &quot;Entire Game&quot;, a special scene which, as its name implies, is always being played out. But if we look at the Scene index for the previous example, we will also see our Train Stop scene, and find that it is marked with the red warning symbol for &quot;never ends&quot;. Let us fix this:</p>
+<div class="codeblock"><div class="codeline">Train Stop ends when the time since Train Stop began is 3 minutes.</div>
+</div><p>Note the useful value &quot;time since Train Stop began&quot;:</p>
+<div class="defn" id="ph_scenetimesincebegan"><span class="defn">time since </span><span class="neutral">(scene)</span><span class="defn"> began</span> &rArr; <em>time</em><p>This phrase produces the time since the named scene began, which only makes sense, of course, if it has indeed begun. Example:</p>
+<div class="codeblock"><div class="codeline">time since Entire Game began</div>
+</div></div><div class="defn" id="ph_scenetimesinceended"><span class="defn">time since </span><span class="neutral">(scene)</span><span class="defn"> ended</span> &rArr; <em>time</em><p>This phrase produces the time since the named scene ended, which only makes sense, of course, if it has indeed ended. Example:</p>
+<div class="codeblock"><div class="codeline">time since Formal Dinner ended</div>
+</div></div><p>The actual times, in case they are needed, can be obtained with:</p>
+<div class="defn" id="ph_scenetimewhenbegan"><span class="defn">time when </span><span class="neutral">(scene)</span><span class="defn"> began</span> &rArr; <em>time</em><p>This phrase produces the time (i.e., the value of the &quot;time of day&quot; variable) at the moment when the given scene began.</p>
+</div><div class="defn" id="ph_scenetimewhenended"><span class="defn">time when </span><span class="neutral">(scene)</span><span class="defn"> ended</span> &rArr; <em>time</em><p>This phrase produces the time (i.e., the value of the &quot;time of day&quot; variable) at the moment when the given scene ended.</p>
+</div><p>The testing command SCENES causes Inform to monitor the beginning and ending of scenes, and report on them. For instance:</p>
+<div class="codeblock"><div class="codeline">&gt;ask monk about lodging</div>
+<div class="codeline">&quot;Welcome a poor traveler for the night?&quot; you ask, rubbing your fingers together to restore a little feeling.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The monk looks you up and down for a moment and you sense his reaction hanging in the balance; then he slaps you on the back, hard enough to drive the air from your lungs. &quot;In.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">[Scene &#39;Greeting&#39; ends]</div>
+<div class="codeline">The monk takes your elbow and pushes you imperiously toward dinner.</div>
+<div class="codeline">[Scene &#39;Banquet&#39; begins]</div>
+</div><div class="examples">
+<h4>Example</h4>
+<div class="example-short">156. ★ <a href="examples/age_of_steam.html">Age of Steam</a><br>The railway-station examples so far put together into a short game called &quot;Age of Steam&quot;.</p></div><div class="linkback">
+<a href="RB_4.html#section_4" title="Time and Plot &gt; Scene Changes">RB §4.4 Scene Changes</a>
+</div>
+<h3 id="section_4">WI §10.4 During scenes</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_3">10.3 Using the Scene index</a></div><div class="sect-navbar-center"><a href="#chapter_10">10. Scenes</a></div><div class="sect-navbar-right"><a href="#section_5">10.5 Linking scenes together</a></div></div>
+<p>Scenes are not only useful for changing the setting, by moving items or people around and providing a little narration. We can also make the rules different in one scene from another. For instance, at a sleepy country halt there is no reason why one should not walk across the tracks: but if there is a train in the way, that would be impossible.</p>
+<div class="codeblock"><div class="codeline">Before going north during the Train Stop, say &quot;The train blocks your way.&quot; instead.</div>
+</div><p>Any rule can have the clause &quot;during &hellip;&quot; attached, provided that clause goes at the end and either explicitly names a scene, or gives a description of which scenes would match. This is especially useful with &quot;every turn&quot;:</p>
+<div class="codeblock"><div class="codeline">Every turn during the Train Stop, say &quot;Water is sluiced out of the tank and into the engine.&quot;</div>
+</div><p>We can test whether a scene is happening with the adjective &quot;happening&quot;:</p>
+<div class="codeblock"><div class="codeline">if Train Stop is happening, ...</div>
+</div><div class="defn" id="ph_hashappened"><span class="defn">if </span><span class="neutral">(scene)</span><span class="defn"> has happened:</span><p>This condition is true if the given scene has both begun and ended.</p>
+</div><div class="defn" id="ph_hasnothappened"><span class="defn">if </span><span class="neutral">(scene)</span><span class="defn"> has not happened:</span><p>This condition is true if the given scene has not ended (or never started).</p>
+</div><div class="defn" id="ph_hasended"><span class="defn">if </span><span class="neutral">(scene)</span><span class="defn"> has ended:</span><p>This condition is true if the given scene ended at least once.</p>
+</div><div class="defn" id="ph_hasnotended"><span class="defn">if </span><span class="neutral">(scene)</span><span class="defn"> has not ended:</span><p>This condition is true if the given scene has never ended.</p>
+</div><p>We need to be a bit careful: it&#39;s possible to set things up so that the Train Stop scene will play out more than once, so &quot;Train Stop is happening&quot; and &quot;Train Stop has happened&quot; might both be true at once.</p>
+<p>The kind of value &quot;scene&quot; is one which is allowed to have properties &ndash; it has a tick in the &quot;properties&quot; column in the chart in the Kinds index &ndash; and this can be very useful in describing scenes. For instance, we could write:</p>
+<div class="codeblock"><div class="codeline">A scene can be thrilling or dull. Train Stop is dull.</div>
+<div class="codeline">A scene has a text called cue speech. The cue speech of Train Stop is &quot;All aboard!&quot;.</div>
+</div><p>Inform has the adjectives &quot;recurring&quot;, &quot;non-recurring&quot; and &quot;happening&quot; all built in to describe scenes, and the above would add &quot;thrilling&quot; and &quot;dull&quot;. Moreover, the &quot;during&quot; clause of a rule can give a description of a scene as easily as a specific scene name. For instance:</p>
+<div class="codeblock"><div class="codeline">Before going north during a dull non-recurring scene, ...</div>
+</div><div class="examples">
+<h4>Examples</h4>
+<div class="example-short">157. ★ <a href="examples/full_moon.html">Full Moon</a><br>Random atmospheric events which last the duration of a scene.</p></div><div class="linkback">
+<a href="RB_3.html#section_9" title="Place &gt; Passers-By, Weather and Astronomical Events">RB §3.9 Passers-By, Weather and Astronomical Events</a>
+</div>
+<div class="example-short">158. ★★ <a href="examples/space_patrol_stranded_on_jupiter.html">Space Patrol - Stranded on Jupiter!</a><br>We&#39;ll be back in just a moment, with more exciting adventures of the... Space Patrol!</p></div><div class="linkback">
+<a href="RB_4.html#section_4" title="Time and Plot &gt; Scene Changes">RB §4.4 Scene Changes</a>
+</div>
+<div class="example-short">159. ★★★ <a href="examples/bowler_hats_and_baby_geese.html">Bowler Hats and Baby Geese</a><br>Creating a category of scenes that restrict the player&#39;s behavior.</p></div><div class="linkback">
+<a href="RB_4.html#section_2" title="Time and Plot &gt; Scripted Scenes">RB §4.2 Scripted Scenes</a>
+</div>
+<div class="example-short">160. ★★★ <a href="examples/day_one.html">Day One</a><br>A scene which plays through a series of events in order, then ends when the list of events is exhausted.</p></div><div class="linkback">
+<a href="RB_4.html#section_2" title="Time and Plot &gt; Scripted Scenes">RB §4.2 Scripted Scenes</a>
+</div>
+<h3 id="section_5">WI §10.5 Linking scenes together</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_4">10.4 During scenes</a></div><div class="sect-navbar-center"><a href="#chapter_10">10. Scenes</a></div><div class="sect-navbar-right"><a href="#section_6">10.6 More general linkages</a></div></div>
+<p>Let us suppose that somebody gets off the train, after all, so that a second scene follows on.</p>
+<div class="codeblock"><div class="codeline">Brief Encounter is a scene. Brief Encounter begins when Train Stop ends.</div>
+</div><p>The effect of this is that they occur in sequence. If we add a third to the chain of scenes:</p>
+<div class="codeblock"><div class="codeline">Village Exploration is a scene. Village Exploration begins when Brief Encounter ends.</div>
+</div><p>&hellip;we find another chance to fool ourselves: if we check the Scenes index again, we can see the linkages between these scenes, but we also see that Brief Encounter never ends (despite its name). All we have said is that another scene begins where Brief Encounter leaves off, but it never does, so this is moot.</p>
+<div class="examples">
+<h4>Example</h4>
+<div class="example-short">161. ★★★ <a href="examples/pine2.html">Pine 2</a><br>Pine: Adding a conversation with the princess, in which a basic set of facts must be covered before the scene is allowed to end.</p></div><div class="linkback">
+<a href="RB_7.html#section_12" title="Other Characters &gt; Characters Following a Script">RB §7.12 Characters Following a Script</a>
+</div>
+<h3 id="section_6">WI §10.6 More general linkages</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_5">10.5 Linking scenes together</a></div><div class="sect-navbar-center"><a href="#chapter_10">10. Scenes</a></div><div class="sect-navbar-right"><a href="#section_7">10.7 Multiple beginnings and repeats</a></div></div>
+<p>We are allowed to link the beginning or end of any scene to the beginning or end of any other scene. So, for instance:</p>
+<div class="codeblock"><div class="codeline">Luggage Trouble is a scene. Luggage Trouble begins when Brief Encounter begins.</div>
+</div><p>Thus the two scenes run concurrently, at least for a while. We can also add that:</p>
+<div class="codeblock"><div class="codeline">Luggage Trouble ends when Brief Encounter ends.</div>
+</div><p>This can be useful when a large, complicated scene really contains several smaller sub-scenes.</p>
+<p>A special exceptional case is that we can have any scene or scenes starting right at the outset:</p>
+<div class="codeblock"><div class="codeline">Railway Meeting is a scene. Railway Meeting begins when play begins.</div>
+</div><p>When play ends, of course, all scenes end, so there is no need to say that.</p>
+<div class="examples">
+<h4>Examples</h4>
+<div class="example-short">162. ★ <a href="examples/prague_job.html">The Prague Job</a><br>Scenes used to provide pacing while the player goes through his possessions.</p></div><div class="linkback">
+<a href="RB_4.html#section_2" title="Time and Plot &gt; Scripted Scenes">RB §4.2 Scripted Scenes</a>
+</div>
+<div class="example-short">163. ★★★ <a href="examples/entrevaux.html">Entrevaux</a><br>Organizing the game by scenes, where each scene has a location and prop lists so that it can be set up automatically.</p></div><div class="linkback">
+<a href="RB_4.html#section_4" title="Time and Plot &gt; Scene Changes">RB §4.4 Scene Changes</a>
+</div>
+<h3 id="section_7">WI §10.7 Multiple beginnings and repeats</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_6">10.6 More general linkages</a></div><div class="sect-navbar-center"><a href="#chapter_10">10. Scenes</a></div><div class="sect-navbar-right"><a href="#section_8">10.8 Multiple endings</a></div></div>
+<p>It is quite allowed for a scene to be linked to several other scenes, and this is useful if several alternate strands of plot are being brought together in a common resolution scene:</p>
+<div class="codeblock"><div class="codeline">Bittersweet Ending begins when Stranger&#39;s Rejection ends.</div>
+<div class="codeline">Bittersweet Ending begins when Stranger&#39;s Acceptance ends.</div>
+</div><p>and we can also have the same scene beginning when a condition holds. In general, it will begin the first time it gets any chance to do so.</p>
+<p>All scenes are ordinarily set up so that they can happen only once. But sometimes we want them to repeat. Suppose the train calls not once only, but every twenty minutes. We could set this up with two scenes linked back to back like so:</p>
+<div class="codeblock"><div class="codeline">Train Stop is a recurring scene. Train Wait is a recurring scene.</div>
+<div class="codeline">Train Wait begins when play begins.</div>
+<div class="codeline">Train Stop begins when Train Wait ends.</div>
+<div class="codeline">Train Wait begins when Train Stop ends.</div>
+</div><p>The difference here is that these scenes have been declared as &quot;recurring&quot;. In all other respects they are the same as any other scene.</p>
+<div class="examples">
+<h4>Examples</h4>
+<div class="example-short">164. ★ <a href="examples/night_and_day.html">Night and Day</a><br>Cycling through a sequence of scenes to represent day and night following one another during a game.</p></div><div class="linkback">
+<a href="RB_3.html#section_9" title="Place &gt; Passers-By, Weather and Astronomical Events">RB §3.9 Passers-By, Weather and Astronomical Events</a>
+</div>
+<div class="example-short">165. ★★★ <a href="examples/pine3.html">Pine 3</a><br>Pine: Allowing the player to visit aspects of the past in memory and describe these events to the princess, as a break from the marriage-proposal scene.</p></div><div class="linkback">
+<a href="RB_4.html#section_5" title="Time and Plot &gt; Flashbacks">RB §4.5 Flashbacks</a>
+</div>
+<h3 id="section_8">WI §10.8 Multiple endings</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_7">10.7 Multiple beginnings and repeats</a></div><div class="sect-navbar-center"><a href="#chapter_10">10. Scenes</a></div><div class="sect-navbar-right"><a href="#section_9">10.9 Why are scenes designed this way?</a></div></div>
+<p>Interactive fictions vary considerably in the extent to which the player is allowed to influence the story-line. Sometimes the appearance of making choices is wholly bogus, as only one possible line is given more than lip service. But in other works, the player can radically change the outcome, and whole rafts of plot differ between one person&#39;s experience and another&#39;s. Inform allows multiple endings to its scenes to make this kind of branching story-line easy to achieve.</p>
+<p>Any scene can have up to 31 alternate endings, differentiated by name (unless the Z-machine format has been selected on the Settings panel, in which case, 15). These alternates are created as and when conditions are set for them:</p>
+<div class="codeblock"><div class="codeline">Brief Encounter ends happily when ...</div>
+<div class="codeline">Brief Encounter ends wisely but sadly when ...</div>
+</div><p>&quot;Ends happily&quot; and &quot;ends wisely but sadly&quot; behave just like &quot;ends&quot;. We can have rules &quot;When Brief Encounter ends happily, &hellip;&quot; and so forth, in addition to rules &quot;When Brief Encounter ends, &hellip;&quot; &ndash; if a rule doesn&#39;t specify any particular ending, it applies to all of them.</p>
+<p>We can also link rules together from these branches, so</p>
+<div class="codeblock"><div class="codeline">Stranger&#39;s Acceptance begins when Brief Encounter ends happily.</div>
+<div class="codeline">Stranger&#39;s Rejection begins when Brief Encounter ends wisely but sadly.</div>
+</div><p>With this set-up and that of the previous section, there are now two possible paths through the story:</p>
+<div class="codeblock"><div class="codeline">(i) Train Stop - Brief Encounter - Stranger&#39;s Acceptance - Bittersweet Ending</div>
+<div class="codeline">(ii) Train Stop - Brief Encounter - Stranger&#39;s Rejection - Bittersweet Ending</div>
+</div><p>We might later need to know which of these paths has been taken, and to help with this Inform provides conditions like so:</p>
+<div class="codeblock"><div class="codeline">if Brief Encounter ended happily ...</div>
+<div class="codeline">if Brief Encounter did not end happily ...</div>
+<div class="codeline">if Brief Encounter ended wisely but sadly ...</div>
+<div class="codeline">if Brief Encounter did not end wisely but sadly ...</div>
+</div><p>(For a scene which repeats, note that these conditions apply only to the most recent repetition: and that such conditions are always false if the scene is currently going on. &quot;Brief Encounter did not end happily&quot; will be true only when the scene has finished but in a different way.)</p>
+<div class="examples">
+<h4>Examples</h4>
+<div class="example-short">166. ★★★ <a href="examples/panache.html">Panache</a><br>Replacing the score with a plot summary that records the events of the plot, scene by scene.</p></div><div class="linkback">
+<a href="RB_11.html#section_4" title="Out Of World Actions and Effects &gt; Scoring">RB §11.4 Scoring</a>
+</div>
+<div class="example-short">167. ★★★ <a href="examples/pine4.html">Pine 4</a><br>Pine: Adding a flashback scene that, instead of repeating endlessly, repeats only until the Princess has understood the point.</p></div><div class="linkback">
+<a href="RB_4.html#section_5" title="Time and Plot &gt; Flashbacks">RB §4.5 Flashbacks</a>
+</div>
+<h3 id="section_9">WI §10.9 Why are scenes designed this way?</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_8">10.8 Multiple endings</a></div><div class="sect-navbar-center"><a href="#chapter_10">10. Scenes</a></div></div>
+<p>In the part it plays in stories, time is like space. The endings of a scene (along with its beginning) are like the map connections leading out of a room. The Scenes index keeps track of the &quot;map of time&quot; through which these possible story-lines traverse. Some works of IF will have immensely complicated story-lines in only a few rooms, some will have no scenes at all despite a sprawling geography. The Scenes and World index tabs, side by side, show both kinds of map.</p>
+<p>Just as Inform uses a simple but practical design for the boundaries between rooms (map connections and doors, that is), it also simplifies transitions between scenes. Scenes are based on states of things: we give circumstances for them to begin or end. There is no phrase with the power to say &quot;make Act II begin right now&quot;, so perhaps it is worth explaining why not. The state-based approach was chosen because:</p>
+<div class="codeblock"><div class="codeline">* it guarantees that each action falls entirely inside, or entirely outside, of any given scene (and therefore that &quot;during...&quot; clauses in the conditions for a rule are not affected by rule ordering);</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">* it ensures that scene changes occur outside actions, like every turn rules;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">* it promotes a style of writing which makes it clearer to the reader of the source text when a scene begins and ends, and what conditions are guaranteed to be true during it;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">* it makes it possible for the Scenes index page to show this information in a communicative way.</div>
+</div><p>Settings in IF where one revisits the same location but at a different time, or after a dramatic change, have historically been difficult to test properly and prone to mistakes. (The classic example would be where a character killed during Act I reappears unharmed in Act II.) The design of scenes is an attempt to encourage a style of writing which minimises the risk of these accidents.</p>
+<p>Since scenes are, in the end, only a convenient way to organise rules, and do nothing that cannot be done by other means, this simplified system of scene changing does not really restrict us.</p>
+<div class="examples">
+<h4>Example</h4>
+<div class="example-short">168. ★★★ <a href="examples/cheesemakers.html">Cheese-makers</a><br>Scenes used to control the way a character reacts to conversation and comments, using a TALK TO command.</p></div><div class="linkback">
+<a href="RB_7.html#section_8" title="Other Characters &gt; Saying Complicated Things">RB §7.8 Saying Complicated Things</a>
+</div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="WI_9.html">9. Time</a></div><div class="doc-navbar-right"><a href="WI_11.html">11. Phrases</a></div></div>
+<nav><div class="nav-el"><a href="index.html">Contents</a></div> <div class="nav-el"><a href="examples/index.html">Examples</a></div> <div class="nav-el"><a href="general_index.html">Index</a></div> <div class="nav-el"><a href="search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="license.html">Artistic License 2.0</a>.</p><p class="about"><a href="about.html">About this edition</a></p></footer>
+</body></html>

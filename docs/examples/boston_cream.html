@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 190. Boston Cream</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Boston Cream</h1><div class="subheading">Example 190 ★★★★</div>
+<div class="linkback">
+<a href="../WI_12.html#section_6" title="Advanced Actions &gt; Spontaneous actions by other people">WI §12.6 Spontaneous actions by other people</a><br><a href="../RB_7.html#section_15" title="Other Characters &gt; Goal-Seeking Characters">RB §7.15 Goal-Seeking Characters</a>
+</div>
+<p class="example-desc">A fuller implementation of Ogg, giving him a motivation of his own and allowing him to react to the situation created by the player.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="iq_test.html" title="Introducing Ogg, a person who will unlock and open a container when the player tells him to get something inside.">189. IQ Test</a></div><div class="doc-navbar-right"><a href="red_cross.html" title="A DIAGNOSE command which allows the player to check on the health of someone.">191. Red Cross</a></div></div>
+</header>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex190">Play/modify Boston Cream in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="Donut/index.html">Play Boston Cream in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Boston Cream&quot;\n\nUse scoring.\n\nThe Donut Shop is a room. &quot;Vibrantly decorated in donut colors: pink, brown, and cream.&quot;\n\nOgg is a man in the Donut Shop. &quot;Ogg is slumped in the corner[if Ogg carries something] with [a list of things carried by Ogg][end if]. He wears a nametag which says &apos;HELLO MY NAME IS OG.&apos;&quot; Understand &quot;og&quot; as Ogg. Ogg wears a nametag. The description of the nametag is &quot;Very neatly written.&quot;\n\nThe Donut Shop contains a transparent closed openable locked lockable enterable container called a case. The case is fixed in place. The case contains some cake donuts, some jelly donuts, and some apple fritters. &quot;The [if unopenable]damaged[otherwise]gleaming[end if] donut case [if something is in the case]contains [a list of things in the case][otherwise]has been stripped of its contents[end if].&quot; The cake donuts, the jelly donuts, and the apple fritters are edible.\n\nThe matching key of the case is a silver key. The silver key is in a mesh basket. The mesh basket is closed, transparent, and openable. It is in the Donut Shop.\n\nBefore someone taking something which is carried by the player:\n\tif the person asked cannot touch the player:\n\t\tsay &quot;Ogg looks with a fixed frown at [the noun].&quot;;\n\t\tcontinue the action;\n\tsay &quot;[The person asked] comes up and shakes your arm until you drop [the noun].&quot;;\n\tsay line break;\n\tsilently try dropping the noun;\n\tstop the action.\n\nBefore someone unlocking a locked thing with something which is not carried by the person asked:\n\ttry the person asked taking the second noun;\n\tstop the action.\n\nBefore someone opening a locked thing (called the sealed chest):\n\tif the person asked can see the matching key of the sealed chest:\n\t\tif the matching key of the sealed chest is enclosed by the sealed chest:\n\t\t\tsay &quot;Seeing the paradoxical location of [the matching key of the sealed chest], [the person asked] gives a howl of rage.&quot;;\n\t\t\tincrement the score;\n\t\t\tend the story finally saying &quot;You have thwarted Ogg&quot;;\n\t\totherwise:\n\t\t\ttry the person asked unlocking the sealed chest with the matching key of the sealed chest;\n\t\tstop the action.\n\nBefore someone taking something which is in a closed container (called the shut chest):\n\ttry the person asked opening the shut chest;\n\tstop the action.\n\nOgg has a number called hunger. The hunger of Ogg is 0.\n\nEvery turn:\n\tincrement the hunger of Ogg;\n\tif the hunger of Ogg is 2 and Ogg is visible, say &quot;Ogg&apos;s stomach growls.&quot;;\n\tif the hunger of Ogg is 3 and Ogg is visible:\n\t\tif Ogg can see an edible thing (called the target):\n\t\t\tsay &quot;Ogg eyes [the target] with obvious intent.&quot;;\n\t\totherwise:\n\t\t\tsay &quot;Ogg glances at you in a disturbingly shifty way.&quot;;\n\tif the hunger of Ogg is greater than 3:\n\t\tif Ogg carries an edible thing (called the target):\n\t\t\ttry Ogg eating the target;\n\t\totherwise:\n\t\t\tlet new target be a random edible thing which can be seen by Ogg;\n\t\t\tif the new target is a thing:\n\t\t\t\ttry Ogg taking the new target;\n\t\t\totherwise:\n\t\t\t\tif Ogg can touch the player, end the story saying &quot;Ogg is gnawing your ankle&quot;;\n\t\t\t\totherwise try Ogg taking the player.\n\nThe crumbs are a thing. &quot;Crumbs of [the list of edible things which cannot be seen by the player] lie scattered over the whole floor.&quot;\n\nInstead of asking Ogg to try doing something when Ogg cannot touch the player:\n\tsay &quot;Ogg tilts his head and shrugs, unable to hear your instruction clearly.&quot;\n\nInstead of asking Ogg to try eating something:\n\tsay &quot;It&apos;s not as though Ogg really needs any encouragement in that department, is it?&quot;\n\nDefinition: Ogg is hungry if the hunger of Ogg is greater than 2.\n\nPersuasion rule for asking Ogg to try doing something: if Ogg is hungry, persuasion fails; persuasion succeeds.\n\nPersuasion rule for asking Ogg to try giving something edible to the player:\n\tpersuasion fails.\n\nUnsuccessful attempt by Ogg doing something:\n\tif the reason the action failed is a failing listed in the Table of Ogg Retorts:\n\t\tsay &quot;[reply entry][paragraph break]&quot;;\n\totherwise:\n\t\tsay &quot;Ogg looks adorably confused.&quot;\n\nTable of Ogg Retorts\nfailing\treply\ncan&apos;t take people&apos;s possessions rule\t&quot;&apos;Ogg too polite.&apos;&quot;\ncan&apos;t take other people rule\t&quot;&apos;Ogg not that greedy.&apos;&quot;\ncan&apos;t take scenery rule\t&quot;&apos;[The noun] very very heavy.&apos;&quot;\ncan&apos;t take what&apos;s fixed in place rule\t&quot;&apos;[The noun] very heavy.&quot;\ncan&apos;t drop what&apos;s not held rule\t&quot;&apos;Hunh?&apos;&quot;\n\nCarry out Ogg eating an edible thing:\n\tmove the crumbs to the holder of Ogg;\n\tnow the hunger of Ogg is 0.\n\nReport Ogg unlocking something with something:\n\tsay &quot;Ogg struggles a bit with [the second noun] in the lock of [the noun], but does eventually succeed. &apos;Hunh!&apos; says Ogg.&quot;;\n\tstop the action.\n\nCarry out Ogg opening the case when the case has been open:\n\tnow the case is unopenable.\n\nInstead of closing the unopenable case:\n\tsay &quot;The glass panels are no longer properly seated in their tracks, and the case cannot be closed ever again.&quot;\n\nReport Ogg opening the unopenable case:\n\tsay &quot;Ogg forces [the case] so hard that it does break.&quot;;\n\tstop the action.\n\nReport Ogg opening the case:\n\tsay &quot;Ogg yanks [the noun] open with such force that you fear for its structural integrity.&quot;;\n\tstop the action.\n\nReport Ogg taking something edible:\n\tsay &quot;Ogg acquires [the noun] with a look of tender affection.&quot;;\n\tstop the action.\n\nReport Ogg eating something:\n\tsay &quot;Ogg chows down on [the noun], scattering crumbs in all directions.&quot;;\n\tstop the action.\n\nReport Ogg eating something when the number of visible edible things is 1:\n\tsay &quot;Ogg eats [the noun] in his trademark style. You can no longer bear to watch.&quot;;\n\tstop the action.\n\nAfter entering the case:\n\tsay &quot;You climb inside the case, folding yourself up uncomfortably.&quot;\n\nAfter locking the case with something when the player is in the case:\n\tsay &quot;You turn the key firmly in the lock -- amazing it locks from within, but it does -- and settle yourself for a long wait, hoping this thing is not air-tight.&quot;\n\nThe maximum score is 1.\n\nTest me with &quot;open mesh / get key / unlock case / open case / enter case / close case / lock case / wait / wait&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Boston Cream&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Use scoring.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Donut Shop is a room. &quot;Vibrantly decorated in donut colors: pink, brown, and cream.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Ogg is a man in the Donut Shop. &quot;Ogg is slumped in the corner[if Ogg carries something] with [a list of things carried by Ogg][end if]. He wears a nametag which says &#39;HELLO MY NAME IS OG.&#39;&quot; Understand &quot;og&quot; as Ogg. Ogg wears a nametag. The description of the nametag is &quot;Very neatly written.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Donut Shop contains a transparent closed openable locked lockable enterable container called a case. The case is fixed in place. The case contains some cake donuts, some jelly donuts, and some apple fritters. &quot;The [if unopenable]damaged[otherwise]gleaming[end if] donut case [if something is in the case]contains [a list of things in the case][otherwise]has been stripped of its contents[end if].&quot; The cake donuts, the jelly donuts, and the apple fritters are edible.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The matching key of the case is a silver key. The silver key is in a mesh basket. The mesh basket is closed, transparent, and openable. It is in the Donut Shop.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Before someone taking something which is carried by the player:</div>
+<div class="codeline">&ensp;&ensp;if the person asked cannot touch the player:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;Ogg looks with a fixed frown at [the noun].&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;continue the action;</div>
+<div class="codeline">&ensp;&ensp;say &quot;[The person asked] comes up and shakes your arm until you drop [the noun].&quot;;</div>
+<div class="codeline">&ensp;&ensp;say line break;</div>
+<div class="codeline">&ensp;&ensp;silently try dropping the noun;</div>
+<div class="codeline">&ensp;&ensp;stop the action.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Before someone unlocking a locked thing with something which is not carried by the person asked:</div>
+<div class="codeline">&ensp;&ensp;try the person asked taking the second noun;</div>
+<div class="codeline">&ensp;&ensp;stop the action.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Before someone opening a locked thing (called the sealed chest):</div>
+<div class="codeline">&ensp;&ensp;if the person asked can see the matching key of the sealed chest:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;if the matching key of the sealed chest is enclosed by the sealed chest:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;Seeing the paradoxical location of [the matching key of the sealed chest], [the person asked] gives a howl of rage.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;increment the score;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;end the story finally saying &quot;You have thwarted Ogg&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;try the person asked unlocking the sealed chest with the matching key of the sealed chest;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;stop the action.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Before someone taking something which is in a closed container (called the shut chest):</div>
+<div class="codeline">&ensp;&ensp;try the person asked opening the shut chest;</div>
+<div class="codeline">&ensp;&ensp;stop the action.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Ogg has a number called hunger. The hunger of Ogg is 0.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Every turn:</div>
+<div class="codeline">&ensp;&ensp;increment the hunger of Ogg;</div>
+<div class="codeline">&ensp;&ensp;if the hunger of Ogg is 2 and Ogg is visible, say &quot;Ogg&#39;s stomach growls.&quot;;</div>
+<div class="codeline">&ensp;&ensp;if the hunger of Ogg is 3 and Ogg is visible:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;if Ogg can see an edible thing (called the target):</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;Ogg eyes [the target] with obvious intent.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;Ogg glances at you in a disturbingly shifty way.&quot;;</div>
+<div class="codeline">&ensp;&ensp;if the hunger of Ogg is greater than 3:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;if Ogg carries an edible thing (called the target):</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;try Ogg eating the target;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;let new target be a random edible thing which can be seen by Ogg;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the new target is a thing:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;try Ogg taking the new target;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if Ogg can touch the player, end the story saying &quot;Ogg is gnawing your ankle&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;otherwise try Ogg taking the player.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The crumbs are a thing. &quot;Crumbs of [the list of edible things which cannot be seen by the player] lie scattered over the whole floor.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of asking Ogg to try doing something when Ogg cannot touch the player:</div>
+<div class="codeline">&ensp;&ensp;say &quot;Ogg tilts his head and shrugs, unable to hear your instruction clearly.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of asking Ogg to try eating something:</div>
+<div class="codeline">&ensp;&ensp;say &quot;It&#39;s not as though Ogg really needs any encouragement in that department, is it?&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Definition: Ogg is hungry if the hunger of Ogg is greater than 2.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Persuasion rule for asking Ogg to try doing something: if Ogg is hungry, persuasion fails; persuasion succeeds.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Persuasion rule for asking Ogg to try giving something edible to the player:</div>
+<div class="codeline">&ensp;&ensp;persuasion fails.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Unsuccessful attempt by Ogg doing something:</div>
+<div class="codeline">&ensp;&ensp;if the reason the action failed is a failing listed in the Table of Ogg Retorts:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;[reply entry][paragraph break]&quot;;</div>
+<div class="codeline">&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;Ogg looks adorably confused.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline tablename">Table of Ogg Retorts</div><table>
+<tr><td>failing</td><td>reply</td></tr><tr><td>can&#39;t take people&#39;s possessions rule</td><td>&quot;&#39;Ogg too polite.&#39;&quot;</td></tr><tr><td>can&#39;t take other people rule</td><td>&quot;&#39;Ogg not that greedy.&#39;&quot;</td></tr><tr><td>can&#39;t take scenery rule</td><td>&quot;&#39;[The noun] very very heavy.&#39;&quot;</td></tr><tr><td>can&#39;t take what&#39;s fixed in place rule</td><td>&quot;&#39;[The noun] very heavy.&quot;</td></tr><tr><td>can&#39;t drop what&#39;s not held rule</td><td>&quot;&#39;Hunh?&#39;&quot;</td></tr></table>
+<div class="codeline">Carry out Ogg eating an edible thing:</div>
+<div class="codeline">&ensp;&ensp;move the crumbs to the holder of Ogg;</div>
+<div class="codeline">&ensp;&ensp;now the hunger of Ogg is 0.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Report Ogg unlocking something with something:</div>
+<div class="codeline">&ensp;&ensp;say &quot;Ogg struggles a bit with [the second noun] in the lock of [the noun], but does eventually succeed. &#39;Hunh!&#39; says Ogg.&quot;;</div>
+<div class="codeline">&ensp;&ensp;stop the action.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Carry out Ogg opening the case when the case has been open:</div>
+<div class="codeline">&ensp;&ensp;now the case is unopenable.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of closing the unopenable case:</div>
+<div class="codeline">&ensp;&ensp;say &quot;The glass panels are no longer properly seated in their tracks, and the case cannot be closed ever again.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Report Ogg opening the unopenable case:</div>
+<div class="codeline">&ensp;&ensp;say &quot;Ogg forces [the case] so hard that it does break.&quot;;</div>
+<div class="codeline">&ensp;&ensp;stop the action.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Report Ogg opening the case:</div>
+<div class="codeline">&ensp;&ensp;say &quot;Ogg yanks [the noun] open with such force that you fear for its structural integrity.&quot;;</div>
+<div class="codeline">&ensp;&ensp;stop the action.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Report Ogg taking something edible:</div>
+<div class="codeline">&ensp;&ensp;say &quot;Ogg acquires [the noun] with a look of tender affection.&quot;;</div>
+<div class="codeline">&ensp;&ensp;stop the action.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Report Ogg eating something:</div>
+<div class="codeline">&ensp;&ensp;say &quot;Ogg chows down on [the noun], scattering crumbs in all directions.&quot;;</div>
+<div class="codeline">&ensp;&ensp;stop the action.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Report Ogg eating something when the number of visible edible things is 1:</div>
+<div class="codeline">&ensp;&ensp;say &quot;Ogg eats [the noun] in his trademark style. You can no longer bear to watch.&quot;;</div>
+<div class="codeline">&ensp;&ensp;stop the action.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">After entering the case:</div>
+<div class="codeline">&ensp;&ensp;say &quot;You climb inside the case, folding yourself up uncomfortably.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">After locking the case with something when the player is in the case:</div>
+<div class="codeline">&ensp;&ensp;say &quot;You turn the key firmly in the lock -- amazing it locks from within, but it does -- and settle yourself for a long wait, hoping this thing is not air-tight.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The maximum score is 1.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;open mesh / get key / unlock case / open case / enter case / close case / lock case / wait / wait&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "open mesh / get key / unlock case / open case / enter case / close case / lock case / wait / wait".</summary><div class="testme-output">Donut Shop<br>Vibrantly decorated in donut colors: pink, brown, and cream.<br><br>Ogg is slumped in the corner. He wears a nametag which says "HELLO MY NAME IS OG."<br><br>The gleaming donut case contains some cake donuts, some jelly donuts and some apple fritters.<br><br>You can also see a mesh basket (closed) (in which is a silver key) here.<br><br>>(Testing.)<br><br>>[1] open mesh<br>You open the mesh basket.<br><br>>[2] get key<br>Taken.<br><br>Ogg's stomach growls.<br><br>>[3] unlock case<br>(with the silver key)<br>You unlock the case.<br><br>Ogg eyes the cake donuts with obvious intent.<br><br>>[4] open case<br>You open the case.<br><br>Ogg acquires the cake donuts with a look of tender affection.<br><br>>[5] enter case<br>You climb inside the case, folding yourself up uncomfortably.<br><br>Ogg chows down on the cake donuts, scattering crumbs in all directions.<br><br>>[6] close case<br>You close the case.<br><br>>[7] lock case<br>(with the silver key)<br>You turn the key firmly in the lock -- amazing it locks from within, but it does -- and settle yourself for a long wait, hoping this thing is not air-tight.<br><br>Ogg's stomach growls.<br><br>>[8] wait<br>Time passes.<br><br>Ogg eyes the jelly donuts with obvious intent.<br><br>>[9] wait<br>Time passes.<br><br>Seeing the paradoxical location of the silver key, Ogg gives a howl of rage.<br><br><br><br>    *** You have thwarted Ogg ***<br><br><br>In that game you scored 1 out of a possible 1, in 9 turns.<br><br><br>Would you like to RESTART, RESTORE a saved game, QUIT or UNDO the last command?<br>>
+</div></details><div class="doc-navbar"><div class="doc-navbar-left"><a href="iq_test.html" title="Introducing Ogg, a person who will unlock and open a container when the player tells him to get something inside.">189. IQ Test</a></div><div class="doc-navbar-right"><a href="red_cross.html" title="A DIAGNOSE command which allows the player to check on the health of someone.">191. Red Cross</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

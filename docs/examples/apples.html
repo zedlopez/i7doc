@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 368. Apples</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Apples</h1><div class="subheading">Example 368 ★</div>
+<div class="linkback">
+<a href="../WI_18.html#section_31" title="Activities &gt; Asking which do you mean">WI §18.31 Asking which do you mean</a><br><a href="../RB_6.html#section_17" title="Commands &gt; Clarification and Correction">RB §6.17 Clarification and Correction</a>
+</div>
+<p class="example-desc">Prompting the player on how to disambiguate otherwise similar objects.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="stately_gardens.html" title="An open landscape where the player can see landmarks in nearby areas, with somewhat more complex room descriptions than the previous example, and in which we also account for size differences between things seen at a distance.">367. Stately Gardens</a></div><div class="doc-navbar-right"><a href="originals.html" title="Allowing the player to create models of anything in the game world; parsing the name &quot;model [thing]&quot; or even just &quot;[thing]&quot; to refer to these newly-created models; asking &quot;which do you mean, the model [thing] or the actual [thing]&quot; when there is ambiguity.">369. Originals</a></div></div>
+</header>
+<p>Inform by default detects whether two objects can be disambiguated by any vocabulary available to the player. If so, it asks a question; if not, it picks one of the identical objects at random.</p>
+<p>Generally this produces good behavior. Occasionally, though, two objects have some distinguishing characteristic that doesn&#39;t appear in the object name. For instance, suppose we&#39;ve created a class of apples that can be told apart depending on whether they&#39;ve been bitten or not:</p>
+<div class="codeblock"><div class="codeline">An apple is a kind of thing. Consumption is a kind of value. The consumptions are pristine and bitten. An apple has a consumption. The description of an apple is &quot;It is [consumption].&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Understand the consumption property as describing an apple.</div>
+</div><p>The player can meaningfully type</p>
+<div class="codeblock"><div class="codeline">&gt;EAT BITTEN APPLE</div>
+</div><p>or</p>
+<div class="codeblock"><div class="codeline">&gt;EAT PRISTINE APPLE</div>
+</div><p>but if he types</p>
+<div class="codeblock"><div class="codeline">&gt;EAT APPLE</div>
+</div><p>Inform will, annoyingly, ask</p>
+<div class="codeblock"><div class="codeline">Which do you mean, an apple or the apple?</div>
+</div><p>This gives the player no indication of why Inform is making a distinction. So here we add a special &quot;printing the name&quot; rule to get around that situation:</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex368">Play/modify Apples in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="AppleCount/index.html">Play Apples in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Apples&quot;\n\nOrchard is a room.\n\nAn apple is a kind of thing. Consumption is a kind of value. The consumptions are pristine and bitten. An apple has a consumption. The description of an apple is &quot;It is [consumption].&quot;\n\nUnderstand the consumption property as describing an apple.\n\nBefore printing the name of an apple while asking which do you mean: say &quot;[consumption] &quot;. Before printing the plural name of an apple while asking which do you mean: say &quot;[consumption] &quot;.\n\nThe player carries three apples.\n\nInstead of eating a pristine apple (called the fruit):\n\tsay &quot;You take a satisfying bite.&quot;;\n\tnow the fruit is bitten.\n\nInstead of eating a bitten apple (called the fruit):\n\tsay &quot;You consume the apple entirely.&quot;;\n\tnow the fruit is nowhere.\n\n\nBefore listing contents: group apples together.\n\nRule for grouping together an apple (called target):\n\tlet source be the holder of the target;\n\tsay &quot;[number of apples held by the source in words] apple[s], some bitten&quot;.\n\nBefore printing the plural name of an apple (called target):\n\tlet source be the holder of the target;\n\tif every apple held by the source is bitten, say &quot;bitten &quot;;\n\tif every apple held by the source is pristine, say &quot;pristine &quot;.\n\nTest me with &quot;i / eat apple / i / eat apple / pristine / i / eat apple / pristine / i&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Apples&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Orchard is a room.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">An apple is a kind of thing. Consumption is a kind of value. The consumptions are pristine and bitten. An apple has a consumption. The description of an apple is &quot;It is [consumption].&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Understand the consumption property as describing an apple.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Before printing the name of an apple while asking which do you mean: say &quot;[consumption] &quot;. Before printing the plural name of an apple while asking which do you mean: say &quot;[consumption] &quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The player carries three apples.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of eating a pristine apple (called the fruit):</div>
+<div class="codeline">&ensp;&ensp;say &quot;You take a satisfying bite.&quot;;</div>
+<div class="codeline">&ensp;&ensp;now the fruit is bitten.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of eating a bitten apple (called the fruit):</div>
+<div class="codeline">&ensp;&ensp;say &quot;You consume the apple entirely.&quot;;</div>
+<div class="codeline">&ensp;&ensp;now the fruit is nowhere.</div>
+</div><p>Inform will also separate the bitten from the pristine apples in inventory listings and room descriptions, even though it&#39;s not clear why; we can improve on that behavior thus:</p>
+<div class="codeblock"><div class="codeline">Before listing contents: group apples together.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Rule for grouping together an apple (called target):</div>
+<div class="codeline">&ensp;&ensp;let source be the holder of the target;</div>
+<div class="codeline">&ensp;&ensp;say &quot;[number of apples held by the source in words] apple[s], some bitten&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Before printing the plural name of an apple (called target):</div>
+<div class="codeline">&ensp;&ensp;let source be the holder of the target;</div>
+<div class="codeline">&ensp;&ensp;if every apple held by the source is bitten, say &quot;bitten &quot;;</div>
+<div class="codeline">&ensp;&ensp;if every apple held by the source is pristine, say &quot;pristine &quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;i / eat apple / i / eat apple / pristine / i / eat apple / pristine / i&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "i / eat apple / i / eat apple / pristine / i / eat apple / pristine / i".</summary><div class="testme-output">Orchard<br><br>>(Testing.)<br><br>>[1] i<br>You are carrying:<br>  three pristine apples<br><br>>[2] eat apple<br>You take a satisfying bite.<br><br>>[3] i<br>You are carrying:<br>  three apples, some bitten<br><br>>[4] eat apple<br>Which do you mean, the bitten apple or a pristine apple?<br><br>>[5] pristine<br>You take a satisfying bite.<br><br>>[6] i<br>You are carrying:<br>  three apples, some bitten<br><br>>[7] eat apple<br>Which do you mean, a bitten apple or the pristine apple?<br><br>>[8] pristine<br>You take a satisfying bite.<br><br>>[9] i<br>You are carrying:<br>  three bitten apples
+</div></details><div class="doc-navbar"><div class="doc-navbar-left"><a href="stately_gardens.html" title="An open landscape where the player can see landmarks in nearby areas, with somewhat more complex room descriptions than the previous example, and in which we also account for size differences between things seen at a distance.">367. Stately Gardens</a></div><div class="doc-navbar-right"><a href="originals.html" title="Allowing the player to create models of anything in the game world; parsing the name &quot;model [thing]&quot; or even just &quot;[thing]&quot; to refer to these newly-created models; asking &quot;which do you mean, the model [thing] or the actual [thing]&quot; when there is ambiguity.">369. Originals</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

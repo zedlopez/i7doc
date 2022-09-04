@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 332. Some Assembly Required</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Some Assembly Required</h1><div class="subheading">Example 332 ★</div>
+<div class="linkback">
+<a href="../WI_17.html#section_22" title="Understanding &gt; Precedence">WI §17.22 Precedence</a><br><a href="../RB_9.html#section_3" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Clothing">RB §9.3 Clothing</a>
+</div>
+<p class="example-desc">Building different styles of shirt from component sleeves and collars.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="hot_glass_looks_like_cold_glass.html" title="Responding to references to a property that the player isn&#39;t yet allowed to mention (or when not to use &quot;understand as a mistake&quot;).">331. Hot Glass Looks Like Cold Glass</a></div><div class="doc-navbar-right"><a href="lakeside_living.html" title="Similar to &quot;Lemonade&quot;, but with bodies of liquid that can never be depleted, and some adjustments to the &quot;fill&quot; command so that it will automatically attempt to fill from a large liquid source if possible.">333. Lakeside Living</a></div></div>
+</header>
+<p>We now have the mechanisms in place to do some fairly sophisticated renaming of objects. For instance:</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex332">Play/modify Some Assembly Required in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="Shirts/index.html">Play Some Assembly Required in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Some Assembly Required&quot;\n\nGarment type is a kind of value. The garment types are vest, t-shirt, polo shirt, mandarin blouse, button-down, shell, experiment.\n\nEvery turn:\n\tassign identities.\n\nWhen play begins: assign identities.\n\nTo assign identities:\n\trepeat with item running through torsos:\n\t\treassess item.\n\nTo reassess (item - a torso):\n\tif the number of things which are part of the item is 0:\n\t\tnow garment type of the item is vest;\n\t\trule succeeds;\n\tif exactly two short sleeves are part of the item:\n\t\tif a collar is part of the item,\n\t\t\tnow garment type of the item is polo shirt;\n\t\totherwise now garment type of the item is t-shirt;\n\t\trule succeeds;\n\tif exactly two long sleeves are part of the item:\n\t\tif a collar is part of the item,\n\t\t\tnow garment type of the item is button-down;\n\t\totherwise now garment type of the item is mandarin blouse;\n\t\trule succeeds;\n\tif a collar is part of the item and the number of sleeves which are part of the item is 0, now garment type of the item is shell;\n\totherwise now garment type of the item is experiment.\n\nBefore cutting something which is worn by the player:\n\ttry taking off the noun.\n\nInstead of cutting something when something is part of the noun:\n\tsay &quot;You cut up [the noun], snipping off [a list of things which are part of the noun].&quot;;\n\tnow every thing which is part of the noun is in the holder of the noun.\n\nInstead of cutting something which is part of something:\n\tsay &quot;You carefully snip [the noun] free.&quot;;\n\tnow the player carries the noun.\n\nRule for printing the name of a torso: say &quot;[garment type]&quot;.\n\nA torso is a kind of thing. A torso is always wearable. Understand &quot;shirt&quot; or &quot;blouse&quot; as a torso. A torso has a garment type. Understand the garment type property as describing a torso. A sleeve is a kind of thing. A short sleeve is a kind of sleeve. A long sleeve is a kind of sleeve. A collar is a kind of thing.\n\nUnderstand &quot;sew [something] to [something]&quot; as affixing it to. Affixing it to is an action applying to two things. Carry out affixing something to something: now the noun is part of the second noun. Report affixing something to something: assign identities; say &quot;You sew [the noun] on, creating [a second noun].&quot; Understand the command &quot;stitch&quot; as &quot;sew&quot;.\n\nInstead of affixing something to something when the second noun is worn: say &quot;You&apos;re wearing [the second noun]!&quot;\n\nInstead of affixing a torso to something:\n\tif the second noun is a torso, say &quot;Couture for Siamese twins is a daring field, but a bit of a niche market.&quot;;\n\totherwise try affixing the second noun to the noun.\n\nInstead of affixing a sleeve to something when at least two sleeves are part of the second noun: say &quot;[The second noun] already sports [a list of sleeves that are part of the second noun].&quot;\n\nInstead of affixing a collar to something when a collar is part of the second noun: say &quot;[The second noun] already sports [a list of collars that are part of the second noun].&quot;\n\nInstead of examining something when something is part of the noun: say &quot;Stitched to [the noun] [is-are a list of things which are part of the noun].&quot;\n\n\nDefinition: a thing is removable if it is part of something. Understand &quot;cut [removable thing]&quot; as cutting.\n\nThe Boutique is a room. &quot;Still festively strewn with the confetti and streamers of the Grand Opening party, and still almost totally customer-free.&quot;\n\nThe player carries a torso. The player carries three short sleeves. The player carries two long sleeves. The player carries two collars.\n\nTest me with &quot;sew collar to shirt / i / sew short sleeve to shirt / g / i / x polo shirt / cut collar / i / cut shirt / sew long sleeve to shirt / i / sew long sleeve to shirt / i / sew collar to shirt / g / i / wear button-down&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Some Assembly Required&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Garment type is a kind of value. The garment types are vest, t-shirt, polo shirt, mandarin blouse, button-down, shell, experiment.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Every turn:</div>
+<div class="codeline">&ensp;&ensp;assign identities.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">When play begins: assign identities.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">To assign identities:</div>
+<div class="codeline">&ensp;&ensp;repeat with item running through torsos:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;reassess item.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">To reassess (item - a torso):</div>
+<div class="codeline">&ensp;&ensp;if the number of things which are part of the item is 0:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;now garment type of the item is vest;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;rule succeeds;</div>
+<div class="codeline">&ensp;&ensp;if exactly two short sleeves are part of the item:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;if a collar is part of the item,</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now garment type of the item is polo shirt;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;otherwise now garment type of the item is t-shirt;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;rule succeeds;</div>
+<div class="codeline">&ensp;&ensp;if exactly two long sleeves are part of the item:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;if a collar is part of the item,</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now garment type of the item is button-down;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;otherwise now garment type of the item is mandarin blouse;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;rule succeeds;</div>
+<div class="codeline">&ensp;&ensp;if a collar is part of the item and the number of sleeves which are part of the item is 0, now garment type of the item is shell;</div>
+<div class="codeline">&ensp;&ensp;otherwise now garment type of the item is experiment.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Before cutting something which is worn by the player:</div>
+<div class="codeline">&ensp;&ensp;try taking off the noun.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of cutting something when something is part of the noun:</div>
+<div class="codeline">&ensp;&ensp;say &quot;You cut up [the noun], snipping off [a list of things which are part of the noun].&quot;;</div>
+<div class="codeline">&ensp;&ensp;now every thing which is part of the noun is in the holder of the noun.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of cutting something which is part of something:</div>
+<div class="codeline">&ensp;&ensp;say &quot;You carefully snip [the noun] free.&quot;;</div>
+<div class="codeline">&ensp;&ensp;now the player carries the noun.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Rule for printing the name of a torso: say &quot;[garment type]&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A torso is a kind of thing. A torso is always wearable. Understand &quot;shirt&quot; or &quot;blouse&quot; as a torso. A torso has a garment type. Understand the garment type property as describing a torso. A sleeve is a kind of thing. A short sleeve is a kind of sleeve. A long sleeve is a kind of sleeve. A collar is a kind of thing.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Understand &quot;sew [something] to [something]&quot; as affixing it to. Affixing it to is an action applying to two things. Carry out affixing something to something: now the noun is part of the second noun. Report affixing something to something: assign identities; say &quot;You sew [the noun] on, creating [a second noun].&quot; Understand the command &quot;stitch&quot; as &quot;sew&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of affixing something to something when the second noun is worn: say &quot;You&#39;re wearing [the second noun]!&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of affixing a torso to something:</div>
+<div class="codeline">&ensp;&ensp;if the second noun is a torso, say &quot;Couture for Siamese twins is a daring field, but a bit of a niche market.&quot;;</div>
+<div class="codeline">&ensp;&ensp;otherwise try affixing the second noun to the noun.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of affixing a sleeve to something when at least two sleeves are part of the second noun: say &quot;[The second noun] already sports [a list of sleeves that are part of the second noun].&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of affixing a collar to something when a collar is part of the second noun: say &quot;[The second noun] already sports [a list of collars that are part of the second noun].&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of examining something when something is part of the noun: say &quot;Stitched to [the noun] [is-are a list of things which are part of the noun].&quot;</div>
+</div><p>Here is where the issue of precedence arises. We want to encourage Inform to select a cuttable object that is part of something else, rather than one of the spares:</p>
+<div class="codeblock"><div class="codeline">Definition: a thing is removable if it is part of something. Understand &quot;cut [removable thing]&quot; as cutting.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Boutique is a room. &quot;Still festively strewn with the confetti and streamers of the Grand Opening party, and still almost totally customer-free.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The player carries a torso. The player carries three short sleeves. The player carries two long sleeves. The player carries two collars.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;sew collar to shirt / i / sew short sleeve to shirt / g / i / x polo shirt / cut collar / i / cut shirt / sew long sleeve to shirt / i / sew long sleeve to shirt / i / sew collar to shirt / g / i / wear button-down&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "sew collar to shirt / i / sew short sleeve to shirt / g / i / x polo shirt / cut collar / i / cut shirt / sew long sleeve to shirt / i / sew long sleeve to shirt / i / sew collar to shirt / g / i / wear button-down".</summary><div class="testme-output">Boutique<br>Still festively strewn with the confetti and streamers of the Grand Opening party, and still almost totally customer-free.<br><br>>(Testing.)<br><br>>[1] sew collar to shirt<br>You sew the collar on, creating a shell.<br><br>>[2] i<br>You are carrying:<br>  a shell<br>  three short sleeves<br>  two long sleeves<br>  a collar<br><br>>[3] sew short sleeve to shirt<br>You sew the short sleeve on, creating an experiment.<br><br>>[4] g<br>You sew the short sleeve on, creating a polo shirt.<br><br>>[5] i<br>You are carrying:<br>  a polo shirt<br>  a short sleeve<br>  two long sleeves<br>  a collar<br><br>>[6] x polo shirt<br>Stitched to the polo shirt are two short sleeves and a collar.<br><br>>[7] cut collar<br>You carefully snip the collar free.<br><br>>[8] i<br>You are carrying:<br>  two collars<br>  a t-shirt<br>  a short sleeve<br>  two long sleeves<br><br>>[9] cut shirt<br>You cut up the t-shirt, snipping off two short sleeves.<br><br>>[10] sew long sleeve to shirt<br>You sew the long sleeve on, creating an experiment.<br><br>>[11] i<br>You are carrying:<br>  three short sleeves<br>  two collars<br>  an experiment<br>  a long sleeve<br><br>>[12] sew long sleeve to shirt<br>You sew the long sleeve on, creating a mandarin blouse.<br><br>>[13] i<br>You are carrying:<br>  three short sleeves<br>  two collars<br>  a mandarin blouse<br><br>>[14] sew collar to shirt<br>You sew the collar on, creating a button-down.<br><br>>[15] g<br>The button-down already sports a collar.<br><br>>[16] i<br>You are carrying:<br>  three short sleeves<br>  a button-down<br>  a collar<br><br>>[17] wear button-down<br>You put on the button-down.
+</div></details><div class="doc-navbar"><div class="doc-navbar-left"><a href="hot_glass_looks_like_cold_glass.html" title="Responding to references to a property that the player isn&#39;t yet allowed to mention (or when not to use &quot;understand as a mistake&quot;).">331. Hot Glass Looks Like Cold Glass</a></div><div class="doc-navbar-right"><a href="lakeside_living.html" title="Similar to &quot;Lemonade&quot;, but with bodies of liquid that can never be depleted, and some adjustments to the &quot;fill&quot; command so that it will automatically attempt to fill from a large liquid source if possible.">333. Lakeside Living</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

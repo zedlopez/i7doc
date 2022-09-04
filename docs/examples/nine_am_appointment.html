@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 388. Nine AM Appointment</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Nine AM Appointment</h1><div class="subheading">Example 388 ★</div>
+<div class="linkback">
+<a href="../WI_19.html#section_2" title="Rulebooks &gt; Named rules and rulebooks">WI §19.2 Named rules and rulebooks</a><br><a href="../RB_6.html#section_11" title="Commands &gt; Waiting, Sleeping">RB §6.11 Waiting, Sleeping</a>
+</div>
+<p class="example-desc">A WAIT [number] MINUTES command which advances through an arbitrary number of turns.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="blankness.html" title="Emptying the status line during the first screen of the game.">387. Blankness</a></div><div class="doc-navbar-right"><a href="delayed_gratification.html" title="A WAIT UNTIL [time] command which advances until the game clock reaches the correct hour.">389. Delayed Gratification</a></div></div>
+</header>
+<p>If there&#39;s some reason the player needs to be at a specific place and time, we might want to allow him to wait a number of minutes at once.</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex388">Play/modify Nine AM Appointment in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="WaitMore/index.html">Play Nine AM Appointment in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Nine AM Appointment&quot;\n\nWaiting more is an action applying to one number.\n\nUnderstand &quot;wait [a time period]&quot; or &quot;wait for [a time period]&quot; or &quot;wait for a/an [a time period]&quot; or &quot;wait a/an [a time period]&quot; as waiting more.\n\nCarry out waiting more:\n\tlet the target time be the time of day plus the time understood;\n\tdecrease the target time by one minute;\n\twhile the time of day is not the target time:\n\t\tfollow the turn sequence rules.\n\n\nReport waiting more:\n\tsay &quot;It is now [time of day + 1 minute].&quot;\n\n\nCheck waiting more:\n\tif the time understood is greater than one hour, say &quot;You really haven&apos;t got that kind of patience.&quot; instead.\n\nThe Specialist&apos;s Office is a room. The secretary is a woman in the Office. Instead of asking the secretary about &quot;[appointment]&quot;, say &quot;&apos;Hang on just five more minutes,&apos; she says, in a distracted manner.&quot;\n\nUnderstand &quot;appointment&quot; or &quot;specialist&quot; or &quot;doctor&quot; as &quot;[appointment]&quot;.\n\nAt 9:45 AM: say &quot;At [the time of day in words], secretary glances at you and gives a reassuring smile.&quot;\n\nTest me with &quot;ask secretary about appointment / wait five minutes / g / g / wait 61 minutes / wait for half an hour / wait for a quarter of an hour / wait for an hour&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Nine AM Appointment&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Waiting more is an action applying to one number.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Understand &quot;wait [a time period]&quot; or &quot;wait for [a time period]&quot; or &quot;wait for a/an [a time period]&quot; or &quot;wait a/an [a time period]&quot; as waiting more.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Carry out waiting more:</div>
+<div class="codeline">&ensp;&ensp;let the target time be the time of day plus the time understood;</div>
+<div class="codeline">&ensp;&ensp;decrease the target time by one minute;</div>
+<div class="codeline">&ensp;&ensp;while the time of day is not the target time:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;follow the turn sequence rules.</div>
+</div><p>The one nuance here is that after our wait command occurs, the turn sequence rules will occur one more time. So we need to subtract one minute from the parsed time to make the turn end on the desired number of minutes.</p>
+<div class="codeblock"><div class="codeline">Report waiting more:</div>
+<div class="codeline">&ensp;&ensp;say &quot;It is now [time of day + 1 minute].&quot;</div>
+</div><p>And if we want to ensure that the player doesn&#39;t (accidentally or intentionally) put the interpreter through a really long loop, we could put an upper limit on his patience:</p>
+<div class="codeblock"><div class="codeline">Check waiting more:</div>
+<div class="codeline">&ensp;&ensp;if the time understood is greater than one hour, say &quot;You really haven&#39;t got that kind of patience.&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Specialist&#39;s Office is a room. The secretary is a woman in the Office. Instead of asking the secretary about &quot;[appointment]&quot;, say &quot;&#39;Hang on just five more minutes,&#39; she says, in a distracted manner.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Understand &quot;appointment&quot; or &quot;specialist&quot; or &quot;doctor&quot; as &quot;[appointment]&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">At 9:45 AM: say &quot;At [the time of day in words], secretary glances at you and gives a reassuring smile.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;ask secretary about appointment / wait five minutes / g / g / wait 61 minutes / wait for half an hour / wait for a quarter of an hour / wait for an hour&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "ask secretary about appointment / wait five minutes / g / g / wait 61 minutes / wait for half an hour / wait for a quarter of an hour / wait for an hour".</summary><div class="testme-output">Specialist's Office<br>You can see a secretary here.<br><br>>(Testing.)<br><br>>[1] ask secretary about appointment<br>"Hang on just five more minutes," she says, in a distracted manner.<br><br>>[2] wait five minutes<br>It is now 9:06 am.<br><br>>[3] g<br>It is now 9:11 am.<br><br>>[4] g<br>It is now 9:16 am.<br><br>>[5] wait 61 minutes<br>You really haven't got that kind of patience.<br><br>>[6] wait for half an hour<br>At quarter to ten, secretary glances at you and gives a reassuring smile.<br><br>It is now 9:47 am.<br><br>>[7] wait for a quarter of an hour<br>It is now 10:02 am.<br><br>>[8] wait for an hour<br>It is now 11:02 am.
+</div></details><div class="doc-navbar"><div class="doc-navbar-left"><a href="blankness.html" title="Emptying the status line during the first screen of the game.">387. Blankness</a></div><div class="doc-navbar-right"><a href="delayed_gratification.html" title="A WAIT UNTIL [time] command which advances until the game clock reaches the correct hour.">389. Delayed Gratification</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

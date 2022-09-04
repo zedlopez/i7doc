@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 340. Trachypachidae Maturin 1803</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Trachypachidae Maturin 1803</h1><div class="subheading">Example 340 ★★</div>
+<div class="linkback">
+<a href="../WI_18.html#section_10" title="Activities &gt; Printing the name of something">WI §18.10 Printing the name of something</a><br><a href="../RB_9.html#section_2" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Bags, Bottles, Boxes and Safes">RB §9.2 Bags, Bottles, Boxes and Safes</a>
+</div>
+<p class="example-desc">Bottles with removable stoppers: when the stopper is in the bottle, the bottle is functionally closed, but the stopper can also be removed and used elsewhere. Descriptions of the bottle reflect its state intelligently.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="shipping_trunk.html" title="A box of baking soda whose name changes to &quot;completely ineffective baking soda&quot; when it is in a container with something that smells funny.">339. Shipping Trunk</a></div><div class="doc-navbar-right"><a href="chronic_hinting_syndrome.html" title="Using name-printing rules to keep track of whether the player knows about objects, and also to highlight things he might want to follow up.">341. Chronic Hinting Syndrome</a></div></div>
+</header>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex340">Play/modify Trachypachidae Maturin 1803 in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="Stoppers/index.html">Play Trachypachidae Maturin 1803 in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Trachypachidae Maturin 1803&quot;\n\nA bottle is a kind of container. Bottles are usually openable, transparent, and closed. A cork is a kind of thing. A cork is in every bottle.\n\nUnderstand &quot;cork [something]&quot; as corking.\n\nUnderstand the command &quot;stopper&quot; as &quot;cork&quot;.\n\nUnderstand &quot;uncork [something]&quot; as uncorking.\n\nCorking is an action applying to one thing.\n\nCheck corking:\n\tif the noun is not a bottle, say &quot;[The noun] cannot be corked.&quot; instead.\n\nCarry out corking:\n\ttry closing the noun.\n\nUncorking is an action applying to one thing.\n\nCheck uncorking:\n\tif the noun is not a bottle, say &quot;[The noun] cannot be uncorked.&quot; instead.\n\nCarry out uncorking:\n\ttry opening the noun.\n\nUnderstand &quot;close [something] with [something preferably held]&quot; as corking it with.\n\nUnderstand &quot;cork [something] with [something preferably held]&quot; as corking it with.\n\nCorking it with is an action applying to one thing and one carried thing.\n\nCheck corking it with:\n\tif the noun is not a bottle, say &quot;[The noun] cannot be corked.&quot; instead;\n\tif the second noun is not a cork, say &quot;[The second noun] will not fit in [the noun].&quot; instead.\n\nCarry out corking it with:\n\ttry inserting the second noun into the noun instead.\n\n\nInstead of closing a bottle:\n\tif a cork (called the item) is carried by the player, try inserting the item into the noun instead;\n\totherwise say &quot;You need a stopper of some kind.&quot;\n\nInstead of opening a bottle:\n\tif a cork (called the item) is in the noun, try taking the item instead;\n\totherwise say &quot;[The noun] has no stopper.&quot;\n\nCarry out inserting a cork into a bottle:\n\tnow the second noun is closed.\n\nAfter inserting a cork into a bottle:\n\tsay &quot;You stopper [the second noun] with [the noun].&quot;\n\nBefore taking a cork when the noun is in a closed bottle (called the item):\n\tnow the item is open.\n\nInstead of taking a cork when the noun is in a bottle (called the item):\n\tmove the noun to the player;\n\tsay &quot;You pull [the noun] from [the item].&quot; instead.\n\nBefore printing the name of a bottle (called target) while not inserting, taking, searching, or removing:\n\tif the target is closed, say &quot;sealed &quot;;\n\totherwise say &quot;now open &quot;.\n\nAfter printing the name of a bottle (called target) while not inserting, searching, examining, or removing:\n\tif the target contains a noncork thing, say &quot; containing [a list of noncork things in the target]&quot;;\n\tomit contents in listing.\n\nInstead of examining a bottle:\n\tsay &quot;[The noun] contains [a list of noncork things in the noun].&quot;\n\nDefinition: a thing is noncork if it is not a cork.\n\nThe Doctor&apos;s Cabin is a room. &quot;A dark, cramped triangle, like a slice of cake, except that its sharp end has been cut off: and so low that a moderately tall man would strike his head on the deck above if he were to stand upright. Every free surface is covered with sheets of best Venetian looking-glass, to increase the light filtering in. Long use and the carpenter&apos;s ingenuity have packed in a folding cot and table, and lockers are built into unlikely places: lockers filled with specimens, skeletons, sketches, drafts and serial letters.&quot; The jug is a bottle in the Doctor&apos;s Cabin. The jug contains a beetle. The description of the beetle is &quot;The doctor assures you that it is a nondescript.&quot;\n\nTest me with &quot;get jug / x jug / open jug / x jug / i / x cork / cork jug / i / uncork jug / i / x jug / get beetle / i / close jug / i / x jug&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Trachypachidae Maturin 1803&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A bottle is a kind of container. Bottles are usually openable, transparent, and closed. A cork is a kind of thing. A cork is in every bottle.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Understand &quot;cork [something]&quot; as corking.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Understand the command &quot;stopper&quot; as &quot;cork&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Understand &quot;uncork [something]&quot; as uncorking.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Corking is an action applying to one thing.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Check corking:</div>
+<div class="codeline">&ensp;&ensp;if the noun is not a bottle, say &quot;[The noun] cannot be corked.&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Carry out corking:</div>
+<div class="codeline">&ensp;&ensp;try closing the noun.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Uncorking is an action applying to one thing.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Check uncorking:</div>
+<div class="codeline">&ensp;&ensp;if the noun is not a bottle, say &quot;[The noun] cannot be uncorked.&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Carry out uncorking:</div>
+<div class="codeline">&ensp;&ensp;try opening the noun.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Understand &quot;close [something] with [something preferably held]&quot; as corking it with.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Understand &quot;cork [something] with [something preferably held]&quot; as corking it with.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Corking it with is an action applying to one thing and one carried thing.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Check corking it with:</div>
+<div class="codeline">&ensp;&ensp;if the noun is not a bottle, say &quot;[The noun] cannot be corked.&quot; instead;</div>
+<div class="codeline">&ensp;&ensp;if the second noun is not a cork, say &quot;[The second noun] will not fit in [the noun].&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Carry out corking it with:</div>
+<div class="codeline">&ensp;&ensp;try inserting the second noun into the noun instead.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of closing a bottle:</div>
+<div class="codeline">&ensp;&ensp;if a cork (called the item) is carried by the player, try inserting the item into the noun instead;</div>
+<div class="codeline">&ensp;&ensp;otherwise say &quot;You need a stopper of some kind.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of opening a bottle:</div>
+<div class="codeline">&ensp;&ensp;if a cork (called the item) is in the noun, try taking the item instead;</div>
+<div class="codeline">&ensp;&ensp;otherwise say &quot;[The noun] has no stopper.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Carry out inserting a cork into a bottle:</div>
+<div class="codeline">&ensp;&ensp;now the second noun is closed.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">After inserting a cork into a bottle:</div>
+<div class="codeline">&ensp;&ensp;say &quot;You stopper [the second noun] with [the noun].&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Before taking a cork when the noun is in a closed bottle (called the item):</div>
+<div class="codeline">&ensp;&ensp;now the item is open.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of taking a cork when the noun is in a bottle (called the item):</div>
+<div class="codeline">&ensp;&ensp;move the noun to the player;</div>
+<div class="codeline">&ensp;&ensp;say &quot;You pull [the noun] from [the item].&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Before printing the name of a bottle (called target) while not inserting, taking, searching, or removing:</div>
+<div class="codeline">&ensp;&ensp;if the target is closed, say &quot;sealed &quot;;</div>
+<div class="codeline">&ensp;&ensp;otherwise say &quot;now open &quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">After printing the name of a bottle (called target) while not inserting, searching, examining, or removing:</div>
+<div class="codeline">&ensp;&ensp;if the target contains a noncork thing, say &quot; containing [a list of noncork things in the target]&quot;;</div>
+<div class="codeline">&ensp;&ensp;omit contents in listing.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of examining a bottle:</div>
+<div class="codeline">&ensp;&ensp;say &quot;[The noun] contains [a list of noncork things in the noun].&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Definition: a thing is noncork if it is not a cork.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Doctor&#39;s Cabin is a room. &quot;A dark, cramped triangle, like a slice of cake, except that its sharp end has been cut off: and so low that a moderately tall man would strike his head on the deck above if he were to stand upright. Every free surface is covered with sheets of best Venetian looking-glass, to increase the light filtering in. Long use and the carpenter&#39;s ingenuity have packed in a folding cot and table, and lockers are built into unlikely places: lockers filled with specimens, skeletons, sketches, drafts and serial letters.&quot; The jug is a bottle in the Doctor&#39;s Cabin. The jug contains a beetle. The description of the beetle is &quot;The doctor assures you that it is a nondescript.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;get jug / x jug / open jug / x jug / i / x cork / cork jug / i / uncork jug / i / x jug / get beetle / i / close jug / i / x jug&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "get jug / x jug / open jug / x jug / i / x cork / cork jug / i / uncork jug / i / x jug / get beetle / i / close jug / i / x jug".</summary><div class="testme-output">Doctor's Cabin<br>A dark, cramped triangle, like a slice of cake, except that its sharp end has been cut off: and so low that a moderately tall man would strike his head on the deck above if he were to stand upright. Every free surface is covered with sheets of best Venetian looking-glass, to increase the light filtering in. Long use and the carpenter's ingenuity have packed in a folding cot and table, and lockers are built into unlikely places: lockers filled with specimens, skeletons, sketches, drafts and serial letters.<br><br>You can see a sealed jug containing a beetle here.<br><br>>(Testing.)<br><br>>[1] get jug<br>Taken.<br><br>>[2] x jug<br>The sealed jug contains a beetle.<br><br>>[3] open jug<br>You pull the cork from the jug containing a beetle.<br><br>>[4] x jug<br>The now open jug contains a beetle.<br><br>>[5] i<br>You are carrying:<br>  a cork<br>  a now open jug containing a beetle<br><br>>[6] x cork<br>You see nothing special about the cork.<br><br>>[7] cork jug<br>You stopper the jug with the cork.<br><br>>[8] i<br>You are carrying:<br>  a sealed jug containing a beetle<br><br>>[9] uncork jug<br>You pull the cork from the jug containing a beetle.<br><br>>[10] i<br>You are carrying:<br>  a cork<br>  a now open jug containing a beetle<br><br>>[11] x jug<br>The now open jug contains a beetle.<br><br>>[12] get beetle<br>Taken.<br><br>>[13] i<br>You are carrying:<br>  a beetle<br>  a cork<br>  a now open jug<br><br>>[14] close jug<br>You stopper the jug with the cork.<br><br>>[15] i<br>You are carrying:<br>  a beetle<br>  a sealed jug<br><br>>[16] x jug<br>The sealed jug contains nothing.
+</div></details><div class="doc-navbar"><div class="doc-navbar-left"><a href="shipping_trunk.html" title="A box of baking soda whose name changes to &quot;completely ineffective baking soda&quot; when it is in a container with something that smells funny.">339. Shipping Trunk</a></div><div class="doc-navbar-right"><a href="chronic_hinting_syndrome.html" title="Using name-printing rules to keep track of whether the player knows about objects, and also to highlight things he might want to follow up.">341. Chronic Hinting Syndrome</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

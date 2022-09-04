@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 27. Peugeot</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Peugeot</h1><div class="subheading">Example 27 ★</div>
+<div class="linkback">
+<a href="../WI_3.html#section_16" title="Things &gt; Vehicles and pushable things">WI §3.16 Vehicles and pushable things</a><br><a href="../RB_8.html#section_1" title="Vehicles, Animals and Furniture &gt; Bicycles, Cars and Boats">RB §8.1 Bicycles, Cars and Boats</a>
+</div>
+<p class="example-desc">A journey from one room to another that requires the player to be on a vehicle.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="down_below.html" title="A light switch which makes the room it is in dark or light.">26. Down Below</a></div><div class="doc-navbar-right"><a href="disenchantment_bay8.html" title="Disenchantment Bay: a pushable chest of ice for the boat.">28. Disenchantment Bay 8</a></div></div>
+</header>
+<p>Let&#39;s say that our protagonist is about to flee . Obviously, he can&#39;t make the journey on foot; he needs transportation.</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex27">Play/modify Peugeot in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="Zed/index.html">Play Peugeot in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Peugeot&quot;\n\nInclude Rideable Vehicles by Graham Nelson.\n\nThe Lot is a room. The ten-speed bike is a rideable vehicle in the Lot.\n\n\nCambridge is east of the Lot.\n\n\nInstead of going to Cambridge when the player is not on the ten-speed bike:\n\tsay &quot;It&apos;s a long journey to Cambridge: you&apos;ll never make it on foot.&quot;\n\nAfter going to Cambridge:\n\tsay &quot;You begin pedalling determinedly.&quot;;\n\tcontinue the action.\n\nTest me with &quot;e / get on ten-speed bike / e&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Peugeot&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Include Rideable Vehicles by Graham Nelson.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Lot is a room. The ten-speed bike is a rideable vehicle in the Lot.</div>
+</div><p>We make the ten-speed bike a rideable vehicle because we want to say that the player is on it rather than in it. Then our other room:</p>
+<div class="codeblock"><div class="codeline">Cambridge is east of the Lot.</div>
+</div><p>And now we borrow from the Actions chapter to prevent travel without the proper equipment:</p>
+<div class="codeblock"><div class="codeline">Instead of going to Cambridge when the player is not on the ten-speed bike:</div>
+<div class="codeline">&ensp;&ensp;say &quot;It&#39;s a long journey to Cambridge: you&#39;ll never make it on foot.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">After going to Cambridge:</div>
+<div class="codeline">&ensp;&ensp;say &quot;You begin pedalling determinedly.&quot;;</div>
+<div class="codeline">&ensp;&ensp;continue the action.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;e / get on ten-speed bike / e&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "e / get on ten-speed bike / e".</summary><div class="testme-output">Lot<br>You can see a ten-speed bike here.<br><br>>(Testing.)<br><br>>[1] e<br>It's a long journey to Cambridge: you'll never make it on foot.<br><br>>[2] get on ten-speed bike<br>You mount the ten-speed bike.<br><br>>[3] e<br>You begin pedalling determinedly.<br><br>Cambridge (on the ten-speed bike)
+</div></details><div class="doc-navbar"><div class="doc-navbar-left"><a href="down_below.html" title="A light switch which makes the room it is in dark or light.">26. Down Below</a></div><div class="doc-navbar-right"><a href="disenchantment_bay8.html" title="Disenchantment Bay: a pushable chest of ice for the boat.">28. Disenchantment Bay 8</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

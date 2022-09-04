@@ -1,0 +1,1026 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>WI 18. Activities</title>
+<script src="i7doc.js"></script>
+<link rel="stylesheet" href="i7doc.css">
+</head>
+<nav><div class="nav-el"><a href="index.html">Contents</a></div> <div class="nav-el"><a href="examples/index.html">Examples</a></div> <div class="nav-el"><a href="general_index.html">Index</a></div> <div class="nav-el"><a href="search.html">Search</a></div></nav>
+<body><header><h1 class="title">Writing with Inform</h1></header>
+<h2 id="chapter_18">18. Activities</h2>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="WI_17.html">17. Understanding</a></div><div class="doc-navbar-right"><a href="WI_19.html">19. Rulebooks</a></div></div>
+<div class="section-block">
+<div class="section-row">
+<div class="section-chapter-num">§18.</div><div class="section-section-num">1</div><div class="section-name"><a href="WI_18.html#section_1">What are activities?</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§18.</div><div class="section-section-num">2</div><div class="section-name"><a href="WI_18.html#section_2">How activities work</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§18.</div><div class="section-section-num">3</div><div class="section-name"><a href="WI_18.html#section_3">Rules applied to activities</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§18.</div><div class="section-section-num">4</div><div class="section-name"><a href="WI_18.html#section_4">While clauses</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§18.</div><div class="section-section-num">5</div><div class="section-name"><a href="WI_18.html#section_5">New activities</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§18.</div><div class="section-section-num">6</div><div class="section-name"><a href="WI_18.html#section_6">Activity variables</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§18.</div><div class="section-section-num">7</div><div class="section-name"><a href="WI_18.html#section_7">Beginning and ending activities manually</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§18.</div><div class="section-section-num">8</div><div class="section-name"><a href="WI_18.html#section_8">Introduction to the list of built-in activities</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§18.</div><div class="section-section-num">9</div><div class="section-name"><a href="WI_18.html#section_9">Deciding the concealed possessions of something</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§18.</div><div class="section-section-num">10</div><div class="section-name"><a href="WI_18.html#section_10">Printing the name of something</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§18.</div><div class="section-section-num">11</div><div class="section-name"><a href="WI_18.html#section_11">Printing the plural name of something</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§18.</div><div class="section-section-num">12</div><div class="section-name"><a href="WI_18.html#section_12">Printing a number of something</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§18.</div><div class="section-section-num">13</div><div class="section-name"><a href="WI_18.html#section_13">Listing contents of something</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§18.</div><div class="section-section-num">14</div><div class="section-name"><a href="WI_18.html#section_14">Grouping together something</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§18.</div><div class="section-section-num">15</div><div class="section-name"><a href="WI_18.html#section_15">Issuing the response text of something</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§18.</div><div class="section-section-num">16</div><div class="section-name"><a href="WI_18.html#section_16">Printing room description details of something</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§18.</div><div class="section-section-num">17</div><div class="section-name"><a href="WI_18.html#section_17">Printing inventory details of something</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§18.</div><div class="section-section-num">18</div><div class="section-name"><a href="WI_18.html#section_18">Printing a refusal to act in the dark</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§18.</div><div class="section-section-num">19</div><div class="section-name"><a href="WI_18.html#section_19">Printing the announcement of darkness</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§18.</div><div class="section-section-num">20</div><div class="section-name"><a href="WI_18.html#section_20">Printing the announcement of light</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§18.</div><div class="section-section-num">21</div><div class="section-name"><a href="WI_18.html#section_21">Printing the name of a dark room</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§18.</div><div class="section-section-num">22</div><div class="section-name"><a href="WI_18.html#section_22">Printing the description of a dark room</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§18.</div><div class="section-section-num">23</div><div class="section-name"><a href="WI_18.html#section_23">Constructing the status line</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§18.</div><div class="section-section-num">24</div><div class="section-name"><a href="WI_18.html#section_24">Writing a paragraph about</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§18.</div><div class="section-section-num">25</div><div class="section-name"><a href="WI_18.html#section_25">Listing nondescript items of something</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§18.</div><div class="section-section-num">26</div><div class="section-name"><a href="WI_18.html#section_26">Printing the locale description of something</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§18.</div><div class="section-section-num">27</div><div class="section-name"><a href="WI_18.html#section_27">Choosing notable locale objects for something</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§18.</div><div class="section-section-num">28</div><div class="section-name"><a href="WI_18.html#section_28">Printing a locale paragraph about</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§18.</div><div class="section-section-num">29</div><div class="section-name"><a href="WI_18.html#section_29">Deciding the scope of something</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§18.</div><div class="section-section-num">30</div><div class="section-name"><a href="WI_18.html#section_30">Clarifying the parser's choice of something</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§18.</div><div class="section-section-num">31</div><div class="section-name"><a href="WI_18.html#section_31">Asking which do you mean</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§18.</div><div class="section-section-num">32</div><div class="section-name"><a href="WI_18.html#section_32">Supplying a missing noun/second noun</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§18.</div><div class="section-section-num">33</div><div class="section-name"><a href="WI_18.html#section_33">Reading a command</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§18.</div><div class="section-section-num">34</div><div class="section-name"><a href="WI_18.html#section_34">Implicitly taking something</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§18.</div><div class="section-section-num">35</div><div class="section-name"><a href="WI_18.html#section_35">Printing a parser error</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§18.</div><div class="section-section-num">36</div><div class="section-name"><a href="WI_18.html#section_36">Deciding whether all includes</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§18.</div><div class="section-section-num">37</div><div class="section-name"><a href="WI_18.html#section_37">Printing the banner text</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§18.</div><div class="section-section-num">38</div><div class="section-name"><a href="WI_18.html#section_38">Printing the player's obituary</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§18.</div><div class="section-section-num">39</div><div class="section-name"><a href="WI_18.html#section_39">Amusing a victorious player</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§18.</div><div class="section-section-num">40</div><div class="section-name"><a href="WI_18.html#section_40">Starting the virtual machine</a></div>
+</div>
+</div>
+<h3 id="section_1">WI §18.1 What are activities?</h3>
+<div class="sect-navbar"><div class="sect-navbar-center"><a href="#chapter_18">18. Activities</a></div><div class="sect-navbar-right"><a href="#section_2">18.2 How activities work</a></div></div>
+<p>It is poor form to define with negatives, but the first thing to say about activities is that they are <em>not</em> actions. This needs saying because Inform often seems to treat them as if they are, by allowing us to write rules like so:</p>
+<div class="codeblock"><div class="codeline">Before printing the name of a woman, say &quot;Ms &quot;.</div>
+</div><p>With this rule in place, someone called &quot;Daphne&quot; will always be described as &quot;Ms Daphne&quot;, and so on. The language looks as if we were imposing a rule on an action called &quot;printing the name of&quot;, but there is no such action: instead, it is an &quot;activity&quot;. To spell out the difference:</p>
+<div class="codeblock"><div class="codeline">An action is a simulated task for the fictional protagonist.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">An activity is a real task for the computer program doing the simulation.</div>
+</div><p>Activities allow us to influence or change some of the standard habits of Inform, using rules as flexible and powerful as those applicable to actions, though activities are in several ways simpler and easier.</p>
+<div class="examples">
+<h4>Example</h4>
+<div class="example-short">334. ★ <a href="examples/antsensitive_sunglasses.html">Ant-Sensitive Sunglasses</a><br>What are activities good for? Controlling output when we want the same action to be able to produce very flexible text depending on the state of the world -- in this case, making highly variable room description and object description text.</p></div><div class="linkback">
+<a href="RB_3.html#section_1" title="Place &gt; Room Descriptions">RB §3.1 Room Descriptions</a>
+</div>
+<h3 id="section_2">WI §18.2 How activities work</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_1">18.1 What are activities?</a></div><div class="sect-navbar-center"><a href="#chapter_18">18. Activities</a></div><div class="sect-navbar-right"><a href="#section_3">18.3 Rules applied to activities</a></div></div>
+<p>All activities start, continue for a while and then finish: however, no activity ever runs on for more than a single turn. Several activities can be going on at the same time. For instance, suppose the following is printed as part of the description of a grocery:</p>
+<div class="codeblock"><div class="codeline">You can see a banana, an apple and a star-fruit here.</div>
+</div><p>At the moment when Inform prints &quot;apple&quot;, two activities are under way: &quot;listing contents of the Grocery&quot;, and &quot;printing the name of the apple&quot;. The sequence of events was in fact:</p>
+<div class="codeblock"><div class="codeline">say &quot;You can see &quot;</div>
+<div class="codeline"><em>start listing contents of the Grocery</em></div>
+<div class="codeline">&ensp;&ensp;say &quot;a &quot;</div>
+<div class="codeline">&ensp;&ensp;<em>start printing the name of the banana</em></div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;banana&quot;</div>
+<div class="codeline">&ensp;&ensp;<em>finish printing the name of the banana</em></div>
+<div class="codeline">&ensp;&ensp;say &quot;, an &quot;</div>
+<div class="codeline">&ensp;&ensp;<em>start printing the name of the apple</em></div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;apple&quot;</div>
+<div class="codeline">&ensp;&ensp;<em>finish printing the name of the apple</em></div>
+<div class="codeline">&ensp;&ensp;say &quot; and a &quot;</div>
+<div class="codeline">&ensp;&ensp;<em>start printing the name of the star-fruit</em></div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;star-fruit&quot;</div>
+<div class="codeline">&ensp;&ensp;<em>finish printing the name of the star-fruit</em></div>
+<div class="codeline"><em>finish listing contents of the Grocery</em></div>
+<div class="codeline">say &quot; here.&quot;</div>
+</div><p>The golden rule is: if activity B starts during activity A, it must also finish during activity A.</p>
+<p>If we ever need to find out, we can always test:</p>
+<div class="codeblock"><div class="codeline">if the printing the name activity is going on, ...</div>
+<div class="codeline">if the printing the name activity is not going on, ...</div>
+</div><p>but as we shall see, it&#39;s usually simpler to attach &quot;while printing the name&quot; provisos to rules.</p>
+<h3 id="section_3">WI §18.3 Rules applied to activities</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_2">18.2 How activities work</a></div><div class="sect-navbar-center"><a href="#chapter_18">18. Activities</a></div><div class="sect-navbar-right"><a href="#section_4">18.4 While clauses</a></div></div>
+<p>The activity &quot;printing the name of something&quot; is the process of printing up the name of something on screen: ordinarily, this means saying the text in its &quot;printed name&quot; property.</p>
+<p>As with actions, rules can be attached to activities which change or augment what would normally happen. In fact the situation is simpler, because (unlike an action) an activity almost always finishes, so we almost always do reach its &quot;after&quot; stage. There are also only three rulebooks attached to an activity, as compared with the six affecting an action.</p>
+<p>The three rulebooks for printing the name are called &quot;before printing the name&quot;, &quot;for printing the name&quot; and &quot;after printing the name&quot;, and this is the general pattern. What happens is:</p>
+<div class="codeblock"><div class="codeline">1. All &quot;before printing the name of&quot; rules are considered;</div>
+<div class="codeline">2. The most specific, applicable &quot;rule for printing the name of&quot; is considered;</div>
+<div class="codeline">3. All &quot;after printing the name of&quot; rules are considered.</div>
+</div><p>Whereas an action&#39;s later stages never take place if an early stage ends unexpectedly, an activity always goes through all three of its stages. Invoking the word &quot;instead&quot; in a before rule for an action will terminate not only the before rules but the whole action: the same thing for an activity will only terminate the before rules, and the for and after rules will take place as usual.</p>
+<p>The actual task is usually carried out by one single rule tucked into the back of the &quot;for&hellip;&quot; rulebook: it is the rule for printing the name of whatever is concerned, hence the name. Inform&#39;s standard activities are all of this pattern: they start out with no &quot;before&quot; or &quot;after&quot; rules, and just one &quot;for&quot; rule.</p>
+<p>Why the part about an activity only &quot;almost always&quot; finishing? One reason is that the story might end during it; but another is that it&#39;s possible, though uncommon, to abandon an activity partway. Very few of the activities supplied with Inform ever do this, and those that do are noted in the sections which follow.</p>
+<h3 id="section_4">WI §18.4 While clauses</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_3">18.3 Rules applied to activities</a></div><div class="sect-navbar-center"><a href="#chapter_18">18. Activities</a></div><div class="sect-navbar-right"><a href="#section_5">18.5 New activities</a></div></div>
+<p>Rules applied to actions can become baroque (&quot;after going through a door in the presence of an animal when -&quot; and so on and so forth), but activities are again simpler: they only have one possible clause attached, which is called &quot;while&quot;. For instance, the following would provide a fairly sledgehammer hint that the sack should not lightly be thrown away:</p>
+<div class="codeblock"><div class="codeline">The sack is a player&#39;s holdall. The sack is carried. Rule for printing the name of the sack while the sack is not carried: say &quot;your abandoned sack&quot;.</div>
+</div><p>Any condition can be given after the &quot;while&quot;, and we can also specify that another activity has to be going on. Thus:</p>
+<div class="codeblock"><div class="codeline">Rule for printing the name of the lemon sherbet while listing contents: say &quot;curious sort of lemon sherbet sweet&quot;.</div>
+</div><p>This nicely distinguishes between contexts where it&#39;s appropriate to be more verbose, and where it isn&#39;t. Thus:</p>
+<div class="codeblock"><div class="codeline">You can see a teaspoon and a curious sort of lemon sherbet sweet here.</div>
+<div class="codeline">&gt; TAKE ALL</div>
+<div class="codeline">teaspoon: Taken.</div>
+<div class="codeline">lemon sherbet: Taken.</div>
+</div><h3 id="section_5">WI §18.5 New activities</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_4">18.4 While clauses</a></div><div class="sect-navbar-center"><a href="#chapter_18">18. Activities</a></div><div class="sect-navbar-right"><a href="#section_6">18.6 Activity variables</a></div></div>
+<p>Activities are all about influencing the standard mechanisms which Inform uses, so it might at first seem that there is no need to create new activities: but on further reflection, quite a lot of the writing of interactive fiction involves creating new and systematic ways to do things, and as soon as we have a general rule, we will want to have exceptions. Inform therefore allows us to create our own activities, giving us ways to influence the operation of our own mechanisms.</p>
+<p>There are two kinds of activity: those which relate to a specific value (usually an object but not necessarily), and those which do not. Here are some examples of activities being created:</p>
+<div class="codeblock"><div class="codeline">Assaying is an activity.</div>
+<div class="codeline">Analysing something is an activity.</div>
+<div class="codeline">Announcing something is an activity on numbers.</div>
+</div><p>Inform looks for the clue &quot;something&quot; (or &quot;of something&quot;) after the activity&#39;s name to see if it will work on a value: so analysing and announcing will do, but assaying won&#39;t. If we don&#39;t specify a kind, Inform assumes the value will be an object, as if we had written:</p>
+<div class="codeblock"><div class="codeline">Analysing something is an activity on objects.</div>
+</div><p>As always in Inform, the names of activities are themselves values.</p>
+<div class="codeblock"><div class="codeline">&quot;assaying activity&quot; has kind activity on nothing</div>
+<div class="codeline">&quot;analysing activity&quot; has kind activity on objects</div>
+<div class="codeline">&quot;announcing activity&quot; has kind activity on numbers</div>
+</div><p>Creating an activity is like creating an action: it automatically makes new rulebooks &ndash; &quot;before analysing&quot;, &quot;for analysing&quot; and &quot;after analysing&quot; &ndash; but they start out empty, so the activity does nothing yet. Just as it does for rulebooks, Inform defines the adjectives &quot;empty&quot; and &quot;non-empty&quot; for activities to test this state:</p>
+<div class="codeblock"><div class="codeline">if the analysing activity is empty, ...</div>
+</div><p>will be true only when all three of its rulebooks are empty.</p>
+<p>A newly created activity never happens unless we take steps to make it do so. We can make an activity happen at any time by writing phrases like so:</p>
+<div class="defn" id="ph_carryout"><span class="defn">carry out the </span><span class="neutral">(activity)</span><span class="defn"> activity</span><p>This phrase carries out the given activity, which must be one not applying to any value. Example:</p>
+<div class="codeblock"><div class="codeline">carry out the assaying activity;</div>
+</div></div><div class="defn" id="ph_carryoutwith"><span class="defn">carry out the </span><span class="neutral">(activity on values)</span><span class="defn"> activity with </span><span class="neutral">(value)</span><p>This phrase carries out the given activity, which must apply to a kind of value matching the one supplied. Example:</p>
+<div class="codeblock"><div class="codeline">carry out the analysing activity with the pitchblende;</div>
+<div class="codeline">carry out the announcing activity with the score;</div>
+</div></div><p>To make the activity do something useful, we need to put a rule into its &quot;for&quot; rulebook:</p>
+<div class="codeblock"><div class="codeline">Rule for announcing a number (called N): say &quot;Ladies and gentlemen, [N].&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The last for assaying rule:</div>
+<div class="codeline">&ensp;&ensp;say &quot;Professionally, you cast an eye around mineral deposits nearby, noticing [list of rocks in the location].&quot;</div>
+</div><p>&quot;The last&quot; is a technicality about rulebooks (see the next chapter) which, put briefly, guarantees that this rule comes last among all possible &quot;for assaying&quot; rules. This is good form because the whole point of an activity is to make it easy for further rules to interfere &ndash; so we deliberately hang back to last place, giving precedence to anybody else who wants it.</p>
+<p>The &quot;for&quot; rulebook is one where rules stop the activity, by default, when they take effect &ndash; in the same way that the &quot;instead&quot; rules stop actions by default. If this causes problems, we can use:</p>
+<div class="defn" id="ph_continueactivity"><span class="defn">continue the activity</span><p>This phrase should be used only in rules in activity rulebooks. It causes the current rule to end, but without result, so that the activity continues rather than stopping as a result of the rule. This is useful for rulebooks (like the &quot;for&quot; rulebook of an activity) where the default is that a rule does stop the activity.</p>
+</div><p>Activities are more useful than they first appear. Every new one provides a context which other activities can observe. We could, for instance, define</p>
+<div class="codeblock"><div class="codeline">Rule for printing the name of a rock while assaying: ...</div>
+</div><p>so that during assays more technical names are used.</p>
+<div class="examples">
+<h4>Examples</h4>
+<div class="example-short">335. ★★ <a href="examples/aarpgnosis.html">AARP-Gnosis</a><br>An Encyclopedia set which treats volumes in the same place as a single object, but can also be split up.</p></div><div class="linkback">
+<a href="RB_9.html#section_6" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Reading Matter">RB §9.6 Reading Matter</a>
+</div>
+<div class="example-short">336. ★★★ <a href="examples/aftershock.html">Aftershock</a><br>Modifying the rules for examining a device so that all devices have some specific behavior when switched on, which is described at various times.</p></div><div class="linkback">
+<a href="RB_9.html#section_9" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Televisions and Radios">RB §9.9 Televisions and Radios</a>
+</div>
+<div class="example-short">337. ★★★ <a href="examples/crusoe.html">Crusoe</a><br>Adding a &quot;printing the description of something&quot; activity.</p></div><div class="linkback">
+<a href="RB_6.html#section_5" title="Commands &gt; Examining">RB §6.5 Examining</a>
+</div>
+<h3 id="section_6">WI §18.6 Activity variables</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_5">18.5 New activities</a></div><div class="sect-navbar-center"><a href="#chapter_18">18. Activities</a></div><div class="sect-navbar-right"><a href="#section_7">18.7 Beginning and ending activities manually</a></div></div>
+<p>Just as actions can have variables, which are created when the action starts and disappear when it finishes, so activities can also have variables. They are visible to the rules for that activity, and nowhere else. (If the activity should happen a second time within its first run, that second occurrence gets its own copy of the variable, leaving the original untouched.)</p>
+<p>Typically it will be useful to set a variable to some default value at the &quot;before&quot; stage, calculate some interesting value for it in the &quot;for&quot; stage, and make use of the outcome during the &quot;after&quot; stage. For instance:</p>
+<div class="codeblock"><div class="codeline">Analysing something is an activity. The analysing activity has a text called first impression. Instead of examining something (called the sample), carry out the analysing activity with the sample.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Before analysing: now the first impression is &quot;unremarkable&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Rule for analysing someone: now the first impression is &quot;living tissue&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">After analysing something (called the sample):</div>
+<div class="codeline">&ensp;&ensp;say &quot;Your professional opinion of [the sample] is that it is</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;[first impression].&quot;</div>
+</div><h3 id="section_7">WI §18.7 Beginning and ending activities manually</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_6">18.6 Activity variables</a></div><div class="sect-navbar-center"><a href="#chapter_18">18. Activities</a></div><div class="sect-navbar-right"><a href="#section_8">18.8 Introduction to the list of built-in activities</a></div></div>
+<p>If we have declared a new activity, like &quot;analysing&quot;, the normal way to make it happen would be to write</p>
+<div class="codeblock"><div class="codeline">carry out the analysing activity with the pitchblende;</div>
+</div><p>which goes through the whole machinery of rules &ndash; before, for, after &ndash; and then resumes, the activity having started, taken place and come to an end.</p>
+<p>But there are times when it is not convenient to write a suitable &quot;for &hellip;&quot; rule, or where we need more control, and do not wish to hand the whole business over to a single phrase. For such times we are allowed to write:</p>
+<div class="defn" id="ph_beginactivity"><span class="defn">begin the </span><span class="neutral">(activity)</span><span class="defn"> activity</span><p>This phrase causes the named activity to become active, and runs its &quot;before&quot; rulebook. The activity must be one which applies to nothing. Example:</p>
+<div class="codeblock"><div class="codeline">begin the assaying activity;</div>
+</div><p>In all cases a matching &quot;end the &hellip; activity&quot; or else &quot;abandon the &hellip; activity&quot; phrase must be reached.</p>
+</div><div class="defn" id="ph_beginactivitywith"><span class="defn">begin the </span><span class="neutral">(activity on values)</span><span class="defn"> activity with </span><span class="neutral">(value)</span><p>This phrase causes the named activity to become active, and runs its &quot;before&quot; rulebook. The activity must be one which applies to a value of a matching kind. Example:</p>
+<div class="codeblock"><div class="codeline">begin the analysing activity with the pitchblende;</div>
+</div><p>In all cases a matching &quot;end the &hellip; activity with &hellip;&quot; or else &quot;abandon the &hellip; activity with&hellip;&quot; phrase must be reached.</p>
+</div><p>And when we are done:</p>
+<div class="defn" id="ph_endactivity"><span class="defn">end the </span><span class="neutral">(activity)</span><span class="defn"> activity</span><p>This phrase runs the &quot;after&quot; rulebook of the activity and then causes it to become inactive. The activity must be one which applies to nothing. Example:</p>
+<div class="codeblock"><div class="codeline">end the assaying activity;</div>
+</div><p>This must only happen to match an earlier &quot;begin the &hellip; activity&quot; phrase.</p>
+</div><div class="defn" id="ph_endactivitywith"><span class="defn">end the </span><span class="neutral">(activity on values)</span><span class="defn"> activity with </span><span class="neutral">(value)</span><p>This phrase runs the &quot;after&quot; rulebook of the activity and then causes it to become inactive. The activity must be one which applies to a value of a matching kind. Example:</p>
+<div class="codeblock"><div class="codeline">end the analysing activity with the pitchblende;</div>
+</div><p>This must only happen to match an earlier &quot;begin the &hellip; activity with&hellip;&quot; phrase.</p>
+</div><p>So the usual structure is like so:</p>
+<div class="codeblock"><div class="codeline">begin the analysing activity with the pitchblende;</div>
+<div class="codeline">...</div>
+<div class="codeline">end the analysing activity with the pitchblende;</div>
+</div><p>This time the activity is ongoing throughout as many phrases as we care to write between the &quot;begin&quot; and &quot;end&quot;. The before rules are considered at the time of the &quot;begin &hellip;&quot; phrase; the after rules at the &quot;end &hellip;&quot;.</p>
+<p>What, then, of the &quot;for&quot; rules? In the above setup, they would simply be ignored. But we can make them effectual thus</p>
+<div class="codeblock"><div class="codeline">begin the analysing activity with the pitchblende;</div>
+<div class="codeline">...</div>
+<div class="codeline">if handling the analysing activity with the pitchblende:</div>
+<div class="codeline">&ensp;&ensp;...</div>
+<div class="codeline">...</div>
+<div class="codeline">end the analysing activity with the pitchblende;</div>
+</div><p>We place the activity&#39;s normal behaviour inside the &quot;if&quot;; the condition, &quot;if handling&hellip;&quot;, is true only if no rule has intervened. This means that we (or other authors using our activity) can create their own for rules to substitute here. If we elsewhere write</p>
+<div class="codeblock"><div class="codeline">Rule for handling the analysing activity with the pitchblende when the player is not sober:</div>
+<div class="codeline">&ensp;&ensp;say &quot;You can&#39;t seem to focus.&quot;</div>
+</div><p>that rule will intervene and take the place of whatever we have placed inside the condition.</p>
+<div class="defn" id="ph_handlingactivity"><span class="defn">if handling </span><span class="neutral">(activity)</span><span class="defn"> activity:</span><p>This should be used only where the given activity has been started with &quot;begin &hellip;&quot; and will be finished with &quot;end &hellip;&quot;. It runs the &quot;for&quot; rules for the activity, and then comes out true if none of those for rules intervened in the handling of that activity. (The activity must be one which doesn&#39;t apply to any value.)</p>
+</div><div class="defn" id="ph_handlingactivitywith"><span class="defn">if handling </span><span class="neutral">(activity on values)</span><span class="defn"> activity with </span><span class="neutral">(value)</span><span class="defn">:</span><p>This should be used only where the given activity has been started with &quot;begin &hellip;&quot; and will be finished with &quot;end &hellip;&quot;. It runs the &quot;for&quot; rules for the activity, and then comes out true if none of those for rules intervened in the handling of that activity. (The given value must be the one it is being applied to.)</p>
+</div><p>It is also legal to force an early end to an activity with:</p>
+<div class="defn" id="ph_abandonactivity"><span class="defn">abandon the </span><span class="neutral">(activity)</span><span class="defn"> activity</span><p>This phrase ends an activity at once (without consulting any further rulebooks, including its &quot;after&quot; rulebook). It can only be used with an activity which has had its &quot;begin&quot; but not yet its &quot;end&quot; phrase; it is a drastic remedy best taken only if it is clear that circumstances have changed so that the activity now seems inappropriate. It must not be used during one of the rules for the activity: it can only be used between the begin and for stages, or between the for and end stages.</p>
+<div class="codeblock"><div class="codeline">abandon the assaying activity;</div>
+</div></div><div class="defn" id="ph_abandonactivitywith"><span class="defn">abandon the </span><span class="neutral">(activity on values)</span><span class="defn"> activity with </span><span class="neutral">(value)</span><p>This phrase ends an activity at once (without consulting any further rulebooks, including its &quot;after&quot; rulebook). It can only be used with an activity which has had its &quot;begin&quot; but not yet its &quot;end&quot; phrase; it is a drastic remedy best taken only if it is clear that circumstances have changed so that the activity now seems inappropriate. It must not be used during one of the rules for the activity: it can only be used between the begin and for stages, or between the for and end stages.</p>
+<div class="codeblock"><div class="codeline">abandon the analysing activity with the pitchblende;</div>
+</div></div><p>We need to follow three golden rules: all activities must end, they must never last longer than a turn, and if activity B starts during activity A then it must also finish during activity A. We must also be careful to make sure that if an activity applies to something, then it begins and ends with the same something (the pitchblende, in the above example).</p>
+<h3 id="section_8">WI §18.8 Introduction to the list of built-in activities</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_7">18.7 Beginning and ending activities manually</a></div><div class="sect-navbar-center"><a href="#chapter_18">18. Activities</a></div><div class="sect-navbar-right"><a href="#section_9">18.9 Deciding the concealed possessions of something</a></div></div>
+<p>Activities tend to be about process, rather than outcome. Many of the things Inform does &ndash; printing up lists of items, reading commands from the keyboard, and so on &ndash; are done as activities, because that way the process can be nudged a little. Too many works of interactive fiction betray their mechanical nature by making it visible that the general machinery being used does not quite seem natural for this or that situation. Activities enable us to add the many graceful touches which avoid that: which contribute nothing to a work, and also everything.</p>
+<p>The rest of this chapter covers every activity built in to Inform, with one section for each. It is intended primarily for reference, but may be worth skimming through at a first reading, to give a sense of the possibilities.</p>
+<h3 id="section_9">WI §18.9 Deciding the concealed possessions of something</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_8">18.8 Introduction to the list of built-in activities</a></div><div class="sect-navbar-center"><a href="#chapter_18">18. Activities</a></div><div class="sect-navbar-right"><a href="#section_10">18.10 Printing the name of something</a></div></div>
+<p><strong>1. When it happens.</strong> Frequently &ndash; whenever Inform needs to check whether something is visible or not. Nothing should be printed, and the activity needs to run quickly, so it should not (for instance) calculate best routes through complicated maps before getting an answer.</p>
+<p><strong>2. The default behaviour.</strong> There is no concealment. The ordinary rules still apply, though: the contents of a closed opaque container are invisible because there is a barrier in the way which cannot be seen through, even though nobody is &quot;concealing&quot; anything.</p>
+<p><strong>3. Examples.</strong> To repeat a number of brief examples given at the end of Chapter 3, where this activity made an early appearance:</p>
+<div class="codeblock"><div class="codeline">Rule for deciding the concealed possessions of the Cloaked Villain: if the particular possession is the sable cloak, no; otherwise yes.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The coin is in the Roman Villa. The face and inscription are parts of the coin. Rule for deciding the concealed possessions of the coin: if the coin is carried, no; otherwise yes.</div>
+</div><p>The value &quot;particular possession&quot; is the one whose concealment is in question, of course. We can ignore this if someone is invariably secretive:</p>
+<div class="codeblock"><div class="codeline">Rule for deciding the concealed possessions of the furtive ghost: yes.</div>
+</div><p>In general a rule for deciding the concealed possessions of something will decide &quot;yes&quot; if finishes without making a decision, but it&#39;s better style to write such a rule in such a way that it always makes a decision.</p>
+<div class="examples">
+<h4>Example</h4>
+<div class="example-short">338. ★ <a href="examples/hays_code.html">Hays Code</a><br>Clark Gable in a pin-striped suit and a pink thong.</p></div><div class="linkback">
+<a href="RB_9.html#section_3" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Clothing">RB §9.3 Clothing</a>
+</div>
+<h3 id="section_10">WI §18.10 Printing the name of something</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_9">18.9 Deciding the concealed possessions of something</a></div><div class="sect-navbar-center"><a href="#chapter_18">18. Activities</a></div><div class="sect-navbar-right"><a href="#section_11">18.11 Printing the plural name of something</a></div></div>
+<p><strong>1. When it happens.</strong> Whenever the name of a thing or room is printed, either as part of text visible to the player, or sometimes internally in order to determine something about that name.</p>
+<p><strong>2. The default behaviour.</strong> For items other than the current player, the &quot;printed name&quot; property is printed out; but for the current player, &quot;you&quot; or &quot;yourself&quot; is printed. (That doesn&#39;t necessarily mean that the &quot;printed name&quot; of the player is never used. Suppose there are two people, Alice and Bob, and the narrative switches between them: when Alice is the player, she appears as &quot;yourself&quot; but Bob is &quot;Bob&quot;; but when Bob is the player, he is &quot;yourself&quot; and Alice is &quot;Alice&quot;.)</p>
+<p><strong>3. Examples.</strong> (a) A pen which is described differently in inventories:</p>
+<div class="codeblock"><div class="codeline">Rule for printing the name of the pen while taking inventory: say &quot;useful pen&quot;.</div>
+</div><p>&quot;Taking inventory&quot; is a condition which is true if that&#39;s the current action and not otherwise, so the effect is that the pen is called &quot;a useful pen&quot; only in inventory listings. &quot;While looking&quot; is a similarly useful one.</p>
+<p>(b) Italicising the names of novels:</p>
+<div class="codeblock"><div class="codeline">A novel is a kind of thing. Dr Zhivago and Persuasion are novels. Before printing the name of a novel, say &quot;[italic type]&quot;. After printing the name of a novel, say &quot;[roman type]&quot;.</div>
+</div><p>(c) Telling the time:</p>
+<div class="codeblock"><div class="codeline">After printing the name of the wrist watch while taking inventory: say &quot; (time: [the time of day])&quot;.</div>
+</div><p>(d) Merging containers with their contents:</p>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Rule for printing the name of the bottle while not inserting or removing:\n\tif the bottle contains sand, say &quot;bottle of sand&quot;;\n\totherwise say &quot;empty bottle&quot;;\n\tomit contents in listing.`)">⧉</button><div class="codeline">Rule for printing the name of the bottle while not inserting or removing:</div>
+<div class="codeline">&ensp;&ensp;if the bottle contains sand, say &quot;bottle of sand&quot;;</div>
+<div class="codeline">&ensp;&ensp;otherwise say &quot;empty bottle&quot;;</div>
+<div class="codeline">&ensp;&ensp;omit contents in listing.</div>
+</div><p>This example makes use of a special phrase:</p>
+<div class="defn" id="ph_omit"><span class="defn">omit contents in listing</span><p>This phrase changes the form of an inventory listing, room description, etc., so that it will simply list &quot;a bottle of sand&quot; or &quot;an empty bottle&quot;, rather than &quot;a bottle (in which is sand)&quot; or &quot;a bottle (which is empty)&quot;. It should be used only when the listing is imminent, and does not have permanent effect.</p>
+</div><p>The clause about not inserting or removing is to prevent messages like &quot;You put the sand in the bottle of sand.&quot;, where it&#39;s confusing to refer to the bottle as anything other than &quot;the bottle&quot;.</p>
+<div class="examples">
+<h4>Examples</h4>
+<div class="example-short">339. ★ <a href="examples/shipping_trunk.html">Shipping Trunk</a><br>A box of baking soda whose name changes to &quot;completely ineffective baking soda&quot; when it is in a container with something that smells funny.</p></div><div class="linkback">
+<a href="RB_9.html#section_2" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Bags, Bottles, Boxes and Safes">RB §9.2 Bags, Bottles, Boxes and Safes</a>
+</div>
+<div class="example-short">340. ★★ <a href="examples/trachypachidae_maturin1803.html">Trachypachidae Maturin 1803</a><br>Bottles with removable stoppers: when the stopper is in the bottle, the bottle is functionally closed, but the stopper can also be removed and used elsewhere. Descriptions of the bottle reflect its state intelligently.</p></div><div class="linkback">
+<a href="RB_9.html#section_2" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Bags, Bottles, Boxes and Safes">RB §9.2 Bags, Bottles, Boxes and Safes</a>
+</div>
+<div class="example-short">341. ★★★★ <a href="examples/chronic_hinting_syndrome.html">Chronic Hinting Syndrome</a><br>Using name-printing rules to keep track of whether the player knows about objects, and also to highlight things he might want to follow up.</p></div><div class="linkback">
+<a href="RB_7.html#section_11" title="Other Characters &gt; Character Knowledge and Reasoning">RB §7.11 Character Knowledge and Reasoning</a>
+</div>
+<h3 id="section_11">WI §18.11 Printing the plural name of something</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_10">18.10 Printing the name of something</a></div><div class="sect-navbar-center"><a href="#chapter_18">18. Activities</a></div><div class="sect-navbar-right"><a href="#section_12">18.12 Printing a number of something</a></div></div>
+<p><strong>1. When it happens.</strong> Only when a group of identical items is present in the same place, and are being described jointly with text like &quot;You can see five gold rings here.&quot; The activity happens after &quot;five&quot; and before &quot;here.&quot; (See the activity &quot;printing a number of something&quot; if the whole phrase needs to be altered.)</p>
+<p><strong>2. The default behaviour.</strong> The plural name &ndash; in this case &quot;gold rings&quot; &ndash; is printed out.</p>
+<p><strong>3. Examples.</strong>  (a) Suppose we want to emphasise how nice it is to have more than one gold ring:</p>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Rule for printing the plural name of a gold ring: say &quot;gleaming gold rings&quot;.`)">⧉</button><div class="codeline">Rule for printing the plural name of a gold ring: say &quot;gleaming gold rings&quot;.</div>
+</div><p>(b) If the number needs changing as well, it&#39;s necessary to use the &quot;printing a number of something&quot; activity instead.</p>
+<div class="examples">
+<h4>Example</h4>
+<div class="example-short">342. ★★ <a href="examples/hudsucker_industries.html">Hudsucker Industries</a><br>Letters which are described differently as a group, depending on whether the player has read none, some, or all of them, and on whether they are alike or unlike.</p></div><div class="linkback">
+<a href="RB_9.html#section_2" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Bags, Bottles, Boxes and Safes">RB §9.2 Bags, Bottles, Boxes and Safes</a>
+</div>
+<h3 id="section_12">WI §18.12 Printing a number of something</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_11">18.11 Printing the plural name of something</a></div><div class="sect-navbar-center"><a href="#chapter_18">18. Activities</a></div><div class="sect-navbar-right"><a href="#section_13">18.13 Listing contents of something</a></div></div>
+<p><strong>1. When it happens.</strong> Only when a group of identical items is present in the same place, and are being described jointly with text like &quot;You can see five gold rings here.&quot; The activity prints the &quot;five gold rings&quot; part. The variable &quot;listing group size&quot; contains the number, which in this example would be 5, and is always at least 2.</p>
+<p><strong>2. The default behaviour.</strong> The number of items is printed, in words (&quot;five&quot;) and then the &quot;printing the plural name&quot; activity is run (&quot;gold rings&quot;).</p>
+<p><strong>3. Examples.</strong> (a) Using this activity is for perfectionists, because the normal behaviour is almost always fine. Still:</p>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Rule for printing a number of blocks when the listing group size is 3: say &quot;all three blocks&quot;.`)">⧉</button><div class="codeline">Rule for printing a number of blocks when the listing group size is 3: say &quot;all three blocks&quot;.</div>
+</div><p>(b) Or perhaps:</p>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Rule for printing a number of ants: say &quot;altogether [listing group size in words] ants&quot;.`)">⧉</button><div class="codeline">Rule for printing a number of ants: say &quot;altogether [listing group size in words] ants&quot;.</div>
+</div><p>(c) If the only part needing variation is the plural name, it&#39;s simpler and tidier to use the &quot;printing the plural name of something&quot; activity instead.</p>
+<div class="examples">
+<h4>Example</h4>
+<div class="example-short">343. ★ <a href="examples/prolegomena.html">Prolegomena</a><br>Replacing precise numbers with &quot;some&quot; or other quantifiers when too many objects are clustered together for the player to count at a glance.</p></div><div class="linkback">
+<a href="RB_2.html#section_1" title="Adaptive Prose &gt; Varying What Is Written">RB §2.1 Varying What Is Written</a>
+</div>
+<h3 id="section_13">WI §18.13 Listing contents of something</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_12">18.12 Printing a number of something</a></div><div class="sect-navbar-center"><a href="#chapter_18">18. Activities</a></div><div class="sect-navbar-right"><a href="#section_14">18.14 Grouping together something</a></div></div>
+<p><strong>1. When it happens.</strong> When taking inventory, the list is produced by the activity &quot;listing contents of yourself&quot;; when looking, a list of items which do not deserve their own paragraphs is produced by &quot;listing contents of&quot; the location.</p>
+<p><strong>And when it doesn&#39;t happen.</strong> (a) If the Storage Room contains a sideboard and an open shoe box, then &quot;listing contents of the Storage Room&quot; is used to produce the part of the room description mentioning sideboard and box. But if the box in turn contains a pair of brogues, then &quot;listing contents of the shoe box&quot; is not used to say that part. So this works:</p>
+<div class="codeblock"><div class="codeline">Rule for printing the name of the brogues while listing contents of a room: ...</div>
+</div><p>But this won&#39;t affect room descriptions:</p>
+<div class="codeblock"><div class="codeline">Rule for printing the name of the brogues while listing contents of the shoe box: ...</div>
+</div><p>(b) The activity also doesn&#39;t happen when, for instance, &quot;[a list of animals]&quot; is printed, because that isn&#39;t a list of the contents of any room or location.</p>
+<p><strong>2. The default behaviour.</strong> The list is printed out.</p>
+<p><strong>3. Examples.</strong> (a) We have already seen that it can be elegant to elaborate on a description in the context of a list. Here we add &quot;discarded&quot; to a sweet wrapper which is found on the ground.</p>
+<div class="codeblock"><div class="codeline">Rule for printing the name of the wrapper while listing contents of a room: say &quot;discarded sweet wrapper&quot;.</div>
+</div><p>(b) Lists can be considerably shortened and tidied up if similar items are grouped together. We do this by specifying what should be grouped together before listing contents, using the special phrase &quot;group &hellip; together&quot;:</p>
+<div class="codeblock"><div class="codeline">Utensil is a kind of thing. The knife, the fork and the spoon are utensils. Before listing contents: group utensils together as &quot;utensils&quot;.</div>
+</div><p>The result will be, say, &quot;two utensils (knife and spoon)&quot;, if both are found in the same place.</p>
+<p>(c) We can less obtrusively group items together like so:</p>
+<div class="codeblock"><div class="codeline">Before listing contents while taking inventory: group utensils together.</div>
+</div><p>Three special phrases exist for this kind of list organisation:</p>
+<div class="defn" id="ph_group"><span class="defn">group </span><span class="neutral">(description of objects)</span><span class="defn"> together</span><p>This phrase causes the objects described to be listed together in a single item as part of an inventory or room description. The effect is temporary, and the phrase should only be used when this list is imminent. Example:</p>
+<div class="codeblock"><div class="codeline">Utensil is a kind of thing. The knife, the fork and the spoon are utensils. Before listing contents: group utensils together.</div>
+</div><p>This might produce the list item &quot;fork and spoon&quot;.</p>
+</div><div class="defn" id="ph_groupart"><span class="defn">group </span><span class="neutral">(description of objects)</span><span class="defn"> together giving articles</span><p>This phrase causes the objects described to be listed together in a single item as part of an inventory or room description, but giving each individual item its indefinite article. The effect is temporary, and the phrase should only be used when this list is imminent. Example:</p>
+<div class="codeblock"><div class="codeline">Utensil is a kind of thing. The knife, the fork and the spoon are utensils. Before listing contents: group utensils together giving articles.</div>
+</div><p>This might produce the list item &quot;a fork and a spoon&quot;.</p>
+</div><div class="defn" id="ph_grouptext"><span class="defn">group </span><span class="neutral">(description of objects)</span><span class="defn"> together as </span><span class="neutral">(text)</span><p>This phrase causes the objects described to be listed together in a single item as part of an inventory or room description, summarised with the given text. The effect is temporary, and the phrase should only be used when this list is imminent. Example:</p>
+<div class="codeblock"><div class="codeline">Utensil is a kind of thing. The knife, the fork and the spoon are utensils. Before listing contents: group utensils together as &quot;utensils&quot;.</div>
+</div><p>This might produce the list item &quot;two utensils (fork and spoon)&quot;.</p>
+</div><div class="examples">
+<h4>Example</h4>
+<div class="example-short">344. ★ <a href="examples/unpeeled.html">Unpeeled</a><br>Calling an onion &quot;a single yellow onion&quot; when (and only when) it is being listed as the sole content of a room or container.</p></div><div class="linkback">
+<a href="RB_9.html#section_2" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Bags, Bottles, Boxes and Safes">RB §9.2 Bags, Bottles, Boxes and Safes</a>
+</div>
+<h3 id="section_14">WI §18.14 Grouping together something</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_13">18.13 Listing contents of something</a></div><div class="sect-navbar-center"><a href="#chapter_18">18. Activities</a></div><div class="sect-navbar-right"><a href="#section_15">18.15 Issuing the response text of something</a></div></div>
+<p><strong>1. When it happens.</strong> Only while listing contents, and only when a collection of items to be grouped together is reached. This in turn happens only if a &quot;before listing contents&quot; rule has chosen it (see previous section). The first item in the group is the one to which the activity formally applies.</p>
+<p>The variable &quot;listing group size&quot; usually gives the number of items grouped together in this way, but care is needed if the &quot;something&quot; covers multiple groups, because then this will all be working on a list of groups, not of items. For example, in a &quot;grouping together things&quot; rule, where &quot;things&quot; is such a broad description that it can apply to multiple kinds of thing all appearing in the list, the list-maker is likely to set &quot;listing group size&quot; to the number of groups. If the list contains five men and six women, for example, &quot;listing group size&quot; might be 2 rather than 11.</p>
+<p><strong>2. The default behaviour.</strong> The items grouped together are printed in an English phrase, such as &quot;egg, chicken and farmer&quot;. In particular, they are not split onto separate lines even if the rest of the list is. (See previous section.)</p>
+<p><strong>3. Examples.</strong> (a) Here are Scrabble pieces which are described as &quot;the tile W from a Scrabble set&quot; or similar outside of lists, but which, when they turn up together in lists, are rolled together into &quot;the tiles A, B and D from a Scrabble set&quot;.</p>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`A Scrabble piece is a kind of thing. The X, the Y and the Z are Scrabble pieces.\n\nBefore listing contents: group Scrabble pieces together.\n\nBefore printing the name of a Scrabble piece while not grouping together, say &quot;tile &quot;. After printing the name of a Scrabble piece while not grouping together, say &quot; from a Scrabble set&quot;.\n\nBefore grouping together Scrabble pieces, say &quot;the tiles &quot;. After grouping together Scrabble pieces, say &quot; from a Scrabble set&quot;.`)">⧉</button><div class="codeline">A Scrabble piece is a kind of thing. The X, the Y and the Z are Scrabble pieces.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Before listing contents: group Scrabble pieces together.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Before printing the name of a Scrabble piece while not grouping together, say &quot;tile &quot;. After printing the name of a Scrabble piece while not grouping together, say &quot; from a Scrabble set&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Before grouping together Scrabble pieces, say &quot;the tiles &quot;. After grouping together Scrabble pieces, say &quot; from a Scrabble set&quot;.</div>
+</div><p>(b) Maybe we only want an abbreviated form when there are five or more tiles in one place:</p>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`A Scrabble piece is a kind of thing. The X, the W, the F, the Y and the Z are Scrabble pieces in the Lounge.\n\nBefore listing contents: group Scrabble pieces together.\n\nBefore grouping together Scrabble pieces when the listing group size is greater than 4:\n\tsay &quot;some [listing group size in words] tiles (&quot;.\nAfter grouping together Scrabble pieces when the listing group size is greater than 4:\n\tsay &quot;) from a Scrabble set&quot;.`)">⧉</button><div class="codeline">A Scrabble piece is a kind of thing. The X, the W, the F, the Y and the Z are Scrabble pieces in the Lounge.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Before listing contents: group Scrabble pieces together.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Before grouping together Scrabble pieces when the listing group size is greater than 4:</div>
+<div class="codeline">&ensp;&ensp;say &quot;some [listing group size in words] tiles (&quot;.</div>
+<div class="codeline">After grouping together Scrabble pieces when the listing group size is greater than 4:</div>
+<div class="codeline">&ensp;&ensp;say &quot;) from a Scrabble set&quot;.</div>
+</div><p>(c) We can throw out all pretence at listing and say whatever we like, in fact:</p>
+<div class="codeblock"><div class="codeline">Before listing contents while taking inventory: group utensils together. Rule for grouping together utensils: say &quot;the usual utensils&quot;.</div>
+</div><h3 id="section_15">WI §18.15 Issuing the response text of something</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_14">18.14 Grouping together something</a></div><div class="sect-navbar-center"><a href="#chapter_18">18. Activities</a></div><div class="sect-navbar-right"><a href="#section_16">18.16 Printing room description details of something</a></div></div>
+<p><strong>1. When it happens.</strong> When Inform prints a text marked with a response letter (A), (B), (C), &hellip;, in a rule making use of them. For example, in this rule:</p>
+<div class="codeblock"><div class="codeline">Carry out taking inventory (this is the print empty inventory rule):</div>
+<div class="codeline">&ensp;&ensp;if the first thing held by the player is nothing,</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;[We] [are] carrying nothing.&quot; (A) instead.</div>
+</div><p>Or, less directly,</p>
+<div class="codeblock"><div class="codeline">let R be the print empty inventory rule response (A);</div>
+<div class="codeline">say &quot;To be frank: [text of R].&quot;;</div>
+</div><p><strong>2. The default behaviour.</strong> To print the current textual value of the response, making any substitutions in the ordinary way.</p>
+<p><strong>3. Examples.</strong> This activity is not the best way to amend responses or make them dynamic; the whole idea of responses is that they can be changed just as if they were text variables. This activity should be used only if it&#39;s important to amend blocks of responses in some systematic way.</p>
+<p>(a) With that said, some interesting effects can be achieved. This is a way to see which responses are being printed, for example:</p>
+<div class="codeblock"><div class="codeline">Before issuing the response text of a response (called R): say &quot;[R]: &quot;.</div>
+</div><p>whence:</p>
+<div class="codeblock"><div class="codeline">&gt;WAIT</div>
+<div class="codeline">standard report waiting rule response (A): Time passes.</div>
+</div><p>(b) And this intercepts the activity in order to re-run it in each of the six viewpoints. (Note the way a variable is used to prevent the rule from applying to all of those re-runs as well.)</p>
+<div class="codeblock"><div class="codeline">The response inhibition is initially false.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Rule for issuing the response text of a response (called R) when the response inhibition is false:</div>
+<div class="codeline">&ensp;&ensp;now the response inhibition is true;</div>
+<div class="codeline">&ensp;&ensp;let the current viewpoint be the story viewpoint;</div>
+<div class="codeline">&ensp;&ensp;repeat with P running through narrative viewpoints:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;now the story viewpoint is P;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;[P]: [text of R][command clarification break]&quot;;</div>
+<div class="codeline">&ensp;&ensp;now the story viewpoint is the current viewpoint;</div>
+<div class="codeline">&ensp;&ensp;now the response inhibition is false.</div>
+</div><p>With that in place,</p>
+<div class="codeblock"><div class="codeline">&gt;EAST</div>
+<div class="codeline">first person singular: I can&#39;t go that way.</div>
+<div class="codeline">second person singular: You can&#39;t go that way.</div>
+<div class="codeline">third person singular: He can&#39;t go that way.</div>
+<div class="codeline">first person plural: We can&#39;t go that way.</div>
+<div class="codeline">second person plural: You can&#39;t go that way.</div>
+<div class="codeline">third person plural: They can&#39;t go that way.</div>
+</div><div class="examples">
+<h4>Example</h4>
+<div class="example-short">345. ★ <a href="examples/wesponses.html">Wesponses</a><br>Parser messages that are delivered with a speech impediment.</p></div><div class="linkback">
+<a href="RB_2.html#section_1" title="Adaptive Prose &gt; Varying What Is Written">RB §2.1 Varying What Is Written</a>
+</div>
+<h3 id="section_16">WI §18.16 Printing room description details of something</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_15">18.15 Issuing the response text of something</a></div><div class="sect-navbar-center"><a href="#chapter_18">18. Activities</a></div><div class="sect-navbar-right"><a href="#section_17">18.17 Printing inventory details of something</a></div></div>
+<p><strong>1. When it happens.</strong> When an item is listed in the miscellaneous collection of items present in a room (the ones which do not deserve their own paragraphs): this is normally the last paragraph of a room description.</p>
+<p><strong>2. The default behaviour.</strong> A bracketed piece of extra information is added for certain items such as containers:</p>
+<div class="codeblock"><div class="codeline">You can also see Po and a cage (empty) here.</div>
+</div><p>The &quot; (empty)&quot; (note initial space) was added by this activity. (Note that this activity is not responsible for describing further items visible because of the item in question: that is, it does not print the text such as &quot;(in which is a notepad)&quot; which would appear if there were contents. If we want to remove such text, we should use &quot;omit contents in listing&quot;: see the activity &quot;for printing the name of something&quot;.)</p>
+<p><strong>3. Examples.</strong> (a) To get rid of such addenda entirely, try:</p>
+<div class="codeblock"><div class="codeline">Rule for printing room description details: stop.</div>
+</div><p>(b) To add a new form of addendum:</p>
+<div class="codeblock"><div class="codeline">Rule for printing room description details of a person:</div>
+<div class="codeline">&ensp;&ensp;say &quot; (at last, someone to talk to)&quot; instead.</div>
+</div><p>If both examples (a) and (b) are in place at once, we might now read:</p>
+<div class="codeblock"><div class="codeline">You can also see Po (at last, someone to talk to) and a cage here.</div>
+</div><div class="examples">
+<h4>Example</h4>
+<div class="example-short">346. ★ <a href="examples/rules_of_attraction.html">Rules of Attraction</a><br>A magnet which picks up nearby metal objects, and describes itself appropriately in room descriptions and inventory listings, but otherwise goes by its ordinary name.</p></div><div class="linkback">
+<a href="RB_10.html#section_7" title="Physics: Substances, Ropes, Energy and Weight &gt; Electricity and Magnetism">RB §10.7 Electricity and Magnetism</a>
+</div>
+<h3 id="section_17">WI §18.17 Printing inventory details of something</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_16">18.16 Printing room description details of something</a></div><div class="sect-navbar-center"><a href="#chapter_18">18. Activities</a></div><div class="sect-navbar-right"><a href="#section_18">18.18 Printing a refusal to act in the dark</a></div></div>
+<p><strong>1. When it happens.</strong> When an item is listed in an inventory of items carried by the player.</p>
+<p><strong>2. The default behaviour.</strong> A bracketed piece of extra information is added for certain items such as containers:</p>
+<div class="codeblock"><div class="codeline">a flaming branch (providing light)</div>
+</div><p>The &quot; (providing light)&quot; (note initial space) was added by this activity.</p>
+<p><strong>3. Examples.</strong> (a) To get rid of such addenda entirely, try:</p>
+<div class="codeblock"><div class="codeline">Rule for printing inventory details: stop.</div>
+</div><p>(b) To add a new form of addendum:</p>
+<div class="codeblock"><div class="codeline">Rule for printing inventory details of something edible:</div>
+<div class="codeline">&ensp;&ensp;say &quot; (yummy!)[run paragraph on]&quot;.</div>
+</div><h3 id="section_18">WI §18.18 Printing a refusal to act in the dark</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_17">18.17 Printing inventory details of something</a></div><div class="sect-navbar-center"><a href="#chapter_18">18. Activities</a></div><div class="sect-navbar-right"><a href="#section_19">18.19 Printing the announcement of darkness</a></div></div>
+<p><strong>1. When it happens.</strong> When an action which requires light is tried, and the visibility rules decide that not enough light is present.</p>
+<p><strong>2. The default behaviour.</strong> To print &quot;It is pitch dark, and you can&#39;t see a thing.&quot;</p>
+<p><strong>3. Examples.</strong> (a) This might do for some twilit, penumbral room:</p>
+<div class="codeblock"><div class="codeline">Rule for printing a refusal to act in the dark: if we are examining something, say &quot;It&#39;s not totally dark here, perhaps, but certainly too dim for close-up examination of anything.&quot; instead.</div>
+</div><div class="examples">
+<h4>Example</h4>
+<div class="example-short">347. ★★★ <a href="examples/zorn_of_zorna.html">Zorn of Zorna</a><br>Light levels vary depending on the number of candles the player has lit, and this determines whether or not he is able to examine detailed objects successfully.</p></div><div class="linkback">
+<a href="RB_3.html#section_7" title="Place &gt; Lighting">RB §3.7 Lighting</a>
+</div>
+<h3 id="section_19">WI §18.19 Printing the announcement of darkness</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_18">18.18 Printing a refusal to act in the dark</a></div><div class="sect-navbar-center"><a href="#chapter_18">18. Activities</a></div><div class="sect-navbar-right"><a href="#section_20">18.20 Printing the announcement of light</a></div></div>
+<p><strong>1. When it happens.</strong> Inform frequently calculates to see if the player is in light or darkness: this activity happens on the change from light to darkness.</p>
+<p><strong>2. The default behaviour.</strong> To print &quot;It is now pitch dark in here!&quot;.</p>
+<p><strong>3. Examples.</strong> (a) The most obvious use is to change the text:</p>
+<div class="codeblock"><div class="codeline">Rule for printing the announcement of darkness: say &quot;Ooh-er! It&#39;s now very nearly pitch dark in here.&quot; instead.</div>
+</div><p>(b) But we could also use this activity for sneakier purposes, silently moving things around:</p>
+<div class="codeblock"><div class="codeline">Before printing the announcement of darkness: now all of the gremlins are in the kitchen.</div>
+</div><p>(c) A special description for occasions when the player has climbed into a container and shut it (so that the darkness is the result of his own actions, rather than some external circumstance):</p>
+<div class="codeblock"><div class="codeline">Rule for printing the announcement of darkness when closing a container which contains the player:</div>
+<div class="codeline">&ensp;&ensp;say &quot;Congratulations: now you can&#39;t see a thing.&quot; instead.</div>
+</div><h3 id="section_20">WI §18.20 Printing the announcement of light</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_19">18.19 Printing the announcement of darkness</a></div><div class="sect-navbar-center"><a href="#chapter_18">18. Activities</a></div><div class="sect-navbar-right"><a href="#section_21">18.21 Printing the name of a dark room</a></div></div>
+<p><strong>1. When it happens.</strong> Inform frequently calculates to see if the player is in light or darkness: this activity happens on the change from darkness to light.</p>
+<p><strong>2. The default behaviour.</strong> To try the looking action, which usually prints up a room description.</p>
+<p><strong>3. Examples.</strong> (a) Perhaps the player is initially too disoriented to look around in any coherent way:</p>
+<div class="codeblock"><div class="codeline">Rule for printing the announcement of light in the Dazzling Temple: say &quot;You are almost blinded by the suffusion of white light, and have spots before your eyes.&quot; instead.</div>
+</div><h3 id="section_21">WI §18.21 Printing the name of a dark room</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_20">18.20 Printing the announcement of light</a></div><div class="sect-navbar-center"><a href="#chapter_18">18. Activities</a></div><div class="sect-navbar-right"><a href="#section_22">18.22 Printing the description of a dark room</a></div></div>
+<p><strong>1. When it happens.</strong> When looking in darkness, or writing the (default) status line in darkness.</p>
+<p><strong>2. The default behaviour.</strong> To print &quot;Darkness&quot;.</p>
+<p><strong>3. Examples.</strong> (a) One might modify the darkness with some adjective:</p>
+<div class="codeblock"><div class="codeline">Before printing the name of a dark room, say &quot;Near &quot;.</div>
+</div><p>(Note that this activity does not come in different forms for different dark rooms: the wording is fixed at &quot;printing the name of a dark room&quot;, and we are not allowed to substitute particular dark rooms or assign a &quot;(called &hellip;)&quot; onto the mention of the dark room.)</p>
+<h3 id="section_22">WI §18.22 Printing the description of a dark room</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_21">18.21 Printing the name of a dark room</a></div><div class="sect-navbar-center"><a href="#chapter_18">18. Activities</a></div><div class="sect-navbar-right"><a href="#section_23">18.23 Constructing the status line</a></div></div>
+<p><strong>1. When it happens.</strong> When looking in darkness.</p>
+<p><strong>2. The default behaviour.</strong> To print &quot;It is pitch dark, and you can&#39;t see a thing.&quot;</p>
+<p><strong>3. Examples.</strong> (a) A simple variation of wording:</p>
+<div class="codeblock"><div class="codeline">Rule for printing the description of a dark room: say &quot;Your eyes can barely make anything out.&quot; instead.</div>
+</div><p>(b) More stylishly,</p>
+<div class="codeblock"><div class="codeline">Rule for printing the description of a dark room: try listening instead.</div>
+</div><p>which produces, for instance,</p>
+<div class="codeblock"><div class="codeline">Darkness</div>
+<div class="codeline">You hear nothing unexpected.</div>
+</div><p>(Note that this activity does not come in different forms for different dark rooms: the wording is fixed at &quot;printing the description of a dark room&quot;, and we are not allowed to substitute particular dark rooms or assign a &quot;(called &hellip;)&quot; onto the mention of the dark room.)</p>
+<div class="examples">
+<h4>Examples</h4>
+<div class="example-short">348. ★★ <a href="examples/hohmann_transfer.html">Hohmann Transfer</a><br>Changing the way dark rooms are described to avoid the standard Inform phrasing.</p></div><div class="linkback">
+<a href="RB_3.html#section_7" title="Place &gt; Lighting">RB §3.7 Lighting</a>
+</div>
+<div class="example-short">349. ★★★ <a href="examples/four_stars.html">Four Stars 1</a><br>An elaboration of the idea that when light is absent, the player should be given a description of what he can smell and hear, instead.</p></div><div class="linkback">
+<a href="RB_3.html#section_7" title="Place &gt; Lighting">RB §3.7 Lighting</a>
+</div>
+<h3 id="section_23">WI §18.23 Constructing the status line</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_22">18.22 Printing the description of a dark room</a></div><div class="sect-navbar-center"><a href="#chapter_18">18. Activities</a></div><div class="sect-navbar-right"><a href="#section_24">18.24 Writing a paragraph about</a></div></div>
+<p><strong>1. When it happens.</strong> Just before input is accepted from the keyboard, Inform constructs a &quot;status line&quot; at the top of the window which is normally displayed in reverse colours (white on black instead of black on white, say).</p>
+<p><strong>2. The default behaviour.</strong> Makes the status line up out of two pieces, the &quot;left hand status line&quot; and the &quot;right hand status line&quot;. Since these can freely be changed, note that the status line is already very customisable without using rules applied to this activity.</p>
+<p><strong>3. Examples.</strong> (a) The most useful thing about this activity is that it allows us to vary descriptions in the status line. This is especially helpful to abbreviate unduly long room names, which might not otherwise fit:</p>
+<div class="codeblock"><div class="codeline">The Temple Of A Thousand Mightily Peeved Deities is a room. Rule for printing the name of the Temple while constructing the status line: say &quot;Temple&quot;.</div>
+</div><p>(b) Again, it&#39;s usually not necessary to apply activity rules to this, but occasionally amusing effects are possible if we do:</p>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The blindfold is wearable and carried. Rule for constructing the status line while the blindfold is worn: do nothing.`)">⧉</button><div class="codeline">The blindfold is wearable and carried. Rule for constructing the status line while the blindfold is worn: do nothing.</div>
+</div><div class="examples">
+<h4>Examples</h4>
+<div class="example-short">350. ★ <a href="examples/ways_out.html">Ways Out</a><br>A status line that lists the available exits from the current location.</p></div><div class="linkback">
+<a href="RB_12.html#section_2" title="Typography, Layout, and Multimedia Effects &gt; The Status Line">RB §12.2 The Status Line</a>
+</div>
+<div class="example-short">351. ★★ <a href="examples/guided_tour.html">Guided Tour</a><br>A status line that lists the available exits from the current location, changing the names of these exits depending on whether the room has been visited or not.</p></div><div class="linkback">
+<a href="RB_12.html#section_2" title="Typography, Layout, and Multimedia Effects &gt; The Status Line">RB §12.2 The Status Line</a>
+</div>
+<h3 id="section_24">WI §18.24 Writing a paragraph about</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_23">18.23 Constructing the status line</a></div><div class="sect-navbar-center"><a href="#chapter_18">18. Activities</a></div><div class="sect-navbar-right"><a href="#section_25">18.25 Listing nondescript items of something</a></div></div>
+<p><strong>1. When it happens.</strong> Just <em>before</em> writing a paragraph about some item in a room description.</p>
+<p><strong>2. The default behaviour.</strong> Is to do nothing. However, if a rule is supplied which prints something up, then this replaces the paragraph which would otherwise have been printed. Moreover, any items whose names are said in the course of this rule &ndash; for instance, by being listed &ndash; are then excluded from the remainder of the room description, because they are considered as having been described sufficiently already.</p>
+<p>Warning: because we often want a &quot;for&quot; rule for this activity to make some calculation and then possibly choose to do nothing (see the example &quot;Otranto&quot;), Inform suppresses the usual paragraph not when a &quot;for&quot; rule took effect but when it detected a paragraph having been printed. This can get confused if a text substitution affecting paragraph breaks, say &quot;[line break]&quot;, is within the final &quot;say&quot; of a &quot;for writing a paragraph about&quot; rule.</p>
+<p><strong>3. Examples.</strong> (a) This is a neat way to wrap several things together into the same paragraph:</p>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Rule for writing a paragraph about Mr Wickham:\n\tsay &quot;Mr Wickham looks speculatively at [list of women in the location].&quot;`)">⧉</button><div class="codeline">Rule for writing a paragraph about Mr Wickham:</div>
+<div class="codeline">&ensp;&ensp;say &quot;Mr Wickham looks speculatively at [list of women in the location].&quot;</div>
+</div><p>because now &quot;Mr Wickham looks speculatively at Velma and Daphne&quot; will now prevent the appearance of the subsequent text &quot;You can also see Velma and Daphne.&quot;</p>
+<p>Inform keeps track of which objects have already been named with an either/or property called &quot;mentioned&quot;, which it assigns whenever the name of an object has been automatically printed. So in this case, Velma and Daphne are now mentioned. Note &quot;automatically printed&quot;, though: if the text printed had just been &quot;Mr Wickham looks speculatively at Velma and Daphne&quot;, rather than the text-substitution list used above, then Inform would not know that Velma and Daphne have been described.</p>
+<p>If we ever need to override this &ndash; say, we want to list all the women but make sure that Velma gets another paragraph anyway &ndash; we could change Velma to unmentioned again after the listing.</p>
+<div class="examples">
+<h4>Examples</h4>
+<div class="example-short">352. ★ <a href="examples/reflections.html">Reflections</a><br>Emphasizing the reflective quality of shiny objects whenever they are described in the presence of the torch.</p></div><div class="linkback">
+<a href="RB_3.html#section_7" title="Place &gt; Lighting">RB §3.7 Lighting</a>
+</div>
+<div class="example-short">353. ★★ <a href="examples/emma.html">Emma</a><br>Social dynamics in which groups of people form and circulate during a party.</p></div><div class="linkback">
+<a href="RB_7.html#section_16" title="Other Characters &gt; Social Groups">RB §7.16 Social Groups</a>
+</div>
+<div class="example-short">354. ★★★★ <a href="examples/air_conditioning_is_standard.html">Air Conditioning is Standard</a><br>Uses &quot;writing a paragraph about&quot; to make person and object descriptions that vary considerably depending on what else is going on in the room, including some randomized NPC interactions with objects or with each other.</p></div><div class="linkback">
+<a href="RB_4.html#section_3" title="Time and Plot &gt; Event Scheduling">RB §4.3 Event Scheduling</a>
+</div>
+<h3 id="section_25">WI §18.25 Listing nondescript items of something</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_24">18.24 Writing a paragraph about</a></div><div class="sect-navbar-center"><a href="#chapter_18">18. Activities</a></div><div class="sect-navbar-right"><a href="#section_26">18.26 Printing the locale description of something</a></div></div>
+<p><strong>1. When it happens.</strong> This activity prints up the also-ran paragraph at the end of a room description. These are nondescript items because they don&#39;t merit paragraphs of their own: if, as sometimes happens, there are none in the room, then no such paragraph is printed and this activity does not happen. (So to add a further paragraph to a room description, a simpler &quot;after looking&quot; rule should be used, not an &quot;after listing nondescript items&quot; rule.)</p>
+<p><strong>2. The default behaviour.</strong> The paragraph ordinarily reads as &quot;You can also see a cask and a clock.&quot; or similar. Before the activity begins, those objects which are nondescript &ndash; in this case the cask and the clock &ndash; are given the property of being &quot;marked for listing&quot;.</p>
+<p>If it turns out that nothing is marked for listing, because of before rules like the one in the example below, then nothing is printed and <strong>the activity is abandoned</strong>, so that the rules for and after are never reached.</p>
+<p><strong>3. Examples.</strong> (a) Promoting something out of the nondescript category, by unmarking it.</p>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Before listing nondescript items:\n\tif the watch is marked for listing:\n\t\tsay &quot;The watch catches your eye.&quot;;\n\t\tnow the watch is not marked for listing.`)">⧉</button><div class="codeline">Before listing nondescript items:</div>
+<div class="codeline">&ensp;&ensp;if the watch is marked for listing:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;The watch catches your eye.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;now the watch is not marked for listing.</div>
+</div><p>(b) Changing the normal phrasing of the paragraph. Note that we can also change the listing style; the one below is the default.</p>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Rule for listing nondescript items of the Distressingly Messy Room:\n\tsay &quot;Strewn carelessly on the floor&quot;;\n\tlist the contents of the Distressingly Messy Room, as a sentence,\n\t\ttersely, listing marked items only, prefacing with is/are,\n\t\tincluding contents and giving brief inventory information;\n\tsay &quot;.&quot;`)">⧉</button><div class="codeline">Rule for listing nondescript items of the Distressingly Messy Room:</div>
+<div class="codeline">&ensp;&ensp;say &quot;Strewn carelessly on the floor&quot;;</div>
+<div class="codeline">&ensp;&ensp;list the contents of the Distressingly Messy Room, as a sentence,</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;tersely, listing marked items only, prefacing with is/are,</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;including contents and giving brief inventory information;</div>
+<div class="codeline">&ensp;&ensp;say &quot;.&quot;</div>
+</div><div class="examples">
+<h4>Examples</h4>
+<div class="example-short">355. ★ <a href="examples/rip_van_winkle.html">Rip Van Winkle</a><br>A simple way to allow objects in certain places to be described in the room description body text rather than in paragraphs following the room description.</p></div><div class="linkback">
+<a href="RB_3.html#section_1" title="Place &gt; Room Descriptions">RB §3.1 Room Descriptions</a>
+</div>
+<div class="example-short">356. ★★ <a href="examples/happy_hour.html">Happy Hour</a><br>Listing visible characters as a group, then giving some followup details in the same paragraph about specific ones.</p></div><div class="linkback">
+<a href="RB_7.html#section_16" title="Other Characters &gt; Social Groups">RB §7.16 Social Groups</a>
+</div>
+<div class="example-short">357. ★★ <a href="examples/eye_of_the_idol.html">The Eye of the Idol</a><br>A systematic way to allow objects in certain places to be described in the room description body text rather than in paragraphs following the room description, and to control whether supporters list their contents or not.</p></div><div class="linkback">
+<a href="RB_3.html#section_1" title="Place &gt; Room Descriptions">RB §3.1 Room Descriptions</a>
+</div>
+<h3 id="section_26">WI §18.26 Printing the locale description of something</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_25">18.25 Listing nondescript items of something</a></div><div class="sect-navbar-center"><a href="#chapter_18">18. Activities</a></div><div class="sect-navbar-right"><a href="#section_27">18.27 Choosing notable locale objects for something</a></div></div>
+<p><strong>1. When it happens.</strong> A &quot;locale description&quot; is Inform jargon for the part of a room description which catalogues the visible items in the room. When looking, Inform will normally print the description of the room itself, followed by a locale description for the room. But if the player is in a cage in the room, there will be two locale descriptions: one for the room, then another for the cage. This activity is used to write the locale description for a single domain, and the &quot;something&quot; can be either a room, an enterable container, or an enterable supporter.</p>
+<p><strong>2. The default behaviour.</strong> Is quite complicated, and is written up in full in the typeset form of the Standard Rules downloadable from the Inform website. Briefly, though: we first run the &quot;choosing notable locale objects&quot; activity to find out what ought to be mentioned here. That assembles a list of things to mention, sorted into priority order. Items with priority 1 go first, then those with priority 2, and so on. The &quot;printing a locale paragraph&quot; activity is run for each, and in practice that usually hands the job over to &quot;writing a paragraph about&quot;. Sometimes a paragraph will indeed be written, but not always. Sometimes there is nothing interesting to say, and an item is left until a final, single paragraph which gathers up the leftovers (&quot;You can also see a scarlet fish, a harmonium and a kite here.&quot;), the printing of which is done by the &quot;listing nondescript items of&quot; activity. As soon as any item picks up the either/or property &quot;mentioned&quot;, by having its name printed, it is struck out so that it will not appear subsequently, whatever its priority.</p>
+<p><strong>3. Examples.</strong> As general advice: if the effect wanted can be got using &quot;writing a paragraph about&quot; and &quot;listing nondescript items of&quot; alone, use those; if it&#39;s necessary to meddle further, use &quot;choosing notable locale objects&quot; and &quot;printing a locale paragraph&quot; to alter the normal processes; use the all-powerful &quot;printing the locale description&quot; activity only when the whole process needs to be altered, not the item-by-item workings.</p>
+<p>(a) In the Very Misty Moorlands, nothing on the ground can ordinarily be seen through the swirling mist, so the locale description is suppressed entirely:</p>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Rule for printing the locale description of the Very Misty Moorlands:\n\tsay &quot;Mist coils around your feet, thick as a blanket. You cannot even see the ground you walk upon.&quot; instead.\n\nReport taking something in the Very Misty Moorlands:\n\tsay &quot;You grope blindly in the mist and pick up [the noun].&quot; instead.`)">⧉</button><div class="codeline">Rule for printing the locale description of the Very Misty Moorlands:</div>
+<div class="codeline">&ensp;&ensp;say &quot;Mist coils around your feet, thick as a blanket. You cannot even see the ground you walk upon.&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Report taking something in the Very Misty Moorlands:</div>
+<div class="codeline">&ensp;&ensp;say &quot;You grope blindly in the mist and pick up [the noun].&quot; instead.</div>
+</div><p>(b) Here we take the chance to insert an additional paragraph into the locale description. This does relate to an item which might be described later, but where the player doesn&#39;t know that:</p>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Horological Workshop is a room. The marble table is fixed in place in the Workshop.\n\nThe parcel is a closed opaque container on the marble table. The alarm clock is a device in the parcel. The alarm clock is switched on.\n\nBefore printing the locale description of a room (called the locale):\n\tif the locale encloses the alarm clock and the alarm clock is switched on, say &quot;A faint ticking noise can be heard.&quot;`)">⧉</button><div class="codeline">The Horological Workshop is a room. The marble table is fixed in place in the Workshop.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The parcel is a closed opaque container on the marble table. The alarm clock is a device in the parcel. The alarm clock is switched on.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Before printing the locale description of a room (called the locale):</div>
+<div class="codeline">&ensp;&ensp;if the locale encloses the alarm clock and the alarm clock is switched on, say &quot;A faint ticking noise can be heard.&quot;</div>
+</div><div class="examples">
+<h4>Example</h4>
+<div class="example-short">358. ★ <a href="examples/priority_lab.html">Priority Lab</a><br>A debugging rule useful for checking the priorities of objects about to be listed.</p></div><div class="linkback">
+<a href="RB_3.html#section_1" title="Place &gt; Room Descriptions">RB §3.1 Room Descriptions</a>
+</div>
+<h3 id="section_27">WI §18.27 Choosing notable locale objects for something</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_26">18.26 Printing the locale description of something</a></div><div class="sect-navbar-center"><a href="#chapter_18">18. Activities</a></div><div class="sect-navbar-right"><a href="#section_28">18.28 Printing a locale paragraph about</a></div></div>
+<p><strong>1. When it happens.</strong> See &quot;printing the locale description&quot;. This activity is expected to decide which items ought to be mentioned in a locale description for a given room, enterable container or enterable supporter, and to give each item a priority, which is a number ranging upwards from 1 (which is the top priority). The lower the priority number, the earlier the mention, or at least, the earlier the opportunity to be mentioned: it&#39;s up to other activities whether to give it a paragraph of its own or not. This activity only makes something a candidate, and decides what order the candidates will be tried in.</p>
+<p><strong>2. The default behaviour.</strong> By default, this activity contains only the &quot;standard notable locale objects rule&quot;. This chooses exactly those items directly contained by the locale, assigning all of them priority 5. Note that this includes scenery, and other probably unwanted items &ndash; those will be excluded later.</p>
+<p><strong>3. Examples.</strong> (a) In the Misty Moorlands, only large items on the ground are visible through the mist:</p>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`A thing can be large or small. A thing is usually small. The stepladder is a large thing in the Misty Moorlands.\n\nRule for choosing notable locale objects for the Misty Moorlands:\n\trepeat with item running through large things in the Misty Moorlands:\n\t\tset the locale priority of the item to 5.\n\nReport taking a small thing in the Misty Moorlands:\n\tsay &quot;You grope blindly in the mist and pick up [the noun].&quot; instead.`)">⧉</button><div class="codeline">A thing can be large or small. A thing is usually small. The stepladder is a large thing in the Misty Moorlands.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Rule for choosing notable locale objects for the Misty Moorlands:</div>
+<div class="codeline">&ensp;&ensp;repeat with item running through large things in the Misty Moorlands:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;set the locale priority of the item to 5.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Report taking a small thing in the Misty Moorlands:</div>
+<div class="codeline">&ensp;&ensp;say &quot;You grope blindly in the mist and pick up [the noun].&quot; instead.</div>
+</div><p>Note the special phrase</p>
+<div class="codeblock"><div class="codeline">set the locale priority of the item to 5;</div>
+</div><p>which should be used only in rules for locale activities. It makes the given item a candidate and sets its priority. (Setting the priority to 0 forces an item not to be a candidate, and can thus undo the effect of previous rules.)</p>
+<p>It&#39;s best to avoid situations where an item has a locale priority which is higher than that of something it is on top of, or inside, since this can result in an oddly-worded description.</p>
+<div class="examples">
+<h4>Examples</h4>
+<div class="example-short">359. ★ <a href="examples/low_light.html">Low Light</a><br>An object that is only visible and manipulable when a bright light fixture is on.</p></div><div class="linkback">
+<a href="RB_3.html#section_1" title="Place &gt; Room Descriptions">RB §3.1 Room Descriptions</a>
+</div>
+<div class="example-short">360. ★★★ <a href="examples/casino_banale.html">Casino Banale</a><br>Creating room descriptions and object descriptions that change as the player learns new facts and pieces things together.</p></div><div class="linkback">
+<a href="RB_5.html#section_5" title="The Viewpoint Character &gt; Memory and Knowledge">RB §5.5 Memory and Knowledge</a>
+</div>
+<h3 id="section_28">WI §18.28 Printing a locale paragraph about</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_27">18.27 Choosing notable locale objects for something</a></div><div class="sect-navbar-center"><a href="#chapter_18">18. Activities</a></div><div class="sect-navbar-right"><a href="#section_29">18.29 Deciding the scope of something</a></div></div>
+<p><strong>1. When it happens.</strong> See &quot;printing the locale description&quot;. By this point, the locale description process has identified a number of items as candidates to be described, and worked out a priority order. This activity is then called for each candidate in turn, starting with the highest priority items and working downwards. It can either print some text or not, and can either mark the item as &quot;mentioned&quot; or not: if it does, then the item won&#39;t appear subsequently in the locale description. If the activity does nothing, the item becomes &quot;nondescript&quot; and falls through into the final &quot;You can also see&hellip;&quot; paragraph, unless another rule mentions it in the mean time.</p>
+<p><strong>2. The default behaviour.</strong> Is provided by a sequence of seven rules:</p>
+<div class="codeblock"><div class="codeline">(1) The &quot;don&#39;t mention player&#39;s supporter in room descriptions rule&quot; excludes anything the player is directly or indirectly standing on or, less frequently, in. The header of the room description has probably already said something like &quot;Boudoir (on the four-poster bed)&quot;, so the player can&#39;t be unaware of this item.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">(2) The &quot;don&#39;t mention scenery in room descriptions rule&quot; excludes scenery.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">(3) The &quot;don&#39;t mention undescribed items in room descriptions rule&quot; excludes the player object. (It&#39;s redundant to say &quot;You can also see yourself here.&quot;) At present nothing else in I7 is &quot;undescribed&quot; in this sense.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">(4) The &quot;set pronouns from items in room descriptions rule&quot; adjusts the meaning of pronouns like IT and HER to pick up items mentioned. Thus if a room description ends &quot;Mme Tourmalet glares at you.&quot;, then HER would be adjusted to mean Mme Tourmalet.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">(5) The &quot;offer items to writing a paragraph about rule&quot; gives the &quot;writing a paragraph about&quot; activity a chance to intervene. We detect whether it does intervene or not by looking to see if it has printed any text.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">(6) The &quot;use initial appearance in room descriptions rule&quot; prints the &quot;initial appearance&quot; property of an item which has never been handled as a paragraph, if it has one.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">(7) The &quot;describe what&#39;s on scenery supporters in room descriptions rule&quot; is somewhat controversial. It prints text such as &quot;On the mantelpiece is a piece of chalk.&quot; for items which, like the mantelpiece, are scenery mentioned - we assume - in the main room description. (It is assumed that scenery supporters make their contents more prominently visible than scenery containers, which we do not announce the contents of.)</div>
+</div><p><strong>3. Examples.</strong> If all that&#39;s required is to supply an interesting paragraph of room description about something then it&#39;s always better to use the &quot;writing a paragraph about&quot; activity, not this one. This activity should only be used when the mechanism itself needs to be adjusted.</p>
+<p>(a) The following excludes doors from room descriptions:</p>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`For printing a locale paragraph about a door (called the item)\n\t(this is the don&apos;t mention doors in room descriptions rule):\n\tset the locale priority of the item to 0;\n\tcontinue the activity.`)">⧉</button><div class="codeline">For printing a locale paragraph about a door (called the item)</div>
+<div class="codeline">&ensp;&ensp;(this is the don&#39;t mention doors in room descriptions rule):</div>
+<div class="codeline">&ensp;&ensp;set the locale priority of the item to 0;</div>
+<div class="codeline">&ensp;&ensp;continue the activity.</div>
+</div><p>(It&#39;s usually a good idea to &quot;continue the activity&quot; at the end of rules for this activity, since usually they all need to take effect for a happy outcome to the process. Here it doesn&#39;t really matter, since we were trying to stop anything from happening about the door, but it doesn&#39;t do any harm either.)</p>
+<p>(b) Here&#39;s how to abolish what may be the most contentious rule in the whole Standard Rules:</p>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The describe what&apos;s on scenery supporters in room descriptions rule is not listed in any rulebook.`)">⧉</button><div class="codeline">The describe what&#39;s on scenery supporters in room descriptions rule is not listed in any rulebook.</div>
+</div><div class="examples">
+<h4>Examples</h4>
+<div class="example-short">361. ★ <a href="examples/kiwi.html">Kiwi</a><br>Creating a raised supporter kind whose contents the player can&#39;t see or take from the ground.</p></div><div class="linkback">
+<a href="RB_8.html#section_4" title="Vehicles, Animals and Furniture &gt; Furniture">RB §8.4 Furniture</a>
+</div>
+<div class="example-short">362. ★★★ <a href="examples/copper_river.html">Copper River</a><br>Manipulating room descriptions so that only interesting items are mentioned, while objects that are present but not currently useful to the player are ignored.</p></div><div class="linkback">
+<a href="RB_3.html#section_1" title="Place &gt; Room Descriptions">RB §3.1 Room Descriptions</a>
+</div>
+<h3 id="section_29">WI §18.29 Deciding the scope of something</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_28">18.28 Printing a locale paragraph about</a></div><div class="sect-navbar-center"><a href="#chapter_18">18. Activities</a></div><div class="sect-navbar-right"><a href="#section_30">18.30 Clarifying the parser's choice of something</a></div></div>
+<p><strong>1. When it happens.</strong> &quot;Scope&quot; is a term of art in interactive fiction programming: it means the collection of things which can be interacted with at any given moment, which depends on who you are and where you are. Commands typed by the player will only be allowed to go forward into actions if the things they refer to are &quot;in scope&quot;. Inform also needs to determine scope at other times, too: for instance, when deciding whether a rule conditional on being &quot;in the presence of&quot; something is valid. It is a bad idea to say anything during this activity.</p>
+<p><strong>2. The default behaviour.</strong> Is complicated: see the Inform Designer&#39;s Manual, 4th edition, page 227. Briefly, the scope for someone consists of everything in the same place as them, unless it is dark.</p>
+<p><strong>3. Examples.</strong> (a) We very rarely want to forbid the player to refer to things close at hand, but often want to allow references to distant ones. For instance, a mirage of something which is not present at all:</p>
+<div class="codeblock"><div class="codeline">After deciding the scope of the player while the location is the Shrine:</div>
+<div class="codeline">&ensp;&ensp;place the holy grail in scope.</div>
+</div><p>Two different phrases enable us to place unusual items in scope:</p>
+<div class="defn" id="ph_placeinscope"><span class="defn">place </span><span class="neutral">(object)</span><span class="defn"> in scope</span><p>This phrase should only be used in rules for the &quot;deciding the scope of&hellip;&quot; activity. It places the given object in scope, making it accessible to the player&#39;s commands, regardless of where it is in the model world. Examples:</p>
+<div class="codeblock"><div class="codeline">place the distant volcano in scope;</div>
+<div class="codeline">place the lacquered box in scope, but not its contents;</div>
+</div><p>Ordinarily if something is placed in scope, then so are its parts and (in the case of a supporter or a transparent or open container) its contents; using the &quot;but not its contents&quot; option we can place just the box itself in scope.</p>
+</div><div class="defn" id="ph_placecontentsinscope"><span class="defn">place the/-- contents of </span><span class="neutral">(object)</span><span class="defn"> in scope</span><p>This phrase should only be used in rules for the &quot;deciding the scope of&hellip;&quot; activity. It places the things inside or on top of the given object in scope, making them accessible to the player&#39;s commands, but it does nothing to place the object itself in scope. (It might of course be in scope anyway, and if it is then this phrase won&#39;t remove it.) Example:</p>
+<div class="codeblock"><div class="codeline">place the contents of the lacquered box in scope;</div>
+<div class="codeline">place the contents of the Marbled Steps in scope;</div>
+</div><p>Note that the object in question can be a room, as in this second example.</p>
+</div><p>(b) Another useful device is to be able to see, but not touch, another room:</p>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Cloakroom is a room. &quot;This is just a cloakroom, but through a vague, misty mirror-window you can make out the Beyond.&quot; After looking in the Cloakroom, say &quot;In the mirror you can see [list of things in the Beyond].&quot;\n\nAfter deciding the scope of the player while the location is the Cloakroom: place the Beyond in scope.\n\nThe Beyond is a room. Johnny Depp is a man in the Beyond.`)">⧉</button><div class="codeline">The Cloakroom is a room. &quot;This is just a cloakroom, but through a vague, misty mirror-window you can make out the Beyond.&quot; After looking in the Cloakroom, say &quot;In the mirror you can see [list of things in the Beyond].&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">After deciding the scope of the player while the location is the Cloakroom: place the Beyond in scope.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Beyond is a room. Johnny Depp is a man in the Beyond.</div>
+</div><p>(This must, however, also be a mirage, as at time of writing Mr Depp is alive and as well as can be expected following the reviews of &quot;Charlie and the Chocolate Factory&quot;.) Note that &quot;place the Ballroom in scope&quot; doesn&#39;t just allow the player to talk about the dancers, the chamber musicians and so forth, also allows, say, &quot;EXAMINE BALLROOM&quot;. To get one but not the other, use &quot;place the contents of the Ballroom in scope&quot; or &quot;place the Ballroom in scope, but not its contents&quot;.</p>
+<p>(c) In darkness, the scope of someone is ordinarily restricted to his or her possessions (and body), but we can override that:</p>
+<div class="codeblock"><div class="codeline">After deciding the scope of the player while in darkness: place the location in scope.</div>
+</div><p><strong>4. A note about actions.</strong> This activity takes place during the process of understanding the player&#39;s command, when the action that will take place is not fully known. So if the player types &quot;TAKE SHOEBOX&quot;, this activity would happen when SHOEBOX is being examined for meaning. Inform knows the action it would be taking if the current line of command grammar were to be accepted, but it does not yet know to what objects that command would be applied. That means attaching a proviso like &quot;&hellip; while taking a container&quot; to a rule for this activity will cause the rule to have no effect &ndash; whereas &quot;&hellip; while taking&quot; would be fine.</p>
+<div class="examples">
+<h4>Examples</h4>
+<div class="example-short">363. ★ <a href="examples/peeled.html">Peeled</a><br>Two different approaches to adjusting what the player can interact with, compared.</p></div><div class="linkback">
+<a href="RB_3.html#section_7" title="Place &gt; Lighting">RB §3.7 Lighting</a>
+</div>
+<div class="example-short">364. ★ <a href="examples/four_stars2.html">Four Stars 2</a><br>Using &quot;deciding the scope&quot; to change the content of lists such as &quot;the list of audible things which can be touched by the player&quot;.</p></div><div class="linkback">
+<a href="RB_3.html#section_8" title="Place &gt; Sounds">RB §3.8 Sounds</a>
+</div>
+<div class="example-short">365. ★★ <a href="examples/ginger_beer.html">Ginger Beer</a><br>A portable magic telescope which allows the player to view items in another room of his choice.</p></div><div class="linkback">
+<a href="RB_9.html#section_11" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Clocks and Scientific Instruments">RB §9.11 Clocks and Scientific Instruments</a>
+</div>
+<div class="example-short">366. ★★ <a href="examples/rock_garden.html">Rock Garden</a><br>A simple open landscape where the player can see between rooms and will automatically move to touch things in distant rooms.</p></div><div class="linkback">
+<a href="RB_3.html#section_4" title="Place &gt; Continuous Spaces and The Outdoors">RB §3.4 Continuous Spaces and The Outdoors</a>
+</div>
+<div class="example-short">367. ★★★ <a href="examples/stately_gardens.html">Stately Gardens</a><br>An open landscape where the player can see landmarks in nearby areas, with somewhat more complex room descriptions than the previous example, and in which we also account for size differences between things seen at a distance.</p></div><div class="linkback">
+<a href="RB_3.html#section_4" title="Place &gt; Continuous Spaces and The Outdoors">RB §3.4 Continuous Spaces and The Outdoors</a>
+</div>
+<h3 id="section_30">WI §18.30 Clarifying the parser's choice of something</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_29">18.29 Deciding the scope of something</a></div><div class="sect-navbar-center"><a href="#chapter_18">18. Activities</a></div><div class="sect-navbar-right"><a href="#section_31">18.31 Asking which do you mean</a></div></div>
+<p><strong>1. When it happens.</strong> When the player has typed an ambiguous noun reference, and Inform has made a decision about what was meant, and it matters what this decision is. (If the decision is between three identical gold coins, say, then it doesn&#39;t matter, and this activity does not take place.) There are a couple of limitations on this: the activity applies only to the first noun, and only if it&#39;s an object. So for a command like SELECT BLUE, where BLUE is a noun referring to a colour value, say, this activity isn&#39;t used. But the simple case where the activity does play a part is nevertheless very useful.</p>
+<p><strong>2. The default behaviour.</strong> Text in brackets such as &quot;(the laminated mahogany box)&quot; is printed, on its own line.</p>
+<p><strong>3. Examples.</strong> (a) In the following, asking to TAKE TOWER results in the parser choosing the souvenir model (because of the &quot;does the player mean&hellip;&quot; rule making the alternative unlikely), and then explaining itself by saying &quot;(The little one, obviously.)&quot; instead of &quot;(the souvenir model Eiffel Tower)&quot;.</p>
+<div class="codeblock"><div class="codeline">The Champs du Mars is a room. The great Eiffel Tower is here. &quot;The great Tower stands high over you.&quot; The souvenir model Eiffel Tower is here. &quot;Comparatively tiny is the souvenir version.&quot; The great Eiffel Tower is fixed in place. Does the player mean taking the great Eiffel Tower: it is very unlikely.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Rule for clarifying the parser&#39;s choice of the model tower: say &quot;(The little one, obviously.)&quot;</div>
+</div><p><strong>4. A note about actions.</strong> This activity takes place during the process of understanding the player&#39;s command, when the action that will take place is not fully known. So if the player types &quot;TAKE SHOEBOX&quot;, this activity would happen when SHOEBOX is being examined for meaning. Inform knows that the action will be taking, but nothing else. That means attaching a proviso like &quot;&hellip; while taking a container&quot; to a rule for this activity will cause the rule to have no effect &ndash; whereas &quot;&hellip; while taking&quot; would be fine.</p>
+<h3 id="section_31">WI §18.31 Asking which do you mean</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_30">18.30 Clarifying the parser's choice of something</a></div><div class="sect-navbar-center"><a href="#chapter_18">18. Activities</a></div><div class="sect-navbar-right"><a href="#section_32">18.32 Supplying a missing noun/second noun</a></div></div>
+<p><strong>1. When it happens.</strong> When the player has typed an ambiguous noun reference, and Inform has not been able to decide what was meant.</p>
+<p><strong>2. The default behaviour.</strong> A question such as &quot;Which do you mean, the laminated mahogany box or the boom box?&quot; is printed. (This activity shapes the question: it is not responsible for parsing the answer. It would be very mysterious to write rules for this activity such that nothing is printed, because the player would then have no idea what to type.)</p>
+<p><strong>3. Examples.</strong> The question is harder to print than may first appear, since one must not simply list the options, but also take into account collections of plural objects (&quot;Which do you mean, the gold-tipped pen or a gold coin?&quot;). It is probably better not to try to rewrite this.</p>
+<p>(a) But we can place notes before or after: here is a verbose explanation for beginners to IF.</p>
+<div class="codeblock"><div class="codeline">Before asking which do you mean: say &quot;Okay, so I&#39;m going to have to ask a question now: you&#39;ve typed something ambiguous, and I don&#39;t know which noun you&#39;re referring to.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">After asking which do you mean: say &quot;(Just type a word or two to give me more information.)&quot;</div>
+</div><p>(b) We can also use this activity as a context for other activities. For instance:</p>
+<div class="codeblock"><div class="codeline">The Champs du Mars is a room. The great Eiffel Tower is here. &quot;The great Tower stands high over you.&quot; The souvenir model Eiffel Tower is here. &quot;Comparatively tiny is the souvenir version.&quot; The great Eiffel Tower is fixed in place. Understand &quot;actual&quot; as the great Tower.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Rule for printing the name of the great Tower while asking which do you mean: say &quot;actual Tower&quot;. Rule for printing the name of the souvenir tower while asking which do you mean: say &quot;souvenir&quot;.</div>
+</div><p>causes TAKE TOWER (for instance) to produce a nice tidy question in reply: &quot;Which do you mean, the actual Tower or the souvenir?&quot;</p>
+<p><strong>4. A note about actions.</strong> This activity takes place during the process of understanding the player&#39;s command, when the action that will take place is not fully known. So if the player types &quot;TAKE SHOEBOX&quot;, this activity would happen when SHOEBOX is being examined for meaning. Inform knows that the action will be taking, but nothing else. That means attaching a proviso like &quot;&hellip; while taking a container&quot; to a rule for this activity will cause the rule to have no effect &ndash; whereas &quot;&hellip; while taking&quot; would be fine.</p>
+<div class="examples">
+<h4>Examples</h4>
+<div class="example-short">368. ★ <a href="examples/apples.html">Apples</a><br>Prompting the player on how to disambiguate otherwise similar objects.</p></div><div class="linkback">
+<a href="RB_6.html#section_17" title="Commands &gt; Clarification and Correction">RB §6.17 Clarification and Correction</a>
+</div>
+<div class="example-short">369. ★ <a href="examples/originals.html">Originals</a><br>Allowing the player to create models of anything in the game world; parsing the name &quot;model [thing]&quot; or even just &quot;[thing]&quot; to refer to these newly-created models; asking &quot;which do you mean, the model [thing] or the actual [thing]&quot; when there is ambiguity.</p></div><div class="linkback">
+<a href="RB_9.html#section_12" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Cameras and Recording Devices">RB §9.12 Cameras and Recording Devices</a>
+</div>
+<div class="example-short">370. ★★★ <a href="examples/walls_and_noses.html">Walls and Noses</a><br>Responding to &quot;EXAMINE WALL&quot; with &quot;In which direction?&quot;, and to &quot;EXAMINE NOSE&quot; with &quot;Whose nose do you mean, Frederica&#39;s, Betty&#39;s, Wilma&#39;s or your own?&quot;</p></div><div class="linkback">
+<a href="RB_6.html#section_17" title="Commands &gt; Clarification and Correction">RB §6.17 Clarification and Correction</a>
+</div>
+<h3 id="section_32">WI §18.32 Supplying a missing noun/second noun</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_31">18.31 Asking which do you mean</a></div><div class="sect-navbar-center"><a href="#chapter_18">18. Activities</a></div><div class="sect-navbar-right"><a href="#section_33">18.33 Reading a command</a></div></div>
+<p><strong>1. When it happens.</strong> (Two different activities here, but identical except for applying to different nouns.) This happens when an Understand sentence fails to supply a noun for an action which requires one. For example, in the sentence &#39;Understand &quot;seize&quot; as taking.&#39; &ndash; the &quot;taking&quot; action is incompletely specified, because it requires a noun, and there&#39;s no noun in the command to be understood.</p>
+<p>Note that this is not what happens if it&#39;s the player who fails to supply the noun. That is, suppose the player types a half-finished command like TAKE, which can&#39;t be matched against (for example) &#39;Understand &quot;take [things]&quot; as taking.&#39; because the player didn&#39;t name any thing(s). Typically a story will reply to such a command with a question asking for clarification, but sometimes it makes guesses about what was meant. The &quot;supplying a missing noun&quot; activity plays no part in this guesswork, and can&#39;t influence it: that&#39;s the task of the &quot;does the player mean&quot; rulebook.</p>
+<p>Suppose we do have the first of these cases, then. &quot;Supplying a missing noun&quot; takes place to remedy the problem. It can either:</p>
+<p>(i) Set a noun, printing text like &quot;(presumably the black bag)&quot; if it wants, in which case the action goes forward, though it is still subject to the full rules on accessibility exactly as any other action would be; or</p>
+<p>(ii) Make no choice, in which case no action takes place and the player&#39;s command is rejected. If the activity printed nothing, Inform will produce a generic reply to the player that &quot;You must supply a noun.&quot;.</p>
+<p><strong>2. The default behaviour.</strong> In the default grammar for Inform, only three such half-finished actions are ever Understood. One is &quot;going&quot; with no direction, for which this activity simply prints a refusal. The other two are the two undirected senses, &quot;smelling&quot; and &quot;listening&quot;. In each case, the &quot;supplying a missing noun&quot; activity sets the noun to the current location: so, for instance, typing the bare command &quot;listen&quot; might generate the action &quot;listening to the Shoreline&quot;.</p>
+<p><strong>3. Examples.</strong> (a) This is the definition Inform uses to make &quot;listen&quot; work as outlined above:</p>
+<div class="codeblock"><div class="codeline">Rule for supplying a missing noun while listening (this is the ambient sound rule):</div>
+<div class="codeline">&ensp;&ensp;now the noun is the location.</div>
+</div><p>(b) It can be elegant to allow second nouns to be dropped with habitual actions, or where the choice is obvious:</p>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Understand &quot;unlock [something]&quot; as unlocking it with.\n\nRule for supplying a missing second noun while unlocking:\n\tif the skeleton key is carried, now the second noun is the skeleton key;\n\totherwise say &quot;You will have to specify what to unlock [the noun] with.&quot;`)">⧉</button><div class="codeline">Understand &quot;unlock [something]&quot; as unlocking it with.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Rule for supplying a missing second noun while unlocking:</div>
+<div class="codeline">&ensp;&ensp;if the skeleton key is carried, now the second noun is the skeleton key;</div>
+<div class="codeline">&ensp;&ensp;otherwise say &quot;You will have to specify what to unlock [the noun] with.&quot;</div>
+</div><p>Note that, in order for our activity to succeed, we do need to supply a grammar line allowing the player to try &quot;unlocking it with&quot; using only one noun. Otherwise, the command &quot;unlock something&quot; will still produce the question &quot;What do you want to unlock the door with?&quot;</p>
+<div class="examples">
+<h4>Examples</h4>
+<div class="example-short">371. ★ <a href="examples/latin_lessons.html">Latin Lessons</a><br>Supplying missing nouns and second nouns for other characters besides the player.</p></div><div class="linkback">
+<a href="RB_7.html#section_14" title="Other Characters &gt; Obedient Characters">RB §7.14 Obedient Characters</a>
+</div>
+<div class="example-short">372. ★ <a href="examples/minimal_movement.html">Minimal Movement</a><br>Supplying a default direction for &quot;go&quot;, so that &quot;leave&quot;, &quot;go&quot;, etc., are always interpreted as &quot;out&quot;.</p></div><div class="linkback">
+<a href="RB_6.html#section_9" title="Commands &gt; Going, Pushing Things in Directions">RB §6.9 Going, Pushing Things in Directions</a>
+</div>
+<h3 id="section_33">WI §18.33 Reading a command</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_32">18.32 Supplying a missing noun/second noun</a></div><div class="sect-navbar-center"><a href="#chapter_18">18. Activities</a></div><div class="sect-navbar-right"><a href="#section_34">18.34 Implicitly taking something</a></div></div>
+<p><strong>1. When it happens.</strong> When reading a command from the keyboard.</p>
+<p><strong>2. The default behaviour.</strong> Print the prompt text; wait for the player to type something and press return. Reject an entirely blank line, and treat a command beginning &quot;oops&quot; as a correction to the previous one. This is a fairly complicated business, so it is probably best not to change the &quot;for&quot; rules for this activity: &quot;before&quot;, and especially &quot;after&quot;, are another matter. (Note, however, that if Inform does reject a blank line and ask for another then this all happens inside the &quot;for&quot; rules: no &quot;after&quot; occurs after the blank line, nor does a &quot;before&quot; happen before the second attempt by the player. It is all a single round of the activity, not two.)</p>
+<p><strong>3. Examples.</strong> (a) To lead absolute beginners in gently:</p>
+<div class="codeblock"><div class="codeline">Before reading a command while the turn count is 1, say &quot;(This is your chance to say what the protagonist should do next. After the &#39;&gt;&#39;, try typing &#39;take inventory&#39;.)&quot;</div>
+</div><p>(b) The following responds politely but firmly if the player tries to type &quot;please look&quot;, say, instead of just &quot;look&quot;:</p>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`After reading a command:\n\tif the player&apos;s command includes &quot;please&quot;:\n\t\tsay &quot;Please do not say please.&quot;;\n\t\treject the player&apos;s command.`)">⧉</button><div class="codeline">After reading a command:</div>
+<div class="codeline">&ensp;&ensp;if the player&#39;s command includes &quot;please&quot;:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;Please do not say please.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;reject the player&#39;s command.</div>
+</div><p>To explain. Fragments of what the player has typed are called snippets: &quot;the player&#39;s command&quot; is the entire thing. We can test if a snippet matches a given pattern like so:</p>
+<div class="defn" id="ph_snippetmatches"><span class="defn">if </span><span class="neutral">(snippet)</span><span class="defn"> matches </span><span class="neutral">(topic)</span><span class="defn">:</span><p>This condition is true if the given snippet exactly matches the specification. Example:</p>
+<div class="codeblock"><div class="codeline">if the player&#39;s command matches &quot;room [number]&quot;, ...</div>
+</div><p>will be true if the command is ROOM 101, but not if it&#39;s EXPLORE ROOM 7.</p>
+</div><div class="defn" id="ph_snippetdoesnotmatch"><span class="defn">if </span><span class="neutral">(snippet)</span><span class="defn"> does not match </span><span class="neutral">(topic)</span><span class="defn">:</span><p>This condition is true if the given snippet does not exactly match the specification.</p>
+</div><div class="defn" id="ph_snippetincludes"><span class="defn">if </span><span class="neutral">(snippet)</span><span class="defn"> includes </span><span class="neutral">(topic)</span><span class="defn">:</span><p>This condition is true if the given snippet includes words matching the specification, either at the beginning, in the middle, or at the end. Example:</p>
+<div class="codeblock"><div class="codeline">if the player&#39;s command includes &quot;room [number]&quot;, ...</div>
+</div><p>will be true if the command is ROOM 101, EXPLORE ROOM 7, or ROOM 22 AHOY, but not if it&#39;s VISIT ROOM GAMMA 7.</p>
+</div><div class="defn" id="ph_snippetdoesnotinclude"><span class="defn">if </span><span class="neutral">(snippet)</span><span class="defn"> does not include </span><span class="neutral">(topic)</span><span class="defn">:</span><p>This condition is true if the given snippet does not include any run of words which matches the specification.</p>
+</div><p>Lastly, we took drastic action with another new phrase:</p>
+<div class="defn" id="ph_rejectcommand"><span class="defn">reject the player's command</span><p>This phrase should be used only in rules for the &quot;reading a command&quot; activity. It tells Inform not to bother analysing the text further, but to go back to the keyboard. (No time passes; no turn elapses; nothing happens in the simulated world.)</p>
+</div><p>(c) An improved version takes commands like &quot;please drop the coin&quot; and strips &quot;please&quot; from them, but then allows them to proceed normally:</p>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`After reading a command:\n\tif the player&apos;s command includes &quot;please&quot;:\n\t\tsay &quot;(Quelle politesse! But no need to say please.)&quot;;\n\t\tcut the matched text.`)">⧉</button><div class="codeline">After reading a command:</div>
+<div class="codeline">&ensp;&ensp;if the player&#39;s command includes &quot;please&quot;:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;(Quelle politesse! But no need to say please.)&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;cut the matched text.</div>
+</div><p>&quot;Matched text&quot; is a snippet containing the words which matched against the pattern in the most recent &quot;includes&quot; condition, so in this case it contains just the single word &quot;please&quot;. Two phrases allow snippets to be altered:</p>
+<div class="defn" id="ph_replacesnippet"><span class="defn">replace </span><span class="neutral">(snippet)</span><span class="defn"> with </span><span class="neutral">(text)</span><p>This phrase should be used only in &quot;after&quot; rules for the &quot;reading a command&quot; activity; it replaces the snippet of command, usually the &quot;matched text&quot; found immediately before, with the given text. Example:</p>
+<div class="codeblock"><div class="codeline">if the player&#39;s command includes &quot;room [number]&quot;:</div>
+<div class="codeline">&ensp;&ensp;replace the matched text with &quot;office&quot;.</div>
+</div></div><div class="defn" id="ph_cutsnippet"><span class="defn">cut </span><span class="neutral">(snippet)</span><p>This phrase should be used only in &quot;after&quot; rules for the &quot;reading a command&quot; activity; it removes the snippet of command. Example:</p>
+<div class="codeblock"><div class="codeline">if the player&#39;s command includes &quot;or else&quot;:</div>
+<div class="codeline">&ensp;&ensp;cut the matched text.</div>
+</div></div><p>Note that &quot;replace&quot; and &quot;cut&quot; can only be used in &quot;after reading a command&quot; rules: not when an action has been chosen and has gone ahead into its rulebooks. Once the &quot;reading a command&quot; activity has finished, the command is final.</p>
+<p>(d) To make the word &quot;grab&quot; an abbreviation for &quot;take all&quot;:</p>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`After reading a command:\n\tif the player&apos;s command matches &quot;grab&quot;, replace the player&apos;s command with &quot;take all&quot;.`)">⧉</button><div class="codeline">After reading a command:</div>
+<div class="codeline">&ensp;&ensp;if the player&#39;s command matches &quot;grab&quot;, replace the player&#39;s command with &quot;take all&quot;.</div>
+</div><p>(&quot;Snippet&quot; is actually a kind of value, so we could say &quot;Ah, you typed &#39;[the player&#39;s command]&#39;!&quot; or some such if we liked. But in practice only three snippets are likely to be useful: the two mentioned above, &quot;player&#39;s command&quot; and &quot;matched text&quot;, and the &quot;topic understood&quot;, used when matching the &quot;[text]&quot; token in command grammar.)</p>
+<p>(e) Finally, we can make still more detailed alterations to the text of the command using the techniques presented in the Advanced Text chapter. For instance:</p>
+<div class="defn" id="ph_changecommand"><span class="defn">change the text of the player's command to </span><span class="neutral">(text)</span><p>This phrase should be used only in &quot;after&quot; rules for the &quot;reading a command&quot; activity; it replaces the current command text entirely. Example:</p>
+<div class="codeblock"><div class="codeline">After reading a command:</div>
+<div class="codeline">&ensp;&ensp;let T be &quot;[the player&#39;s command]&quot;;</div>
+<div class="codeline">&ensp;&ensp;replace the regular expression &quot;\p&quot; in T with &quot;&quot;;</div>
+<div class="codeline">&ensp;&ensp;change the text of the player&#39;s command to T.</div>
+</div><p>This converts the player&#39;s command to text, which is then manipulated by searching for any punctuation mark and replacing it with blank text (that is, deleted), and then put back again as the new command.</p>
+</div><div class="examples">
+<h4>Examples</h4>
+<div class="example-short">373. ★★ <a href="examples/cloves.html">Cloves</a><br>Accepting adverbs anywhere in a command, registering what the player typed but then cutting them out before interpreting the command.</p></div><div class="linkback">
+<a href="RB_6.html#section_18" title="Commands &gt; Alternatives To Standard Parsing">RB §6.18 Alternatives To Standard Parsing</a>
+</div>
+<div class="example-short">374. ★★ <a href="examples/fragment_of_a_greek_tragedy.html">Fragment of a Greek Tragedy</a><br>Responding to the player&#39;s input based on keywords only, and overriding the original parser entirely.</p></div><div class="linkback">
+<a href="RB_6.html#section_18" title="Commands &gt; Alternatives To Standard Parsing">RB §6.18 Alternatives To Standard Parsing</a>
+</div>
+<div class="example-short">375. ★★ <a href="examples/north_by_northwest.html">North by Northwest</a><br>Creating additional compass directions between those that already exist (for instance, NNW) -- and dealing with an awkwardness that arises when the player tries to type &quot;north-northwest&quot;. The example demonstrates a way around the nine-character limit on parsed words.</p></div><div class="linkback">
+<a href="RB_2.html#section_2" title="Adaptive Prose &gt; Varying What Is Read">RB §2.2 Varying What Is Read</a>
+</div>
+<div class="example-short">376. ★★★ <a href="examples/complimentary_peanuts.html">Complimentary Peanuts</a><br>A character who responds to keywords in the player&#39;s instructions and remarks, even if there are other words included.</p></div><div class="linkback">
+<a href="RB_7.html#section_8" title="Other Characters &gt; Saying Complicated Things">RB §7.8 Saying Complicated Things</a>
+</div>
+<h3 id="section_34">WI §18.34 Implicitly taking something</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_33">18.33 Reading a command</a></div><div class="sect-navbar-center"><a href="#chapter_18">18. Activities</a></div><div class="sect-navbar-right"><a href="#section_35">18.35 Printing a parser error</a></div></div>
+<p><strong>1. When it happens.</strong> When an action is tried which requires the actor (normally the player, of course) to be carrying something, but which is not in fact carried by that person. For instance, if the player types WEAR OVERCOAT in reference to a Moroccan overcoat currently draped over a chair.</p>
+<p><strong>2. The default behaviour.</strong> To print text such as &quot;(first taking the Moroccan overcoat)&quot; and then silently try taking the object in question (the overcoat). If the take succeeds, the silence means that nothing else is printed: if it fails, it will say why.</p>
+<p>No matter what rules are written for this activity, it is impossible to use it to allow the action to go ahead even without the item. The activity allows us to change how, or if, an implicit take will happen, but not to change the consequences of failure. (To do that, we would need to say that &quot;The carrying requirements rule does nothing&quot;, but this kind of unstitching of the action machinery needs to be done with caution.)</p>
+<p><strong>3. Examples.</strong> (a) Forbidding implicit takes for certain dangerous items. (This seems especially fair if taking such items might cause death: the player will not wish to be killed on the strength only of our guess as to what he might be intending to do.)</p>
+<div class="codeblock"><div class="codeline">Rule for implicitly taking the curare:</div>
+<div class="codeline">&ensp;&ensp;say &quot;Ordinarily you&#39;d pick up the curare in order to be able to do that, but this seems like a good moment for caution.&quot; instead.</div>
+</div><p>(b) Changing the way the implicit action is reported for the player:</p>
+<div class="codeblock"><div class="codeline">Rule for implicitly taking something (called target):</div>
+<div class="codeline">&ensp;&ensp;try silently taking the target;</div>
+<div class="codeline">&ensp;&ensp;if the player carries the target, say &quot;You appropriate [the target] first, of course. [run paragraph on]&quot;</div>
+</div><p>(c) Combining implicit takes when the noun and second noun must both be carried:</p>
+<div class="codeblock"><div class="codeline">Rule for implicitly taking the noun when the second noun is a thing and the second noun is not carried by the player:</div>
+<div class="codeline">&ensp;&ensp;try silently taking the noun;</div>
+<div class="codeline">&ensp;&ensp;try silently taking the second noun;</div>
+<div class="codeline">&ensp;&ensp;say &quot;(first taking both [the noun] and [the second noun])[line break]&quot;</div>
+</div><p>(d) Making another character reply amusingly:</p>
+<div class="codeblock"><div class="codeline">Rule for implicitly taking something which is carried by the player when the person asked is Clark:</div>
+<div class="codeline">&ensp;&ensp;say &quot;&#39;I don&#39;t see how I&#39;m supposed to do that when you&#39;re holding [the noun],&#39; remarks Clark sulkily.&quot; instead.</div>
+</div><p>(e) Causing implicit takes which wouldn&#39;t otherwise happen. Suppose we have a photographing action, and there are very small flowers which can&#39;t conveniently be snapped without being first picked. We then want an implicit take to occur, even though we wouldn&#39;t want this for other sorts of photography. So:</p>
+<div class="codeblock"><div class="codeline">Check an actor photographing a flower:</div>
+<div class="codeline">&ensp;&ensp;if the actor is not carrying the noun:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;carry out the implicitly taking activity with the noun;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;if the actor is not carrying the noun, stop the action.</div>
+</div><p>Note that if the activity doesn&#39;t succeed in taking the item, it&#39;s expected to print some text explaining this, which is why we don&#39;t need to say anything further.</p>
+<div class="examples">
+<h4>Examples</h4>
+<div class="example-short">377. ★ <a href="examples/big_sainsburys.html">The Big Sainsbury's</a><br>Making implicit takes add a minute to the clock, just as though the player had typed TAKE THING explicitly.</p></div><div class="linkback">
+<a href="RB_4.html#section_1" title="Time and Plot &gt; The Passage Of Time">RB §4.1 The Passage Of Time</a>
+</div>
+<div class="example-short">378. ★ <a href="examples/pizza_prince.html">Pizza Prince</a><br>Providing a pizza buffet from which the player can take as many pieces as he wants.</p></div><div class="linkback">
+<a href="RB_10.html#section_3" title="Physics: Substances, Ropes, Energy and Weight &gt; Dispensers and Supplies of Small Objects">RB §10.3 Dispensers and Supplies of Small Objects</a>
+</div>
+<div class="example-short">379. ★★★ <a href="examples/lollipop_guild.html">Lollipop Guild</a><br>Overriding the rules to allow the player to show something to another character without first taking it.</p></div><div class="linkback">
+<a href="RB_6.html#section_8" title="Commands &gt; Taking, Dropping, Inserting and Putting">RB §6.8 Taking, Dropping, Inserting and Putting</a>
+</div>
+<h3 id="section_35">WI §18.35 Printing a parser error</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_34">18.34 Implicitly taking something</a></div><div class="sect-navbar-center"><a href="#chapter_18">18. Activities</a></div><div class="sect-navbar-right"><a href="#section_36">18.36 Deciding whether all includes</a></div></div>
+<p><strong>1. When it happens.</strong> The parser is the part of the run-time software, included in all works produced by Inform, which tries to match the player&#39;s command against the grammar provided by the work. When it is unable to make a valid match, the parser prints an error to the player: for instance,</p>
+<div class="codeblock"><div class="codeline">&gt; BIFURCATE TREE</div>
+<div class="codeline">That&#39;s not a verb I recognise.</div>
+</div><p>There are more than twenty possible messages. The one which the parser wants to say is stored in the variable &quot;latest parser error&quot;, which has the convenient kind &quot;command parser error&quot;. This has the following possible values:</p>
+<div class="codeblock"><div class="codeline">didn&#39;t understand error</div>
+<div class="codeline">only understood as far as error</div>
+<div class="codeline">didn&#39;t understand that number error</div>
+<div class="codeline">can&#39;t see any such thing error</div>
+<div class="codeline">said too little error</div>
+<div class="codeline">aren&#39;t holding that error</div>
+<div class="codeline">can&#39;t use multiple objects error</div>
+<div class="codeline">can only use multiple objects error</div>
+<div class="codeline">not sure what it refers to error</div>
+<div class="codeline">excepted something not included error</div>
+<div class="codeline">can only do that to something animate error</div>
+<div class="codeline">not a verb I recognise error</div>
+<div class="codeline">not something you need to refer to error</div>
+<div class="codeline">can&#39;t see it at the moment error</div>
+<div class="codeline">didn&#39;t understand the way that finished error</div>
+<div class="codeline">not enough of those available error</div>
+<div class="codeline">nothing to do error</div>
+<div class="codeline">referred to a determination of scope error</div>
+<div class="codeline">I beg your pardon error</div>
+<div class="codeline">noun did not make sense in that context error</div>
+<div class="codeline">can&#39;t again the addressee error</div>
+<div class="codeline">comma can&#39;t begin error</div>
+<div class="codeline">can&#39;t see whom to talk to error</div>
+<div class="codeline">can&#39;t talk to inanimate things error</div>
+<div class="codeline">didn&#39;t understand addressee&#39;s last name error</div>
+</div><p><strong>2. The default behaviour.</strong> Prints the message in question.</p>
+<p><strong>3. Examples.</strong> (a) Perhaps for newcomers:</p>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`After printing a parser error:\n\tsay &quot;If you are new to interactive fiction, you may like to try typing HELP.&quot;`)">⧉</button><div class="codeline">After printing a parser error:</div>
+<div class="codeline">&ensp;&ensp;say &quot;If you are new to interactive fiction, you may like to try typing HELP.&quot;</div>
+</div><p>(b) Or to give the parser a certain amount of character:</p>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Rule for printing a parser error when the latest parser error is the I beg your pardon error:\n\tsay &quot;What&apos;s that? Speak up, speak up.&quot; instead.\n\nRule for printing a parser error:\n\tsay &quot;That&apos;s a rum thing to say, and no mistake.&quot; instead.`)">⧉</button><div class="codeline">Rule for printing a parser error when the latest parser error is the I beg your pardon error:</div>
+<div class="codeline">&ensp;&ensp;say &quot;What&#39;s that? Speak up, speak up.&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Rule for printing a parser error:</div>
+<div class="codeline">&ensp;&ensp;say &quot;That&#39;s a rum thing to say, and no mistake.&quot; instead.</div>
+</div><p>(c) This can be helpful for seeing what&#39;s going on:</p>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Rule for printing a parser error:\n\tsay &quot;The [latest parser error] happened.&quot;;\n\tcontinue the activity.`)">⧉</button><div class="codeline">Rule for printing a parser error:</div>
+<div class="codeline">&ensp;&ensp;say &quot;The [latest parser error] happened.&quot;;</div>
+<div class="codeline">&ensp;&ensp;continue the activity.</div>
+</div><div class="examples">
+<h4>Examples</h4>
+<div class="example-short">380. ★ <a href="examples/wxpq.html">WXPQ</a><br>Creating a more sensible parser error than &quot;that noun did not make sense in this context&quot;.</p></div><div class="linkback">
+<a href="RB_6.html#section_17" title="Commands &gt; Clarification and Correction">RB §6.17 Clarification and Correction</a>
+</div>
+<div class="example-short">381. ★★★ <a href="examples/xot.html">Xot</a><br>Storing an invalid command to be repeated as text later in the game.</p></div><div class="linkback">
+<a href="RB_2.html#section_3" title="Adaptive Prose &gt; Using the Player&#39;s Input">RB §2.3 Using the Player's Input</a>
+</div>
+<h3 id="section_36">WI §18.36 Deciding whether all includes</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_35">18.35 Printing a parser error</a></div><div class="sect-navbar-center"><a href="#chapter_18">18. Activities</a></div><div class="sect-navbar-right"><a href="#section_37">18.37 Printing the banner text</a></div></div>
+<p><strong>1. When it happens.</strong> When parsing a command such as &quot;take all&quot;, where the player uses &quot;all&quot; to signify everything within reach.</p>
+<p><strong>2. The default behaviour.</strong> The actual method used is complicated, as &quot;all&quot; is not as simple as it seems &ndash; &quot;take all&quot; would not include the player&#39;s own body, for instance, or the crescent moon. The point of this activity is to allow the normal method to be changed for given objects, or given kinds of object.</p>
+<p><strong>3. Examples.</strong> (a) Removing scenery from &quot;all&quot; (but see (4) below):</p>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Rule for deciding whether all includes scenery: it does not.`)">⧉</button><div class="codeline">Rule for deciding whether all includes scenery: it does not.</div>
+</div><p>The phrases &quot;it does&quot; and &quot;it does not&quot; make a decision.</p>
+<p>(b) Ensuring that a given thing, which might otherwise be excluded, is included:</p>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Rule for deciding whether all includes the oval roof: it does.`)">⧉</button><div class="codeline">Rule for deciding whether all includes the oval roof: it does.</div>
+</div><p><strong>4. The Standard Rules already uses this.</strong> Note that the Standard Rules already stocks this activity with several rules:</p>
+<div class="codeblock"><div class="codeline">exclude scenery from take all rule</div>
+<div class="codeline">exclude people from take all rule</div>
+<div class="codeline">exclude fixed in place things from take all rule</div>
+</div><p><strong>5. A note about actions.</strong> This activity takes place during the process of understanding the player&#39;s command, when the action that will take place is not fully known. So if the player types &quot;TAKE SHOEBOX&quot;, this activity would happen when SHOEBOX is being examined for meaning. Inform knows that the action will be taking, but nothing else. That means attaching a proviso like &quot;&hellip; while taking a container&quot; to a rule for this activity will cause the rule to have no effect &ndash; whereas &quot;&hellip; while taking&quot; would be fine.</p>
+<h3 id="section_37">WI §18.37 Printing the banner text</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_36">18.36 Deciding whether all includes</a></div><div class="sect-navbar-center"><a href="#chapter_18">18. Activities</a></div><div class="sect-navbar-right"><a href="#section_38">18.38 Printing the player's obituary</a></div></div>
+<p><strong>1. When it happens.</strong> The banner is the bibliographic masthead text, which typically looks something like this:</p>
+<div class="codeblock"><div class="codeline">Relations</div>
+<div class="codeline">An Interactive Fiction by Emily Short</div>
+<div class="codeline">Release 1 / Serial number 050630 / Inform 7 build 2U98 (I6/v6.30 lib 6/10N) SD</div>
+</div><p>(The serial and build numbers are those applying when the story file was last made: these ones are from the mid-2000s.) The banner is printed at the start of play, and when the player types &quot;version&quot; at the command line, and when say &quot;[banner text]&quot; occurs.</p>
+<div class="defn" id="phs_banner"><span class="defn">say "[the/-- banner text]"</span><p>This text substitution expands to the banner text giving bibliographic details of the current story file, rather like the opening credits of a movie, or the title page of a book.</p>
+</div><p><strong>2. The default behaviour.</strong> Prints the text above, giving the title, the headline, the author, the release number, the date of compilation (that&#39;s the serial number: YYMMDD), and version numbers of the Inform components used to put the story together.</p>
+<p><strong>3. Examples.</strong> (a) Adding a line to the banner:</p>
+<div class="codeblock"><div class="codeline">After printing the banner text, say &quot;DRM authentication code: 13S-451-2034u75y65u%%a1248.&quot;</div>
+</div><p>(b) Simplifying the banner:</p>
+<div class="codeblock"><div class="codeline">Rule for printing the banner text: say &quot;Welcome.&quot; instead.</div>
+</div><div class="examples">
+<h4>Example</h4>
+<div class="example-short">382. ★ <a href="examples/bikini_atoll.html">Bikini Atoll</a><br>Delaying the banner for later.</p></div><div class="linkback">
+<a href="RB_11.html#section_1" title="Out Of World Actions and Effects &gt; Start-Up Features">RB §11.1 Start-Up Features</a>
+</div>
+<h3 id="section_38">WI §18.38 Printing the player's obituary</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_37">18.37 Printing the banner text</a></div><div class="sect-navbar-center"><a href="#chapter_18">18. Activities</a></div><div class="sect-navbar-right"><a href="#section_39">18.39 Amusing a victorious player</a></div></div>
+<p><strong>1. When it happens.</strong> The obituary is the text &quot;*** You have died ***&quot; or similar, sometimes followed by a final score, if the appropriate use option (&quot;Use scoring.&quot;) is in force.</p>
+<p><strong>2. The default behaviour.</strong> Printing the aforementioned text, then the final score, and reducing the status line to a largely blank state.</p>
+<p><strong>3. Examples.</strong> Here&#39;s one way to add to the verdict of history:</p>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`After printing the player&apos;s obituary: say &quot;And you visited [number of visited rooms] place[s].&quot;`)">⧉</button><div class="codeline">After printing the player&#39;s obituary: say &quot;And you visited [number of visited rooms] place[s].&quot;</div>
+</div><div class="examples">
+<h4>Examples</h4>
+<div class="example-short">383. ★ <a href="examples/battle_of_ridgefield.html">Battle of Ridgefield</a><br>Completely replacing the endgame text and stopping the game without giving the player a chance to restart or restore.</p></div><div class="linkback">
+<a href="RB_11.html#section_6" title="Out Of World Actions and Effects &gt; Ending The Story">RB §11.6 Ending The Story</a>
+</div>
+<div class="example-short">384. ★ <a href="examples/finality.html">Finality</a><br>Not mentioning UNDO in the final set of options.</p></div><div class="linkback">
+<a href="RB_11.html#section_6" title="Out Of World Actions and Effects &gt; Ending The Story">RB §11.6 Ending The Story</a>
+</div>
+<div class="example-short">385. ★ <a href="examples/jamaica1688.html">Jamaica 1688</a><br>Adding a feature to the final question after victory, so that the player can choose to reveal notes about items in the game.</p></div><div class="linkback">
+<a href="RB_11.html#section_6" title="Out Of World Actions and Effects &gt; Ending The Story">RB §11.6 Ending The Story</a>
+</div>
+<h3 id="section_39">WI §18.39 Amusing a victorious player</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_38">18.38 Printing the player's obituary</a></div><div class="sect-navbar-center"><a href="#chapter_18">18. Activities</a></div><div class="sect-navbar-right"><a href="#section_40">18.40 Starting the virtual machine</a></div></div>
+<p><strong>1. When it happens.</strong> When the player chooses &quot;AMUSING&quot; from the short menu of choices after a story has been won. Traditionally, this is where the author gets to point out quirky by-ways of the story, or make some final acknowledgements, or simply salute the player&#39;s perseverance. Note that the AMUSING option is only offered when the story has ended finally, and that it is only offered if there is at least one rule present in the &quot;for amusing a victorious player&quot; rulebook.</p>
+<p><strong>2. The default behaviour.</strong> None. The &quot;for amusing a victorious player&quot; rulebook is empty by default, and no amusement is available.</p>
+<p><strong>3. Examples.</strong> The format would be like so:</p>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Rule for amusing a victorious player: say &quot;Hmm. You&apos;re easily amused.&quot;`)">⧉</button><div class="codeline">Rule for amusing a victorious player: say &quot;Hmm. You&#39;re easily amused.&quot;</div>
+</div><div class="examples">
+<h4>Example</h4>
+<div class="example-short">386. ★★ <a href="examples/xerxes.html">Xerxes</a><br>Offering the player a menu of things to read after winning the game.</p></div><div class="linkback">
+<a href="RB_11.html#section_6" title="Out Of World Actions and Effects &gt; Ending The Story">RB §11.6 Ending The Story</a>
+</div>
+<h3 id="section_40">WI §18.40 Starting the virtual machine</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_39">18.39 Amusing a victorious player</a></div><div class="sect-navbar-center"><a href="#chapter_18">18. Activities</a></div></div>
+<p><strong>1. When it happens.</strong> This activity is provided solely as a &quot;hook&quot; for any low-level tasks which need to be performed when the virtual computer which runs Inform story files is starting up. This happens much earlier than &quot;when play begins&quot; rules, and should be used only as a last resort.</p>
+<p>It should be remembered that Inform can produce story files for several different virtual computers. On some of these, it will not be safe to print any text during this activity, as the windows which would display such text do not yet exist.</p>
+<p><strong>2. The default behaviour.</strong> None.</p>
+<p><strong>3. Examples.</strong> No detailed examples will be given here, but the activity might be used (for instance) to set styles for the Glulx windows shortly to be brought into existence.</p>
+<div class="examples">
+<h4>Example</h4>
+<div class="example-short">387. ★ <a href="examples/blankness.html">Blankness</a><br>Emptying the status line during the first screen of the game.</p></div><div class="linkback">
+<a href="RB_12.html#section_2" title="Typography, Layout, and Multimedia Effects &gt; The Status Line">RB §12.2 The Status Line</a>
+</div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="WI_17.html">17. Understanding</a></div><div class="doc-navbar-right"><a href="WI_19.html">19. Rulebooks</a></div></div>
+<nav><div class="nav-el"><a href="index.html">Contents</a></div> <div class="nav-el"><a href="examples/index.html">Examples</a></div> <div class="nav-el"><a href="general_index.html">Index</a></div> <div class="nav-el"><a href="search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="license.html">Artistic License 2.0</a>.</p><p class="about"><a href="about.html">About this edition</a></p></footer>
+</body></html>

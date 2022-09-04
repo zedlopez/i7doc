@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 247. Variety 2</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Variety 2</h1><div class="subheading">Example 247 ★★</div>
+<div class="linkback">
+<a href="../WI_14.html#section_3" title="Adaptive Text and Responses &gt; More on adapting verbs">WI §14.3 More on adapting verbs</a><br><a href="../RB_2.html#section_1" title="Adaptive Prose &gt; Varying What Is Written">RB §2.1 Varying What Is Written</a>
+</div>
+<p class="example-desc">This builds on the Variety example to add responses such as &quot;You are now carrying the fedora&quot; that describe relations that result from a given verb, as alternate responses.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="variety.html" title="Suppose we want all of our action responses to display some randomized variety. We could do this by laboriously rewriting all of the response texts, but this example demonstrates an alternative.">246. Variety</a></div><div class="doc-navbar-right"><a href="narrative_register.html" title="Suppose we want all of our action responses to vary depending on some alterable quality of the narrator, so that sometimes they&#39;re slangy, sometimes pompous or archaic.">248. Narrative Register</a></div></div>
+</header>
+<p>Some of our default actions establish relations between items in the world, and reporting on the relation (&quot;You are now carrying the fedora&quot;) can be a valid response alongside reporting on the action itself (&quot;You take the fedora&quot;).</p>
+<p>To do this, we need to teach Inform explicitly which relations are the results of actions, then check this when reporting on actions:</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex247">Play/modify Variety 2 in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="Variety2/index.html">Play Variety 2 in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Variety 2&quot;\n\nSection 1 - Descriptive Functionality\n\nDescribing relates various verbs to various action names. The verb to describe means the describing relation.\n\nTable of Action Results\nrelated action\trelation\nthe taking action\tthe carrying relation\nthe wearing action\tthe wearing relation\nthe taking off action\tthe carrying relation\n\n\nTo take is a verb. To acquire is a verb. To get is a verb.\n\nThe verb take describes the taking action. The verb acquire describes the taking action. The verb get describes the taking action.\n\nTo drop is a verb. To put down is a verb. To discard is a verb. The verb drop describes the dropping action. The verb put down describes the dropping action. The verb discard describes the dropping action.\n\nTo sniff is a verb. To smell is a verb. The verb sniff describes the smelling action. The verb smell describes the smelling action.\n\nTo jump is a verb. To leap is a verb. To pirouette is a verb. The verb jump describes the jumping action. The verb leap describes the jumping action. The verb pirouette describes the jumping action.\n\nTo don is a verb. The verb don describes the wearing action.\n\nTo doff is a verb. The verb doff describes the taking off action.\n\n\nAfter an actor doing something when the noun is nothing and a verb describes (the action name part of the current action) (this is the apply random verbs to describing nounless actions rule):\n\tsay &quot;[The actor] [verb rendering applied to a random verb that describes (the action name part of the current action)].&quot;;\n\trule succeeds.\n\nAfter an actor doing something to something when a verb describes (the action name part of the current action) (this is the apply random verbs to describing actions rule):\n\tlet current action name be the action name part of the current action;\n\tif a random chance of 1 in 2 succeeds and the current action name is a related action listed in the Table of Action Results:\n\t\tchoose a row with the related action of current action name in the Table of Action Results;\n\t\tlet R be the relation entry;\n\t\tlet subject be the actor;\n\t\tlet chosen object be the noun;\n\t\tsay &quot;[The subject] [are] now [present participle of a random verb that means R] [the chosen object].&quot;;\n\telse:\n\t\tsay &quot;[The actor] [verb rendering applied to a random verb that describes (the action name part of the current action)] [the noun].&quot;;\n\trule succeeds.\n\nTo decide which text is the rendering of (V - verb) (this is verb rendering):\n\tdecide on &quot;[adapt V]&quot;.\n\nTo say infinitive of (V - a verb): (- {V}(1); -).\n\nTo say past participle of (V - a verb): (- {V}(2); -).\n\nTo say present participle of (V - a verb): (- {V}(3); -).\n\nSection 2 - Scenario\n\nLab is a room. The fedora is a wearable thing in the Lab.\n\nTest me with &quot;wear the fedora / take off the fedora / wear fedora / take off fedora&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Variety 2&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline i7header">Section 1 - Descriptive Functionality</div><div class="codeline">Describing relates various verbs to various action names. The verb to describe means the describing relation.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline tablename">Table of Action Results</div><table>
+<tr><td>related action</td><td>relation</td></tr><tr><td>the taking action</td><td>the carrying relation</td></tr><tr><td>the wearing action</td><td>the wearing relation</td></tr><tr><td>the taking off action</td><td>the carrying relation</td></tr></table>
+<div class="codeline">To take is a verb. To acquire is a verb. To get is a verb.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The verb take describes the taking action. The verb acquire describes the taking action. The verb get describes the taking action.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">To drop is a verb. To put down is a verb. To discard is a verb. The verb drop describes the dropping action. The verb put down describes the dropping action. The verb discard describes the dropping action.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">To sniff is a verb. To smell is a verb. The verb sniff describes the smelling action. The verb smell describes the smelling action.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">To jump is a verb. To leap is a verb. To pirouette is a verb. The verb jump describes the jumping action. The verb leap describes the jumping action. The verb pirouette describes the jumping action.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">To don is a verb. The verb don describes the wearing action.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">To doff is a verb. The verb doff describes the taking off action.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">After an actor doing something when the noun is nothing and a verb describes (the action name part of the current action) (this is the apply random verbs to describing nounless actions rule):</div>
+<div class="codeline">&ensp;&ensp;say &quot;[The actor] [verb rendering applied to a random verb that describes (the action name part of the current action)].&quot;;</div>
+<div class="codeline">&ensp;&ensp;rule succeeds.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">After an actor doing something to something when a verb describes (the action name part of the current action) (this is the apply random verbs to describing actions rule):</div>
+<div class="codeline">&ensp;&ensp;let current action name be the action name part of the current action;</div>
+<div class="codeline">&ensp;&ensp;if a random chance of 1 in 2 succeeds and the current action name is a related action listed in the Table of Action Results:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;choose a row with the related action of current action name in the Table of Action Results;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;let R be the relation entry;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;let subject be the actor;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;let chosen object be the noun;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;[The subject] [are] now [present participle of a random verb that means R] [the chosen object].&quot;;</div>
+<div class="codeline">&ensp;&ensp;else:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;[The actor] [verb rendering applied to a random verb that describes (the action name part of the current action)] [the noun].&quot;;</div>
+<div class="codeline">&ensp;&ensp;rule succeeds.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">To decide which text is the rendering of (V - verb) (this is verb rendering):</div>
+<div class="codeline">&ensp;&ensp;decide on &quot;[adapt V]&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">To say infinitive of (V - a verb): (- {V}(1); -).</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">To say past participle of (V - a verb): (- {V}(2); -).</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">To say present participle of (V - a verb): (- {V}(3); -).</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline i7header">Section 2 - Scenario</div><div class="codeline">Lab is a room. The fedora is a wearable thing in the Lab.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;wear the fedora / take off the fedora / wear fedora / take off fedora&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "wear the fedora / take off the fedora / wear fedora / take off fedora".</summary><div class="testme-output">Lab<br>You can see a fedora here.<br><br>>(Testing.)<br><br>>[1] wear the fedora<br>(first taking the fedora)<br>You acquire the fedora.<br><br>You are now wearing the fedora.<br><br>>[2] take off the fedora<br>You are now carrying the fedora.<br><br>>[3] wear fedora<br>You don the fedora.<br><br>>[4] take off fedora<br>You doff the fedora.
+</div></details><div class="doc-navbar"><div class="doc-navbar-left"><a href="variety.html" title="Suppose we want all of our action responses to display some randomized variety. We could do this by laboriously rewriting all of the response texts, but this example demonstrates an alternative.">246. Variety</a></div><div class="doc-navbar-right"><a href="narrative_register.html" title="Suppose we want all of our action responses to vary depending on some alterable quality of the narrator, so that sometimes they&#39;re slangy, sometimes pompous or archaic.">248. Narrative Register</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

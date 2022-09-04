@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 290. Anchorite</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Anchorite</h1><div class="subheading">Example 290 ★</div>
+<div class="linkback">
+<a href="../WI_17.html#section_2" title="Understanding &gt; New commands for old grammar">WI §17.2 New commands for old grammar</a><br><a href="../RB_6.html#section_10" title="Commands &gt; Entering and Exiting, Sitting and Standing">RB §6.10 Entering and Exiting, Sitting and Standing</a>
+</div>
+<p class="example-desc">By default, Inform understands GET OFF, GET UP, or GET OUT when the player is sitting or standing on an enterable object. We might also want to add GET DOWN and DOWN as exit commands, though.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="alpaca_farm.html" title="A generic USE action which behaves sensibly with a range of different objects.">289. Alpaca Farm</a></div><div class="doc-navbar-right"><a href="cloak_of_darkness.html" title="Implementation of &quot;Cloak of Darkness&quot;, a simple example game that for years has been used to demonstrate the features of IF languages.">291. Cloak of Darkness</a></div></div>
+</header>
+<p>With GET DOWN, we can replace the whole command, which will not interfere with the normal function of the TAKE verb, or allow the player to attempt to GET any other directions:</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex290">Play/modify Anchorite in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="GettingDown/index.html">Play Anchorite in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Anchorite&quot;\n\nThe Solitary Place is a room. &quot;A glittering, shimmering desert without either locusts or honey.&quot; The pillar is an enterable supporter in the Solitary Place. &quot;The broken pillar is short enough to climb and sit on.&quot; The description of the pillar is &quot;Once it was a monument: a long frieze of battles and lion-hunts spirals up the side, in honor of an earthly king.&quot; The player is on the pillar.\n\nUnderstand &quot;get down&quot; as exiting.\n\n\nInstead of going down when the player is on a supporter:\n\ttry exiting.\n\nTest me with &quot;down / enter pillar / get down / down / get down&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Anchorite&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Solitary Place is a room. &quot;A glittering, shimmering desert without either locusts or honey.&quot; The pillar is an enterable supporter in the Solitary Place. &quot;The broken pillar is short enough to climb and sit on.&quot; The description of the pillar is &quot;Once it was a monument: a long frieze of battles and lion-hunts spirals up the side, in honor of an earthly king.&quot; The player is on the pillar.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Understand &quot;get down&quot; as exiting.</div>
+</div><p>This doesn&#39;t cover the case where the player just types &quot;DOWN&quot;, and we don&#39;t want to preempt the normal operation of the GO action here. So instead of writing a new understand instruction, we might catch this one at the action-processing level:</p>
+<div class="codeblock"><div class="codeline">Instead of going down when the player is on a supporter:</div>
+<div class="codeline">&ensp;&ensp;try exiting.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;down / enter pillar / get down / down / get down&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "down / enter pillar / get down / down / get down".</summary><div class="testme-output">Solitary Place (on the pillar)<br>A glittering, shimmering desert without either locusts or honey.<br><br>>(Testing.)<br><br>>[1] down<br>You get off the pillar.<br><br>Solitary Place<br>A glittering, shimmering desert without either locusts or honey.<br><br>The broken pillar is short enough to climb and sit on.<br><br>>[2] enter pillar<br>You get onto the pillar.<br><br>>[3] get down<br>You get off the pillar.<br><br>Solitary Place<br>A glittering, shimmering desert without either locusts or honey.<br><br>The broken pillar is short enough to climb and sit on.<br><br>>[4] down<br>You can't go that way.<br><br>>[5] get down<br>But you aren't in anything at the moment.
+</div></details><div class="doc-navbar"><div class="doc-navbar-left"><a href="alpaca_farm.html" title="A generic USE action which behaves sensibly with a range of different objects.">289. Alpaca Farm</a></div><div class="doc-navbar-right"><a href="cloak_of_darkness.html" title="Implementation of &quot;Cloak of Darkness&quot;, a simple example game that for years has been used to demonstrate the features of IF languages.">291. Cloak of Darkness</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

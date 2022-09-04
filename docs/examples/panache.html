@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 166. Panache</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Panache</h1><div class="subheading">Example 166 ★★★</div>
+<div class="linkback">
+<a href="../WI_10.html#section_8" title="Scenes &gt; Multiple endings">WI §10.8 Multiple endings</a><br><a href="../RB_11.html#section_4" title="Out Of World Actions and Effects &gt; Scoring">RB §11.4 Scoring</a>
+</div>
+<p class="example-desc">Replacing the score with a plot summary that records the events of the plot, scene by scene.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="pine3.html" title="Pine: Allowing the player to visit aspects of the past in memory and describe these events to the princess, as a break from the marriage-proposal scene.">165. Pine 3</a></div><div class="doc-navbar-right"><a href="pine4.html" title="Pine: Adding a flashback scene that, instead of repeating endlessly, repeats only until the Princess has understood the point.">167. Pine 4</a></div></div>
+</header>
+<p>If we have a plot that branches and has multiple kinds of outcome, we might well want to assemble these into a plot summary in place of the more traditional score. One way to approach this is to build the scene information into a table, adding information when each scene ends.</p>
+<p>We begin with a bit of setup:</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex166">Play/modify Panache in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="Panache/index.html">Play Panache in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Panache&quot;\n\nThe player is in a room called Beneath Roxane&apos;s Balcony. Christian is a man in the Balcony. &quot;Christian stands in a spot of moonlight and tries to avoid too obviously glancing at the shadows that conceal you.&quot; The description of Christian is &quot;Like you, Christian loves Roxane. Unlike you, he is handsome enough to receive her favor in return. He is the beauty to your brain.&quot;\n\nRoxane is a woman in the Balcony. &quot;Above you in the night is Roxane.&quot; Roxane can be wooed, skeptical, confused, or annoyed. Roxane is skeptical. The description of Roxane is &quot;The brightest, the most radiant of women -- and in love with an utter fool.&quot;\n\nEmpty Street is a room. &quot;No one is about at this hour, all alone under a pale moon.&quot;\n\nTelling someone about something is speech. Asking someone about something is speech. Answering someone that something is speech.\n\n\nA persuasion rule for asking Christian to try speech: persuasion succeeds.\n\nCarry out Christian answering someone that something:\n\tnow Roxane is wooed;\n\tsay &quot;&apos;[noun], [the topic understood].&apos;&quot;\n\nCarry out Christian answering the player that something:\n\tsay &quot;Christian parrots your words back to you.&quot; instead.\n\nCarry out Christian telling a skeptical Roxane about something:\n\tnow Roxane is confused;\n\tsay &quot;Christian turns to [the noun]. &apos;I must tell you about [the topic understood],&apos; he says, and comes to a halt, looking at you for further direction.\n\n\tPerhaps you&apos;d better give him exact lines to say. Surely he can&apos;t mess up an instruction like &apos;say hello to Roxane.&apos;&quot; instead.\n\nCarry out Christian asking a skeptical Roxane about something:\n\tnow Roxane is confused;\n\tsay &quot;&apos;So,&apos; says Christian nervously to [the noun]. &apos;Did you know about [the topic understood]?&apos; But Roxane merely seems puzzled.&quot; instead.\n\nCarry out Christian telling a confused Roxane about something:\n\tnow Roxane is annoyed;\n\tsay &quot;Christian begins rambling on witlessly about [the topic understood].&quot; instead.\n\nCarry out Christian asking a confused Roxane about something:\n\tnow Roxane is annoyed;\n\tsay &quot;Christian puts another confused question about [the topic understood].&quot; instead.\n\n\nCourting Roxane is a scene. Courting Roxane begins when play begins. Courting Roxane ends in success when Roxane is wooed. Courting Roxane ends in failure when Roxane is annoyed.\n\nWhen Courting Roxane ends in success:\n\trecord &quot;Seduction by Proxy&quot; in the Table of Events;\n\tsay &quot;Roxane, deeply moved by this sentiment, invites Christian up to her balcony. He scrambles up the ivy and disappears into her bedroom; the last thing you hear is a girlish giggle from above.&quot;;\n\tnow Roxane is nowhere; now Christian is nowhere;\n\tmove the player to Empty Street.\n\nWhen Courting Roxane ends in failure:\n\trecord &quot;Ruining Christian&apos;s Chances&quot; in the Table of Events;\n\tsay &quot;Roxane sighs heavily and goes back into her room, slamming the door behind her.\n\n&apos;Thanks very much,&apos; says Christian to you, striding off down the street.&quot;;\n\tnow Roxane is nowhere; now Christian is nowhere;\n\tmove the player to Empty Street.\n\nSulky Ramble is a scene. Sulky Ramble begins when Courting Roxane ends in success. Sulky Ramble ends when the time since Sulky Ramble began is 2 minutes. When Sulky Ramble ends: record &quot;Wandering the Streets, Sulking&quot; in the Table of Events.\n\nEvery turn during Sulky Ramble:\n\tsay &quot;You find yourself kicking fenceposts quite without thinking about it.&quot;\n\nSmug Ramble is a scene. Smug Ramble begins when Courting Roxane ends in failure. Smug Ramble ends when the time since Smug Ramble began is 2 minutes. When Smug Ramble ends: record &quot;Wandering the Streets, Exultant&quot; in the Table of Events; say &quot;Of course, you will regret this soon enough.&quot;\n\nEvery turn during Smug Ramble:\n\tsay &quot;You find yourself smiling fiercely at the moon.&quot;\n\nTo record (occurrence - text) in (target table - a table name):\n\tchoose a blank row in the target table;\n\tnow the event entry is the occurrence.\n\nTable of Events\nevent\n&quot;A Duel of Insults&quot;\nwith 30 blank rows.\n\nThe plot summary rule is listed instead of the announce the score rule in the carry out requesting the score rules.\n\nThis is the plot summary rule:\n\tsay &quot;The Plot So Far: [paragraph break]&quot;;\n\tlet act number be 0;\n\trepeat through the table of Events:\n\t\tincrement act number;\n\t\tsay &quot;  Act [act number]: [event entry][line break]&quot;.\n\nTest me with &quot;christian, ask roxane about love / christian, say your breath smells like ripe taleggio to roxane / score / z / z / score&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Panache&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The player is in a room called Beneath Roxane&#39;s Balcony. Christian is a man in the Balcony. &quot;Christian stands in a spot of moonlight and tries to avoid too obviously glancing at the shadows that conceal you.&quot; The description of Christian is &quot;Like you, Christian loves Roxane. Unlike you, he is handsome enough to receive her favor in return. He is the beauty to your brain.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Roxane is a woman in the Balcony. &quot;Above you in the night is Roxane.&quot; Roxane can be wooed, skeptical, confused, or annoyed. Roxane is skeptical. The description of Roxane is &quot;The brightest, the most radiant of women -- and in love with an utter fool.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Empty Street is a room. &quot;No one is about at this hour, all alone under a pale moon.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Telling someone about something is speech. Asking someone about something is speech. Answering someone that something is speech.</div>
+</div><p>This next portion borrows from the Advanced Actions chapter to allow us to command Christian to do things:</p>
+<div class="codeblock"><div class="codeline">A persuasion rule for asking Christian to try speech: persuasion succeeds.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Carry out Christian answering someone that something:</div>
+<div class="codeline">&ensp;&ensp;now Roxane is wooed;</div>
+<div class="codeline">&ensp;&ensp;say &quot;&#39;[noun], [the topic understood].&#39;&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Carry out Christian answering the player that something:</div>
+<div class="codeline">&ensp;&ensp;say &quot;Christian parrots your words back to you.&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Carry out Christian telling a skeptical Roxane about something:</div>
+<div class="codeline">&ensp;&ensp;now Roxane is confused;</div>
+<div class="codeline">&ensp;&ensp;say &quot;Christian turns to [the noun]. &#39;I must tell you about [the topic understood],&#39; he says, and comes to a halt, looking at you for further direction.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;Perhaps you&#39;d better give him exact lines to say. Surely he can&#39;t mess up an instruction like &#39;say hello to Roxane.&#39;&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Carry out Christian asking a skeptical Roxane about something:</div>
+<div class="codeline">&ensp;&ensp;now Roxane is confused;</div>
+<div class="codeline">&ensp;&ensp;say &quot;&#39;So,&#39; says Christian nervously to [the noun]. &#39;Did you know about [the topic understood]?&#39; But Roxane merely seems puzzled.&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Carry out Christian telling a confused Roxane about something:</div>
+<div class="codeline">&ensp;&ensp;now Roxane is annoyed;</div>
+<div class="codeline">&ensp;&ensp;say &quot;Christian begins rambling on witlessly about [the topic understood].&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Carry out Christian asking a confused Roxane about something:</div>
+<div class="codeline">&ensp;&ensp;now Roxane is annoyed;</div>
+<div class="codeline">&ensp;&ensp;say &quot;Christian puts another confused question about [the topic understood].&quot; instead.</div>
+</div><p>And now we have enough material to begin writing the scenes:</p>
+<div class="codeblock"><div class="codeline">Courting Roxane is a scene. Courting Roxane begins when play begins. Courting Roxane ends in success when Roxane is wooed. Courting Roxane ends in failure when Roxane is annoyed.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">When Courting Roxane ends in success:</div>
+<div class="codeline">&ensp;&ensp;record &quot;Seduction by Proxy&quot; in the Table of Events;</div>
+<div class="codeline">&ensp;&ensp;say &quot;Roxane, deeply moved by this sentiment, invites Christian up to her balcony. He scrambles up the ivy and disappears into her bedroom; the last thing you hear is a girlish giggle from above.&quot;;</div>
+<div class="codeline">&ensp;&ensp;now Roxane is nowhere; now Christian is nowhere;</div>
+<div class="codeline">&ensp;&ensp;move the player to Empty Street.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">When Courting Roxane ends in failure:</div>
+<div class="codeline">&ensp;&ensp;record &quot;Ruining Christian&#39;s Chances&quot; in the Table of Events;</div>
+<div class="codeline">&ensp;&ensp;say &quot;Roxane sighs heavily and goes back into her room, slamming the door behind her.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&#39;Thanks very much,&#39; says Christian to you, striding off down the street.&quot;;</div>
+<div class="codeline">&ensp;&ensp;now Roxane is nowhere; now Christian is nowhere;</div>
+<div class="codeline">&ensp;&ensp;move the player to Empty Street.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Sulky Ramble is a scene. Sulky Ramble begins when Courting Roxane ends in success. Sulky Ramble ends when the time since Sulky Ramble began is 2 minutes. When Sulky Ramble ends: record &quot;Wandering the Streets, Sulking&quot; in the Table of Events.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Every turn during Sulky Ramble:</div>
+<div class="codeline">&ensp;&ensp;say &quot;You find yourself kicking fenceposts quite without thinking about it.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Smug Ramble is a scene. Smug Ramble begins when Courting Roxane ends in failure. Smug Ramble ends when the time since Smug Ramble began is 2 minutes. When Smug Ramble ends: record &quot;Wandering the Streets, Exultant&quot; in the Table of Events; say &quot;Of course, you will regret this soon enough.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Every turn during Smug Ramble:</div>
+<div class="codeline">&ensp;&ensp;say &quot;You find yourself smiling fiercely at the moon.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">To record (occurrence - text) in (target table - a table name):</div>
+<div class="codeline">&ensp;&ensp;choose a blank row in the target table;</div>
+<div class="codeline">&ensp;&ensp;now the event entry is the occurrence.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline tablename">Table of Events</div><table>
+<tr><td>event</td></tr><tr><td>&quot;A Duel of Insults&quot;</td></tr></table>
+<div class="codeline blankrows">with 30 blank rows.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">The plot summary rule is listed instead of the announce the score rule in the carry out requesting the score rules.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">This is the plot summary rule:</div>
+<div class="codeline">&ensp;&ensp;say &quot;The Plot So Far: [paragraph break]&quot;;</div>
+<div class="codeline">&ensp;&ensp;let act number be 0;</div>
+<div class="codeline">&ensp;&ensp;repeat through the table of Events:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;increment act number;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;  Act [act number]: [event entry][line break]&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;christian, ask roxane about love / christian, say your breath smells like ripe taleggio to roxane / score / z / z / score&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "christian, ask roxane about love / christian, say your breath smells like ripe taleggio to roxane / score / z / z / score".</summary><div class="testme-output">Beneath Roxane's Balcony<br>Christian stands in a spot of moonlight and tries to avoid too obviously glancing at the shadows that conceal you.<br><br>Above you in the night is Roxane.<br><br>>(Testing.)<br><br>>[1] christian, ask roxane about love<br>"So," says Christian nervously to Roxane. "Did you know about love?" But Roxane merely seems puzzled.<br><br>>[2] christian, say your breath smells like ripe taleggio to roxane<br>"Roxane, your breath smells like ripe taleggio."<br><br>Roxane, deeply moved by this sentiment, invites Christian up to her balcony. He scrambles up the ivy and disappears into her bedroom; the last thing you hear is a girlish giggle from above.<br><br>Empty Street<br>No one is about at this hour, all alone under a pale moon.<br><br>You find yourself kicking fenceposts quite without thinking about it.<br><br>>[3] score<br>The Plot So Far:<br><br>  Act 1: A Duel of Insults<br>  Act 2: Seduction by Proxy<br><br>>[4] z<br>Time passes.<br><br>You find yourself kicking fenceposts quite without thinking about it.<br><br>>[5] z<br>Time passes.<br><br>>[6] score<br>The Plot So Far:<br><br>  Act 1: A Duel of Insults<br>  Act 2: Seduction by Proxy<br>  Act 3: Wandering the Streets, Sulking
+</div></details><div class="doc-navbar"><div class="doc-navbar-left"><a href="pine3.html" title="Pine: Allowing the player to visit aspects of the past in memory and describe these events to the princess, as a break from the marriage-proposal scene.">165. Pine 3</a></div><div class="doc-navbar-right"><a href="pine4.html" title="Pine: Adding a flashback scene that, instead of repeating endlessly, repeats only until the Princess has understood the point.">167. Pine 4</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

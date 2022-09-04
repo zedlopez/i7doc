@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 262. Nickel and Dimed</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Nickel and Dimed</h1><div class="subheading">Example 262 ★★★</div>
+<div class="linkback">
+<a href="../WI_15.html#section_17" title="Numbers and Equations &gt; Totals">WI §15.17 Totals</a><br><a href="../RB_9.html#section_4" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Money">RB §9.4 Money</a>
+</div>
+<p class="example-desc">A more intricate system of money, this time keeping track of the individual denominations of coins and bills, specifying what gets spent at each transaction, and calculating appropriate change.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="snip.html" title="A string which can be cut into arbitrary lengths, and then tied back together.">261. Snip</a></div><div class="doc-navbar-right"><a href="widget_enterprises.html" title="Allowing the player to set a price for a widget on sale, then determining the resulting sales based on consumer demand, and the resulting profit and loss.">263. Widget Enterprises</a></div></div>
+</header>
+<p>Typically games which keep track of the player&#39;s wealth need only do so as an abstract number, but occasionally it becomes useful to represent money as physical coins and bills. Here is an example that does exactly that:</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex262">Play/modify Nickel and Dimed in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="TicketPlease/index.html">Play Nickel and Dimed in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Nickel and Dimed&quot;\n\nSection 1 - Currency\n\nPrice is a kind of value. $10.99 specifies a price with parts dollars and cents. A thing has a price. The price of a thing is usually $0.00.\n\nMoney is a kind of thing. Coin is a kind of money.\n\nA dollar bill is a kind of money. The price of a dollar bill is $1.00. The printed name of a dollar bill is &quot;dollar bill&quot;. Rule for printing the plural name of a dollar bill: say &quot;dollar bills&quot;. The description of a dollar bill is &quot;It has George Washington&apos;s head on the front, which with a bit of creative folding can be scrunched to look like a mushroom. All important things really are learned in kindergarten.&quot;\n\nA five-dollar bill is a kind of money. The price of a five-dollar bill is $5.00. Understand &quot;five&quot; or &quot;five dollar&quot; as the five-dollar bill. The description of a five-dollar bill is &quot;Abraham Lincoln. He looks slightly less dignified here than he does on the penny.&quot;\n\nA hundred-dollar bill is a kind of money. The price of the hundred-dollar bill is $100.00. Understand &quot;hundred&quot; or &quot;hundred dollar&quot; as the hundred-dollar bill. Understand &quot;dollar&quot; as the dollar bill. The description of a hundred-dollar bill is &quot;It&apos;s got Benjamin Franklin, who always gets shafted: a denomination too large for anyone to carry conveniently, and a lot of local fame in Philadelphia.&quot;\n\n\nTest bills with &quot;x hundred dollar bill / x five dollar bill / x hundred / x five / x dollar / x dollar bill&quot;.\n\nA quarter is a kind of coin. The price of a quarter is $0.25. The description of a quarter is &quot;One of the old-fashioned variety, not a state quarter.&quot;\n\nA dime is a kind of coin. The price of a dime is $0.10. The description of a dime is &quot;Franklin Roosevelt, trying not to look too annoyed that his coin is so small and thin.&quot;\n\nA nickel is a kind of coin. The price of a nickel is $0.05. The description of a nickel is &quot;A chubby coin, but you&apos;ve always liked Thomas Jefferson, and the Monticello on the back is a nice touch.&quot;\n\nA penny is a kind of coin. The price of a penny is $0.01. The description of the penny is &quot;A profile of Abe Lincoln. Sometime soon they&apos;ll stop minting these, you&apos;re sure of it.&quot;\n\nSection 2 - Ownership\n\nOwnership relates one person (called the owner) to various things. The verb to own means the ownership relation.\n\nDefinition: a thing is owned if the player owns it.\n\nInstead of buying something which is owned by the player:\n\tsay &quot;You already own [the noun].&quot;\n\nInstead of going somewhere when the player encloses something (called the stolen goods) which is not owned by the player:\n\tif the owner of the stolen goods is not a person:\n\t\tnow the player owns the stolen goods;\n\t\tcontinue the action;\n\tif the owner of the stolen goods can see the player,\n\t\tsay &quot;&apos;Hey there buddy, not so fast,&apos; says [the owner of the stolen goods]. &apos;You going to buy [the stolen goods] first, or am I gonna call the cops?&apos;&quot;;\n\totherwise continue the action.\n\nAfter taking inventory:\n\tsay &quot;Altogether, you&apos;ve got [the player&apos;s cash] on your person.&quot;\n\nTo decide what price is the player&apos;s cash:\n\tlet sum be the total price of money enclosed by the player;\n\tdecide on sum.\n\nTo decide what price is the sum in (item - a container):\n\tlet sum be the total price of the money in the item;\n\tdecide on sum.\n\nWhen play begins: now every thing carried by the player is owned by the player.\n\nSection 3 - Purchasing and Sales\n\nDefinition: a thing is worthless if the price of it is $0.00. Definition: a thing is valuable if it is not worthless.\n\nA thing can be for sale.\n\nRule for printing room description details of something (called target) which is for sale (this is the disclose prices in room description rule): say &quot; ([price of the target])&quot;.\n\nBefore listing contents: group money together giving articles.\n\nInstead of examining a for sale thing (this is the describe things by price rule):\n\tsay &quot;[The noun] costs [the price of the noun], payable to [the owner of the noun].&quot;\n\n\nThe cashbox is a container. The cashbox contains 10 pennies. The cashbox contains 10 nickels.  The cashbox contains 10 dimes.  The cashbox contains 10 quarters.  The cashbox contains 10 dollar bills.  The cashbox contains 10 five-dollar bills.\n\nThe block buying rule is not listed in the check buying rules.\n\nCheck buying something:\n\tif the noun is not for sale, say &quot;[The owner of the noun] does not want to sell you [the noun].&quot; instead;\n\tif the player&apos;s cash is less than the price of the noun, say &quot;You can&apos;t afford the asking price of [the price of the noun] for [the noun].&quot; instead.\n\nCarry out buying something:\n\tlet sum paid be $0.00;\n\twhile sum paid is less than the price of the noun:\n\t\tlet current target be the price of the noun minus the sum paid;\n\t\tlet bill offered be the best money from the player for the current target;\n\t\tif the bill offered is money:\n\t\t\tmove the bill offered to the owner of the noun;\n\t\t\tnow the bill offered is spent;\n\t\t\tincrease the sum paid by the price of the bill offered;\n\t\t\tlet current target be the price of the noun minus the sum paid;\n\tsay &quot;You hand [the owner of the noun] [a list of spent money]. [run paragraph on]&quot;;\n\tlet change be $0.00;\n\tif the sum paid is greater than the price of the noun:\n\t\tnow the change is the sum paid minus the price of the noun;\n\tif change is greater than the sum in the cashbox:\n\t\tnow the player carries every spent money;\n\t\tnow every spent thing is fresh;\n\t\tsay &quot;&apos;Whoa,&apos; says [the owner of the noun], handing the cash back to you. &apos;I can&apos;t make change for that, man, sorry.&apos;&quot; instead;\n\tnow every spent thing is in the cashbox;\n\tnow every spent thing is fresh;\n\twhile change is greater than $0.00:\n\t\tlet change bill be the best money from the cashbox for change;\n\t\tdecrease change by the price of the change bill;\n\t\tnow change bill is spent;\n\t\tmove change bill to player;\n\tif money is spent, say &quot;[The owner of the noun] makes change with [a list of spent money]. [run paragraph on]&quot;;\n\tnow every spent thing is fresh;\n\tif the noun is not enclosed by the player and the owner of the noun can touch the noun:\n\t\tsay &quot;&apos;Here ya go,&apos; says [the owner of the noun], handing [the noun] to you. [run paragraph on]&quot;;\n\t\tmove the noun to the player;\n\tnow the player owns the noun.\n\nMoney can be spent or fresh.\n\nReport buying something:\n\tif the player owns the noun,\n\t\tsay &quot;Your transaction is now complete, leaving you with [the player&apos;s cash].&quot;\n\n\nDefinition: money is costly if its price is $2.50 or more. Definition: money is cheap if its price is $0.99 or less.\n\nFunctional relation is a kind of value. The functional relations are overpayment, underpayment and irrelevant. Money has a functional relation.\n\nTo decide what money is the best money from (buyer - a thing) for (cost - a price):\n\trepeat with bill offered running through money:\n\t\tif the bill offered is enclosed by the buyer:\n\t\t\tif the price of the bill offered is the cost, decide on the bill offered;\n\t\t\tif the price of the bill offered is greater than the cost, now the functional relation of bill offered is overpayment;\n\t\t\totherwise now the functional relation of the bill offered is underpayment;\n\t\totherwise:\n\t\t\tnow the functional relation of the bill offered is irrelevant;\n\t[say &quot;underpayment: [a list of underpayment money]\n\toverpayment: [a list of overpayment money]&quot;;]\n\tif the total price of underpayment money is less than the cost:\n\t\tdecide on the cheapest money which is overpayment;\n\totherwise:\n\t\tdecide on the costliest money which is underpayment.\n\n\nInstead of giving money to someone:\n\tsay &quot;Best to keep the transaction simple by buying whatever you want.&quot;\n\nSection 4 - The Scenario\n\nThe player carries 2 dollar bills. The player carries a nickel. The player carries 2 pennies. The player carries a five-dollar bill. The player carries 1 hundred-dollar bill.\n\nThe Subway Station is a room.\n\nThe Bitterly Cold Street is north of the Subway Station. &quot;Even though there is no actual snow or ice, the street is about as cold as you can stand, for which reason walking the twenty blocks uptown is not an acceptable option.&quot; The Bitterly Cold Street contains a dollar bill.\n\nThe newspaper man is a man in the Subway Station. &quot;A newspaper man in a knit cap and fingerless gloves is hopping up and down behind his stand[if the turn count is 1]. Cold weather, caffeine overdose, or mental illness? You may never know. Welcome to New York[end if].&quot; The description is &quot;Eye contact with strangers is something to avoid around here.&quot;\n\nThe stand is a supporter in the Station. The stand is scenery.\n\nA copy of the New York Times is on the stand. The price of the New York Times is $1.25.\n\nA pack of gum is on the stand. The price of the gum is $0.40.\n\nA paperback novel is on the stand. The price of the paperback novel is $7.99.\n\nA packet of trading cards is on the stand. The price of the packet is $0.99.\n\nWhen play begins:\n\tnow every thing on the stand is owned by the newspaper man;\n\tnow every thing on the stand is for sale.\n\n\nThe ticket machine is a container in the Subway Station. It is fixed in place. The description of the ticket machine is &quot;An LED screen on the front instructs you to insert [remaining ticket total] to complete your purchase. You also notice that the NO CHANGE light is lit up.&quot; The light is part of the ticket machine. The printed name of the light is &quot;no change light&quot;. Understand &quot;no change&quot; or &quot;no change light&quot; as the light.\n\nThe description of the light is &quot;In the whole of your recollection, the ticket machine has actually had change a total of twice. Usually, as now, the no-change light gleams angrily, daring you to put in more than you owe.&quot; A cash return button is part of the ticket machine. Instead of pushing the cash return button: say &quot;The ticket machine regurgitates [the list of things in the ticket machine].&quot;; now every thing in the ticket machine is carried by the player. Instead of taking something which is in the ticket machine: say &quot;The ticket machine has swallowed your money, but it can be retrieved (you hope) with the cash return button.&quot;\n\nInstead of inserting a hundred-dollar bill into the ticket machine:\n\tsay &quot;What, are you nuts?&quot;\n\nTo decide what price is the remaining ticket total:\n\tlet absolute cost be $2.25;\n\tlet remaining cost be absolute cost minus the total price of things in the ticket machine;\n\tif remaining cost is less than $0.00, decide on $0.00;\n\tdecide on remaining cost.\n\nInstead of inserting something which is not money into the ticket machine: say &quot;The ticket machine only accepts money, not other tokens of your esteem and regard.&quot;\n\nInstead of inserting a penny into the ticket machine:\n\tsay &quot;The penny rattles out again mockingly: not even the ticket machine thinks these are worth anything.&quot;\n\nA subway pass is a kind of thing. 15 subway passes are in the cashbox. The description of a subway pass is usually &quot;A rectangle of thick lavender paper with a black magnetic stripe running up the back side. It is good for one trip on the subway.&quot;\n\nAfter inserting something into the ticket machine:\n\tif the remaining ticket total is $0.00:\n\t\tlet purchased ticket be a random subway pass in the cashbox;\n\t\tif purchased ticket is not a subway pass, say &quot;The ticket machine grunts disobligingly and then the unwelcome word MALFUNCTION parades across the LED screen, three letters at a time.&quot; instead;\n\t\trepeat with item running through things in the machine:\n\t\t\tnow the item is nowhere;\n\t\tmove purchased ticket to player;\n\t\tsay &quot;The ticket machine beeps obligingly and disgorges a single subway pass.&quot;;\n\totherwise:\n\t\tsay &quot;The ticket machine beeps obligingly and adjusts its price down to [remaining ticket total].&quot;\n\n\nRule for printing room description details of the ticket machine:\n\tdo nothing instead.\n\nTest me with &quot;buy novel / n / get dollar / s / buy novel&quot;.\n\n\nThe turnstile is south of the Subway Station. &quot;A turnstile is all that separates you from the subway platform stairs.&quot; The turnstile is north of the Platform. The turnstile is a door. Before going down in the presence of the turnstile, try going south instead. The turnstile is openable. The turnstile is open.\n\nInstead of going through the turnstile when the player carries a subway pass: say &quot;You enter the turnstile and begin your journey uptown...&quot;; end the story finally saying &quot;At last&quot;. Instead of going through the turnstile: say &quot;You can&apos;t go through the turnstile without a subway pass. They&apos;re very strict about this.&quot;\n\nInstead of inserting money into the turnstile: say &quot;The turnstile takes passes, not money.&quot; Instead of inserting a subway pass into the turnstile, try entering the turnstile.\n\nTest more with &quot;buy times / put all but five-dollar bill in machine / press button / buy gum / buy cards / i / put dollar in machine / g / put quarter in machine / i / d&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Nickel and Dimed&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline i7header">Section 1 - Currency</div><div class="codeline">Price is a kind of value. $10.99 specifies a price with parts dollars and cents. A thing has a price. The price of a thing is usually $0.00.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Money is a kind of thing. Coin is a kind of money.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A dollar bill is a kind of money. The price of a dollar bill is $1.00. The printed name of a dollar bill is &quot;dollar bill&quot;. Rule for printing the plural name of a dollar bill: say &quot;dollar bills&quot;. The description of a dollar bill is &quot;It has George Washington&#39;s head on the front, which with a bit of creative folding can be scrunched to look like a mushroom. All important things really are learned in kindergarten.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A five-dollar bill is a kind of money. The price of a five-dollar bill is $5.00. Understand &quot;five&quot; or &quot;five dollar&quot; as the five-dollar bill. The description of a five-dollar bill is &quot;Abraham Lincoln. He looks slightly less dignified here than he does on the penny.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A hundred-dollar bill is a kind of money. The price of the hundred-dollar bill is $100.00. Understand &quot;hundred&quot; or &quot;hundred dollar&quot; as the hundred-dollar bill. Understand &quot;dollar&quot; as the dollar bill. The description of a hundred-dollar bill is &quot;It&#39;s got Benjamin Franklin, who always gets shafted: a denomination too large for anyone to carry conveniently, and a lot of local fame in Philadelphia.&quot;</div>
+</div><p>Our choice of understand rules guarantees that &quot;five dollar&quot; will be understood as the five, but &quot;dollar&quot; alone as the single. We will learn more about &quot;understand&quot; in later chapters, but here is a test to check the functionality:</p>
+<div class="codeblock"><div class="codeline">Test bills with &quot;x hundred dollar bill / x five dollar bill / x hundred / x five / x dollar / x dollar bill&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A quarter is a kind of coin. The price of a quarter is $0.25. The description of a quarter is &quot;One of the old-fashioned variety, not a state quarter.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A dime is a kind of coin. The price of a dime is $0.10. The description of a dime is &quot;Franklin Roosevelt, trying not to look too annoyed that his coin is so small and thin.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A nickel is a kind of coin. The price of a nickel is $0.05. The description of a nickel is &quot;A chubby coin, but you&#39;ve always liked Thomas Jefferson, and the Monticello on the back is a nice touch.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A penny is a kind of coin. The price of a penny is $0.01. The description of the penny is &quot;A profile of Abe Lincoln. Sometime soon they&#39;ll stop minting these, you&#39;re sure of it.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline i7header">Section 2 - Ownership</div><div class="codeline">Ownership relates one person (called the owner) to various things. The verb to own means the ownership relation.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Definition: a thing is owned if the player owns it.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of buying something which is owned by the player:</div>
+<div class="codeline">&ensp;&ensp;say &quot;You already own [the noun].&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of going somewhere when the player encloses something (called the stolen goods) which is not owned by the player:</div>
+<div class="codeline">&ensp;&ensp;if the owner of the stolen goods is not a person:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;now the player owns the stolen goods;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;continue the action;</div>
+<div class="codeline">&ensp;&ensp;if the owner of the stolen goods can see the player,</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;&#39;Hey there buddy, not so fast,&#39; says [the owner of the stolen goods]. &#39;You going to buy [the stolen goods] first, or am I gonna call the cops?&#39;&quot;;</div>
+<div class="codeline">&ensp;&ensp;otherwise continue the action.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">After taking inventory:</div>
+<div class="codeline">&ensp;&ensp;say &quot;Altogether, you&#39;ve got [the player&#39;s cash] on your person.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">To decide what price is the player&#39;s cash:</div>
+<div class="codeline">&ensp;&ensp;let sum be the total price of money enclosed by the player;</div>
+<div class="codeline">&ensp;&ensp;decide on sum.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">To decide what price is the sum in (item - a container):</div>
+<div class="codeline">&ensp;&ensp;let sum be the total price of the money in the item;</div>
+<div class="codeline">&ensp;&ensp;decide on sum.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">When play begins: now every thing carried by the player is owned by the player.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline i7header">Section 3 - Purchasing and Sales</div><div class="codeline">Definition: a thing is worthless if the price of it is $0.00. Definition: a thing is valuable if it is not worthless.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A thing can be for sale.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Rule for printing room description details of something (called target) which is for sale (this is the disclose prices in room description rule): say &quot; ([price of the target])&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Before listing contents: group money together giving articles.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of examining a for sale thing (this is the describe things by price rule):</div>
+<div class="codeline">&ensp;&ensp;say &quot;[The noun] costs [the price of the noun], payable to [the owner of the noun].&quot;</div>
+</div><p>The cashbox is a theoretical construct, not something the player will ever encounter in the course of the game. It contains all the money that is available for non-player characters to use in making change. If we wanted, we could give each character his own stash of change, but this would increase the likelihood that any given person would run out of cash to make change with. (And in this example there is only one vendor anyway.)</p>
+<div class="codeblock"><div class="codeline">The cashbox is a container. The cashbox contains 10 pennies. The cashbox contains 10 nickels.  The cashbox contains 10 dimes.  The cashbox contains 10 quarters.  The cashbox contains 10 dollar bills.  The cashbox contains 10 five-dollar bills.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The block buying rule is not listed in the check buying rules.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Check buying something:</div>
+<div class="codeline">&ensp;&ensp;if the noun is not for sale, say &quot;[The owner of the noun] does not want to sell you [the noun].&quot; instead;</div>
+<div class="codeline">&ensp;&ensp;if the player&#39;s cash is less than the price of the noun, say &quot;You can&#39;t afford the asking price of [the price of the noun] for [the noun].&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Carry out buying something:</div>
+<div class="codeline">&ensp;&ensp;let sum paid be $0.00;</div>
+<div class="codeline">&ensp;&ensp;while sum paid is less than the price of the noun:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;let current target be the price of the noun minus the sum paid;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;let bill offered be the best money from the player for the current target;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;if the bill offered is money:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;move the bill offered to the owner of the noun;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the bill offered is spent;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;increase the sum paid by the price of the bill offered;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;let current target be the price of the noun minus the sum paid;</div>
+<div class="codeline">&ensp;&ensp;say &quot;You hand [the owner of the noun] [a list of spent money]. [run paragraph on]&quot;;</div>
+<div class="codeline">&ensp;&ensp;let change be $0.00;</div>
+<div class="codeline">&ensp;&ensp;if the sum paid is greater than the price of the noun:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;now the change is the sum paid minus the price of the noun;</div>
+<div class="codeline">&ensp;&ensp;if change is greater than the sum in the cashbox:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;now the player carries every spent money;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;now every spent thing is fresh;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;&#39;Whoa,&#39; says [the owner of the noun], handing the cash back to you. &#39;I can&#39;t make change for that, man, sorry.&#39;&quot; instead;</div>
+<div class="codeline">&ensp;&ensp;now every spent thing is in the cashbox;</div>
+<div class="codeline">&ensp;&ensp;now every spent thing is fresh;</div>
+<div class="codeline">&ensp;&ensp;while change is greater than $0.00:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;let change bill be the best money from the cashbox for change;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;decrease change by the price of the change bill;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;now change bill is spent;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;move change bill to player;</div>
+<div class="codeline">&ensp;&ensp;if money is spent, say &quot;[The owner of the noun] makes change with [a list of spent money]. [run paragraph on]&quot;;</div>
+<div class="codeline">&ensp;&ensp;now every spent thing is fresh;</div>
+<div class="codeline">&ensp;&ensp;if the noun is not enclosed by the player and the owner of the noun can touch the noun:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;&#39;Here ya go,&#39; says [the owner of the noun], handing [the noun] to you. [run paragraph on]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;move the noun to the player;</div>
+<div class="codeline">&ensp;&ensp;now the player owns the noun.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Money can be spent or fresh.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Report buying something:</div>
+<div class="codeline">&ensp;&ensp;if the player owns the noun,</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;Your transaction is now complete, leaving you with [the player&#39;s cash].&quot;</div>
+</div><p>We&#39;ve skipped over defining what makes a denomination the best for a given transaction, so we&#39;d better do that now. Our goal is to avoid ever having the player gratuitously overpay -- he should always offer the smallest amount of money that will meet the price of what he&#39;s buying.</p>
+<p>We also assume that all money &quot;enclosed by the buyer&quot; -- that is, somewhere in the buyer&#39;s possession -- is available for use. This might not be true in a game where the player could pick up, say, a sealed lucite container with a ten-dollar bill inside; in that case we would have to define our terms more rigorously, perhaps by requiring that the bills be both enclosed and touchable by the buyer. The touchability check adds an extra layer of calculation, however, and since it is not necessary in this example (and probably not in most other cases either), we&#39;ll leave it out:</p>
+<div class="codeblock"><div class="codeline">Definition: money is costly if its price is $2.50 or more. Definition: money is cheap if its price is $0.99 or less.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Functional relation is a kind of value. The functional relations are overpayment, underpayment and irrelevant. Money has a functional relation.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">To decide what money is the best money from (buyer - a thing) for (cost - a price):</div>
+<div class="codeline">&ensp;&ensp;repeat with bill offered running through money:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;if the bill offered is enclosed by the buyer:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the price of the bill offered is the cost, decide on the bill offered;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the price of the bill offered is greater than the cost, now the functional relation of bill offered is overpayment;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;otherwise now the functional relation of the bill offered is underpayment;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the functional relation of the bill offered is irrelevant;</div>
+<div class="codeline">&ensp;&ensp;[say &quot;underpayment: [a list of underpayment money]</div>
+<div class="codeline">&ensp;&ensp;overpayment: [a list of overpayment money]&quot;;]</div>
+<div class="codeline">&ensp;&ensp;if the total price of underpayment money is less than the cost:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;decide on the cheapest money which is overpayment;</div>
+<div class="codeline">&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;decide on the costliest money which is underpayment.</div>
+</div><p>Notice the &quot;say underpayment/overpayment section&hellip;&quot; noted out, above. This is for debugging purposes: when writing complex code, it is sometimes useful to put in lines that will say explicitly what is going on. We can enclose them in brackets and Inform will ignore them as though they were comments; if we run into any problems with the code later, we can erase the brackets and see the diagnostic printed to the screen as we play.</p>
+<div class="codeblock"><div class="codeline">Instead of giving money to someone:</div>
+<div class="codeline">&ensp;&ensp;say &quot;Best to keep the transaction simple by buying whatever you want.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline i7header">Section 4 - The Scenario</div><div class="codeline">The player carries 2 dollar bills. The player carries a nickel. The player carries 2 pennies. The player carries a five-dollar bill. The player carries 1 hundred-dollar bill.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Subway Station is a room.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Bitterly Cold Street is north of the Subway Station. &quot;Even though there is no actual snow or ice, the street is about as cold as you can stand, for which reason walking the twenty blocks uptown is not an acceptable option.&quot; The Bitterly Cold Street contains a dollar bill.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The newspaper man is a man in the Subway Station. &quot;A newspaper man in a knit cap and fingerless gloves is hopping up and down behind his stand[if the turn count is 1]. Cold weather, caffeine overdose, or mental illness? You may never know. Welcome to New York[end if].&quot; The description is &quot;Eye contact with strangers is something to avoid around here.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The stand is a supporter in the Station. The stand is scenery.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A copy of the New York Times is on the stand. The price of the New York Times is $1.25.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A pack of gum is on the stand. The price of the gum is $0.40.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A paperback novel is on the stand. The price of the paperback novel is $7.99.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A packet of trading cards is on the stand. The price of the packet is $0.99.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">When play begins:</div>
+<div class="codeline">&ensp;&ensp;now every thing on the stand is owned by the newspaper man;</div>
+<div class="codeline">&ensp;&ensp;now every thing on the stand is for sale.</div>
+</div><p>We could have done all that by hand, but the initialization requires a little less work.</p>
+<div class="codeblock"><div class="codeline">The ticket machine is a container in the Subway Station. It is fixed in place. The description of the ticket machine is &quot;An LED screen on the front instructs you to insert [remaining ticket total] to complete your purchase. You also notice that the NO CHANGE light is lit up.&quot; The light is part of the ticket machine. The printed name of the light is &quot;no change light&quot;. Understand &quot;no change&quot; or &quot;no change light&quot; as the light.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The description of the light is &quot;In the whole of your recollection, the ticket machine has actually had change a total of twice. Usually, as now, the no-change light gleams angrily, daring you to put in more than you owe.&quot; A cash return button is part of the ticket machine. Instead of pushing the cash return button: say &quot;The ticket machine regurgitates [the list of things in the ticket machine].&quot;; now every thing in the ticket machine is carried by the player. Instead of taking something which is in the ticket machine: say &quot;The ticket machine has swallowed your money, but it can be retrieved (you hope) with the cash return button.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of inserting a hundred-dollar bill into the ticket machine:</div>
+<div class="codeline">&ensp;&ensp;say &quot;What, are you nuts?&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">To decide what price is the remaining ticket total:</div>
+<div class="codeline">&ensp;&ensp;let absolute cost be $2.25;</div>
+<div class="codeline">&ensp;&ensp;let remaining cost be absolute cost minus the total price of things in the ticket machine;</div>
+<div class="codeline">&ensp;&ensp;if remaining cost is less than $0.00, decide on $0.00;</div>
+<div class="codeline">&ensp;&ensp;decide on remaining cost.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of inserting something which is not money into the ticket machine: say &quot;The ticket machine only accepts money, not other tokens of your esteem and regard.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of inserting a penny into the ticket machine:</div>
+<div class="codeline">&ensp;&ensp;say &quot;The penny rattles out again mockingly: not even the ticket machine thinks these are worth anything.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A subway pass is a kind of thing. 15 subway passes are in the cashbox. The description of a subway pass is usually &quot;A rectangle of thick lavender paper with a black magnetic stripe running up the back side. It is good for one trip on the subway.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">After inserting something into the ticket machine:</div>
+<div class="codeline">&ensp;&ensp;if the remaining ticket total is $0.00:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;let purchased ticket be a random subway pass in the cashbox;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;if purchased ticket is not a subway pass, say &quot;The ticket machine grunts disobligingly and then the unwelcome word MALFUNCTION parades across the LED screen, three letters at a time.&quot; instead;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;repeat with item running through things in the machine:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the item is nowhere;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;move purchased ticket to player;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;The ticket machine beeps obligingly and disgorges a single subway pass.&quot;;</div>
+<div class="codeline">&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;The ticket machine beeps obligingly and adjusts its price down to [remaining ticket total].&quot;</div>
+</div><p>And because even though the ticket machine is a container, we don&#39;t want to say (empty) after it in the room description:</p>
+<div class="codeblock"><div class="codeline">Rule for printing room description details of the ticket machine:</div>
+<div class="codeline">&ensp;&ensp;do nothing instead.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;buy novel / n / get dollar / s / buy novel&quot;.</div>
+</div><p>After all that, we should probably give the player a chance to win, as well:</p>
+<div class="codeblock"><div class="codeline">The turnstile is south of the Subway Station. &quot;A turnstile is all that separates you from the subway platform stairs.&quot; The turnstile is north of the Platform. The turnstile is a door. Before going down in the presence of the turnstile, try going south instead. The turnstile is openable. The turnstile is open.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of going through the turnstile when the player carries a subway pass: say &quot;You enter the turnstile and begin your journey uptown...&quot;; end the story finally saying &quot;At last&quot;. Instead of going through the turnstile: say &quot;You can&#39;t go through the turnstile without a subway pass. They&#39;re very strict about this.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of inserting money into the turnstile: say &quot;The turnstile takes passes, not money.&quot; Instead of inserting a subway pass into the turnstile, try entering the turnstile.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test more with &quot;buy times / put all but five-dollar bill in machine / press button / buy gum / buy cards / i / put dollar in machine / g / put quarter in machine / i / d&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "buy novel / n / get dollar / s / buy novel".</summary><div class="testme-output">Subway Station<br>A turnstile is all that separates you from the subway platform stairs.<br><br>A newspaper man in a knit cap and fingerless gloves is hopping up and down behind his stand. Cold weather, caffeine overdose, or mental illness? You may never know. Welcome to New York.<br><br>On the stand are a copy of the New York Times ($1.25), a pack of gum ($0.40), a paperback novel ($7.99) and a packet of trading cards ($0.99).<br><br>You can also see a ticket machine here.<br><br>>(Testing.)<br><br>>[1] buy novel<br>You hand the newspaper man a hundred-dollar bill. "Whoa," says the newspaper man, handing the cash back to you. "I can't make change for that, man, sorry."<br><br>>[2] n<br><br>Bitterly Cold Street<br>Even though there is no actual snow or ice, the street is about as cold as you can stand, for which reason walking the twenty blocks uptown is not an acceptable option.<br><br>You can see a dollar bill here.<br><br>>[3] get dollar<br>Taken.<br><br>>[4] s<br><br>Subway Station<br>A turnstile is all that separates you from the subway platform stairs.<br><br>A newspaper man in a knit cap and fingerless gloves is hopping up and down behind his stand.<br><br>On the stand are a copy of the New York Times ($1.25), a pack of gum ($0.40), a paperback novel ($7.99) and a packet of trading cards ($0.99).<br><br>You can also see a ticket machine here.<br><br>>[5] buy novel<br>You hand the newspaper man three dollar bills and a five-dollar bill. The newspaper man makes change with a penny. "Here ya go," says the newspaper man, handing the paperback novel to you. Your transaction is now complete, leaving you with $100.08.
+</div></details><p>In fairness to the Metropolitan Transit Authority, we should admit that most of the ticketing machines in the real New York subway are better than this, and will accept, say, a debit card. But that would be so much less exciting to implement.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="snip.html" title="A string which can be cut into arbitrary lengths, and then tied back together.">261. Snip</a></div><div class="doc-navbar-right"><a href="widget_enterprises.html" title="Allowing the player to set a price for a widget on sale, then determining the resulting sales based on consumer demand, and the resulting profit and loss.">263. Widget Enterprises</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

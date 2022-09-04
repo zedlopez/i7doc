@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 274. Odyssey</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Odyssey</h1><div class="subheading">Example 274 ★★</div>
+<div class="linkback">
+<a href="../WI_16.html#section_10" title="Tables &gt; Adding and removing rows">WI §16.10 Adding and removing rows</a><br><a href="../RB_7.html#section_13" title="Other Characters &gt; Traveling Characters">RB §7.13 Traveling Characters</a>
+</div>
+<p class="example-desc">A person who follows a path predetermined and stored in a table, and who can be delayed if the player tries to interact with her.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="if_it_hadnt_been_for.html" title="A sound recording device that records the noises made by player and non-player actions, then plays them back on demand.">273. If It Hadn't Been For...</a></div><div class="doc-navbar-right"><a href="jokers_wild.html" title="A deck of cards which can be shuffled and dealt from.">275. Jokers Wild</a></div></div>
+</header>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex274">Play/modify Odyssey in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="Wandering/index.html">Play Odyssey in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Odyssey&quot;\n\nCorinth is a room. Athens is east of Corinth. Epidaurus is southeast of Corinth and east of Mycenae. Mycenae is south of Corinth. Olympia is west of Mycenae. Argos is south of Mycenae. Thebes is northwest of Athens. Pylos is south of Olympia. Sparta is east of Pylos and south of Argos. Delphi is northwest of Thebes.\n\nAthena is a woman in Athens.\n\n\nTable of Athena&apos;s Movement\ndestination\nThebes\nDelphi\nThebes\nAthens\nCorinth\nMycenae\n\nEvery turn when Athena is active:\n\trepeat through the Table of Athena&apos;s Movement:\n\t\tlet last space be the location of Athena;\n\t\tif Athena can be seen by the player, say &quot;Athena heads to [the destination entry].&quot;;\n\t\tmove Athena to destination entry;\n\t\tif Athena can be seen by the player, say &quot;Athena arrives from [the last space].&quot;;\n\t\tblank out the whole row;\n\t\tbreak.\n\n\nAthena can be active or passive. Athena is active.\n\nBefore doing something to Athena:\n\tnow Athena is passive;\n\tsay &quot;Athena waits around patiently, though you can tell she would like to leave...&quot;\n\nInstead of telling Athena about something:\n\tsay &quot;She watches you patiently as though to say that she already knows.&quot;\n\nInstead of asking Athena about something:\n\tsay &quot;Her response is inscrutably ancient and Greek. Afterwards you remember only the flash of bright eyes.&quot;\n\n\nEvery turn when Athena is passive:\n\tnow Athena is active.\n\nTest me with &quot;east / northwest / wait / examine athena / wait&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Odyssey&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Corinth is a room. Athens is east of Corinth. Epidaurus is southeast of Corinth and east of Mycenae. Mycenae is south of Corinth. Olympia is west of Mycenae. Argos is south of Mycenae. Thebes is northwest of Athens. Pylos is south of Olympia. Sparta is east of Pylos and south of Argos. Delphi is northwest of Thebes.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Athena is a woman in Athens.</div>
+</div><p>Athena will proceed, unless delayed, through a list of locations stored in a simple table. Rather than using Inform&#39;s route-finding abilities (&quot;the best route from&hellip;&quot;), we simply move Athena from one location to the next, not even using the going action: she moves in mysterious ways, as befits a goddess.</p>
+<div class="codeblock"><div class="codeline tablename">Table of Athena&#39;s Movement</div><table>
+<tr><td>destination</td></tr><tr><td>Thebes</td></tr><tr><td>Delphi</td></tr><tr><td>Thebes</td></tr><tr><td>Athens</td></tr><tr><td>Corinth</td></tr><tr><td>Mycenae</td></tr></table>
+<div class="codeline">Every turn when Athena is active:</div>
+<div class="codeline">&ensp;&ensp;repeat through the Table of Athena&#39;s Movement:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;let last space be the location of Athena;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;if Athena can be seen by the player, say &quot;Athena heads to [the destination entry].&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;move Athena to destination entry;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;if Athena can be seen by the player, say &quot;Athena arrives from [the last space].&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;blank out the whole row;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;break.</div>
+</div><p>By blanking out the table line by line, we make sure that we never lose our place in the path.</p>
+<p>Since we want the player to be able to talk to Athena, we need a way to stall her in her path, as well.</p>
+<div class="codeblock"><div class="codeline">Athena can be active or passive. Athena is active.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Before doing something to Athena:</div>
+<div class="codeline">&ensp;&ensp;now Athena is passive;</div>
+<div class="codeline">&ensp;&ensp;say &quot;Athena waits around patiently, though you can tell she would like to leave...&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of telling Athena about something:</div>
+<div class="codeline">&ensp;&ensp;say &quot;She watches you patiently as though to say that she already knows.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of asking Athena about something:</div>
+<div class="codeline">&ensp;&ensp;say &quot;Her response is inscrutably ancient and Greek. Afterwards you remember only the flash of bright eyes.&quot;</div>
+</div><p>Finally, we do need to wake Athena up again if she has become passive. The following rule will occur after the movement rule just because of code ordering, though we could make matters more explicit if we needed to:</p>
+<div class="codeblock"><div class="codeline">Every turn when Athena is passive:</div>
+<div class="codeline">&ensp;&ensp;now Athena is active.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;east / northwest / wait / examine athena / wait&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "east / northwest / wait / examine athena / wait".</summary><div class="testme-output">Corinth<br><br>>(Testing.)<br><br>>[1] east<br><br>Athens<br>You can see Athena here.<br><br>Athena heads to Thebes.<br><br>>[2] northwest<br><br>Thebes<br>You can see Athena here.<br><br>Athena heads to Delphi.<br><br>>[3] wait<br>Time passes.<br><br>Athena arrives from Delphi.<br><br>>[4] examine athena<br>Athena waits around patiently, though you can tell she would like to leave...<br><br>You see nothing special about Athena.<br><br>>[5] wait<br>Time passes.<br><br>Athena heads to Athens.
+</div></details><div class="doc-navbar"><div class="doc-navbar-left"><a href="if_it_hadnt_been_for.html" title="A sound recording device that records the noises made by player and non-player actions, then plays them back on demand.">273. If It Hadn't Been For...</a></div><div class="doc-navbar-right"><a href="jokers_wild.html" title="A deck of cards which can be shuffled and dealt from.">275. Jokers Wild</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

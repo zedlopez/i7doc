@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 423. Cave-troll</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Cave-troll</h1><div class="subheading">Example 423 ★★★</div>
+<div class="linkback">
+<a href="../WI_20.html#section_8" title="Advanced Text &gt; Replacements">WI §20.8 Replacements</a><br><a href="../RB_6.html#section_17" title="Commands &gt; Clarification and Correction">RB §6.17 Clarification and Correction</a>
+</div>
+<p class="example-desc">Determining that the command the player typed is invalid, editing it, and re-examining it to see whether it now reads correctly.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="northstar.html" title="Making Inform understand ASK JOSH TO TAKE INVENTORY as JOSH, TAKE INVENTORY. This requires us to use a regular expression on the player&#39;s command, replacing some of the content.">422. Northstar</a></div><div class="doc-navbar-right"><a href="oyster_wide_shut.html" title="Replacing Inform&#39;s default printing of properties such as &quot;(closed)&quot;, &quot;(open and providing light)&quot;, etc., with our own, more flexible variation.">424. Oyster Wide Shut</a></div></div>
+</header>
+<p>Novice players of interactive fiction, unfamiliar with its conventions, will often try to add extra phrases to a command that the game cannot properly parse: HIT DOOR WITH FIST, for instance, instead of HIT DOOR.</p>
+<p>While we can deal with some of these instances by expanding our range of actions, at some point it becomes impossible to account for all the possible prepositional phrases that the player might want to tack on. So what do we do if we want to handle those appended bits of text sensibly?</p>
+<p>We could go through and remove any piece of text containing &quot;with &hellip;&quot; from the end of a player&#39;s command; the problem with that is that it overzealously lops off the ends of valid commands like UNLOCK DOOR WITH KEY, as well. So clearly we don&#39;t want to do this as part of the &quot;After reading a command&hellip;&quot; stage.</p>
+<p>A better time to cut off the offending text is right before issuing a parser error. At that point, Inform has already determined that it definitely cannot parse the instruction as given, so we know that there&#39;s something wrong with it.</p>
+<p>The next problem, though, is that after we&#39;ve edited the player&#39;s text we want to feed the corrected version back to Inform and try once more to interpret it.</p>
+<p>This is where we have a valid reason to write a new &quot;rule for reading a command&quot;. We will tell Inform that when we have just corrected the player&#39;s input to something new, it should not ask for a new command (by printing a prompt and waiting for another line of input); it should instead paste our stored corrected command back into &quot;the player&#39;s command&quot; and proceed as though that new text had just been typed.</p>
+<p>Thanks to John Clemens for the specifics of the implementation.</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex423">Play/modify Cave-troll" by JDC in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="Cave-troll/index.html">Play Cave-troll" by JDC in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Cave-troll&quot; by JDC\n\nSection 1 - The Mechanism\n\nThe last command is a text that varies.\n\nThe parser error flag is a truth state that varies. The parser error flag is false.\n\nRule for printing a parser error when the latest parser error is the only understood as far as error and the player&apos;s command matches the text &quot;with&quot;:\n\tnow the last command is the player&apos;s command;\n\tnow the parser error flag is true;\n\tlet n be &quot;[the player&apos;s command]&quot;;\n\treplace the regular expression &quot;.* with (.*)&quot; in n with &quot;with \1&quot;;\n\tsay &quot;(ignoring the unnecessary words &apos;[n]&apos;)[line break]&quot;;\n\treplace the regular expression &quot;with .*&quot; in the last command with &quot;&quot;.\n\nRule for reading a command when the parser error flag is true:\n\tnow the parser error flag is false;\n\tchange the text of the player&apos;s command to the last command.\n\nSection 2 - The Scenario\n\nThe Cave is a room.\n\nThe troll is a man in the cave.\n\nThe player carries a sword.\n\nThe chest is a locked lockable container in the cave.\n\nTest me with &quot;attack troll with sword / unlock chest with sword / attack troll as a test&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Cave-troll&quot; by JDC</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline i7header">Section 1 - The Mechanism</div><div class="codeline">The last command is a text that varies.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The parser error flag is a truth state that varies. The parser error flag is false.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Rule for printing a parser error when the latest parser error is the only understood as far as error and the player&#39;s command matches the text &quot;with&quot;:</div>
+<div class="codeline">&ensp;&ensp;now the last command is the player&#39;s command;</div>
+<div class="codeline">&ensp;&ensp;now the parser error flag is true;</div>
+<div class="codeline">&ensp;&ensp;let n be &quot;[the player&#39;s command]&quot;;</div>
+<div class="codeline">&ensp;&ensp;replace the regular expression &quot;.* with (.*)&quot; in n with &quot;with \1&quot;;</div>
+<div class="codeline">&ensp;&ensp;say &quot;(ignoring the unnecessary words &#39;[n]&#39;)[line break]&quot;;</div>
+<div class="codeline">&ensp;&ensp;replace the regular expression &quot;with .*&quot; in the last command with &quot;&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Rule for reading a command when the parser error flag is true:</div>
+<div class="codeline">&ensp;&ensp;now the parser error flag is false;</div>
+<div class="codeline">&ensp;&ensp;change the text of the player&#39;s command to the last command.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline i7header">Section 2 - The Scenario</div><div class="codeline">The Cave is a room.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The troll is a man in the cave.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The player carries a sword.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The chest is a locked lockable container in the cave.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;attack troll with sword / unlock chest with sword / attack troll as a test&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "attack troll with sword / unlock chest with sword / attack troll as a test".</summary><div class="testme-output">Cave<br>You can see a troll and a chest (closed) here.<br><br>>(Testing.)<br><br>>[1] attack troll with sword<br>(ignoring the unnecessary words "with sword")<br><br>Violence isn't the answer to this one.<br><br>>[2] unlock chest with sword<br>That doesn't seem to fit the lock.<br><br>>[3] attack troll as a test<br>I only understood you as far as wanting to attack the troll.
+</div></details><p>A caveat about using this method in a larger game: &quot;parser error flag&quot; will not automatically control the behavior of any rules we might have written for Before reading a command&hellip; or After reading a command&hellip;, so they may now fire at inappropriate times. It is a good idea to check for parser error flag in those rules as well.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="northstar.html" title="Making Inform understand ASK JOSH TO TAKE INVENTORY as JOSH, TAKE INVENTORY. This requires us to use a regular expression on the player&#39;s command, replacing some of the content.">422. Northstar</a></div><div class="doc-navbar-right"><a href="oyster_wide_shut.html" title="Replacing Inform&#39;s default printing of properties such as &quot;(closed)&quot;, &quot;(open and providing light)&quot;, etc., with our own, more flexible variation.">424. Oyster Wide Shut</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

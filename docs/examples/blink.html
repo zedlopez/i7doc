@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 453. Blink</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Blink</h1><div class="subheading">Example 453 ★</div>
+<div class="linkback">
+<a href="../WI_27.html#section_30" title="Extensions &gt; To say one of">WI §27.30 To say one of</a><br><a href="../RB_2.html#section_1" title="Adaptive Prose &gt; Varying What Is Written">RB §2.1 Varying What Is Written</a>
+</div>
+<p class="example-desc">Making a &quot;by atmosphere&quot; token, allowing us to design our own text variations such as &quot;[one of]normal[or]gloomy[or]scary[by atmosphere]&quot;.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="chanel_version.html" title="Making paired italic and boldface tags like those used by HTML for web pages.">452. Chanel Version 1</a></div><div class="doc-navbar-right"><a href="uncommon_ground.html" title="Making a &quot;by viewpoint&quot; token, allowing us to design our own text variations such as &quot;[show to yourself]quaint[to Lolita]thrilling[to everyone else]squalid[end show]&quot; depending on the identity of the player at the moment.">454. Uncommon Ground</a></div></div>
+</header>
+<p>Suppose we are writing a game in which the mood of the piece changes, and we would like to have lots of descriptions that vary according to its current state. We might in that case want to create our own &quot;by atmosphere&quot; token, to control text variations, like this:</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex453">Play/modify Blink in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="Blink/index.html">Play Blink in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Blink&quot;\n\nAtmosphere is a kind of value. The atmospheres are normal, melancholy, and creepy.\n\nThe current atmosphere is an atmosphere that varies.\nThe current atmosphere variable translates into I6 as &quot;current_atmosphere&quot;.\n\nTo say by atmosphere -- ending say_one_of with marker I7_SOO_ATM:\n\t(- {-close-brace} -).\n\n\nInclude (-\nGlobal current_atmosphere = 1;\n[ I7_SOO_ATM oldval count;\n\tif (count < current_atmosphere) return count;\n\treturn current_atmosphere; ];\n-)\n\n\nThe Flat is a room. &quot;A small [one of]but cozy[or]depressing[or]imprisoning[by atmosphere] flat. Outside the window, the sun is [one of][or][or]apparently [by atmosphere]shining and there is a brisk breeze through the leaves of the birch trees. [one of]It would be quite nice weather for a walk[or]The rest of the world apparently has no appreciation of what you suffer[or]It all looks deceptively normal[by atmosphere].&quot;\n\nInstead of waiting when the current atmosphere is normal:\n\tsay &quot;Everything stretches wide and flat for just a moment, as though all the world around you were painted on a thin rubber sheet that is being [italic type]stretched[roman type]. Then it snaps back into place, leaving your ears ringing. But that little glitch was enough to warn you. Someone is tampering with space-time again. Someone very close by.&quot;;\n\tnow the current atmosphere is creepy.\n\nTest me with &quot;look / z / look&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Blink&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Atmosphere is a kind of value. The atmospheres are normal, melancholy, and creepy.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The current atmosphere is an atmosphere that varies.</div>
+<div class="codeline">The current atmosphere variable translates into I6 as &quot;current_atmosphere&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">To say by atmosphere -- ending say_one_of with marker I7_SOO_ATM:</div>
+<div class="codeline">&ensp;&ensp;(- {-close-brace} -).</div>
+</div><p>Since we&#39;re operating within the untyped Inform 6, we can make use of the fact that kinds of value are (internally) just constants, enumerated in the same order in which they were originally defined. In other words, &quot;normal&quot; at the I6 level translates to 1, &quot;melancholy&quot; to 2, and &quot;creepy&quot; to 3; so we can return the value of the current atmosphere, and thereby select option 1, 2, or 3:</p>
+<div class="codeblock"><div class="codeline">Include (-</div>
+<div class="codeline">Global current_atmosphere = 1;</div>
+<div class="codeline">[ I7_SOO_ATM oldval count;</div>
+<div class="codeline">&ensp;&ensp;if (count &lt; current_atmosphere) return count;</div>
+<div class="codeline">&ensp;&ensp;return current_atmosphere; ];</div>
+<div class="codeline">-)</div>
+</div><p>And that concludes the hard part. Now to test that it works:</p>
+<div class="codeblock"><div class="codeline">The Flat is a room. &quot;A small [one of]but cozy[or]depressing[or]imprisoning[by atmosphere] flat. Outside the window, the sun is [one of][or][or]apparently [by atmosphere]shining and there is a brisk breeze through the leaves of the birch trees. [one of]It would be quite nice weather for a walk[or]The rest of the world apparently has no appreciation of what you suffer[or]It all looks deceptively normal[by atmosphere].&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of waiting when the current atmosphere is normal:</div>
+<div class="codeline">&ensp;&ensp;say &quot;Everything stretches wide and flat for just a moment, as though all the world around you were painted on a thin rubber sheet that is being [italic type]stretched[roman type]. Then it snaps back into place, leaving your ears ringing. But that little glitch was enough to warn you. Someone is tampering with space-time again. Someone very close by.&quot;;</div>
+<div class="codeline">&ensp;&ensp;now the current atmosphere is creepy.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;look / z / look&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "look / z / look".</summary><div class="testme-output">Flat<br>A small but cozy flat. Outside the window, the sun is shining and there is a brisk breeze through the leaves of the birch trees. It would be quite nice weather for a walk.<br><br>>(Testing.)<br><br>>[1] look<br>Flat<br>A small but cozy flat. Outside the window, the sun is shining and there is a brisk breeze through the leaves of the birch trees. It would be quite nice weather for a walk.<br><br>>[2] z<br>Everything stretches wide and flat for just a moment, as though all the world around you were painted on a thin rubber sheet that is being stretched. Then it snaps back into place, leaving your ears ringing. But that little glitch was enough to warn you. Someone is tampering with space-time again. Someone very close by.<br><br>>[3] look<br>Flat<br>A small imprisoning flat. Outside the window, the sun is apparently shining and there is a brisk breeze through the leaves of the birch trees. It all looks deceptively normal.
+</div></details><div class="doc-navbar"><div class="doc-navbar-left"><a href="chanel_version.html" title="Making paired italic and boldface tags like those used by HTML for web pages.">452. Chanel Version 1</a></div><div class="doc-navbar-right"><a href="uncommon_ground.html" title="Making a &quot;by viewpoint&quot; token, allowing us to design our own text variations such as &quot;[show to yourself]quaint[to Lolita]thrilling[to everyone else]squalid[end show]&quot; depending on the identity of the player at the moment.">454. Uncommon Ground</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 22. Garibaldi 1</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Garibaldi 1</h1><div class="subheading">Readout of all doors in the game: Example 22 ★★★</div>
+<div class="linkback">
+<a href="../WI_3.html#section_12" title="Things &gt; Doors">WI §3.12 Doors</a><br><a href="../RB_3.html#section_5" title="Place &gt; Doors, Staircases, and Bridges">RB §3.5 Doors, Staircases, and Bridges</a>
+</div>
+<p class="example-desc">Providing a security readout device by which the player can check on the status of all doors in the game.</p>
+<div class="doc-navbar"><div class="doc-navbar-right"><a title="Adding coloured text to the example of door-status readouts." href="garibaldi2.html">69. Garibaldi 2</a></div></div><div class="doc-navbar"><div class="doc-navbar-left"><a href="escape.html" title="Window that can be climbed through or looked through.">21. Escape</a></div><div class="doc-navbar-right"><a href="disenchantment_bay6.html" title="Disenchantment Bay: locking up the charter boat&#39;s fishing rods.">23. Disenchantment Bay 6</a></div></div>
+</header>
+<p>Suppose we would like to allow the player to view the status of all the doors functioning in the game; and we want to identify those doors by mentioning which two rooms they connect. The following uses some techniques that will be covered in later chapters, but the basic idea may be obvious:</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex22">Play/modify Garibaldi in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="Garibaldi/index.html">Play Garibaldi in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Garibaldi&quot;\n\nThe security readout is a device. The description of the readout is &quot;The screen is blank.&quot;\n\nInstead of examining the switched on security readout:\n\tsay &quot;The screen reads: [fixed letter spacing]&quot;;\n\tsay line break;\n\trepeat with item running through doors:\n\t\tsay line break;\n\t\tsay &quot;  [item] ([front side of the item]/[back side of the item]): [if the item is locked]LOCKED[otherwise]UNLOCKED[end if]&quot;;\n\tsay variable letter spacing;\n\tsay paragraph break.\n\n\nThe player carries the security readout.\n\nThe Docking Bay is a room. The inner airlock is a door. It is north of the Docking Bay and south of the Zocalo. The inner airlock is lockable and unlocked.  The outer airlock is lockable and locked. It is a door. It is south of the Docking Bay and north of Space.\n\nThe quarantine seal is a door. It is west of the Zocalo and east of Medlab. Quarantine seal is locked.\n\nThe security pass unlocks the inner airlock. The player carries the security pass.\n\nTest me with &quot;x readout / turn on readout / x readout / lock inner airlock with security pass / x readout&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Garibaldi&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The security readout is a device. The description of the readout is &quot;The screen is blank.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of examining the switched on security readout:</div>
+<div class="codeline">&ensp;&ensp;say &quot;The screen reads: [fixed letter spacing]&quot;;</div>
+<div class="codeline">&ensp;&ensp;say line break;</div>
+<div class="codeline">&ensp;&ensp;repeat with item running through doors:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say line break;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;  [item] ([front side of the item]/[back side of the item]): [if the item is locked]LOCKED[otherwise]UNLOCKED[end if]&quot;;</div>
+<div class="codeline">&ensp;&ensp;say variable letter spacing;</div>
+<div class="codeline">&ensp;&ensp;say paragraph break.</div>
+</div><p>It is more or less arbitrary which room winds up as the &quot;front side&quot; and which as the &quot;back&quot;, but in this case it hardly matters.</p>
+<div class="codeblock"><div class="codeline">The player carries the security readout.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Docking Bay is a room. The inner airlock is a door. It is north of the Docking Bay and south of the Zocalo. The inner airlock is lockable and unlocked.  The outer airlock is lockable and locked. It is a door. It is south of the Docking Bay and north of Space.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The quarantine seal is a door. It is west of the Zocalo and east of Medlab. Quarantine seal is locked.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The security pass unlocks the inner airlock. The player carries the security pass.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;x readout / turn on readout / x readout / lock inner airlock with security pass / x readout&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "x readout / turn on readout / x readout / lock inner airlock with security pass / x readout".</summary><div class="testme-output">Docking Bay<br>You can see an outer airlock and an inner airlock here.<br><br>>(Testing.)<br><br>>[1] x readout<br>The screen is blank.<br><br>The security readout is currently switched off.<br><br>>[2] turn on readout<br>You switch the security readout on.<br><br>>[3] x readout<br>The screen reads:<br><br>  inner airlock (Docking Bay/Zocalo): UNLOCKED<br>  outer airlock (Docking Bay/Space): LOCKED<br>  quarantine seal (Zocalo/Medlab): LOCKED<br><br>>[4] lock inner airlock with security pass<br>You lock the inner airlock.<br><br>>[5] x readout<br>The screen reads:<br><br>  inner airlock (Docking Bay/Zocalo): LOCKED<br>  outer airlock (Docking Bay/Space): LOCKED<br>  quarantine seal (Zocalo/Medlab): LOCKED
+</div></details><div class="doc-navbar"><div class="doc-navbar-right"><a title="Adding coloured text to the example of door-status readouts." href="garibaldi2.html">69. Garibaldi 2</a></div></div><div class="doc-navbar"><div class="doc-navbar-left"><a href="escape.html" title="Window that can be climbed through or looked through.">21. Escape</a></div><div class="doc-navbar-right"><a href="disenchantment_bay6.html" title="Disenchantment Bay: locking up the charter boat&#39;s fishing rods.">23. Disenchantment Bay 6</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

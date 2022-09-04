@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 176. Strictly Ballroom</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Strictly Ballroom</h1><div class="subheading">Example 176 ★★</div>
+<div class="linkback">
+<a href="../WI_11.html#section_11" title="Phrases &gt; Repeat running through">WI §11.11 Repeat running through</a><br><a href="../RB_7.html#section_16" title="Other Characters &gt; Social Groups">RB §7.16 Social Groups</a>
+</div>
+<p class="example-desc">People who select partners for dance lessons each turn.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="wonkas_revenge.html" title="A lottery drum which redistributes the tickets inside whenever the player spins it.">175. Wonka's Revenge</a></div><div class="doc-navbar-right"><a href="equipment_list.html" title="Overview of all the phrase options associated with listing, and examples of how to change the inventory list into some other standard formats.">177. Equipment List</a></div></div>
+</header>
+<p>Many simple repetitions can effectively be done with a &quot;now&hellip;&quot; instruction: it is quicker to say</p>
+<div class="codeblock"><div class="codeline">now every person is angry</div>
+</div><p>than</p>
+<div class="codeblock"><div class="codeline">repeat with offended party running through people:</div>
+<div class="codeline">&ensp;&ensp;now the offended party is angry.</div>
+</div><p>Repeat comes in handy when we have something a bit more complicated to do with each item:</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex176">Play/modify Strictly Ballroom in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="Ballroom/index.html">Play Strictly Ballroom in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Strictly Ballroom&quot;\n\nA person can be alert or occupied. A person is usually alert.\n\nWhen play begins:\n\tnow the player is occupied.\n\nDance is a kind of value. The dances are waltzes, polkas, cha-chas, charlestons, fox-trots, tangos, lambadas, and two-steps.\n\nThe current round is a dance that varies.\n\nManner is a kind of value. The manners are swiftly, primly, energetically, suavely, seductively, elegantly, and badly.\n\nEvery turn: now the current round is a random dance.\n\nEvery turn:\n\trepeat with dancer running through people who are not the player:\n\t\tif dancer is alert:\n\t\t\tnow dancer is occupied;\n\t\t\tlet partner be a random alert person who is not the dancer;\n\t\t\tif partner is a person:\n\t\t\t\tnow partner is occupied;\n\t\t\t\tsay &quot;[The dancer] [the current round][if a random chance of 1 in 5 succeeds] [a random manner][end if] with [partner]. &quot;;\n\t\t\totherwise:\n\t\t\t\tsay &quot;[paragraph break][The dancer] is forced to be a wallflower. Poor [dancer]. &quot;;\n\tsay paragraph break.\n\n\nEvery turn: now every person is alert; now the player is occupied.\n\nBefore doing something to someone: now the noun is occupied.\n\nBefore doing something when the second noun is a person: now the second noun is occupied.\n\nInstead of doing something to someone: say &quot;You successfully distract [the noun].&quot;\n\nThe Pacific Ballroom is a room. &quot;A rather utilitarian space at the moment, since this is a class and not a party.&quot; Timmy, Tommy, Joey, George, Mary, Martha, Yvette, McQueen, Linus, and Patricia are people in the Pacific Ballroom.\n\nTest me with &quot;z / ask linus about blanket / z / z&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Strictly Ballroom&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A person can be alert or occupied. A person is usually alert.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">When play begins:</div>
+<div class="codeline">&ensp;&ensp;now the player is occupied.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Dance is a kind of value. The dances are waltzes, polkas, cha-chas, charlestons, fox-trots, tangos, lambadas, and two-steps.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The current round is a dance that varies.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Manner is a kind of value. The manners are swiftly, primly, energetically, suavely, seductively, elegantly, and badly.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Every turn: now the current round is a random dance.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Every turn:</div>
+<div class="codeline">&ensp;&ensp;repeat with dancer running through people who are not the player:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;if dancer is alert:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now dancer is occupied;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;let partner be a random alert person who is not the dancer;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if partner is a person:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now partner is occupied;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[The dancer] [the current round][if a random chance of 1 in 5 succeeds] [a random manner][end if] with [partner]. &quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[paragraph break][The dancer] is forced to be a wallflower. Poor [dancer]. &quot;;</div>
+<div class="codeline">&ensp;&ensp;say paragraph break.</div>
+</div><p>Notice we did not say &quot;repeat with dancer running through alert people who are not the player&hellip;&quot;. This is because Inform would draw up a list of alert people at the beginning of the repeat, and not take into account which people became occupied partway through the repetition. If we want to make sure that each person dances only with one other person, we have to continue checking alertness each time we run through the repetition.</p>
+<p>After all the partners are assigned, we can set up for the next turn by making everyone alert again, and for this we do not need &quot;repeat&quot;:</p>
+<div class="codeblock"><div class="codeline">Every turn: now every person is alert; now the player is occupied.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Before doing something to someone: now the noun is occupied.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Before doing something when the second noun is a person: now the second noun is occupied.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of doing something to someone: say &quot;You successfully distract [the noun].&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Pacific Ballroom is a room. &quot;A rather utilitarian space at the moment, since this is a class and not a party.&quot; Timmy, Tommy, Joey, George, Mary, Martha, Yvette, McQueen, Linus, and Patricia are people in the Pacific Ballroom.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;z / ask linus about blanket / z / z&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "z / ask linus about blanket / z / z".</summary><div class="testme-output">Pacific Ballroom<br>A rather utilitarian space at the moment, since this is a class and not a party.<br><br>You can see Timmy, Tommy, Joey, George, Mary, Martha, Yvette, McQueen, Linus and Patricia here.<br><br>>(Testing.)<br><br>>[1] z<br>Time passes.<br><br>Timmy lambadas with Tommy. Joey lambadas badly with Linus. George lambadas suavely with Martha. Mary lambadas with Patricia. Yvette lambadas with McQueen.<br><br>>[2] ask linus about blanket<br>You successfully distract Linus.<br><br>Timmy tangos energetically with Patricia. Tommy tangos with George. Joey tangos suavely with Martha. Mary tangos with McQueen.<br><br>Yvette is forced to be a wallflower. Poor Yvette.<br><br>>[3] z<br>Time passes.<br><br>Timmy polkas with Patricia. Tommy polkas seductively with Yvette. Joey polkas with Martha. George polkas with Mary. McQueen polkas with Linus.<br><br>>[4] z<br>Time passes.<br><br>Timmy fox-trots with George. Tommy fox-trots with Martha. Joey fox-trots with McQueen. Mary fox-trots with Linus. Yvette fox-trots with Patricia.
+</div></details><div class="doc-navbar"><div class="doc-navbar-left"><a href="wonkas_revenge.html" title="A lottery drum which redistributes the tickets inside whenever the player spins it.">175. Wonka's Revenge</a></div><div class="doc-navbar-right"><a href="equipment_list.html" title="Overview of all the phrase options associated with listing, and examples of how to change the inventory list into some other standard formats.">177. Equipment List</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

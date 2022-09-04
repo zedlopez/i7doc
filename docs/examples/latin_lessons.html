@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 371. Latin Lessons</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Latin Lessons</h1><div class="subheading">Example 371 ★</div>
+<div class="linkback">
+<a href="../WI_18.html#section_32" title="Activities &gt; Supplying a missing noun/second noun">WI §18.32 Supplying a missing noun/second noun</a><br><a href="../RB_7.html#section_14" title="Other Characters &gt; Obedient Characters">RB §7.14 Obedient Characters</a>
+</div>
+<p class="example-desc">Supplying missing nouns and second nouns for other characters besides the player.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="walls_and_noses.html" title="Responding to &quot;EXAMINE WALL&quot; with &quot;In which direction?&quot;, and to &quot;EXAMINE NOSE&quot; with &quot;Whose nose do you mean, Frederica&#39;s, Betty&#39;s, Wilma&#39;s or your own?&quot;">370. Walls and Noses</a></div><div class="doc-navbar-right"><a href="minimal_movement.html" title="Supplying a default direction for &quot;go&quot;, so that &quot;leave&quot;, &quot;go&quot;, etc., are always interpreted as &quot;out&quot;.">372. Minimal Movement</a></div></div>
+</header>
+<p>If we&#39;re defining actions for other characters to follow, we may want to include them in our &quot;rule for supplying a missing noun&quot;. We can do this if we write our &quot;while&hellip;&quot; clause to apply to any actor, as follows:</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex371">Play/modify Latin Lessons in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="LatinLessons/index.html">Play Latin Lessons in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Latin Lessons&quot;\n\nThe Latin Studio is a room. Rick is a man in the Studio.\n\nA dance-name is a kind of thing. Argentine tango, samba, merengue, cha-cha, street salsa are dance-names.\n\nDancing is an action applying to one visible thing. Understand &quot;dance [any dance-name]&quot; as dancing. Understand &quot;dance&quot; as dancing.\n\nRule for supplying a missing noun while an actor dancing:\n\tnow the noun is street salsa.\n\nReport someone dancing:\n\tsay &quot;[The actor] dances a few steps of [the noun] for you.&quot;\n\nReport dancing:\n\tsay &quot;You dance a few steps of [the noun].&quot;\n\nPersuasion rule for asking someone to try dancing: persuasion succeeds.\n\nTest me with &quot;dance / dance samba / rick, dance / rick, dance merengue&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Latin Lessons&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Latin Studio is a room. Rick is a man in the Studio.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A dance-name is a kind of thing. Argentine tango, samba, merengue, cha-cha, street salsa are dance-names.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Dancing is an action applying to one visible thing. Understand &quot;dance [any dance-name]&quot; as dancing. Understand &quot;dance&quot; as dancing.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Rule for supplying a missing noun while an actor dancing:</div>
+<div class="codeline">&ensp;&ensp;now the noun is street salsa.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Report someone dancing:</div>
+<div class="codeline">&ensp;&ensp;say &quot;[The actor] dances a few steps of [the noun] for you.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Report dancing:</div>
+<div class="codeline">&ensp;&ensp;say &quot;You dance a few steps of [the noun].&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Persuasion rule for asking someone to try dancing: persuasion succeeds.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;dance / dance samba / rick, dance / rick, dance merengue&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "dance / dance samba / rick, dance / rick, dance merengue".</summary><div class="testme-output">Latin Studio<br>You can see Rick here.<br><br>>(Testing.)<br><br>>[1] dance<br>You dance a few steps of street salsa.<br><br>>[2] dance samba<br>You dance a few steps of samba.<br><br>>[3] rick, dance<br>Rick dances a few steps of street salsa for you.<br><br>>[4] rick, dance merengue<br>Rick dances a few steps of merengue for you.
+</div></details><div class="doc-navbar"><div class="doc-navbar-left"><a href="walls_and_noses.html" title="Responding to &quot;EXAMINE WALL&quot; with &quot;In which direction?&quot;, and to &quot;EXAMINE NOSE&quot; with &quot;Whose nose do you mean, Frederica&#39;s, Betty&#39;s, Wilma&#39;s or your own?&quot;">370. Walls and Noses</a></div><div class="doc-navbar-right"><a href="minimal_movement.html" title="Supplying a default direction for &quot;go&quot;, so that &quot;leave&quot;, &quot;go&quot;, etc., are always interpreted as &quot;out&quot;.">372. Minimal Movement</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

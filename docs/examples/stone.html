@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 391. Stone</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Stone</h1><div class="subheading">Example 391 ★</div>
+<div class="linkback">
+<a href="../WI_19.html#section_3" title="Rulebooks &gt; New rules">WI §19.3 New rules</a><br><a href="../RB_9.html#section_1" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Food">RB §9.1 Food</a>
+</div>
+<p class="example-desc">A soup to which the player can add ingredients, which will have different effects when the player eats.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="cranes_leg2.html" title="A description text generated based on the propensities of the player-character, following different rulebooks for different characters.">390. The Crane's Leg 2</a></div><div class="doc-navbar-right"><a href="bribery.html" title="A GIVE command that gets rid of Inform&#39;s default refusal message in favor of something a bit more sophisticated.">392. Bribery</a></div></div>
+</header>
+<p>A thing can have a rule as a property, if we like. Here we are going to allow the player to make a soup whose effects will depend on its ingredients. Each ingredient will have its own &quot;food effect&quot; rule, to be followed when the food is eaten.</p>
+<p>Note that there are other, slightly less cumbersome ways to do the same thing -- we will see in the chapter on Rulebooks that we could make a &quot;food effects rulebook&quot; and then write a number of rules such as &quot;food effects rule for carrots&quot; or &quot;food effects rule for the stone&quot;. Nonetheless, we demonstrate rules-as-properties here for the sake of thoroughness.</p>
+<p>So:</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex391">Play/modify Stone in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="Stone/index.html">Play Stone in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Stone&quot;\n\nA food is a kind of thing that is edible. A food has a rule called the food effect.\n\nCarry out eating a food:\n\tif a food is part of the noun:\n\t\trepeat with item running through things which are part of the noun:\n\t\t\tif item is a food, follow the food effect of the item;\n\tfollow the food effect of the noun.\n\nReport eating a food:\n\tsay &quot;You eat [the noun]. [diagnosis of the player]&quot;;\n\tstop the action.\n\nTo say diagnosis of (victim - a person):\n\tif the victim is ill:\n\t\tsay &quot;You are ill.&quot;;\n\t\trule succeeds;\n\totherwise:\n\t\tsay &quot;You are healthy. &quot;;\n\tif the victim is awake, say &quot;You are wide awake. &quot;;\n\totherwise say &quot;You are sleepy. &quot;;\n\tif the victim is bright-eyed, say &quot;Your eyesight is clear. &quot;;\n\totherwise say &quot;Your eyesight is dim. &quot;;\n\tif the victim is weak, say &quot;You are weak. &quot;;\n\totherwise say &quot;You are strong. &quot;;\n\tif the victim is hungry, say &quot;You are hungry.&quot;;\n\totherwise say &quot;You are well-fed.&quot;\n\n\nSome carrots are a food. The food effect of carrots is the bright-eye rule. This is the bright-eye rule: now the player is bright-eyed.\n\nSome potatoes are a food. The food effect of the potatoes is the sleepiness rule. This is the sleepiness rule: now the player is sleepy.\n\nThe broth is a food. The indefinite article of the broth is &quot;some&quot;. The food effect of broth is the filling rule. This is the filling rule: now the player is full.\n\nThe hambone is a food. The food effect of the hambone is the heartiness rule. This is the heartiness rule: now the player is strong. Instead of eating the hambone: say &quot;You cannot just eat a bone!&quot;\n\nThe poison ivy is a food. &quot;Poison ivy grows nearby.&quot; The food effect of poison is the illness rule. This is the illness rule: now the player is ill.\n\nA person can be bright-eyed or blind. The player is blind.\n\nA person can be well or ill. The player is well.\n\nA person can be hungry or full. The player is full.\n\nA person can be strong or weak. The player is weak.\n\nA person can be awake or sleepy. The player is sleepy.\n\nThe broth is in the kettle. The kettle is on the fire. The fire is in the Clearing. The Clearing is a room.\n\nThe player carries the hambone, the potatoes, and the carrots. The ivy is in the clearing.\n\nInstead of examining the broth:\n\tif something is part of the broth, say &quot;In the broth, [a list of things that are part of the broth] float[if exactly one thing is part of the broth]s[end if].&quot;;\n\totherwise say &quot;It is just a thin broth with no other ingredients.&quot;\n\nInstead of inserting something into the broth: try inserting the noun into the holder of the broth.\n\nInstead of taking the broth: say &quot;You cannot take the broth in your bare hands.&quot;\n\n\nTo sink is a verb.\n\nAfter inserting a food which is not the broth into a container which contains the broth:\n\tnow the noun is part of the broth;\n\tsay &quot;[The noun] [sink] into [the second noun], making the broth richer.&quot;\n\nTest me with &quot;x broth / eat hambone / put hambone in kettle / x broth / put potatoes in broth / x broth / eat carrots / eat broth / put ivy in kettle / eat ivy&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Stone&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A food is a kind of thing that is edible. A food has a rule called the food effect.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Carry out eating a food:</div>
+<div class="codeline">&ensp;&ensp;if a food is part of the noun:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;repeat with item running through things which are part of the noun:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if item is a food, follow the food effect of the item;</div>
+<div class="codeline">&ensp;&ensp;follow the food effect of the noun.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Report eating a food:</div>
+<div class="codeline">&ensp;&ensp;say &quot;You eat [the noun]. [diagnosis of the player]&quot;;</div>
+<div class="codeline">&ensp;&ensp;stop the action.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">To say diagnosis of (victim - a person):</div>
+<div class="codeline">&ensp;&ensp;if the victim is ill:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;You are ill.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;rule succeeds;</div>
+<div class="codeline">&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;You are healthy. &quot;;</div>
+<div class="codeline">&ensp;&ensp;if the victim is awake, say &quot;You are wide awake. &quot;;</div>
+<div class="codeline">&ensp;&ensp;otherwise say &quot;You are sleepy. &quot;;</div>
+<div class="codeline">&ensp;&ensp;if the victim is bright-eyed, say &quot;Your eyesight is clear. &quot;;</div>
+<div class="codeline">&ensp;&ensp;otherwise say &quot;Your eyesight is dim. &quot;;</div>
+<div class="codeline">&ensp;&ensp;if the victim is weak, say &quot;You are weak. &quot;;</div>
+<div class="codeline">&ensp;&ensp;otherwise say &quot;You are strong. &quot;;</div>
+<div class="codeline">&ensp;&ensp;if the victim is hungry, say &quot;You are hungry.&quot;;</div>
+<div class="codeline">&ensp;&ensp;otherwise say &quot;You are well-fed.&quot;</div>
+</div><p>And now to provide some particular foods:</p>
+<div class="codeblock"><div class="codeline">Some carrots are a food. The food effect of carrots is the bright-eye rule. This is the bright-eye rule: now the player is bright-eyed.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Some potatoes are a food. The food effect of the potatoes is the sleepiness rule. This is the sleepiness rule: now the player is sleepy.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The broth is a food. The indefinite article of the broth is &quot;some&quot;. The food effect of broth is the filling rule. This is the filling rule: now the player is full.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The hambone is a food. The food effect of the hambone is the heartiness rule. This is the heartiness rule: now the player is strong. Instead of eating the hambone: say &quot;You cannot just eat a bone!&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The poison ivy is a food. &quot;Poison ivy grows nearby.&quot; The food effect of poison is the illness rule. This is the illness rule: now the player is ill.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A person can be bright-eyed or blind. The player is blind.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A person can be well or ill. The player is well.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A person can be hungry or full. The player is full.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A person can be strong or weak. The player is weak.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A person can be awake or sleepy. The player is sleepy.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The broth is in the kettle. The kettle is on the fire. The fire is in the Clearing. The Clearing is a room.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The player carries the hambone, the potatoes, and the carrots. The ivy is in the clearing.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of examining the broth:</div>
+<div class="codeline">&ensp;&ensp;if something is part of the broth, say &quot;In the broth, [a list of things that are part of the broth] float[if exactly one thing is part of the broth]s[end if].&quot;;</div>
+<div class="codeline">&ensp;&ensp;otherwise say &quot;It is just a thin broth with no other ingredients.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of inserting something into the broth: try inserting the noun into the holder of the broth.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of taking the broth: say &quot;You cannot take the broth in your bare hands.&quot;</div>
+</div><p>And the following is a relatively unimportant nicety:</p>
+<div class="codeblock"><div class="codeline">To sink is a verb.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">After inserting a food which is not the broth into a container which contains the broth:</div>
+<div class="codeline">&ensp;&ensp;now the noun is part of the broth;</div>
+<div class="codeline">&ensp;&ensp;say &quot;[The noun] [sink] into [the second noun], making the broth richer.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;x broth / eat hambone / put hambone in kettle / x broth / put potatoes in broth / x broth / eat carrots / eat broth / put ivy in kettle / eat ivy&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "x broth / eat hambone / put hambone in kettle / x broth / put potatoes in broth / x broth / eat carrots / eat broth / put ivy in kettle / eat ivy".</summary><div class="testme-output">Clearing<br>Poison ivy grows nearby.<br><br>You can also see a fire (on which is a kettle (in which is some broth)) here.<br><br>>(Testing.)<br><br>>[1] x broth<br>It is just a thin broth with no other ingredients.<br><br>>[2] eat hambone<br>You cannot just eat a bone!<br><br>>[3] put hambone in kettle<br>The hambone sinks into the kettle, making the broth richer.<br><br>>[4] x broth<br>In the broth, a hambone floats.<br><br>>[5] put potatoes in broth<br>The potatoes sink into the kettle, making the broth richer.<br><br>>[6] x broth<br>In the broth, some potatoes and a hambone float.<br><br>>[7] eat carrots<br>You eat the carrots. You are healthy. You are sleepy. Your eyesight is clear. You are weak. You are well-fed.<br><br>>[8] eat broth<br>(first taking the broth)<br>You cannot take the broth in your bare hands.<br><br>>[9] put ivy in kettle<br>(first taking the poison ivy)<br>The poison ivy sinks into the kettle, making the broth richer.<br><br>>[10] eat ivy<br>(first taking the poison ivy)<br>That seems to be a part of the broth.
+</div></details><div class="doc-navbar"><div class="doc-navbar-left"><a href="cranes_leg2.html" title="A description text generated based on the propensities of the player-character, following different rulebooks for different characters.">390. The Crane's Leg 2</a></div><div class="doc-navbar-right"><a href="bribery.html" title="A GIVE command that gets rid of Inform&#39;s default refusal message in favor of something a bit more sophisticated.">392. Bribery</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

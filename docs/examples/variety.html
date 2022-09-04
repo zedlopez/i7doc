@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 246. Variety</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Variety</h1><div class="subheading">Example 246 ★★</div>
+<div class="linkback">
+<a href="../WI_14.html#section_3" title="Adaptive Text and Responses &gt; More on adapting verbs">WI §14.3 More on adapting verbs</a><br><a href="../RB_2.html#section_1" title="Adaptive Prose &gt; Varying What Is Written">RB §2.1 Varying What Is Written</a>
+</div>
+<p class="example-desc">Suppose we want all of our action responses to display some randomized variety. We could do this by laboriously rewriting all of the response texts, but this example demonstrates an alternative.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="fun_with_participles.html" title="Creating dynamic room descriptions that contain sentences such as &quot;Clark is here, wasting time&quot; or &quot;Clark is here, looking around&quot; depending on Clark&#39;s idle activity.">245. Fun with Participles</a></div><div class="doc-navbar-right"><a href="variety2.html" title="This builds on the Variety example to add responses such as &quot;You are now carrying the fedora&quot; that describe relations that result from a given verb, as alternate responses.">247. Variety 2</a></div></div>
+</header>
+<p>Verbs can be related to other things by relations. We&#39;ve seen that it&#39;s possible for a verb to &quot;mean&quot; a relationship. But we can also create a relation between verbs and actions. For instance, we can tell Inform that &quot;take&quot;, &quot;get&quot;, and &quot;acquire&quot; are all valid ways to describe the action of taking, and then allow it to pick a verb randomly to describe whatever action just occurred.</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex246">Play/modify Variety in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="Variety/index.html">Play Variety in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Variety&quot;\n\nSection 1 - Descriptive Functionality\n\nDescribing relates various verbs to various action names. The verb to describe means the describing relation.\n\nTo take is a verb. To acquire is a verb. To get is a verb.\n\nThe verb take describes the taking action. The verb acquire describes the taking action. The verb get describes the taking action.\n\nTo drop is a verb. To put down is a verb. To discard is a verb. The verb drop describes the dropping action. The verb put down describes the dropping action. The verb discard describes the dropping action.\n\nTo sniff is a verb. To smell is a verb. The verb sniff describes the smelling action. The verb smell describes the smelling action.\n\nTo jump is a verb. To leap is a verb. To pirouette is a verb. The verb jump describes the jumping action. The verb leap describes the jumping action. The verb pirouette describes the jumping action.\n\nAfter an actor doing something when the noun is nothing and a verb describes (the action name part of the current action) (this is the apply random verbs to describing nounless actions rule):\n\tsay &quot;[The actor] [verb rendering applied to a random verb that describes (the action name part of the current action)].&quot;;\n\trule succeeds.\n\nAfter an actor doing something to something when a verb describes (the action name part of the current action) (this is the apply random verbs to describing actions rule):\n\tsay &quot;[The actor] [verb rendering applied to a random verb that describes (the action name part of the current action)] [the noun].&quot;;\n\trule succeeds.\n\nTo decide which text is the rendering of (V - verb) (this is verb rendering):\n\tdecide on &quot;[adapt V]&quot;.\n\nSection 2 - Scenario\n\nLab is a room. The table is here. The bat and the ball are on the table.\n\nTest me with &quot;get ball / drop ball / get bat / drop bat / smell ball&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Variety&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline i7header">Section 1 - Descriptive Functionality</div><div class="codeline">Describing relates various verbs to various action names. The verb to describe means the describing relation.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">To take is a verb. To acquire is a verb. To get is a verb.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The verb take describes the taking action. The verb acquire describes the taking action. The verb get describes the taking action.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">To drop is a verb. To put down is a verb. To discard is a verb. The verb drop describes the dropping action. The verb put down describes the dropping action. The verb discard describes the dropping action.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">To sniff is a verb. To smell is a verb. The verb sniff describes the smelling action. The verb smell describes the smelling action.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">To jump is a verb. To leap is a verb. To pirouette is a verb. The verb jump describes the jumping action. The verb leap describes the jumping action. The verb pirouette describes the jumping action.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">After an actor doing something when the noun is nothing and a verb describes (the action name part of the current action) (this is the apply random verbs to describing nounless actions rule):</div>
+<div class="codeline">&ensp;&ensp;say &quot;[The actor] [verb rendering applied to a random verb that describes (the action name part of the current action)].&quot;;</div>
+<div class="codeline">&ensp;&ensp;rule succeeds.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">After an actor doing something to something when a verb describes (the action name part of the current action) (this is the apply random verbs to describing actions rule):</div>
+<div class="codeline">&ensp;&ensp;say &quot;[The actor] [verb rendering applied to a random verb that describes (the action name part of the current action)] [the noun].&quot;;</div>
+<div class="codeline">&ensp;&ensp;rule succeeds.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">To decide which text is the rendering of (V - verb) (this is verb rendering):</div>
+<div class="codeline">&ensp;&ensp;decide on &quot;[adapt V]&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline i7header">Section 2 - Scenario</div><div class="codeline">Lab is a room. The table is here. The bat and the ball are on the table.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;get ball / drop ball / get bat / drop bat / smell ball&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "get ball / drop ball / get bat / drop bat / smell ball".</summary><div class="testme-output">Lab<br>You can see a table (on which are a bat and a ball) here.<br><br>>(Testing.)<br><br>>[1] get ball<br>You acquire the ball.<br><br>>[2] drop ball<br>You discard the ball.<br><br>>[3] get bat<br>You get the bat.<br><br>>[4] drop bat<br>You drop the bat.<br><br>>[5] smell ball<br>You sniff the ball.
+</div></details><div class="doc-navbar"><div class="doc-navbar-left"><a href="fun_with_participles.html" title="Creating dynamic room descriptions that contain sentences such as &quot;Clark is here, wasting time&quot; or &quot;Clark is here, looking around&quot; depending on Clark&#39;s idle activity.">245. Fun with Participles</a></div><div class="doc-navbar-right"><a href="variety2.html" title="This builds on the Variety example to add responses such as &quot;You are now carrying the fedora&quot; that describe relations that result from a given verb, as alternate responses.">247. Variety 2</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

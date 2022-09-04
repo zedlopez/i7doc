@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 439. Alien Invasion Part 23</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Alien Invasion Part 23</h1><div class="subheading">Example 439 ★</div>
+<div class="linkback">
+<a href="../WI_23.html#section_13" title="Figures, Sounds and Files &gt; Writing and reading tables to external files">WI §23.13 Writing and reading tables to external files</a><br><a href="../RB_11.html#section_1" title="Out Of World Actions and Effects &gt; Start-Up Features">RB §11.1 Start-Up Features</a>
+</div>
+<p class="example-desc">Keeping a preference file that could be loaded by any game in a series.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="curare.html" title="A phrase that chooses and names the least-recently selected item from the collection given, allowing the text to cycle semi-randomly through a group of objects.">438. Curare</a></div><div class="doc-navbar-right"><a href="labyrinth_of_ghosts.html" title="Remembering the fates of all previous explorers of the labyrinth.">440. Labyrinth of Ghosts</a></div></div>
+</header>
+<p>Suppose that we have a series of games each of which allows the player to select a puzzle difficulty level. When the player plays a new game in the series, we want him to start out by default with the same difficulty level he faced earlier on, so we store this information in a small preferences file, as follows:</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex439">Play/modify Alien Invasion Part 23 in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="AlienInvasion-G/index.html">Play Alien Invasion Part 23 in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Alien Invasion Part 23&quot;\n\nA difficulty is a kind of value. The difficulties are easy, moderate, hard, and fiendish.\n\nUnderstand &quot;use [difficulty] puzzles&quot; as selecting difficulty. Selecting difficulty is an action out of world, applying to one difficulty.\n\nCarry out selecting difficulty:\n\tchoose row 1 in the Table of Preference Settings;\n\tnow challenge level entry is difficulty understood;\n\tsay &quot;Puzzles will be [challenge level entry] from now on.&quot;\n\nThe File of Preferences is called &quot;prefs&quot;.\n\nWhen play begins:\n\tif File of Preferences exists:\n\t\tread File of Preferences into the Table of Preference Settings;\n\t\tchoose row 1 in the Table of Preference Settings;\n\t\tsay &quot;(The current puzzle difficulty is set to [challenge level entry].)&quot;\n\nCheck quitting the game:\n\twrite File of Preferences from the Table of Preference Settings.\n\nTable of Preference Settings\nchallenge level\neasy\n\nThe Sewer Junction is a room.`)">⧉</button><div class="codeline storytitle">&quot;Alien Invasion Part 23&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A difficulty is a kind of value. The difficulties are easy, moderate, hard, and fiendish.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Understand &quot;use [difficulty] puzzles&quot; as selecting difficulty. Selecting difficulty is an action out of world, applying to one difficulty.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Carry out selecting difficulty:</div>
+<div class="codeline">&ensp;&ensp;choose row 1 in the Table of Preference Settings;</div>
+<div class="codeline">&ensp;&ensp;now challenge level entry is difficulty understood;</div>
+<div class="codeline">&ensp;&ensp;say &quot;Puzzles will be [challenge level entry] from now on.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The File of Preferences is called &quot;prefs&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">When play begins:</div>
+<div class="codeline">&ensp;&ensp;if File of Preferences exists:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;read File of Preferences into the Table of Preference Settings;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;choose row 1 in the Table of Preference Settings;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;(The current puzzle difficulty is set to [challenge level entry].)&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Check quitting the game:</div>
+<div class="codeline">&ensp;&ensp;write File of Preferences from the Table of Preference Settings.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline tablename">Table of Preference Settings</div><table>
+<tr><td>challenge level</td></tr><tr><td>easy</td></tr></table>
+<div class="codeline">The Sewer Junction is a room.</div>
+</div><p>Our preference file is restricted to a single option here for simplicity&#39;s sake, but we could keep track of more information -- whether the player preferred verbose or brief room descriptions, screen configurations, and so on.</p>
+<p>If we were disposed to be somewhat crueler, we could use a similar method to make the player finish each episode of the series in order to &quot;unlock&quot; the next. All we would need to do is store a numerical password in our preferences file when the player finished a given level; the next level would check, say, the Table of Completed Levels for that password, and refuse to play unless the right number were present.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="curare.html" title="A phrase that chooses and names the least-recently selected item from the collection given, allowing the text to cycle semi-randomly through a group of objects.">438. Curare</a></div><div class="doc-navbar-right"><a href="labyrinth_of_ghosts.html" title="Remembering the fates of all previous explorers of the labyrinth.">440. Labyrinth of Ghosts</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

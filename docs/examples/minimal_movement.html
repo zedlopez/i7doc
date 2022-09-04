@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 372. Minimal Movement</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Minimal Movement</h1><div class="subheading">Example 372 ★</div>
+<div class="linkback">
+<a href="../WI_18.html#section_32" title="Activities &gt; Supplying a missing noun/second noun">WI §18.32 Supplying a missing noun/second noun</a><br><a href="../RB_6.html#section_9" title="Commands &gt; Going, Pushing Things in Directions">RB §6.9 Going, Pushing Things in Directions</a>
+</div>
+<p class="example-desc">Supplying a default direction for &quot;go&quot;, so that &quot;leave&quot;, &quot;go&quot;, etc., are always interpreted as &quot;out&quot;.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="latin_lessons.html" title="Supplying missing nouns and second nouns for other characters besides the player.">371. Latin Lessons</a></div><div class="doc-navbar-right"><a href="cloves.html" title="Accepting adverbs anywhere in a command, registering what the player typed but then cutting them out before interpreting the command.">373. Cloves</a></div></div>
+</header>
+<p>Sometimes it would be nice to respond a little more sensitively to a vague command such as &quot;leave&quot; -- converting it, perhaps, to a &quot;go out&quot; command.</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex372">Play/modify Minimal Movement in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="VagueEscape/index.html">Play Minimal Movement in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Minimal Movement&quot;\n\nThe Doll-like House is a room. The Postage-Stamp-Sized Garden is outside from the House.\n\nRule for supplying a missing noun while going:\n\tnow noun is outside.\n\n\nThe block vaguely going rule is not listed in the for supplying a missing noun rules.\n\nTest me with &quot;go&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Minimal Movement&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Doll-like House is a room. The Postage-Stamp-Sized Garden is outside from the House.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Rule for supplying a missing noun while going:</div>
+<div class="codeline">&ensp;&ensp;now noun is outside.</div>
+</div><p>This particular situation is very slightly complicated by the existing rules about vague movement, but fortunately we can easily turn those off.</p>
+<div class="codeblock"><div class="codeline">The block vaguely going rule is not listed in the for supplying a missing noun rules.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;go&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "go".</summary><div class="testme-output">Doll-like House<br><br>>(Testing.)<br><br>>[1] go<br><br>Postage-Stamp-Sized Garden
+</div></details><div class="doc-navbar"><div class="doc-navbar-left"><a href="latin_lessons.html" title="Supplying missing nouns and second nouns for other characters besides the player.">371. Latin Lessons</a></div><div class="doc-navbar-right"><a href="cloves.html" title="Accepting adverbs anywhere in a command, registering what the player typed but then cutting them out before interpreting the command.">373. Cloves</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

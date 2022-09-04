@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 339. Shipping Trunk</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Shipping Trunk</h1><div class="subheading">Example 339 ★</div>
+<div class="linkback">
+<a href="../WI_18.html#section_10" title="Activities &gt; Printing the name of something">WI §18.10 Printing the name of something</a><br><a href="../RB_9.html#section_2" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Bags, Bottles, Boxes and Safes">RB §9.2 Bags, Bottles, Boxes and Safes</a>
+</div>
+<p class="example-desc">A box of baking soda whose name changes to &quot;completely ineffective baking soda&quot; when it is in a container with something that smells funny.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="hays_code.html" title="Clark Gable in a pin-striped suit and a pink thong.">338. Hays Code</a></div><div class="doc-navbar-right"><a href="trachypachidae_maturin1803.html" title="Bottles with removable stoppers: when the stopper is in the bottle, the bottle is functionally closed, but the stopper can also be removed and used elsewhere. Descriptions of the bottle reflect its state intelligently.">340. Trachypachidae Maturin 1803</a></div></div>
+</header>
+<p>First to lay some groundwork:</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex339">Play/modify Shipping Trunk in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="SmellyTrunk/index.html">Play Shipping Trunk in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Shipping Trunk&quot;\n\nA chest is a kind of container. A chest is always openable. A lid is a kind of supporter. A lid is part of every chest.\n\nBefore opening a chest when something (called the obstruction) is on a lid which is part of the noun:\n\tsay &quot;Better remove [the obstruction].&quot; instead.\n\nA thing can be innocent or smelly.\n\nThe Storage Unit is a room. The shipping trunk is a closed chest in the Storage Unit. The trunk contains some garlic, a loaf of moldy sourdough, a mildewy bathtowel, a pair of unwashed socks, two dead trout, and a box of baking powder. The garlic, trout, sourdough, bathtowel, and socks are smelly. The baking powder is innocent.\n\nThe shipping trunk&apos;s lid supports a small card. The description of the small card is &quot;&apos;Please, please do not open this trunk.&apos;&quot;\n\nAfter opening the trunk:\n\tif the trunk had been open:\n\t\tsay &quot;You steel yourself...&quot;;\n\t\tcontinue the action;\n\totherwise:\n\t\tsay &quot;There roils up from inside an indescribable funk, which, when you can see straight, you have no trouble attributing to the presence of [a list of smelly things in the trunk]. You also note [a list of innocent things in the trunk] in the corner.&quot;.\n\n\nBefore printing the name of the baking powder when the powder is in a container which contains a smelly thing: say &quot;completely ineffective &quot;.\n\nTest me with &quot;open trunk / examine card / get card / open trunk / get powder / inventory&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Shipping Trunk&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A chest is a kind of container. A chest is always openable. A lid is a kind of supporter. A lid is part of every chest.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Before opening a chest when something (called the obstruction) is on a lid which is part of the noun:</div>
+<div class="codeline">&ensp;&ensp;say &quot;Better remove [the obstruction].&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A thing can be innocent or smelly.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Storage Unit is a room. The shipping trunk is a closed chest in the Storage Unit. The trunk contains some garlic, a loaf of moldy sourdough, a mildewy bathtowel, a pair of unwashed socks, two dead trout, and a box of baking powder. The garlic, trout, sourdough, bathtowel, and socks are smelly. The baking powder is innocent.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The shipping trunk&#39;s lid supports a small card. The description of the small card is &quot;&#39;Please, please do not open this trunk.&#39;&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">After opening the trunk:</div>
+<div class="codeline">&ensp;&ensp;if the trunk had been open:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;You steel yourself...&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;continue the action;</div>
+<div class="codeline">&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;There roils up from inside an indescribable funk, which, when you can see straight, you have no trouble attributing to the presence of [a list of smelly things in the trunk]. You also note [a list of innocent things in the trunk] in the corner.&quot;.</div>
+</div><p>And now, with that preparation:</p>
+<div class="codeblock"><div class="codeline">Before printing the name of the baking powder when the powder is in a container which contains a smelly thing: say &quot;completely ineffective &quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;open trunk / examine card / get card / open trunk / get powder / inventory&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "open trunk / examine card / get card / open trunk / get powder / inventory".</summary><div class="testme-output">Storage Unit<br>You can see a shipping trunk (closed) here.<br><br>>(Testing.)<br><br>>[1] open trunk<br>Better remove the small card.<br><br>>[2] examine card<br>"Please, please do not open this trunk."<br><br>>[3] get card<br>Taken.<br><br>>[4] open trunk<br>There roils up from inside an indescribable funk, which, when you can see straight, you have no trouble attributing to the presence of some garlic, a loaf of moldy sourdough, a mildewy bathtowel, a pair of unwashed socks and two dead trout. You also note a completely ineffective box of baking powder in the corner.<br><br>>[5] get powder<br>Taken.<br><br>>[6] inventory<br>You are carrying:<br>  a box of baking powder<br>  a small card
+</div></details><div class="doc-navbar"><div class="doc-navbar-left"><a href="hays_code.html" title="Clark Gable in a pin-striped suit and a pink thong.">338. Hays Code</a></div><div class="doc-navbar-right"><a href="trachypachidae_maturin1803.html" title="Bottles with removable stoppers: when the stopper is in the bottle, the bottle is functionally closed, but the stopper can also be removed and used elsewhere. Descriptions of the bottle reflect its state intelligently.">340. Trachypachidae Maturin 1803</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

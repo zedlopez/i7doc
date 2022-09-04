@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 414. About Inform's regular expression support</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>About Inform's regular expression support</h1><div class="subheading">Example 414 ★</div>
+<div class="linkback">
+<a href="../WI_20.html#section_6" title="Advanced Text &gt; Regular expression matching">WI §20.6 Regular expression matching</a><br><a href="../RB_1.html#section_4" title="How to Use The Recipe Book &gt; Information Only">RB §1.4 Information Only</a>
+</div>
+<p class="example-desc">Some footnotes on Inform&#39;s regular expressions, and how they compare to those of other programming languages.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="alpha.html" title="Creating a beta-testing command that matches any line starting with punctuation.">413. Alpha</a></div><div class="doc-navbar-right"><a href="identity_theft.html" title="Allowing the player to enter a name to be used for the player character during the game.">415. Identity Theft</a></div></div>
+</header>
+<p>There is not really any unanimity about what regular expression language is. The unix tools sed and grep extend on Kleene&#39;s original grammar. Henry Spencer&#39;s regex library extended on this again, and was a foundation for Perl, but Perl once again went further. Philip Hazel&#39;s PCRE, despite the name Perl Compatible Regular Expressions, makes further extensions still, and so on.</p>
+<p>Inform&#39;s regular expressions are modelled on those of Perl, as the best de facto standard we have, but a few omissions have been inevitable. Inform&#39;s regex matcher must occupy source code less than one hundredth the size of PCRE, and it has very little memory. Inform aims to behave exactly like Perl except as follows:</p>
+<div class="codeblock"><div class="codeline">(i) Inform allows angle brackets as synonymous with square brackets, for reasons explained above. This means literal angle brackets have to be escaped as &quot;\&lt;&quot; and &quot;\&gt;&quot; in Inform regular expressions, which is unnecessary in Perl.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">(ii) Inform only has single-line mode, not multiline mode: this removes need for the mode-switches &quot;(?m)&quot; and &quot;(?s)&quot; and the positional markers &quot;\A&quot; and &quot;\Z&quot;. Multiline mode is idiosyncratic to Perl and is a messy compromise to do with holding long files of text as single strings, yet treating them as lists of lines at the same time: this would not be sensible for Inform. Similarly, because there is no ambiguity about how line breaks are represented in Inform strings (by a single &quot;\n&quot;), initial newline convention markers such as &quot;(*ANYCRLF)&quot; are unsupported.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">(iii) The codes &quot;\a&quot;, &quot;\r&quot;, &quot;\f&quot;, &quot;\e&quot;, &quot;\0&quot; for alarm, carriage return, form feed, escape and the zero character are unsupported: none of these can occur in an Inform string.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">(iv) Inform does not allow characters to be referred to by character code (whereas Perl allows &quot;\036&quot; for an octal character code, &quot;\x7e&quot; for a hexadecimal one, &quot;\cD&quot; for a control character). This is because we do not want the user to know whether text is internally stored as ZSCII or Unicode.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">(v) Inform&#39;s character class &quot;\p&quot; (and its negation &quot;\P&quot;) have no equivalent in Perl, and Inform&#39;s understanding of &quot;\w&quot; is different. Perl defines this as an upper or lower case English letter, underscore or digit, which is good for programming-language identifiers, but bad for natural language - for instance, &quot;é&quot; is not matched by &quot;\w&quot; in Perl, but unquestionably it appears in words. Inform therefore defines &quot;\w&quot; as the negation of &quot;\s&quot; union &quot;\p&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">(vi) Inform supports only single-digit grouping numbers &quot;\1&quot; to &quot;\9&quot;, whereas Perl allows &quot;\10&quot;, &quot;\11&quot;, ...</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">(vii) POSIX named character ranges are not supported. These are only abbreviations in any case, and are not very useful. (Note that the POSIX range &quot;[:punct:]&quot;, which is supposedly for punctuation, includes many things we do not want to think of that way - percentage signs, for instance - and so &quot;\p&quot; has a more natural-language-based definition.)</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">(viii) Character classes can be used inside ranges, so that &quot;&lt;\da-f&gt;&quot; is legal, but not as ends of contiguous runs, so that &quot;&lt;\d-X&gt;&quot; is not legal. (As reckless as this is, it is legal in Perl.)</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">(ix) For obvious reasons, escapes to Perl code using the notation &quot;(?{...})&quot; are unsupported, and so is the Perl iteration operator &quot;\G&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">(x) Perl&#39;s extended mode &quot;(?x)&quot;, a lexical arrangement which allows expressions to be expanded out as little computer programs with comments, is unsupported. It would look awful syntax-coloured in the Inform interface and is not a style of coding to be encouraged.</div>
+</div><p>Inform further does not support the Python extension of named subexpression groups, nor the Java extension of the possessive quantifier &quot;++&quot;. There was only so much functionality we could squeeze in.</p>
+<p>As verification of Inform&#39;s matching algorithm, we took the Perl 5 source code&#39;s notorious &quot;re-test.txt&quot; set of 961 test cases, removed the 316 using features unsupported by Inform (220 tested multiline mode, for instance), and ran the remaining 645 cases through Inform. It agrees with Perl on 643 of these: the two outstanding are -</p>
+<div class="codeblock"><div class="codeline">(i) Perl is able to match &quot;^(a\1?){4}$&quot; against &quot;aaaaaa&quot; but Inform is not - Inform&#39;s backtracking is not as good when it comes to repetitions of groupings which are recursively defined. (Note that the optional &quot;\1&quot; match refers to the value of the bracketed expression which contains it, so that the interpretation is different on each repetition. Here to match we have to interpret &quot;?&quot; as 0, 0, 1, 0 repeats respectively as we work through the &quot;{4}&quot;.)</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">(ii) Perl matches &quot;((&lt;a-c&gt;)b*?\2)*&quot; against &quot;ababbbcbc&quot; finding the match &quot;ababb&quot;, whereas Inform finds the match &quot;ababbbcbc&quot;. This is really a difference of opinion about whether the outer asterisk, which is greedy, should be allowed three matches rather than two if to do so requires the inner asterisk, which is not greedy, to eat more than it needs on one of those three matches.</div>
+</div><p>Case (i) is a sacrifice to enable Inform&#39;s back-tracking to use less memory. Case (ii) simply seems unimportant.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="alpha.html" title="Creating a beta-testing command that matches any line starting with punctuation.">413. Alpha</a></div><div class="doc-navbar-right"><a href="identity_theft.html" title="Allowing the player to enter a name to be used for the player character during the game.">415. Identity Theft</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

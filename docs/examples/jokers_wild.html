@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 275. Jokers Wild</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Jokers Wild</h1><div class="subheading">Example 275 ★★</div>
+<div class="linkback">
+<a href="../WI_16.html#section_11" title="Tables &gt; Sorting">WI §16.11 Sorting</a><br><a href="../RB_9.html#section_5" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Dice and Playing Cards">RB §9.5 Dice and Playing Cards</a>
+</div>
+<p class="example-desc">A deck of cards which can be shuffled and dealt from.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="odyssey.html" title="A person who follows a path predetermined and stored in a table, and who can be delayed if the player tries to interact with her.">274. Odyssey</a></div><div class="doc-navbar-right"><a href="noisy_cricket.html" title="Implementing liquids that can be mixed, and the components automatically recognized as matching one recipe or another.">276. Noisy Cricket</a></div></div>
+</header>
+<p>Suppose we want a deck of cards which the player can shuffle and draw from. Our first (rather tedious) task is merely to set up the deck as a table:</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex275">Play/modify Jokers Wild in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="Jokers/index.html">Play Jokers Wild in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Jokers Wild&quot;\n\nSuit is a kind of value. The suits are hearts, clubs, diamonds, and spades.\n\nTable of Cards\nsuit\tvalue\ndiamonds\t1\ndiamonds\t2\ndiamonds\t3\ndiamonds\t4\ndiamonds\t5\ndiamonds\t6\ndiamonds\t7\ndiamonds\t8\ndiamonds\t9\ndiamonds\t10\ndiamonds\t11\ndiamonds\t12\ndiamonds\t13\nspades\t1\nspades\t2\nspades\t3\nspades\t4\nspades\t5\nspades\t6\nspades\t7\nspades\t8\nspades\t9\nspades\t10\nspades\t11\nspades\t12\nspades\t13\nhearts\t1\nhearts\t2\nhearts\t3\nhearts\t4\nhearts\t5\nhearts\t6\nhearts\t7\nhearts\t8\nhearts\t9\nhearts\t10\nhearts\t11\nhearts\t12\nhearts\t13\nclubs\t1\nclubs\t2\nclubs\t3\nclubs\t4\nclubs\t5\nclubs\t6\nclubs\t7\nclubs\t8\nclubs\t9\nclubs\t10\nclubs\t11\nclubs\t12\nclubs\t13\n\n\nTo say (count - a number) as a card value:\n\tchoose row with a value of count in the Table of Value Names;\n\tsay &quot;[term entry]&quot;.\n\nTable of Value Names\nvalue\tterm\n1\t&quot;ace&quot;\n2\t&quot;deuce&quot;\n3\t&quot;three&quot;\n4\t&quot;four&quot;\n5\t&quot;five&quot;\n6\t&quot;six&quot;\n7\t&quot;seven&quot;\n8\t&quot;eight&quot;\n9\t&quot;nine&quot;\n10\t&quot;ten&quot;\n11\t&quot;jack&quot;\n12\t&quot;queen&quot;\n13\t&quot;king&quot;\n\n\nUnderstand &quot;shuffle&quot; as shuffling. Shuffling is an action applying to nothing.\n\nCarry out shuffling:\n\tsort the Table of Cards in random order;\n\tsay &quot;You expertly rearrange the cards.&quot;.\n\nWhen play begins:\n\tsort the Table of Cards in random order.\n\n\nUnderstand &quot;toss&quot; or &quot;toss a card&quot; or &quot;toss card&quot; as tossing.\n\nTossing is an action applying to nothing.\n\nCheck tossing:\n\tif the number of filled rows in the Table of Cards is 0, say &quot;The deck is empty.&quot; instead.\n\nCarry out tossing:\n\trepeat through the Table of Cards:\n\t\tlet new value be value entry;\n\t\tlet new suit be suit entry;\n\t\tsay &quot;You throw the [value entry as a card value] of [suit entry] at the top hat, and [if a random chance of 1 in 3 succeeds]hit[otherwise]miss[end if].&quot;;\n\t\tblank out the whole row;\n\t\trule succeeds.\n\n\nThe Empty Room is a room. &quot;It has come to this: sitting on the bare floor of Lulu&apos;s apartment with nothing to amuse you but a deck of cards and the top hat from last year&apos;s act. You reckon [the number of filled rows in the Table of Cards in words] cardtosses are all that stand between you and the utter pointlessness of existence.\n\nOnce again you curse Lulu for running off with that joker.&quot;\n\nThe player is carrying the deck of cards. The top hat is an open container in the Empty Room. It is scenery.\n\nTest me with &quot;toss / again / again / again / again / again / again / again&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Jokers Wild&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Suit is a kind of value. The suits are hearts, clubs, diamonds, and spades.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline tablename">Table of Cards</div><table>
+<tr><td>suit</td><td>value</td></tr><tr><td>diamonds</td><td>1</td></tr><tr><td>diamonds</td><td>2</td></tr><tr><td>diamonds</td><td>3</td></tr><tr><td>diamonds</td><td>4</td></tr><tr><td>diamonds</td><td>5</td></tr><tr><td>diamonds</td><td>6</td></tr><tr><td>diamonds</td><td>7</td></tr><tr><td>diamonds</td><td>8</td></tr><tr><td>diamonds</td><td>9</td></tr><tr><td>diamonds</td><td>10</td></tr><tr><td>diamonds</td><td>11</td></tr><tr><td>diamonds</td><td>12</td></tr><tr><td>diamonds</td><td>13</td></tr><tr><td>spades</td><td>1</td></tr><tr><td>spades</td><td>2</td></tr><tr><td>spades</td><td>3</td></tr><tr><td>spades</td><td>4</td></tr><tr><td>spades</td><td>5</td></tr><tr><td>spades</td><td>6</td></tr><tr><td>spades</td><td>7</td></tr><tr><td>spades</td><td>8</td></tr><tr><td>spades</td><td>9</td></tr><tr><td>spades</td><td>10</td></tr><tr><td>spades</td><td>11</td></tr><tr><td>spades</td><td>12</td></tr><tr><td>spades</td><td>13</td></tr><tr><td>hearts</td><td>1</td></tr><tr><td>hearts</td><td>2</td></tr><tr><td>hearts</td><td>3</td></tr><tr><td>hearts</td><td>4</td></tr><tr><td>hearts</td><td>5</td></tr><tr><td>hearts</td><td>6</td></tr><tr><td>hearts</td><td>7</td></tr><tr><td>hearts</td><td>8</td></tr><tr><td>hearts</td><td>9</td></tr><tr><td>hearts</td><td>10</td></tr><tr><td>hearts</td><td>11</td></tr><tr><td>hearts</td><td>12</td></tr><tr><td>hearts</td><td>13</td></tr><tr><td>clubs</td><td>1</td></tr><tr><td>clubs</td><td>2</td></tr><tr><td>clubs</td><td>3</td></tr><tr><td>clubs</td><td>4</td></tr><tr><td>clubs</td><td>5</td></tr><tr><td>clubs</td><td>6</td></tr><tr><td>clubs</td><td>7</td></tr><tr><td>clubs</td><td>8</td></tr><tr><td>clubs</td><td>9</td></tr><tr><td>clubs</td><td>10</td></tr><tr><td>clubs</td><td>11</td></tr><tr><td>clubs</td><td>12</td></tr><tr><td>clubs</td><td>13</td></tr></table>
+</div><p>We&#39;re going to describe the higher numbers as face cards, so it helps to write a new &quot;to say&quot; phrase.</p>
+<div class="codeblock"><div class="codeline">To say (count - a number) as a card value:</div>
+<div class="codeline">&ensp;&ensp;choose row with a value of count in the Table of Value Names;</div>
+<div class="codeline">&ensp;&ensp;say &quot;[term entry]&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline tablename">Table of Value Names</div><table>
+<tr><td>value</td><td>term</td></tr><tr><td>1</td><td>&quot;ace&quot;</td></tr><tr><td>2</td><td>&quot;deuce&quot;</td></tr><tr><td>3</td><td>&quot;three&quot;</td></tr><tr><td>4</td><td>&quot;four&quot;</td></tr><tr><td>5</td><td>&quot;five&quot;</td></tr><tr><td>6</td><td>&quot;six&quot;</td></tr><tr><td>7</td><td>&quot;seven&quot;</td></tr><tr><td>8</td><td>&quot;eight&quot;</td></tr><tr><td>9</td><td>&quot;nine&quot;</td></tr><tr><td>10</td><td>&quot;ten&quot;</td></tr><tr><td>11</td><td>&quot;jack&quot;</td></tr><tr><td>12</td><td>&quot;queen&quot;</td></tr><tr><td>13</td><td>&quot;king&quot;</td></tr></table>
+</div><p>Now we get the shuffling of the deck from &quot;sort in random order&quot;, so:</p>
+<div class="codeblock"><div class="codeline">Understand &quot;shuffle&quot; as shuffling. Shuffling is an action applying to nothing.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Carry out shuffling:</div>
+<div class="codeline">&ensp;&ensp;sort the Table of Cards in random order;</div>
+<div class="codeline">&ensp;&ensp;say &quot;You expertly rearrange the cards.&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">When play begins:</div>
+<div class="codeline">&ensp;&ensp;sort the Table of Cards in random order.</div>
+</div><p>This will continue to work properly even as the deck is partially depleted. Speaking of which, suppose we want the player to be able to toss the cards one-by-one into a hat. They are going to need to be removed from the deck, so:</p>
+<div class="codeblock"><div class="codeline">Understand &quot;toss&quot; or &quot;toss a card&quot; or &quot;toss card&quot; as tossing.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Tossing is an action applying to nothing.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Check tossing:</div>
+<div class="codeline">&ensp;&ensp;if the number of filled rows in the Table of Cards is 0, say &quot;The deck is empty.&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Carry out tossing:</div>
+<div class="codeline">&ensp;&ensp;repeat through the Table of Cards:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;let new value be value entry;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;let new suit be suit entry;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;You throw the [value entry as a card value] of [suit entry] at the top hat, and [if a random chance of 1 in 3 succeeds]hit[otherwise]miss[end if].&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;blank out the whole row;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;rule succeeds.</div>
+</div><p>If we wanted to simulate a slightly more stimulating game, we could instead have a second table to represent the player&#39;s hand of cards and record each card drawn. That would get long for the purposes of example, however, so instead we will just admit that the player&#39;s life is an empty husk of existence:</p>
+<div class="codeblock"><div class="codeline">The Empty Room is a room. &quot;It has come to this: sitting on the bare floor of Lulu&#39;s apartment with nothing to amuse you but a deck of cards and the top hat from last year&#39;s act. You reckon [the number of filled rows in the Table of Cards in words] cardtosses are all that stand between you and the utter pointlessness of existence.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Once again you curse Lulu for running off with that joker.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The player is carrying the deck of cards. The top hat is an open container in the Empty Room. It is scenery.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;toss / again / again / again / again / again / again / again&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "toss / again / again / again / again / again / again / again".</summary><div class="testme-output">Empty Room<br>It has come to this: sitting on the bare floor of Lulu's apartment with nothing to amuse you but a deck of cards and the top hat from last year's act. You reckon fifty-two cardtosses are all that stand between you and the utter pointlessness of existence.<br><br>Once again you curse Lulu for running off with that joker.<br><br>>(Testing.)<br><br>>[1] toss<br>You throw the deuce of spades at the top hat, and hit.<br><br>>[2] again<br>You throw the nine of hearts at the top hat, and miss.<br><br>>[3] again<br>You throw the deuce of diamonds at the top hat, and miss.<br><br>>[4] again<br>You throw the ten of spades at the top hat, and hit.<br><br>>[5] again<br>You throw the five of clubs at the top hat, and hit.<br><br>>[6] again<br>You throw the nine of diamonds at the top hat, and miss.<br><br>>[7] again<br>You throw the ace of spades at the top hat, and hit.<br><br>>[8] again<br>You throw the seven of diamonds at the top hat, and miss.
+</div></details><div class="doc-navbar"><div class="doc-navbar-left"><a href="odyssey.html" title="A person who follows a path predetermined and stored in a table, and who can be delayed if the player tries to interact with her.">274. Odyssey</a></div><div class="doc-navbar-right"><a href="noisy_cricket.html" title="Implementing liquids that can be mixed, and the components automatically recognized as matching one recipe or another.">276. Noisy Cricket</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

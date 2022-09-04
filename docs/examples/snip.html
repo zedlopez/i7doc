@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 261. Snip</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Snip</h1><div class="subheading">Example 261 ★★★</div>
+<div class="linkback">
+<a href="../WI_15.html#section_16" title="Numbers and Equations &gt; Understanding specified numbers">WI §15.16 Understanding specified numbers</a><br><a href="../RB_10.html#section_6" title="Physics: Substances, Ropes, Energy and Weight &gt; Ropes">RB §10.6 Ropes</a>
+</div>
+<p class="example-desc">A string which can be cut into arbitrary lengths, and then tied back together.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="zqlran_era8.html" title="Creating an alternative system of time for our game, using new units.">260. Zqlran Era 8</a></div><div class="doc-navbar-right"><a href="nickel_and_dimed.html" title="A more intricate system of money, this time keeping track of the individual denominations of coins and bills, specifying what gets spent at each transaction, and calculating appropriate change.">262. Nickel and Dimed</a></div></div>
+</header>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex261">Play/modify Snip! in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="StringTheory/index.html">Play Snip! in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Snip!&quot;\n\nLength is a kind of value. 30 inch specifies a length. 20 in specifies a length. 50 inches specifies a length.\n\nA string is a kind of thing. A string has a length. The length of a string is usually 36 inches.\n\nBefore printing the name of a string, say &quot;[length] piece of &quot;. Rule for printing the plural name of a string: say &quot;[length] pieces of string&quot;.\n\nUnderstand the command &quot;cut&quot; as something new. Understand &quot;cut [length] from/off [something]&quot; as trimming it by (with nouns reversed). Understand &quot;cut [something] by [length]&quot; as trimming it by. Understand the command &quot;trim&quot; as &quot;cut&quot;.\n\nTrimming it by is an action applying to one thing and one length.\n\nCheck trimming it by:\n\tif the length understood is 0 inches, say &quot;You&apos;re approaching Zeno&apos;s string at this point.&quot; instead;\n\tif the length understood is greater than the length of the noun, say &quot;[The noun] is only [length of the noun] long to start with.&quot; instead;\n\tif the length understood is the length of the noun, say &quot;[The noun] is already exactly [length of the noun] long.&quot; instead.\n\nCarry out trimming it by:\n\tnow the length of the noun is the length of the noun minus the length understood;\n\tlet the other half be a random string in the string repository;\n\tnow the length of the other half is the length understood;\n\tmove the other half to the player.\n\nReport trimming it by:\n\treset string lengths; [we will define this in a moment; it helps guarantee that our descriptions of the strings are correct when we write the output list]\n\tsay &quot;You now have [a list of strings carried by the player].&quot;\n\nUnderstand &quot;cut [something] in half&quot; as halving. Halving is an action applying to one thing.\n\nCarry out halving:\n\tlet half measure be the length of the noun divided by 2;\n\tnow the length understood is half measure;\n\ttry trimming the noun by half measure.\n\n\nThe player carries a string.\n\nThe Scissors Room is a room.\n\nThe string repository contains 35 strings.\n\n\nOrdinariness is a kind of value. The ordinarinesses are longest, medium, shortest. A string has an ordinariness. Understand the ordinariness property as referring to a string.\n\nDefinition: a string is small if its length is 2 in or less. Definition: a string is large if its length is 20 in or more.\n\nBefore reading a command:\n\treset string lengths.\n\nTo reset string lengths:\n\tlet upper measure be the length of the largest visible string;\n\tlet lower measure be the length of the smallest visible string;\n\trepeat with item running through strings:\n\t\tnow the ordinariness of the item is medium;\n\t\tif the length of the item is the upper measure, now the item is longest;\n\t\tif the length of the item is the lower measure, now the item is shortest.\n\nAfter reading a command:\n\tif the player&apos;s command includes &quot;shorter&quot;, replace the matched text with &quot;shortest&quot;;\n\tif the player&apos;s command includes &quot;longer&quot;, replace the matched text with &quot;longest&quot;.\n\nInstead of tying a string to a string:\n\tmove the second noun to the string repository;\n\tnow the length of the noun is the length of the noun plus the length of the second noun;\n\tdecrease the length of the noun by 1 inch;\n\tsay &quot;You end up with [a noun], as some is taken up by the knot.&quot;\n\n\nUnderstand the length property as referring to a string.\n\nTest me with &quot;trim string by 4 in / cut longer string in half / cut longest string in half / cut shortest string in half / g / g / tie longest string to shortest string / tie longest string to medium string / i / x 16 inch string / drop 8 inch string / i&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Snip!&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Length is a kind of value. 30 inch specifies a length. 20 in specifies a length. 50 inches specifies a length.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A string is a kind of thing. A string has a length. The length of a string is usually 36 inches.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Before printing the name of a string, say &quot;[length] piece of &quot;. Rule for printing the plural name of a string: say &quot;[length] pieces of string&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Understand the command &quot;cut&quot; as something new. Understand &quot;cut [length] from/off [something]&quot; as trimming it by (with nouns reversed). Understand &quot;cut [something] by [length]&quot; as trimming it by. Understand the command &quot;trim&quot; as &quot;cut&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Trimming it by is an action applying to one thing and one length.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Check trimming it by:</div>
+<div class="codeline">&ensp;&ensp;if the length understood is 0 inches, say &quot;You&#39;re approaching Zeno&#39;s string at this point.&quot; instead;</div>
+<div class="codeline">&ensp;&ensp;if the length understood is greater than the length of the noun, say &quot;[The noun] is only [length of the noun] long to start with.&quot; instead;</div>
+<div class="codeline">&ensp;&ensp;if the length understood is the length of the noun, say &quot;[The noun] is already exactly [length of the noun] long.&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Carry out trimming it by:</div>
+<div class="codeline">&ensp;&ensp;now the length of the noun is the length of the noun minus the length understood;</div>
+<div class="codeline">&ensp;&ensp;let the other half be a random string in the string repository;</div>
+<div class="codeline">&ensp;&ensp;now the length of the other half is the length understood;</div>
+<div class="codeline">&ensp;&ensp;move the other half to the player.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Report trimming it by:</div>
+<div class="codeline">&ensp;&ensp;reset string lengths; [we will define this in a moment; it helps guarantee that our descriptions of the strings are correct when we write the output list]</div>
+<div class="codeline">&ensp;&ensp;say &quot;You now have [a list of strings carried by the player].&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Understand &quot;cut [something] in half&quot; as halving. Halving is an action applying to one thing.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Carry out halving:</div>
+<div class="codeline">&ensp;&ensp;let half measure be the length of the noun divided by 2;</div>
+<div class="codeline">&ensp;&ensp;now the length understood is half measure;</div>
+<div class="codeline">&ensp;&ensp;try trimming the noun by half measure.</div>
+</div><p>This fudges slightly, since an odd-length string will be divided into uneven halves. Keeping track of fractional inches would complicate matters, though, so let&#39;s assume for now that this doesn&#39;t matter.</p>
+<div class="codeblock"><div class="codeline">The player carries a string.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Scissors Room is a room.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The string repository contains 35 strings.</div>
+</div><p>Since our initial string is 36 inches long and it is impossible for the player to divide it into pieces smaller than an inch each, we need a total of 36 items to represent all the string-bits: one that the player carries at the outset, and 35 others. We should bear in mind that it is usually a good idea to use the smallest number of spare objects we can get away with: writing a game that required 1000 strings in the string repository would place silly demands on the resources of the system, so it&#39;s best to avoid that sort of thing if possible.</p>
+<p>Now with a bit of fiddling we can also teach Inform to recognize descriptors such as &quot;the shortest string&quot;:</p>
+<div class="codeblock"><div class="codeline">Ordinariness is a kind of value. The ordinarinesses are longest, medium, shortest. A string has an ordinariness. Understand the ordinariness property as referring to a string.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Definition: a string is small if its length is 2 in or less. Definition: a string is large if its length is 20 in or more.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Before reading a command:</div>
+<div class="codeline">&ensp;&ensp;reset string lengths.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">To reset string lengths:</div>
+<div class="codeline">&ensp;&ensp;let upper measure be the length of the largest visible string;</div>
+<div class="codeline">&ensp;&ensp;let lower measure be the length of the smallest visible string;</div>
+<div class="codeline">&ensp;&ensp;repeat with item running through strings:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;now the ordinariness of the item is medium;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;if the length of the item is the upper measure, now the item is longest;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;if the length of the item is the lower measure, now the item is shortest.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">After reading a command:</div>
+<div class="codeline">&ensp;&ensp;if the player&#39;s command includes &quot;shorter&quot;, replace the matched text with &quot;shortest&quot;;</div>
+<div class="codeline">&ensp;&ensp;if the player&#39;s command includes &quot;longer&quot;, replace the matched text with &quot;longest&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of tying a string to a string:</div>
+<div class="codeline">&ensp;&ensp;move the second noun to the string repository;</div>
+<div class="codeline">&ensp;&ensp;now the length of the noun is the length of the noun plus the length of the second noun;</div>
+<div class="codeline">&ensp;&ensp;decrease the length of the noun by 1 inch;</div>
+<div class="codeline">&ensp;&ensp;say &quot;You end up with [a noun], as some is taken up by the knot.&quot;</div>
+</div><p>This is still a little incomplete because we cannot refer to strings by their lengths, as in &quot;the 2 inch string&quot; and so on. To do this, we borrow a line from the chapter on Understanding:</p>
+<div class="codeblock"><div class="codeline">Understand the length property as referring to a string.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;trim string by 4 in / cut longer string in half / cut longest string in half / cut shortest string in half / g / g / tie longest string to shortest string / tie longest string to medium string / i / x 16 inch string / drop 8 inch string / i&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "trim string by 4 in / cut longer string in half / cut longest string in half / cut shortest string in half / g / g / tie longest string to shortest string / tie longest string to medium string / i / x 16 inch string / drop 8 inch string / i".</summary><div class="testme-output">Scissors Room<br><br>>(Testing.)<br><br>>[1] trim string by 4 in<br>You now have a 4 inch piece of string and a 32 inch piece of string.<br><br>>[2] cut longer string in half<br>You now have two 16 inch pieces of string and a 4 inch piece of string.<br><br>>[3] cut longest string in half<br>You now have two 8 inch pieces of string, a 4 inch piece of string and a 16 inch piece of string.<br><br>>[4] cut shortest string in half<br>You now have two 2 inch pieces of string, two 8 inch pieces of string and a 16 inch piece of string.<br><br>>[5] g<br>You now have two 1 inch pieces of string, two 8 inch pieces of string, a 2 inch piece of string and a 16 inch piece of string.<br><br>>[6] g<br>You're approaching Zeno's string at this point.<br><br>>[7] tie longest string to shortest string<br>You end up with a 16 inch piece of string, as some is taken up by the knot.<br><br>>[8] tie longest string to medium string<br>Which do you mean, a 8 inch piece of string or the 2 inch piece of string?<br><br>>[9] i<br>You are carrying:<br>  a 1 inch piece of string<br>  two 8 inch pieces of string<br>  a 2 inch piece of string<br>  a 16 inch piece of string<br><br>>[10] x 16 inch string<br>You see nothing special about the 16 inch piece of string.<br><br>>[11] drop 8 inch string<br>Dropped.<br><br>>[12] i<br>You are carrying:<br>  a 1 inch piece of string<br>  a 8 inch piece of string<br>  a 2 inch piece of string<br>  a 16 inch piece of string
+</div></details><div class="doc-navbar"><div class="doc-navbar-left"><a href="zqlran_era8.html" title="Creating an alternative system of time for our game, using new units.">260. Zqlran Era 8</a></div><div class="doc-navbar-right"><a href="nickel_and_dimed.html" title="A more intricate system of money, this time keeping track of the individual denominations of coins and bills, specifying what gets spent at each transaction, and calculating appropriate change.">262. Nickel and Dimed</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

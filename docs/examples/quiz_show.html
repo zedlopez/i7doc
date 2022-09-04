@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 323. Quiz Show</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Quiz Show</h1><div class="subheading">Example 323 ★</div>
+<div class="linkback">
+<a href="../WI_17.html#section_17" title="Understanding &gt; Context: understanding when">WI §17.17 Context: understanding when</a><br><a href="../RB_2.html#section_2" title="Adaptive Prose &gt; Varying What Is Read">RB §2.2 Varying What Is Read</a>
+</div>
+<p class="example-desc">In this example by Mike Tarbert, the player can occasionally be quizzed on random data from a table; the potential answers will only be understood if a question has just been asked.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="claims_adjustment.html" title="An instant camera that spits out photographs of anything the player chooses to take a picture of.">322. Claims Adjustment</a></div><div class="doc-navbar-right"><a href="bibliophilia.html" title="A bookshelf with a number of books, where the player&#39;s command to examine something will be interpreted as an attempt to look up titles if the bookshelf is present, but otherwise given the usual response.">324. Bibliophilia</a></div></div>
+</header>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex323">Play/modify Quiz Show" by Mike Tarbert in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="QuizShow/index.html">Play Quiz Show" by Mike Tarbert in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Quiz Show&quot; by Mike Tarbert\n\nUse scoring.\n\nAnswer mode is a truth state that varies.\nCurrent state is a text that varies.\n\nGuessing is an action applying to one topic.\nUnderstand &quot;[text]&quot; as guessing when answer mode is true.\n\n\nCheck guessing (this is the default wrong answer rule):\n\tif the topic understood is not a topic listed in the Table of Dates of Statehood:\n\t\tsay &quot;Wrong!&quot;;\n\tnow answer mode is false.\n\nCarry out guessing a topic listed in the Table of Dates of Statehood:\n\tif state entry is the current state:\n\t\tsay &quot;Correct! ([comment entry], to be exact!)&quot;;\n\t\tincrease the score by one;\n\totherwise:\n\t\tsay &quot;Wrong!&quot;;\n\tnow answer mode is false.\n\n\nBefore doing anything other than guessing:\n\tif answer mode is true:\n\t\tsay &quot;(ignoring the question)[line break]&quot;;\n\tnow answer mode is false.\n\nSection 2 - Scenario\n\nThe Lab is a room.  Sam is a man in the lab.\n\nEvery turn when the player is in the lab:\n\tif a random chance of 3 in 5 succeeds:\n\t\tchoose a random row in the Table of Dates of Statehood;\n\t\tsay &quot;Sam asks you, &apos;In what year was [state entry] admitted into the Union?&apos;&quot;;\n\t\tnow current state is state entry;\n\t\tnow answer mode is true.\n\nTable of Dates of Statehood\nState\tTopic\tComment\n&quot;Florida&quot;\t&quot;1845&quot;\t&quot;March 3rd&quot;\n&quot;Delaware&quot;\t&quot;1787&quot;\t&quot;December 7th&quot;\n&quot;Hawaii&quot;\t&quot;1960&quot;\t&quot;July 4th&quot;\n\nTest me with &quot;1845 / z / z / 1787 / 1792 / z / 1845 / g&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Quiz Show&quot; by Mike Tarbert</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Use scoring.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Answer mode is a truth state that varies.</div>
+<div class="codeline">Current state is a text that varies.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Guessing is an action applying to one topic.</div>
+<div class="codeline">Understand &quot;[text]&quot; as guessing when answer mode is true.</div>
+</div><p>Because of the &quot;&hellip;when&quot; part of this line, random text is only treated as an answer when a question is being asked.</p>
+<div class="codeblock"><div class="codeline">Check guessing (this is the default wrong answer rule):</div>
+<div class="codeline">&ensp;&ensp;if the topic understood is not a topic listed in the Table of Dates of Statehood:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;Wrong!&quot;;</div>
+<div class="codeline">&ensp;&ensp;now answer mode is false.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Carry out guessing a topic listed in the Table of Dates of Statehood:</div>
+<div class="codeline">&ensp;&ensp;if state entry is the current state:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;Correct! ([comment entry], to be exact!)&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;increase the score by one;</div>
+<div class="codeline">&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;Wrong!&quot;;</div>
+<div class="codeline">&ensp;&ensp;now answer mode is false.</div>
+</div><p>This next rule allows a player to do something other than answer the question, but then makes him wait for another question before answering.</p>
+<div class="codeblock"><div class="codeline">Before doing anything other than guessing:</div>
+<div class="codeline">&ensp;&ensp;if answer mode is true:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;(ignoring the question)[line break]&quot;;</div>
+<div class="codeline">&ensp;&ensp;now answer mode is false.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline i7header">Section 2 - Scenario</div><div class="codeline">The Lab is a room.  Sam is a man in the lab.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Every turn when the player is in the lab:</div>
+<div class="codeline">&ensp;&ensp;if a random chance of 3 in 5 succeeds:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;choose a random row in the Table of Dates of Statehood;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;Sam asks you, &#39;In what year was [state entry] admitted into the Union?&#39;&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;now current state is state entry;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;now answer mode is true.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline tablename">Table of Dates of Statehood</div><table>
+<tr><td>State</td><td>Topic</td><td>Comment</td></tr><tr><td>&quot;Florida&quot;</td><td>&quot;1845&quot;</td><td>&quot;March 3rd&quot;</td></tr><tr><td>&quot;Delaware&quot;</td><td>&quot;1787&quot;</td><td>&quot;December 7th&quot;</td></tr><tr><td>&quot;Hawaii&quot;</td><td>&quot;1960&quot;</td><td>&quot;July 4th&quot;</td></tr></table>
+<div class="codeline">Test me with &quot;1845 / z / z / 1787 / 1792 / z / 1845 / g&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "1845 / z / z / 1787 / 1792 / z / 1845 / g".</summary><div class="testme-output">Lab<br>You can see Sam here.<br><br>>(Testing.)<br><br>>[1] 1845<br>I didn't understand that sentence.<br><br>>[2] z<br>Time passes.<br><br>Sam asks you, "In what year was Florida admitted into the Union?"<br><br>>[3] z<br>(ignoring the question)<br><br>Time passes.<br><br>Sam asks you, "In what year was Hawaii admitted into the Union?"<br><br>>[4] 1787<br>Wrong!<br><br>Sam asks you, "In what year was Delaware admitted into the Union?"<br><br>>[5] 1792<br>Wrong!<br><br>Sam asks you, "In what year was Hawaii admitted into the Union?"<br><br>>[6] z<br>(ignoring the question)<br><br>Time passes.<br><br>>[7] 1845<br>I didn't understand that sentence.<br><br>>[8] g<br>I didn't understand that sentence.
+</div></details><p>Note that the situation will become a little more complicated if we have two or more identical topics in our trivia list; in that case, we would need to loop through the Table of Dates of Statehood explicitly, and only mark the player wrong if none of the lines were found to match. (See the chapter on Tables for many more ways to manipulate table behavior.)</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="claims_adjustment.html" title="An instant camera that spits out photographs of anything the player chooses to take a picture of.">322. Claims Adjustment</a></div><div class="doc-navbar-right"><a href="bibliophilia.html" title="A bookshelf with a number of books, where the player&#39;s command to examine something will be interpreted as an attempt to look up titles if the bookshelf is present, but otherwise given the usual response.">324. Bibliophilia</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

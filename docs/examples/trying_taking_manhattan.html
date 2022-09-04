@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 204. Trying Taking Manhattan</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Trying Taking Manhattan</h1><div class="subheading">Example 204 ★★★</div>
+<div class="linkback">
+<a href="../WI_12.html#section_11" title="Advanced Actions &gt; Making actions work for other people">WI §12.11 Making actions work for other people</a><br><a href="../RB_6.html#section_7" title="Commands &gt; Inventory">RB §6.7 Inventory</a>
+</div>
+<p class="example-desc">Replacing the inventory reporting rule with another which does something slightly different.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="man_of_steel.html" title="An escaping action which means &quot;go to any room you can reach from here&quot;, and is only useful to non-player characters.">203. The Man of Steel</a></div><div class="doc-navbar-right"><a href="under_contract.html" title="Creating a person who accepts most instructions and reacts correctly when a request leads implicitly to inappropriate behavior.">205. Under Contract</a></div></div>
+</header>
+<p>Inform has built-in commands for other people, and sometimes we may want to adjust the way these work without completely disabling and replacing the command. Suppose, for instance, that instead of</p>
+<div class="codeblock"><div class="codeline">Kermit the Frog looks through his possessions.</div>
+</div><p>we&#39;d like someone taking inventory to report what he&#39;s got, thus:</p>
+<div class="codeblock"><div class="codeline">Kermit the Frog says, &quot;I seem to be carrying a microphone and wearing a hat and a trenchcoat.&quot;</div>
+</div><p>To do this, we could replace the built-in report rule with a different one.</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex204">Play/modify Trying Taking Manhattan in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="Muppets/index.html">Play Trying Taking Manhattan in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Trying Taking Manhattan&quot;\n\nThe loud inventory rule is listed instead of the report other people taking inventory rule in the report taking inventory rules.\n\nThis is the loud inventory rule:\n\tunless the player is the person asked:\n\t\tsay &quot;[The person asked] says, &apos;I seem to be carrying [a list of things carried by the person asked][if the person asked is wearing something] and wearing [a list of things worn by the person asked][end if].&apos;&quot;\n\nPersuasion rule for asking someone to try doing something: persuasion succeeds.\n\nGrand Central Station is a room. &quot;Here you are in New York, New York. Any minute now someone is going to burst into song.&quot;\n\nKermit the Frog is a man in Grand Central Station. &quot;Kermit the Frog stands nearby, enjoying being green.&quot; Kermit is wearing a hat and a trenchcoat. He is carrying a microphone.\n\nTest me with &quot;inventory / kermit, inventory&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Trying Taking Manhattan&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The loud inventory rule is listed instead of the report other people taking inventory rule in the report taking inventory rules.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">This is the loud inventory rule:</div>
+<div class="codeline">&ensp;&ensp;unless the player is the person asked:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;[The person asked] says, &#39;I seem to be carrying [a list of things carried by the person asked][if the person asked is wearing something] and wearing [a list of things worn by the person asked][end if].&#39;&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Persuasion rule for asking someone to try doing something: persuasion succeeds.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Grand Central Station is a room. &quot;Here you are in New York, New York. Any minute now someone is going to burst into song.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Kermit the Frog is a man in Grand Central Station. &quot;Kermit the Frog stands nearby, enjoying being green.&quot; Kermit is wearing a hat and a trenchcoat. He is carrying a microphone.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;inventory / kermit, inventory&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "inventory / kermit, inventory".</summary><div class="testme-output">Grand Central Station<br>Here you are in New York, New York. Any minute now someone is going to burst into song.<br><br>Kermit the Frog stands nearby, enjoying being green.<br><br>>(Testing.)<br><br>>[1] inventory<br>You are carrying nothing.<br><br>>[2] kermit, inventory<br>Kermit the Frog says, "I seem to be carrying a microphone and wearing a hat and a trenchcoat."
+</div></details><div class="doc-navbar"><div class="doc-navbar-left"><a href="man_of_steel.html" title="An escaping action which means &quot;go to any room you can reach from here&quot;, and is only useful to non-player characters.">203. The Man of Steel</a></div><div class="doc-navbar-right"><a href="under_contract.html" title="Creating a person who accepts most instructions and reacts correctly when a request leads implicitly to inappropriate behavior.">205. Under Contract</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 21. Escape</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Escape</h1><div class="subheading">Example 21 ★★</div>
+<div class="linkback">
+<a href="../WI_3.html#section_12" title="Things &gt; Doors">WI §3.12 Doors</a><br><a href="../RB_3.html#section_6" title="Place &gt; Windows">RB §3.6 Windows</a>
+</div>
+<p class="example-desc">Window that can be climbed through or looked through.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="disenchantment_bay5.html" title="Disenchantment Bay: adding the door and the deck to our charter boat.">20. Disenchantment Bay 5</a></div><div class="doc-navbar-right"><a href="garibaldi.html" title="Providing a security readout device by which the player can check on the status of all doors in the game.">22. Garibaldi 1</a></div></div>
+</header>
+<p>Suppose we want to offer the player a window he can climb through, instead of a boring ordinary door. Our window will be like a door in that it connects two rooms, appears in both places, and impedes movement when it is shut. But we also want to add that we can look through it and see what lies on the other side; and we further want to understand &quot;climb through window&quot; or &quot;jump through window&quot; as attempts to pass through it.</p>
+<p>We&#39;ll start by defining a couple of rooms and making the window a door between them.</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex21">Play/modify Escape in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="BaseWindow/index.html">Play Escape in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Escape&quot;\n\nYour Bedroom is a room. The bedroom window is a door. It is west of Your Bedroom and east of the Grassy Slope.\n\n\nInstead of searching the window:\n\tsay &quot;Through the window, you make out [the other side of the window].&quot;\n\n\nInstead of climbing the window:\n\ttry entering the window.\n\n\nUnderstand &quot;climb through [something]&quot; as climbing. Understand &quot;jump through [something]&quot; as climbing.\n\n\nInstead of going through the closed window:\n\tsay &quot;The window is shut: you&apos;d break the glass.&quot;\n\nTest me with &quot;look through window / climb through window / open window / climb through window / look through window / close window / e / open window / e&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Escape&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Your Bedroom is a room. The bedroom window is a door. It is west of Your Bedroom and east of the Grassy Slope.</div>
+</div><p>Now we have a &quot;bedroom window&quot; object which can be entered. Now, to catch the case where the player types &quot;LOOK THROUGH WINDOW&quot;:</p>
+<div class="codeblock"><div class="codeline">Instead of searching the window:</div>
+<div class="codeline">&ensp;&ensp;say &quot;Through the window, you make out [the other side of the window].&quot;</div>
+</div><p>The other side of a door is always defined to be the room that we are not currently in when doing the check. When we are in the bedrooom, the other side will be the grassy slope, and vice versa. &quot;Searching&quot; is the action that occurs when the player attempts to LOOK THROUGH something. (To review what grammar gives rise to what actions, we can always consult the Actions portion of the Index.)</p>
+<p>Next we want to cover the case where we climb through the window:</p>
+<div class="codeblock"><div class="codeline">Instead of climbing the window:</div>
+<div class="codeline">&ensp;&ensp;try entering the window.</div>
+</div><p>And because &quot;climb window&quot; is understood but &quot;climb THROUGH window&quot; is not, we will have to borrow from the chapter on Understanding to add some new vocabulary to the game (and we&#39;ll add Jump too, while we&#39;re at it):</p>
+<div class="codeblock"><div class="codeline">Understand &quot;climb through [something]&quot; as climbing. Understand &quot;jump through [something]&quot; as climbing.</div>
+</div><p>Now the final piece: Inform will already keep the player from going through a closed window, but it will say &quot;You can&#39;t, since the bedroom window is in the way.&quot; This is probably not ideal, so we can replace the instruction thus:</p>
+<div class="codeblock"><div class="codeline">Instead of going through the closed window:</div>
+<div class="codeline">&ensp;&ensp;say &quot;The window is shut: you&#39;d break the glass.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;look through window / climb through window / open window / climb through window / look through window / close window / e / open window / e&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "look through window / climb through window / open window / climb through window / look through window / close window / e / open window / e".</summary><div class="testme-output">Your Bedroom<br>You can see a bedroom window here.<br><br>>(Testing.)<br><br>>[1] look through window<br>Through the window, you make out the Grassy Slope.<br><br>>[2] climb through window<br>The window is shut: you'd break the glass.<br><br>>[3] open window<br>You open the bedroom window.<br><br>>[4] climb through window<br><br>Grassy Slope<br>You can see a bedroom window here.<br><br>>[5] look through window<br>Through the window, you make out Your Bedroom.<br><br>>[6] close window<br>You close the bedroom window.<br><br>>[7] e<br>The window is shut: you'd break the glass.<br><br>>[8] open window<br>You open the bedroom window.<br><br>>[9] e<br><br>Your Bedroom<br>You can see a bedroom window here.
+</div></details><div class="doc-navbar"><div class="doc-navbar-left"><a href="disenchantment_bay5.html" title="Disenchantment Bay: adding the door and the deck to our charter boat.">20. Disenchantment Bay 5</a></div><div class="doc-navbar-right"><a href="garibaldi.html" title="Providing a security readout device by which the player can check on the status of all doors in the game.">22. Garibaldi 1</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

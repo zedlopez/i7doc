@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 218. Flashlight</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Flashlight</h1><div class="subheading">Example 218 ★</div>
+<div class="linkback">
+<a href="../WI_12.html#section_19" title="Advanced Actions &gt; Changing visibility">WI §12.19 Changing visibility</a><br><a href="../RB_6.html#section_6" title="Commands &gt; Looking Under and Hiding">RB §6.6 Looking Under and Hiding</a>
+</div>
+<p class="example-desc">Visibility set so that looking under objects produces no result unless the player has a light source to shine there (regardless of the light level of the room).</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="dinner_is_served.html" title="A window between two locations. When the window is open, the player can reach through into the other location; when it isn&#39;t, access is barred.">217. Dinner is Served</a></div><div class="doc-navbar-right"><a href="bosch.html" title="Creating a list of actions that will earn the player points, and using this both to change the score and to give FULL SCORE reports.">219. Bosch</a></div></div>
+</header>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex218">Play/modify Flashlight in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="Marble/index.html">Play Flashlight in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Flashlight&quot;\n\nThe Schoolhouse is a room. &quot;Though normally comfortable, the room is dark and menacing during the storm; rain sheets on the windows, and you can barely see the flash of the lighthouse only a few miles away.&quot;\n\nThe cabinet is a fixed in place openable container in the Schoolhouse. The hurricane lantern is a thing in the Schoolhouse. &quot;A hurricane lantern hangs from a peg.&quot; The lantern is lit.\n\nVisibility rule when looking under something:\n\tif the player is carrying a lit thing (called lamp):\n\t\tsay &quot;You shine [the lamp] under [the noun]...&quot;;\n\t\tthere is sufficient light;\n\tthere is insufficient light.\n\nThere is a marble. The marble can be found or lost. The marble is lost.\n\nInstead of looking under the cabinet when the marble is lost:\n\tmove the marble to the player;\n\tnow the marble is found;\n\tsay &quot;Billy&apos;s lost marble! So that&apos;s where it got to!&quot;\n\nTest me with &quot;look under cabinet / get lantern / look under cabinet&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Flashlight&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Schoolhouse is a room. &quot;Though normally comfortable, the room is dark and menacing during the storm; rain sheets on the windows, and you can barely see the flash of the lighthouse only a few miles away.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The cabinet is a fixed in place openable container in the Schoolhouse. The hurricane lantern is a thing in the Schoolhouse. &quot;A hurricane lantern hangs from a peg.&quot; The lantern is lit.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Visibility rule when looking under something:</div>
+<div class="codeline">&ensp;&ensp;if the player is carrying a lit thing (called lamp):</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;You shine [the lamp] under [the noun]...&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;there is sufficient light;</div>
+<div class="codeline">&ensp;&ensp;there is insufficient light.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">There is a marble. The marble can be found or lost. The marble is lost.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of looking under the cabinet when the marble is lost:</div>
+<div class="codeline">&ensp;&ensp;move the marble to the player;</div>
+<div class="codeline">&ensp;&ensp;now the marble is found;</div>
+<div class="codeline">&ensp;&ensp;say &quot;Billy&#39;s lost marble! So that&#39;s where it got to!&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;look under cabinet / get lantern / look under cabinet&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "look under cabinet / get lantern / look under cabinet".</summary><div class="testme-output">Schoolhouse<br>Though normally comfortable, the room is dark and menacing during the storm; rain sheets on the windows, and you can barely see the flash of the lighthouse only a few miles away.<br><br>A hurricane lantern hangs from a peg.<br><br>You can also see a cabinet (empty) here.<br><br>>(Testing.)<br><br>>[1] look under cabinet<br>It is pitch dark, and you can't see a thing.<br><br>>[2] get lantern<br>Taken.<br><br>>[3] look under cabinet<br>You shine the hurricane lantern under the cabinet...<br><br>Billy's lost marble! So that's where it got to!
+</div></details><p>Because visibility is checked before instead rules, this discovery will (correctly) occur only when the player does have enough light.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="dinner_is_served.html" title="A window between two locations. When the window is open, the player can reach through into the other location; when it isn&#39;t, access is barred.">217. Dinner is Served</a></div><div class="doc-navbar-right"><a href="bosch.html" title="Creating a list of actions that will earn the player points, and using this both to change the score and to give FULL SCORE reports.">219. Bosch</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

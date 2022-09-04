@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 257. Lethal Concentration 2</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Lethal Concentration 2</h1><div class="subheading">Gas diffusion in which gas is heavier than air: Example 257 ★★★</div>
+<div class="linkback">
+<a href="../WI_15.html#section_8" title="Numbers and Equations &gt; Units">WI §15.8 Units</a><br><a href="../RB_10.html#section_1" title="Physics: Substances, Ropes, Energy and Weight &gt; Gases">RB §10.1 Gases</a>
+</div>
+<p class="example-desc">Poisonous gas again, only this time it sinks.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="lethal_concentration.html" title="A poisonous gas that spreads from room to room, incapacitating or killing the player when it reaches sufficient levels.">255. Lethal Concentration 1</a></div></div><div class="doc-navbar"><div class="doc-navbar-left"><a href="wonderland.html" title="Hiking Mount Rainier, with attention to which locations are higher and which lower than the present location.">256. Wonderland</a></div><div class="doc-navbar-right"><a href="dimensions.html" title="This example draws together the previous snippets into a working implementation of the weighbridge.">258. Dimensions</a></div></div>
+</header>
+<p>This is a slight variation on the previous gas diffusion example: the main difference is that gas preferentially moves towards lower rooms, and will gradually settle in the bottom floor. We do this by calculating the probability of movement separately for each pair of rooms.</p>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Lethal Concentration&quot;\n\nA concentration is a kind of value. 200.9ppm specifies concentration. 200.9 ppm specifies concentration.\n\nA room has a concentration called current concentration. A room has a concentration called former concentration.\n\nTo decide what number is the probability inverse between (space - a room) and (second space - a room):\n\tlet guess be 20;\n\tlet way be the best route from space to second space;\n\tif way is up, let guess be 50;\n\tif way is down, let guess be 10;\n\tif the guess is less than 10, decide on 10;\n\tdecide on guess.\n\n\nEvery turn:\n\tfollow the diffusion rules.\n\nThe diffusion rules are a rulebook.\n\nA diffusion rule (this is the gas movement rule):\n\trepeat with space running through rooms:\n\t\tlet sum be 0.0 ppm;\n\t\trepeat with way running through directions:\n\t\t\tlet second space be the room way from the space;\n\t\t\tif second space is a room:\n\t\t\t\tlet incoming be the former concentration of the second space divided by the probability inverse between second space and space;\n\t\t\t\tlet outgoing be the former concentration of the space divided by the probability inverse between space and second space;\n\t\t\t\tlet difference be incoming minus outgoing;\n\t\t\t\tincrease sum by the difference;\n\t\tnow current concentration of the space is the former concentration of the space plus the sum.\n\nA diffusion rule (this is the resetting concentration rule):\n\trepeat with space running through rooms:\n\t\tnow the former concentration of the space is the current concentration of the space.\n\nThe last diffusion rule (this is the lethal dosage rule):\n\tif the current concentration of the location is greater than LC50:\n\t\tsay &quot;The concentration in the air overpowers you...&quot;;\n\t\tend the story;\n\totherwise:\n\t\tif the current concentration of the location is greater than TLV-STEL:\n\t\t\tsay &quot;You feel extremely uncomfortable in this environment.&quot;\n\nInstead of doing something when the current concentration of the location is greater than TLV-STEL:\n\tif going, continue the action;\n\tsay &quot;You can&apos;t work in this environment: your eyes and nose sting and it hurts to breathe.&quot;\n\nRoom 1A is west of Room 1B. Room 1B is west of Room 1C. Room 1C is west of Room 1D. Room 1D is west of Room 1E.\n\nRoom 2A is west of Room 2B and below room 1A. Room 2B is west of Room 2C and below Room 1B. Room 2C is west of Room 2D and below Room 1C. Room 2D is west of Room 2E and below Room 1D. Room 2E is south of Room 1E and below Room 1E.\n\nThe former concentration of Room 1C is 800.0 ppm.\n\nThe status grid is a device carried by the player. The status grid is switched on.\n\n\nEvery turn:\n\ttry examining the grid.\n\n\tInstead of examining the status grid:\n\tsay &quot;[unicode box drawings light down and right][top bar][unicode box drawings light down and left][line break]&quot;;\n\tsay &quot;[unicode box drawings light vertical]&quot;;\n\tsay &quot;[state of room 1A][state of room 1B][state of room 1C][state of room 1D][state of room 1E]   upstairs[line break]&quot;;\n\tsay &quot;[unicode box drawings light vertical and right][middle bar][unicode box drawings light vertical and left][line break]&quot;;\n\tsay &quot;[unicode box drawings light vertical]&quot;;\n\tsay &quot;[state of room 2A][state of room 2B][state of room 2C][state of room 2D][state of room 2E]   downstairs[line break]&quot;;\n\tsay &quot;[unicode box drawings light up and right][bottom bar][unicode box drawings light up and left][variable letter spacing][line break]&quot;\n\nInclude Unicode Character Names by Graham Nelson.\n\nTo say top bar:\n\trepeat with N running from 1 to 9:\n\t\tif the remainder after dividing N by 2 is 0, say &quot;[unicode box drawings light down and horizontal]&quot;;\n\t\totherwise say &quot;[unicode box drawings light horizontal]&quot;.\n\nTo say middle bar:\n\trepeat with N running from 1 to 9:\n\t\tif the remainder after dividing N by 2 is 0, say &quot;[unicode box drawings light vertical and horizontal]&quot;;\n\t\totherwise say &quot;[unicode box drawings light triple dash horizontal]&quot;.\n\nTo say bottom bar:\n\trepeat with N running from 1 to 9:\n\t\tif the remainder after dividing N by 2 is 0, say &quot;[unicode box drawings light up and horizontal]&quot;;\n\t\totherwise say &quot;[unicode box drawings light horizontal]&quot;.\n\nTLV is a concentration that varies. TLV is 30.0ppm. [Long-term exposure maximum, safe for 8 hours a day.]\n\nTLV-STEL is a concentration that varies. TLV-STEL is 50.0ppm. [Short-term exposure maximum, safe for fifteen minutes max.]\n\nTLV-C is a concentration that varies. TLV-C is 150.0ppm. [Absolute exposure ceiling.]\n\nLC50 is a concentration that varies. LC50 is 300.0ppm. [Concentration at which 50 percent of test subjects die of exposure, usually expressed in terms of time and body weight; in our LC50 these are factored in for the player&apos;s weight for one minute.]\n\nInclude Basic Screen Effects by Emily Short.\n\nTo say state of (space - a room):\n\tif the current concentration of space is less than TLV, say blue letters;\n\tif the current concentration of space is TLV, say blue letters;\n\tif the current concentration of space is greater than TLV, say green letters;\n\tif the current concentration of space is greater than TLV-STEL, say yellow letters;\n\tif the current concentration of space is greater than TLV-C, say red letters;\n\tsay &quot;[unicode square with diagonal crosshatch fill]&quot;;\n\tsay default letters;\n\tsay &quot;[unicode box drawings light vertical]&quot;.\n\nTest me with &quot;z / z / z / z / z / z / z / z&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Lethal Concentration&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A concentration is a kind of value. 200.9ppm specifies concentration. 200.9 ppm specifies concentration.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A room has a concentration called current concentration. A room has a concentration called former concentration.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">To decide what number is the probability inverse between (space - a room) and (second space - a room):</div>
+<div class="codeline">&ensp;&ensp;let guess be 20;</div>
+<div class="codeline">&ensp;&ensp;let way be the best route from space to second space;</div>
+<div class="codeline">&ensp;&ensp;if way is up, let guess be 50;</div>
+<div class="codeline">&ensp;&ensp;if way is down, let guess be 10;</div>
+<div class="codeline">&ensp;&ensp;if the guess is less than 10, decide on 10;</div>
+<div class="codeline">&ensp;&ensp;decide on guess.</div>
+</div><p>If we wanted, we could introduce other concerns into the calculation here: open and closed doors, windows between rooms, rooms that are outdoors vs. those that are indoors, and so on. The possibilities are numerous, so we will stick with the simple principle that our poison gas sinks.</p>
+<div class="codeblock"><div class="codeline">Every turn:</div>
+<div class="codeline">&ensp;&ensp;follow the diffusion rules.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The diffusion rules are a rulebook.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A diffusion rule (this is the gas movement rule):</div>
+<div class="codeline">&ensp;&ensp;repeat with space running through rooms:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;let sum be 0.0 ppm;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;repeat with way running through directions:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;let second space be the room way from the space;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if second space is a room:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;let incoming be the former concentration of the second space divided by the probability inverse between second space and space;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;let outgoing be the former concentration of the space divided by the probability inverse between space and second space;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;let difference be incoming minus outgoing;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;increase sum by the difference;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;now current concentration of the space is the former concentration of the space plus the sum.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A diffusion rule (this is the resetting concentration rule):</div>
+<div class="codeline">&ensp;&ensp;repeat with space running through rooms:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;now the former concentration of the space is the current concentration of the space.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The last diffusion rule (this is the lethal dosage rule):</div>
+<div class="codeline">&ensp;&ensp;if the current concentration of the location is greater than LC50:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;The concentration in the air overpowers you...&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;end the story;</div>
+<div class="codeline">&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;if the current concentration of the location is greater than TLV-STEL:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;You feel extremely uncomfortable in this environment.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of doing something when the current concentration of the location is greater than TLV-STEL:</div>
+<div class="codeline">&ensp;&ensp;if going, continue the action;</div>
+<div class="codeline">&ensp;&ensp;say &quot;You can&#39;t work in this environment: your eyes and nose sting and it hurts to breathe.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Room 1A is west of Room 1B. Room 1B is west of Room 1C. Room 1C is west of Room 1D. Room 1D is west of Room 1E.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Room 2A is west of Room 2B and below room 1A. Room 2B is west of Room 2C and below Room 1B. Room 2C is west of Room 2D and below Room 1C. Room 2D is west of Room 2E and below Room 1D. Room 2E is south of Room 1E and below Room 1E.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The former concentration of Room 1C is 800.0 ppm.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The status grid is a device carried by the player. The status grid is switched on.</div>
+</div><p>And just for fun, this time we&#39;ll make the grid prettier, too; but this will work only on the Z-machine setting, not Glulx.</p>
+<div class="codeblock"><div class="codeline">Every turn:</div>
+<div class="codeline">&ensp;&ensp;try examining the grid.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;Instead of examining the status grid:</div>
+<div class="codeline">&ensp;&ensp;say &quot;[unicode box drawings light down and right][top bar][unicode box drawings light down and left][line break]&quot;;</div>
+<div class="codeline">&ensp;&ensp;say &quot;[unicode box drawings light vertical]&quot;;</div>
+<div class="codeline">&ensp;&ensp;say &quot;[state of room 1A][state of room 1B][state of room 1C][state of room 1D][state of room 1E]   upstairs[line break]&quot;;</div>
+<div class="codeline">&ensp;&ensp;say &quot;[unicode box drawings light vertical and right][middle bar][unicode box drawings light vertical and left][line break]&quot;;</div>
+<div class="codeline">&ensp;&ensp;say &quot;[unicode box drawings light vertical]&quot;;</div>
+<div class="codeline">&ensp;&ensp;say &quot;[state of room 2A][state of room 2B][state of room 2C][state of room 2D][state of room 2E]   downstairs[line break]&quot;;</div>
+<div class="codeline">&ensp;&ensp;say &quot;[unicode box drawings light up and right][bottom bar][unicode box drawings light up and left][variable letter spacing][line break]&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Include Unicode Character Names by Graham Nelson.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">To say top bar:</div>
+<div class="codeline">&ensp;&ensp;repeat with N running from 1 to 9:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;if the remainder after dividing N by 2 is 0, say &quot;[unicode box drawings light down and horizontal]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;otherwise say &quot;[unicode box drawings light horizontal]&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">To say middle bar:</div>
+<div class="codeline">&ensp;&ensp;repeat with N running from 1 to 9:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;if the remainder after dividing N by 2 is 0, say &quot;[unicode box drawings light vertical and horizontal]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;otherwise say &quot;[unicode box drawings light triple dash horizontal]&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">To say bottom bar:</div>
+<div class="codeline">&ensp;&ensp;repeat with N running from 1 to 9:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;if the remainder after dividing N by 2 is 0, say &quot;[unicode box drawings light up and horizontal]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;otherwise say &quot;[unicode box drawings light horizontal]&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">TLV is a concentration that varies. TLV is 30.0ppm. [Long-term exposure maximum, safe for 8 hours a day.]</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">TLV-STEL is a concentration that varies. TLV-STEL is 50.0ppm. [Short-term exposure maximum, safe for fifteen minutes max.]</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">TLV-C is a concentration that varies. TLV-C is 150.0ppm. [Absolute exposure ceiling.]</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">LC50 is a concentration that varies. LC50 is 300.0ppm. [Concentration at which 50 percent of test subjects die of exposure, usually expressed in terms of time and body weight; in our LC50 these are factored in for the player&#39;s weight for one minute.]</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Include Basic Screen Effects by Emily Short.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">To say state of (space - a room):</div>
+<div class="codeline">&ensp;&ensp;if the current concentration of space is less than TLV, say blue letters;</div>
+<div class="codeline">&ensp;&ensp;if the current concentration of space is TLV, say blue letters;</div>
+<div class="codeline">&ensp;&ensp;if the current concentration of space is greater than TLV, say green letters;</div>
+<div class="codeline">&ensp;&ensp;if the current concentration of space is greater than TLV-STEL, say yellow letters;</div>
+<div class="codeline">&ensp;&ensp;if the current concentration of space is greater than TLV-C, say red letters;</div>
+<div class="codeline">&ensp;&ensp;say &quot;[unicode square with diagonal crosshatch fill]&quot;;</div>
+<div class="codeline">&ensp;&ensp;say default letters;</div>
+<div class="codeline">&ensp;&ensp;say &quot;[unicode box drawings light vertical]&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;z / z / z / z / z / z / z / z&quot;.</div>
+</div><div class="doc-navbar"><div class="doc-navbar-left"><a href="lethal_concentration.html" title="A poisonous gas that spreads from room to room, incapacitating or killing the player when it reaches sufficient levels.">255. Lethal Concentration 1</a></div></div><div class="doc-navbar"><div class="doc-navbar-left"><a href="wonderland.html" title="Hiking Mount Rainier, with attention to which locations are higher and which lower than the present location.">256. Wonderland</a></div><div class="doc-navbar-right"><a href="dimensions.html" title="This example draws together the previous snippets into a working implementation of the weighbridge.">258. Dimensions</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

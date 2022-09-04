@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 53. Signs and Portents</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Signs and Portents</h1><div class="subheading">Example 53 ★★★</div>
+<div class="linkback">
+<a href="../WI_4.html#section_9" title="Kinds &gt; Using new kinds of value in properties">WI §4.9 Using new kinds of value in properties</a><br><a href="../RB_9.html#section_8" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Simple Machines">RB §9.8 Simple Machines</a>
+</div>
+<p class="example-desc">Signpost that points to various destinations, depending on how the player has turned it.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="cranes_leg.html" title="A description text that automatically highlights the ways in which the object differs from a standard member of its kind.">52. The Crane's Leg 1</a></div><div class="doc-navbar-right"><a href="real_adventurers_need_no_help.html" title="Allowing the player to turn off all access to hints for the duration of a game, in order to avoid the temptation to rely on them overmuch.">54. Real Adventurers Need No Help</a></div></div>
+</header>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex53">Play/modify Signs and Portents in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="Weston/index.html">Play Signs and Portents in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Signs and Portents&quot;\n\nSeven Dials is a room. The description of Seven Dials is &quot;There is a signpost, on which seven hands swivel and swing, freely as weathercocks. They make your present road now London, now Abingdon; now Weston-super-Mare, or now Hell.&quot;\n\nSeven Dials contains a signpost. The signpost is scenery. Understand &quot;sign&quot; and &quot;post&quot; as the signpost.\n\nDestination is a kind of value. The destinations are London, Abingdon, Luton, Weston-super-Mare, Runnymede, Hell, and Low Noon.\n\nThe signpost has a destination.\n\n\nInstead of examining the signpost:\n\tsay &quot;[The signpost] currently puts you on the road to [italic type][the destination of the signpost][roman type], but it swiftly alters again.&quot;;\n\tnow the destination of the signpost is the destination after the destination of the signpost.\n\nInstead of turning the signpost:\n\tnow the destination of the signpost is the destination after the destination of the signpost;\n\tsay &quot;With a hand&apos;s touch you turn the signpost to mark your way for [italic type][the destination of the signpost][roman type].&quot;\n\nInstead of going north in Seven Dials when the destination of the signpost is Hell:\n\tsay &quot;It is a path that goes gently ever down and down with no stumbling block or any distraction at either side; there are no bandits and no tolls.&quot;;\n\tend the story.\n\nInstead of going north in Seven Dials when the destination of the signpost is Low Noon:\n\tsay &quot;A long road whose scenery does not change, nor anything on the horizon move but the sun. When at last you come to Noon, she hangs above your head like a hat.&quot;;\n\tend the story finally.\n\nTest me with &quot;x signpost / n / turn signpost / n / turn signpost / n / turn signpost / n / turn signpost / n&quot;.\n\nTest more with  &quot;x signpost / n / turn signpost / n / turn signpost / n / turn signpost / n / turn signpost / turn signpost / n&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Signs and Portents&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Seven Dials is a room. The description of Seven Dials is &quot;There is a signpost, on which seven hands swivel and swing, freely as weathercocks. They make your present road now London, now Abingdon; now Weston-super-Mare, or now Hell.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Seven Dials contains a signpost. The signpost is scenery. Understand &quot;sign&quot; and &quot;post&quot; as the signpost.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Destination is a kind of value. The destinations are London, Abingdon, Luton, Weston-super-Mare, Runnymede, Hell, and Low Noon.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The signpost has a destination.</div>
+</div><p>In order to interact with the signpost, we will need to make use of some action rules:</p>
+<div class="codeblock"><div class="codeline">Instead of examining the signpost:</div>
+<div class="codeline">&ensp;&ensp;say &quot;[The signpost] currently puts you on the road to [italic type][the destination of the signpost][roman type], but it swiftly alters again.&quot;;</div>
+<div class="codeline">&ensp;&ensp;now the destination of the signpost is the destination after the destination of the signpost.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of turning the signpost:</div>
+<div class="codeline">&ensp;&ensp;now the destination of the signpost is the destination after the destination of the signpost;</div>
+<div class="codeline">&ensp;&ensp;say &quot;With a hand&#39;s touch you turn the signpost to mark your way for [italic type][the destination of the signpost][roman type].&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of going north in Seven Dials when the destination of the signpost is Hell:</div>
+<div class="codeline">&ensp;&ensp;say &quot;It is a path that goes gently ever down and down with no stumbling block or any distraction at either side; there are no bandits and no tolls.&quot;;</div>
+<div class="codeline">&ensp;&ensp;end the story.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of going north in Seven Dials when the destination of the signpost is Low Noon:</div>
+<div class="codeline">&ensp;&ensp;say &quot;A long road whose scenery does not change, nor anything on the horizon move but the sun. When at last you come to Noon, she hangs above your head like a hat.&quot;;</div>
+<div class="codeline">&ensp;&ensp;end the story finally.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;x signpost / n / turn signpost / n / turn signpost / n / turn signpost / n / turn signpost / n&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test more with  &quot;x signpost / n / turn signpost / n / turn signpost / n / turn signpost / n / turn signpost / turn signpost / n&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "x signpost / n / turn signpost / n / turn signpost / n / turn signpost / n / turn signpost / n".</summary><div class="testme-output">Seven Dials<br>There is a signpost, on which seven hands swivel and swing, freely as weathercocks. They make your present road now London, now Abingdon; now Weston-super-Mare, or now Hell.<br><br>>(Testing.)<br><br>>[1] x signpost<br>The signpost currently puts you on the road to London, but it swiftly alters again.<br><br>>[2] n<br>You can't go that way.<br><br>>[3] turn signpost<br>With a hand's touch you turn the signpost to mark your way for Luton.<br><br>>[4] n<br>You can't go that way.<br><br>>[5] turn signpost<br>With a hand's touch you turn the signpost to mark your way for Weston-super-Mare.<br><br>>[6] n<br>You can't go that way.<br><br>>[7] turn signpost<br>With a hand's touch you turn the signpost to mark your way for Runnymede.<br><br>>[8] n<br>You can't go that way.<br><br>>[9] turn signpost<br>With a hand's touch you turn the signpost to mark your way for Hell.<br><br>>[10] n<br>It is a path that goes gently ever down and down with no stumbling block or any distraction at either side; there are no bandits and no tolls.<br><br><br><br>    *** The End ***<br><br><br><br><br>Would you like to RESTART, RESTORE a saved game, QUIT or UNDO the last command?<br>>
+</div></details><div class="doc-navbar"><div class="doc-navbar-left"><a href="cranes_leg.html" title="A description text that automatically highlights the ways in which the object differs from a standard member of its kind.">52. The Crane's Leg 1</a></div><div class="doc-navbar-right"><a href="real_adventurers_need_no_help.html" title="Allowing the player to turn off all access to hints for the duration of a game, in order to avoid the temptation to rely on them overmuch.">54. Real Adventurers Need No Help</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

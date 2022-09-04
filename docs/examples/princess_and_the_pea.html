@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 173. Princess and the Pea</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Princess and the Pea</h1><div class="subheading">Example 173 ★</div>
+<div class="linkback">
+<a href="../WI_11.html#section_7" title="Phrases &gt; Begin and end">WI §11.7 Begin and end</a><br><a href="../RB_8.html#section_4" title="Vehicles, Animals and Furniture &gt; Furniture">RB §8.4 Furniture</a>
+</div>
+<p class="example-desc">The player is unable to sleep on a mattress (or stack of mattresses) because the bottom one has something uncomfortable under it.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="matreshka.html" title="A SEARCH [room] action that will open every container the player can see, stopping only when there don&#39;t remain any that are closed, unlocked, and openable.">172. Matreshka</a></div><div class="doc-navbar-right"><a href="numberless.html" title="A simple exercise in printing the names of random numbers, comparing the use of &quot;otherwise if&hellip;&quot;, a switch statement, or a table-based alternative.">174. Numberless</a></div></div>
+</header>
+<p>The main point here is that we need to figure out where the stack meets the floor:</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex173">Play/modify Princess and the Pea in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="Pea/index.html">Play Princess and the Pea in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Princess and the Pea&quot;\n\nThe Topmost Turret is a room. A mattress is a kind of supporter. A mattress is always enterable. A mattress is portable.\n\nA large mattress is a mattress in the Turret. A medium mattress is a mattress in the Turret. A small mattress is a mattress in the Turret.\n\nInstead of sleeping when the player is on a mattress (called the bed):\n\tlet the item be the bed;\n\twhile the holder of the item is not a room:\n\t\tlet the item be the holder of the item;\n\tsay &quot;You can still feel something very uncomfortable under [the item].&quot;\n\nInstead of sleeping:\n\tsay &quot;You can&apos;t sleep standing up!&quot;\n\nInstead of looking under a mattress, say &quot;You scout around, but are unable to determine what&apos;s causing you this discomfort. If only your maid Winnie were here. She&apos;s very good at this.&quot;\n\nTest me with &quot;sleep / enter small / sleep / get up / get small / put small on medium / get on small / sleep / get up / g / get medium / put medium on large / get on small / look / sleep&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Princess and the Pea&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Topmost Turret is a room. A mattress is a kind of supporter. A mattress is always enterable. A mattress is portable.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A large mattress is a mattress in the Turret. A medium mattress is a mattress in the Turret. A small mattress is a mattress in the Turret.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of sleeping when the player is on a mattress (called the bed):</div>
+<div class="codeline">&ensp;&ensp;let the item be the bed;</div>
+<div class="codeline">&ensp;&ensp;while the holder of the item is not a room:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;let the item be the holder of the item;</div>
+<div class="codeline">&ensp;&ensp;say &quot;You can still feel something very uncomfortable under [the item].&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of sleeping:</div>
+<div class="codeline">&ensp;&ensp;say &quot;You can&#39;t sleep standing up!&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of looking under a mattress, say &quot;You scout around, but are unable to determine what&#39;s causing you this discomfort. If only your maid Winnie were here. She&#39;s very good at this.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;sleep / enter small / sleep / get up / get small / put small on medium / get on small / sleep / get up / g / get medium / put medium on large / get on small / look / sleep&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "sleep / enter small / sleep / get up / get small / put small on medium / get on small / sleep / get up / g / get medium / put medium on large / get on small / look / sleep".</summary><div class="testme-output">Topmost Turret<br>You can see a large mattress, a medium mattress and a small mattress here.<br><br>>(Testing.)<br><br>>[1] sleep<br>You can't sleep standing up!<br><br>>[2] enter small<br>You get onto the small mattress.<br><br>>[3] sleep<br>You can still feel something very uncomfortable under the small mattress.<br><br>>[4] get up<br>You get off the small mattress.<br><br>Topmost Turret<br>You can see a large mattress, a medium mattress and a small mattress here.<br><br>>[5] get small<br>Taken.<br><br>>[6] put small on medium<br>You put the small mattress on the medium mattress.<br><br>>[7] get on small<br>(getting onto the medium mattress)<br>You get onto the small mattress.<br><br>>[8] sleep<br>You can still feel something very uncomfortable under the medium mattress.<br><br>>[9] get up<br>You get off the small mattress.<br><br>Topmost Turret (on the medium mattress)<br>You can see a large mattress here.<br><br>On the medium mattress you can see a small mattress.<br><br>>[10] g<br>You get off the medium mattress.<br><br>Topmost Turret<br>You can see a large mattress and a medium mattress (on which is a small mattress) here.<br><br>>[11] get medium<br>Taken.<br><br>>[12] put medium on large<br>You put the medium mattress on the large mattress.<br><br>>[13] get on small<br>(getting onto the large mattress)<br>(getting onto the medium mattress)<br>You get onto the small mattress.<br><br>>[14] look<br>Topmost Turret (on the small mattress) (on the medium mattress) (on the large mattress)<br><br>>[15] sleep<br>You can still feel something very uncomfortable under the large mattress.
+</div></details><div class="doc-navbar"><div class="doc-navbar-left"><a href="matreshka.html" title="A SEARCH [room] action that will open every container the player can see, stopping only when there don&#39;t remain any that are closed, unlocked, and openable.">172. Matreshka</a></div><div class="doc-navbar-right"><a href="numberless.html" title="A simple exercise in printing the names of random numbers, comparing the use of &quot;otherwise if&hellip;&quot;, a switch statement, or a table-based alternative.">174. Numberless</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

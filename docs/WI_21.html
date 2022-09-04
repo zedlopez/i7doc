@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>WI 21. Lists</title>
+<script src="i7doc.js"></script>
+<link rel="stylesheet" href="i7doc.css">
+</head>
+<nav><div class="nav-el"><a href="index.html">Contents</a></div> <div class="nav-el"><a href="examples/index.html">Examples</a></div> <div class="nav-el"><a href="general_index.html">Index</a></div> <div class="nav-el"><a href="search.html">Search</a></div></nav>
+<body><header><h1 class="title">Writing with Inform</h1></header>
+<h2 id="chapter_21">21. Lists</h2>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="WI_20.html">20. Advanced Text</a></div><div class="doc-navbar-right"><a href="WI_22.html">22. Advanced Phrases</a></div></div>
+<div class="section-block">
+<div class="section-row">
+<div class="section-chapter-num">§21.</div><div class="section-section-num">1</div><div class="section-name"><a href="WI_21.html#section_1">Lists and entries</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§21.</div><div class="section-section-num">2</div><div class="section-name"><a href="WI_21.html#section_2">Constant lists</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§21.</div><div class="section-section-num">3</div><div class="section-name"><a href="WI_21.html#section_3">Saying lists of values</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§21.</div><div class="section-section-num">4</div><div class="section-name"><a href="WI_21.html#section_4">Testing and iterating over lists</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§21.</div><div class="section-section-num">5</div><div class="section-name"><a href="WI_21.html#section_5">Building lists</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§21.</div><div class="section-section-num">6</div><div class="section-name"><a href="WI_21.html#section_6">Lists of objects</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§21.</div><div class="section-section-num">7</div><div class="section-name"><a href="WI_21.html#section_7">Lists of values matching a description</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§21.</div><div class="section-section-num">8</div><div class="section-name"><a href="WI_21.html#section_8">Sorting, reversing and rotating lists</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§21.</div><div class="section-section-num">9</div><div class="section-name"><a href="WI_21.html#section_9">Accessing entries in a list</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§21.</div><div class="section-section-num">10</div><div class="section-name"><a href="WI_21.html#section_10">Lengthening or shortening a list</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§21.</div><div class="section-section-num">11</div><div class="section-name"><a href="WI_21.html#section_11">Variations: arrays, logs, queues, stacks, sets, sieves and rings</a></div>
+</div>
+</div>
+<h3 id="section_1">WI §21.1 Lists and entries</h3>
+<div class="sect-navbar"><div class="sect-navbar-center"><a href="#chapter_21">21. Lists</a></div><div class="sect-navbar-right"><a href="#section_2">21.2 Constant lists</a></div></div>
+<p>Many sections in this book begin by introducing a new kind of value. Reading through in order, the possibilities mount up: numbers, times, texts, and so on. (See the Kinds page of the Index for a convenient list of the options.) This section is a little different: rather than showing a single new kind of value, it shows how to make a new kind out of any existing one.</p>
+<p>If K is any kind of value, then &quot;list of K&quot; is also a kind of value. For instance, we could write:</p>
+<div class="codeblock"><div class="codeline">let L be a list of numbers;</div>
+</div><p>and this would create a new &quot;let&quot; variable, called L, whose kind of value is &quot;list of numbers&quot;. On the other hand, we are not allowed to write:</p>
+<div class="codeblock"><div class="codeline">let L be a list;</div>
+</div><p>because &quot;list&quot; by itself is not a kind of value. (Inform always needs to know what kinds the values entered in a list are going to have.)</p>
+<p>Lists are like flexible-length table columns, but that probably makes them sound more mysterious than they really are. A list is simply a sequence of values, called its &quot;entries&quot;, numbered from 1 upwards. The number of entries is called its &quot;length&quot;. If we try</p>
+<div class="codeblock"><div class="codeline">let L be a list of numbers;</div>
+<div class="codeline">say &quot;L has [the number of entries in L] entries.&quot;;</div>
+</div><p>then we find</p>
+<div class="codeblock"><div class="codeline">L has 0 entries.</div>
+</div><p>This is because all lists start out empty when created: that is, they initially have 0 entries. Inform has two built-in adjectives &quot;empty&quot; and &quot;non-empty&quot; which can apply to lists, and they mean just what they ought to mean: a list is empty if its length is 0, and otherwise non-empty.</p>
+<p>We can add entries very easily:</p>
+<div class="codeblock"><div class="codeline">add 2 to L; add 3 to L; add 5 to L;</div>
+</div><p>We can now, for instance, try saying the list:</p>
+<div class="codeblock"><div class="codeline">say &quot;L is now [L].&quot;;</div>
+</div><p>with the result</p>
+<div class="codeblock"><div class="codeline">L is now 2, 3 and 5.</div>
+</div><p>Note that only numbers can be added to L: if we try</p>
+<div class="codeblock"><div class="codeline">add &quot;clock&quot; to L;</div>
+</div><p>Inform will produce a problem message, because L has kind &quot;list of numbers&quot;, whereas &quot;clock&quot; is text. In this way, Inform ensures that a list always contains values of the same kind throughout. So it&#39;s not possible to construct a list whose entries are:</p>
+<div class="codeblock"><div class="codeline">2, &quot;fish&quot;, 4 and the Entire Game</div>
+</div><p>Such a list would be very hazardous to deal with, in any case. If what we need is a combination of different kinds of values, tables are a better option.</p>
+<p>Finally, note that since &quot;list of numbers&quot; is a kind of value in its own right, so is &quot;list of lists of numbers&quot;, and so on &ndash; though such lists are trickier to deal with, they are sometimes handy.</p>
+<h3 id="section_2">WI §21.2 Constant lists</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_1">21.1 Lists and entries</a></div><div class="sect-navbar-center"><a href="#chapter_21">21. Lists</a></div><div class="sect-navbar-right"><a href="#section_3">21.3 Saying lists of values</a></div></div>
+<p>It is convenient to have a concise way to write down a constant list. Just as we could write &quot;231&quot;, say, or &quot;7:01 AM&quot; to refer to particular number and time constants, so we can write list constants:</p>
+<div class="codeblock"><div class="codeline">let L be {1, 2, 3, 4};</div>
+</div><p>Inform recognises that &quot;{1, 2, 3, 4}&quot; is a list because of the braces, and looks at the entries inside, sees that they are numbers, and deduces that it is a constant whose kind of value is &quot;list of numbers&quot;. L is then a temporary list variable and we can add to it, remove things, and so on as we please &ndash; {1, 2, 3, 4} is merely its initial value.</p>
+<p>When constructing lists, it is worth noting that Inform requires spaces after the commas (which seems a little harsh, but is necessary because otherwise many sensible literal specifications for units would be impossible &ndash; anyway, the reason isn&#39;t important here). So</p>
+<div class="codeblock"><div class="codeline">let L be {1,2,3,4};</div>
+</div><p>would produce problem messages. But Inform does not require spaces round its braces.</p>
+<p>We call this way of writing a list &quot;brace notation&quot;. In mathematics, braces are usually used for sets, and properly speaking these are sequences not sets &ndash; so that &quot;{1, 2, 3, 4}&quot; is different from &quot;{4, 3, 2, 1}&quot; &ndash; but it is still a familiar notation. Similarly,</p>
+<div class="codeblock"><div class="codeline">let L be {&quot;apple&quot;, &quot;pear&quot;, &quot;loganberry&quot;};</div>
+</div><p>makes L a list of texts; and</p>
+<div class="codeblock"><div class="codeline">The marshmallow, the firework and the stink bomb are in the Scout Hut. The list of prohibited items is a list of objects that varies. The list of prohibited items is {the firework, the stink bomb}.</div>
+</div><p>makes a global variable (&quot;list of prohibited items&quot;) with kind of value &quot;list of objects&quot;, and whose initial value is to contain two things: the firework and the stink bomb. More exotically, if we need to make lists of lists:</p>
+<div class="codeblock"><div class="codeline">let L be {{1, 2}, {6, 7, 8}};</div>
+</div><p>gives L the kind of value &quot;list of lists of numbers&quot;, with (initially) two entries: the list {1, 2} (a list of numbers), then the list {6, 7, 8} (ditto).</p>
+<p>Constant lists are convenient, too, when a column in a table needs to contain lists:</p>
+<div class="codeblock"><div class="codeline">The duck, the orange, the cider, the cinnamon and the orange are in the Kitchen.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline tablename">Table of Requirements</div><table>
+<tr><td>recipe</td><td>ingredients</td></tr><tr><td>&quot;duck à l&#39;orange&quot;</td><td>{the duck, the orange}</td></tr><tr><td>&quot;spiced cider&quot;</td><td>{the cider, the cinnamon, the orange}</td></tr></table>
+</div><p>A special word about the constant list &quot;{ }&quot;. This means the list with no entries &ndash; the empty list. If we try to create a new &quot;let&quot; variable M with</p>
+<div class="codeblock"><div class="codeline">let M be { };</div>
+</div><p>then Inform will produce a problem message, because it cannot tell what sort of list M will be: a list of numbers, or texts, or times, or&hellip;? On the other hand, writing</p>
+<div class="codeblock"><div class="codeline">now M is { };</div>
+</div><p>is fine if M already exists, and then does the obvious thing &ndash; empties M. Similarly, a table column in which every entry is &quot;{ }&quot; produces a problem message unless the heading for that column spells out the kind of value stored within it: for instance, &quot;ingredients (list of texts)&quot;.</p>
+<p>All of this is a notation for constant lists only, not some sort of gluing-things-together operation. So this, for instance:</p>
+<div class="codeblock"><div class="codeline">let L be {100, the turn count};</div>
+</div><p>is not allowed, even though &quot;the turn count&quot; is a number: because it is a number that varies, the braces do not contain constants, and therefore this is not a list constant.</p>
+<h3 id="section_3">WI §21.3 Saying lists of values</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_2">21.2 Constant lists</a></div><div class="sect-navbar-center"><a href="#chapter_21">21. Lists</a></div><div class="sect-navbar-right"><a href="#section_4">21.4 Testing and iterating over lists</a></div></div>
+<p>Any list L can be said, provided that its contents can be said. For example:</p>
+<div class="codeblock"><div class="codeline">let L1 be {2, 3, 5, 7, 11};</div>
+<div class="codeline">say L1;</div>
+</div><p>produces the text &quot;2, 3, 5, 7 and 11&quot; &ndash; unless we have &quot;Use serial comma.&quot; set, in which case a comma appears after the 7. We also have the option of using the more formal notation:</p>
+<div class="defn" id="phs_listbraced"><span class="defn">say "[</span><span class="neutral">(list of values)</span><span class="defn"> in brace notation]"</span><p>This text substitution produces the list in the form of &quot;{&quot;, then a comma-separated list, and then &quot;}&quot;, which looks less like an English sentence but more mathematical. Example:</p>
+<div class="codeblock"><div class="codeline">&quot;[list of people in brace notation]&quot;</div>
+</div><p>might produce &quot;{ yourself, Mr Darcy, Flashman }&quot;.</p>
+</div><p>If we say a list of lists, then the individual entry lists are always printed in brace notation: the ordinary sentence way would be incomprehensible.</p>
+<p>Of course, the values in L1 are written out in number form because L1 is a list of numbers: we could alternatively try</p>
+<div class="codeblock"><div class="codeline">let L2 be {the piano, the music stand};</div>
+<div class="codeline">say L2;</div>
+</div><p>which produces &quot;piano and music stand&quot;. Lists of objects can be said in two additional ways:</p>
+<div class="defn" id="phs_listdef"><span class="defn">say "[</span><span class="neutral">(list of objects)</span><span class="defn"> with definite articles]"</span><p>This text substitution writes out the list in sentence form, adding the appropriate definite articles. Example:</p>
+<div class="codeblock"><div class="codeline">let L be {the piano, the music stand};</div>
+<div class="codeline">say &quot;[L with definite articles]&quot;;</div>
+</div><p>says &quot;the piano and the music stand&quot;.</p>
+</div><div class="defn" id="phs_listindef"><span class="defn">say "[</span><span class="neutral">(list of objects)</span><span class="defn"> with indefinite articles]"</span><p>This text substitution writes out the list in sentence form, adding the appropriate indefinite articles. Example:</p>
+<div class="codeblock"><div class="codeline">let L be {the piano, the music stand};</div>
+<div class="codeline">say &quot;[L with definite articles]&quot;;</div>
+</div><p>says &quot;a piano and a music stand&quot;.</p>
+</div><div class="examples">
+<h4>Example</h4>
+<div class="example-short">424. ★ <a href="examples/oyster_wide_shut.html">Oyster Wide Shut</a><br>Replacing Inform&#39;s default printing of properties such as &quot;(closed)&quot;, &quot;(open and providing light)&quot;, etc., with our own, more flexible variation.</p></div><div class="linkback">
+<a href="RB_6.html#section_7" title="Commands &gt; Inventory">RB §6.7 Inventory</a>
+</div>
+<h3 id="section_4">WI §21.4 Testing and iterating over lists</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_3">21.3 Saying lists of values</a></div><div class="sect-navbar-center"><a href="#chapter_21">21. Lists</a></div><div class="sect-navbar-right"><a href="#section_5">21.5 Building lists</a></div></div>
+<p>If L is a list, we can interrogate it to see whether it does or does not contain (at least one instance of) any compatible value V:</p>
+<div class="defn" id="ph_islistedin"><span class="defn">if </span><span class="neutral">(value)</span><span class="defn"> is listed in </span><span class="neutral">(list of values)</span><span class="defn">:</span><p>This condition is true if the given value, which must be of a compatible kind, is one of those in the list. For instance, if L is our list of the numbers 2, 3, 5, 7 and 11 then 5 is listed in it but 6 is not.</p>
+</div><div class="defn" id="ph_isnotlistedin"><span class="defn">if </span><span class="neutral">(value)</span><span class="defn"> is not listed in </span><span class="neutral">(list of values)</span><span class="defn">:</span><p>This condition is true if the given value, which must be of a compatible kind, is not one of those in the list.</p>
+</div><p>We can also repeat running through a list (just as we can with table rows). Thus:</p>
+<div class="defn" id="ph_repeatlist"><span class="defn">repeat with </span><span class="neutral">(a name not so far used)</span><span class="defn"> running through </span><span class="neutral">(list of values)</span><span class="defn">:</span><p>This phrase causes the block of phrases following it to be repeated once for each item in the given list, storing that value in the named variable. (The variable exists only temporarily, within the repetition.) Example:</p>
+<div class="codeblock"><div class="codeline">let L be {2, 3, 5, 7, 11, 13, 17, 19};</div>
+<div class="codeline">repeat with prime running through L:</div>
+<div class="codeline">&ensp;&ensp;...</div>
+</div><p>If the list is empty, nothing happens: the &quot;&hellip;&quot; phrase(s) are never tried.</p>
+</div><p>In the next sections, we shall see that it is possible to change, reorder and resize lists. But it&#39;s important never to change a list that&#39;s being repeated through. The following:</p>
+<div class="codeblock"><div class="codeline">let L1 be {1, 2, 3, 4};</div>
+<div class="codeline">repeat with n running through L1:</div>
+<div class="codeline">&ensp;&ensp;remove n from L1;</div>
+</div><p>leaves L1 containing {2, 4}, since the removals from the list cause it to shuffle back even while we repeat through it &ndash; a bad, bad idea.</p>
+<h3 id="section_5">WI §21.5 Building lists</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_4">21.4 Testing and iterating over lists</a></div><div class="sect-navbar-center"><a href="#chapter_21">21. Lists</a></div><div class="sect-navbar-right"><a href="#section_6">21.6 Lists of objects</a></div></div>
+<p>We have already seen &quot;add&hellip; to&hellip;&quot;. This in fact comes in two forms:</p>
+<div class="defn" id="ph_addtolist"><span class="defn">add </span><span class="neutral">(value)</span><span class="defn"> to </span><span class="neutral">(list of values)</span><p>This phrase adds the given value to the end of the list. Example:</p>
+<div class="codeblock"><div class="codeline">let L be {60, 168};</div>
+<div class="codeline">add 360 to L;</div>
+</div><p>results in L being {60, 168, 360}. Note that the value is added even if it already occurs somewhere in L; this can be avoided with &quot;if absent&quot;. So:</p>
+<div class="codeblock"><div class="codeline">add 168 to L, if absent;</div>
+</div><p>would do nothing &ndash; it is already there.</p>
+</div><div class="defn" id="ph_addlisttolist"><span class="defn">add </span><span class="neutral">(list of values)</span><span class="defn"> to </span><span class="neutral">(list of values)</span><p>This phrase adds the first list to the end of the second. Example:</p>
+<div class="codeblock"><div class="codeline">let L be {2, 3, 5, 7};</div>
+<div class="codeline">add {11, 13, 17, 19} to L;</div>
+</div><p>results in L being {2, 3, 5, 7, 11, 13, 17, 19}.</p>
+</div><p>If we don&#39;t want to add new entries at the end, we can instead say where they should go:</p>
+<div class="defn" id="ph_addatentry"><span class="defn">add </span><span class="neutral">(value)</span><span class="defn"> at entry </span><span class="neutral">(number)</span><span class="defn"> in/from </span><span class="neutral">(list of values)</span><p>This phrase adds the given value so that it becomes the entry with that index number in the list. Example:</p>
+<div class="codeblock"><div class="codeline">let L be {1, 2, 3, 4, 8, 24};</div>
+<div class="codeline">add 12 at entry 6 in L;</div>
+</div><p>sets L to {1, 2, 3, 4, 8, 12, 24}. If there are N entries in L, then we can add at any of entries 1 up to N+1: adding at entry N+1 means adding at the end. The phrase option &quot;if absent&quot; makes the phrase do nothing if the value already exists anywhere in L.</p>
+</div><div class="defn" id="ph_addlistatentry"><span class="defn">add </span><span class="neutral">(list of values)</span><span class="defn"> at entry </span><span class="neutral">(number)</span><span class="defn"> in/from </span><span class="neutral">(list of values)</span><p>This phrase adds the first list to the second so that it begins at the given position. Example:</p>
+<div class="codeblock"><div class="codeline">let L be {1, 2, 3, 4};</div>
+<div class="codeline">add {4, 8, 12} at entry 3 in L;</div>
+</div><p>results in L being {1, 2, 4, 8, 12, 3, 4}.</p>
+</div><p>A list is allowed to contain duplicates, and the order matters. For instance:</p>
+<div class="codeblock"><div class="codeline">let L be {2, 2, 3};</div>
+</div><p>makes L into &quot;2, 2 and 3&quot;. This is a different list to the one made by:</p>
+<div class="codeblock"><div class="codeline">let M be {2, 3, 2};</div>
+</div><p>even though L and M have the same values, repeated the same number of times &ndash; for two lists to be equal, they must have the same kind of entry, the same number of entries, and the same entries in each position.</p>
+<p>We can also strike out values:</p>
+<div class="defn" id="ph_remfromlist"><span class="defn">remove </span><span class="neutral">(value)</span><span class="defn"> in/from </span><span class="neutral">(list of values)</span><p>This phrase removes every instance of the given value from the list. Example:</p>
+<div class="codeblock"><div class="codeline">let L be {3, 1, 4, 1, 5, 9, 2, 6, 5, 3};</div>
+<div class="codeline">remove 1 from L;</div>
+</div><p>results in L being {3, 4, 5, 9, 2, 6, 5, 3}. Ordinarily &quot;remove 7 from L&quot; would produce a run-time problem, since L does not contain the value 7, but using the &quot;if present&quot; option lets us off this: the phrase then does nothing if L does not contain the value to be removed.</p>
+</div><div class="defn" id="ph_remlistfromlist"><span class="defn">remove </span><span class="neutral">(list of values)</span><span class="defn"> in/from </span><span class="neutral">(list of values)</span><p>This phrase removes every instance of any value in the first list from the second. Example:</p>
+<div class="codeblock"><div class="codeline">let L be {3, 1, 4, 1, 5, 9, 2, 6, 5, 3};</div>
+<div class="codeline">remove {0, 2, 4, 6, 8} from L;</div>
+</div><p>results in L being {3, 1, 1, 5, 9, 5, 3}. If both lists are large, this can be a slow process, and we might do better by sorting them and trying a more sophisticated method. But this is convenient for anything reasonable-sized.</p>
+</div><p>Again, we can also remove from specific positions:</p>
+<div class="defn" id="ph_rementry"><span class="defn">remove entry </span><span class="neutral">(number)</span><span class="defn"> in/from </span><span class="neutral">(list of values)</span><p>This phrase removes the entry at the given position, counting from 1 as the first entry. (Once it is removed, the other entries shuffle down.) Example:</p>
+<div class="codeblock"><div class="codeline">let L be {3, 1, 4, 1, 5, 9, 2, 6, 5, 3};</div>
+<div class="codeline">remove entry 3 from L;</div>
+</div><p>results in L being {3, 1, 1, 5, 9, 2, 6, 5, 3}.</p>
+</div><div class="defn" id="ph_rementries"><span class="defn">remove entries </span><span class="neutral">(number)</span><span class="defn"> to </span><span class="neutral">(number)</span><span class="defn"> in/from </span><span class="neutral">(list of values)</span><p>This phrase removes the entries at the given range of positions, counting from 1 as the first entry. (Once they are removed, the other entries shuffle down.) Example:</p>
+<div class="codeblock"><div class="codeline">let L be {3, 1, 4, 1, 5, 9, 2, 6, 5, 3};</div>
+<div class="codeline">remove entries 3 to 6 from L;</div>
+</div><p>results in L being {3, 1, 2, 6, 5, 3}.</p>
+</div><div class="examples">
+<h4>Example</h4>
+<div class="example-short">425. ★ <a href="examples/robo.html">Robo 1</a><br>A robot which watches and records the player&#39;s actions, then tries to repeat them back in the same order when he is switched into play-back mode.</p></div><div class="linkback">
+<a href="RB_7.html#section_12" title="Other Characters &gt; Characters Following a Script">RB §7.12 Characters Following a Script</a>
+</div>
+<h3 id="section_6">WI §21.6 Lists of objects</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_5">21.5 Building lists</a></div><div class="sect-navbar-center"><a href="#chapter_21">21. Lists</a></div><div class="sect-navbar-right"><a href="#section_7">21.7 Lists of values matching a description</a></div></div>
+<p>Lists can be made of values of any kind (including other lists), but lists of objects are especially useful. We could always make these &quot;by hand&quot;:</p>
+<div class="codeblock"><div class="codeline">let L be {the pot plant, the foxglove};</div>
+</div><p>But it is usually easier and clearer to use descriptions.</p>
+<div class="defn" id="ph_listofdesc"><span class="defn">list of </span><span class="neutral">(description of values)</span> &rArr; <em>value</em><p>This phrase produces the list of all values matching the given description. Inform will issue a problem message if the result would be an infinite list, or one which is impractical to test: for instance &quot;list of even numbers&quot; is not feasible.</p>
+</div><p>While that works nicely for many kinds of value (&quot;list of recurring scenes&quot;, say), it&#39;s particularly useful for objects:</p>
+<div class="codeblock"><div class="codeline">let L be the list of open containers;</div>
+<div class="codeline">add the list of open doors to L;</div>
+</div><p>means that L now contains the open containers (if any) followed by the open doors (if any). Or, for example:</p>
+<div class="codeblock"><div class="codeline">let L be the list of things;</div>
+<div class="codeline">remove the list of backdrops from L;</div>
+</div><p>makes a list of all non-backdrops.</p>
+<p>As mentioned above, lists of objects can be said in two additional ways:</p>
+<div class="codeblock"><div class="codeline">&quot;[L with definite articles]&quot;</div>
+<div class="codeline">&quot;[L with indefinite articles]&quot;</div>
+</div><p>And as mentioned below, they can be sorted in property value order:</p>
+<div class="codeblock"><div class="codeline">sort L in P order;</div>
+<div class="codeline">sort L in reverse P order;</div>
+</div><p>where P is any value property. In all other respects, lists of objects are no different to other lists.</p>
+<div class="examples">
+<h4>Examples</h4>
+<div class="example-short">426. ★ <a href="examples/what_makes_you_tick.html">What Makes You Tick</a><br>Building a fishing pole from several component parts that the player might put together in any order.</p></div><div class="linkback">
+<a href="RB_9.html#section_8" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Simple Machines">RB §9.8 Simple Machines</a>
+</div>
+<div class="example-short">427. ★★ <a href="examples/formicidae.html">Formicidae</a><br>Manipulating the order in which items are handled after TAKE ALL.</p></div><div class="linkback">
+<a href="RB_6.html#section_15" title="Commands &gt; Actions on Multiple Objects">RB §6.15 Actions on Multiple Objects</a>
+</div>
+<h3 id="section_7">WI §21.7 Lists of values matching a description</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_6">21.6 Lists of objects</a></div><div class="sect-navbar-center"><a href="#chapter_21">21. Lists</a></div><div class="sect-navbar-right"><a href="#section_8">21.8 Sorting, reversing and rotating lists</a></div></div>
+<p>The useful &quot;list of &hellip;&quot; syntax can also be used to produce lists of the values matching a description, too. Thus:</p>
+<div class="codeblock"><div class="codeline">let L be the list of non-recurring scenes;</div>
+<div class="codeline">let C be the list of colours;</div>
+</div><p>There is little to say here except for the usual warning that some kinds of value have a range which is too large to make this possible. For instance, Inform could not sensibly represent:</p>
+<div class="codeblock"><div class="codeline">let N be the list of even numbers;</div>
+</div><p>It would just be too large to hold. In general, if we can repeat through, or find the number of, values matching a description, then we can also use &quot;list of&quot; to bring them all together. See the chart of kinds of value in the Kinds index for a project for which kinds of value allow this.</p>
+<h3 id="section_8">WI §21.8 Sorting, reversing and rotating lists</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_7">21.7 Lists of values matching a description</a></div><div class="sect-navbar-center"><a href="#chapter_21">21. Lists</a></div><div class="sect-navbar-right"><a href="#section_9">21.9 Accessing entries in a list</a></div></div>
+<p>Any list L can be reversed:</p>
+<div class="defn" id="ph_reverselist"><span class="defn">reverse </span><span class="neutral">(list of values)</span><p>This phrase puts the list in reverse order. The old entry 1 becomes the new last entry, and so on: reversing an empty list or a list containing only one entry leaves it unchanged. Example:</p>
+<div class="codeblock"><div class="codeline">let L be {11, 12, 14, 15, 16, 17};</div>
+<div class="codeline">reverse L;</div>
+</div><p>results in L being {17, 16, 15, 14, 12, 11}.</p>
+</div><p>And any list can similarly be sorted:</p>
+<div class="defn" id="ph_sortlist"><span class="defn">sort </span><span class="neutral">(list of values)</span><p>This phrase puts the list into ascending order. Example:</p>
+<div class="codeblock"><div class="codeline">let L be {6 PM, 11:13 AM, 4:21 PM, 9:01 AM};</div>
+<div class="codeline">sort L;</div>
+</div><p>results in L being {9:01 AM, 11:13 AM, 4:21 PM, 6 PM}.</p>
+</div><div class="defn" id="ph_sortlistreverse"><span class="defn">sort </span><span class="neutral">(list of values)</span><span class="defn"> in reverse order</span><p>This phrase puts the list into descending order. Example:</p>
+<div class="codeblock"><div class="codeline">let L be {6 PM, 11:13 AM, 4:21 PM, 9:01 AM};</div>
+<div class="codeline">sort L in reverse order;</div>
+</div><p>results in L being {6 PM, 4:21 PM, 11:13 AM, 9:01 AM}.</p>
+</div><div class="defn" id="ph_sortlistrandom"><span class="defn">sort </span><span class="neutral">(list of values)</span><span class="defn"> in random order</span><p>This phrase puts the list into a uniformly random order, shuffling it as if it were a pack of cards. Example:</p>
+<div class="codeblock"><div class="codeline">let L be {1, 2, 3, 4, 5, 6};</div>
+<div class="codeline">sort L in random order;</div>
+</div><p>might result in L being {3, 1, 5, 6, 4, 2}. Or any of 719 other arrangements, including being left as it was.</p>
+</div><p>Lists of objects can also be sorted in property value order. For instance,</p>
+<div class="defn" id="ph_sortlistproperty"><span class="defn">sort </span><span class="neutral">(list of objects)</span><span class="defn"> in </span><span class="neutral">(property)</span><span class="defn"> order</span><p>This phrase puts the list into ascending order of the values of the given property for the items in the list; this is only allowed if all of those values do have the property in question. Example:</p>
+<div class="codeblock"><div class="codeline">let L be the list of people;</div>
+<div class="codeline">sort L in carrying capacity order;</div>
+</div><p>would arrange people with weaklings first, titans last.</p>
+</div><div class="defn" id="ph_sortlistpropertyreverse"><span class="defn">sort </span><span class="neutral">(list of objects)</span><span class="defn"> in reverse </span><span class="neutral">(property)</span><span class="defn"> order</span><p>This phrase puts the list into descending order of the values of the given property for the items in the list; this is only allowed if all of those values do have the property in question. Example:</p>
+<div class="codeblock"><div class="codeline">let L be the list of people;</div>
+<div class="codeline">sort L in reverse carrying capacity order;</div>
+</div><p>would arrange people with titans first, weaklings last.</p>
+</div><p>Rotating a list means moving all of its entries along by one place, and then moving the one on the end back to the start. For instance, if L is {1, 2, 3, 4}, then</p>
+<div class="defn" id="ph_rotatelist"><span class="defn">rotate </span><span class="neutral">(list of values)</span><p>This phrase shuffles the entries of the list forwards (to the right) by one place, so that the 1st becomes 2nd, the 2nd becomes 3rd, and so on until the last, which becomes the new first entry. Example:</p>
+<div class="codeblock"><div class="codeline">let L be { &quot;cow&quot;, &quot;heifer&quot;, &quot;bullock&quot; };</div>
+<div class="codeline">rotate L;</div>
+</div><p>results in L being { &quot;bullock&quot;, &quot;cow&quot;, &quot;heifer&quot; }.</p>
+</div><div class="defn" id="ph_rotatelistback"><span class="defn">rotate </span><span class="neutral">(list of values)</span><span class="defn"> backwards</span><p>This phrase shuffles the entries of the list backwards (to the left) by one place, so that the 3rd becomes 2nd, the 2nd becomes 1st, and so on; the previous 1st entry becomes the new last entry. Example:</p>
+<div class="codeblock"><div class="codeline">let L be { &quot;cow&quot;, &quot;heifer&quot;, &quot;bullock&quot; };</div>
+<div class="codeline">rotate L backwards;</div>
+</div><p>results in L being { &quot;heifer&quot;, &quot;bullock&quot;, &quot;cow&quot;}. (This achieves the same effect as &quot;reverse L; rotate L; reverse L;&quot; but is a little faster, and a lot less effort to read.)</p>
+</div><h3 id="section_9">WI §21.9 Accessing entries in a list</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_8">21.8 Sorting, reversing and rotating lists</a></div><div class="sect-navbar-center"><a href="#chapter_21">21. Lists</a></div><div class="sect-navbar-right"><a href="#section_10">21.10 Lengthening or shortening a list</a></div></div>
+<p>The length of a list can change as values are added or removed, and can in principle be any number from 0 upwards. A list with 0 entries is empty. We can find the length with:</p>
+<div class="defn" id="ph_numberentries"><span class="defn">number of entries in/of/from </span><span class="neutral">(list of values)</span> &rArr; <em>number</em><p>This phrase produces the number of positions in the list. Example:</p>
+<div class="codeblock"><div class="codeline">the number of entries in {1, 1, 1, 3, 1}</div>
+</div><p>is 5, even though there are only two genuinely different items in the list.</p>
+</div><p>If the length is N then the entries are numbered from 1 (the front) to N (the back). These entries can be accessed directly by their numbers. For instance,</p>
+<div class="codeblock"><div class="codeline">entry 2 of L</div>
+</div><p>refers to the second entry of L: it can be used as a value, or changed, just as if it were a named variable. For instance, we could write:</p>
+<div class="codeblock"><div class="codeline">now entry 7 of L is &quot;Spain&quot;;</div>
+<div class="codeline">say &quot;The rain in [entry 7 of L] stays mainly in the plain.&quot;;</div>
+</div><p>which would (untruthfully) print &quot;The rain in Spain stays mainly in the plain&quot;, but only if L had an entry 7 to make use of: if L were a list of 5 entries, say, then a run-time problem results. (And if L cannot hold text, a problem message means that we never get as far as run-time.) Because entries number from 1, this is always incorrect:</p>
+<div class="codeblock"><div class="codeline">entry 0 of L</div>
+</div><p>and if L is currently empty, then there is no entry which can be accessed, so that any use of &quot;entry &hellip; of L&quot; would produce a run-time problem. There are programming languages in the world where accessing entry 100 in a 7-entry list automatically extends it to be 100 entries long: Inform is not one of them. But see the next section for how to change list lengths explicitly.</p>
+<div class="examples">
+<h4>Example</h4>
+<div class="example-short">428. ★★★ <a href="examples/robo2.html">Robo 2</a><br>A robot which watches and records the player&#39;s actions, then tries to repeat them back in the same order when he is switched into play-back mode.</p></div><div class="linkback">
+<a href="RB_7.html#section_12" title="Other Characters &gt; Characters Following a Script">RB §7.12 Characters Following a Script</a>
+</div>
+<h3 id="section_10">WI §21.10 Lengthening or shortening a list</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_9">21.9 Accessing entries in a list</a></div><div class="sect-navbar-center"><a href="#chapter_21">21. Lists</a></div><div class="sect-navbar-right"><a href="#section_11">21.11 Variations: arrays, logs, queues, stacks, sets, sieves and rings</a></div></div>
+<p>We can explicitly change the length of a list like so:</p>
+<div class="defn" id="ph_changelength"><span class="defn">change </span><span class="neutral">(list of values)</span><span class="defn"> to have </span><span class="neutral">(number)</span><span class="defn"> entries/entry</span><p>This phrase alters the given list so that it now has exactly the number of entries given. Example:</p>
+<div class="codeblock"><div class="codeline">change L to have 21 entries;</div>
+</div><p>If L previously had more than 21 entries, they are thrown away (and lost forever); if L previously had fewer, then new entries are created, using the default value for whatever kind of value L holds. So extending a list of numbers will pad it out with 0s, but extending a list of texts will pad it out with the empty text &quot;&quot;, and so on.</p>
+</div><p>We can also write the equivalent phrases:</p>
+<div class="defn" id="ph_truncate"><span class="defn">truncate </span><span class="neutral">(list of values)</span><span class="defn"> to </span><span class="neutral">(number)</span><span class="defn"> entries/entry</span><p>This phrase alters the given list so that it now has no more than the number of entries given. Example:</p>
+<div class="codeblock"><div class="codeline">truncate L to 8 entries;</div>
+</div><p>shortens L to length 8 if it is currently longer than that, trimming entries from the end, but would (for instance) leave a list of length 3 unchanged. Note that</p>
+<div class="codeblock"><div class="codeline">truncate L to 0 entries;</div>
+</div><p>empties it to { }, the list with nothing in.</p>
+</div><div class="defn" id="ph_truncatefirst"><span class="defn">truncate </span><span class="neutral">(list of values)</span><span class="defn"> to the first </span><span class="neutral">(number)</span><span class="defn"> entries/entry</span><p>This phrase alters the given list so that it now consists only of the initial part of the list with the given length. Example:</p>
+<div class="codeblock"><div class="codeline">truncate L to the first 4 entries;</div>
+</div><p>turns {1, 3, 5, 7, 9, 11} to {1, 3, 5, 7}.</p>
+</div><div class="defn" id="ph_truncatelast"><span class="defn">truncate </span><span class="neutral">(list of values)</span><span class="defn"> to the last </span><span class="neutral">(number)</span><span class="defn"> entries/entry</span><p>This phrase alters the given list so that it now consists only of the final part of the list with the given length. Example:</p>
+<div class="codeblock"><div class="codeline">truncate L to the last 4 entries;</div>
+</div><p>turns {1, 3, 5, 7, 9, 11} to {5, 7, 9, 11}.</p>
+</div><p>But we don&#39;t have to truncate: we can also -</p>
+<div class="defn" id="ph_extend"><span class="defn">extend </span><span class="neutral">(list of values)</span><span class="defn"> to </span><span class="neutral">(number)</span><span class="defn"> entries/entry</span><p>This phrase pads out the list with default values as needed so that it now has at least the given length. (If the list is already at least that length, nothing is done.) Example:</p>
+<div class="codeblock"><div class="codeline">extend L to 80 entries;</div>
+</div><p>lengthens L to length 80 if it is currently shorter than that.</p>
+</div><p>For example,</p>
+<div class="codeblock"><div class="codeline">To check sorting (N - a number):</div>
+<div class="codeline">&ensp;&ensp;let L be a list of numbers;</div>
+<div class="codeline">&ensp;&ensp;extend L to N entries;</div>
+<div class="codeline">&ensp;&ensp;repeat with X running from 1 to N:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;now entry X of L is X;</div>
+<div class="codeline">&ensp;&ensp;say &quot;L unrandomised is [L].&quot;;</div>
+<div class="codeline">&ensp;&ensp;sort L in random order;</div>
+<div class="codeline">&ensp;&ensp;say &quot;L randomised is [L].&quot;;</div>
+<div class="codeline">&ensp;&ensp;sort L;</div>
+<div class="codeline">&ensp;&ensp;say &quot;L in ascending order is [L].&quot;</div>
+</div><p>builds a list of N numbers (initially all 0), fills it with the numbers 1, 2, 3, &hellip;, N, then randomly reorders them, then sorts them back again, recovering the original order. The text produced by &quot;check sorting 10&quot; depends partly on chance but might for instance be:</p>
+<div class="codeblock"><div class="codeline">L unrandomised is 1, 2, 3, 4, 5, 6, 7, 8, 9 and 10.</div>
+<div class="codeline">L randomised is 6, 2, 9, 3, 10, 1, 7, 4, 8 and 5.</div>
+<div class="codeline">L in ascending order is 1, 2, 3, 4, 5, 6, 7, 8, 9 and 10.</div>
+</div><p>As with text in the previous chapter, a project which needs really long lists should use the Glulx virtual machine &ndash; &quot;check sorting 10000&quot;, for instance, would break the default memory environment on the Z-machine, which is very tight, but works fine (if not very rapidly) on Glulx.</p>
+<div class="examples">
+<h4>Examples</h4>
+<div class="example-short">429. ★ <a href="examples/leopardskin.html">Leopard-skin</a><br>A maze that the player can escape if he performs an exact sequence of actions.</p></div><div class="linkback">
+<a href="RB_6.html#section_14" title="Commands &gt; Remembering, Converting and Combining Actions">RB §6.14 Remembering, Converting and Combining Actions</a>
+</div>
+<div class="example-short">430. ★★ <a href="examples/facts_were_these.html">The Facts Were These</a><br>Creating a variant GIVE action that lets the player give multiple objects simultaneously with commands like GIVE ALL TO ATTENDANT or GIVE THREE DOLLARS TO ATTENDANT or GIVE PIE AND HAT TO ATTENDANT. The attendant accepts the gifts only if their total combined value matches some minimum amount.</p></div><div class="linkback">
+<a href="RB_6.html#section_15" title="Commands &gt; Actions on Multiple Objects">RB §6.15 Actions on Multiple Objects</a>
+</div>
+<h3 id="section_11">WI §21.11 Variations: arrays, logs, queues, stacks, sets, sieves and rings</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_10">21.10 Lengthening or shortening a list</a></div><div class="sect-navbar-center"><a href="#chapter_21">21. Lists</a></div></div>
+<p>Lists are highly adaptable, and many other collection-like constructions can be made using them. This section introduces no new material, but simply suggests some of the variations which are possible.</p>
+<p>1. The traditional computing term <strong>array</strong> means a list of values accessed by their entry numbers, often used in mathematical computations. The difference between an array and a list is mostly one of attitude, but usually arrays are fixed in length whereas lists can expand or contract.</p>
+<p>2. A <strong>log</strong> is a list which records the most recently arrived values, but does not allow itself to grow indefinitely. In the following, which remembers the seven most recently taken items, new values arrive at the end while old ones eventually disappear from the front:</p>
+<div class="codeblock"><div class="codeline">The most-recently-taken list is a list of objects that varies.</div>
+<div class="codeline">Carry out taking something (called the item):</div>
+<div class="codeline">&ensp;&ensp;truncate the most-recently-taken list to the last 6 entries;</div>
+<div class="codeline">&ensp;&ensp;add the item to the most-recently-taken list.</div>
+<div class="codeline">After taking:</div>
+<div class="codeline">&ensp;&ensp;say &quot;Taken. (So, your recent acquisitions: [most-recently-taken list].)&quot;</div>
+</div><p>Note that the most-recently-taken list begins play as the empty list, grows as the first few items are taken, but then stabilises at length 7 thereafter. If we need to remember recent history, but only <em>recent</em> history, then a log is better than a list which can grow indefinitely, because there is no risk of speed reduction or memory exhaustion in a very long story.</p>
+<p>3. A <strong>queue</strong> is a list of values which are waiting for attention. New values join at the back, while those being dealt with are removed from the front (whereupon the whole queue moves up one). An empty queue means that nobody is waiting for attention: but there is, in principle, no upper limit to the size of a queue, as anyone who has tried to make a couchette reservation at Roma Termini will know.</p>
+<p>Queues typically form when two independent processes are at work, but going at different or variable speeds. An empty queue looks just like any other list:</p>
+<div class="codeblock"><div class="codeline">The queue is a list of objects that varies.</div>
+</div><p>(Invariably people, in what follows, but we&#39;ll make it a &quot;list of objects&quot; to allow for other possibilities too.) Once we identify a &quot;new customer&quot;, we can join him to the queue thus:</p>
+<div class="codeblock"><div class="codeline">add the new customer to the queue;</div>
+</div><p>The process of serving the customers needs to make sure there is actually somebody waiting in the queue before it does anything:</p>
+<div class="codeblock"><div class="codeline">Every turn when the number of entries in the queue is not 0:</div>
+<div class="codeline">&ensp;&ensp;let the next customer be entry 1 of the queue;</div>
+<div class="codeline">&ensp;&ensp;say &quot;[The next customer] is served and leaves.&quot;;</div>
+<div class="codeline">&ensp;&ensp;remove entry 1 from the queue.</div>
+</div><p>Of course queues can also be constructed which empty from other positions, rather than the front: or we could make what computer scientists sometimes call a <strong>deque</strong>, a &quot;double-ended queue&quot; where new values arrive at both ends.</p>
+<p>4. A <strong>stack</strong> is like a queue except that values arrive at, and are removed from, the same end. Stacks are slightly faster if the active end is the back rather than the front, though this will only be noticeable if they grow quite large.</p>
+<p>To put a value V onto a stack S (which is known as &quot;pushing&quot;) is simple:</p>
+<div class="codeblock"><div class="codeline">add V to S;</div>
+</div><p>And to remove a value from the top of the stack (which is known as &quot;pulling&quot;):</p>
+<div class="codeblock"><div class="codeline">let N be the number of entries in S;</div>
+<div class="codeline">let V be entry N of S;</div>
+<div class="codeline">remove entry N from S;</div>
+</div><p>Note that the middle line, accessing entry N, will fail if N = 0, that is, if the stack is empty: Inform&#39;s list routines will produce a run-time problem message.</p>
+<p>Stacks are useful if some long-term process is constantly being interrupted by newer and more urgent demands, but they can also be used in planning. If a character has a long-term goal, which needs various short-term goals to be achieved along the way, then a stack can represent the goals currently being pursued. The top of the stack represents what the character is trying to achieve now. If the character realises that it needs to achieve something else first, we put that new goal onto the top of the stack, and it becomes the new current goal. When the character completes a task, it can be removed, and we can go back to trying to finish whatever is now on top. When the stack is empty, the character has achieved the original goal.</p>
+<p>5. Notoriously, <strong>set</strong> has 464 distinct meanings in the Oxford English Dictionary, making it the single most ambiguous word in the language. Here we mean not the home of a badger or the Egyptian god of the desert, but the mathematical sense: a collection of values (sometimes called &quot;elements&quot;) without duplicates, and which is normally written in brace notation and in some natural order for the reader&#39;s convenience.</p>
+<p>The trick here is to maintain the principle that, at all times, our list is sorted in order and contains no duplicates. To provide an example, we start with two sets of numbers:</p>
+<div class="codeblock"><div class="codeline">let S be {2, 4, 8, 16, 32, 64};</div>
+<div class="codeline">let T be {2, 4, 6, 10};</div>
+</div><p>Here we add an element to T:</p>
+<div class="codeblock"><div class="codeline">add 8 to T, if absent; sort T;</div>
+</div><p>The &quot;if absent&quot; clause ensures that no duplicate can occur, and by sorting T afterwards, we maintain the principle that a set must remain in order &ndash; so T is now {2, 4, 6, 8, 10}, not {2, 4, 6, 10, 8}. (Inform&#39;s sorting algorithm is fast on nearly-sorted lists, so frequent sorting is not as inefficient as it might look.)</p>
+<p>We next take the union of T and S, that is, the set containing everything which is in either or both:</p>
+<div class="codeblock"><div class="codeline">let U be S; add T to U, if absent; sort U;</div>
+</div><p>This makes U = {2, 4, 6, 8, 10, 16, 32, 64}, and once again no duplicates occur and we preserve the sorting. The intersection of T and S, the set of elements in both of them, is a little trickier:</p>
+<div class="codeblock"><div class="codeline">let I be T;</div>
+<div class="codeline">repeat with the element running through T:</div>
+<div class="codeline">&ensp;&ensp;if the element is not listed in S, remove the element from I.</div>
+</div><p>(Faster methods could be devised which exploit the sortedness of T and S, but are not worth it for shortish lists.) This produces I = {2, 4, 8}. Lastly, we can form the set difference, consisting of those elements which are in S but not in T:</p>
+<div class="codeblock"><div class="codeline">let D be S; remove T from D, if present;</div>
+</div><p>Here, as with intersection, since all we do is to strike out unwanted elements, the surviving ones remain in order and there is no need to sort when we are finished. This produces D = {16, 32, 64}.</p>
+<p>6. A <strong>sieve</strong> is used to make a complicated choice where there are many constraints, by ruling out impossible cases to see what is left. The term derives from the kitchen utensil (for sieving fine grains of flour), but via the name of the &quot;sieve of Eratosthenes&quot;, an ancient Greek method for determining the prime numbers.</p>
+<p>Using a sieve is much like using a set, and the difference is mainly one of outlook &ndash; we are interested in what does not belong, rather than what does.</p>
+<p>7. A <strong>ring</strong> is not so much a row of values, more a circle, with the last and first entries thought of as adjacent. One position is usually thought of as special, and is the place where new items are added: this may as well be entry 1. For instance, to add &quot;new item&quot; to the ring:</p>
+<div class="codeblock"><div class="codeline">add the item at entry 1 in the ring;</div>
+</div><p>To set &quot;item&quot; to the frontmost value and extract it from the ring:</p>
+<div class="codeblock"><div class="codeline">let the item be entry 1 of the ring;</div>
+<div class="codeline">remove entry 1 from the ring;</div>
+</div><p>And we can rotate the ring in either direction, making a different entry the new entry 1 and therefore the new frontmost value:</p>
+<div class="codeblock"><div class="codeline">rotate the ring;</div>
+<div class="codeline">rotate the ring backwards;</div>
+</div><p>A last note to conclude the chapter on lists. Lists, like almost all other values in Inform, can be passed to phrases as parameters. However, note that they are genuine values, not what some programming languages call &quot;references&quot; or &quot;pointers&quot;. So the following:</p>
+<div class="codeblock"><div class="codeline">To mess with (L - a list of numbers):</div>
+<div class="codeline">&ensp;&ensp;add 7 to L, if absent.</div>
+</div><p>does nothing, in practice. If given a list, it adds 7 to the list, but then throws it away again, so the longer list is never seen; it&#39;s exactly like</p>
+<div class="codeblock"><div class="codeline">To mess with (N - a number):</div>
+<div class="codeline">&ensp;&ensp;now N is 3.</div>
+</div><p>which can never affect anything other than its own temporary value &quot;N&quot;, which expires almost immediately in any case.</p>
+<p>If we want a phrase which changes a list in a useful way and gives it back to us, we need a phrase which both takes in and gives back:</p>
+<div class="codeblock"><div class="codeline">To decide which list of numbers is the extended (L - a list of numbers):</div>
+<div class="codeline">&ensp;&ensp;add 7 to L, if absent;</div>
+<div class="codeline">&ensp;&ensp;decide on L.</div>
+</div><p>And then, for example -</p>
+<div class="codeblock"><div class="codeline">the extended { 2, 4, 6 };</div>
+</div><p>produces:</p>
+<div class="codeblock"><div class="codeline">{ 2, 4, 6, 7 }</div>
+</div><div class="examples">
+<h4>Examples</h4>
+<div class="example-short">431. ★ <a href="examples/circle_of_misery.html">Circle of Misery</a><br>Retrieving items from an airport luggage carousel is such fun, how can we resist simulating it, using a list as a ring buffer?</p></div><div class="linkback">
+<a href="RB_8.html#section_4" title="Vehicles, Animals and Furniture &gt; Furniture">RB §8.4 Furniture</a>
+</div>
+<div class="example-short">432. ★ <a href="examples/eyes_fingers_toes.html">Eyes, Fingers, Toes</a><br>A safe with a multi-number combination, meant to be dialed over multiple turns, is implemented using a log of the last three numbers dialed. The log can then be compared to the safe&#39;s correct combination.</p></div><div class="linkback">
+<a href="RB_9.html#section_2" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Bags, Bottles, Boxes and Safes">RB §9.2 Bags, Bottles, Boxes and Safes</a>
+</div>
+<div class="example-short">433. ★ <a href="examples/fibonacci_sequence.html">The Fibonacci Sequence</a><br>The modest Leonardo Fibonacci of Pisa will be only too happy to construct his sequence on request, using an array.</p></div><div class="linkback">
+<a href="RB_10.html#section_11" title="Physics: Substances, Ropes, Energy and Weight &gt; Mathematics">RB §10.11 Mathematics</a>
+</div>
+<div class="example-short">434. ★ <a href="examples/i_didnt_come_all_the_way_from_great_portland_street.html">I Didn't Come All The Way From Great Portland Street</a><br>In this fiendishly difficult puzzle, which may perhaps owe some inspiration to a certain BBC Radio panel game (1967-), a list is used as a set of actions to help enforce the rule that the player must keep going for ten turns without hesitation, repetition, or deviating from the subject on the card.</p></div><div class="linkback">
+<a href="RB_6.html#section_14" title="Commands &gt; Remembering, Converting and Combining Actions">RB §6.14 Remembering, Converting and Combining Actions</a>
+</div>
+<div class="example-short">435. ★ <a href="examples/lugubrious_petes_delicatessen.html">Lugubrious Pete's Delicatessen</a><br>In this evocation of supermarket deli counter life, a list is used as a queue to keep track of who is waiting to be served.</p></div><div class="linkback">
+<a href="RB_7.html#section_16" title="Other Characters &gt; Social Groups">RB §7.16 Social Groups</a>
+</div>
+<div class="example-short">436. ★ <a href="examples/sieve_of_eratosthenes.html">Sieve of Eratosthenes</a><br>The haughty Eratosthenes of Cyrene will nevertheless consent to sieve prime numbers on request.</p></div><div class="linkback">
+<a href="RB_10.html#section_11" title="Physics: Substances, Ropes, Energy and Weight &gt; Mathematics">RB §10.11 Mathematics</a>
+</div>
+<div class="example-short">437. ★ <a href="examples/your_mother_doesnt_work_here.html">Your Mother Doesn't Work Here</a><br>Your hard-working mother uses a list as a stack: urgent tasks are added to the end of the list, interrupting longer-term plans.</p></div><div class="linkback">
+<a href="RB_7.html#section_12" title="Other Characters &gt; Characters Following a Script">RB §7.12 Characters Following a Script</a>
+</div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="WI_20.html">20. Advanced Text</a></div><div class="doc-navbar-right"><a href="WI_22.html">22. Advanced Phrases</a></div></div>
+<nav><div class="nav-el"><a href="index.html">Contents</a></div> <div class="nav-el"><a href="examples/index.html">Examples</a></div> <div class="nav-el"><a href="general_index.html">Index</a></div> <div class="nav-el"><a href="search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="license.html">Artistic License 2.0</a>.</p><p class="about"><a href="about.html">About this edition</a></p></footer>
+</body></html>

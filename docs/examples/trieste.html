@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 285. Trieste</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Trieste</h1><div class="subheading">Example 285 ★★</div>
+<div class="linkback">
+<a href="../WI_16.html#section_19" title="Tables &gt; Table amendments">WI §16.19 Table amendments</a><br><a href="../RB_11.html#section_3" title="Out Of World Actions and Effects &gt; Helping and Hinting">RB §11.3 Helping and Hinting</a>
+</div>
+<p class="example-desc">Table amendment to adjust HELP commands provided for the player.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="food_network_interactive.html" title="Using a menu system from an extension, but adding our own material to it for this game.">284. Food Network Interactive</a></div><div class="doc-navbar-right"><a href="indirection.html" title="Renaming the directions of the compass so that &quot;white&quot; corresponds to north, &quot;red&quot; to east, &quot;yellow&quot; to south, and &quot;black&quot; to west.">286. Indirection</a></div></div>
+</header>
+<p>Suppose we are using an extension in which another author has defined some help topics for the player, and we want to amend them for our game.</p>
+<p>We&#39;ll start with the portion of the text that we have inherited from the extension:</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex285">Play/modify Trieste in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="Trieste/index.html">Play Trieste in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Trieste&quot;\n\nSection 1 - Procedure\n\nA help-topic is a kind of value. Some help-topics are defined by the Table of Standard Instructions.\n\nTable of Standard Instructions\nhelp-topic\treply\ncommands\t&quot;This game recognizes 150 common commands for forms of military attack. These include...&quot;\nsaving\t&quot;To save the game, type SAVE. You will be prompted to supply a file-name for your saved game. If you&apos;d like to return to play at that point again later, RESTORE the saved game.&quot;\n\nUnderstand &quot;help [help-topic]&quot; as asking for help about. Asking for help about is an action out of world, applying to one help-topic.\nUnderstand &quot;help&quot; or &quot;help [text]&quot; as a mistake (&quot;Help is available on the following topics: [help-topics list]&quot;).\n\nTo say help-topics list:\n\trepeat through the Table of Standard Instructions:\n\t\tsay &quot;[line break]  [help-topic entry]&quot;;\n\nCarry out asking for help about:\n\trepeat through the Table of Standard Instructions:\n\t\tif the help-topic understood is the help-topic entry:\n\t\t\tsay &quot;[reply entry][paragraph break]&quot;;\n\t\t\tbreak.\n\nSection 2 - Scenario\n\n\nTable of Standard Instructions (amended)\nhelp-topic\treply\ncommands\t&quot;The only commands this game recognizes are HOLD, MOVE, CONVOY, SUPPORT MOVE, and SUPPORT HOLD. No others are necessary.&quot;\n\nBoard Room is a room. Mark is a man in the Board Room. &quot;Russia (played by Mark) is also hovering over the board.&quot;\n\nGuest Bathroom is south of Board Room. Lena and Rob are in the Guest Bathroom. Lena is a woman. Rob is a man.\n\nRule for writing a paragraph about Lena when Lena is in the Guest Bathroom and Rob is in the Guest Bathroom:\n\tsay &quot;[Lena] (Italy) and [Rob] (Great Britain) are having a hushed conversation while leaning against your good towels. They stop and stare at you when you come in.&quot;\n\nTest me with &quot;help / help commands / help saving&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Trieste&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline i7header">Section 1 - Procedure</div><div class="codeline">A help-topic is a kind of value. Some help-topics are defined by the Table of Standard Instructions.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline tablename">Table of Standard Instructions</div><table>
+<tr><td>help-topic</td><td>reply</td></tr><tr><td>commands</td><td>&quot;This game recognizes 150 common commands for forms of military attack. These include...&quot;</td></tr><tr><td>saving</td><td>&quot;To save the game, type SAVE. You will be prompted to supply a file-name for your saved game. If you&#39;d like to return to play at that point again later, RESTORE the saved game.&quot;</td></tr></table>
+<div class="codeline">Understand &quot;help [help-topic]&quot; as asking for help about. Asking for help about is an action out of world, applying to one help-topic.</div>
+<div class="codeline">Understand &quot;help&quot; or &quot;help [text]&quot; as a mistake (&quot;Help is available on the following topics: [help-topics list]&quot;).</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">To say help-topics list:</div>
+<div class="codeline">&ensp;&ensp;repeat through the Table of Standard Instructions:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;[line break]  [help-topic entry]&quot;;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Carry out asking for help about:</div>
+<div class="codeline">&ensp;&ensp;repeat through the Table of Standard Instructions:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;if the help-topic understood is the help-topic entry:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[reply entry][paragraph break]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;break.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline i7header">Section 2 - Scenario</div></div><p>Now, let&#39;s imagine our game is a special one in which only a very limited supply of moves are allowed. In that case, we&#39;ll want to replace the information on commands:</p>
+<div class="codeblock"><div class="codeline tablename">Table of Standard Instructions (amended)</div><table>
+<tr><td>help-topic</td><td>reply</td></tr><tr><td>commands</td><td>&quot;The only commands this game recognizes are HOLD, MOVE, CONVOY, SUPPORT MOVE, and SUPPORT HOLD. No others are necessary.&quot;</td></tr></table>
+<div class="codeline">Board Room is a room. Mark is a man in the Board Room. &quot;Russia (played by Mark) is also hovering over the board.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Guest Bathroom is south of Board Room. Lena and Rob are in the Guest Bathroom. Lena is a woman. Rob is a man.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Rule for writing a paragraph about Lena when Lena is in the Guest Bathroom and Rob is in the Guest Bathroom:</div>
+<div class="codeline">&ensp;&ensp;say &quot;[Lena] (Italy) and [Rob] (Great Britain) are having a hushed conversation while leaning against your good towels. They stop and stare at you when you come in.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;help / help commands / help saving&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "help / help commands / help saving".</summary><div class="testme-output">Board Room<br>Russia (played by Mark) is also hovering over the board.<br><br>>(Testing.)<br><br>>[1] help<br>Help is available on the following topics:<br>  commands<br>  saving<br><br>>[2] help commands<br>The only commands this game recognizes are HOLD, MOVE, CONVOY, SUPPORT MOVE, and SUPPORT HOLD. No others are necessary.<br><br>>[3] help saving<br>To save the game, type SAVE. You will be prompted to supply a file-name for your saved game. If you'd like to return to play at that point again later, RESTORE the saved game.
+</div></details><div class="doc-navbar"><div class="doc-navbar-left"><a href="food_network_interactive.html" title="Using a menu system from an extension, but adding our own material to it for this game.">284. Food Network Interactive</a></div><div class="doc-navbar-right"><a href="indirection.html" title="Renaming the directions of the compass so that &quot;white&quot; corresponds to north, &quot;red&quot; to east, &quot;yellow&quot; to south, and &quot;black&quot; to west.">286. Indirection</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

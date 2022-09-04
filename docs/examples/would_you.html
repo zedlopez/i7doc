@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 48. Would you...?</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Would you...?</h1><div class="subheading">Example 48 ★</div>
+<div class="linkback">
+<a href="../WI_4.html#section_8" title="Kinds &gt; New value properties">WI §4.8 New value properties</a><br><a href="../RB_9.html#section_1" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Food">RB §9.1 Food</a>
+</div>
+<p class="example-desc">Adding new properties to objects, and checking for their presence.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="change_of_basis.html" title="Implementing sleeping and wakeful states.">47. Change of Basis</a></div><div class="doc-navbar-right"><a href="straw_boater.html" title="Using text properties that apply only to some things and are not defined for others.">49. Straw Boater</a></div></div>
+</header>
+<p>For instance, if we want to give some objects a flavor:</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex48">Play/modify Would you...? in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="GreenEggs/index.html">Play Would you...? in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Would you...?&quot;\n\nThe House is a room. The mouse is an animal in the House.\n\nThe player carries some green eggs and a ham.\n\nA food is a kind of thing that is edible. Food has some text called flavor. The flavor of food is usually &quot;Tolerable.&quot;\n\n\nThe ham and the green eggs are food. The flavor of the green eggs is &quot;Delicious!&quot;\n\nAfter eating something:\n\tif the noun provides the property flavor, say &quot;[the flavor of the noun][paragraph break]&quot;;\n\totherwise say &quot;It&apos;s [noun]-flavored.&quot;\n\n\nThe player carries some paper. The paper is edible.\n\nTest me with &quot;eat ham / eat green eggs / eat paper&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Would you...?&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The House is a room. The mouse is an animal in the House.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The player carries some green eggs and a ham.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A food is a kind of thing that is edible. Food has some text called flavor. The flavor of food is usually &quot;Tolerable.&quot;</div>
+</div><p>Things are, in general, not edible by default, so we have to make them edible specifically in order to allow them to be eaten by the player. Here we&#39;ve defined food to be edible by default, and we have given it a standard piece of flavor text.</p>
+<div class="codeblock"><div class="codeline">The ham and the green eggs are food. The flavor of the green eggs is &quot;Delicious!&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">After eating something:</div>
+<div class="codeline">&ensp;&ensp;if the noun provides the property flavor, say &quot;[the flavor of the noun][paragraph break]&quot;;</div>
+<div class="codeline">&ensp;&ensp;otherwise say &quot;It&#39;s [noun]-flavored.&quot;</div>
+</div><p>Note that we use &quot;if the noun provides a flavor&hellip;&quot; to make sure that the property exists before attempting to use it. Otherwise, there is the risk that we will try to print a property that does not exist, resulting in errors in the game.</p>
+<p>We will only get the &quot;It&#39;s [noun]-flavored.&quot; response if we successfully eat something that is not a food and does not have flavor text. To test this feature, let&#39;s suppose something that isn&#39;t exactly food but can theoretically be chewed on:</p>
+<div class="codeblock"><div class="codeline">The player carries some paper. The paper is edible.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;eat ham / eat green eggs / eat paper&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "eat ham / eat green eggs / eat paper".</summary><div class="testme-output">House<br>You can see a mouse here.<br><br>>(Testing.)<br><br>>[1] eat ham<br>Tolerable.<br><br>>[2] eat green eggs<br>Delicious!<br><br>>[3] eat paper<br>It's paper-flavored.
+</div></details><div class="doc-navbar"><div class="doc-navbar-left"><a href="change_of_basis.html" title="Implementing sleeping and wakeful states.">47. Change of Basis</a></div><div class="doc-navbar-right"><a href="straw_boater.html" title="Using text properties that apply only to some things and are not defined for others.">49. Straw Boater</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

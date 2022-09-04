@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 96. Zodiac</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Zodiac</h1><div class="subheading">Example 96 ★</div>
+<div class="linkback">
+<a href="../WI_7.html#section_9" title="Basic Actions &gt; All actions and exceptional actions">WI §7.9 All actions and exceptional actions</a><br><a href="../RB_7.html#section_3" title="Other Characters &gt; Reactive Characters">RB §7.3 Reactive Characters</a>
+</div>
+<p class="example-desc">Several variations on &quot;doing something other than...&quot;, demonstrating different degrees of restriction.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="art_of_noise.html" title="Things are all assigned their own noise (or silence). Listening to the room in general reports on all the things that are currently audible.">95. The Art of Noise</a></div><div class="doc-navbar-right"><a href="ming_vase.html" title="ATTACK or DROP break and remove fragile items from play.">97. Ming Vase</a></div></div>
+</header>
+<p>Notice that the following two scenarios do not have the same effect:</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex96a">Play/modify Zodiac in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="Zodiac_1/index.html">Play Zodiac in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Zodiac&quot;\n\nThe Secluded Alley is a room. The Capricorn Killer is a man in the Secluded Alley.\n\nThe player carries a can of mace and a roll of duct tape.\n\nInstead of doing something other than examining with the Capricorn Killer:\n\tsay &quot;You wouldn&apos;t dare!&quot;\n\nTest me with &quot;x me / x killer / touch killer / smell mace&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Zodiac&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Secluded Alley is a room. The Capricorn Killer is a man in the Secluded Alley.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The player carries a can of mace and a roll of duct tape.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of doing something other than examining with the Capricorn Killer:</div>
+<div class="codeline">&ensp;&ensp;say &quot;You wouldn&#39;t dare!&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;x me / x killer / touch killer / smell mace&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "x me / x killer / touch killer / smell mace".</summary><div class="testme-output">Secluded Alley<br>You can see a Capricorn Killer here.<br><br>>(Testing.)<br><br>>[1] x me<br>As good-looking as ever.<br><br>>[2] x killer<br>You see nothing special about the Capricorn Killer.<br><br>>[3] touch killer<br>You wouldn't dare!<br><br>>[4] smell mace<br>You smell nothing unexpected.
+</div></details><p>&hellip;will prevent the player from doing anything else to the killer, but allow him free range of action with other objects. By contrast, the following will prevent him doing anything other than examining to any item:</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex96b">Play/modify Zodiac in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="Zodiac_2/index.html">Play Zodiac in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Zodiac&quot;\n\nThe Secluded Alley is a room. The Capricorn Killer is a man in the Secluded Alley.\n\nThe player carries a can of mace and a roll of duct tape.\n\nInstead of doing something other than examining with something in the presence of the Capricorn Killer:\n\tsay &quot;You dare not attempt it!&quot;\n\nTest me with &quot;x me / x killer / touch killer / smell mace&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Zodiac&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Secluded Alley is a room. The Capricorn Killer is a man in the Secluded Alley.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The player carries a can of mace and a roll of duct tape.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of doing something other than examining with something in the presence of the Capricorn Killer:</div>
+<div class="codeline">&ensp;&ensp;say &quot;You dare not attempt it!&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;x me / x killer / touch killer / smell mace&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "x me / x killer / touch killer / smell mace".</summary><div class="testme-output">Secluded Alley<br>You can see a Capricorn Killer here.<br><br>>(Testing.)<br><br>>[1] x me<br>As good-looking as ever.<br><br>>[2] x killer<br>You see nothing special about the Capricorn Killer.<br><br>>[3] touch killer<br>You dare not attempt it!<br><br>>[4] smell mace<br>You dare not attempt it!
+</div></details><p>But notice that because we specified &quot;with something&quot;, actions that take no object (like sing) are still not affected.</p>
+<p>The most strict statement would be</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex96c">Play/modify Zodiac in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="Zodiac_3/index.html">Play Zodiac in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Zodiac&quot;\n\nThe Secluded Alley is a room. The Capricorn Killer is a man in the Secluded Alley.\n\nThe player carries a can of mace and a roll of duct tape.\n\nInstead of doing something other than looking or examining in the presence of the Capricorn Killer:\n\tsay &quot;You dare not attempt it!&quot;\n\nTest me with &quot;x me / x killer / touch killer / smell mace&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Zodiac&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Secluded Alley is a room. The Capricorn Killer is a man in the Secluded Alley.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The player carries a can of mace and a roll of duct tape.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of doing something other than looking or examining in the presence of the Capricorn Killer:</div>
+<div class="codeline">&ensp;&ensp;say &quot;You dare not attempt it!&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;x me / x killer / touch killer / smell mace&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "x me / x killer / touch killer / smell mace".</summary><div class="testme-output">Secluded Alley<br>You can see a Capricorn Killer here.<br><br>>(Testing.)<br><br>>[1] x me<br>As good-looking as ever.<br><br>>[2] x killer<br>You see nothing special about the Capricorn Killer.<br><br>>[3] touch killer<br>You dare not attempt it!<br><br>>[4] smell mace<br>You dare not attempt it!
+</div></details><p>Because we left &quot;something&quot; out, now the pattern does not have to match an activity with an object; it will match any activity at all. Singing too will be deemed too risky in the presence of our sinister foe. But we do need to make an exception for &quot;look&quot;, or else we won&#39;t get even the room description.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="art_of_noise.html" title="Things are all assigned their own noise (or silence). Listening to the room in general reports on all the things that are currently audible.">95. The Art of Noise</a></div><div class="doc-navbar-right"><a href="ming_vase.html" title="ATTACK or DROP break and remove fragile items from play.">97. Ming Vase</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

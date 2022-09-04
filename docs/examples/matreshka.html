@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 172. Matreshka</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Matreshka</h1><div class="subheading">Example 172 ★</div>
+<div class="linkback">
+<a href="../WI_11.html#section_7" title="Phrases &gt; Begin and end">WI §11.7 Begin and end</a><br><a href="../RB_6.html#section_6" title="Commands &gt; Looking Under and Hiding">RB §6.6 Looking Under and Hiding</a>
+</div>
+<p class="example-desc">A SEARCH [room] action that will open every container the player can see, stopping only when there don&#39;t remain any that are closed, unlocked, and openable.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="proposal.html" title="Asking the player a yes/no question which he must answer, and another which he may answer or not as he chooses.">171. Proposal</a></div><div class="doc-navbar-right"><a href="princess_and_the_pea.html" title="The player is unable to sleep on a mattress (or stack of mattresses) because the bottom one has something uncomfortable under it.">173. Princess and the Pea</a></div></div>
+</header>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex172">Play/modify Matreshka in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="Matreshka/index.html">Play Matreshka in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Matreshka&quot;\n\nRansacking is an action applying to one thing.\n\nCheck ransacking:\n\tif the noun is not the location, say &quot;You can hardly search [the noun] from here.&quot; instead.\n\nCarry out ransacking:\n\twhile the player can see a closed openable unlocked container (called target):\n\t\tsay &quot;[target]: [run paragraph on]&quot;;\n\t\ttry opening the target.\n\nReport ransacking:\n\tsay &quot;You can see nothing further worth searching.&quot;\n\nThe Russian Gift Shop is a room. In the Russian Gift Shop is a large wooden doll. It is closed and openable. In the large wooden doll is a medium wooden doll. It is closed and openable. In the medium wooden doll is a small wooden doll. It is closed and openable. In the small wooden doll is a tiny solid wooden doll.\n\n\nUnderstand &quot;search [any visited room]&quot; as ransacking.\n\nTest me with &quot;search gift shop&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Matreshka&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Ransacking is an action applying to one thing.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Check ransacking:</div>
+<div class="codeline">&ensp;&ensp;if the noun is not the location, say &quot;You can hardly search [the noun] from here.&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Carry out ransacking:</div>
+<div class="codeline">&ensp;&ensp;while the player can see a closed openable unlocked container (called target):</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;[target]: [run paragraph on]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;try opening the target.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Report ransacking:</div>
+<div class="codeline">&ensp;&ensp;say &quot;You can see nothing further worth searching.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Russian Gift Shop is a room. In the Russian Gift Shop is a large wooden doll. It is closed and openable. In the large wooden doll is a medium wooden doll. It is closed and openable. In the medium wooden doll is a small wooden doll. It is closed and openable. In the small wooden doll is a tiny solid wooden doll.</div>
+</div><p>And now we need to borrow from a later chapter for the command that will make this work:</p>
+<div class="codeblock"><div class="codeline">Understand &quot;search [any visited room]&quot; as ransacking.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;search gift shop&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "search gift shop".</summary><div class="testme-output">Russian Gift Shop<br>You can see a large wooden doll (closed) here.<br><br>>(Testing.)<br><br>>[1] search gift shop<br>large wooden doll: You open the large wooden doll, revealing a medium wooden doll.<br><br>medium wooden doll: You open the medium wooden doll, revealing a small wooden doll.<br><br>small wooden doll: You open the small wooden doll, revealing a tiny solid wooden doll.<br><br>You can see nothing further worth searching.
+</div></details><div class="doc-navbar"><div class="doc-navbar-left"><a href="proposal.html" title="Asking the player a yes/no question which he must answer, and another which he may answer or not as he chooses.">171. Proposal</a></div><div class="doc-navbar-right"><a href="princess_and_the_pea.html" title="The player is unable to sleep on a mattress (or stack of mattresses) because the bottom one has something uncomfortable under it.">173. Princess and the Pea</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

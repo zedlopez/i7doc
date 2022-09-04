@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 293. Lanista 2</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Lanista 2</h1><div class="subheading">Randomized Combat with Weapons: Example 293 ★★</div>
+<div class="linkback">
+<a href="../WI_17.html#section_3" title="Understanding &gt; Overriding existing commands">WI §17.3 Overriding existing commands</a><br><a href="../RB_7.html#section_5" title="Other Characters &gt; Combat and Death">RB §7.5 Combat and Death</a>
+</div>
+<p class="example-desc">Randomized combat in which the damage done depends on what weapons the characters are wielding, and in which an ATTACK IT WITH action is created to replace regular attacking. Also folds a new DIAGNOSE command into the system.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="lanista.html" title="Very simple randomized combat in which characters hit one another for a randomized amount of damage.">130. Lanista 1</a></div></div><div class="doc-navbar"><div class="doc-navbar-left"><a href="trouble_with_printing.html" title="Making a READ command, distinct from EXAMINE, for legible objects.">292. The Trouble with Printing</a></div><div class="doc-navbar-right"><a href="shawns_bad_day.html" title="Allowing the player to EXAMINE ALL.">294. Shawn's Bad Day</a></div></div>
+</header>
+<p>Back in the chapter on randomization, we explored a way to create a randomized combat system. That system didn&#39;t allow for multiple weapons, though. Here we explore how to create an ATTACK IT WITH action that will let the player choose between weapons with different maximum powers.</p>
+<p>We&#39;re also going to rewrite that original &quot;instead of attacking:&quot; rule into an attacking it with action that can be performed equally by the player or by any of the player&#39;s enemies.</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex293">Play/modify Lanista, Part Two in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="Lanista2/index.html">Play Lanista, Part Two in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Lanista, Part Two&quot;\n\nThe Arena is a room. &quot;Sand, blood, iron. These festivals are normally held on hot days, but the sun has gone behind a cloud and fat drops of rain now and then spatter the arena floor.&quot; The gladiator is a man in the Arena. &quot;A bare-chested Scythian gladiator faces you, wielding [a list of weapons carried by the gladiator].&quot;\n\nSection 1 - Hit Points\n\nA person has a number called maximum hit points. A person has a number called current hit points.\n\nThe maximum hit points of the player is 35. The maximum hit points of the gladiator is 25.\n\n\nWhen play begins:\n\trepeat with victim running through people:\n\t\tnow the current hit points of the victim is the maximum hit points of the victim.\n\nDefinition: a person is dead if his current hit points are less than 0.\n\nSection 2 - Diagnosis\n\nDiagnosing is an action applying to one visible thing. Understand &quot;diagnose [something]&quot; as diagnosing.\n\nCheck diagnosing:\n\tif the noun is not a person, say &quot;Only people can have diagnoses.&quot; instead.\n\nCarry out diagnosing:\n\tsay &quot;[if the noun is the player]You have[otherwise][The noun] has[end if] [current hit points of the noun] out of a possible [maximum hit points of the noun] hit points remaining.&quot;\n\nSection 3 - Weapons\n\nA weapon is a kind of thing. A weapon has a number called the maximum damage. The maximum damage of a weapon is usually 4.\n\nThe gladiator carries a weapon called a trident. The maximum damage of the trident is 5. The gladiator carries a weapon called a net. The maximum damage of the net is 1.\n\nThe player carries a weapon called a mace. The maximum damage of the mace is 3.\n\nSection 4 - Attacking it with\n\n\nUnderstand the commands &quot;attack&quot; and &quot;punch&quot; and &quot;destroy&quot; and &quot;kill&quot; and &quot;murder&quot; and &quot;hit&quot; and &quot;thump&quot; and &quot;break&quot; and &quot;smash&quot; and &quot;torture&quot; and &quot;wreck&quot; as something new.\n\n\nAttacking it with is an action applying to one visible thing and one carried thing. Understand &quot;attack [someone] with [something preferably held]&quot; as attacking it with.\n\n\nUnderstand the commands &quot;punch&quot; and &quot;destroy&quot; and &quot;kill&quot; and &quot;murder&quot; and &quot;hit&quot; and &quot;thump&quot; and &quot;break&quot; and &quot;smash&quot; and &quot;torture&quot; and &quot;wreck&quot; as &quot;attack&quot;.\n\n\nThe attacking it with action has a number called the damage inflicted.\n\nSetting action variables for attacking something with something:\n\tif the second noun is a weapon:\n\t\tlet the maximum attack be the maximum damage of the second noun;\n\t\tnow the damage inflicted is a random number between 1 and the maximum attack.\n\nCheck an actor attacking something with something (this is the can&apos;t attack with something that isn&apos;t a weapon rule):\n\tif the second noun is not a weapon:\n\t\tif the actor is the player, say &quot;[The second noun] does not qualify as a weapon.&quot;;\n\t\tstop the action.\n\nCheck an actor attacking something with something (this is the can&apos;t attack a non-person rule):\n\tif the noun is not a person:\n\t\tif the actor is the player, say &quot;[The noun] has no life to lose.&quot;;\n\t\tstop the action.\n\nCarry out an actor attacking something with something (this is the standard attacking it with a weapon rule):\n\tdecrease the current hit points of the noun by the damage inflicted;\n\tif the noun is dead and the noun is not the player:\n\t\tnow the noun is nowhere.\n\n\nReport attacking a dead person with something (this is the death-report priority rule):\n\tsay &quot;You attack with [the second noun], killing [the noun]!&quot; instead.\n\nReport attacking someone with something (this is the normal attacking report rule):\n\tsay &quot;You attack [the noun] with [the second noun], causing [damage inflicted] point[s] of damage!&quot; instead.\n\nReport someone attacking the player with something when the player is dead (this is the player&apos;s-death priority rule):\n\tsay &quot;[The actor] attacks you with [the second noun], finishing you off!&quot;;\n\tend the story;\n\tstop the action\n\nReport someone attacking the player with something (this is the standard report someone attacking the player with rule):\n\tsay &quot;[The actor] attacks you with [the second noun], causing [damage inflicted] point[s] of damage!&quot; instead.\n\nReport someone attacking something with something (this is the standard report attacking it with rule):\n\tsay &quot;[The actor] attacks [the noun] with [the second noun], causing [damage inflicted] point[s] of damage!&quot; instead.\n\nWhen play begins:\n\tnow the left hand status line is &quot;You: [current hit points of player]&quot;;\n\tnow the right hand status line is &quot;Gladiator: [current hit points of gladiator]&quot;.\n\nEvery turn (this is the gladiator-attack rule):\n\tif the gladiator is not dead, try the gladiator attacking the player with a random weapon which is carried by the gladiator.\n\nTest me with &quot;hit gladiator with mace / kill gladiator / drop mace / attack gladiator / attack gladiator with mace / g / g&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Lanista, Part Two&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Arena is a room. &quot;Sand, blood, iron. These festivals are normally held on hot days, but the sun has gone behind a cloud and fat drops of rain now and then spatter the arena floor.&quot; The gladiator is a man in the Arena. &quot;A bare-chested Scythian gladiator faces you, wielding [a list of weapons carried by the gladiator].&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline i7header">Section 1 - Hit Points</div><div class="codeline">A person has a number called maximum hit points. A person has a number called current hit points.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The maximum hit points of the player is 35. The maximum hit points of the gladiator is 25.</div>
+</div><p>In our simpler version of this example we set the current hit points by hand, but in a game with many characters this would get dull and repetitive, so here we&#39;ll use a &quot;when play begins&quot; to set all current hit point values automatically to maximum:</p>
+<div class="codeblock"><div class="codeline">When play begins:</div>
+<div class="codeline">&ensp;&ensp;repeat with victim running through people:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;now the current hit points of the victim is the maximum hit points of the victim.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Definition: a person is dead if his current hit points are less than 0.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline i7header">Section 2 - Diagnosis</div><div class="codeline">Diagnosing is an action applying to one visible thing. Understand &quot;diagnose [something]&quot; as diagnosing.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Check diagnosing:</div>
+<div class="codeline">&ensp;&ensp;if the noun is not a person, say &quot;Only people can have diagnoses.&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Carry out diagnosing:</div>
+<div class="codeline">&ensp;&ensp;say &quot;[if the noun is the player]You have[otherwise][The noun] has[end if] [current hit points of the noun] out of a possible [maximum hit points of the noun] hit points remaining.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline i7header">Section 3 - Weapons</div><div class="codeline">A weapon is a kind of thing. A weapon has a number called the maximum damage. The maximum damage of a weapon is usually 4.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The gladiator carries a weapon called a trident. The maximum damage of the trident is 5. The gladiator carries a weapon called a net. The maximum damage of the net is 1.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The player carries a weapon called a mace. The maximum damage of the mace is 3.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline i7header">Section 4 - Attacking it with</div></div><p>In our new system, we want to specify what is being used for an attack. This means that we need to create a new &quot;attacking it with&quot; action, and also that we should disable the existing &quot;attacking&hellip;&quot; command.</p>
+<p>Here&#39;s why: If we leave the default attack command in place, Inform will continue to accept commands like &gt;ATTACK GLADIATOR, but reply foolishly with the default &quot;Violence is not the answer&hellip;&quot; response.</p>
+<p>A somewhat better approach would be to change the reply of &gt;ATTACK GLADIATOR to say something like &quot;You must specify a weapon to attack with.&quot; But this is still less than ideal, because it means that the player has to then rewrite his entire command. If, on the other hand, we take out &quot;ATTACK GLADIATOR&quot; entirely, the game will always prompt &quot;What do you want to attack the gladiator with?&quot; -- which teaches the player the correct command structure for this particular game, and avoids pretending to understand any command that is not meaningful within this game.</p>
+<p>This is a little bit of work because ATTACK has a lot of synonyms in the default library, but if we look through the actions index we can find them all:</p>
+<div class="codeblock"><div class="codeline">Understand the commands &quot;attack&quot; and &quot;punch&quot; and &quot;destroy&quot; and &quot;kill&quot; and &quot;murder&quot; and &quot;hit&quot; and &quot;thump&quot; and &quot;break&quot; and &quot;smash&quot; and &quot;torture&quot; and &quot;wreck&quot; as something new.</div>
+</div><p>Now we make our new command:</p>
+<div class="codeblock"><div class="codeline">Attacking it with is an action applying to one visible thing and one carried thing. Understand &quot;attack [someone] with [something preferably held]&quot; as attacking it with.</div>
+</div><p>Note that we&#39;ve specified &quot;one carried thing&quot;, because we want the player to pick up a weapon to use if necessary. And now we assign all the old attack vocabulary to apply to the new command:</p>
+<div class="codeblock"><div class="codeline">Understand the commands &quot;punch&quot; and &quot;destroy&quot; and &quot;kill&quot; and &quot;murder&quot; and &quot;hit&quot; and &quot;thump&quot; and &quot;break&quot; and &quot;smash&quot; and &quot;torture&quot; and &quot;wreck&quot; as &quot;attack&quot;.</div>
+</div><p>This may seem counter-intuitive, but order of source code matters here: we first get rid of the old, default vocabulary, then define our new action, then make the vocabulary apply to that new action. Inform will now understand &gt;HIT GLADIATOR WITH TRIDENT, &gt;BREAK GLADIATOR WITH TRIDENT, and so on.</p>
+<p>Our new action is also a perfect place to use an action variable: we&#39;re going to need to choose an amount of damage done and refer to that several times in our action rules. So let&#39;s set that up first:</p>
+<div class="codeblock"><div class="codeline">The attacking it with action has a number called the damage inflicted.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Setting action variables for attacking something with something:</div>
+<div class="codeline">&ensp;&ensp;if the second noun is a weapon:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;let the maximum attack be the maximum damage of the second noun;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;now the damage inflicted is a random number between 1 and the maximum attack.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Check an actor attacking something with something (this is the can&#39;t attack with something that isn&#39;t a weapon rule):</div>
+<div class="codeline">&ensp;&ensp;if the second noun is not a weapon:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;if the actor is the player, say &quot;[The second noun] does not qualify as a weapon.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;stop the action.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Check an actor attacking something with something (this is the can&#39;t attack a non-person rule):</div>
+<div class="codeline">&ensp;&ensp;if the noun is not a person:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;if the actor is the player, say &quot;[The noun] has no life to lose.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;stop the action.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Carry out an actor attacking something with something (this is the standard attacking it with a weapon rule):</div>
+<div class="codeline">&ensp;&ensp;decrease the current hit points of the noun by the damage inflicted;</div>
+<div class="codeline">&ensp;&ensp;if the noun is dead and the noun is not the player:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;now the noun is nowhere.</div>
+</div><p>Though our checks and carry-out rules are similar regardless of who is acting, we&#39;re going to want actions to be described differently for different actors, so we&#39;ll use separate &quot;report attacking&quot; and &quot;report someone attacking&quot; rules. We&#39;ll also make some special cases for when the character has died as a result of the attack:</p>
+<div class="codeblock"><div class="codeline">Report attacking a dead person with something (this is the death-report priority rule):</div>
+<div class="codeline">&ensp;&ensp;say &quot;You attack with [the second noun], killing [the noun]!&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Report attacking someone with something (this is the normal attacking report rule):</div>
+<div class="codeline">&ensp;&ensp;say &quot;You attack [the noun] with [the second noun], causing [damage inflicted] point[s] of damage!&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Report someone attacking the player with something when the player is dead (this is the player&#39;s-death priority rule):</div>
+<div class="codeline">&ensp;&ensp;say &quot;[The actor] attacks you with [the second noun], finishing you off!&quot;;</div>
+<div class="codeline">&ensp;&ensp;end the story;</div>
+<div class="codeline">&ensp;&ensp;stop the action</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Report someone attacking the player with something (this is the standard report someone attacking the player with rule):</div>
+<div class="codeline">&ensp;&ensp;say &quot;[The actor] attacks you with [the second noun], causing [damage inflicted] point[s] of damage!&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Report someone attacking something with something (this is the standard report attacking it with rule):</div>
+<div class="codeline">&ensp;&ensp;say &quot;[The actor] attacks [the noun] with [the second noun], causing [damage inflicted] point[s] of damage!&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">When play begins:</div>
+<div class="codeline">&ensp;&ensp;now the left hand status line is &quot;You: [current hit points of player]&quot;;</div>
+<div class="codeline">&ensp;&ensp;now the right hand status line is &quot;Gladiator: [current hit points of gladiator]&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Every turn (this is the gladiator-attack rule):</div>
+<div class="codeline">&ensp;&ensp;if the gladiator is not dead, try the gladiator attacking the player with a random weapon which is carried by the gladiator.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;hit gladiator with mace / kill gladiator / drop mace / attack gladiator / attack gladiator with mace / g / g&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "hit gladiator with mace / kill gladiator / drop mace / attack gladiator / attack gladiator with mace / g / g".</summary><div class="testme-output">Arena<br>Sand, blood, iron. These festivals are normally held on hot days, but the sun has gone behind a cloud and fat drops of rain now and then spatter the arena floor.<br><br>A bare-chested Scythian gladiator faces you, wielding a trident and a net.<br><br>>(Testing.)<br><br>>[1] hit gladiator with mace<br>You attack the gladiator with the mace, causing 1 point of damage!<br><br>The gladiator attacks you with the net, causing 1 point of damage!<br><br>>[2] kill gladiator<br>(with the mace)<br>You attack the gladiator with the mace, causing 3 points of damage!<br><br>The gladiator attacks you with the net, causing 1 point of damage!<br><br>>[3] drop mace<br>Dropped.<br><br>The gladiator attacks you with the trident, causing 3 points of damage!<br><br>>[4] attack gladiator<br>What do you want to attack the gladiator with?<br><br>>[5] attack gladiator with mace<br>(first taking the mace)<br>You attack the gladiator with the mace, causing 2 points of damage!<br><br>The gladiator attacks you with the net, causing 1 point of damage!<br><br>>[6] g<br>You attack the gladiator with the mace, causing 2 points of damage!<br><br>The gladiator attacks you with the net, causing 1 point of damage!<br><br>>[7] g<br>You attack the gladiator with the mace, causing 3 points of damage!<br><br>The gladiator attacks you with the net, causing 1 point of damage!
+</div></details><p>Those devoted to role-playing will note that our form of randomization is still pretty naive: most RPG systems use multiple dice in order to create more interesting probability curves. For a system that simulates actual dice-rolling, see the full &quot;Reliques of Tolti-Aph&quot; game.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="lanista.html" title="Very simple randomized combat in which characters hit one another for a randomized amount of damage.">130. Lanista 1</a></div></div><div class="doc-navbar"><div class="doc-navbar-left"><a href="trouble_with_printing.html" title="Making a READ command, distinct from EXAMINE, for legible objects.">292. The Trouble with Printing</a></div><div class="doc-navbar-right"><a href="shawns_bad_day.html" title="Allowing the player to EXAMINE ALL.">294. Shawn's Bad Day</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

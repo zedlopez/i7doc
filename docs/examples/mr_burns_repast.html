@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 421. Mr. Burns' Repast</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Mr. Burns' Repast</h1><div class="subheading">Example 421 ★★</div>
+<div class="linkback">
+<a href="../WI_20.html#section_8" title="Advanced Text &gt; Replacements">WI §20.8 Replacements</a><br><a href="../RB_2.html#section_3" title="Adaptive Prose &gt; Using the Player&#39;s Input">RB §2.3 Using the Player's Input</a>
+</div>
+<p class="example-desc">Letting the player guess types for an unidentifiable fish.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="igpay_atinlay.html" title="A pig Latin filter for the player&#39;s commands.">420. Igpay Atinlay</a></div><div class="doc-navbar-right"><a href="northstar.html" title="Making Inform understand ASK JOSH TO TAKE INVENTORY as JOSH, TAKE INVENTORY. This requires us to use a regular expression on the player&#39;s command, replacing some of the content.">422. Northstar</a></div></div>
+</header>
+<p>Suppose we have an unhappily mutated fish that the player can refer to by any of a number of species names, or any word followed by -fish. We want to reject these commands, but preserve a memory of what the player last tried to call the thing:</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex421">Play/modify Mr. Burns' Repast in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="MrBurnsRepast/index.html">Play Mr. Burns' Repast in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Mr. Burns&apos; Repast&quot;\n\nWharf is a room.\n\nThere is an unknown fish in the Wharf. The unknown fish has some a text called the supposed name. The description of the unknown fish is &quot;The victim of heavy mutagens, this thing is not really recognizable as any species you know.&quot;.\n\nFish variety is a kind of value. The fish varieties are salmon, albacore, mackerel.\n\nRule for printing the name of the unknown fish:\n\tif the supposed name of the unknown fish is &quot;&quot;, say the printed name of the unknown fish;\n\totherwise say the supposed name of the unknown fish.\n\nAfter reading a command:\n\tif the unknown fish is visible and player&apos;s command matches the regular expression &quot;\b\w+fish&quot;:\n\t\tlet N be &quot;[the player&apos;s command]&quot;;\n\t\treplace the regular expression &quot;.*(?=\b\w+fish)&quot; in N with &quot;&quot;;\n\t\tnow N is &quot;[N](?)&quot;;\n\t\tnow the supposed name of the unknown fish is N;\n\t\trespond with doubt;\n\t\treject the player&apos;s command;\n\totherwise if the unknown fish is visible and the player&apos;s command includes &quot;[fish variety]&quot;:\n\t\tnow supposed name of the fish is &quot;[fish variety understood](?)&quot;;\n\t\trespond with doubt;\n\t\treject the player&apos;s command.\n\nTo respond with doubt:\n\tsay &quot;You&apos;re not [italic type]sure[roman type] you&apos;re seeing any such thing.&quot;\n\nTest me with &quot;get swordfish / look / touch monkfish / look / listen to tunafish / x fish / x salmon / look&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Mr. Burns&#39; Repast&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Wharf is a room.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">There is an unknown fish in the Wharf. The unknown fish has some a text called the supposed name. The description of the unknown fish is &quot;The victim of heavy mutagens, this thing is not really recognizable as any species you know.&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Fish variety is a kind of value. The fish varieties are salmon, albacore, mackerel.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Rule for printing the name of the unknown fish:</div>
+<div class="codeline">&ensp;&ensp;if the supposed name of the unknown fish is &quot;&quot;, say the printed name of the unknown fish;</div>
+<div class="codeline">&ensp;&ensp;otherwise say the supposed name of the unknown fish.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">After reading a command:</div>
+<div class="codeline">&ensp;&ensp;if the unknown fish is visible and player&#39;s command matches the regular expression &quot;\b\w+fish&quot;:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;let N be &quot;[the player&#39;s command]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;replace the regular expression &quot;.*(?=\b\w+fish)&quot; in N with &quot;&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;now N is &quot;[N](?)&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;now the supposed name of the unknown fish is N;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;respond with doubt;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;reject the player&#39;s command;</div>
+<div class="codeline">&ensp;&ensp;otherwise if the unknown fish is visible and the player&#39;s command includes &quot;[fish variety]&quot;:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;now supposed name of the fish is &quot;[fish variety understood](?)&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;respond with doubt;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;reject the player&#39;s command.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">To respond with doubt:</div>
+<div class="codeline">&ensp;&ensp;say &quot;You&#39;re not [italic type]sure[roman type] you&#39;re seeing any such thing.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;get swordfish / look / touch monkfish / look / listen to tunafish / x fish / x salmon / look&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "get swordfish / look / touch monkfish / look / listen to tunafish / x fish / x salmon / look".</summary><div class="testme-output">Wharf<br>You can see an unknown fish here.<br><br>>(Testing.)<br><br>>[1] get swordfish<br>You're not sure you're seeing any such thing.<br><br>>[2] look<br>Wharf<br>You can see a swordfish(?) here.<br><br>>[3] touch monkfish<br>You're not sure you're seeing any such thing.<br><br>>[4] look<br>Wharf<br>You can see a monkfish(?) here.<br><br>>[5] listen to tunafish<br>You're not sure you're seeing any such thing.<br><br>>[6] x fish<br>The victim of heavy mutagens, this thing is not really recognizable as any species you know.<br><br>>[7] x salmon<br>You're not sure you're seeing any such thing.<br><br>>[8] look<br>Wharf<br>You can see a salmon(?) here.
+</div></details><div class="doc-navbar"><div class="doc-navbar-left"><a href="igpay_atinlay.html" title="A pig Latin filter for the player&#39;s commands.">420. Igpay Atinlay</a></div><div class="doc-navbar-right"><a href="northstar.html" title="Making Inform understand ASK JOSH TO TAKE INVENTORY as JOSH, TAKE INVENTORY. This requires us to use a regular expression on the player&#39;s command, replacing some of the content.">422. Northstar</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

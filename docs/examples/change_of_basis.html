@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 47. Change of Basis</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Change of Basis</h1><div class="subheading">Example 47 ★★</div>
+<div class="linkback">
+<a href="../WI_4.html#section_7" title="Kinds &gt; New either/or properties">WI §4.7 New either/or properties</a><br><a href="../RB_6.html#section_11" title="Commands &gt; Waiting, Sleeping">RB §6.11 Waiting, Sleeping</a>
+</div>
+<p class="example-desc">Implementing sleeping and wakeful states.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="get_me_to_the_church_on_time.html" title="Using kinds of clothing to prevent the player from wearing several pairs of trousers at the same time.">46. Get Me to the Church on Time</a></div><div class="doc-navbar-right"><a href="would_you.html" title="Adding new properties to objects, and checking for their presence.">48. Would you...?</a></div></div>
+</header>
+<p>Suppose we want to allow the player to go to sleep some of the time:</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex47">Play/modify Change of Basis in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="Eigenvalue/index.html">Play Change of Basis in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Change of Basis&quot;\n\nA person is either awake or asleep. A person is usually awake.\n\n\nLinear Algebra Class is a room. &quot;The blackboard is covered with square arrangements of numbers. These are supposed to convey something to you, but mostly you&apos;re finding them soporific.&quot;\n\n\nInstead of sleeping: now the player is asleep; say &quot;You drop off.&quot;\n\nInstead of doing something other than waking up, waiting or sleeping when the player is asleep:\n\tsay &quot;Ssh! You&apos;re sleeping!&quot;\n\nInstead of sleeping when the player is asleep:\n\tsay &quot;Zzzz.&quot;\n\nInstead of waking up when the player is asleep:\n\tnow the player is awake;\n\tsay &quot;You come to suddenly, wiping drool from your lips.&quot;\n\nInstead of doing something other than looking or sleeping when the player is awake:\n\tsay &quot;You&apos;d really rather just sleep through this.&quot;\n\nTest me with &quot;wake up / sleep / look / z / sleep / wake up / look&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Change of Basis&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A person is either awake or asleep. A person is usually awake.</div>
+</div><p>The important thing to note here is that it does not work to say &quot;the player is either asleep or awake&quot;. This is because the player is not necessarily one specific person or thing during the game: the identity of the player can be changed, as we will see later.</p>
+<p>So if we want to make rules about the properties of the player, we should attach these rules to the &quot;person&quot; kind.</p>
+<div class="codeblock"><div class="codeline">Linear Algebra Class is a room. &quot;The blackboard is covered with square arrangements of numbers. These are supposed to convey something to you, but mostly you&#39;re finding them soporific.&quot;</div>
+</div><p>Now a few rules about changing from one state to the other:</p>
+<div class="codeblock"><div class="codeline">Instead of sleeping: now the player is asleep; say &quot;You drop off.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of doing something other than waking up, waiting or sleeping when the player is asleep:</div>
+<div class="codeline">&ensp;&ensp;say &quot;Ssh! You&#39;re sleeping!&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of sleeping when the player is asleep:</div>
+<div class="codeline">&ensp;&ensp;say &quot;Zzzz.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of waking up when the player is asleep:</div>
+<div class="codeline">&ensp;&ensp;now the player is awake;</div>
+<div class="codeline">&ensp;&ensp;say &quot;You come to suddenly, wiping drool from your lips.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of doing something other than looking or sleeping when the player is awake:</div>
+<div class="codeline">&ensp;&ensp;say &quot;You&#39;d really rather just sleep through this.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;wake up / sleep / look / z / sleep / wake up / look&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "wake up / sleep / look / z / sleep / wake up / look".</summary><div class="testme-output">Linear Algebra Class<br>The blackboard is covered with square arrangements of numbers. These are supposed to convey something to you, but mostly you're finding them soporific.<br><br>>(Testing.)<br><br>>[1] wake up<br>You'd really rather just sleep through this.<br><br>>[2] sleep<br>You drop off.<br><br>>[3] look<br>Ssh! You're sleeping!<br><br>>[4] z<br>Time passes.<br><br>>[5] sleep<br>Zzzz.<br><br>>[6] wake up<br>You come to suddenly, wiping drool from your lips.<br><br>>[7] look<br>Linear Algebra Class<br>The blackboard is covered with square arrangements of numbers. These are supposed to convey something to you, but mostly you're finding them soporific.
+</div></details><div class="doc-navbar"><div class="doc-navbar-left"><a href="get_me_to_the_church_on_time.html" title="Using kinds of clothing to prevent the player from wearing several pairs of trousers at the same time.">46. Get Me to the Church on Time</a></div><div class="doc-navbar-right"><a href="would_you.html" title="Adding new properties to objects, and checking for their presence.">48. Would you...?</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

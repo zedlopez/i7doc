@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 250. History Lab</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>History Lab</h1><div class="subheading">Example 250 ★★</div>
+<div class="linkback">
+<a href="../WI_14.html#section_9" title="Adaptive Text and Responses &gt; Verbs as values">WI §14.9 Verbs as values</a><br><a href="../RB_2.html#section_1" title="Adaptive Prose &gt; Varying What Is Written">RB §2.1 Varying What Is Written</a>
+</div>
+<p class="example-desc">We create phrases such as &quot;the box we took&quot; and &quot;the newspaper Clark looked at&quot; based on what has already happened in the story.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="olfactory_settings.html" title="Some adaptive text for smelling the flowers, or indeed, anything else.">249. Olfactory Settings</a></div><div class="doc-navbar-right"><a href="relevant_relations.html" title="An example of how to create room descriptions that acknowledge particular relations using their assigned verbs, rather than by the heavily special-cased code used by the standard library.">251. Relevant Relations</a></div></div>
+</header>
+<p>The examples Variety and Narrative Register show how verbs can be associated with particular actions. Here, we use the same principle so that we can report to the player what was last done to a particular object, either by the player or by someone else.</p>
+<p>To do this, we need to use the idea of stored actions from the Advanced Actions chapter.</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex250">Play/modify History Lab in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="HistoryLab/index.html">Play History Lab in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;History Lab&quot;\n\nSection 1 - Procedure\n\nAn object has an action called the last action.\n\nDescribing relates various verbs to various action names. The verb to describe means the describing relation.\n\nTo take is a verb. The verb take describes the taking action.\nTo drop is a verb. The verb drop describes the dropping action.\nTo look at is a verb. The verb look at describes the examining action.\nTo examine is a verb. The verb examine describes the examining action.\n\nAfter an actor doing something to something:\n\tif a verb describes the action name part of the current action:\n\t\tnow the indefinite article of the noun is &quot;the&quot;;\n\t\tnow the last action of the noun is the current action;\n\tcontinue the action.\n\nAfter printing the name of something (called item):\n\tif the last action of the item is not waiting and the last action of the item is not the current action:\n\t\tlet chosen action-name be the action name part of the last action of the item;\n\t\tlet chosen actor be the actor part of the the last action of the item;\n\t\tif a verb describes the chosen action-name:\n\t\t\tlet the chosen verb be a random verb that describes the chosen action-name;\n\t\t\tsay &quot; [if the chosen actor is the player][we][else][chosen actor][end if] [adapt chosen verb in past tense]&quot;;\n\nSection 2 - Scenario\n\nLab is a room. It contains a box. The box contains a newspaper. Clark is a man in the Lab.\n\nA persuasion rule:\n\tpersuasion succeeds.\n\nTest me with &quot;x box / look / x newspaper / look / clark, x newspaper / clark, get box / clark, drop box / look / take box / i / smell box / i&quot;.`)">⧉</button><div class="codeline storytitle">&quot;History Lab&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline i7header">Section 1 - Procedure</div><div class="codeline">An object has an action called the last action.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Describing relates various verbs to various action names. The verb to describe means the describing relation.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">To take is a verb. The verb take describes the taking action.</div>
+<div class="codeline">To drop is a verb. The verb drop describes the dropping action.</div>
+<div class="codeline">To look at is a verb. The verb look at describes the examining action.</div>
+<div class="codeline">To examine is a verb. The verb examine describes the examining action.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">After an actor doing something to something:</div>
+<div class="codeline">&ensp;&ensp;if a verb describes the action name part of the current action:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;now the indefinite article of the noun is &quot;the&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;now the last action of the noun is the current action;</div>
+<div class="codeline">&ensp;&ensp;continue the action.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">After printing the name of something (called item):</div>
+<div class="codeline">&ensp;&ensp;if the last action of the item is not waiting and the last action of the item is not the current action:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;let chosen action-name be the action name part of the last action of the item;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;let chosen actor be the actor part of the the last action of the item;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;if a verb describes the chosen action-name:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;let the chosen verb be a random verb that describes the chosen action-name;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot; [if the chosen actor is the player][we][else][chosen actor][end if] [adapt chosen verb in past tense]&quot;;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline i7header">Section 2 - Scenario</div><div class="codeline">Lab is a room. It contains a box. The box contains a newspaper. Clark is a man in the Lab.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A persuasion rule:</div>
+<div class="codeline">&ensp;&ensp;persuasion succeeds.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;x box / look / x newspaper / look / clark, x newspaper / clark, get box / clark, drop box / look / take box / i / smell box / i&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "x box / look / x newspaper / look / clark, x newspaper / clark, get box / clark, drop box / look / take box / i / smell box / i".</summary><div class="testme-output">Lab<br>You can see a box (in which is a newspaper) and Clark here.<br><br>>(Testing.)<br><br>>[1] x box<br>In the box is a newspaper.<br><br>>[2] look<br>Lab<br>You can see the box you examined (in which is a newspaper) and Clark here.<br><br>>[3] x newspaper<br>You see nothing special about the newspaper.<br><br>>[4] look<br>Lab<br>You can see the box you examined (in which is the newspaper you examined) and Clark here.<br><br>>[5] clark, x newspaper<br>Clark looks closely at the newspaper.<br><br>>[6] clark, get box<br>Clark picks up the box.<br><br>>[7] clark, drop box<br>Clark puts down the box.<br><br>>[8] look<br>Lab<br>You can see the box Clark dropped (in which is the newspaper Clark looked at) and Clark here.<br><br>>[9] take box<br>Taken.<br><br>>[10] i<br>You are carrying:<br>  the box you took<br>    the newspaper Clark examined<br><br>>[11] smell box<br>You smell nothing unexpected.<br><br>>[12] i<br>You are carrying:<br>  the box you took<br>    the newspaper Clark looked at
+</div></details><p>Notice that smelling the box does not change the box&#39;s description because we haven&#39;t gotten around to defining a smell or sniff verb.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="olfactory_settings.html" title="Some adaptive text for smelling the flowers, or indeed, anything else.">249. Olfactory Settings</a></div><div class="doc-navbar-right"><a href="relevant_relations.html" title="An example of how to create room descriptions that acknowledge particular relations using their assigned verbs, rather than by the heavily special-cased code used by the standard library.">251. Relevant Relations</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 241. Murder on the Orient Express</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Murder on the Orient Express</h1><div class="subheading">Example 241 ★★</div>
+<div class="linkback">
+<a href="../WI_13.html#section_16" title="Relations &gt; What are relations for?">WI §13.16 What are relations for?</a><br><a href="../RB_7.html#section_11" title="Other Characters &gt; Character Knowledge and Reasoning">RB §7.11 Character Knowledge and Reasoning</a>
+</div>
+<p class="example-desc">A number of sleuths (the player among them) find themselves aboard the Orient Express, where a murder has taken place, and one of them is apparently the culprit. Naturally they do not agree on whom, but there is physical evidence which may change their minds...</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="number_study.html" title="The parity and joint magnitude relations explored.">240. Number Study</a></div><div class="doc-navbar-right"><a href="what_not_to_wear.html" title="A general-purpose clothing system that handles a variety of different clothing items layered in different combinations over different areas of the body.">242. What Not To Wear</a></div></div>
+</header>
+<p>The following example creates two new relations, and two new verbs, in order to set up a tangled web of intrigue.</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex241">Play/modify Murder on the Orient Express in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="Murder/index.html">Play Murder on the Orient Express in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Murder on the Orient Express&quot;\n\nThe Dining Car is a room. Lord Peter is a man in the Dining Car. Sherlock Holmes is a man in the Dining Car. Miss Marple is a woman in the Dining Car. Adam Dalgliesh is a man in the Dining Car.\n\nSuspecting relates various people to one person.\n\nThe verb to suspect means the suspecting relation.\n\nDalgliesh suspects Holmes. Holmes suspects Lord Peter. Lord Peter suspects Holmes. Miss Marple suspects the player.\n\nExculpating relates one thing to various people.\n\nThe verb to exculpate means the exculpating relation.\n\nThe silver bullet exculpates the player. The pipe ash exculpates Holmes. The poison pen letter exculpates Lord Peter. The poison pen letter exculpates Miss Marple. [Poor Dalgliesh. I guess he did it.]\n\nThe pipe ash, the letter and the silver bullet are carried.\n\n\nInstead of showing something to a person who suspects the player:\n\tsay &quot;&apos;You would say that,&apos; remarks [the second noun] darkly.&quot;.\n\nInstead of showing something which exculpates the player to someone:\n\tsay &quot;&apos;How striking!&apos; says [the second noun]. &apos;Almost I begin to distrust myself.&apos;&quot;.\n\nTest me with &quot;show the letter to miss marple / show the silver bullet to holmes&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Murder on the Orient Express&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Dining Car is a room. Lord Peter is a man in the Dining Car. Sherlock Holmes is a man in the Dining Car. Miss Marple is a woman in the Dining Car. Adam Dalgliesh is a man in the Dining Car.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Suspecting relates various people to one person.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The verb to suspect means the suspecting relation.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Dalgliesh suspects Holmes. Holmes suspects Lord Peter. Lord Peter suspects Holmes. Miss Marple suspects the player.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Exculpating relates one thing to various people.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The verb to exculpate means the exculpating relation.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The silver bullet exculpates the player. The pipe ash exculpates Holmes. The poison pen letter exculpates Lord Peter. The poison pen letter exculpates Miss Marple. [Poor Dalgliesh. I guess he did it.]</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The pipe ash, the letter and the silver bullet are carried.</div>
+</div><p>Given this, we can then set up elaborate rules:</p>
+<div class="codeblock"><div class="codeline">Instead of showing something to a person who suspects the player:</div>
+<div class="codeline">&ensp;&ensp;say &quot;&#39;You would say that,&#39; remarks [the second noun] darkly.&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of showing something which exculpates the player to someone:</div>
+<div class="codeline">&ensp;&ensp;say &quot;&#39;How striking!&#39; says [the second noun]. &#39;Almost I begin to distrust myself.&#39;&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;show the letter to miss marple / show the silver bullet to holmes&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "show the letter to miss marple / show the silver bullet to holmes".</summary><div class="testme-output">Dining Car<br>You can see Lord Peter, Sherlock Holmes, Miss Marple and Adam Dalgliesh here.<br><br>>(Testing.)<br><br>>[1] show the letter to miss marple<br>"You would say that," remarks Miss Marple darkly.<br><br>>[2] show the silver bullet to holmes<br>"How striking!" says Sherlock Holmes. "Almost I begin to distrust myself."
+</div></details><p>And so on: &quot;if Dalgliesh suspects someone who is exculpated by something carried by the player&hellip;&quot;, for instance, makes a fitting final example for this chapter. The description</p>
+<div class="codeblock"><div class="codeline">someone who is exculpated by something carried by the player</div>
+</div><p>expresses a complicated idea in very few words, and in such a way that a passer-by looking at the source text would immediately see what was meant.</p>
+<p>The moral is that relations allow sophisticated patterns of behaviour to be created in a way that reads back naturally as English.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="number_study.html" title="The parity and joint magnitude relations explored.">240. Number Study</a></div><div class="doc-navbar-right"><a href="what_not_to_wear.html" title="A general-purpose clothing system that handles a variety of different clothing items layered in different combinations over different areas of the body.">242. What Not To Wear</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

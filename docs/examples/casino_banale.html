@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 360. Casino Banale</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Casino Banale</h1><div class="subheading">Example 360 ★★★</div>
+<div class="linkback">
+<a href="../WI_18.html#section_27" title="Activities &gt; Choosing notable locale objects for something">WI §18.27 Choosing notable locale objects for something</a><br><a href="../RB_5.html#section_5" title="The Viewpoint Character &gt; Memory and Knowledge">RB §5.5 Memory and Knowledge</a>
+</div>
+<p class="example-desc">Creating room descriptions and object descriptions that change as the player learns new facts and pieces things together.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="low_light.html" title="An object that is only visible and manipulable when a bright light fixture is on.">359. Low Light</a></div><div class="doc-navbar-right"><a href="kiwi.html" title="Creating a raised supporter kind whose contents the player can&#39;t see or take from the ground.">361. Kiwi</a></div></div>
+</header>
+<p>In a work of interactive fiction that involves many new discoveries, we might want to change the way we narrate room descriptions and describe objects as the player learns new information.</p>
+<p>One approach to this is to create a model of the facts we want the player to find out, and attach some narrative text to each. When a fact becomes relevant to the story, that narrative text is shown to the player. So:</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex360">Play/modify Casino Banale in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="CasinoBanale/index.html">Play Casino Banale in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Casino Banale&quot;\n\nSection 1 - Procedure\n\n\nA fact is a kind of thing. A fact can be known or unknown. A fact can be ready to learn or hidden. A fact has some text called the narration.\n\nDefinition: a thing is narratively significant if it conveys an interesting fact.\n\nDefinition: a thing is narratively dull if it is not narratively significant.\n\nConveyance relates various things to various facts. The verb to convey means the conveyance relation.\n\nDefinition: a fact is interesting if it is unknown and it is ready to learn.\n\n\nFollowing relates various facts to various facts. The verb to follow means the following relation.\n\nTo say (new fact - a fact):\n\tsay &quot;[narration of the new fact]&quot;;\n\tnow the new fact is known;\n\trepeat with possible outcome running through facts which follow the new fact:\n\t\tif every fact which is followed by possible outcome is known:\n\t\t\tnow the possible outcome is ready to learn.\n\n\nAfter examining something which conveys an interesting fact (called discovery):\n\tsay &quot;[discovery][paragraph break]&quot;.\n\nAfter choosing notable locale objects:\n\trepeat through the Table of Locale Priorities:\n\t\tif the notable-object entry is narratively significant:\n\t\t\tset the locale priority of the notable-object entry to 1.\n\nFor writing a paragraph about a narratively significant thing (called item):\n\tnow the item is mentioned;\n\tlet chosen fact be a random interesting fact which is conveyed by the item;\n\tsay &quot;[chosen fact][paragraph break]&quot;.\n\n\nSection 2 - Scenario\n\nThe Casino is a room.\n\nFrince is a man in the Casino. The description is &quot;Frince is a friend of yours -- if you reckon friendship on the same terms that one reckons a cat as a pet. He spends time with you when he wants to, but if your wishes or convenience ever run counter to a whim of his, it&apos;s the whim that wins. Always. [paragraph break]He&apos;s also wearing a somewhat ludicrous shirt.&quot;\n\nFrince wears a ludicrous shirt. The description of the ludicrous shirt is &quot;Fine white fabric with satiny white pinstripes: it&apos;s that expensive, effeminate look that Frince is so fond of, and which -- combined with his name -- gives people completely the wrong idea about him.&quot;\n\nTim is a man in the Casino. The description is &quot;You don&apos;t know Tim well. Kind of wall-flowerish. The only thing that seems to excite him is craps.&quot;\n\nPenny is a woman in the Casino. The description is &quot;Loud. Brash. Hot, probably, if you can look past the loud and brash.&quot;\n\nRule for writing a paragraph about a narratively dull person:\n\tlet is-are-n be &quot;is&quot;;\n\tif the number of unmentioned narratively dull people is not 1:\n\t\tlet is-are-n be &quot;are&quot;;\n\tsay &quot;[A list of unmentioned narratively dull people] [is-are-n] [one of]watching the croupier[or]following the spin of the roulette[or]chattering[at random][one of] breathlessly[or] impatiently[or][at random].&quot;\n\nPenny-annoying is a fact.\n\tIt is ready to learn.\n\tThe narration is &quot;[if looking]Penny grimaces at you-- [end if]Penny is the same woman who stepped on your toe in the buffet line. The third time, she blurted, &apos;You have big shoes, don&apos;t you?&apos;&quot;\n\tPenny conveys penny-annoying.\n\nlipstick-smudges is a fact.\n\tIt is ready to learn.\n\tThe narration is &quot;There are a couple of smudges of coral-colored lipstick on the collar.&quot;\n\tThe ludicrous shirt conveys lipstick-smudges.\n\npenny-wears-coral is a fact.\n\tIt follows penny-annoying.\n\tThe narration is &quot;[if looking]Penny catches your eye again. [end if]The bright coral lipstick was really not a wise choice.&quot;\n\tPenny conveys penny-wears-coral.\n\nAffair-with-penny is a fact.\n\tIt follows lipstick-smudges and penny-wears-coral.\n\tThe narration is &quot;You avoid [if examining Frince]his[otherwise]Frince&apos;s[end if] eye. You need some time to adjust to the image of him making out with Penny in a storage closet before you can talk to him without appalled giggling.&quot;\n\tFrince conveys affair-with-Penny.\n\nTest me with &quot;x penny / x frince / x shirt / look&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Casino Banale&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline i7header">Section 1 - Procedure</div></div><p>First we create the concept of facts, and the idea that facts can make some things more important than others.</p>
+<div class="codeblock"><div class="codeline">A fact is a kind of thing. A fact can be known or unknown. A fact can be ready to learn or hidden. A fact has some text called the narration.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Definition: a thing is narratively significant if it conveys an interesting fact.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Definition: a thing is narratively dull if it is not narratively significant.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Conveyance relates various things to various facts. The verb to convey means the conveyance relation.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Definition: a fact is interesting if it is unknown and it is ready to learn.</div>
+</div><p>Now, we also need a way to tell Inform to introduce certain new facts when the right previous ones have been introduced. We&#39;ll create a &quot;following&quot; relation, according to which a new fact can be told to the player when the player has already learned all the facts it follows. This way, we can simulate the effect of putting together several pieces of evidence to come to a conclusion:</p>
+<div class="codeblock"><div class="codeline">Following relates various facts to various facts. The verb to follow means the following relation.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">To say (new fact - a fact):</div>
+<div class="codeline">&ensp;&ensp;say &quot;[narration of the new fact]&quot;;</div>
+<div class="codeline">&ensp;&ensp;now the new fact is known;</div>
+<div class="codeline">&ensp;&ensp;repeat with possible outcome running through facts which follow the new fact:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;if every fact which is followed by possible outcome is known:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the possible outcome is ready to learn.</div>
+</div><p>Next we need a way for the game to introduce these new facts. Let&#39;s say we want them to come up when the player examines something appropriate, or sees it in the room:</p>
+<div class="codeblock"><div class="codeline">After examining something which conveys an interesting fact (called discovery):</div>
+<div class="codeline">&ensp;&ensp;say &quot;[discovery][paragraph break]&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">After choosing notable locale objects:</div>
+<div class="codeline">&ensp;&ensp;repeat through the Table of Locale Priorities:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;if the notable-object entry is narratively significant:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;set the locale priority of the notable-object entry to 1.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">For writing a paragraph about a narratively significant thing (called item):</div>
+<div class="codeline">&ensp;&ensp;now the item is mentioned;</div>
+<div class="codeline">&ensp;&ensp;let chosen fact be a random interesting fact which is conveyed by the item;</div>
+<div class="codeline">&ensp;&ensp;say &quot;[chosen fact][paragraph break]&quot;.</div>
+</div><p>The &quot;after choosing notable locale objects&quot; line here handles things so that any interesting conclusions we want to draw are always given first, followed by the less interesting description.</p>
+<p>And finally, we need to give the player a little evidence to piece together:</p>
+<div class="codeblock"><div class="codeline i7header">Section 2 - Scenario</div><div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Casino is a room.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Frince is a man in the Casino. The description is &quot;Frince is a friend of yours -- if you reckon friendship on the same terms that one reckons a cat as a pet. He spends time with you when he wants to, but if your wishes or convenience ever run counter to a whim of his, it&#39;s the whim that wins. Always. [paragraph break]He&#39;s also wearing a somewhat ludicrous shirt.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Frince wears a ludicrous shirt. The description of the ludicrous shirt is &quot;Fine white fabric with satiny white pinstripes: it&#39;s that expensive, effeminate look that Frince is so fond of, and which -- combined with his name -- gives people completely the wrong idea about him.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Tim is a man in the Casino. The description is &quot;You don&#39;t know Tim well. Kind of wall-flowerish. The only thing that seems to excite him is craps.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Penny is a woman in the Casino. The description is &quot;Loud. Brash. Hot, probably, if you can look past the loud and brash.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Rule for writing a paragraph about a narratively dull person:</div>
+<div class="codeline">&ensp;&ensp;let is-are-n be &quot;is&quot;;</div>
+<div class="codeline">&ensp;&ensp;if the number of unmentioned narratively dull people is not 1:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;let is-are-n be &quot;are&quot;;</div>
+<div class="codeline">&ensp;&ensp;say &quot;[A list of unmentioned narratively dull people] [is-are-n] [one of]watching the croupier[or]following the spin of the roulette[or]chattering[at random][one of] breathlessly[or] impatiently[or][at random].&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Penny-annoying is a fact.</div>
+<div class="codeline">&ensp;&ensp;It is ready to learn.</div>
+<div class="codeline">&ensp;&ensp;The narration is &quot;[if looking]Penny grimaces at you-- [end if]Penny is the same woman who stepped on your toe in the buffet line. The third time, she blurted, &#39;You have big shoes, don&#39;t you?&#39;&quot;</div>
+<div class="codeline">&ensp;&ensp;Penny conveys penny-annoying.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">lipstick-smudges is a fact.</div>
+<div class="codeline">&ensp;&ensp;It is ready to learn.</div>
+<div class="codeline">&ensp;&ensp;The narration is &quot;There are a couple of smudges of coral-colored lipstick on the collar.&quot;</div>
+<div class="codeline">&ensp;&ensp;The ludicrous shirt conveys lipstick-smudges.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">penny-wears-coral is a fact.</div>
+<div class="codeline">&ensp;&ensp;It follows penny-annoying.</div>
+<div class="codeline">&ensp;&ensp;The narration is &quot;[if looking]Penny catches your eye again. [end if]The bright coral lipstick was really not a wise choice.&quot;</div>
+<div class="codeline">&ensp;&ensp;Penny conveys penny-wears-coral.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Affair-with-penny is a fact.</div>
+<div class="codeline">&ensp;&ensp;It follows lipstick-smudges and penny-wears-coral.</div>
+<div class="codeline">&ensp;&ensp;The narration is &quot;You avoid [if examining Frince]his[otherwise]Frince&#39;s[end if] eye. You need some time to adjust to the image of him making out with Penny in a storage closet before you can talk to him without appalled giggling.&quot;</div>
+<div class="codeline">&ensp;&ensp;Frince conveys affair-with-Penny.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;x penny / x frince / x shirt / look&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "x penny / x frince / x shirt / look".</summary><div class="testme-output">Casino<br>Penny grimaces at you-- Penny is the same woman who stepped on your toe in the buffet line. The third time, she blurted, "You have big shoes, don't you?"<br><br>Frince and Tim are following the spin of the roulette.<br><br>>(Testing.)<br><br>>[1] x penny<br>Loud. Brash. Hot, probably, if you can look past the loud and brash.<br><br>The bright coral lipstick was really not a wise choice.<br><br>>[2] x frince<br>Frince is a friend of yours -- if you reckon friendship on the same terms that one reckons a cat as a pet. He spends time with you when he wants to, but if your wishes or convenience ever run counter to a whim of his, it's the whim that wins. Always.<br><br>He's also wearing a somewhat ludicrous shirt.<br><br>>[3] x shirt<br>Fine white fabric with satiny white pinstripes: it's that expensive, effeminate look that Frince is so fond of, and which -- combined with his name -- gives people completely the wrong idea about him.<br><br>There are a couple of smudges of coral-colored lipstick on the collar.<br><br>>[4] look<br>Casino<br>You avoid Frince's eye. You need some time to adjust to the image of him making out with Penny in a storage closet before you can talk to him without appalled giggling.<br><br>Tim and Penny are chattering impatiently.
+</div></details><div class="doc-navbar"><div class="doc-navbar-left"><a href="low_light.html" title="An object that is only visible and manipulable when a bright light fixture is on.">359. Low Light</a></div><div class="doc-navbar-right"><a href="kiwi.html" title="Creating a raised supporter kind whose contents the player can&#39;t see or take from the ground.">361. Kiwi</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

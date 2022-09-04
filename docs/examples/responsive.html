@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 252. Responsive</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Responsive</h1><div class="subheading">Example 252 ★</div>
+<div class="linkback">
+<a href="../WI_14.html#section_11" title="Adaptive Text and Responses &gt; Changing the text of responses">WI §14.11 Changing the text of responses</a><br><a href="../RB_2.html#section_1" title="Adaptive Prose &gt; Varying What Is Written">RB §2.1 Varying What Is Written</a>
+</div>
+<p class="example-desc">Altering the standard inventory text for when the player is carrying nothing.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="relevant_relations.html" title="An example of how to create room descriptions that acknowledge particular relations using their assigned verbs, rather than by the heavily special-cased code used by the standard library.">251. Relevant Relations</a></div><div class="doc-navbar-right"><a href="alias.html" title="A telephone with phone numbers of the standard American seven-digit length.">253. Alias</a></div></div>
+</header>
+<p>The most straightforward way to alter the response text for something in the standard rules is to select the Index tab, then select Actions, then pick the particular action whose text we&#39;d like to alter. Under action details, there will be icons that look like speech bubbles.</p>
+<p>Clicking on the speech bubble will show what the current response text is, and give us an option called &quot;set&quot;.</p>
+<p>If we click &quot;set&quot;, this will automatically paste in the response name that we need to change. We can put this inside a &quot;when play begins&quot; rule in order to make that change take effect from the start of the game, like so:</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex252">Play/modify Responsive in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="Responsive/index.html">Play Responsive in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Responsive&quot;\n\nAn Anonymous B613 Cell is a room. &quot;There isn&apos;t much to see in this bare room. What there is, you&apos;ve already seen sometime in the last twenty years.&quot;\n\nWhen play begins:\n\tnow print empty inventory rule response (A) is &quot;[We] [have] absolutely nothing.&quot;.\n\nTest me with &quot;i&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Responsive&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">An Anonymous B613 Cell is a room. &quot;There isn&#39;t much to see in this bare room. What there is, you&#39;ve already seen sometime in the last twenty years.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">When play begins:</div>
+<div class="codeline">&ensp;&ensp;now print empty inventory rule response (A) is &quot;[We] [have] absolutely nothing.&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;i&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "i".</summary><div class="testme-output">Anonymous B613 Cell<br>There isn't much to see in this bare room. What there is, you've already seen sometime in the last twenty years.<br><br>>(Testing.)<br><br>>[1] i<br>You have absolutely nothing.
+</div></details><div class="doc-navbar"><div class="doc-navbar-left"><a href="relevant_relations.html" title="An example of how to create room descriptions that acknowledge particular relations using their assigned verbs, rather than by the heavily special-cased code used by the standard library.">251. Relevant Relations</a></div><div class="doc-navbar-right"><a href="alias.html" title="A telephone with phone numbers of the standard American seven-digit length.">253. Alias</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

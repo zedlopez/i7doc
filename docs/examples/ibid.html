@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 300. Ibid.</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Ibid.</h1><div class="subheading">Example 300 ★★</div>
+<div class="linkback">
+<a href="../WI_17.html#section_6" title="Understanding &gt; Actions applying to kinds of value">WI §17.6 Actions applying to kinds of value</a><br><a href="../RB_12.html#section_3" title="Typography, Layout, and Multimedia Effects &gt; Footnotes">RB §12.3 Footnotes</a>
+</div>
+<p class="example-desc">A system which allows the author to assign footnotes to descriptions, and permits the player to retrieve them again by number, using &quot;the number understood&quot;. Footnotes will automatically number themselves, according to the order in which the player discovers them.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="toms_midnight_garden.html" title="A clock kind that can be set to any time using &quot;the time understood&quot;; may be turned on and off; and will advance itself only when running. Time on the face is also reported differently depending on whether the clock is analog or digital.">299. Tom's Midnight Garden</a></div><div class="doc-navbar-right"><a href="one_of_those_mornings.html" title="A FIND command that allows the player to find a lost object anywhere">301. One of Those Mornings</a></div></div>
+</header>
+<p>&quot;Hitchhiker&#39;s Guide to the Galaxy&quot; introduced the idea of footnoted descriptions, and various IF games since have toyed with the idea. The recommended implementation in Inform 6 involved keeping an assortment of footnote objects around, but in Inform 7 the table is a much tidier way of handling the same problem.</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex300">Play/modify Ibid. in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="Footnotes/index.html">Play Ibid. in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Ibid.&quot;\n\nThe Ship Inn is a room. &quot;Here you are in a lovely pub which your guidebook assures you is extremely authentic. [1 as a footnote].\n\nTo your left sits a party of Italians, with their guidebook.\n\nTo your right is a silent, but not unappealing, young man.&quot;.\n\nA party of Italians and a silent young man are people in the Ship Inn. The Italians and the young man are scenery.\n\nThe table is a supporter in the Ship Inn. On the table is a mysterious pie. The description of the pie is &quot;Your waitress told you it was the specialty of the day, Steak and Owl Pie. [2 as a footnote].&quot; The pie is edible.\n\nTable of Footnotes\nassignment\tnote\na number\t&quot;Francis Drake ate here, if the sign on the door is to be believed&quot;\n--\t&quot;this is unlikely, considering that owls are protected animals in England these days [3 as a footnote]&quot;\n--\t&quot;moreover, you can&apos;t imagine that owl would be very tasty&quot;\n\nFootnotes mentioned is a number that varies.\n\n\nTo say (footnote - a number) as a footnote:\n\tif footnote > number of filled rows in the Table of Footnotes:\n\t\tsay &quot;Programming error: footnote assignment out of range.&quot;;\n\totherwise:\n\t\tchoose row footnote in the Table of Footnotes;\n\t\tif there is an assignment entry:\n\t\t\tsay &quot;([assignment entry])&quot;;\n\t\totherwise:\n\t\t\tincrement footnotes mentioned;\n\t\t\tchoose row footnote in the Table of Footnotes;\n\t\t\tnow assignment entry is footnotes mentioned;\n\t\t\tsay &quot;([assignment entry])&quot;.\n\n\nUnderstand &quot;footnote [number]&quot; as looking up a footnote.\n\nLooking up a footnote is an action applying to one number.\n\nCheck looking up a footnote:\n\tif the number understood > footnotes mentioned, say &quot;You haven&apos;t seen any such footnote.&quot; instead;\n\tif the number understood < 1, say &quot;Footnotes are numbered from 1.&quot; instead.\n\nCarry out looking up a footnote:\n\tchoose row with assignment of number understood in the Table of Footnotes;\n\tsay &quot;([assignment entry]): [note entry].&quot;\n\nTest me with &quot;footnote 1 / examine pie / footnote 2 / footnote 3&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Ibid.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Ship Inn is a room. &quot;Here you are in a lovely pub which your guidebook assures you is extremely authentic. [1 as a footnote].</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">To your left sits a party of Italians, with their guidebook.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">To your right is a silent, but not unappealing, young man.&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A party of Italians and a silent young man are people in the Ship Inn. The Italians and the young man are scenery.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The table is a supporter in the Ship Inn. On the table is a mysterious pie. The description of the pie is &quot;Your waitress told you it was the specialty of the day, Steak and Owl Pie. [2 as a footnote].&quot; The pie is edible.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline tablename">Table of Footnotes</div><table>
+<tr><td>assignment</td><td>note</td></tr><tr><td>a number</td><td>&quot;Francis Drake ate here, if the sign on the door is to be believed&quot;</td></tr><tr><td>--</td><td>&quot;this is unlikely, considering that owls are protected animals in England these days [3 as a footnote]&quot;</td></tr><tr><td>--</td><td>&quot;moreover, you can&#39;t imagine that owl would be very tasty&quot;</td></tr></table>
+<div class="codeline">Footnotes mentioned is a number that varies.</div>
+</div><p>Whenever we mention a footnote for the first time, we need to assign it a number, which we will use consistently thereafter. And it&#39;s probably a good idea to protect ourselves against the author accidentally using a number too large for the footnote table, too. So:</p>
+<div class="codeblock"><div class="codeline">To say (footnote - a number) as a footnote:</div>
+<div class="codeline">&ensp;&ensp;if footnote &gt; number of filled rows in the Table of Footnotes:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;Programming error: footnote assignment out of range.&quot;;</div>
+<div class="codeline">&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;choose row footnote in the Table of Footnotes;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;if there is an assignment entry:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;([assignment entry])&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;increment footnotes mentioned;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;choose row footnote in the Table of Footnotes;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now assignment entry is footnotes mentioned;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;([assignment entry])&quot;.</div>
+</div><p>Now, in order to let the player view these footnotes, we&#39;ll need to parse numbers.</p>
+<div class="codeblock"><div class="codeline">Understand &quot;footnote [number]&quot; as looking up a footnote.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Looking up a footnote is an action applying to one number.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Check looking up a footnote:</div>
+<div class="codeline">&ensp;&ensp;if the number understood &gt; footnotes mentioned, say &quot;You haven&#39;t seen any such footnote.&quot; instead;</div>
+<div class="codeline">&ensp;&ensp;if the number understood &lt; 1, say &quot;Footnotes are numbered from 1.&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Carry out looking up a footnote:</div>
+<div class="codeline">&ensp;&ensp;choose row with assignment of number understood in the Table of Footnotes;</div>
+<div class="codeline">&ensp;&ensp;say &quot;([assignment entry]): [note entry].&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;footnote 1 / examine pie / footnote 2 / footnote 3&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "footnote 1 / examine pie / footnote 2 / footnote 3".</summary><div class="testme-output">Ship Inn<br>Here you are in a lovely pub which your guidebook assures you is extremely authentic. (1).<br><br>To your left sits a party of Italians, with their guidebook.<br><br>To your right is a silent, but not unappealing, young man.<br><br>You can see a table (on which is a mysterious pie) here.<br><br>>(Testing.)<br><br>>[1] footnote 1<br>(1): Francis Drake ate here, if the sign on the door is to be believed.<br><br>>[2] examine pie<br>Your waitress told you it was the specialty of the day, Steak and Owl Pie. (2).<br><br>>[3] footnote 2<br>(2): this is unlikely, considering that owls are protected animals in England these days (3).<br><br>>[4] footnote 3<br>(3): moreover, you can't imagine that owl would be very tasty.
+</div></details><p>This method does require us to keep track of where a footnote appears in the table. If we found this inconvenient, we could add a column to the footnote table so that we could invoke it with tags like &quot;[appearance quip as a footnote]&quot;.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="toms_midnight_garden.html" title="A clock kind that can be set to any time using &quot;the time understood&quot;; may be turned on and off; and will advance itself only when running. Time on the face is also reported differently depending on whether the clock is analog or digital.">299. Tom's Midnight Garden</a></div><div class="doc-navbar-right"><a href="one_of_those_mornings.html" title="A FIND command that allows the player to find a lost object anywhere">301. One of Those Mornings</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

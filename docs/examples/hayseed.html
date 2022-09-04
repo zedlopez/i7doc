@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 89. Hayseed</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Hayseed</h1><div class="subheading">Example 89 ★</div>
+<div class="linkback">
+<a href="../WI_7.html#section_4" title="Basic Actions &gt; Try and try silently">WI §7.4 Try and try silently</a><br><a href="../RB_3.html#section_5" title="Place &gt; Doors, Staircases, and Bridges">RB §3.5 Doors, Staircases, and Bridges</a>
+</div>
+<p class="example-desc">A refinement of our staircase kind which can be climbed.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="fine_laid.html" title="Making writing that can be separately examined from the paper on which it appears, but which directs all other actions to the paper.">88. Fine Laid</a></div><div class="doc-navbar-right"><a href="morning_after.html" title="When the player picks something up which he hasn&#39;t already examined, the object is described.">90. Morning After</a></div></div>
+</header>
+<p>Presumably all staircase-type connections between rooms should respond when the player says CLIMB STAIRS (or the equivalent). So</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex89">Play/modify Hayseed in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="Staircase2/index.html">Play Hayseed in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Hayseed&quot;\n\nA staircase is a kind of door. A staircase is usually open. A staircase is seldom openable.\n\nThe ladder is a staircase. It is above the Barn and below the Hayloft.\n\nInstead of climbing a staircase:\n\ttry entering the noun.\n\nTest me with &quot;climb ladder / g&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Hayseed&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A staircase is a kind of door. A staircase is usually open. A staircase is seldom openable.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The ladder is a staircase. It is above the Barn and below the Hayloft.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of climbing a staircase:</div>
+<div class="codeline">&ensp;&ensp;try entering the noun.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;climb ladder / g&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "climb ladder / g".</summary><div class="testme-output">Barn<br>You can see a ladder here.<br><br>>(Testing.)<br><br>>[1] climb ladder<br><br>Hayloft<br>You can see a ladder here.<br><br>>[2] g<br><br>Barn<br>You can see a ladder here.
+</div></details><p>Attempts to climb other types of door will still be treated as useless.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="fine_laid.html" title="Making writing that can be separately examined from the paper on which it appears, but which directs all other actions to the paper.">88. Fine Laid</a></div><div class="doc-navbar-right"><a href="morning_after.html" title="When the player picks something up which he hasn&#39;t already examined, the object is described.">90. Morning After</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

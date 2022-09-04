@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 143. MRE</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>MRE</h1><div class="subheading">Example 143 ★</div>
+<div class="linkback">
+<a href="../WI_9.html#section_11" title="Time &gt; Future events">WI §9.11 Future events</a><br><a href="../RB_9.html#section_1" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Food">RB §9.1 Food</a>
+</div>
+<p class="example-desc">Hunger that eventually kills the player, and foodstuffs that can delay the inevitable by different amounts of time.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="situation_room.html" title="Printing the time of day in 24-hour time, as in military situations.">142. Situation Room</a></div><div class="doc-navbar-right"><a href="totality.html" title="To schedule an eclipse of the sun, which involves a number of related events.">144. Totality</a></div></div>
+</header>
+<p>Many older interactive fiction games required the player to find food and eat on a regular basis in order to avoid death. This effect was often unrealistic (since most people can survive much longer than a few hours without eating) and is often seen as an annoyance. However, for the sake of argument, suppose that we do want to construct a hunger-and-death system.</p>
+<p>To make things a little more interesting, we will postulate that different foods are differently filling, so that if the player manages to find something really caloric, he is off the hook on his hunger search for a while.</p>
+<p>We will also implement the system so that the player gets messages when he is hungry, then dies a short time later. (The times involved are ludicrously short, but this allows us to see the effects within a simple example. In a real game we would want to allow a considerably longer timer for the hunger to play out.)</p>
+<p>First, a little scene-setting:</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex143">Play/modify MRE in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="MRE/index.html">Play MRE in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;MRE&quot;\n\nWhen play begins:\n\tnow the right hand status line is &quot;[time of day]&quot;;\n\tsay &quot;The procedure was painless at first: increased strength was the first sign, followed by a sensation of delayed time, as though everyone around you moved more slowly. Your ability to dodge and perform feats of agility doubled, then trebled. You were heralded as a triumph of medicine. They told you there would be no side effects worth speaking of.\n\nThey were wrong.&quot;\n\nThe Base Camp Larder is a room. &quot;This room has been reinforced after each incident -- and there have been dozens in the last two months -- so that it now rivals Fort Knox. Only your new skill and speed enabled you to dodge the motion sensors, knock out the computerized security system, fool the retinal scanner, and punch a hole in the steel containment grating. But you&apos;re inside now.&quot;\n\n\nFood is a kind of thing. Food is usually edible. Food has a time called the satisfaction period. The satisfaction period of a food is usually 5 minutes.\n\nA person can be hungry or replete. The player is hungry.\n\nThe Larder contains an apple, a candy bar, and a large plate of pasta. The apple, the candy bar, and the pasta are food. The satisfaction period of the apple is 2 minutes. The satisfaction period of the pasta is 125 minutes.\n\nCheck eating something which is not food:\n\tsay &quot;[The noun] might be edible, but it&apos;s not what you&apos;d consider really food.&quot;\n\nCheck eating something when the player is not hungry:\n\tsay &quot;You&apos;re not hungry right now.&quot;\n\nCarry out eating something:\n\tnow the player is replete;\n\thunger resumes in the satisfaction period of the noun from now.\n\n\nAt the time when hunger resumes:\n\tstarvation occurs in three minutes from now;\n\tnow the player is hungry.\n\nAt the time when starvation occurs:\n\tif the player is hungry, end the story saying &quot;You have starved&quot;.\n\n\nEvery turn when the player is hungry:\n\tchoose a random row in the Table of Hunger Complaints;\n\tsay &quot;[hunger entry][paragraph break]&quot;.\n\nTable of Hunger Complaints\nhunger\n&quot;Gosh, you&apos;re starving.&quot;\n&quot;It feels as though you haven&apos;t eaten in days. Weeks, almost.&quot;\n&quot;The world seems to slow down and everything becomes sharper and brighter. You are a hunter, a hunter of foodstuffs.&quot;\n&quot;You find yourself staring at [the random visible thing that is not the player] and wondering how it would taste.&quot;\n\nTest me with &quot;eat apple / z / z / z / eat candy bar / z / z / z / z / z / z / z / z / z&quot;.`)">⧉</button><div class="codeline storytitle">&quot;MRE&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">When play begins:</div>
+<div class="codeline">&ensp;&ensp;now the right hand status line is &quot;[time of day]&quot;;</div>
+<div class="codeline">&ensp;&ensp;say &quot;The procedure was painless at first: increased strength was the first sign, followed by a sensation of delayed time, as though everyone around you moved more slowly. Your ability to dodge and perform feats of agility doubled, then trebled. You were heralded as a triumph of medicine. They told you there would be no side effects worth speaking of.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">They were wrong.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Base Camp Larder is a room. &quot;This room has been reinforced after each incident -- and there have been dozens in the last two months -- so that it now rivals Fort Knox. Only your new skill and speed enabled you to dodge the motion sensors, knock out the computerized security system, fool the retinal scanner, and punch a hole in the steel containment grating. But you&#39;re inside now.&quot;</div>
+</div><p>Now we define our food, and add some special instructions for what happens to our hunger counters when the food is eaten:</p>
+<div class="codeblock"><div class="codeline">Food is a kind of thing. Food is usually edible. Food has a time called the satisfaction period. The satisfaction period of a food is usually 5 minutes.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A person can be hungry or replete. The player is hungry.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Larder contains an apple, a candy bar, and a large plate of pasta. The apple, the candy bar, and the pasta are food. The satisfaction period of the apple is 2 minutes. The satisfaction period of the pasta is 125 minutes.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Check eating something which is not food:</div>
+<div class="codeline">&ensp;&ensp;say &quot;[The noun] might be edible, but it&#39;s not what you&#39;d consider really food.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Check eating something when the player is not hungry:</div>
+<div class="codeline">&ensp;&ensp;say &quot;You&#39;re not hungry right now.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Carry out eating something:</div>
+<div class="codeline">&ensp;&ensp;now the player is replete;</div>
+<div class="codeline">&ensp;&ensp;hunger resumes in the satisfaction period of the noun from now.</div>
+</div><p>The first of those two phrases, &quot;now the player is replete&quot;, causes the player to cease to be hungry; the second one sets up a future event in which the hunger sets in again. The length of time until that event depends on how satisfying the specific food is. Now we define that event:</p>
+<div class="codeblock"><div class="codeline">At the time when hunger resumes:</div>
+<div class="codeline">&ensp;&ensp;starvation occurs in three minutes from now;</div>
+<div class="codeline">&ensp;&ensp;now the player is hungry.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">At the time when starvation occurs:</div>
+<div class="codeline">&ensp;&ensp;if the player is hungry, end the story saying &quot;You have starved&quot;.</div>
+</div><p>Note &quot;if the player is hungry&quot;: it is possible that the starvation event will be set up but the player will eat before it occurs; in that case, we want it not to take effect.</p>
+<p>And now, since we really ought to give the player some warning of what is happening to him:</p>
+<div class="codeblock"><div class="codeline">Every turn when the player is hungry:</div>
+<div class="codeline">&ensp;&ensp;choose a random row in the Table of Hunger Complaints;</div>
+<div class="codeline">&ensp;&ensp;say &quot;[hunger entry][paragraph break]&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline tablename">Table of Hunger Complaints</div><table>
+<tr><td>hunger</td></tr><tr><td>&quot;Gosh, you&#39;re starving.&quot;</td></tr><tr><td>&quot;It feels as though you haven&#39;t eaten in days. Weeks, almost.&quot;</td></tr><tr><td>&quot;The world seems to slow down and everything becomes sharper and brighter. You are a hunter, a hunter of foodstuffs.&quot;</td></tr><tr><td>&quot;You find yourself staring at [the random visible thing that is not the player] and wondering how it would taste.&quot;</td></tr></table>
+<div class="codeline">Test me with &quot;eat apple / z / z / z / eat candy bar / z / z / z / z / z / z / z / z / z&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "eat apple / z / z / z / eat candy bar / z / z / z / z / z / z / z / z / z".</summary><div class="testme-output">Base Camp Larder<br>This room has been reinforced after each incident -- and there have been dozens in the last two months -- so that it now rivals Fort Knox. Only your new skill and speed enabled you to dodge the motion sensors, knock out the computerized security system, fool the retinal scanner, and punch a hole in the steel containment grating. But you're inside now.<br><br>You can see an apple, a candy bar and a large plate of pasta here.<br><br>>(Testing.)<br><br>>[1] eat apple<br>(first taking the apple)<br>You eat the apple. Not bad.<br><br>>[2] z<br>Time passes.<br><br>>[3] z<br>Time passes.<br><br>>[4] z<br>Time passes.<br><br>It feels as though you haven't eaten in days. Weeks, almost.<br><br>>[5] eat candy bar<br>(first taking the candy bar)<br>You eat the candy bar. Not bad.<br><br>>[6] z<br>Time passes.<br><br>>[7] z<br>Time passes.<br><br>>[8] z<br>Time passes.<br><br>>[9] z<br>Time passes.<br><br>>[10] z<br>Time passes.<br><br>>[11] z<br>Time passes.<br><br>The world seems to slow down and everything becomes sharper and brighter. You are a hunter, a hunter of foodstuffs.<br><br>>[12] z<br>Time passes.<br><br>Gosh, you're starving.<br><br>>[13] z<br>Time passes.<br><br>Gosh, you're starving.<br><br><br><br>    *** You have starved ***<br><br><br><br>Would you like to RESTART, RESTORE a saved game, QUIT or UNDO the last command?<br>> [14] z<br>Please give one of the answers above.<br><br>Would you like to RESTART, RESTORE a saved game, QUIT or UNDO the last command?<br>>
+</div></details><div class="doc-navbar"><div class="doc-navbar-left"><a href="situation_room.html" title="Printing the time of day in 24-hour time, as in military situations.">142. Situation Room</a></div><div class="doc-navbar-right"><a href="totality.html" title="To schedule an eclipse of the sun, which involves a number of related events.">144. Totality</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 49. Straw Boater</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Straw Boater</h1><div class="subheading">Example 49 ★★</div>
+<div class="linkback">
+<a href="../WI_4.html#section_8" title="Kinds &gt; New value properties">WI §4.8 New value properties</a><br><a href="../RB_8.html#section_1" title="Vehicles, Animals and Furniture &gt; Bicycles, Cars and Boats">RB §8.1 Bicycles, Cars and Boats</a>
+</div>
+<p class="example-desc">Using text properties that apply only to some things and are not defined for others.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="would_you.html" title="Adding new properties to objects, and checking for their presence.">48. Would you...?</a></div><div class="doc-navbar-right"><a href="undertomb.html" title="A small map of dead ends, in which the sound of an underground river has different strengths in different caves.">50. The Undertomb 1</a></div></div>
+</header>
+<p>Sometimes we like to give properties to kinds of thing, but not fill them in in all cases. For instance, we might have vehicles that optionally make noise, and those might have a &quot;movement sound&quot;.</p>
+<p>All properties have a default value, which we can find by looking in the Kinds tab of the index. This is what the property will be set to automatically, if we do not change it ourselves. In the case of a text property, that is &quot;&quot;; so for instance we might use our movement sound thus:</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex49">Play/modify Straw Boater in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="StrawBoater/index.html">Play Straw Boater in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Straw Boater&quot;\n\nBoathouse is a room. &quot;A boathouse circa 1915, which -- though in poor repair -- still suggests Sunday afternoon jaunts taken by women in white gowns and men in straw hats.&quot;\n\nNorth of the Boathouse is the Shallow Water. The description of Shallow Water is &quot;Just south is the boathouse, and beyond it are trees and the marble terrace of the house above. The water deepens to the north.&quot;\n\nNorth of Shallow Water is Deep Water. The description of Deep Water is &quot;From here the boathouse has dwindled invisibly to the south, and you have a broad panorama of the shoreline, all the way down to the Skeleton Point Lighthouse in the southeast.&quot;\n\nA vehicle has some text called the movement sound. The sailboat and the motorboat are vehicles in the Boathouse. The movement sound of the motorboat is &quot;VRRRROOOMMMM...&quot; Understand &quot;boat&quot; as the sailboat. Understand &quot;boat&quot; as the motorboat.\n\n\nAfter going somewhere by a vehicle (called cart):\n\tif the movement sound of the cart is not &quot;&quot;, say &quot;[the movement sound of the cart][paragraph break]&quot;;\n\tcontinue the action.\n\nInstead of exiting when the player is in a vehicle and the location is not the Boathouse:\n\tsay &quot;You&apos;re not dressed for a swim.&quot;\n\nInstead of going somewhere when the player is not in a vehicle:\n\tsay &quot;You&apos;d rather not try to make this journey by swimming alone.&quot;\n\nTest me with &quot;n / get in sailboat / n / get out / s / get in motorboat / n / n&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Straw Boater&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Boathouse is a room. &quot;A boathouse circa 1915, which -- though in poor repair -- still suggests Sunday afternoon jaunts taken by women in white gowns and men in straw hats.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">North of the Boathouse is the Shallow Water. The description of Shallow Water is &quot;Just south is the boathouse, and beyond it are trees and the marble terrace of the house above. The water deepens to the north.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">North of Shallow Water is Deep Water. The description of Deep Water is &quot;From here the boathouse has dwindled invisibly to the south, and you have a broad panorama of the shoreline, all the way down to the Skeleton Point Lighthouse in the southeast.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A vehicle has some text called the movement sound. The sailboat and the motorboat are vehicles in the Boathouse. The movement sound of the motorboat is &quot;VRRRROOOMMMM...&quot; Understand &quot;boat&quot; as the sailboat. Understand &quot;boat&quot; as the motorboat.</div>
+</div><p>Note that we haven&#39;t given the sailboat any movement sound at all.</p>
+<div class="codeblock"><div class="codeline">After going somewhere by a vehicle (called cart):</div>
+<div class="codeline">&ensp;&ensp;if the movement sound of the cart is not &quot;&quot;, say &quot;[the movement sound of the cart][paragraph break]&quot;;</div>
+<div class="codeline">&ensp;&ensp;continue the action.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of exiting when the player is in a vehicle and the location is not the Boathouse:</div>
+<div class="codeline">&ensp;&ensp;say &quot;You&#39;re not dressed for a swim.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of going somewhere when the player is not in a vehicle:</div>
+<div class="codeline">&ensp;&ensp;say &quot;You&#39;d rather not try to make this journey by swimming alone.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;n / get in sailboat / n / get out / s / get in motorboat / n / n&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "n / get in sailboat / n / get out / s / get in motorboat / n / n".</summary><div class="testme-output">Boathouse<br>A boathouse circa 1915, which -- though in poor repair -- still suggests Sunday afternoon jaunts taken by women in white gowns and men in straw hats.<br><br>You can see a sailboat (empty) and a motorboat (empty) here.<br><br>>(Testing.)<br><br>>[1] n<br>You'd rather not try to make this journey by swimming alone.<br><br>>[2] get in sailboat<br>You get into the sailboat.<br><br>>[3] n<br><br>Shallow Water (in the sailboat)<br>Just south is the boathouse, and beyond it are trees and the marble terrace of the house above. The water deepens to the north.<br><br>>[4] get out<br>You're not dressed for a swim.<br><br>>[5] s<br><br>Boathouse (in the sailboat)<br>A boathouse circa 1915, which -- though in poor repair -- still suggests Sunday afternoon jaunts taken by women in white gowns and men in straw hats.<br><br>You can see a motorboat (empty) here.<br><br>>[6] get in motorboat<br>(getting out of the sailboat)<br>You get into the motorboat.<br><br>>[7] n<br>VRRRROOOMMMM...<br><br>Shallow Water (in the motorboat)<br>Just south is the boathouse, and beyond it are trees and the marble terrace of the house above. The water deepens to the north.<br><br>>[8] n<br>VRRRROOOMMMM...<br><br>Deep Water (in the motorboat)<br>From here the boathouse has dwindled invisibly to the south, and you have a broad panorama of the shoreline, all the way down to the Skeleton Point Lighthouse in the southeast.
+</div></details><div class="doc-navbar"><div class="doc-navbar-left"><a href="would_you.html" title="Adding new properties to objects, and checking for their presence.">48. Would you...?</a></div><div class="doc-navbar-right"><a href="undertomb.html" title="A small map of dead ends, in which the sound of an underground river has different strengths in different caves.">50. The Undertomb 1</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

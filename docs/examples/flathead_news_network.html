@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 444. Flathead News Network</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Flathead News Network</h1><div class="subheading">Example 444 ★★★</div>
+<div class="linkback">
+<a href="../WI_23.html#section_15" title="Figures, Sounds and Files &gt; Exchanging files with other programs">WI §23.15 Exchanging files with other programs</a><br><a href="../RB_12.html#section_5" title="Typography, Layout, and Multimedia Effects &gt; Glulx Multimedia Effects">RB §12.5 Glulx Multimedia Effects</a>
+</div>
+<p class="example-desc">Using external files, together with a simple Unix script running in the background, to provide live news headlines inside a story file.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="fifth_body.html" title="An expansion on the notebook, allowing the player somewhat more room in which to type his recorded remark.">443. The Fifth Body</a></div><div class="doc-navbar-right"><a href="baedeker.html" title="Creating a floorplan of the cathedral using the locations from previous examples.">445. Baedeker</a></div></div>
+</header>
+<p>This example can only work if we have a separate program running in the background while the story file is being played, and as such it will only work if we set things up in a special way. Exactly how to do this will vary from platform to platform.</p>
+<p>First, the source text for the Inform end of the communication line:</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex444">Play/modify Flathead News Network in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="RSS-G/index.html">Play Flathead News Network in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Flathead News Network&quot;\n\nThe file of RSS Requests is called &quot;rssrequest&quot;.\n\nThe file of RSS Responses (owned by project &quot;RSS-SCRIPT&quot;) is called &quot;rssreply&quot;.\n\nTo request (RSS feed address - text):\n\tmark the file of RSS Responses as not ready to read;\n\twrite the RSS feed address to the file of RSS Requests.\n\nNewsroom is a room. &quot;This is the secret nerve-centre of FNN, the Flathead News Network.&quot;\n\nThe BBC button is in the Newsroom. Instead of pushing the BBC button: say &quot;Bong!&quot;; request &quot;newsrss.bbc.co.uk/rss/newsonline_uk_edition/front_page/rss.xml&quot;.\n\nThe NASA button is in the Newsroom. Instead of pushing the NASA button: say &quot;Bang!&quot;; request &quot;www.nasa.gov/rss/breaking_news.rss&quot;.\n\nThe WHO button is in the Newsroom. Instead of pushing the WHO button: say &quot;Bing!&quot;; request &quot;http://www.doctorwhonews.net&quot;.\n\nA screen is in the Newsroom.\n\nInstead of examining the screen:\n\tif ready to read the file of RSS Responses, say &quot;From the screen you read:[line break][text of the file of RSS Responses]&quot;;\n\totherwise say &quot;The screen remains blank for now.&quot;`)">⧉</button><div class="codeline storytitle">&quot;Flathead News Network&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The file of RSS Requests is called &quot;rssrequest&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The file of RSS Responses (owned by project &quot;RSS-SCRIPT&quot;) is called &quot;rssreply&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">To request (RSS feed address - text):</div>
+<div class="codeline">&ensp;&ensp;mark the file of RSS Responses as not ready to read;</div>
+<div class="codeline">&ensp;&ensp;write the RSS feed address to the file of RSS Requests.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Newsroom is a room. &quot;This is the secret nerve-centre of FNN, the Flathead News Network.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The BBC button is in the Newsroom. Instead of pushing the BBC button: say &quot;Bong!&quot;; request &quot;newsrss.bbc.co.uk/rss/newsonline_uk_edition/front_page/rss.xml&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The NASA button is in the Newsroom. Instead of pushing the NASA button: say &quot;Bang!&quot;; request &quot;www.nasa.gov/rss/breaking_news.rss&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The WHO button is in the Newsroom. Instead of pushing the WHO button: say &quot;Bing!&quot;; request &quot;http://www.doctorwhonews.net&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A screen is in the Newsroom.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of examining the screen:</div>
+<div class="codeline">&ensp;&ensp;if ready to read the file of RSS Responses, say &quot;From the screen you read:[line break][text of the file of RSS Responses]&quot;;</div>
+<div class="codeline">&ensp;&ensp;otherwise say &quot;The screen remains blank for now.&quot;</div>
+</div><p>As far as the story file is concerned, then, it sends a request down the communication line by writing the chosen RSS feed to the file named &quot;rssrequest&quot;, and expects a reply to come back down the line by being written to the file &quot;rssreply&quot;. However, the story file needs to expect that this might take some time. (Maybe forever, if there is no program responding, or if the Internet connection is not working.) The story file marks the &quot;rssreply&quot; file as not ready before it makes a request; if it subsequently finds that the file is now ready, that must mean that the other program has done the honours, and that all is well. In the mean time, &quot;The screen remains blank for now.&quot;</p>
+<p>Now for the RSS-SCRIPT program. The following provides a crude but workable program suitable for running as a Perl script on a system which provides the standard Internet fetching program &quot;curl&quot;: Mac OS X, for instance. (If you have OS X, you can paste the following into a (Unix-format) text file called &quot;rss-script.pl&quot;, place it in your home folder, open the Terminal utility, type &quot;perl rss-script.pl&quot;, and then hide the Terminal window again.)</p>
+<div class="codeblock"><div class="codeline">for (;;) { # repeat forever:</div>
+<div class="codeline">&ensp;&ensp;system(&quot;sleep 1&quot;); # wait 1 second</div>
+<div class="codeline">&ensp;&ensp;open REQUEST, &quot;rssrequest.glkdata&quot; or next;</div>
+<div class="codeline">&ensp;&ensp;# the request file has been detected:</div>
+<div class="codeline">&ensp;&ensp;$header_line = &lt;REQUEST&gt;; # the header line</div>
+<div class="codeline">&ensp;&ensp;$rss_feed = &lt;REQUEST&gt;; # the actual content - the RSS feed URL</div>
+<div class="codeline">&ensp;&ensp;close REQUEST;</div>
+<div class="codeline">&ensp;&ensp;if ($header_line =~ m/^\*/) { # if the request file is marked ready</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;$rss = system(&quot;curl $rss_feed &gt;rawrss.txt&quot;); # download the RSS feed</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;# read the RSS XML into a single Perl string:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;open RAWRSS, &quot;rawrss.txt&quot; or next;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;$raw = &quot;&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;while ($nl = &lt;RAWRSS&gt;) {</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;$raw = $raw.&quot; &quot;.$nl;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;}</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;close RAWRSS;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;# look for the title and description of the first item:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;if ($raw =~ m/\&lt;item\&gt;\&lt;title.*?\&gt;(.*?)\&lt;\/title\&gt;.*?\&lt;description.*?\&gt;(.*?)\&lt;\/description\&gt;/) {</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;# write the reply:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;open REPLY, &quot;&gt;rssreply.glkdata&quot; or next;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;print REPLY &quot;* //RSS-SCRIPT// rssreply\n&quot;, $1, &quot;\n&quot;, $2, &quot;\n&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;close REPLY;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;# request safely dealt with, so we can remove it:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;system(&quot;rm &#39;rssrequest.glkdata&#39;&quot;);</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;}</div>
+<div class="codeline">&ensp;&ensp;}</div>
+<div class="codeline">}</div>
+</div><div class="doc-navbar"><div class="doc-navbar-left"><a href="fifth_body.html" title="An expansion on the notebook, allowing the player somewhat more room in which to type his recorded remark.">443. The Fifth Body</a></div><div class="doc-navbar-right"><a href="baedeker.html" title="Creating a floorplan of the cathedral using the locations from previous examples.">445. Baedeker</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

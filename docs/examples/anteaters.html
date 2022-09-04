@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 222. Anteaters</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Anteaters</h1><div class="subheading">Example 222 ★★</div>
+<div class="linkback">
+<a href="../WI_12.html#section_20" title="Advanced Actions &gt; Stored actions">WI §12.20 Stored actions</a><br><a href="../RB_6.html#section_14" title="Commands &gt; Remembering, Converting and Combining Actions">RB §6.14 Remembering, Converting and Combining Actions</a>
+</div>
+<p class="example-desc">The player carries a gizmo that is able to record actions performed by the player, then force him to repeat them when the gizmo is dropped. This includes storing actions that apply to topics, as in &quot;look up anteater colonies in the guide&quot;.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="actors_studio.html" title="A video camera that records actions performed in its presence, and plays them back with time-stamps.">221. Actor's Studio</a></div><div class="doc-navbar-right"><a href="formal_syntax_of_sentences.html" title="A more formal description of the sentence grammar used by Inform for both assertions and conditions.">223. Formal syntax of sentences</a></div></div>
+</header>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex222">Play/modify Anteaters in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="Anteaters/index.html">Play Anteaters in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Anteaters&quot;\n\nA book is a kind of thing. Understand &quot;book&quot; as a book. A book has a table name called the contents.\n\nReport consulting a book about:\n\tsay &quot;You flip through [the noun], but find no reference to [the topic understood].&quot; instead.\n\nInstead of consulting a book about a topic listed in the contents of the noun:\n\tsay &quot;[reply entry][paragraph break]&quot;.\n\nThe Guide to Desert Fauna is a book. The contents of the Guide is the Table of Critters.\n\nTable of Critters\ntopic\t\treply\n&quot;spines&quot;\t\t&quot;You flip through the Guide for a while and eventually realise that spines are flora, not fauna.&quot;\n&quot;anteater colonies&quot;\t&quot;The giant anteater, which grows to six feet in size and can kill a jaguar, is a solitary animal, found in many habitats, including grasslands, deciduous forests and rainforests. It does not form colonies. That&apos;s ants. They&apos;re actually quite easy to tell apart.&quot;\n\nDeath Valley is a room. The Guide is in the Valley.\n\nThe gizmo is in Death Valley. The gizmo has an action called idea. The description of the gizmo is &quot;The gizmo is hard to describe, but it projects an idea of [idea].&quot;\n\nBefore when the player carries the gizmo and the idea of the gizmo is waiting:\n\tsay &quot;[The gizmo] eagerly soaks up the whole idea of [the current action].&quot;;\n\tnow the idea of the gizmo is the current action.\n\nAfter dropping the gizmo:\n\tsay &quot;The percussion of the fall seems to have shaken the gizmo&apos;s idea loose! There&apos;s nothing for it now but [idea of the gizmo].&quot;;\n\ttry the idea of the gizmo;\n\tnow the idea of the gizmo is waiting.\n\nTest me with &quot;get guide / look up spines in guide / x gizmo / get gizmo / i / x gizmo / drop gizmo / get gizmo / look up anteater colonies in guide / x gizmo / drop gizmo&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Anteaters&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A book is a kind of thing. Understand &quot;book&quot; as a book. A book has a table name called the contents.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Report consulting a book about:</div>
+<div class="codeline">&ensp;&ensp;say &quot;You flip through [the noun], but find no reference to [the topic understood].&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of consulting a book about a topic listed in the contents of the noun:</div>
+<div class="codeline">&ensp;&ensp;say &quot;[reply entry][paragraph break]&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Guide to Desert Fauna is a book. The contents of the Guide is the Table of Critters.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline tablename">Table of Critters</div><table>
+<tr><td>topic</td><td>reply</td></tr><tr><td>&quot;spines&quot;</td><td>&quot;You flip through the Guide for a while and eventually realise that spines are flora, not fauna.&quot;</td></tr><tr><td>&quot;anteater colonies&quot;</td><td>&quot;The giant anteater, which grows to six feet in size and can kill a jaguar, is a solitary animal, found in many habitats, including grasslands, deciduous forests and rainforests. It does not form colonies. That&#39;s ants. They&#39;re actually quite easy to tell apart.&quot;</td></tr></table>
+<div class="codeline">Death Valley is a room. The Guide is in the Valley.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The gizmo is in Death Valley. The gizmo has an action called idea. The description of the gizmo is &quot;The gizmo is hard to describe, but it projects an idea of [idea].&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Before when the player carries the gizmo and the idea of the gizmo is waiting:</div>
+<div class="codeline">&ensp;&ensp;say &quot;[The gizmo] eagerly soaks up the whole idea of [the current action].&quot;;</div>
+<div class="codeline">&ensp;&ensp;now the idea of the gizmo is the current action.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">After dropping the gizmo:</div>
+<div class="codeline">&ensp;&ensp;say &quot;The percussion of the fall seems to have shaken the gizmo&#39;s idea loose! There&#39;s nothing for it now but [idea of the gizmo].&quot;;</div>
+<div class="codeline">&ensp;&ensp;try the idea of the gizmo;</div>
+<div class="codeline">&ensp;&ensp;now the idea of the gizmo is waiting.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;get guide / look up spines in guide / x gizmo / get gizmo / i / x gizmo / drop gizmo / get gizmo / look up anteater colonies in guide / x gizmo / drop gizmo&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "get guide / look up spines in guide / x gizmo / get gizmo / i / x gizmo / drop gizmo / get gizmo / look up anteater colonies in guide / x gizmo / drop gizmo".</summary><div class="testme-output">Death Valley<br>You can see a Guide to Desert Fauna and a gizmo here.<br><br>>(Testing.)<br><br>>[1] get guide<br>Taken.<br><br>>[2] look up spines in guide<br>You flip through the Guide for a while and eventually realise that spines are flora, not fauna.<br><br>>[3] x gizmo<br>The gizmo is hard to describe, but it projects an idea of waiting.<br><br>>[4] get gizmo<br>Taken.<br><br>>[5] i<br>The gizmo eagerly soaks up the whole idea of taking inventory.<br><br>You are carrying:<br>  a gizmo<br>  a Guide to Desert Fauna<br><br>>[6] x gizmo<br>The gizmo is hard to describe, but it projects an idea of taking inventory.<br><br>>[7] drop gizmo<br>The percussion of the fall seems to have shaken the gizmo's idea loose! There's nothing for it now but taking inventory.<br><br>You are carrying:<br>  a Guide to Desert Fauna<br><br>>[8] get gizmo<br>Taken.<br><br>>[9] look up anteater colonies in guide<br>The gizmo eagerly soaks up the whole idea of consulting the Guide to Desert Fauna about "anteater colonies".<br><br>The giant anteater, which grows to six feet in size and can kill a jaguar, is a solitary animal, found in many habitats, including grasslands, deciduous forests and rainforests. It does not form colonies. That's ants. They're actually quite easy to tell apart.<br><br>>[10] x gizmo<br>The gizmo is hard to describe, but it projects an idea of consulting the Guide to Desert Fauna about "anteater colonies".<br><br>>[11] drop gizmo<br>The percussion of the fall seems to have shaken the gizmo's idea loose! There's nothing for it now but consulting the Guide to Desert Fauna about "anteater colonies".<br><br>The giant anteater, which grows to six feet in size and can kill a jaguar, is a solitary animal, found in many habitats, including grasslands, deciduous forests and rainforests. It does not form colonies. That's ants. They're actually quite easy to tell apart.
+</div></details><div class="doc-navbar"><div class="doc-navbar-left"><a href="actors_studio.html" title="A video camera that records actions performed in its presence, and plays them back with time-stamps.">221. Actor's Studio</a></div><div class="doc-navbar-right"><a href="formal_syntax_of_sentences.html" title="A more formal description of the sentence grammar used by Inform for both assertions and conditions.">223. Formal syntax of sentences</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

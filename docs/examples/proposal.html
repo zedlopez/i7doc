@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 171. Proposal</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Proposal</h1><div class="subheading">Example 171 ★★</div>
+<div class="linkback">
+<a href="../WI_11.html#section_5" title="Phrases &gt; Conditions and questions">WI §11.5 Conditions and questions</a><br><a href="../RB_7.html#section_7" title="Other Characters &gt; Saying Simple Things">RB §7.7 Saying Simple Things</a>
+</div>
+<p class="example-desc">Asking the player a yes/no question which he must answer, and another which he may answer or not as he chooses.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="ferragamo_again.html" title="Using the same phrase to produce different results with different characters.">170. Ferragamo Again</a></div><div class="doc-navbar-right"><a href="matreshka.html" title="A SEARCH [room] action that will open every container the player can see, stopping only when there don&#39;t remain any that are closed, unlocked, and openable.">172. Matreshka</a></div></div>
+</header>
+<p>Suppose we want to ask the player a question where he might say yes or no in response. There are two possible forms of this: the modal question where the player must pick one to proceed, and the non-modal question where he might also type other verbs.</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex171">Play/modify Proposal in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="Proposal/index.html">Play Proposal in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Proposal&quot;\n\nThe story genre is &quot;A Worked Example about Yes/No Questions&quot;.\n\nSection 1 - Asking a Modal Yes/No Question\n\nWhen play begins:\n\tsay &quot;Do you like Mr Spruce? &quot;;\n\tif player consents, now Spruce is handsome;\n\totherwise now Spruce is ugly;\n\tsay paragraph break.\n\nSection 2 - Mr Spruce&apos;s Non-Modal Question\n\nUse full-length room descriptions.\n\nThe Conservatory is a room. &quot;You are in a room full of plants.&quot;\n\nMr Spruce is a man in the Conservatory. Mr Spruce can be apprehensive or calm. Mr Spruce is calm. Mr Spruce can be handsome or ugly.\n\nAt 9:02 AM: say &quot;Mr Spruce flings himself to his knees and implores you to become his lawfully wedded wife.&quot;;\n\tnow Mr Spruce is apprehensive;\n\tMr Spruce gives up in two minutes from now.\n\nAt the time when Mr Spruce gives up:\n\tsay &quot;Mr Spruce sighs heavily, seeing that you don&apos;t intend to reply. &apos;Never mind, my dear, I&apos;ll ask later. Perhaps I should have spoken to your Papa first... yes, a gently-bred female... no wonder...&apos;&quot;;\n\tnow Mr Spruce is calm;\n\tMr Spruce departs in one minute from now.\n\nAt the time when Mr Spruce departs:\n\tif the player can see Mr Spruce, say &quot;Mr Spruce takes his leave of you.&quot;;\n\totherwise say &quot;Mr Spruce pokes his head in to say that he is leaving.&quot;;\n\tend the story saying &quot;Well, that is over...&quot;\n\nInstead of saying yes in the presence of an ugly apprehensive Mr Spruce:\n\tnow Mr Spruce is calm;\n\tsay &quot;Remembering what your mother said to you about the stock exchange and Dear Papa, you close your eyes and accept Mr Spruce.&quot;;\n\tend the story saying &quot;Alas for your maiden hopes.&quot;\n\nInstead of saying yes in the presence of a handsome apprehensive Mr Spruce:\n\tnow Mr Spruce is calm;\n\tsay &quot;You are silent with delight for a moment before you say yes, yes!&quot;;\n\tend the story saying &quot;How Genevieve Stubbs will cry!&quot;\n\nInstead of saying no in the presence of an ugly apprehensive Mr Spruce:\n\tnow Mr Spruce is calm;\n\tsay &quot;Gently you inform Mr Spruce that it is impossible. He seems less deflated than you had expected.&quot;;\n\tend the story saying &quot;Odd, that...&quot;\n\nInstead of saying no in the presence of a handsome apprehensive Mr Spruce:\n\tnow Mr Spruce is calm;\n\tsay &quot;You lower your eyes and refuse petulantly, hoping to stir him to a more ardent repetition of these same requests. But then -- alack! -- he says &apos;I see how it is!&apos; in a strangled voice, and strides from the room!&quot;;\n\tend the story saying &quot;A fatal error!&quot;\n\n\nInstead of answering Mr Spruce that &quot;no&quot;, try saying no.\n\nInstead of answering Mr Spruce that &quot;yes&quot;, try saying yes.\n\nInstead of asking Mr Spruce to try saying yes, try saying yes.\n\nInstead of asking Mr Spruce to try saying no, try saying no.\n\nInstead of saying sorry, try saying no.\n\nInstead of asking Mr Spruce to try saying sorry, try saying no.\n\nInstead of answering Mr Spruce that &quot;sorry&quot;, try saying no.\n\nTest me with &quot;z / z / z / yes&quot;.\n\nTest more with &quot;z / z / z / no&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Proposal&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The story genre is &quot;A Worked Example about Yes/No Questions&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline i7header">Section 1 - Asking a Modal Yes/No Question</div><div class="codeline">When play begins:</div>
+<div class="codeline">&ensp;&ensp;say &quot;Do you like Mr Spruce? &quot;;</div>
+<div class="codeline">&ensp;&ensp;if player consents, now Spruce is handsome;</div>
+<div class="codeline">&ensp;&ensp;otherwise now Spruce is ugly;</div>
+<div class="codeline">&ensp;&ensp;say paragraph break.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline i7header">Section 2 - Mr Spruce&#39;s Non-Modal Question</div><div class="codeline">Use full-length room descriptions.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Conservatory is a room. &quot;You are in a room full of plants.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Mr Spruce is a man in the Conservatory. Mr Spruce can be apprehensive or calm. Mr Spruce is calm. Mr Spruce can be handsome or ugly.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">At 9:02 AM: say &quot;Mr Spruce flings himself to his knees and implores you to become his lawfully wedded wife.&quot;;</div>
+<div class="codeline">&ensp;&ensp;now Mr Spruce is apprehensive;</div>
+<div class="codeline">&ensp;&ensp;Mr Spruce gives up in two minutes from now.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">At the time when Mr Spruce gives up:</div>
+<div class="codeline">&ensp;&ensp;say &quot;Mr Spruce sighs heavily, seeing that you don&#39;t intend to reply. &#39;Never mind, my dear, I&#39;ll ask later. Perhaps I should have spoken to your Papa first... yes, a gently-bred female... no wonder...&#39;&quot;;</div>
+<div class="codeline">&ensp;&ensp;now Mr Spruce is calm;</div>
+<div class="codeline">&ensp;&ensp;Mr Spruce departs in one minute from now.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">At the time when Mr Spruce departs:</div>
+<div class="codeline">&ensp;&ensp;if the player can see Mr Spruce, say &quot;Mr Spruce takes his leave of you.&quot;;</div>
+<div class="codeline">&ensp;&ensp;otherwise say &quot;Mr Spruce pokes his head in to say that he is leaving.&quot;;</div>
+<div class="codeline">&ensp;&ensp;end the story saying &quot;Well, that is over...&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of saying yes in the presence of an ugly apprehensive Mr Spruce:</div>
+<div class="codeline">&ensp;&ensp;now Mr Spruce is calm;</div>
+<div class="codeline">&ensp;&ensp;say &quot;Remembering what your mother said to you about the stock exchange and Dear Papa, you close your eyes and accept Mr Spruce.&quot;;</div>
+<div class="codeline">&ensp;&ensp;end the story saying &quot;Alas for your maiden hopes.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of saying yes in the presence of a handsome apprehensive Mr Spruce:</div>
+<div class="codeline">&ensp;&ensp;now Mr Spruce is calm;</div>
+<div class="codeline">&ensp;&ensp;say &quot;You are silent with delight for a moment before you say yes, yes!&quot;;</div>
+<div class="codeline">&ensp;&ensp;end the story saying &quot;How Genevieve Stubbs will cry!&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of saying no in the presence of an ugly apprehensive Mr Spruce:</div>
+<div class="codeline">&ensp;&ensp;now Mr Spruce is calm;</div>
+<div class="codeline">&ensp;&ensp;say &quot;Gently you inform Mr Spruce that it is impossible. He seems less deflated than you had expected.&quot;;</div>
+<div class="codeline">&ensp;&ensp;end the story saying &quot;Odd, that...&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of saying no in the presence of a handsome apprehensive Mr Spruce:</div>
+<div class="codeline">&ensp;&ensp;now Mr Spruce is calm;</div>
+<div class="codeline">&ensp;&ensp;say &quot;You lower your eyes and refuse petulantly, hoping to stir him to a more ardent repetition of these same requests. But then -- alack! -- he says &#39;I see how it is!&#39; in a strangled voice, and strides from the room!&quot;;</div>
+<div class="codeline">&ensp;&ensp;end the story saying &quot;A fatal error!&quot;</div>
+</div><p>And since the player might SAY YES TO SPRUCE, we had better reroute the relevant options:</p>
+<div class="codeblock"><div class="codeline">Instead of answering Mr Spruce that &quot;no&quot;, try saying no.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of answering Mr Spruce that &quot;yes&quot;, try saying yes.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of asking Mr Spruce to try saying yes, try saying yes.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of asking Mr Spruce to try saying no, try saying no.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of saying sorry, try saying no.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of asking Mr Spruce to try saying sorry, try saying no.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of answering Mr Spruce that &quot;sorry&quot;, try saying no.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;z / z / z / yes&quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test more with &quot;z / z / z / no&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "z / z / z / yes".</summary><div class="testme-output">Conservatory<br>You are in a room full of plants.<br><br>You can see Mr Spruce here.<br><br>>(Testing.)<br><br>>[1] z<br>Time passes.<br><br>>[2] z<br>Time passes.<br><br>>[3] z<br>Time passes.<br><br>Mr Spruce flings himself to his knees and implores you to become his lawfully wedded wife.<br><br>>[4] yes<br>You are silent with delight for a moment before you say yes, yes!<br><br><br><br>    *** How Genevieve Stubbs will cry! ***<br><br><br><br>Would you like to RESTART, RESTORE a saved game, QUIT or UNDO the last command?<br>>
+</div></details><div class="doc-navbar"><div class="doc-navbar-left"><a href="ferragamo_again.html" title="Using the same phrase to produce different results with different characters.">170. Ferragamo Again</a></div><div class="doc-navbar-right"><a href="matreshka.html" title="A SEARCH [room] action that will open every container the player can see, stopping only when there don&#39;t remain any that are closed, unlocked, and openable.">172. Matreshka</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

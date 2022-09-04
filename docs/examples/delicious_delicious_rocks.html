@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 196. Delicious, Delicious Rocks</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Delicious, Delicious Rocks</h1><div class="subheading">Example 196 ★★★</div>
+<div class="linkback">
+<a href="../WI_12.html#section_9" title="Advanced Actions &gt; Check, carry out, report">WI §12.9 Check, carry out, report</a><br><a href="../RB_9.html#section_1" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Food">RB §9.1 Food</a>
+</div>
+<p class="example-desc">Adding a &quot;sanity-check&quot; stage to decide whether an action makes any sense, which occurs before any before rules, implicit taking, or check rules.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="paddington.html" title="A CUT [something] WITH [something] command which acts differently on different types of objects.">195. Paddington</a></div><div class="doc-navbar-right"><a href="noisemaking.html" title="Creating a stage after the report stage of an action, during which other characters may observe and react.">197. Noisemaking</a></div></div>
+</header>
+<p>In some cases, we may want to add new stages to action processing. One possibility is a stage where we check the sanity of what the player is trying to do before executing any of the other commands; so that we avoid, for instance</p>
+<div class="codeblock"><div class="codeline">&gt;EAT ROCK</div>
+<div class="codeline">(first taking the rock)</div>
+<div class="codeline">That&#39;s plainly inedible.</div>
+</div><p>Here is how we might insert such a stage in our action processing, using rulebook manipulation.</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex196">Play/modify Delicious, Delicious Rocks in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="DeliciousDeliciousRocks/index.html">Play Delicious, Delicious Rocks in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Delicious, Delicious Rocks&quot;\n\nSection 1 - Procedure\n\nThe sanity-check rules are a rulebook.\n\nThis is the sanity-check stage rule:\n\tabide by the sanity-check rules.\n\nThe sanity-check stage rule is listed after the before stage rule  in the action-processing rules.\n\nSection 2 - Scenario\n\nCandyland is a room. The lollipop tree is an edible thing in Candyland. The genuine rock is a thing in Candyland.\n\nSanity-check eating an inedible thing:\n\tsay &quot;Your digestion is so delicate -- you&apos;re sure [the noun] wouldn&apos;t agree with you.&quot; instead.\n\nTest me with &quot;eat lollipop / eat rock&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Delicious, Delicious Rocks&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline i7header">Section 1 - Procedure</div><div class="codeline">The sanity-check rules are a rulebook.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">This is the sanity-check stage rule:</div>
+<div class="codeline">&ensp;&ensp;abide by the sanity-check rules.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The sanity-check stage rule is listed after the before stage rule  in the action-processing rules.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline i7header">Section 2 - Scenario</div><div class="codeline">Candyland is a room. The lollipop tree is an edible thing in Candyland. The genuine rock is a thing in Candyland.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Sanity-check eating an inedible thing:</div>
+<div class="codeline">&ensp;&ensp;say &quot;Your digestion is so delicate -- you&#39;re sure [the noun] wouldn&#39;t agree with you.&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;eat lollipop / eat rock&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "eat lollipop / eat rock".</summary><div class="testme-output">Candyland<br>You can see a lollipop tree and a genuine rock here.<br><br>>(Testing.)<br><br>>[1] eat lollipop<br>(first taking the lollipop tree)<br>You eat the lollipop tree. Not bad.<br><br>>[2] eat rock<br>Your digestion is so delicate -- you're sure the genuine rock wouldn't agree with you.
+</div></details><p>Notice that now Inform does not try taking the rock before rejecting the player&#39;s attempt to eat it.</p>
+<p>It is of course possible to get the same effect with</p>
+<div class="codeblock"><div class="codeline">Before eating an inedible thing:</div>
+<div class="codeline">&ensp;&ensp;say &quot;Your digestion is so delicate -- you&#39;re sure [the noun] wouldn&#39;t agree with you.&quot; instead.</div>
+</div><p>&hellip;and in a small game with few rules, there&#39;s not much reason to add an extra stage. The ability to modify the stages of action processing becomes useful when we have a fairly large game with sophisticated modeling and want to be sure that some kinds of message (such as the sanity-check) are always handled before other things that we might be doing at the before stage (such as generating implicit actions like opening doors before going through them).</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="paddington.html" title="A CUT [something] WITH [something] command which acts differently on different types of objects.">195. Paddington</a></div><div class="doc-navbar-right"><a href="noisemaking.html" title="Creating a stage after the report stage of an action, during which other characters may observe and react.">197. Noisemaking</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

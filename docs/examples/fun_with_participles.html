@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 245. Fun with Participles</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Fun with Participles</h1><div class="subheading">Example 245 ★★</div>
+<div class="linkback">
+<a href="../WI_14.html#section_3" title="Adaptive Text and Responses &gt; More on adapting verbs">WI §14.3 More on adapting verbs</a><br><a href="../RB_2.html#section_1" title="Adaptive Prose &gt; Varying What Is Written">RB §2.1 Varying What Is Written</a>
+</div>
+<p class="example-desc">Creating dynamic room descriptions that contain sentences such as &quot;Clark is here, wasting time&quot; or &quot;Clark is here, looking around&quot; depending on Clark&#39;s idle activity.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="graphtheory_view_of_relations.html" title="Some notes on relations from the point of view of graph theory.">244. Graph-theory view of relations</a></div><div class="doc-navbar-right"><a href="variety.html" title="Suppose we want all of our action responses to display some randomized variety. We could do this by laboriously rewriting all of the response texts, but this example demonstrates an alternative.">246. Variety</a></div></div>
+</header>
+<p>Mostly the Standard Rules use verbs adapted to finite forms (&quot;he jumped&quot;, &quot;we take the hammer&quot;, and so on). But Inform can also produce participles to describe actions that are ongoing: &quot;he is carrying the fedora&quot; or &quot;taking the hammer&hellip;&quot;</p>
+<p>In this example, we give non-player characters actions to perform and then have Inform dynamically describe what they&#39;re doing when the player chooses to look.</p>
+<p>We start by establishing the idea that a verb can describe a particular action:</p>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex245">Play/modify Fun with Participles in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="FunWithParticiples/index.html">Play Fun with Participles in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Fun with Participles&quot;\n\nSection 1 - Descriptive Functionality\n\nDescribing relates various verbs to various action names. The verb to describe means the describing relation.\n\nTo look around is a verb. The verb look around describes the looking action.\n\nTo stand about is a verb. The verb stand about describes the waiting action. To look bored is a verb. The verb look bored describes the waiting action. To waste time is a verb. The verb waste time describes the waiting action.\n\nTo jump is a verb. To leap is a verb. To pirouette is a verb. The verb jump describes the jumping action. The verb leap describes the jumping action. The verb pirouette describes the jumping action.\n\n\nA person has an action name called the current idle. The current idle of a person is usually the waiting action.\n\nRule for writing a paragraph about someone  (called chosen person) when a verb describes the current idle of the chosen person:\n\tsay &quot;[The chosen person] [are] here, [present participle of a random verb that describes (the current idle of the chosen person)].&quot;\n\nInstead of someone doing something:\n\tnow the current idle of the person asked is (the action name part of the current action);\n\tcontinue the action.\n\nA persuasion rule:\n\tpersuasion succeeds.\n\nSection 2 - Scenario\n\nLab is a room. The fedora is a wearable thing in the Lab. Clark is a man in the Lab.\n\n\nAfter Clark doing something when a verb describes (the action name part of the current action):\n\tsay &quot;&apos;Fine, have it your way!&apos; Clark exclaims. &apos;But I have [past participle of a random verb that describes (the action name part of the current action)] for the last time!&apos;&quot;;\n\trule succeeds.\n\nTest me with &quot;look / Clark, jump / look / Clark, look / look / Clark, wait&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Fun with Participles&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline i7header">Section 1 - Descriptive Functionality</div><div class="codeline">Describing relates various verbs to various action names. The verb to describe means the describing relation.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">To look around is a verb. The verb look around describes the looking action.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">To stand about is a verb. The verb stand about describes the waiting action. To look bored is a verb. The verb look bored describes the waiting action. To waste time is a verb. The verb waste time describes the waiting action.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">To jump is a verb. To leap is a verb. To pirouette is a verb. The verb jump describes the jumping action. The verb leap describes the jumping action. The verb pirouette describes the jumping action.</div>
+</div><p>Now we need to give every character some sort of idle activity. By default, we&#39;ll have people just be waiting, but allow for that idle activity to change into something more interesting if the player has told them to do something else.</p>
+<div class="codeblock"><div class="codeline">A person has an action name called the current idle. The current idle of a person is usually the waiting action.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Rule for writing a paragraph about someone  (called chosen person) when a verb describes the current idle of the chosen person:</div>
+<div class="codeline">&ensp;&ensp;say &quot;[The chosen person] [are] here, [present participle of a random verb that describes (the current idle of the chosen person)].&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Instead of someone doing something:</div>
+<div class="codeline">&ensp;&ensp;now the current idle of the person asked is (the action name part of the current action);</div>
+<div class="codeline">&ensp;&ensp;continue the action.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A persuasion rule:</div>
+<div class="codeline">&ensp;&ensp;persuasion succeeds.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline i7header">Section 2 - Scenario</div><div class="codeline">Lab is a room. The fedora is a wearable thing in the Lab. Clark is a man in the Lab.</div>
+</div><p>And just to give past participles a test-drive as well, let&#39;s make Clark a bit of a drama king:</p>
+<div class="codeblock"><div class="codeline">After Clark doing something when a verb describes (the action name part of the current action):</div>
+<div class="codeline">&ensp;&ensp;say &quot;&#39;Fine, have it your way!&#39; Clark exclaims. &#39;But I have [past participle of a random verb that describes (the action name part of the current action)] for the last time!&#39;&quot;;</div>
+<div class="codeline">&ensp;&ensp;rule succeeds.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;look / Clark, jump / look / Clark, look / look / Clark, wait&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "look / Clark, jump / look / Clark, look / look / Clark, wait".</summary><div class="testme-output">Lab<br>Clark is here, looking bored.<br><br>You can also see a fedora here.<br><br>>(Testing.)<br><br>>[1] look<br>Lab<br>Clark is here, looking bored.<br><br>You can also see a fedora here.<br><br>>[2] clark, jump<br>"Fine, have it your way!" Clark exclaims. "But I have leaped for the last time!"<br><br>>[3] look<br>Lab<br>Clark is here, leaping.<br><br>You can also see a fedora here.<br><br>>[4] clark, look<br>"Fine, have it your way!" Clark exclaims. "But I have looked around for the last time!"<br><br>>[5] look<br>Lab<br>Clark is here, looking around.<br><br>You can also see a fedora here.<br><br>>[6] clark, wait<br>"Fine, have it your way!" Clark exclaims. "But I have looked bored for the last time!"
+</div></details><div class="doc-navbar"><div class="doc-navbar-left"><a href="graphtheory_view_of_relations.html" title="Some notes on relations from the point of view of graph theory.">244. Graph-theory view of relations</a></div><div class="doc-navbar-right"><a href="variety.html" title="Suppose we want all of our action responses to display some randomized variety. We could do this by laboriously rewriting all of the response texts, but this example demonstrates an alternative.">246. Variety</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>

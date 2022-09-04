@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>WI 4. Kinds</title>
+<script src="i7doc.js"></script>
+<link rel="stylesheet" href="i7doc.css">
+</head>
+<nav><div class="nav-el"><a href="index.html">Contents</a></div> <div class="nav-el"><a href="examples/index.html">Examples</a></div> <div class="nav-el"><a href="general_index.html">Index</a></div> <div class="nav-el"><a href="search.html">Search</a></div></nav>
+<body><header><h1 class="title">Writing with Inform</h1></header>
+<h2 id="chapter_4">4. Kinds</h2>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="WI_3.html">3. Things</a></div><div class="doc-navbar-right"><a href="WI_5.html">5. Text</a></div></div>
+<div class="section-block">
+<div class="section-row">
+<div class="section-chapter-num">§4.</div><div class="section-section-num">1</div><div class="section-name"><a href="WI_4.html#section_1">New kinds</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§4.</div><div class="section-section-num">2</div><div class="section-name"><a href="WI_4.html#section_2">Using new kinds</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§4.</div><div class="section-section-num">3</div><div class="section-name"><a href="WI_4.html#section_3">Degrees of certainty</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§4.</div><div class="section-section-num">4</div><div class="section-name"><a href="WI_4.html#section_4">Plural assertions</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§4.</div><div class="section-section-num">5</div><div class="section-name"><a href="WI_4.html#section_5">Kinds of value</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§4.</div><div class="section-section-num">6</div><div class="section-name"><a href="WI_4.html#section_6">Properties again</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§4.</div><div class="section-section-num">7</div><div class="section-name"><a href="WI_4.html#section_7">New either/or properties</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§4.</div><div class="section-section-num">8</div><div class="section-name"><a href="WI_4.html#section_8">New value properties</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§4.</div><div class="section-section-num">9</div><div class="section-name"><a href="WI_4.html#section_9">Using new kinds of value in properties</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§4.</div><div class="section-section-num">10</div><div class="section-name"><a href="WI_4.html#section_10">Conditions of things</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§4.</div><div class="section-section-num">11</div><div class="section-name"><a href="WI_4.html#section_11">Default values of kinds</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§4.</div><div class="section-section-num">12</div><div class="section-name"><a href="WI_4.html#section_12">Values that vary</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§4.</div><div class="section-section-num">13</div><div class="section-name"><a href="WI_4.html#section_13">Values that never vary</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§4.</div><div class="section-section-num">14</div><div class="section-name"><a href="WI_4.html#section_14">Duplicates</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§4.</div><div class="section-section-num">15</div><div class="section-name"><a href="WI_4.html#section_15">Assemblies and body parts</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§4.</div><div class="section-section-num">16</div><div class="section-name"><a href="WI_4.html#section_16">Names made in assembly</a></div>
+</div>
+<div class="section-row">
+<div class="section-chapter-num">§4.</div><div class="section-section-num">17</div><div class="section-name"><a href="WI_4.html#section_17">Postscript on simulation</a></div>
+</div>
+</div>
+<h3 id="section_1">WI §4.1 New kinds</h3>
+<div class="sect-navbar"><div class="sect-navbar-center"><a href="#chapter_4">4. Kinds</a></div><div class="sect-navbar-right"><a href="#section_2">4.2 Using new kinds</a></div></div>
+<p>Values are to Inform what nouns are to English sentences. They represent numbers, times of day, pieces of text, places, people, doors, and so on. Because they have such an enormous variety, and because we often want to talk about what some of them have in common, we need a way to sort all of these different ideas out. That&#39;s the main aim of Inform&#39;s concept of &quot;kind&quot;.</p>
+<p>Every value has a kind. The kind of 10 is &quot;number&quot;; the kind of 11:30 PM is &quot;time&quot;; the kind of &quot;jinxed wizards pluck ivy from my quilt&quot; is &quot;text&quot;; and so on. The Kinds index panel shows the kinds present in the current Inform project, which will always include a wide range of built-in kinds, and usually also some new ones created in that project.</p>
+<p>Some kinds are more general than others. For example, if we write:</p>
+<div class="codeblock"><div class="codeline">Growler is an animal in the Savannah.</div>
+</div><p>then Growler is an &quot;animal&quot;, which is a kind of &quot;thing&quot;, which is a kind of &quot;object&quot;. When we talk about &quot;the&quot; kind of Growler, we mean &quot;animal&quot;, the most specific one, but actually he belongs to all of those kinds.</p>
+<p>As we see from this example, kinds have a whole hierarchy. Some are specialised versions of other kinds; some are not. Browsing the Kinds index shows that Inform builds its model world out of &quot;objects&quot;. (That&#39;s really what objects are: &quot;object&quot; is a kind of value used to make the ingredients of the model world.) The objects fall into four fundamental kinds, &quot;room&quot;, &quot;thing&quot;, &quot;direction&quot; and &quot;region&quot;, and &quot;thing&quot; is more subdivided still.</p>
+<p>All the same, Inform starts out with a fairly simple arrangement. Because taxonomy &ndash; setting up kinds for everything &ndash; is so difficult, and depends so much on what you want it for, Inform creates relatively few kinds in advance: it has &quot;animal&quot; built in, but not &quot;mammal&quot; or &quot;Bengal tiger&quot;. When we need more, we must make them ourselves. Let&#39;s see how we might invent these new kinds. The easy one is:</p>
+<div class="codeblock"><div class="codeline">A Bengal tiger is a kind of animal.</div>
+</div><p>Given that, we can then write:</p>
+<div class="codeblock"><div class="codeline">Growler is a Bengal tiger in the Savannah.</div>
+</div><p>That&#39;s easy enough. Adding &quot;mammal&quot; now looks awkward, though, because it seems to belong in between the two. All Bengal tigers are mammals, but not all animals are. But Inform can sort this out:</p>
+<div class="codeblock"><div class="codeline">A mammal is a kind of animal. A Bengal tiger is a kind of mammal.</div>
+</div><p>If we look at the Kinds index, we should indeed see a hierarchy:</p>
+<div class="codeblock"><div class="codeline">object &gt; person &gt; animal &gt; mammal &gt; Bengal tiger</div>
+</div><p>though the diagram is laid out as a sort of tree, just as zoologists do.</p>
+<p>As another example, it may seem curious that Inform doesn&#39;t usually think &quot;man&quot; is a kind of &quot;animal&quot;. This is really because, in English, people don&#39;t usually expect something like &quot;if an animal is in the garden&quot; to be true when it&#39;s only the Revd Mr Beebe going for a walk. People expect the word &quot;animal&quot; not to mean a human being, despite our common genetic ancestry. But if we want to rearrange Inform&#39;s default ideas, we can do that quite easily:</p>
+<div class="codeblock"><div class="codeline">A man is a kind of animal. A woman is a kind of animal.</div>
+</div><p>Or indeed we could say:</p>
+<div class="codeblock"><div class="codeline">A human being is a kind of mammal. A man and a woman are kinds of human being.</div>
+</div><p>While this is an ideal way to make new kinds for the model world, we are more restricted in what we can do outside of objects. For instance,</p>
+<div class="codeblock"><div class="codeline">A glob is a kind of number.</div>
+</div><p>isn&#39;t allowed. The numbers are fixed and all exist already; they aren&#39;t like Bengal tigers which we can simply imagine, and fill the world with. &quot;Number&quot; is not a concept we can specialise any further. But what we can do is to invent entirely new concepts, like so:</p>
+<div class="codeblock"><div class="codeline">A distance is a kind of value.</div>
+</div><p>We will see more of these later. (This isn&#39;t specialising anything &ndash; &quot;value&quot; is a sort of everything-category, and is too big and vague to be a kind.)</p>
+<div class="examples">
+<h4>Example</h4>
+<div class="example-short">43. ★★ <a href="examples/vouvray.html">Vouvray</a><br>Adding synonyms to an entire kind of thing.</p></div><div class="linkback">
+<a href="RB_2.html#section_2" title="Adaptive Prose &gt; Varying What Is Read">RB §2.2 Varying What Is Read</a>
+</div>
+<h3 id="section_2">WI §4.2 Using new kinds</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_1">4.1 New kinds</a></div><div class="sect-navbar-center"><a href="#chapter_4">4. Kinds</a></div><div class="sect-navbar-right"><a href="#section_3">4.3 Degrees of certainty</a></div></div>
+<p>This seems a good point to see what we can do with new kinds. Here we invent a new kind to provide a new sort of room:</p>
+<div class="codeblock"><div class="codeline">A dead end is a kind of room.</div>
+</div><p>Any dead end that we make is also a room, so it has all of the properties and behaviour of a room. For instance, every room is either &quot;lighted&quot; or &quot;dark&quot;, and the default is to be lighted. But we can reverse that convention for dead ends, and we can also fill in some other properties:</p>
+<div class="codeblock"><div class="codeline">A dead end is a kind of room with printed name &quot;Dead End&quot; and description &quot;This is a dead end. You&#39;ll have to go back the way you came.&quot; A dead end is usually dark.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Undertomb is a dark room. East is a dead end. South is a dead end with printed name &quot;Collapsed Dead End&quot;. Northwest is a dead end called the Tortuous Alcove.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">In the Undertomb is the candle lantern. It is lit.</div>
+</div><p>As a result of this, three different rooms adjoin the Undertomb, all dead ends. This is much more concise than spelling them out one at a time would be.</p>
+<p>Inform often doesn&#39;t mind in what order it is told about the world, but it may need to know the name of a kind before that kind can be used. For example,</p>
+<div class="codeblock"><div class="codeline">A coffer is a kind of container. In the Crypt is an open coffer.</div>
+</div><p>makes sense to Inform and results in the creation of a new thing, just called &quot;coffer&quot; in the absence of any other name to give it, whose kind is &quot;coffer&quot; and which is initially open. Whereas if Inform reads:</p>
+<div class="codeblock"><div class="codeline">In the Crypt is an open coffer.</div>
+</div><p>without knowing that &quot;coffer&quot; is a kind, it simply makes a thing called &quot;open coffer&quot; (and which is not a container). Inform has to be careful like this: English is simply too overflowing with multiple meanings. An &quot;open railway ticket&quot;, for instance, is not a &quot;railway ticket&quot; that one can put objects into.</p>
+<h3 id="section_3">WI §4.3 Degrees of certainty</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_2">4.2 Using new kinds</a></div><div class="sect-navbar-center"><a href="#chapter_4">4. Kinds</a></div><div class="sect-navbar-right"><a href="#section_4">4.4 Plural assertions</a></div></div>
+<p>When we write:</p>
+<div class="codeblock"><div class="codeline">A dead end is usually dark.</div>
+</div><p>we are saying that it will be dark rather than lighted unless we should specify otherwise. So it would be fine to add:</p>
+<div class="codeblock"><div class="codeline">The Tortuous Alcove is lighted.</div>
+</div><p>because although dead ends are usually dark, this one is evidently an exception. On the other hand, if we had originally written</p>
+<div class="codeblock"><div class="codeline">A dead end is always dark.</div>
+</div><p>then Inform would not have permitted any exception to be made, and would have reported a problem if we had tried to make the Tortuous Alcove lighted. Besides &quot;usually&quot; and &quot;always&quot;, we can also employ &quot;seldom&quot; and &quot;never&quot;, which are their negatives. Thus, &quot;never lighted&quot; means the same as &quot;always dark&quot;.</p>
+<div class="examples">
+<h4>Examples</h4>
+<div class="example-short">44. ★ <a href="examples/odin.html">Odin</a><br>Replacing &quot;You see nothing special...&quot; with a different default message for looking at something nondescript.</p></div><div class="linkback">
+<a href="RB_6.html#section_5" title="Commands &gt; Examining">RB §6.5 Examining</a>
+</div>
+<div class="example-short">45. ★ <a href="examples/something_narsty.html">Something Narsty</a><br>A staircase always open and never openable.</p></div><div class="linkback">
+<a href="RB_3.html#section_5" title="Place &gt; Doors, Staircases, and Bridges">RB §3.5 Doors, Staircases, and Bridges</a>
+</div>
+<h3 id="section_4">WI §4.4 Plural assertions</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_3">4.3 Degrees of certainty</a></div><div class="sect-navbar-center"><a href="#chapter_4">4. Kinds</a></div><div class="sect-navbar-right"><a href="#section_5">4.5 Kinds of value</a></div></div>
+<p>As the following examples show, sentences can make several assertions at once by using the plural. Suppose we have defined a kind called &quot;high-up fixture&quot;, for instance like so:</p>
+<div class="codeblock"><div class="codeline">A high-up fixture is a kind of thing. A high-up fixture is usually fixed in place.</div>
+</div><p>Then the following sentence creates two such objects and puts them in their place:</p>
+<div class="codeblock"><div class="codeline">The high shelf and the skylight window are high-up fixtures in the Lumber Room.</div>
+</div><p>since it is equivalent to saying:</p>
+<div class="codeblock"><div class="codeline">The high shelf is a high-up fixture. The skylight window is a high-up fixture. The high shelf is in the Lumber Room. The skylight window is in the Lumber Room.</div>
+</div><p>Such plurals are allowed in almost any context, and we could even define two kinds at once:</p>
+<div class="codeblock"><div class="codeline">Bucket and basket are kinds of container.</div>
+</div><p>Inform constructs plurals by a form of Conway&#39;s pluralisation algorithm, which is quite good &ndash; for example, it gets oxen, geese (but mongooses), sheep, wildebeest, bream, vertebrae, quartos, wharves, phenomena, jackanapes and smallpox correct. But English is a very irregular language, and multiple-word nouns sometimes pluralise in unexpected ways. So we sometimes need to intervene:</p>
+<div class="codeblock"><div class="codeline">A brother in law is a kind of man. The plural of brother in law is brothers in law.</div>
+</div><p>We are allowed to define more than one plural for the same singular text, and for the names of things, rooms or kinds, all alternative versions will be used interchangeably. (For instance, Inform defines both &quot;people&quot; and &quot;persons&quot; as plurals of &quot;person&quot;.)</p>
+<div class="examples">
+<h4>Example</h4>
+<div class="example-short">46. ★★★ <a href="examples/get_me_to_the_church_on_time.html">Get Me to the Church on Time</a><br>Using kinds of clothing to prevent the player from wearing several pairs of trousers at the same time.</p></div><div class="linkback">
+<a href="RB_9.html#section_3" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Clothing">RB §9.3 Clothing</a>
+</div>
+<h3 id="section_5">WI §4.5 Kinds of value</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_4">4.4 Plural assertions</a></div><div class="sect-navbar-center"><a href="#chapter_4">4. Kinds</a></div><div class="sect-navbar-right"><a href="#section_6">4.6 Properties again</a></div></div>
+<p>So much for making new and more specialised kinds of object &ndash; for example, new kinds of room, or new kinds of animal. This allows us to describe the physical world in elegant ways, but what about concepts which aren&#39;t so physical?</p>
+<p>Without getting into philosophy, we can probably agree that numbers like 1, 2, 3, &hellip;, and texts like &quot;Jackdaws love my big sphinx of quartz&quot;, are not physical. Inside Inform, those are values, but not objects. Inform already has a good stock of this sort of concept built in, so it may not immediately seem clear why we need to create new ones. But in fact this is very useful. To describe the physical world, we need concepts like (for example) distance and brightness. We want to say that two armchairs are 12 feet apart, or that a given light-bulb is very dim. Here, &quot;twelve feet&quot; and &quot;very dim&quot; are clearly not physical objects; they need to be values, but not objects.</p>
+<p>As these two examples suggest, sometimes we want a quantitative way to measure things, sometimes not. Thomas Hardy, in his novel &quot;The Return of the Native&quot;, writes:</p>
+<div class="codeblock"><div class="codeline">When he drew nearer he perceived it to be a spring van, ordinary in shape, but singular in colour, this being a lurid red.</div>
+</div><p>Hardy doesn&#39;t tell us that the wavelength of the light is 700nm, he tells us that the colour is &quot;lurid red&quot;, and we understand. Later in the same chapter, Hardy writes:</p>
+<div class="codeblock"><div class="codeline">The loads were all laid together, and a pyramid of furze thirty feet in circumference now occupied the crown of the tumulus.</div>
+</div><p>and now we do have a quantitative measurement: thirty feet. This is how people write about the world, and how they read about it. So Inform needs to provide both sorts of measurement.</p>
+<p>(a) Here is a qualitative example. Suppose we would like a candle lantern to burn down, gradually diminishing in brightness. Then we&#39;ll need a way to talk about the current strength of the flame, but only in vague terms. Here goes:</p>
+<div class="codeblock"><div class="codeline">Brightness is a kind of value. The brightnesses are guttering, weak, radiant and blazing.</div>
+</div><p>&quot;Brightness&quot; is now a kind of value on a par with (for instance) &quot;number&quot; or &quot;text&quot;. There are only four possible values, named as above. Kinds of value like this, where there are just a few named possibilities, are extremely useful, as we&#39;ll see.</p>
+<p>(b) Now a quantitative example:</p>
+<div class="codeblock"><div class="codeline">Weight is a kind of value. 1kg specifies a weight.</div>
+</div><p>The difference here is not the way we create the kind, but the way we tell Inform what the possible values are. Instead of a list, we teach Inform some notation. As a result, &quot;26kg&quot; is now a value, for instance. Quantitative kinds like this are sometimes called &quot;units&quot;, because &ndash; as in this example &ndash; they&#39;re often units in the sense of measuring things. Many Inform projects never need units, but they can still be very useful, and they&#39;re described in detail in the chapter on &quot;Numbers and Equations&quot;.</p>
+<h3 id="section_6">WI §4.6 Properties again</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_5">4.5 Kinds of value</a></div><div class="sect-navbar-center"><a href="#chapter_4">4. Kinds</a></div><div class="sect-navbar-right"><a href="#section_7">4.7 New either/or properties</a></div></div>
+<p>So now we have seen two fundamental ideas: &quot;value&quot; and &quot;kind&quot;. We have seen how to make a source text which refers to many values &ndash; for example, Growler the Bengal tiger, 23kg, &quot;Collapsed Dead End&quot;, blazing, 7, all values of different kinds.</p>
+<p>But we don&#39;t just want a way to refer to values, we want to lay out facts about them. Inform understands two sorts of fact, which it calls properties and relations. Properties are about single values in isolation: Growler is male. Relations are about how values interact with each other: Growler likes Bambi. (Or would like to eat Bambi, anyway.) Relations are really the central organising idea of Inform, and we&#39;ve seen them many times already:</p>
+<div class="codeblock"><div class="codeline">Growler is in the Savannah.</div>
+</div><p>expresses a relation called &quot;containment&quot; between Growler and the Savannah. Much more about this in the chapter on Relations: for now, let&#39;s go back to the simpler idea of properties.</p>
+<p>In Inform terms, a &quot;property&quot; is any fact about a value (other than its kind) which the author is allowed to choose. For example,</p>
+<div class="codeblock"><div class="codeline">Growler is an animal. Growler is male. The description of Growler is &quot;What immortal hand or eye could frame thy fearful symmetry?&quot;.</div>
+</div><p>The first of these sentences talks about Growler&#39;s kind, but the other two sentences tell Inform about his properties. Properties are divided into either/or properties &ndash; &quot;male&quot; versus &quot;female&quot; &ndash; and value properties &ndash; such as the description of something, which can be any text.</p>
+<p>The Kinds index shows which kinds of object are allowed to have properties. Every object is, so there&#39;s no problem with Growler. In general, if Inform can find a sensible way to store properties, then it will allow them. But it won&#39;t allow (for example) properties of numbers. There are only a finite number of Bengal tigers in the world (fewer than three thousand, alas), so Inform can easily store individual description texts for each one of them. But there are an infinite range of numbers. (Inform does allow adjectives like &quot;even&quot; or &quot;odd&quot; to be used about number &ndash; saying &quot;if 7 is odd&quot; is fine, for example &ndash; but they are not properties in the Inform sense, because the author doesn&#39;t get to choose. The author can choose whether Growler is a male or female tiger, but not whether 7 is an even or an odd number.)</p>
+<h3 id="section_7">WI §4.7 New either/or properties</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_6">4.6 Properties again</a></div><div class="sect-navbar-center"><a href="#chapter_4">4. Kinds</a></div><div class="sect-navbar-right"><a href="#section_8">4.8 New value properties</a></div></div>
+<p>Properties can&#39;t be handed out completely freely. In the previous chapter, we saw that we were allowed to make a chair &quot;portable&quot; and to make a room &quot;dark&quot;. But if we try this the other way round, Inform produces a Problem message. This is because every property must be created in a way which lays out what values are allowed to have it. The Standard Rules built into Inform say that</p>
+<div class="codeblock"><div class="codeline">A thing can be fixed in place or portable.</div>
+</div><p>and as a result it won&#39;t allow &quot;The Savannah is portable&quot; because the Savannah is a room, not a thing.</p>
+<p>We must do the same. To go back to our example &quot;dead end&quot; kind:</p>
+<div class="codeblock"><div class="codeline">A dead end is either secret or ordinary.</div>
+</div><p>This creates just one new property, not two. The names are taken as the two states of a single either/or property: secret means not ordinary, ordinary means not secret. Alternatively, we could just say:</p>
+<div class="codeblock"><div class="codeline">A dead end can be secret.</div>
+</div><p>in which case the opposite of &quot;secret&quot; would be &quot;not secret&quot;.</p>
+<p>Now we have a property which can be given to any value of the kind &quot;dead end&quot;. We&#39;re also free to add to the definitions of kinds which already exist, including those built into Inform: for instance,</p>
+<div class="codeblock"><div class="codeline">A room is either indoors or outdoors.</div>
+</div><p>If we make the above definitions then all dead ends will be &quot;ordinary&quot; and all rooms &quot;outdoors&quot; unless the source text says otherwise. That is, in the absence of other information it&#39;s assumed that an either/or property is not true. We could reverse by writing:</p>
+<div class="codeblock"><div class="codeline">A dead end is usually secret. A room is usually indoors.</div>
+</div><p>A property can be used by several kinds at once. For example, the built-in either/or property &quot;open&quot; is used by both doors and containers, even though door isn&#39;t a kind of container and container isn&#39;t a kind of door. In fact, although it&#39;s more usual to declare properties for whole kinds, they can actually be given to single values one at a time, if we like:</p>
+<div class="codeblock"><div class="codeline">The umbrella is carried by the player. The umbrella can be open.</div>
+</div><p>And now the umbrella, which is a thing and not a door or container, can also have the property.</p>
+<div class="examples">
+<h4>Example</h4>
+<div class="example-short">47. ★★ <a href="examples/change_of_basis.html">Change of Basis</a><br>Implementing sleeping and wakeful states.</p></div><div class="linkback">
+<a href="RB_6.html#section_11" title="Commands &gt; Waiting, Sleeping">RB §6.11 Waiting, Sleeping</a>
+</div>
+<h3 id="section_8">WI §4.8 New value properties</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_7">4.7 New either/or properties</a></div><div class="sect-navbar-center"><a href="#chapter_4">4. Kinds</a></div><div class="sect-navbar-right"><a href="#section_9">4.9 Using new kinds of value in properties</a></div></div>
+<p>So much for either/or properties. Now we move on to properties which have values attached. The same principles apply, but the wording is different. For example,</p>
+<div class="codeblock"><div class="codeline">A dead end has some text called the river sound. The river sound of a dead end is usually &quot;a faint whispering of running water&quot;. The Tortuous Alcove has river sound &quot;a gurgle of running water&quot;.</div>
+</div><p>The property &quot;river sound&quot; is now applicable only to dead ends, so we would not be allowed to talk about &quot;the river sound of the Savannah&quot;, say. Moreover, it&#39;s required to hold a piece of text. If we tried the following:</p>
+<div class="codeblock"><div class="codeline">The river sound of the Tortuous Alcove is 7.</div>
+</div><p>&hellip;then Inform would object, because the number 7 is the wrong kind of value to go into the &quot;river sound&quot; property. If we need a numerical property, we can try this instead:</p>
+<div class="codeblock"><div class="codeline">A dead end has a number called the difficulty rating. The Tortuous Alcove has difficulty rating 7.</div>
+</div><p>Suppose that we were to add:</p>
+<div class="codeblock"><div class="codeline">The Exquisitely Narrow Defile is a dead end.</div>
+</div><p>The Defile must have a river sound, of course, because we said that every dead end would have one. We haven&#39;t said what that river sound will be, but Inform can work it out, because we did say this:</p>
+<div class="codeblock"><div class="codeline">The river sound of a dead end is usually &quot;a faint whispering of running water&quot;.</div>
+</div><p>If there are no instructions at all about the value of a property, Inform fills in the default value of the appropriate kind &ndash; in this case, it would be a blank text. (A table of the kinds which can be used for properties, and their default values, can be found in the Kinds index.)</p>
+<div class="examples">
+<h4>Examples</h4>
+<div class="example-short">48. ★ <a href="examples/would_you.html">Would you...?</a><br>Adding new properties to objects, and checking for their presence.</p></div><div class="linkback">
+<a href="RB_9.html#section_1" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Food">RB §9.1 Food</a>
+</div>
+<div class="example-short">49. ★★ <a href="examples/straw_boater.html">Straw Boater</a><br>Using text properties that apply only to some things and are not defined for others.</p></div><div class="linkback">
+<a href="RB_8.html#section_1" title="Vehicles, Animals and Furniture &gt; Bicycles, Cars and Boats">RB §8.1 Bicycles, Cars and Boats</a>
+</div>
+<h3 id="section_9">WI §4.9 Using new kinds of value in properties</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_8">4.8 New value properties</a></div><div class="sect-navbar-center"><a href="#chapter_4">4. Kinds</a></div><div class="sect-navbar-right"><a href="#section_10">4.10 Conditions of things</a></div></div>
+<p>It turns out to be very useful to create a new kind of value, and then create a property to hold it. So useful, in fact, that Inform provides two shortened forms for doing so. Here is the first, and the second (making &quot;conditions&quot;) is in the section following.</p>
+<p>Suppose we go back to our example of the candle lantern whose brightness we have to measure. It&#39;s clear that what we want to do is to define:</p>
+<div class="codeblock"><div class="codeline">Brightness is a kind of value. The brightnesses are guttering, weak, radiant and blazing.</div>
+</div><p>And now we can use the technique of the previous section:</p>
+<div class="codeblock"><div class="codeline">The lantern has a brightness called the flame strength. The flame strength of the lantern is blazing.</div>
+</div><p>This works very nicely. The &quot;flame strength&quot; property is now only allowed to have one of four values we allowed: guttering light, weak light, radiant light or blazing light. So we have succeeded in recording our measurement.</p>
+<p>But it seems artificial to call the brightness of the lantern &quot;flame strength&quot;, when we could instead simply call it &quot;brightness&quot;. Much simpler to write:</p>
+<div class="codeblock"><div class="codeline">The lantern has a brightness. The lantern is blazing.</div>
+</div><p>Now &quot;brightness&quot; is the name of both the property and the kind of value. What&#39;s particularly nice is that we can now use the names of the possible brightnesses &ndash; &quot;weak&quot;, &quot;blazing&quot; and so on &ndash; as adjectives. Inform knows that &quot;The lantern is blazing&quot; must be talking about the brightness property, because &quot;blazing&quot; is a brightness.</p>
+<p>Now we can improve our dead ends:</p>
+<div class="codeblock"><div class="codeline">A dead end is a kind of room with printed name &quot;Dead End&quot; and description &quot;This is a dead end, where crags in the uneven rock are caught by the [brightness of the lantern] flame you hold aloft. Despite [river sound] there is no sign of the stream.&quot; A dead end is usually dark.</div>
+</div><p>The &quot;[brightness of the lantern]&quot; is printed not as literal text, but as whatever the brightness currently is. (The square brackets mark it as what is called a text substitution, which will be the subject of the next chapter.) So we get something like this:</p>
+<div class="codeblock"><div class="codeline">This is a dead end, where crags in the uneven rock are caught by the blazing flame you hold aloft. Despite a faint whispering of running water there is no sign of the stream.</div>
+</div><p>So now we have a lantern, which has a brightness as a property. But we can build on this further if we like. A brightness such as &quot;guttering&quot; is a value, so it can have properties in its own right. That can be quite useful, in fact:</p>
+<div class="codeblock"><div class="codeline">A brightness can be adequate or inadequate. A brightness is usually adequate. Guttering is inadequate.</div>
+</div><p>This is convenient because it divides up the brightnesses:</p>
+<div class="codeblock"><div class="codeline">The player carries a book. The description of the book is &quot;[if the brightness of the lantern is adequate]Many secrets are now yours.[otherwise]No, the print&#39;s too tiny by this awful light.&quot;</div>
+</div><p>And while we&#39;re at it, let&#39;s give each brightness its own corresponding temperature:</p>
+<div class="codeblock"><div class="codeline">Temperature is a kind of value. 100C specifies a temperature.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A brightness has a temperature. The temperature of a brightness is usually 700C. The temperature of blazing is 1400C. The temperature of radiant is 1100C.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The description of the lantern is &quot;The lantern shines with a flame at [temperature of the brightness of the lantern].&quot;</div>
+</div><p>(Candle flames are hotter than most people think.)</p>
+<div class="see-also">
+<h4>See Also</h4>
+<p><a href="WI_5.html#section_1" title="Text &gt; Text with substitutions">Text with substitutions</a> for more on varying what is printed.<br></p></div><div class="examples">
+<h4>Examples</h4>
+<div class="example-short">50. ★ <a href="examples/undertomb.html">The Undertomb 1</a><br>A small map of dead ends, in which the sound of an underground river has different strengths in different caves.</p></div><div class="linkback">
+<a href="RB_3.html#section_8" title="Place &gt; Sounds">RB §3.8 Sounds</a>
+</div>
+<div class="example-short">51. ★★ <a href="examples/undertomb2.html">The Undertomb 2</a><br>Flickering lantern-light effects added to the Undertomb.</p></div><div class="linkback">
+<a href="RB_3.html#section_7" title="Place &gt; Lighting">RB §3.7 Lighting</a>
+</div>
+<div class="example-short">52. ★★★ <a href="examples/cranes_leg.html">The Crane's Leg 1</a><br>A description text that automatically highlights the ways in which the object differs from a standard member of its kind.</p></div><div class="linkback">
+<a href="RB_5.html#section_6" title="The Viewpoint Character &gt; Viewpoint">RB §5.6 Viewpoint</a>
+</div>
+<div class="example-short">53. ★★★ <a href="examples/signs_and_portents.html">Signs and Portents</a><br>Signpost that points to various destinations, depending on how the player has turned it.</p></div><div class="linkback">
+<a href="RB_9.html#section_8" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Simple Machines">RB §9.8 Simple Machines</a>
+</div>
+<h3 id="section_10">WI §4.10 Conditions of things</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_9">4.9 Using new kinds of value in properties</a></div><div class="sect-navbar-center"><a href="#chapter_4">4. Kinds</a></div><div class="sect-navbar-right"><a href="#section_11">4.11 Default values of kinds</a></div></div>
+<p>Now for an even more abbreviated way to create a new kind of value, and at the same time create a property to hold it. Suppose we have something, say a wine cask, which we know is always in one of three different states. We can write:</p>
+<div class="codeblock"><div class="codeline">The cask is either customs sealed, liable to tax or stolen goods.</div>
+</div><p>This is just like our example of the lantern having possible brightnesses, but it&#39;s quicker to do, because we don&#39;t need to create or name the kind of value. (The trade-off is that we can&#39;t use it for anything else as well.)</p>
+<p>Initially the cask will be &quot;customs sealed&quot;, the first value we gave. We could now write, for instance,</p>
+<div class="codeblock"><div class="codeline">The description of the cask is &quot;A well-caulked Spanish wine cask.</div>
+<div class="codeline">[if liable to tax] It really is a shame to have to pay duty on it!&quot;</div>
+</div><p>Or, as a second example, here we&#39;re going to allow a whole kind to have the property, not just a single object:</p>
+<div class="codeblock"><div class="codeline">Colour is a kind of value. The colours are red, green and white.</div>
+<div class="codeline">A colour can be bright, neutral or flat. Green is neutral.</div>
+</div><p>Now in fact these properties are not anonymous: Inform has worked out names for them, even though we didn&#39;t give any. The usual arrangement is that the name is the name of the object with the word &quot;condition&quot; tacked on: for instance, &quot;cask condition&quot;. So we could write:</p>
+<div class="codeblock"><div class="codeline">The printed name of the cask is &quot;wine cask ([cask condition])&quot;.</div>
+</div><p>so that sometimes this would be &quot;wine cask (liable to tax)&quot;, sometimes &quot;wine cask (stolen goods)&quot; and so on.</p>
+<p>But only usually, because we might need to define several different conditions of the same thing, and then the names would collide. For instance, suppose we write:</p>
+<div class="codeblock"><div class="codeline">A fruit is a kind of thing. A fruit can be citrus, berry, melon, or pome.</div>
+</div><p>This makes a property and a kind of value each called &quot;fruit condition&quot;. But now suppose we add that:</p>
+<div class="codeblock"><div class="codeline">A fruit can be unripened, ripe, overripe, or mushy.</div>
+</div><p>This is a quite unrelated property &ndash; a fruit could have any combination of these two properties, in fact. Left to itself, Inform will call the second one &quot;fruit condition 2&quot;, which isn&#39;t really ideal if we ever do need to refer to it in other source text. So we are also allowed to give these conditions names of our own choosing:</p>
+<div class="codeblock"><div class="codeline">A fruit can be unripened, ripe, overripe, or mushy (this is its squishiness property).</div>
+</div><p>And now the resulting property and kind of value would be called &quot;squishiness&quot;.</p>
+<h3 id="section_11">WI §4.11 Default values of kinds</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_10">4.10 Conditions of things</a></div><div class="sect-navbar-center"><a href="#chapter_4">4. Kinds</a></div><div class="sect-navbar-right"><a href="#section_12">4.12 Values that vary</a></div></div>
+<p>Just about every kind has a &quot;default value&quot;. Inform needs this when it knows that something has to be a value of a given kind, but it hasn&#39;t been told what the value is. For example, in the previous chapter we saw that every thing has a &quot;description&quot; text, but we also created plenty of things without describing them. So if Inform reads</p>
+<div class="codeblock"><div class="codeline">The conference pear is in the bowl.</div>
+</div><p>and it isn&#39;t told anything else about the pear, what should it set the description of the pear to?</p>
+<p>The answer is that Inform knows the description has to be a value of the kind &quot;text&quot;, so it uses the default value of &quot;text&quot;. Not very interestingly, this is just the blank text &quot;&quot;.</p>
+<p>Being uninteresting is exactly the idea, of course. The default number is 0, for instance. (Default values are tabulated in the Kinds index.)</p>
+<p>It&#39;s sometimes useful to be able to refer to the default value of a kind without having to spell out what this is (especially if the kind is something obscure, or we&#39;re trying to write a rule for an extension which has to work in situations we don&#39;t fully know about).</p>
+<div class="defn" id="ph_defaultvalue"><span class="defn">default value of </span><span class="neutral">(name of kind)</span> &rArr; <em>value</em><p>Produces the default value of the kind named. Examples:</p>
+<div class="codeblock"><div class="codeline">The silver repeater is here. &quot;You catch sight of a silver repeater watch, hands immobile at [default value of time].&quot;</div>
+</div><p>produces the output:</p>
+<div class="codeblock"><div class="codeline">You catch sight of a silver repeater watch, hands immobile at 9:00 am.</div>
+</div><p>because nine in the morning is the default time in Inform. If we have:</p>
+<div class="codeblock"><div class="codeline">Brightness is a kind of value. The brightnesses are guttering, weak, radiant and blazing.</div>
+</div><p>then &quot;default value of brightness&quot; is guttering, the first brightness created.  When it comes to kinds of object, we sometimes have to be a little careful. For example,</p>
+<div class="codeblock"><div class="codeline">default value of room</div>
+</div><p>is always going to be fine (it&#39;s always the first room created in the source text). But</p>
+<div class="codeblock"><div class="codeline">default value of vehicle</div>
+</div><p>would produce a Problem message if there were no vehicles in the world.</p>
+</div><h3 id="section_12">WI §4.12 Values that vary</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_11">4.11 Default values of kinds</a></div><div class="sect-navbar-center"><a href="#chapter_4">4. Kinds</a></div><div class="sect-navbar-right"><a href="#section_13">4.13 Values that never vary</a></div></div>
+<p>Sometimes a value important to the simulated world will not naturally belong to any thing or room, and should not be kept in a property. In fact, we have seen a value that varies already: &quot;location&quot;, which holds the room in which the story is presently taking place. Here&#39;s how we might make a new one:</p>
+<div class="codeblock"><div class="codeline">The prevailing wind is a direction that varies. The prevailing wind is southwest.</div>
+</div><p>Or &quot;which varies&quot; would also be allowed, as would the more traditional computing term &quot;variable&quot;:</p>
+<div class="codeblock"><div class="codeline">The prevailing wind is a direction variable. The prevailing wind is southwest.</div>
+</div><p>A briefer way to do this is to use the word &quot;initially&quot;, which alerts Inform to the possibility that the value will change in future:</p>
+<div class="codeblock"><div class="codeline">The prevailing wind is initially southwest.</div>
+</div><p>This creates the variable and gives it an initial value all in one sentence.</p>
+<p>It&#39;s not compulsory to give an initial value. If we do not, Inform will use the default value for its kind. (See the table in the Kinds index.) For example, writing just</p>
+<div class="codeblock"><div class="codeline">The grand tally is a number that varies.</div>
+</div><p>will start it at the value 0, because that&#39;s the default value for numbers.</p>
+<p>We can have variables of any of the kinds of value, including new ones, but should watch out for a potential error. If we write:</p>
+<div class="codeblock"><div class="codeline">The receptacle is a container that varies.</div>
+</div><p>in a world which has no containers at all, Inform will object, because it will be unable to put any initial value into the receptacle variable. A similar complaint will be made if we write:</p>
+<div class="codeblock"><div class="codeline">Colour is a kind of value. The fashionable shade is a colour that varies.</div>
+</div><p>without ever having defined any colours. Something else we are not permitted is:</p>
+<div class="codeblock"><div class="codeline">The receptacle is an open container that varies.</div>
+</div><p>because the openness of a given container may change during play, so that the value in the variable might suddenly become invalid even though the variable itself had not changed.</p>
+<p>As a final note on kinds, when Inform reads something like this:</p>
+<div class="codeblock"><div class="codeline">Peter is a man. The accursed one is initially Peter.</div>
+</div><p>it has to make a decision about the kind of &quot;accursed one&quot;. Peter is a &quot;man&quot;, so that seems like the right answer, but Inform wants to play safe in case the variable later needs to change to a woman called Jane, say, or even a black hat. So Inform in fact creates &quot;accursed one&quot; as an object that varies, not a man that varies, to give us the maximum freedom to use it. If we don&#39;t want that then we can override it:</p>
+<div class="codeblock"><div class="codeline">Peter is a man. The accursed one is initially Peter.</div>
+<div class="codeline">The accursed one is a man that varies.</div>
+</div><p>thus telling Inform exactly what is intended.</p>
+<div class="examples">
+<h4>Example</h4>
+<div class="example-short">54. ★★★ <a href="examples/real_adventurers_need_no_help.html">Real Adventurers Need No Help</a><br>Allowing the player to turn off all access to hints for the duration of a game, in order to avoid the temptation to rely on them overmuch.</p></div><div class="linkback">
+<a href="RB_11.html#section_3" title="Out Of World Actions and Effects &gt; Helping and Hinting">RB §11.3 Helping and Hinting</a>
+</div>
+<h3 id="section_13">WI §4.13 Values that never vary</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_12">4.12 Values that vary</a></div><div class="sect-navbar-center"><a href="#chapter_4">4. Kinds</a></div><div class="sect-navbar-right"><a href="#section_14">4.14 Duplicates</a></div></div>
+<p>It&#39;s sometimes useful to name even values which don&#39;t change. For example, suppose the story involves driving, and the same speed limit value comes up in many places. Rather than typing &quot;55&quot; (say) every time it comes up, we might prefer to write:</p>
+<div class="codeblock"><div class="codeline">The speed limit is always 55.</div>
+</div><p>at the start of the source text, and then talk about &quot;the speed limit&quot; every time we would otherwise have typed &quot;55&quot;. Just as the word &quot;initially&quot; alerts Inform that we want the named value to change during play, the word &quot;always&quot; tells it that we don&#39;t.</p>
+<p>This might seem pointless, because &quot;speed limit&quot; only means the same thing as &quot;55&quot; and takes more typing. But there are two reasons why authors might want to use this feature anyway. One is that it&#39;s easier for a human reader to understand the significance of a line like:</p>
+<div class="codeblock"><div class="codeline">if the speed is greater than the speed limit, ...</div>
+</div><p>Another is that it makes it easier to change our minds about the value, because if we decide we want 70 as the limit and not 55, we only need to make one change at the start of the source text:</p>
+<div class="codeblock"><div class="codeline">The speed limit is always 70.</div>
+</div><p>which is much easier than combing through a long source text trying to find many individual things which need changing.</p>
+<p>&quot;Speed limit&quot; is then a number constant. Any attempt to set this elsewhere, or change its value, will result in a Problem message, and moreover it can be used in contexts where only constant values are allowed. For example,</p>
+<div class="codeblock"><div class="codeline">The generic male appearance is always &quot;He is a dude.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Trevor is a man. The description of Trevor is the generic male appearance.</div>
+</div><p>means that the SHOWME TREVOR testing command produces, among other data:</p>
+<div class="codeblock"><div class="codeline">description: &quot;He is a dude.&quot;</div>
+</div><h3 id="section_14">WI §4.14 Duplicates</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_13">4.13 Values that never vary</a></div><div class="sect-navbar-center"><a href="#chapter_4">4. Kinds</a></div><div class="sect-navbar-right"><a href="#section_15">4.15 Assemblies and body parts</a></div></div>
+<p>Although it is only useful to a limited extent, we can make any number of copies of something:</p>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Polygons&quot;\n\nA shape is a kind of thing. A square is a kind of shape. A triangle is a kind of shape.\n\nThe Geometry Lab is a room. In the Geometry Lab are three triangles and two squares.`)">⧉</button><div class="codeline storytitle">&quot;Polygons&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">A shape is a kind of thing. A square is a kind of shape. A triangle is a kind of shape.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The Geometry Lab is a room. In the Geometry Lab are three triangles and two squares.</div>
+</div><p>The description &quot;three triangles&quot; makes three identical things, each of the kind &quot;triangle&quot;, and similarly for the squares. When the above is compiled, the player can type TAKE TWO TRIANGLES or TAKE ALL THE TRIANGLES and so forth.</p>
+<p>Four caveats. Firstly, a counted-out description like &quot;two squares&quot; is only allowed if it combines a number with the name of a kind which is already known (perhaps modified with adjectives, so &quot;two open doors&quot; is fine). If we say:</p>
+<div class="codeblock"><div class="codeline">Two circles are in the Lab.</div>
+</div><p>without having defined &quot;circle&quot; as a kind in advance, then only a single object will be created &ndash; whose name is &quot;two circles&quot;. (This is because many natural names start with numbers: &quot;six of clubs&quot;, for instance, referring to a single playing card, or &quot;12 Hollywood Close&quot; meaning a single house. We wouldn&#39;t want such names to be misinterpreted.)</p>
+<p>The second caveat is that excessive duplication is expensive in memory and running time. It is perfectly legal to say</p>
+<div class="codeblock"><div class="codeline">In the Lab are 75 triangles.</div>
+</div><p>but the resulting story may be a little sluggish: and Inform draws the line at 100, refusing to create more duplicates than that in any single place. If we really need more than about fifty duplicated objects &ndash; say, a tombola containing raffle tickets numbered 1 to 1000 &ndash; it is usually better to find some less literal way to simulate this: for instance, only having a single raffle ticket, but with a randomly chosen number on it.</p>
+<p>If there are very many items in the same place, commands like TAKE ALL and DROP ALL may mysteriously not quite deal with all of them &ndash; this is because the parser, the run-time program which deciphers typed commands, has only limited memory to hold the possibilities. It can be raised with a use option like so:</p>
+<div class="codeblock"><div class="codeline">Use maximum things understood at once of at least 200.</div>
+</div><p>(The default is, as above, 100. Note the &quot;at least&quot;.)</p>
+<p>Thirdly, note that Inform&#39;s idea of &quot;identical&quot; is based on what the player could type in a command to distinguish things. In a few cases this can make items unexpectedly identical. For example:</p>
+<div class="codeblock"><div class="codeline">The Lab is a room. A chemical is a kind of thing. Some polyethylene and polyethylene-terephthalate are chemicals in the Lab.</div>
+</div><p>results surprisingly in &quot;You can see two chemicals here&quot;, because the run-time system truncates the words that are typed &ndash; POLYETHYLENE and POLYETHYLENE-TEREPHTHALATE look like the same word in a typed command. So Inform decides that these are indistinguishable chemicals. Typically words are truncated after 9 letters, though (unless the Glulx setting is used) punctuation inside a word, such as an apostrophe, can make this happen earlier. The best way to avoid trouble is simply to use more easily distinguishable names. For example:</p>
+<div class="codeblock"><div class="codeline">Some polyethylene and polyethylene terephthalate are chemicals in the Lab.</div>
+</div><p>works fine, because now only one chemical can be called TEREPHTHALATE, and that means they can be distinguished.</p>
+<p>Finally: numbers up to twelve may be written out in words in the source text, but larger ones must be written as numerals. So &quot;twelve&quot; or &quot;12&quot;, but &quot;13&quot; only.</p>
+<div class="examples">
+<h4>Example</h4>
+<div class="example-short">55. ★★★ <a href="examples/early_childhood.html">Early Childhood</a><br>A child&#39;s set of building blocks, which come in three different colours - red, green and blue - but which can be repainted during play.</p></div><div class="linkback">
+<a href="RB_9.html#section_7" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Painting and Labeling Devices">RB §9.7 Painting and Labeling Devices</a>
+</div>
+<h3 id="section_15">WI §4.15 Assemblies and body parts</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_14">4.14 Duplicates</a></div><div class="sect-navbar-center"><a href="#chapter_4">4. Kinds</a></div><div class="sect-navbar-right"><a href="#section_16">4.16 Names made in assembly</a></div></div>
+<p>In the previous chapter, we saw that it was possible to make sub-parts of things. For instance,</p>
+<div class="codeblock"><div class="codeline">The white door is in the Drawing Room. The handle is part of the white door.</div>
+</div><p>creates a door with an attached handle. But what if we want to say that not just this door, but every door, should have a handle? To do this we first need to create a kind called &quot;handle&quot;, since there will clearly need to be many handles. The solution is:</p>
+<div class="codeblock"><div class="codeline">A handle is a kind of thing. A handle is part of every door.</div>
+</div><p>&quot;Every&quot; is a loaded word and best used sparingly. A sentence like &quot;A handle is part of every handle&quot; would, if taken literally, mean that a handle takes forever to make and is never finished. Inform will reject this, but the moral is clear: we should think about what we are doing with &quot;every&quot;.</p>
+<p>We will usually want to work with smaller collections &ndash; not literally every room, but with a whole set of them all the same. We can do that like so:</p>
+<div class="codeblock"><div class="codeline">A silver coin is a kind of thing. A banking room is a kind of room. Five silver coins are in every banking room.</div>
+</div><p>The effect of sentences like these is to make what we might call &quot;assemblies&quot; instead of single things. When a banking room is created, so are five more silver coins; when a door is created, so is another handle. Such sentences act not only on items created later on in the source text, but also on all those created so far.</p>
+<p>This is especially useful for body parts. If we would like to explore Voltaire&#39;s suggestion that history would have been very different if only Cleopatra&#39;s nose had been shorter, we will need noses:</p>
+<div class="codeblock"><div class="codeline">A nose is a kind of thing. A nose is part of every person.</div>
+</div><p>Of course, if we make an assembly like this then we had better remember that the player is also a person and also gets a nose. In fact slightly odd things can happen if we combine this with changing the identity of the player. This works:</p>
+<div class="codeblock"><div class="codeline">Cleopatra is a woman in Alexandria. The player is Cleopatra.</div>
+<div class="codeline">A nose is a kind of thing. A nose is part of every person.</div>
+</div><p>but if those lines are in reverse order then Cleopatra&#39;s nose is assembled before she becomes the player, with the result that it ends up called &quot;Cleopatra&#39;s nose&quot; rather than &quot;your nose&quot; in play &ndash; which is very regal but probably not what we want. To avoid this, settle the player&#39;s identity early on in the source text.</p>
+<p>All of the assemblies above make objects. Most make these new objects &quot;part of&quot; existing ones, but as we saw, they can also be &quot;in&quot; or &quot;on&quot; them. In fact, though, assemblies work in much more general ways: they can assemble values of almost any kind, placed in almost any relationship. To make use of that, we need to create a new verb, a topic which won&#39;t be covered properly until a later chapter, but here goes:</p>
+<div class="codeblock"><div class="codeline">A colour is a kind of value. The colours are red, green and blue.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Liking relates various people to various colours. The verb to like means the liking relation.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Every person likes a colour.</div>
+</div><p>Now every time a person is created, so is a colour which that person will like. If there are two people in the world, the player and Daphne, then we now have five colours: red, green, blue, Daphne&#39;s colour and the player&#39;s colour. Alternatively, we can assemble the other way around:</p>
+<div class="codeblock"><div class="codeline">A person likes every colour.</div>
+</div><p>Now we&#39;re telling Inform that every time a colour is made, a new person is also made &ndash; someone who will like that colour. So this sentence effectively makes three new people, one who likes red, one who likes green, and one who likes blue.</p>
+<div class="examples">
+<h4>Examples</h4>
+<div class="example-short">56. ★ <a href="examples/being_prepared.html">Being Prepared</a><br>A kind for jackets, which always includes a container called a pocket.</p></div><div class="linkback">
+<a href="RB_9.html#section_3" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Clothing">RB §9.3 Clothing</a>
+</div>
+<div class="example-short">57. ★★ <a href="examples/model_shop.html">Model Shop</a><br>An &quot;on/off button&quot; which controls whatever device it is part of.</p></div><div class="linkback">
+<a href="RB_9.html#section_8" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Simple Machines">RB §9.8 Simple Machines</a>
+</div>
+<div class="example-short">58. ★★★ <a href="examples/ustorit.html">U-Stor-It</a><br>A &quot;chest&quot; kind which consists of a container which has a lid as a supporter.</p></div><div class="linkback">
+<a href="RB_8.html#section_4" title="Vehicles, Animals and Furniture &gt; Furniture">RB §8.4 Furniture</a>
+</div>
+<div class="example-short">59. ★★★ <a href="examples/night_before.html">The Night Before</a><br>Instructing Inform to prefer different interpretations of EXAMINE NOSE, depending on whether the player is alone, in company, or with Rudolph the Red-nosed Reindeer.</p></div><div class="linkback">
+<a href="RB_5.html#section_1" title="The Viewpoint Character &gt; The Human Body">RB §5.1 The Human Body</a>
+</div>
+<h3 id="section_16">WI §4.16 Names made in assembly</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_15">4.15 Assemblies and body parts</a></div><div class="sect-navbar-center"><a href="#chapter_4">4. Kinds</a></div><div class="sect-navbar-right"><a href="#section_17">4.17 Postscript on simulation</a></div></div>
+<p>Something skated over in the previous section is the question of how Inform gives names to objects (or other values) it creates in an assembly. The standard thing naming combines the names of what&#39;s being assembled. For example:</p>
+<div class="codeblock"><div class="codeline">A nose is a kind of thing. A nose is part of every person. Antony and Cleopatra are people.</div>
+</div><p>might result in the creation of &quot;Antony&#39;s nose&quot;, part of Antony, and &quot;Cleopatra&#39;s nose&quot;, part of Cleopatra. In this way, Inform names the noses after their owners. It will always do this unless there are multiple indistinguishable things being created, as in the &quot;five silver coins are in every banking room&quot; example: those will all just be called &quot;silver coin&quot;.</p>
+<p>A small pitfall of this is that if we write:</p>
+<div class="codeblock"><div class="codeline">Marcus Tullius Cicero is a person.</div>
+</div><p>then although &quot;Marcus Tullius Cicero&#39;s nose&quot; and &quot;Cicero&#39;s nose&quot; are both valid names for the consular nose, &quot;Marcus&#39;s nose&quot; is not.</p>
+<p>The standard naming scheme is often about right, but as usual Inform offers a way to improve it in particular cases. For example, if we write:</p>
+<div class="codeblock"><div class="codeline">Every room contains a vehicle (called its buggy).</div>
+</div><p>then we will find the world full of, say, the Garden buggy, the Patio buggy and so on &ndash; instead of the Garden vehicle, the Patio vehicle and so on, which is what we would have had without the &quot;called&hellip;&quot; part. Similarly, we could write:</p>
+<div class="codeblock"><div class="codeline">A person (called its fan) likes every colour.</div>
+<div class="codeline">Every person likes a colour (called his favourite colour).</div>
+</div><p>The former would produce new people with names like &quot;Green&#39;s fan&quot;, whereas the latter would produce new colours with names like &quot;Daphne&#39;s favourite colour&quot;.</p>
+<p>So much for an informal description. Here is exactly what Inform does:</p>
+<div class="codeblock"><div class="codeline">(1a) If there is a &quot;called...&quot; text, Inform uses it, expanding out &quot;its&quot; (or &quot;his&quot; or &quot;her&quot; or &quot;their&quot;) to a possessive form of the name of the owner, so to speak, and &quot;it&quot; (or &quot;he&quot; or &quot;she&quot; or &quot;they&quot; or &quot;him&quot; or &quot;them&quot;) to the name itself.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">(1b) If there&#39;s no &quot;called...&quot; text, Inform behaves as if we had written &quot;(called its K)&quot;, where K is the name of the kind.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">(2) If this results in a value which isn&#39;t an object being given a name which already exists, Inform tacks on a number to force the new name to be different from existing ones: e.g., &quot;Daphne&#39;s colour 2&quot;, &quot;Daphne&#39;s colour 3&quot;, ...</div>
+</div><p>(The reason that (2) doesn&#39;t affect objects is that objects are allowed to have names clashing with other objects, or no name at all, whereas other values have to have names belonging to themselves alone.)</p>
+<h3 id="section_17">WI §4.17 Postscript on simulation</h3>
+<div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_16">4.16 Names made in assembly</a></div><div class="sect-navbar-center"><a href="#chapter_4">4. Kinds</a></div></div>
+<p>That concludes our tour through the design of the initial state of a simulated world. We have seen how to create rooms and to stock them with containers, supporters, devices, doors, men and women. The player of such a simulation can explore, move things around, open and close certain doors and containers, lock or unlock them provided a suitable key is found, switch machines on or off, and so on.</p>
+<p>But that is about all. There is as yet no element of surprise, no aim or sense of progress to be earned, and no narrative thread. We have painted the backcloth, and laid out the properties, but the actors have yet to take the stage.</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="WI_3.html">3. Things</a></div><div class="doc-navbar-right"><a href="WI_5.html">5. Text</a></div></div>
+<nav><div class="nav-el"><a href="index.html">Contents</a></div> <div class="nav-el"><a href="examples/index.html">Examples</a></div> <div class="nav-el"><a href="general_index.html">Index</a></div> <div class="nav-el"><a href="search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="license.html">Artistic License 2.0</a>.</p><p class="about"><a href="about.html">About this edition</a></p></footer>
+</body></html>

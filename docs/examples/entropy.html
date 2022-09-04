@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Ex. 182. Entropy</title>
+<script src="../i7doc.js"></script>
+<link rel="stylesheet" href="../i7doc.css">
+</head>
+<body>
+<header class="example-header">
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<h1>Entropy</h1><div class="subheading">Example 182 ★</div>
+<div class="linkback">
+<a href="../WI_11.html#section_18" title="Phrases &gt; The value after and the value before">WI §11.18 The value after and the value before</a><br><a href="../RB_10.html#section_9" title="Physics: Substances, Ropes, Energy and Weight &gt; Heat">RB §10.9 Heat</a>
+</div>
+<p class="example-desc">All objects in the game have a heat, but if not kept insulated they will tend toward room temperature (and at a somewhat exaggerated rate).</p>
+<div class="doc-navbar"><div class="doc-navbar-left"><a href="haughty_spirit.html" title="Windows overlooking lower spaces which will prevent the player from climbing through if the lower space is too far below.">181. A Haughty Spirit</a></div><div class="doc-navbar-right"><a href="hang_of_thursdays.html" title="Turns take a quarter day each, and the game rotates through the days of the week.">183. The Hang of Thursdays</a></div></div>
+</header>
+<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex182">Play/modify Entropy in Borogove</a></span>
+ &bull; <span class="quixe-link"><a href="Entropy/index.html">Play Entropy in Quixe</a></span>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Entropy&quot;\n\nHeat is a kind of value. The heats are frosty, cold, cool, room temperature, warm, hot, and scalding. Everything has a heat. The heat of a thing is usually room temperature.\n\nEvery turn:\n\trepeat with item running through things which are not in an insulated container:\n\t\tif the heat of the item is greater than room temperature, now the heat of the item is the heat before the heat of the item;\n\t\tif the heat of the item is less than room temperature, now the heat of the item is the heat after the heat of the item.\n\nDefinition: a container is insulated if it is closed and it is opaque.\n\nThe vacuum thermos is an opaque closed openable container carried by the player. In the vacuum thermos is a frosty thing called an ice cube.\n\nEvery turn:\n\tif the heat of the ice cube is greater than cold:\n\t\tif the ice cube is visible, say &quot;The ice cube melts! &apos;HA ha,&apos; says Maxwell, in a very unsporting, some might say demonic, way.&quot;;\n\t\tnow the ice cube is nowhere.\n\nBefore printing the name of something: say &quot;[heat] &quot;.\n\nEquilibrium is a room. &quot;A perfectly smooth chamber sealed from the outside world. You can&apos;t at this moment work out where the exit is, though possibly that is just because the lighting is so very very even and diffuse. And doesn&apos;t come from anywhere that you can see, either.&quot;\n\nMaxwell is a man in Equilibrium.  &quot;Maxwell perches awkwardly on a stool across from you[if Maxwell has something], holding [a list of things carried by Maxwell][end if].&quot; He is carrying a box of Chinese food. The Chinese food is scalding. &quot;A discarded [item described] lies on the floor.&quot; The description of Maxwell is &quot;He has the faintly peevish look of one who has not been properly fed.&quot;\n\nEvery turn when Maxwell has the food:\n\tif the heat of the Chinese food is greater than warm, say &quot;Maxwell takes a bite, and swears.&quot;;\n\tif the heat of the Chinese food is warm, say &quot;Maxwell eats as fast as he can, enjoying the food while it&apos;s at just the right temperature.&quot;;\n\tif the heat of the Chinese food is less than warm:\n\t\tsay &quot;Maxwell sadly stabs at his leftovers with a chopstick, but does not try to eat any more.&quot;;\n\t\tmove the food to the location.\n\nTest me with &quot;z / z / open thermos / close thermos / open thermos&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Entropy&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Heat is a kind of value. The heats are frosty, cold, cool, room temperature, warm, hot, and scalding. Everything has a heat. The heat of a thing is usually room temperature.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Every turn:</div>
+<div class="codeline">&ensp;&ensp;repeat with item running through things which are not in an insulated container:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;if the heat of the item is greater than room temperature, now the heat of the item is the heat before the heat of the item;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;if the heat of the item is less than room temperature, now the heat of the item is the heat after the heat of the item.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Definition: a container is insulated if it is closed and it is opaque.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">The vacuum thermos is an opaque closed openable container carried by the player. In the vacuum thermos is a frosty thing called an ice cube.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Every turn:</div>
+<div class="codeline">&ensp;&ensp;if the heat of the ice cube is greater than cold:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;if the ice cube is visible, say &quot;The ice cube melts! &#39;HA ha,&#39; says Maxwell, in a very unsporting, some might say demonic, way.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;now the ice cube is nowhere.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Before printing the name of something: say &quot;[heat] &quot;.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Equilibrium is a room. &quot;A perfectly smooth chamber sealed from the outside world. You can&#39;t at this moment work out where the exit is, though possibly that is just because the lighting is so very very even and diffuse. And doesn&#39;t come from anywhere that you can see, either.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Maxwell is a man in Equilibrium.  &quot;Maxwell perches awkwardly on a stool across from you[if Maxwell has something], holding [a list of things carried by Maxwell][end if].&quot; He is carrying a box of Chinese food. The Chinese food is scalding. &quot;A discarded [item described] lies on the floor.&quot; The description of Maxwell is &quot;He has the faintly peevish look of one who has not been properly fed.&quot;</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Every turn when Maxwell has the food:</div>
+<div class="codeline">&ensp;&ensp;if the heat of the Chinese food is greater than warm, say &quot;Maxwell takes a bite, and swears.&quot;;</div>
+<div class="codeline">&ensp;&ensp;if the heat of the Chinese food is warm, say &quot;Maxwell eats as fast as he can, enjoying the food while it&#39;s at just the right temperature.&quot;;</div>
+<div class="codeline">&ensp;&ensp;if the heat of the Chinese food is less than warm:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;Maxwell sadly stabs at his leftovers with a chopstick, but does not try to eat any more.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;move the food to the location.</div>
+<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">Test me with &quot;z / z / open thermos / close thermos / open thermos&quot;.</div>
+</div><details class="testme-output"><summary>Test me with "z / z / open thermos / close thermos / open thermos".</summary><div class="testme-output">Equilibrium<br>A perfectly smooth chamber sealed from the outside world. You can't at this moment work out where the exit is, though possibly that is just because the lighting is so very very even and diffuse. And doesn't come from anywhere that you can see, either.<br><br>Maxwell perches awkwardly on a stool across from you, holding a scalding box of Chinese food.<br><br>>(Testing.)<br><br>>[1] z<br>Time passes.<br><br>Maxwell takes a bite, and swears.<br><br>>[2] z<br>Time passes.<br><br>Maxwell takes a bite, and swears.<br><br>>[3] open thermos<br>You open the room temperature vacuum thermos, revealing a frosty ice cube.<br><br>Maxwell eats as fast as he can, enjoying the food while it's at just the right temperature.<br><br>>[4] close thermos<br>You close the room temperature vacuum thermos.<br><br>Maxwell sadly stabs at his leftovers with a chopstick, but does not try to eat any more.<br><br>>[5] open thermos<br>You open the room temperature vacuum thermos, revealing a cold ice cube.<br><br>The ice cube melts! "HA ha," says Maxwell, in a very unsporting, some might say demonic, way.
+</div></details><div class="doc-navbar"><div class="doc-navbar-left"><a href="haughty_spirit.html" title="Windows overlooking lower spaces which will prevent the player from climbing through if the lower space is too far below.">181. A Haughty Spirit</a></div><div class="doc-navbar-right"><a href="hang_of_thursdays.html" title="Turns take a quarter day each, and the game rotates through the days of the week.">183. The Hang of Thursdays</a></div></div>
+<nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>
+<footer id="credits-footer"><p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="../mit.html">MIT License.</a></p><p class="about"><a href="../about.html">About this edition</a></p></footer>
+</body></html>
