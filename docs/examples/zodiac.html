@@ -27,7 +27,7 @@
 <div class="codeline">&ensp;&ensp;say &quot;You wouldn&#39;t dare!&quot;</div>
 <div class="codeline">&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;x me / x killer / touch killer / smell mace&quot;.</div>
-</div><details class="testme-output"><summary>Test me with "x me / x killer / touch killer / smell mace".</summary><div class="testme-output">Secluded Alley<br>You can see a Capricorn Killer here.<br><br>>(Testing.)<br><br>>[1] x me<br>As good-looking as ever.<br><br>>[2] x killer<br>You see nothing special about the Capricorn Killer.<br><br>>[3] touch killer<br>You wouldn't dare!<br><br>>[4] smell mace<br>You smell nothing unexpected.
+</div><details class="testme-output"><summary>Test me with "x me / x killer / touch killer / smell mace".</summary><div class="testme-output">Secluded Alley<br>You can see a Capricorn Killer here.<br><br>&gt;(Testing.)<br><br>&gt;[1] x me<br>As good-looking as ever.<br><br>&gt;[2] x killer<br>You see nothing special about the Capricorn Killer.<br><br>&gt;[3] touch killer<br>You wouldn&#39;t dare!<br><br>&gt;[4] smell mace<br>You smell nothing unexpected.
 </div></details><p>&hellip;will prevent the player from doing anything else to the killer, but allow him free range of action with other objects. By contrast, the following will prevent him doing anything other than examining to any item:</p>
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex96b">Play/modify Zodiac in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Zodiac_2/index.html">Play Zodiac in Quixe</a></span>
@@ -41,7 +41,7 @@
 <div class="codeline">&ensp;&ensp;say &quot;You dare not attempt it!&quot;</div>
 <div class="codeline">&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;x me / x killer / touch killer / smell mace&quot;.</div>
-</div><details class="testme-output"><summary>Test me with "x me / x killer / touch killer / smell mace".</summary><div class="testme-output">Secluded Alley<br>You can see a Capricorn Killer here.<br><br>>(Testing.)<br><br>>[1] x me<br>As good-looking as ever.<br><br>>[2] x killer<br>You see nothing special about the Capricorn Killer.<br><br>>[3] touch killer<br>You dare not attempt it!<br><br>>[4] smell mace<br>You dare not attempt it!
+</div><details class="testme-output"><summary>Test me with "x me / x killer / touch killer / smell mace".</summary><div class="testme-output">Secluded Alley<br>You can see a Capricorn Killer here.<br><br>&gt;(Testing.)<br><br>&gt;[1] x me<br>As good-looking as ever.<br><br>&gt;[2] x killer<br>You see nothing special about the Capricorn Killer.<br><br>&gt;[3] touch killer<br>You dare not attempt it!<br><br>&gt;[4] smell mace<br>You dare not attempt it!
 </div></details><p>But notice that because we specified &quot;with something&quot;, actions that take no object (like sing) are still not affected.</p>
 <p>The most strict statement would be</p>
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex96c">Play/modify Zodiac in Borogove</a></span>
@@ -56,7 +56,7 @@
 <div class="codeline">&ensp;&ensp;say &quot;You dare not attempt it!&quot;</div>
 <div class="codeline">&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;x me / x killer / touch killer / smell mace&quot;.</div>
-</div><details class="testme-output"><summary>Test me with "x me / x killer / touch killer / smell mace".</summary><div class="testme-output">Secluded Alley<br>You can see a Capricorn Killer here.<br><br>>(Testing.)<br><br>>[1] x me<br>As good-looking as ever.<br><br>>[2] x killer<br>You see nothing special about the Capricorn Killer.<br><br>>[3] touch killer<br>You dare not attempt it!<br><br>>[4] smell mace<br>You dare not attempt it!
+</div><details class="testme-output"><summary>Test me with "x me / x killer / touch killer / smell mace".</summary><div class="testme-output">Secluded Alley<br>You can see a Capricorn Killer here.<br><br>&gt;(Testing.)<br><br>&gt;[1] x me<br>As good-looking as ever.<br><br>&gt;[2] x killer<br>You see nothing special about the Capricorn Killer.<br><br>&gt;[3] touch killer<br>You dare not attempt it!<br><br>&gt;[4] smell mace<br>You dare not attempt it!
 </div></details><p>Because we left &quot;something&quot; out, now the pattern does not have to match an activity with an object; it will match any activity at all. Singing too will be deemed too risky in the presence of our sinister foe. But we do need to make an exception for &quot;look&quot;, or else we won&#39;t get even the room description.</p>
 <div class="doc-navbar"><div class="doc-navbar-left"><a href="art_of_noise.html" title="Things are all assigned their own noise (or silence). Listening to the room in general reports on all the things that are currently audible.">95. The Art of Noise</a></div><div class="doc-navbar-right"><a href="ming_vase.html" title="ATTACK or DROP break and remove fragile items from play.">97. Ming Vase</a></div></div>
 <nav><div class="nav-el"><a href="../index.html">Contents</a></div> <div class="nav-el"><a href="../examples/index.html">Examples</a></div> <div class="nav-el"><a href="../general_index.html">Index</a></div> <div class="nav-el"><a href="../search.html">Search</a></div></nav>

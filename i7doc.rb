@@ -10,7 +10,7 @@ require 'base64'
 require 'erubi'
 require 'ostruct'
 require 'open3'
-require 'nokogiri'
+#require 'nokogiri'
 require 'i7/template'
 require 'json'
 
@@ -840,9 +840,9 @@ def process_testme(lines)
     lines.shift until (lines.empty? or lines.first.match(/\ARelease \d/))
     lines.shift if !lines.empty? and lines.first.match(/\ARelease \d/)
     lines.shift while !lines.empty? and lines.first.strip.blank?
-    lines.pop while !lines.empty? and lines.last.strip.blank?
-    lines.pop if !lines.empty? and lines.last.match(/you want to quit\?\s*\Z/)
-    lines.pop while !lines.empty? and lines.last.strip.blank?
+    lines.pop while !lines.empty? and (lines.last.strip.blank? or lines.last == '>')
+    lines.pop if !lines.empty? and lines.last.match(/(?:you want to quit|undo the last command)\?\s*\Z/i)
+    lines.pop while !lines.empty? and (lines.last.strip.blank? or lines.last == '>')
     return lines
   rescue StandardError => e
     pp block[:result]
@@ -950,7 +950,7 @@ def print_blocks(f, blocks, vol = nil, chapter_num = nil, section_num = nil, mon
       if (block == target_block) and testme_output and !search
         f.print %Q{<details class="testme-output"><summary>#{testme_block[:result][:testme]}</summary><div class="testme-output">}
         
-          f.puts testme_output.join("<br>")
+          f.puts testme_output.map {|x| CGI.escapeHTML(x)}.join("<br>")
           f.print '</div></details>'
       end
     when :defn

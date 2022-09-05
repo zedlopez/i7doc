@@ -33,7 +33,7 @@
 <div class="codeline">&ensp;&ensp;say &quot;[output]&quot;.</div>
 <div class="codeline">&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;i / x barry / listen / waffle / jump&quot;</div>
-</div><details class="testme-output"><summary>Test me with "i / x barry / listen / waffle / jump"</summary><div class="testme-output">Office<br>You can see Barry Kripke hewe.<br><br>>(Testing.)<br><br>>[1] i<br>You awe cawwying nothing.<br><br>>[2] x barry<br>You see nothing special about Bawwy Kwipke.<br><br>>[3] listen<br>You heaw nothing unexpected.<br><br>>[4] waffle<br>That's not a vewb I wecognise.<br><br>>[5] jump<br>You jump on the spot.
+</div><details class="testme-output"><summary>Test me with "i / x barry / listen / waffle / jump"</summary><div class="testme-output">Office<br>You can see Barry Kripke hewe.<br><br>&gt;(Testing.)<br><br>&gt;[1] i<br>You awe cawwying nothing.<br><br>&gt;[2] x barry<br>You see nothing special about Bawwy Kwipke.<br><br>&gt;[3] listen<br>You heaw nothing unexpected.<br><br>&gt;[4] waffle<br>That&#39;s not a vewb I wecognise.<br><br>&gt;[5] jump<br>You jump on the spot.
 </div></details><p>Notice that this doesn&#39;t affect the printed names of objects in the room description or other kinds of output text -- only those that are issued by the response mechanism.</p>
 <p>It would also not work to try to give our parser a nervous personality by simply adding &quot;Um, &quot; to the beginning of each response, because responses are not guaranteed to be full standalone sentences. For example, we could imagine writing</p>
 <div class="codeblock"><div class="codeline">Rule for issuing the response text of a response (called R) when response inhibition is false:</div>
