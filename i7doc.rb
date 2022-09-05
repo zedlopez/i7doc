@@ -770,13 +770,6 @@ def run_examples
 #         puts stdout
 #         puts stderr
 #       end 
-#       if testme and !testme.empty? 
-#         testme.shift until testme.empty? or testme.first.match(/\ARelease \d/)
-#         testme.shift if !testme.empty? and testme.first.match(/\ARelease \d/)
-#         testme.shift while !testme.empty? and !testme.first.match(/\S/)
-#         testme.pop if !testme.empty? and testme.last.match(/>Are you sure you want to quit?/)
-#         testme.pop while !testme.empty? and testme.last.match(/\S/)
-#       end
 #   end
 #     end
 # end
@@ -1390,7 +1383,7 @@ def footer(f, about = true, css: nil, level: 0, page: nil)
   f.print '>'
   f.print %Q{<p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="#{((['..']*level)+['license.html']).join('/')}">Artistic License 2.0</a>.</p>}
   f.print %Q{<p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="#{((['..']*level)+['mit.html']).join('/')}">MIT License.</a></p>} if page == :example
-    f.print %Q{<p class="about"><a href="#{((['..']*level)+['about.html']).join('/')}">About this edition</a></p>} if about
+    f.print %Q{<p class="about"><a href="#{((['..']*level)+['about.html']).join('/')}">About this edition</a> &bull; <a href="https://twitter.com/inform7tips">@inform7tips</a></p>} if about
   f.puts "</footer>"
 end
 
