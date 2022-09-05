@@ -61,7 +61,6 @@ def configure
     "Solitude" => ["y", "test me", "quit", "y"],
     "Wight" => ["hint about wight", "y", "north", "get bar", "south", "open tomb", "get dagger", "south", "hint about wight", "y", "read inscription", "hint about wight", "y", "attack wight", "throw dagger at wight", "south", "quit", "y"]
   }
-    
   Conf[:text_subs] =
     { %r{(<strong>)?www.inform-fiction.org(</strong>)?} => %Q{<a href="https://inform-fiction.org">inform-fiction.org</a>},
       %r{(https://)?github.com/ganelson/inform} => %Q{<a href="https://github.com/ganelson/inform">github.com/ganelson/inform</a>},
@@ -93,7 +92,8 @@ def configure
              examples: {name: "Examples", dest: 'examples/index.html' },
              general_index: { name: "Index", dest: 'general_index.html' },
              search: {name: "Search", dest: 'search.html' },
-           }
+                    }
+  Conf[:replaced] = {}
 end
 
 def prepare_output_dir
@@ -282,6 +282,7 @@ def replace_example(line, vol, monolithic = false, level: 0)
       end
       cname = canonical_example_name(word);
       if Conf.examples.key?(cname)
+        Conf.replaced[cname] = true
         example = Conf.examples[cname]
         target = (monolithic ? "#example_#{cname}" : "examples/#{cname}.html")
         result << %Q{<span class="example-name"><a href="#{target}" onClick="(function() { document.getElementById('example_#{example[:cname]}').setAttribute('open','open'); return true; })();" title="#{CGI.escapeHTML(example[:desc])}">#{htmlify(word, level: level)}</a></span> #{'★' * example[:stars]}}
@@ -1069,6 +1070,15 @@ class Object
   end
 end
 
+def example_linkback(f, vol, example)
+  f.print '<div class="linkback">'
+            lb_vol, lb_chapter, lb_section = *example[:refs][vol]
+            target = target_anchor(lb_vol, lb_chapter, lb_section)#, monolithic)
+#            target = "##{target}" if monolithic
+f.print            %Q{<a href="#{target}" title="#{CGI.escapeHTML(Conf.books[vol][:chapters][lb_chapter][:name])} &gt; #{CGI.escapeHTML(Conf.books[vol][:chapters][lb_chapter][:sections][lb_section][:name])}">#{Conf.books[vol][:abbrev]} §#{[lb_chapter, lb_section].join('.')} #{Conf.books[vol][:chapters][lb_chapter][:sections][lb_section][:name]}</a>}
+  f.puts '</div>'
+end
+
 def output_section(f, vol, chapter_num, section_num, monolithic = false, search: true, level: 0)
   book = Conf.books[vol]
   section = book[:chapters][chapter_num][:sections][section_num]
@@ -1118,28 +1128,34 @@ def output_section(f, vol, chapter_num, section_num, monolithic = false, search:
       section[:examples].each do |example|
         target = monolithic ? "#example_#{example[:cname]}" : "examples/#{example[:cname]}.html"
         f.print %Q{<div class="example-short">#{ example[:example_num] }. #{'★' * example[:stars]} <a href="#{target}">#{example[:name]}</a><br>#{CGI.escapeHTML(example[:desc])}</p></div>}
-        f.puts '<div class="linkback">'
-        f.puts (%i{ rb }.map do |vol|
-                  lb_vol, lb_chapter, lb_section = *example[:refs][vol]
-                  target = target_anchor(lb_vol, lb_chapter, lb_section, monolithic)
-                  target = "##{target}" if monolithic
-                  %Q{<a href="#{target}" title="#{CGI.escapeHTML(Conf.books[vol][:chapters][lb_chapter][:name])} &gt; #{CGI.escapeHTML(Conf.books[vol][:chapters][lb_chapter][:sections][lb_section][:name])}">#{Conf.books[vol][:abbrev]} §#{[lb_chapter, lb_section].join('.')} #{Conf.books[vol][:chapters][lb_chapter][:sections][lb_section][:name]}</a>}
-                end).join('<br>')
-        f.puts '</div>'
+        example_linkback(f, :rb, example)
       end
-    elsif :rb == vol and search
-      section[:examples].each do |example|
-              f.print %Q{<span class="example-name">#{ example[:example_num] }. #{'★'  * example[:stars]} <a href="examples/#{example[:cname]}.html" class="example-name">#{CGI.escapeHTML(example[:name])}</a></span>}
-              print_blocks(f, example[:body][:blocks], nil, nil, nil, nil, true)
-              f.puts '<div class="linkback">'
-              f.puts (%i{ wi rb }.map do |vol|
-                        lb_vol, lb_chapter, lb_section = *example[:refs][vol]
-                        target = target_anchor(lb_vol, lb_chapter, lb_section, monolithic)
-                        target = "##{target}" if monolithic
-                        %Q{<a href="#{target}" title="#{CGI.escapeHTML(Conf.books[vol][:chapters][lb_chapter][:name])} &gt; #{CGI.escapeHTML(Conf.books[vol][:chapters][lb_chapter][:sections][lb_section][:name])}">#{Conf.books[vol][:abbrev]} §#{[lb_chapter, lb_section].join('.')} #{Conf.books[vol][:chapters][lb_chapter][:sections][lb_section][:name]}</a>}
-                      end).join('<br>')
-              f.puts '</div>'
+    elsif :rb == vol
+      f.puts '<div class="examples">'
+      f.puts %Q{<h4>Example#{(section[:examples].count > 1) ? 's' : ''}</h4>}
+      if search
+        section[:examples].sort_by {|x|  [x[:stars], x[:example_num] ]}.each do |example|
+          f.print %Q{<span class="example-name">#{ example[:example_num] }. #{'★'  * example[:stars]} <a href="examples/#{example[:cname]}.html" class="example-name">#{CGI.escapeHTML(example[:name])}</a></span>}
+          print_blocks(f, example[:body][:blocks], nil, nil, nil, nil, true)
+          f.puts '<div class="linkback">'
+          f.puts (%i{ wi rb }.map do |vol|
+                    lb_vol, lb_chapter, lb_section = *example[:refs][vol]
+                    target = target_anchor(lb_vol, lb_chapter, lb_section, monolithic)
+                    target = "##{target}" if monolithic
+                    %Q{<a href="#{target}" title="#{CGI.escapeHTML(Conf.books[vol][:chapters][lb_chapter][:name])} &gt; #{CGI.escapeHTML(Conf.books[vol][:chapters][lb_chapter][:sections][lb_section][:name])}">#{Conf.books[vol][:abbrev]} §#{[lb_chapter, lb_section].join('.')} #{Conf.books[vol][:chapters][lb_chapter][:sections][lb_section][:name]}</a>}
+                  end).join('<br>')
+          f.puts '</div>'
+        end
+      else
+#        examples =  section[:examples].reject {|x| Conf.replaced.key?(x[:cname]) }
+        #        unless examples.blank?
+        section[:examples].sort_by {|x|  [x[:stars], x[:example_num] ]}.each do |example|
+          target = monolithic ? "#example_#{example[:cname]}" : "examples/#{example[:cname]}.html"
+          f.print %Q{<div class="example-short">#{ example[:example_num] }. #{'★' * example[:stars]} <a href="#{target}">#{example[:name]}</a><br>#{CGI.escapeHTML(example[:desc])}</p></div>}
+          example_linkback(f, :wi, example)
+        end
       end
+      f.puts '</div>'
     end
   end
 end
