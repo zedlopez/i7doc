@@ -94,6 +94,7 @@ def configure
              search: {name: "Search", dest: 'search.html' },
                     }
   Conf[:replaced] = {}
+#  Conf[:all_tags] = {}
 end
 
 def prepare_output_dir
@@ -402,7 +403,8 @@ def read_rawtext(lines = [], filename = nil, vol = nil)
     when /\A\{([^:]+):\}\s*(.*)/
       taglist = $1
       content = mung($2, vol, chapter_num, section_num)
-      container[:blocks] << { type: (content.match(/\S/) ? :text : :blank), content: content, tags: taglist.split(/\s*,\s*/) }
+#      container[:blocks] << { type: (content.match(/\S/) ? :text : :blank), content: content, tags: taglist.split(/\s*,\s*/) } 
+#      Conf.all_tags[container[:blocks][-1][:tags]] = true unless taglist.blank?
     when /\A\s*\Z/
       if current_code # and line.match(/\A\t/)
         # don't add another blank line if previous line was blank
@@ -504,6 +506,7 @@ def first_pass
   end
   Conf.books[:rb][:title] = 'Recipe Book'
   Conf[:chapter_names][:rb]['introduction'] = 1
+  pp Conf[:all_tags]
 end
 
 def print_bar(f, alpha)
