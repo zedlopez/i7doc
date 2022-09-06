@@ -3,6 +3,9 @@
 # Save your sanity and don't look at this ugly, ugly code.
 # It's too late for me; it doesn't have to be too late for you.
 
+# build both -rnd and non-rnd versions of the examples. Use the rnd versions for the testme_output and
+# the non-rnd versions for Quixe.
+
 require 'pp'
 require 'cgi'
 require 'fileutils'
@@ -10,7 +13,6 @@ require 'base64'
 require 'erubi'
 require 'ostruct'
 require 'open3'
-#require 'nokogiri'
 require 'i7/template'
 require 'json'
 
@@ -44,8 +46,8 @@ def configure
   Conf[:examples] = {}
   Conf[:examples_by_num] = {}
   Conf[:subnames] = Hash.new {|h,k| h[k] = {} }
-  Conf[:tmpl_dir] = '/home/zed/inf7/lib/i7/tmpl'
-  Conf[:file_dir] = '/home/zed/inf7/lib/i7/file'
+#  Conf[:tmpl_dir] = '/home/zed/inf7/lib/i7/tmpl'
+#  Conf[:file_dir] = '/home/zed/inf7/lib/i7/file'
   Conf[:gi] = {}
   Conf[:gi_by_tag] = {}
   Conf[:gi_by_name] = {}
@@ -93,8 +95,6 @@ def configure
              general_index: { name: "Index", dest: 'general_index.html' },
              search: {name: "Search", dest: 'search.html' },
                     }
-  Conf[:replaced] = {}
-#  Conf[:all_tags] = {}
 end
 
 def prepare_output_dir
@@ -118,7 +118,7 @@ def scan_recipes
     when ''
       next
     when /\A(.+?)\s+==\s+OMIT\Z/
-      Conf.omit_examples[$1] = true
+      Conf.omit_examples[$1] = true # we store this, but do nothing with it.
     # start of a chapter
     when /\A>(.*)/
       puts "Can't find #{$1.downcase} in rb" unless Conf.chapter_names[:rb].key?($1.downcase)
@@ -281,7 +281,6 @@ def replace_example(line, vol, monolithic = false, level: 0)
       end
       cname = canonical_example_name(word);
       if Conf.examples.key?(cname)
-        Conf.replaced[cname] = true
         example = Conf.examples[cname]
         target = (monolithic ? "#example_#{cname}" : "examples/#{cname}.html")
         result << %Q{<span class="example-name"><a href="#{target}" onClick="(function() { document.getElementById('example_#{example[:cname]}').setAttribute('open','open'); return true; })();" title="#{CGI.escapeHTML(example[:desc])}">#{htmlify(word, level: level)}</a></span> #{'★' * example[:stars]}}
@@ -402,7 +401,6 @@ def read_rawtext(lines = [], filename = nil, vol = nil)
       taglist = $1
       content = mung($2, vol, chapter_num, section_num)
 #      container[:blocks] << { type: (content.match(/\S/) ? :text : :blank), content: content, tags: taglist.split(/\s*,\s*/) } 
-#      Conf.all_tags[container[:blocks][-1][:tags]] = true unless taglist.blank?
     when /\A\s*\Z/
       if current_code # and line.match(/\A\t/)
         # don't add another blank line if previous line was blank
@@ -1010,6 +1008,11 @@ def numeric_examples(f, monolithic = false)
   f.puts '</div>'
 end
 
+
+
+# to behave as indoc, we should also be looking for '{*}"Example Name"' in the *body* of Writing with Inform and including those
+# in the alphabetical index of examples unless it's marked OMIT in (Recipes).txt. That would result in adding "Cave Entrance" and
+# "The Undertomb", the latter of which is already there as "The Undertomb 1".
 def nominal_examples(f)
   f.puts %Q{<h2 id="nominal_examples">Examples by Name</h2><div class="example-block">}
   alpha_index = {}
@@ -1087,10 +1090,6 @@ def output_section(f, vol, chapter_num, section_num, monolithic = false, search:
   label = "#{book[:abbrev]} §#{chapter_num}.#{section[:section_num]} #{section[:name]}"
   f.print search ? %Q{<a href="#{target_anchor(vol, chapter_num, section_num)}">#{label}</a>} : label
   f.puts '</h3>'
-
-  
-#  f.puts %Q{<h3 id="#{search ? target_anchor(vol,chapter_num,section_num, !search) : "section_#{section_num}"}">#{book[:abbrev]} §#{chapter_num}.#{section[:section_num]} #{section[:name]}</h3>}
-
   navbar = []
   navbar << %Q{<div class="sect-navbar">}
   if section_num > 1
@@ -1148,8 +1147,6 @@ def output_section(f, vol, chapter_num, section_num, monolithic = false, search:
           f.puts '</div>'
         end
       else
-#        examples =  section[:examples].reject {|x| Conf.replaced.key?(x[:cname]) }
-        #        unless examples.blank?
         section[:examples].sort_by {|x|  [x[:stars], x[:example_num] ]}.each do |example|
           target = monolithic ? "#example_#{example[:cname]}" : "examples/#{example[:cname]}.html"
           f.print %Q{<div class="example-short">#{ example[:example_num] }. #{'★' * example[:stars]} <a href="#{target}">#{example[:name]}</a><br>#{CGI.escapeHTML(example[:desc])}</p></div>}
@@ -1401,7 +1398,8 @@ def footer(f, about = true, css: nil, level: 0, page: nil)
   f.print '>'
   f.print %Q{<p><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="#{((['..']*level)+['license.html']).join('/')}">Artistic License 2.0</a>.</p>}
   f.print %Q{<p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="#{((['..']*level)+['mit.html']).join('/')}">MIT License.</a></p>} if page == :example
-    f.print %Q{<p class="about"><a href="#{((['..']*level)+['about.html']).join('/')}">About this edition</a> &bull; <a href="https://twitter.com/inform7tips">@inform7tips</a></p>} if about
+  about_html = (about ? %Q{<a href="#{((['..']*level)+['about.html']).join('/')}">About this edition</a> &bull; } : '')
+    f.print %Q{<p class="about">#{about_html}<a href="https://twitter.com/inform7tips">@inform7tips</a></p>}
   f.puts "</footer>"
 end
 
