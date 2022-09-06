@@ -94,7 +94,7 @@
 <div class="codeline">The atomic weight of Zinc is 65.</div>
 <div class="codeline">The atomic weight of Uranium is 238.</div>
 </div><p>Note that the first row in a table is row number 1, and that the last can be found with the phrase:</p>
-<div class="defn" id="ph_numrows"><span class="defn">number of rows in/from </span><span class="neutral">(table name)</span> &rArr; <em>number</em><p>This phrase produces the number of rows (including any blank rows) in the given table. Example:</p>
+<div class="defn" id="ph_numrows"><div class="defnline"><span class="defn">number of rows in/from </span><span class="neutral">(table name)</span> &rArr; <em>number</em></div><p>This phrase produces the number of rows (including any blank rows) in the given table. Example:</p>
 <div class="codeblock"><div class="codeline">number of rows in the Table of Selected Elements</div>
 </div></div><h3 id="section_3">WI §16.3 Corresponding entries</h3>
 <div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_2">16.2 Looking up entries</a></div><div class="sect-navbar-center"><a href="#chapter_16">16. Tables</a></div><div class="sect-navbar-right"><a href="#section_4">16.4 Changing entries</a></div></div>
@@ -138,10 +138,10 @@
 <div class="codeline">&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;examine succession / attack it / examine it&quot;.</div>
 </div><p>Once we start changing tables, it sometimes becomes useful to check what they contain.</p>
-<div class="defn" id="ph_showmetable"><span class="defn">showme the contents of </span><span class="neutral">(table name)</span><p>This phrase prints a crude but sometimes useful display on screen of the current contents of the named table. It&#39;s intended for authors to see when testing, not for players of the finished version to see.</p>
-</div><div class="defn" id="phs_currenttablerow"><span class="defn">say "[current table row]"</span><p>This text substitution produces a crude but sometimes useful listing of the entries in the currently chosen table row.</p>
-</div><div class="defn" id="phs_tablerow"><span class="defn">say "[row </span><span class="neutral">(number)</span><span class="defn"> in/from table </span><span class="neutral">(table name)</span><span class="defn">]"</span><p>This text substitution produces a crude but sometimes useful listing of the entries in the specified row.</p>
-</div><div class="defn" id="phs_tablecolumn"><span class="defn">say "[</span><span class="neutral">(column name)</span><span class="defn"> in/from table </span><span class="neutral">(table name)</span><span class="defn">]"</span><p>This text substitution produces a crude but sometimes useful listing of the entries in the specified column.</p>
+<div class="defn" id="ph_showmetable"><div class="defnline"><span class="defn">showme the contents of </span><span class="neutral">(table name)</span></div><p>This phrase prints a crude but sometimes useful display on screen of the current contents of the named table. It&#39;s intended for authors to see when testing, not for players of the finished version to see.</p>
+</div><div class="defn" id="phs_currenttablerow"><div class="defnline"><span class="defn">say "[current table row]"</span></div><p>This text substitution produces a crude but sometimes useful listing of the entries in the currently chosen table row.</p>
+</div><div class="defn" id="phs_tablerow"><div class="defnline"><span class="defn">say "[row </span><span class="neutral">(number)</span><span class="defn"> in/from table </span><span class="neutral">(table name)</span><span class="defn">]"</span></div><p>This text substitution produces a crude but sometimes useful listing of the entries in the specified row.</p>
+</div><div class="defn" id="phs_tablecolumn"><div class="defnline"><span class="defn">say "[</span><span class="neutral">(column name)</span><span class="defn"> in/from table </span><span class="neutral">(table name)</span><span class="defn">]"</span></div><p>This text substitution produces a crude but sometimes useful listing of the entries in the specified column.</p>
 </div><h3 id="section_5">WI §16.5 Choosing rows</h3>
 <div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_4">16.4 Changing entries</a></div><div class="sect-navbar-center"><a href="#chapter_16">16. Tables</a></div><div class="sect-navbar-right"><a href="#section_6">16.6 Repeating through tables</a></div></div>
 <p>The following would be one way to print out a list of recent Kings and Queens:</p>
@@ -150,7 +150,7 @@
 <div class="codeline">repeat with N running from 1 to the number of rows in the Table of Recent Monarchs:</div>
 <div class="codeline">&ensp;&ensp;say &quot;[accession in row N of the Table of Recent Monarchs]: [name in row N of the Table of Recent Monarchs] ([family in row N of the Table of Recent Monarchs]).&quot;</div>
 </div><p>This works, but is repetitive. We often want to work on a single row for a while, either to change things or think about the contents, and it is tiresome to keep specifying the row over and over again. The following shorthand provides some relief:</p>
-<div class="defn" id="ph_chooserow"><span class="defn">choose a/the/-- row </span><span class="neutral">(number)</span><span class="defn"> in/from </span><span class="neutral">(table name)</span><p>This phrase selects the row with the given number. Row numbers in a table start from 1, so</p>
+<div class="defn" id="ph_chooserow"><div class="defnline"><span class="defn">choose a/the/-- row </span><span class="neutral">(number)</span><span class="defn"> in/from </span><span class="neutral">(table name)</span></div><p>This phrase selects the row with the given number. Row numbers in a table start from 1, so</p>
 <div class="codeblock"><div class="codeline">choose row 1 from the Table of Recent Monarchs</div>
 </div><p>selects the top row.</p>
 </div><p>That allows us to improve the loop:</p>
@@ -161,12 +161,12 @@
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;[accession entry]: [name entry] ([family entry]).&quot;;</div>
 </div><p>Actually, as we&#39;ll see in the next section, this kind of loop is needed so often that there&#39;s a shorthand wording for it.</p>
 <p>Note that since &quot;accession&quot; is a column name, &quot;accession entry&quot; means the entry in that column of the currently chosen row. This notation can only be used if a &quot;choose&quot; has certainly already happened, and it is a good idea to make that choice somewhere close by in the source code (and certainly in the same rule or phrase definition) for the sake of avoiding errors. We can also choose rows by specifying something about them, like so:</p>
-<div class="defn" id="ph_chooserowwith"><span class="defn">choose a/the/-- row with </span><span class="neutral">(table column)</span><span class="defn"> of </span><span class="neutral">(value)</span><span class="defn"> in/from </span><span class="neutral">(table name)</span><p>This phrase selects the first row, working down from the top of the given table, in which the given column has the given value. Example:</p>
+<div class="defn" id="ph_chooserowwith"><div class="defnline"><span class="defn">choose a/the/-- row with </span><span class="neutral">(table column)</span><span class="defn"> of </span><span class="neutral">(value)</span><span class="defn"> in/from </span><span class="neutral">(table name)</span></div><p>This phrase selects the first row, working down from the top of the given table, in which the given column has the given value. Example:</p>
 <div class="codeblock"><div class="codeline">choose row with a name of &quot;Victoria&quot; in the Table of Recent Monarchs;</div>
 </div><p>A run-time problem message is produced if the value isn&#39;t found anywhere in that column.</p>
 </div><p>Sometimes it will happen that a column&#39;s name clashes with the name of something else: for instance, if we call a column &quot;apples&quot; but we also have a kind called &quot;apple&quot;, so that the word &quot;apples&quot; could mean either some fruit or the column. Inform will generally prefer the former meaning as more likely. In case of such trouble, we can simply refer to &quot;the apples column&quot; rather than just &quot;the apples&quot;: for instance, &quot;choose row with an apples column of&hellip;&quot; rather than &quot;choose row with an apples of&hellip;&quot;</p>
 <p>We can also choose a row quite at random:</p>
-<div class="defn" id="ph_chooserandomrow"><span class="defn">choose a/the/-- random row in/from </span><span class="neutral">(table name)</span><p>This phrase makes a uniformly random choice of non-blank rows in the given table. Note that although a table always has at least one row, it can&#39;t be guaranteed that it always has a non-blank row, so it&#39;s possible for this to fail: if it does, a real-time problem message is thrown.</p>
+<div class="defn" id="ph_chooserandomrow"><div class="defnline"><span class="defn">choose a/the/-- random row in/from </span><span class="neutral">(table name)</span></div><p>This phrase makes a uniformly random choice of non-blank rows in the given table. Note that although a table always has at least one row, it can&#39;t be guaranteed that it always has a non-blank row, so it&#39;s possible for this to fail: if it does, a real-time problem message is thrown.</p>
 </div><h3 id="section_6">WI §16.6 Repeating through tables</h3>
 <div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_5">16.5 Choosing rows</a></div><div class="sect-navbar-center"><a href="#chapter_16">16. Tables</a></div><div class="sect-navbar-right"><a href="#section_7">16.7 Blank entries</a></div></div>
 <p>We very often want to run through a table doing something to, or with, each row in turn, so a special loop is provided for this. Rather than having to write all this out:</p>
@@ -176,20 +176,20 @@
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;choose row N in the Table of Recent Monarchs;</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;[accession entry]: [name entry] ([family entry]).&quot;</div>
 </div><p>We can simply use this instead:</p>
-<div class="defn" id="ph_repeattable"><span class="defn">repeat through </span><span class="neutral">(table name)</span><span class="defn">:</span><p>This phrase causes the block of phrases following it to be repeated once for each row in the given table, choosing each row in turn, from top to bottom. Blank rows are skipped. Example:</p>
+<div class="defn" id="ph_repeattable"><div class="defnline"><span class="defn">repeat through </span><span class="neutral">(table name)</span><span class="defn">:</span></div><p>This phrase causes the block of phrases following it to be repeated once for each row in the given table, choosing each row in turn, from top to bottom. Blank rows are skipped. Example:</p>
 <div class="codeblock"><div class="codeline">To list the succession:</div>
 <div class="codeline">&ensp;&ensp;say &quot;The Succession List runs as follows...&quot;;</div>
 <div class="codeline">&ensp;&ensp;repeat through the Table of Recent Monarchs:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;[accession entry]: [name entry] ([family entry]).&quot;</div>
 </div></div><p>Note that there is no loop variable here, unlike in other forms of &quot;repeat&quot;, because it&#39;s the choice of row which keeps track of how far we have got.</p>
 <p>We can alternatively go backwards:</p>
-<div class="defn" id="ph_repeattablereverse"><span class="defn">repeat through </span><span class="neutral">(table name)</span><span class="defn"> in reverse order:</span><p>This phrase causes the block of phrases following it to be repeated once for each row in the given table, choosing each row in turn, from bottom to top. Blank rows are skipped.</p>
+<div class="defn" id="ph_repeattablereverse"><div class="defnline"><span class="defn">repeat through </span><span class="neutral">(table name)</span><span class="defn"> in reverse order:</span></div><p>This phrase causes the block of phrases following it to be repeated once for each row in the given table, choosing each row in turn, from bottom to top. Blank rows are skipped.</p>
 </div><p>More often we want a sequence which is neither forwards nor backwards, but which depends on the actual values in the table.</p>
-<div class="defn" id="ph_repeattablecol"><span class="defn">repeat through </span><span class="neutral">(table name)</span><span class="defn"> in </span><span class="neutral">(table column)</span><span class="defn"> order:</span><p>This phrase causes the block of phrases following it to be repeated once for each row in the given table, choosing each row in turn, in order of the values in the given column. Blank rows are skipped. Example:</p>
+<div class="defn" id="ph_repeattablecol"><div class="defnline"><span class="defn">repeat through </span><span class="neutral">(table name)</span><span class="defn"> in </span><span class="neutral">(table column)</span><span class="defn"> order:</span></div><p>This phrase causes the block of phrases following it to be repeated once for each row in the given table, choosing each row in turn, in order of the values in the given column. Blank rows are skipped. Example:</p>
 <div class="codeblock"><div class="codeline">repeat through the Table of Recent Monarchs in name order: ...</div>
 <div class="codeline">repeat through the Table of Recent Monarchs in accession order: ...</div>
 </div><p>work through the same table in rather different orders. The sequence is lower to higher (small numbers to high numbers, A to Z, and so on); insert &quot;reverse&quot; after &quot;in&quot; to reverse this.</p>
-</div><div class="defn" id="ph_repeattablecolreverse"><span class="defn">repeat through </span><span class="neutral">(table name)</span><span class="defn"> in reverse </span><span class="neutral">(table column)</span><span class="defn"> order:</span><p>This phrase causes the block of phrases following it to be repeated once for each row in the given table, choosing each row in turn, in order of the values in the given column. Blank rows are skipped. Example:</p>
+</div><div class="defn" id="ph_repeattablecolreverse"><div class="defnline"><span class="defn">repeat through </span><span class="neutral">(table name)</span><span class="defn"> in reverse </span><span class="neutral">(table column)</span><span class="defn"> order:</span></div><p>This phrase causes the block of phrases following it to be repeated once for each row in the given table, choosing each row in turn, in order of the values in the given column. Blank rows are skipped. Example:</p>
 <div class="codeblock"><div class="codeline">repeat through the Table of Recent Monarchs in reverse name order: ...</div>
 <div class="codeline">repeat through the Table of Recent Monarchs in reverse accession order: ...</div>
 </div><p>work through the same table in rather different orders. The sequence is higher to lower (high numbers to small numbers, Z to A, and so on); delete the &quot;reverse&quot; after &quot;in&quot; to reverse this.</p>
@@ -206,10 +206,10 @@
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Table 2.1 - Selected Elements\nElement\t\tSymbol\tAtomic number\tAtomic weight\n&quot;Hydrogen&quot;\t&quot;H&quot;\t\t1\t\t\t\t1\n&quot;Iron&quot;\t\t&quot;Fe&quot;\t--\t\t\t\t56\n&quot;Zinc&quot;\t\t--\t\t30\t\t\t\t65\n&quot;Uranium&quot;\t&quot;U&quot;\t\t92\t\t\t\t238`)">⧉</button><div class="codeline tablename">Table 2.1 - Selected Elements</div><table>
 <tr><td>Element</td><td>Symbol</td><td>Atomic number</td><td>Atomic weight</td></tr><tr><td>&quot;Hydrogen&quot;</td><td>&quot;H&quot;</td><td>1</td><td>1</td></tr><tr><td>&quot;Iron&quot;</td><td>&quot;Fe&quot;</td><td>--</td><td>56</td></tr><tr><td>&quot;Zinc&quot;</td><td>--</td><td>30</td><td>65</td></tr><tr><td>&quot;Uranium&quot;</td><td>&quot;U&quot;</td><td>92</td><td>238</td></tr></table>
 </div><p>In effect, blank entries don&#39;t exist. &quot;--&quot; is not a value, but only a hole where a value might be. It can be useful to check for this:</p>
-<div class="defn" id="ph_thereis"><span class="defn">if there is </span><span class="neutral">(a table entry)</span><span class="defn">:</span><p>This condition is true if the entry referred to exists, that is, that is, the space for it in the table is not blank. Examples:</p>
+<div class="defn" id="ph_thereis"><div class="defnline"><span class="defn">if there is </span><span class="neutral">(a table entry)</span><span class="defn">:</span></div><p>This condition is true if the entry referred to exists, that is, that is, the space for it in the table is not blank. Examples:</p>
 <div class="codeblock"><div class="codeline">if there is a symbol corresponding to an atomic number of 30 in the Table of Selected Elements ...</div>
 <div class="codeline">if there is an atomic number in row 2 of the Table of Selected Elements ...</div>
-</div></div><div class="defn" id="ph_thereisno"><span class="defn">if there is no </span><span class="neutral">(a table entry)</span><span class="defn">:</span><p>This condition is true if the entry referred to does not exist, that is, the space for it in the table is blank. Examples:</p>
+</div></div><div class="defn" id="ph_thereisno"><div class="defnline"><span class="defn">if there is no </span><span class="neutral">(a table entry)</span><span class="defn">:</span></div><p>This condition is true if the entry referred to does not exist, that is, the space for it in the table is blank. Examples:</p>
 <div class="codeblock"><div class="codeline">if there is no symbol corresponding to an atomic number of 30 in the Table of Selected Elements ...</div>
 <div class="codeline">if there is no atomic number in row 2 of the Table of Selected Elements ...</div>
 </div></div><h3 id="section_8">WI §16.8 Blank columns</h3>
@@ -247,15 +247,15 @@
 <h3 id="section_10">WI §16.10 Adding and removing rows</h3>
 <div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_9">16.9 Blank rows</a></div><div class="sect-navbar-center"><a href="#chapter_16">16. Tables</a></div><div class="sect-navbar-right"><a href="#section_11">16.11 Sorting</a></div></div>
 <p>Writing in new rows is simple, once we can find space for them:</p>
-<div class="defn" id="ph_chooseblankrow"><span class="defn">choose a/the/-- blank row in/from </span><span class="neutral">(table name)</span><p>This phrase chooses a row in the given table which is currently blank under every column. A run-time problem message is issued if no rows are blank. Example:</p>
+<div class="defn" id="ph_chooseblankrow"><div class="defnline"><span class="defn">choose a/the/-- blank row in/from </span><span class="neutral">(table name)</span></div><p>This phrase chooses a row in the given table which is currently blank under every column. A run-time problem message is issued if no rows are blank. Example:</p>
 <div class="codeblock"><div class="codeline">choose a blank row in Table 3;</div>
 <div class="codeline">now element entry is &quot;Fluorine&quot;;</div>
 <div class="codeline">now symbol entry is &quot;F&quot;;</div>
 <div class="codeline">now atomic number entry is 9;</div>
 <div class="codeline">now atomic weight entry is 19;</div>
 </div></div><p>To avoid problem messages, it can be important to worry about free space. To that end we can not only find the number of rows (as we have already seen) but also the number currently blank and not blank:</p>
-<div class="defn" id="ph_numblank"><span class="defn">number of blank rows in/from </span><span class="neutral">(table name)</span> &rArr; <em>number</em><p>This phrase produces the number of rows in the given table which are entirely blank (that is, blank under every column).</p>
-</div><div class="defn" id="ph_numfilled"><span class="defn">number of filled rows in/from </span><span class="neutral">(table name)</span> &rArr; <em>number</em><p>This phrase produces the number of rows in the given table which are not entirely blank (that is, at least one column has a value in this row).</p>
+<div class="defn" id="ph_numblank"><div class="defnline"><span class="defn">number of blank rows in/from </span><span class="neutral">(table name)</span> &rArr; <em>number</em></div><p>This phrase produces the number of rows in the given table which are entirely blank (that is, blank under every column).</p>
+</div><div class="defn" id="ph_numfilled"><div class="defnline"><span class="defn">number of filled rows in/from </span><span class="neutral">(table name)</span> &rArr; <em>number</em></div><p>This phrase produces the number of rows in the given table which are not entirely blank (that is, at least one column has a value in this row).</p>
 </div><p>&quot;Filled&quot; here really means &quot;non-blank&quot;: a row can be filled in this sense even if only one of its values exists. Since every row is either blank or filled, it must be true that:</p>
 <div class="codeblock"><div class="codeline">the number of blank rows in Table 3</div>
 <div class="codeline">the number of filled rows in Table 3</div>
@@ -263,16 +263,16 @@
 <p>We&#39;ve seen that blank entries can be filled with values using &quot;now&quot;:</p>
 <div class="codeblock"><div class="codeline">now symbol entry is &quot;F&quot;;</div>
 </div><p>But the same method can&#39;t be used to put blanks back, since a blank is not a value. Instead:</p>
-<div class="defn" id="ph_blankout"><span class="defn">blank out </span><span class="neutral">(a table entry)</span><p>This phrase replaces the entry referred to with a blank, erasing any value previously stored there. Example:</p>
+<div class="defn" id="ph_blankout"><div class="defnline"><span class="defn">blank out </span><span class="neutral">(a table entry)</span></div><p>This phrase replaces the entry referred to with a blank, erasing any value previously stored there. Example:</p>
 <div class="codeblock"><div class="codeline">choose row 1 in the Table of Fish Habitats;</div>
 <div class="codeline">blank out the salinity entry;</div>
 </div></div><p>These more destructive phrases need a steady hand:</p>
-<div class="defn" id="ph_blankoutrow"><span class="defn">blank out the whole row</span><p>This phrase replaces the currently chosen row with blanks, erasing any value previously stored under any of the columns. Example:</p>
+<div class="defn" id="ph_blankoutrow"><div class="defnline"><span class="defn">blank out the whole row</span></div><p>This phrase replaces the currently chosen row with blanks, erasing any value previously stored under any of the columns. Example:</p>
 <div class="codeblock"><div class="codeline">choose row 1 in the Table of Fish Habitats;</div>
 <div class="codeline">blank out the whole row;</div>
-</div></div><div class="defn" id="ph_blankoutcol"><span class="defn">blank out the whole </span><span class="neutral">(table column)</span><span class="defn"> column in </span><span class="neutral">(table)</span><p>This phrase replaces the currently chosen column with blanks, erasing any value previously stored in any of the rows. Example:</p>
+</div></div><div class="defn" id="ph_blankoutcol"><div class="defnline"><span class="defn">blank out the whole </span><span class="neutral">(table column)</span><span class="defn"> column in </span><span class="neutral">(table)</span></div><p>This phrase replaces the currently chosen column with blanks, erasing any value previously stored in any of the rows. Example:</p>
 <div class="codeblock"><div class="codeline">blank out the whole salinity column in the Table of Fish Habitats;</div>
-</div></div><div class="defn" id="ph_blankouttable"><span class="defn">blank out the whole of </span><span class="neutral">(table)</span><p>This phrase replaces every row of the currently chosen table with blanks, erasing any value previously stored anywhere in it. Example:</p>
+</div></div><div class="defn" id="ph_blankouttable"><div class="defnline"><span class="defn">blank out the whole of </span><span class="neutral">(table)</span></div><p>This phrase replaces every row of the currently chosen table with blanks, erasing any value previously stored anywhere in it. Example:</p>
 <div class="codeblock"><div class="codeline">blank out the whole of the Table of Fish Habitats;</div>
 </div><p>This is only really useful when a Table is being used to hold working space for some calculation or other.</p>
 </div><div class="examples">
@@ -281,13 +281,13 @@
 <h3 id="section_11">WI §16.11 Sorting</h3>
 <div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_10">16.10 Adding and removing rows</a></div><div class="sect-navbar-center"><a href="#chapter_16">16. Tables</a></div><div class="sect-navbar-right"><a href="#section_12">16.12 Listed in...</a></div></div>
 <p>The three ways to sort a table correspond loosely to the three different orders in which tables can be repeated through. First:</p>
-<div class="defn" id="ph_sortrandom"><span class="defn">sort </span><span class="neutral">(table name)</span><span class="defn"> in random order</span><p>This phrase rearranges the rows of the given table so that the non-blank rows occur at the top, in a uniformly random order, and any blank rows at the bottom. Example:</p>
+<div class="defn" id="ph_sortrandom"><div class="defnline"><span class="defn">sort </span><span class="neutral">(table name)</span><span class="defn"> in random order</span></div><p>This phrase rearranges the rows of the given table so that the non-blank rows occur at the top, in a uniformly random order, and any blank rows at the bottom. Example:</p>
 <div class="codeblock"><div class="codeline">sort the Table of Recent Monarchs in random order;</div>
 </div></div><p>Secondly:</p>
-<div class="defn" id="ph_sortcolumn"><span class="defn">sort </span><span class="neutral">(table name)</span><span class="defn"> in </span><span class="neutral">(table column)</span><span class="defn"> order</span><p>This phrase rearranges the rows of the given table so that the non-blank rows occur at the top, so that the given column has ascending order, and any blank rows at the bottom. Example:</p>
+<div class="defn" id="ph_sortcolumn"><div class="defnline"><span class="defn">sort </span><span class="neutral">(table name)</span><span class="defn"> in </span><span class="neutral">(table column)</span><span class="defn"> order</span></div><p>This phrase rearranges the rows of the given table so that the non-blank rows occur at the top, so that the given column has ascending order, and any blank rows at the bottom. Example:</p>
 <div class="codeblock"><div class="codeline">sort the Table of Recent Monarchs in accession order;</div>
 </div><p>Ascending order means 1 up to 10, say, or A up to Z, with blank values coming last.</p>
-</div><div class="defn" id="ph_sortcolumnreverse"><span class="defn">sort </span><span class="neutral">(table name)</span><span class="defn"> in reverse </span><span class="neutral">(table column)</span><span class="defn"> order</span><p>This phrase rearranges the rows of the given table so that the non-blank rows occur at the top, so that the given column has descending order, and any blank rows at the bottom. Example:</p>
+</div><div class="defn" id="ph_sortcolumnreverse"><div class="defnline"><span class="defn">sort </span><span class="neutral">(table name)</span><span class="defn"> in reverse </span><span class="neutral">(table column)</span><span class="defn"> order</span></div><p>This phrase rearranges the rows of the given table so that the non-blank rows occur at the top, so that the given column has descending order, and any blank rows at the bottom. Example:</p>
 <div class="codeblock"><div class="codeline">sort the Table of Recent Monarchs in reverse name order;</div>
 </div><p>Descending order means 10 down to 1, say, or Z down to A, with blank values coming last.</p>
 </div><p>How sorting is done depends on the contents of the column being sorted on. If it holds numbers then numerical order is used, with 2 coming before 7, and so on. (And similarly for real numbers, though the existence of infinities makes this more interesting.) If times are sorted then they are sorted from midnight to midnight, following the &quot;is greater than&quot; relation, not with 4 AM as the zero point, as with &quot;is after&quot;.</p>

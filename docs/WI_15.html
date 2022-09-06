@@ -129,7 +129,7 @@
 </div><p>In general we can&#39;t do the reverse, that is, we can&#39;t silently use a real number where a number is expected. For example,</p>
 <div class="codeblock"><div class="codeline">word number 1.6 in &quot;The Great Wall of China&quot;</div>
 </div><p>makes no sense. But we can explicitly convert them:</p>
-<div class="defn" id="ph_nearestwholenumber"><span class="neutral">(real number)</span><span class="defn"> to the nearest whole number</span> &rArr; <em>number</em><p>This phrase performs signed addition on the given values, whose kinds must agree, and produces the result. Examples:</p>
+<div class="defn" id="ph_nearestwholenumber"><div class="defnline"><span class="neutral">(real number)</span><span class="defn"> to the nearest whole number</span> &rArr; <em>number</em></div><p>This phrase performs signed addition on the given values, whose kinds must agree, and produces the result. Examples:</p>
 <div class="codeblock"><div class="codeline">1.4 to the nearest whole number = 1</div>
 <div class="codeline">1.6 to the nearest whole number = 2</div>
 <div class="codeline">-1.6 to the nearest whole number = -2</div>
@@ -150,37 +150,37 @@
 </div><p>(The design of &quot;real number&quot; here follows well established trade-offs for scientific computing. Inform follows the IEEE-754 binary32 standard for floating-point arithmetic, so Inform&#39;s &quot;real number&quot; behaves very like the &quot;float&quot; type in C, C++, Java and similar programming languages. A &quot;nonexistent&quot; number is what&#39;s often called a NaN &ndash; a Not-a-Number.)</p>
 <h3 id="section_4">WI §15.4 Printing real numbers</h3>
 <div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_3">15.3 Real number conversions</a></div><div class="sect-navbar-center"><a href="#chapter_15">15. Numbers and Equations</a></div><div class="sect-navbar-right"><a href="#section_5">15.5 Arithmetic</a></div></div>
-<div class="defn" id="phs_realplaces"><span class="defn">say "[</span><span class="neutral">(real number)</span><span class="defn"> to </span><span class="neutral">(number)</span><span class="defn"> decimal places]"</span><p>This text substitution writes out the number to the given number of decimal places. Examples:</p>
+<div class="defn" id="phs_realplaces"><div class="defnline"><span class="defn">say "[</span><span class="neutral">(real number)</span><span class="defn"> to </span><span class="neutral">(number)</span><span class="defn"> decimal places]"</span></div><p>This text substitution writes out the number to the given number of decimal places. Examples:</p>
 <div class="codeblock"><div class="codeline">&quot;The semicircle is roughly [pi to 3 decimal places] paces around.&quot;</div>
 </div><p>produces &quot;The semicircle is roughly 3.142 paces around.&quot; The number of places can only usefully be from 1 to 8. Note that, for example, &quot;[1.235 x 10^-7 to 3 decimal places]&quot; produces 0.0; &quot;[1.235678 x 10^8 to 3 decimal places]&quot; produces &quot;1.236 x 10^8&quot;.</p>
-</div><div class="defn" id="phs_decimal"><span class="defn">say "[</span><span class="neutral">(real number)</span><span class="defn"> in decimal notation]"</span><p>This text substitution writes out the number in decimal form, that is, avoiding &quot;x 10^n&quot; even for very large or very small quantities. For example,</p>
+</div><div class="defn" id="phs_decimal"><div class="defnline"><span class="defn">say "[</span><span class="neutral">(real number)</span><span class="defn"> in decimal notation]"</span></div><p>This text substitution writes out the number in decimal form, that is, avoiding &quot;x 10^n&quot; even for very large or very small quantities. For example,</p>
 <div class="codeblock"><div class="codeline">&quot;[1.23457 x 10^8 in decimal notation]&quot;</div>
 </div><p>produces 123457000.0 rather than 1.23457 x 10^8. This can look pretty extreme: for example, &quot;[1.8983 x 10^27 in decimal notation]&quot;, the mass of the planet Jupiter in kilograms, produces 1898296960000000000000000000.0.</p>
-</div><div class="defn" id="phs_decimalplaces"><span class="defn">say "[</span><span class="neutral">(real number)</span><span class="defn"> to </span><span class="neutral">(number)</span><span class="defn"> decimal places in decimal notation]"</span><p>This text substitution writes out the number in decimal form, but rounding to the accuracy given.</p>
-</div><div class="defn" id="phs_scientific"><span class="defn">say "[</span><span class="neutral">(real number)</span><span class="defn"> in scientific notation]"</span><p>This text substitution writes out the number in scientific form, that is, using &quot;x 10^n&quot; even for easy-to-judge quantities. For example,</p>
+</div><div class="defn" id="phs_decimalplaces"><div class="defnline"><span class="defn">say "[</span><span class="neutral">(real number)</span><span class="defn"> to </span><span class="neutral">(number)</span><span class="defn"> decimal places in decimal notation]"</span></div><p>This text substitution writes out the number in decimal form, but rounding to the accuracy given.</p>
+</div><div class="defn" id="phs_scientific"><div class="defnline"><span class="defn">say "[</span><span class="neutral">(real number)</span><span class="defn"> in scientific notation]"</span></div><p>This text substitution writes out the number in scientific form, that is, using &quot;x 10^n&quot; even for easy-to-judge quantities. For example,</p>
 <div class="codeblock"><div class="codeline">&quot;[the reciprocal of 137 in scientific notation]&quot;</div>
 </div><p>produces 7.29927 x 10^-3 rather than 0.0073. This can look odd: for example, &quot;[pi in scientific notation]&quot; comes out as 3.14159 x 10^0 rather than 3.14159.</p>
-</div><div class="defn" id="phs_scientificplaces"><span class="defn">say "[</span><span class="neutral">(real number)</span><span class="defn"> to </span><span class="neutral">(number)</span><span class="defn"> decimal places in scientific notation]"</span><p>This text substitution writes out the number in scientific form, but rounding to the accuracy given.</p>
+</div><div class="defn" id="phs_scientificplaces"><div class="defnline"><span class="defn">say "[</span><span class="neutral">(real number)</span><span class="defn"> to </span><span class="neutral">(number)</span><span class="defn"> decimal places in scientific notation]"</span></div><p>This text substitution writes out the number in scientific form, but rounding to the accuracy given.</p>
 </div><h3 id="section_5">WI §15.5 Arithmetic</h3>
 <div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_4">15.4 Printing real numbers</a></div><div class="sect-navbar-center"><a href="#chapter_15">15. Numbers and Equations</a></div><div class="sect-navbar-right"><a href="#section_6">15.6 Powers and logarithms</a></div></div>
 <p>We are allowed to perform about the same operations on numbers as are provided by a simple office calculator, starting with addition, subtraction, multiplication and division. We can use the traditional typewriter symbols for these, +, -, * and /, or can spell them out in words as &quot;plus&quot;, &quot;minus&quot;, &quot;times&quot; (or &quot;multiplied by&quot;), and &quot;divided by&quot;. Definitively:</p>
-<div class="defn" id="ph_plus"><span class="neutral">(arithmetic value)</span><span class="defn"> + </span><span class="neutral">(arithmetic value)</span> &rArr; <em>value</em> [or&hellip;]<br><span class="neutral">(arithmetic value)</span><span class="defn"> plus </span><span class="neutral">(arithmetic value)</span> &rArr; <em>value</em><p>This phrase performs signed addition on the given values, whose kinds must agree, and produces the result. Examples:</p>
+<div class="defn" id="ph_plus"><div class="defnline"><span class="neutral">(arithmetic value)</span><span class="defn"> + </span><span class="neutral">(arithmetic value)</span> &rArr; <em>value</em></div><div class="defn-or">or&hellip;</div><div class="defnline"><span class="neutral">(arithmetic value)</span><span class="defn"> plus </span><span class="neutral">(arithmetic value)</span> &rArr; <em>value</em></div><p>This phrase performs signed addition on the given values, whose kinds must agree, and produces the result. Examples:</p>
 <div class="codeblock"><div class="codeline">200 + 1 = 201</div>
 <div class="codeline">10:04 AM + two minutes = 10:06 AM</div>
-</div></div><div class="defn" id="ph_minus"><span class="neutral">(arithmetic value)</span><span class="defn"> - </span><span class="neutral">(arithmetic value)</span> &rArr; <em>value</em> [or&hellip;]<br><span class="neutral">(arithmetic value)</span><span class="defn"> minus </span><span class="neutral">(arithmetic value)</span> &rArr; <em>value</em><p>This phrase performs signed subtraction on the given values, whose kinds must agree, and produces the result. Examples:</p>
+</div></div><div class="defn" id="ph_minus"><div class="defnline"><span class="neutral">(arithmetic value)</span><span class="defn"> - </span><span class="neutral">(arithmetic value)</span> &rArr; <em>value</em></div><div class="defn-or">or&hellip;</div><div class="defnline"><span class="neutral">(arithmetic value)</span><span class="defn"> minus </span><span class="neutral">(arithmetic value)</span> &rArr; <em>value</em></div><p>This phrase performs signed subtraction on the given values, whose kinds must agree, and produces the result. Examples:</p>
 <div class="codeblock"><div class="codeline">200 - 1 = 199</div>
 <div class="codeline">10:04 AM - two minutes = 10:02 AM</div>
-</div></div><div class="defn" id="ph_times"><span class="neutral">(arithmetic value)</span><span class="defn"> * </span><span class="neutral">(arithmetic value)</span> &rArr; <em>value</em> [or&hellip;]<br><span class="neutral">(arithmetic value)</span><span class="defn"> times </span><span class="neutral">(arithmetic value)</span> &rArr; <em>value</em> [or&hellip;]<br><span class="neutral">(arithmetic value)</span><span class="defn"> multiplied by </span><span class="neutral">(arithmetic value)</span> &rArr; <em>value</em><p>This phrase performs signed multiplication on the given values, whose kinds must be dimensionally compatible, and produces the result. Examples:</p>
+</div></div><div class="defn" id="ph_times"><div class="defnline"><span class="neutral">(arithmetic value)</span><span class="defn"> * </span><span class="neutral">(arithmetic value)</span> &rArr; <em>value</em></div><div class="defn-or">or&hellip;</div><div class="defnline"><span class="neutral">(arithmetic value)</span><span class="defn"> times </span><span class="neutral">(arithmetic value)</span> &rArr; <em>value</em></div><div class="defn-or">or&hellip;</div><div class="defnline"><span class="neutral">(arithmetic value)</span><span class="defn"> multiplied by </span><span class="neutral">(arithmetic value)</span> &rArr; <em>value</em></div><p>This phrase performs signed multiplication on the given values, whose kinds must be dimensionally compatible, and produces the result. Examples:</p>
 <div class="codeblock"><div class="codeline">201 times 3 = 603</div>
 <div class="codeline">two minutes times 4 = eight minutes</div>
-</div></div><div class="defn" id="ph_divide"><span class="neutral">(arithmetic value)</span><span class="defn"> / </span><span class="neutral">(arithmetic value)</span> &rArr; <em>value</em> [or&hellip;]<br><span class="neutral">(arithmetic value)</span><span class="defn"> divided by </span><span class="neutral">(arithmetic value)</span> &rArr; <em>value</em><p>This phrase performs signed division on the given values, whose kinds must be dimensionally compatible, and produces the result. Examples:</p>
+</div></div><div class="defn" id="ph_divide"><div class="defnline"><span class="neutral">(arithmetic value)</span><span class="defn"> / </span><span class="neutral">(arithmetic value)</span> &rArr; <em>value</em></div><div class="defn-or">or&hellip;</div><div class="defnline"><span class="neutral">(arithmetic value)</span><span class="defn"> divided by </span><span class="neutral">(arithmetic value)</span> &rArr; <em>value</em></div><p>This phrase performs signed division on the given values, whose kinds must be dimensionally compatible, and produces the result. Examples:</p>
 <div class="codeblock"><div class="codeline">201 divided by 3 = 67</div>
 <div class="codeline">202 divided by 3 = 67</div>
 <div class="codeline">202.0 divided by 3 = 67.33334</div>
 <div class="codeline">twenty minutes divided by 4 = five minutes</div>
 <div class="codeline">twenty minutes divided by five minutes = 4</div>
 </div><p>Division rounds whole-number values down to the nearest whole number. An attempt to divide a number by 0 will cause a run-time problem message; but an attempt to divide a real number by 0 will instead produce plus infinity or minus infinity.</p>
-</div><div class="defn" id="ph_remainder"><span class="defn">remainder after dividing </span><span class="neutral">(arithmetic value)</span><span class="defn"> by </span><span class="neutral">(arithmetic value)</span> &rArr; <em>value</em><p>This phrase performs signed division on the given values, whose kinds must be dimensionally compatible, and then produces the remainder. Examples:</p>
+</div><div class="defn" id="ph_remainder"><div class="defnline"><span class="defn">remainder after dividing </span><span class="neutral">(arithmetic value)</span><span class="defn"> by </span><span class="neutral">(arithmetic value)</span> &rArr; <em>value</em></div><p>This phrase performs signed division on the given values, whose kinds must be dimensionally compatible, and then produces the remainder. Examples:</p>
 <div class="codeblock"><div class="codeline">remainder after dividing 201 by 5 = 1</div>
 <div class="codeline">remainder after dividing twenty minutes by 7 = six minutes</div>
 </div><p>It is mathematically impossible to divide by 0, so any attempt to find the remainder after dividing a number by 0 will cause a run-time problem message. For a real number this won&#39;t arise and the remainder will usually be 0.0.</p>
@@ -189,19 +189,19 @@
 <div class="codeline">the score plus 10</div>
 </div><p>It&#39;s probably better style to spell them out in full when writing text, and keep the symbols for writing equations, as we&#39;ll see later on in the chapter. (If we do use the symbols, then spaces around them are obligatory: to Inform, they are words which just happen to be spelt with symbols instead of letters.)</p>
 <p>Arithmetic often produces fussily exact answers which seem inappropriate in a conversation. Nobody says &quot;Steeple Barton is 7.655 miles down the road&quot;, but &quot;Steeple Barton is eight miles down the road&quot; sounds perfectly normal. In order to make that sort of report easier to make, Inform provides another arithmetic operation, one that&#39;s not found in most computer programming languages:</p>
-<div class="defn" id="ph_nearest"><span class="neutral">(arithmetic value)</span><span class="defn"> to the nearest </span><span class="neutral">(arithmetic value)</span> &rArr; <em>value</em><p>This phrase rounds the given value off, rounding upward in boundary cases. Examples:</p>
+<div class="defn" id="ph_nearest"><div class="defnline"><span class="neutral">(arithmetic value)</span><span class="defn"> to the nearest </span><span class="neutral">(arithmetic value)</span> &rArr; <em>value</em></div><p>This phrase rounds the given value off, rounding upward in boundary cases. Examples:</p>
 <div class="codeblock"><div class="codeline">201 to the nearest 5 = 200</div>
 <div class="codeline">205 to the nearest 10 = 210</div>
 <div class="codeline">10:27 AM to the nearest five minutes = 10:25 AM</div>
 </div></div><p>Inform has very few mathematical functions built in as phrases, because these aren&#39;t very often needed in story-telling. But it does provide these:</p>
-<div class="defn" id="ph_squareroot"><span class="defn">square root of </span><span class="neutral">(arithmetic value)</span> &rArr; <em>value</em><p>This phrase produces an approximate square root, to the nearest integer, of the given value, which must be of a kind which has square roots. Example:</p>
+<div class="defn" id="ph_squareroot"><div class="defnline"><span class="defn">square root of </span><span class="neutral">(arithmetic value)</span> &rArr; <em>value</em></div><p>This phrase produces an approximate square root, to the nearest integer, of the given value, which must be of a kind which has square roots. Example:</p>
 <div class="codeblock"><div class="codeline">square root of 16 = 4</div>
 </div><p>Trying to take the square root of a negative number will cause a run-time problem, because then we can&#39;t even nearly solve it.</p>
 <p>(Warning: this is slow to compute if the Z-machine setting is used. For best performance, use Glulx.)</p>
-</div><div class="defn" id="ph_realsquareroot"><span class="defn">real square root of </span><span class="neutral">(arithmetic value)</span> &rArr; <em>value</em><p>This phrase produces a square root, as accurately as a real number can hold it, of the given value, which must be of a kind which has square roots. Example:</p>
+</div><div class="defn" id="ph_realsquareroot"><div class="defnline"><span class="defn">real square root of </span><span class="neutral">(arithmetic value)</span> &rArr; <em>value</em></div><p>This phrase produces a square root, as accurately as a real number can hold it, of the given value, which must be of a kind which has square roots. Example:</p>
 <div class="codeblock"><div class="codeline">real square root of 2 = 1.41421</div>
 </div><p>The real square root of a negative number is nonexistent.</p>
-</div><div class="defn" id="ph_cuberoot"><span class="defn">cube root of </span><span class="neutral">(arithmetic value)</span> &rArr; <em>value</em><p>This phrase produces an approximate cube root, to the nearest integer, of the given value, which must be of a kind which has cube roots. Example:</p>
+</div><div class="defn" id="ph_cuberoot"><div class="defnline"><span class="defn">cube root of </span><span class="neutral">(arithmetic value)</span> &rArr; <em>value</em></div><p>This phrase produces an approximate cube root, to the nearest integer, of the given value, which must be of a kind which has cube roots. Example:</p>
 <div class="codeblock"><div class="codeline">cube root of 27 = 3</div>
 <div class="codeline">cube root of -27 = -3</div>
 </div><p>(Warning: this is not very accurate if the Z-machine setting is used. For best performance, use Glulx.)</p>
@@ -213,27 +213,27 @@
 </div><h3 id="section_6">WI §15.6 Powers and logarithms</h3>
 <div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_5">15.5 Arithmetic</a></div><div class="sect-navbar-center"><a href="#chapter_15">15. Numbers and Equations</a></div><div class="sect-navbar-right"><a href="#section_7">15.7 Trigonometry</a></div></div>
 <p>If the last section provided a basic office calculator, this section and the next provide the more exotic rows of buttons found on a scientific calculator. All of these are done using real number arithmetic. To start with some dull ones, here are two ways to round off numbers:</p>
-<div class="defn" id="ph_ceiling"><span class="defn">ceiling of </span><span class="neutral">(real number)</span> &rArr; <em>real number</em><p>Produces the smallest integer value greater than or equal to the one given. Examples:</p>
+<div class="defn" id="ph_ceiling"><div class="defnline"><span class="defn">ceiling of </span><span class="neutral">(real number)</span> &rArr; <em>real number</em></div><p>Produces the smallest integer value greater than or equal to the one given. Examples:</p>
 <div class="codeblock"><div class="codeline">ceiling of pi = 4.0</div>
 <div class="codeline">ceiling of -16.315 = -16.0</div>
 </div><p>(Note that the result is still a real number; it simply has no fractional part any more.)</p>
-</div><div class="defn" id="ph_floor"><span class="defn">floor of </span><span class="neutral">(real number)</span> &rArr; <em>real number</em><p>Produces the largest integer value less than or equal to the one given. Examples:</p>
+</div><div class="defn" id="ph_floor"><div class="defnline"><span class="defn">floor of </span><span class="neutral">(real number)</span> &rArr; <em>real number</em></div><p>Produces the largest integer value less than or equal to the one given. Examples:</p>
 <div class="codeblock"><div class="codeline">floor of pi = 3.0</div>
 <div class="codeline">floor of -16.315 = -17.0</div>
 </div><p>(Note that the result is still a real number; it simply has no fractional part any more.)</p>
 </div><p>Two more easy functions:</p>
-<div class="defn" id="ph_absolutevalue"><span class="defn">absolute value of </span><span class="neutral">(real number)</span> &rArr; <em>real number</em><p>Removes the sign from a value, leaving positive numbers alone but making negative ones positive. Examples:</p>
+<div class="defn" id="ph_absolutevalue"><div class="defnline"><span class="defn">absolute value of </span><span class="neutral">(real number)</span> &rArr; <em>real number</em></div><p>Removes the sign from a value, leaving positive numbers alone but making negative ones positive. Examples:</p>
 <div class="codeblock"><div class="codeline">absolute value of 62.1 = 62.1</div>
 <div class="codeline">absolute value of 0 = 0.0</div>
 <div class="codeline">absolute value of -62.1 = 62.1</div>
 <div class="codeline">absolute value of minus infinity = plus infinity</div>
-</div></div><div class="defn" id="ph_reciprocal"><span class="defn">reciprocal of </span><span class="neutral">(real number)</span> &rArr; <em>real number</em><p>Calculates 1/x, that is, divides up 1 into this many pieces. Examples:</p>
+</div></div><div class="defn" id="ph_reciprocal"><div class="defnline"><span class="defn">reciprocal of </span><span class="neutral">(real number)</span> &rArr; <em>real number</em></div><p>Calculates 1/x, that is, divides up 1 into this many pieces. Examples:</p>
 <div class="codeblock"><div class="codeline">reciprocal of -2 = -0.5</div>
 <div class="codeline">reciprocal of 0.1 = 10.0</div>
 <div class="codeline">reciprocal of 7 = 0.14286</div>
 <div class="codeline">reciprocal of plus infinity = 0.0</div>
 </div></div><p>Now for taking powers. In general we have:</p>
-<div class="defn" id="ph_power"><span class="neutral">(real number)</span><span class="defn"> to the power </span><span class="neutral">(real number)</span> &rArr; <em>real number</em><p>Computes x to the power y. Examples:</p>
+<div class="defn" id="ph_power"><div class="defnline"><span class="neutral">(real number)</span><span class="defn"> to the power </span><span class="neutral">(real number)</span> &rArr; <em>real number</em></div><p>Computes x to the power y. Examples:</p>
 <div class="codeblock"><div class="codeline">2 to the power 4 = 16.0</div>
 <div class="codeline">100 to the power 0.5 = 10.0</div>
 <div class="codeline">7 to the power -1 = 0.14286</div>
@@ -243,19 +243,19 @@
 <div class="codeblock"><div class="codeline">X to the power (reciprocal of N)</div>
 </div><p>being careful to use &quot;reciprocal of N&quot; rather than &quot;1 divided by N&quot; to make sure we&#39;re using real and not integer arithmetic.</p>
 <p>Similarly, the following is more efficient than &quot;e to the power &hellip;&quot;, but equivalent to it:</p>
-<div class="defn" id="ph_exp"><span class="defn">exponential of </span><span class="neutral">(real number)</span> &rArr; <em>real number</em><p>Computes e to the given power, where e is the base of natural logarithms. Examples:</p>
+<div class="defn" id="ph_exp"><div class="defnline"><span class="defn">exponential of </span><span class="neutral">(real number)</span> &rArr; <em>real number</em></div><p>Computes e to the given power, where e is the base of natural logarithms. Examples:</p>
 <div class="codeblock"><div class="codeline">exponential of 0 = 1.0</div>
 <div class="codeline">exponential of 1 = e = 2.7182818</div>
 <div class="codeline">exponential of -10 = 4.53999 x 10^-5</div>
 <div class="codeline">exponential of 10 = 22026.46484</div>
 <div class="codeline">exponential of logarithm of 7.12 = 7.12</div>
 </div></div><p>The reverse of taking powers is taking logarithms.</p>
-<div class="defn" id="ph_logarithmto"><span class="defn">logarithm to base </span><span class="neutral">(number)</span><span class="defn"> of </span><span class="neutral">(real number)</span> &rArr; <em>real number</em><p>Finds what power the base would have to be raised to in order to get this value. Examples:</p>
+<div class="defn" id="ph_logarithmto"><div class="defnline"><span class="defn">logarithm to base </span><span class="neutral">(number)</span><span class="defn"> of </span><span class="neutral">(real number)</span> &rArr; <em>real number</em></div><p>Finds what power the base would have to be raised to in order to get this value. Examples:</p>
 <div class="codeblock"><div class="codeline">logarithm to base 10 of 1000000 = 6.0</div>
 <div class="codeline">logarithm to base 10 of 350 = 2.54407</div>
 <div class="codeline">logarithm to base 2 of 256 = 8.0</div>
 </div><p>Logarithms of zero or negative numbers are nonexistent. Note that &quot;logarithm to base 10 of &hellip;&quot; is what most calculators call simply &quot;log&quot;, but Inform doesn&#39;t: it uses &quot;log&quot; for natural logarithms.</p>
-</div><div class="defn" id="ph_logarithm"><span class="defn">natural/-- logarithm of </span><span class="neutral">(real number)</span> &rArr; <em>real number</em><p>Finds what power e would have to be raised to in order to get this value. Examples:</p>
+</div><div class="defn" id="ph_logarithm"><div class="defnline"><span class="defn">natural/-- logarithm of </span><span class="neutral">(real number)</span> &rArr; <em>real number</em></div><p>Finds what power e would have to be raised to in order to get this value. Examples:</p>
 <div class="codeblock"><div class="codeline">logarithm of e = 1.0</div>
 <div class="codeline">logarithm of 1 = 0.0</div>
 <div class="codeline">logarithm of 1000 = 6.90776</div>
@@ -264,35 +264,35 @@
 </div><h3 id="section_7">WI §15.7 Trigonometry</h3>
 <div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_6">15.6 Powers and logarithms</a></div><div class="sect-navbar-center"><a href="#chapter_15">15. Numbers and Equations</a></div><div class="sect-navbar-right"><a href="#section_8">15.8 Units</a></div></div>
 <p>We have twelve functions left to cover, though they are all closely related.</p>
-<div class="defn" id="ph_degrees"><span class="neutral">(real number)</span><span class="defn"> degrees</span> &rArr; <em>real number</em><p>Inform measures angles in radians, a convention in which the angle for a half circle is pi, and a right angle is pi divided by 2. This is better from a mathematical point of view, but in practice most people think about angles using degrees, where 180 degrees is a half-circle and a right angle is 90 degrees. This phrase helps with that by converting from degrees to radians: in other words, it multiplies by 0.0174532925, since that&#39;s roughly 1/180th of pi. Examples:</p>
+<div class="defn" id="ph_degrees"><div class="defnline"><span class="neutral">(real number)</span><span class="defn"> degrees</span> &rArr; <em>real number</em></div><p>Inform measures angles in radians, a convention in which the angle for a half circle is pi, and a right angle is pi divided by 2. This is better from a mathematical point of view, but in practice most people think about angles using degrees, where 180 degrees is a half-circle and a right angle is 90 degrees. This phrase helps with that by converting from degrees to radians: in other words, it multiplies by 0.0174532925, since that&#39;s roughly 1/180th of pi. Examples:</p>
 <div class="codeblock"><div class="codeline">sine of 90 degrees = 0.0</div>
 <div class="codeline">cosine of 60 degrees = 0.5</div>
-</div></div><div class="defn" id="ph_sine"><span class="defn">sine of </span><span class="neutral">(real number)</span> &rArr; <em>real number</em><p>The length of the upright of a right-angled triangle with this angle and a hypotenuse of length 1, where angle is measured in radians. Examples:</p>
+</div></div><div class="defn" id="ph_sine"><div class="defnline"><span class="defn">sine of </span><span class="neutral">(real number)</span> &rArr; <em>real number</em></div><p>The length of the upright of a right-angled triangle with this angle and a hypotenuse of length 1, where angle is measured in radians. Examples:</p>
 <div class="codeblock"><div class="codeline">sine of 0 = 0</div>
 <div class="codeline">sine of 45 degrees = 0.70711</div>
 <div class="codeline">sine of (pi divided by 4) = 0.70711</div>
 <div class="codeline">sine of (pi divided by 2) = 1.0</div>
 <div class="codeline">sine of pi = 0</div>
-</div></div><div class="defn" id="ph_cosine"><span class="defn">cosine of </span><span class="neutral">(real number)</span> &rArr; <em>real number</em><p>The length of the base of a right-angled triangle with this angle and a hypotenuse of length 1, where angle is measured in radians. Examples:</p>
+</div></div><div class="defn" id="ph_cosine"><div class="defnline"><span class="defn">cosine of </span><span class="neutral">(real number)</span> &rArr; <em>real number</em></div><p>The length of the base of a right-angled triangle with this angle and a hypotenuse of length 1, where angle is measured in radians. Examples:</p>
 <div class="codeblock"><div class="codeline">cosine of 0 = 1.0</div>
 <div class="codeline">cosine of 45 degrees = 0.70711</div>
 <div class="codeline">cosine of (pi divided by 4) = 0.70711</div>
 <div class="codeline">cosine of (pi divided by 2) = 0.0</div>
 <div class="codeline">cosine of pi = -1.0</div>
-</div></div><div class="defn" id="ph_tangent"><span class="defn">tangent of </span><span class="neutral">(real number)</span> &rArr; <em>real number</em><p>The ratio of the upright length to the base length in a right-angled triangle with this angle and a hypotenuse of length 1, where angle is measured in radians. Examples:</p>
+</div></div><div class="defn" id="ph_tangent"><div class="defnline"><span class="defn">tangent of </span><span class="neutral">(real number)</span> &rArr; <em>real number</em></div><p>The ratio of the upright length to the base length in a right-angled triangle with this angle and a hypotenuse of length 1, where angle is measured in radians. Examples:</p>
 <div class="codeblock"><div class="codeline">tangent of 0 = 0.0</div>
 <div class="codeline">tangent of 45 degrees = 1.0</div>
 <div class="codeline">tangent of (pi divided by 4) = 1.0</div>
 <div class="codeline">tangent of (pi divided by 2) = plus infinity</div>
-</div></div><div class="defn" id="ph_arcsine"><span class="defn">arcsine of </span><span class="neutral">(real number)</span> &rArr; <em>real number</em><p>The inverse of the sine function.</p>
-</div><div class="defn" id="ph_arccosine"><span class="defn">arccosine of </span><span class="neutral">(real number)</span> &rArr; <em>real number</em><p>The inverse of the cosine function.</p>
-</div><div class="defn" id="ph_arctangent"><span class="defn">arctangent of </span><span class="neutral">(real number)</span> &rArr; <em>real number</em><p>The inverse of the tangent function.</p>
-</div><div class="defn" id="ph_hyperbolicsine"><span class="defn">hyperbolic sine of </span><span class="neutral">(real number)</span> &rArr; <em>real number</em><p>The hyperbolic sine function, often written &quot;sinh&quot; but pronounced &quot;shine&quot;.</p>
-</div><div class="defn" id="ph_hyperboliccosine"><span class="defn">hyperbolic cosine of </span><span class="neutral">(real number)</span> &rArr; <em>real number</em><p>The hyperbolic cosine function, often written &quot;cosh&quot;.</p>
-</div><div class="defn" id="ph_hyperbolictangent"><span class="defn">hyperbolic tangent of </span><span class="neutral">(real number)</span> &rArr; <em>real number</em><p>The hyperbolic tangent function, often written &quot;tanh&quot;.</p>
-</div><div class="defn" id="ph_hyperbolicarcsine"><span class="defn">hyperbolic arcsine of </span><span class="neutral">(real number)</span> &rArr; <em>real number</em><p>The inverse of the hyperbolic sine function.</p>
-</div><div class="defn" id="ph_hyperbolicarccosine"><span class="defn">hyperbolic arccosine of </span><span class="neutral">(real number)</span> &rArr; <em>real number</em><p>The inverse of the hyperbolic cosine function.</p>
-</div><div class="defn" id="ph_hyperbolicarctangent"><span class="defn">hyperbolic arctangent of </span><span class="neutral">(real number)</span> &rArr; <em>real number</em><p>The inverse of the hyperbolic tangent function.</p>
+</div></div><div class="defn" id="ph_arcsine"><div class="defnline"><span class="defn">arcsine of </span><span class="neutral">(real number)</span> &rArr; <em>real number</em></div><p>The inverse of the sine function.</p>
+</div><div class="defn" id="ph_arccosine"><div class="defnline"><span class="defn">arccosine of </span><span class="neutral">(real number)</span> &rArr; <em>real number</em></div><p>The inverse of the cosine function.</p>
+</div><div class="defn" id="ph_arctangent"><div class="defnline"><span class="defn">arctangent of </span><span class="neutral">(real number)</span> &rArr; <em>real number</em></div><p>The inverse of the tangent function.</p>
+</div><div class="defn" id="ph_hyperbolicsine"><div class="defnline"><span class="defn">hyperbolic sine of </span><span class="neutral">(real number)</span> &rArr; <em>real number</em></div><p>The hyperbolic sine function, often written &quot;sinh&quot; but pronounced &quot;shine&quot;.</p>
+</div><div class="defn" id="ph_hyperboliccosine"><div class="defnline"><span class="defn">hyperbolic cosine of </span><span class="neutral">(real number)</span> &rArr; <em>real number</em></div><p>The hyperbolic cosine function, often written &quot;cosh&quot;.</p>
+</div><div class="defn" id="ph_hyperbolictangent"><div class="defnline"><span class="defn">hyperbolic tangent of </span><span class="neutral">(real number)</span> &rArr; <em>real number</em></div><p>The hyperbolic tangent function, often written &quot;tanh&quot;.</p>
+</div><div class="defn" id="ph_hyperbolicarcsine"><div class="defnline"><span class="defn">hyperbolic arcsine of </span><span class="neutral">(real number)</span> &rArr; <em>real number</em></div><p>The inverse of the hyperbolic sine function.</p>
+</div><div class="defn" id="ph_hyperbolicarccosine"><div class="defnline"><span class="defn">hyperbolic arccosine of </span><span class="neutral">(real number)</span> &rArr; <em>real number</em></div><p>The inverse of the hyperbolic cosine function.</p>
+</div><div class="defn" id="ph_hyperbolicarctangent"><div class="defnline"><span class="defn">hyperbolic arctangent of </span><span class="neutral">(real number)</span> &rArr; <em>real number</em></div><p>The inverse of the hyperbolic tangent function.</p>
 </div><h3 id="section_8">WI §15.8 Units</h3>
 <div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_7">15.7 Trigonometry</a></div><div class="sect-navbar-center"><a href="#chapter_15">15. Numbers and Equations</a></div><div class="sect-navbar-right"><a href="#section_9">15.9 Multiple notations</a></div></div>
 <p>Suppose we want to talk about how tall people are. We could just create a &quot;number&quot; property, like this:</p>
@@ -478,7 +478,7 @@
 <div class="codeline">Definition: A thing is light if its weight is 3kg or less.</div>
 <div class="codeline">Definition: A thing is heavy if its weight is 10kg or more.</div>
 </div><p>and this provides us with &quot;lighter&quot;, &quot;lightest&quot;, &quot;heavier&quot; and &quot;heaviest&quot; as before. Now we could say &quot;if Peter is heavier than Paul&quot;, or even &quot;if Peter is heavier than 75kg&quot;, and so forth. We need one more tool:</p>
-<div class="defn" id="ph_total"><span class="defn">total </span><span class="neutral">(arithmetic values valued property)</span><span class="defn"> of </span><span class="neutral">(description of values)</span> &rArr; <em>value</em><p>This phrase produces the total of some property held by all of the values matching the description. A problem message is produced if the values in question can&#39;t have that property (&quot;the total carrying capacity of scenes&quot;), or if it holds a kind of value which can&#39;t meaningfully be added up (&quot;the total description of open doors&quot;). Example:</p>
+<div class="defn" id="ph_total"><div class="defnline"><span class="defn">total </span><span class="neutral">(arithmetic values valued property)</span><span class="defn"> of </span><span class="neutral">(description of values)</span> &rArr; <em>value</em></div><p>This phrase produces the total of some property held by all of the values matching the description. A problem message is produced if the values in question can&#39;t have that property (&quot;the total carrying capacity of scenes&quot;), or if it holds a kind of value which can&#39;t meaningfully be added up (&quot;the total description of open doors&quot;). Example:</p>
 <div class="codeblock"><div class="codeline">total carrying capacity of people in the Deep Pool</div>
 </div></div><p>That gives us everything we need for a working balance platform:</p>
 <div class="codeblock"><div class="codeline">The balance platform is a supporter in the Weighbridge. &quot;The balance platform is currently weighing [the list of things on the platform]. The scale alongside reads: [total weight of things on the platform].&quot;</div>
@@ -534,7 +534,7 @@
 <div class="codeblock"><div class="codeline">You push the cannon ball off the bench, at a height of 1.2m, and, subject to a downward force of 19.614N, it falls. 0.49s later, this mass of 2.0kg hits the floor at 4.85147 m/s.</div>
 </div><p>Not all that fast-moving &ndash; it&#39;s only about 10 mph, ten times slower than one fired by a Renaissance cannon &ndash; but half a second wouldn&#39;t give you long to get your foot out of the way.</p>
 <p>How was that done? The crucial lines are the ones in the form &quot;let X be given by E&hellip;&quot;, which is a new form of &quot;let&quot;.</p>
-<div class="defn" id="ph_letequation"><span class="defn">let </span><span class="neutral">(a name not so far used)</span><span class="defn"> be given by </span><span class="neutral">(equation name)</span> [or&hellip;]<br><span class="defn">let </span><span class="neutral">(a temporary named value)</span><span class="defn"> be given by </span><span class="neutral">(equation name)</span><p>This phrase creates a new temporary variable, starting it with the value found by solving the given equation. The variable lasts only for the present block of phrases, which certainly means that it lasts only for the current rule. Example:</p>
+<div class="defn" id="ph_letequation"><div class="defnline"><span class="defn">let </span><span class="neutral">(a name not so far used)</span><span class="defn"> be given by </span><span class="neutral">(equation name)</span></div><div class="defn-or">or&hellip;</div><div class="defnline"><span class="defn">let </span><span class="neutral">(a temporary named value)</span><span class="defn"> be given by </span><span class="neutral">(equation name)</span></div><p>This phrase creates a new temporary variable, starting it with the value found by solving the given equation. The variable lasts only for the present block of phrases, which certainly means that it lasts only for the current rule. Example:</p>
 <div class="codeblock"><div class="codeline">let F be given by Newton&#39;s Second Law where a is the acceleration due to gravity;</div>
 </div><p>There is also a more compact syntax, giving the equation explicitly:</p>
 <div class="codeblock"><div class="codeline">let KE be given by KE = mv^2/2 where KE is an energy;</div>

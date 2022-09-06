@@ -222,7 +222,7 @@
 <div class="codeline">&ensp;&ensp;</div>
 <div class="codeline">Instead of switching on the machine, follow the appraisal rules.</div>
 </div><p>The creation of the rulebook is all very well, but without the final sentence it would never be used. The crucial new phrase here is:</p>
-<div class="defn" id="ph_follow"><span class="defn">follow </span><span class="neutral">(rule)</span><p>This phrase causes the rule to be obeyed immediately (rather than simply at predetermined times such as when a particular action is being tried, or at the end of every turn, and such). Example:</p>
+<div class="defn" id="ph_follow"><div class="defnline"><span class="defn">follow </span><span class="neutral">(rule)</span></div><p>This phrase causes the rule to be obeyed immediately (rather than simply at predetermined times such as when a particular action is being tried, or at the end of every turn, and such). Example:</p>
 <div class="codeblock"><div class="codeline">follow the advance time rule;</div>
 <div class="codeline">follow the appraisal rulebook;</div>
 </div></div><p>Like &quot;number&quot; or &quot;text&quot;, &quot;rule&quot; and &quot;rulebook&quot; are kinds of value built into Inform: &quot;the blossom rule&quot; is a value whose kind is &quot;rule&quot;, whereas &quot;the every turn rules&quot; is a value whose kind is &quot;rulebook&quot;. In fact, Inform considers a rulebook to be a special case of a rule, so that whenever a rule is required it is legal to name a rulebook instead, but not vice versa. The &quot;follow&quot; phrase here&hellip;</p>
@@ -268,7 +268,7 @@
 <div class="codeline">Grading 9: There&#39;s something odd about 9.</div>
 <div class="codeline">Grading 10: Just 10.</div>
 </div><p>Here we needed a variation on &quot;follow&quot; which supplies the value to apply to:</p>
-<div class="defn" id="ph_followfor"><span class="defn">follow </span><span class="neutral">(values based rule producing values)</span><span class="defn"> for </span><span class="neutral">(value)</span><p>This phrase causes the rule to be obeyed immediately (rather than simply at predetermined times such as when a particular action is being tried, or at the end of every turn, and such), and applies it to the value given, which must be of a matching kind. Example:</p>
+<div class="defn" id="ph_followfor"><div class="defnline"><span class="defn">follow </span><span class="neutral">(values based rule producing values)</span><span class="defn"> for </span><span class="neutral">(value)</span></div><p>This phrase causes the rule to be obeyed immediately (rather than simply at predetermined times such as when a particular action is being tried, or at the end of every turn, and such), and applies it to the value given, which must be of a matching kind. Example:</p>
 <div class="codeblock"><div class="codeline">follow the reaching inside rulebook for the electrified cage;</div>
 </div></div><p>And here is an example based on objects:</p>
 <div class="codeblock"><div class="codeline">The flotation rules are an object based rulebook.</div>
@@ -314,9 +314,9 @@
 </div><p>(&quot;Success&quot; and &quot;failure&quot; are technical terms here: they do not mean that the player has or hasn&#39;t got what he wanted.) This is why the rule:</p>
 <div class="codeblock"><div class="codeline">Before taking something: say &quot;The sentry won&#39;t let you!&quot; instead.</div>
 </div><p>ends in failure, and therefore stops the &quot;before&quot; rulebook. Another easy-to-spot case is when a rule makes use of the explicit phrases:</p>
-<div class="defn" id="ph_succeeds"><span class="defn">rule succeeds</span><p>This causes the current rule to end immediately, with its outcome considered to be a success. The rulebook being worked through also ends, and is also a success.</p>
-</div><div class="defn" id="ph_fails"><span class="defn">rule fails</span><p>This causes the current rule to end immediately, with its outcome considered to be a failure. The rulebook being worked through also ends, and is also a failure.</p>
-</div><div class="defn" id="ph_nodecision"><span class="defn">make no decision</span><p>This causes the current rule to end immediately, but with no outcome. That means the rulebook being worked through will continue to run on, beginning with the next rule.</p>
+<div class="defn" id="ph_succeeds"><div class="defnline"><span class="defn">rule succeeds</span></div><p>This causes the current rule to end immediately, with its outcome considered to be a success. The rulebook being worked through also ends, and is also a success.</p>
+</div><div class="defn" id="ph_fails"><div class="defnline"><span class="defn">rule fails</span></div><p>This causes the current rule to end immediately, with its outcome considered to be a failure. The rulebook being worked through also ends, and is also a failure.</p>
+</div><div class="defn" id="ph_nodecision"><div class="defnline"><span class="defn">make no decision</span></div><p>This causes the current rule to end immediately, but with no outcome. That means the rulebook being worked through will continue to run on, beginning with the next rule.</p>
 </div><p>But what happens if a rule simply doesn&#39;t say whether it succeeds, fails or has no outcome? In that case <strong>it depends on the rulebook</strong>. For almost all rulebooks, a rule which doesn&#39;t make a choice has no outcome, as in the following example:</p>
 <div class="codeblock"><div class="codeline">Before taking something: say &quot;The sentry looks at you anxiously!&quot;</div>
 </div><p>This rule, if it takes effect, ends with no outcome &ndash; so the action continues. But other rulebooks have a different convention: the most important is &quot;instead&quot;, where a rule making no explicit choice is deemed to end in failure. For instance:</p>
@@ -327,11 +327,11 @@
 <div class="codeblock"><div class="codeline">The cosmic analysis rules are a rulebook. The cosmic analysis rules have default failure.</div>
 </div><p>Finally, note that the default outcome for a rulebook is really the default outcome for any rule in that rulebook: if no rules in the rulebook ever apply, for instance if there aren&#39;t any and the rulebook is empty, then the rulebook ends with no outcome at all.</p>
 <p>We can test the latest outcome like so:</p>
-<div class="defn" id="ph_succeeded"><span class="defn">if rule succeeded:</span><p>This condition is true if the most recently followed rule or rulebook ended in success. Example:</p>
+<div class="defn" id="ph_succeeded"><div class="defnline"><span class="defn">if rule succeeded:</span></div><p>This condition is true if the most recently followed rule or rulebook ended in success. Example:</p>
 <div class="codeblock"><div class="codeline">follow the hypothetical clever rule;</div>
 <div class="codeline">if rule succeeded:</div>
 <div class="codeline">&ensp;&ensp;...</div>
-</div></div><div class="defn" id="ph_failed"><span class="defn">if rule failed:</span><p>This condition is true if the most recently followed rule or rulebook ended in failure. Example:</p>
+</div></div><div class="defn" id="ph_failed"><div class="defnline"><span class="defn">if rule failed:</span></div><p>This condition is true if the most recently followed rule or rulebook ended in failure. Example:</p>
 <div class="codeblock"><div class="codeline">follow the hypothetical clever rule;</div>
 <div class="codeline">if rule failed:</div>
 <div class="codeline">&ensp;&ensp;...</div>
@@ -353,7 +353,7 @@
 <p>The same named outcome can be used for more than one rulebook, and can have different meanings in the context of different rulebooks &ndash; &quot;good news&quot; could be defined as success in one rulebook and failure in another, for instance. (This means that rulebook creators need not worry about name clashes and is an important difference in behaviour between rulebook outcomes and kinds of value.) We can even name a specific named outcome as the default outcome for rules in this rulebook:</p>
 <div class="codeblock"><div class="codeline">Audibility rules have outcomes high background noise (failure), low background noise (success - the default) and absolute silence (success).</div>
 </div><p>After a rulebook using named outcomes has run, we can test which outcome occurred by using the phrase:</p>
-<div class="defn" id="ph_rulebookoutcome"><span class="defn">outcome of the rulebook</span> &rArr; <em>rulebook outcome</em><p>This phrase produces the (named) outcome of the phrase most recently followed. Example:</p>
+<div class="defn" id="ph_rulebookoutcome"><div class="defnline"><span class="defn">outcome of the rulebook</span> &rArr; <em>rulebook outcome</em></div><p>This phrase produces the (named) outcome of the phrase most recently followed. Example:</p>
 <div class="codeblock"><div class="codeline">follow the audibility rules;</div>
 <div class="codeline">if the outcome of the rulebook is the absolute silence outcome:</div>
 <div class="codeline">&ensp;&ensp;say &quot;You could hear a pin drop in here.&quot;</div>
@@ -386,7 +386,7 @@
 <div class="codeblock"><div class="codeline">Cat behavior when Austin can see the ball of wool:</div>
 <div class="codeline">&ensp;&ensp;rule succeeds with result the ball of wool.</div>
 </div><p>The value is produced only when a rule succeeds, using this phrase:</p>
-<div class="defn" id="ph_succeedswith"><span class="defn">rule succeeds with result </span><span class="neutral">(value)</span><p>This phrase can only be used in a rule which produces a value, and the value given must be of the right kind. It causes the current rule to finish immediately, to succeed, and to produce the value given.</p>
+<div class="defn" id="ph_succeedswith"><div class="defnline"><span class="defn">rule succeeds with result </span><span class="neutral">(value)</span></div><p>This phrase can only be used in a rule which produces a value, and the value given must be of the right kind. It causes the current rule to finish immediately, to succeed, and to produce the value given.</p>
 </div><p>How are we to use the cat behavior rulebook? If we write:</p>
 <div class="codeblock"><div class="codeline">follow cat behavior</div>
 </div><p>then the rulebook runs just as any other rulebook would, but the value produced is lost at the end, which defeats the point. Instead, we might write:</p>
@@ -398,8 +398,8 @@
 </div><p>The key phrase here is</p>
 <div class="codeblock"><div class="codeline">object produced by the cat behavior rules</div>
 </div><p>which accesses the value this rulebook produces. In general, we write:</p>
-<div class="defn" id="ph_producedby"><span class="neutral">(name of kind)</span><span class="defn"> produced by </span><span class="neutral">(rule producing values)</span> &rArr; <em>value</em><p>This phrase is used to follow the named rule, and to collect the resulting value.</p>
-</div><div class="defn" id="ph_producedbyfor"><span class="neutral">(name of kind)</span><span class="defn"> produced by </span><span class="neutral">(values based rule producing values)</span><span class="defn"> for </span><span class="neutral">(value)</span> &rArr; <em>value</em><p>This phrase is used to follow the named rule based on the value given, and to collect the resulting value.</p>
+<div class="defn" id="ph_producedby"><div class="defnline"><span class="neutral">(name of kind)</span><span class="defn"> produced by </span><span class="neutral">(rule producing values)</span> &rArr; <em>value</em></div><p>This phrase is used to follow the named rule, and to collect the resulting value.</p>
+</div><div class="defn" id="ph_producedbyfor"><div class="defnline"><span class="neutral">(name of kind)</span><span class="defn"> produced by </span><span class="neutral">(values based rule producing values)</span><span class="defn"> for </span><span class="neutral">(value)</span> &rArr; <em>value</em></div><p>This phrase is used to follow the named rule based on the value given, and to collect the resulting value.</p>
 </div><div class="examples">
 <h4>Examples</h4>
 <div class="example-short">405. ★ <a href="examples/feline_behavior.html">Feline Behavior</a><br>A cat which reacts to whatever items it has handy, returning the result of a rulebook for further processing.</p></div><div class="linkback"><a href="RB_8.html#section_3" title="Vehicles, Animals and Furniture &gt; Animals">RB §8.3 Animals</a></div>
@@ -409,21 +409,21 @@
 <p>It often happens that one rule needs to invoke another one. Most of the time, the best way to do this is with &quot;follow&quot;:</p>
 <div class="codeblock"><div class="codeline">follow the magical mystery tour rule;</div>
 </div><p>More often, though, we want not only to invoke another rule, but also to be guided by its advice. For this, we use the otherwise identical phrase:</p>
-<div class="defn" id="ph_abide"><span class="defn">abide by </span><span class="neutral">(rule)</span><p>This phrase applies the given rule, and makes its result the result of the present rule. If the rule being abided by succeeds or fails then the original rule also stops, at once and without going on to any further instructions. Example:</p>
+<div class="defn" id="ph_abide"><div class="defnline"><span class="defn">abide by </span><span class="neutral">(rule)</span></div><p>This phrase applies the given rule, and makes its result the result of the present rule. If the rule being abided by succeeds or fails then the original rule also stops, at once and without going on to any further instructions. Example:</p>
 <div class="codeblock"><div class="codeline">The omnibus rule:</div>
 <div class="codeline">&ensp;&ensp;abide by the first rule;</div>
 <div class="codeline">&ensp;&ensp;abide by the second rule;</div>
 <div class="codeline">&ensp;&ensp;abide by the third rule;</div>
 <div class="codeline">&ensp;&ensp;abide by the fourth rule.</div>
 </div><p>This duplicates the effect of a rulebook of four rules: the &quot;omnibus rule&quot; tries each in turn, and stops as soon as any of them stop.</p>
-</div><div class="defn" id="ph_abidefor"><span class="defn">abide by </span><span class="neutral">(values based rule producing values)</span><span class="defn"> for </span><span class="neutral">(value)</span><p>This phrase applies the given rule to the given value, and makes its result the result of the present rule. If the rule being abided by succeeds or fails then the original rule also stops, at once and without going on to any further instructions.</p>
+</div><div class="defn" id="ph_abidefor"><div class="defnline"><span class="defn">abide by </span><span class="neutral">(values based rule producing values)</span><span class="defn"> for </span><span class="neutral">(value)</span></div><p>This phrase applies the given rule to the given value, and makes its result the result of the present rule. If the rule being abided by succeeds or fails then the original rule also stops, at once and without going on to any further instructions.</p>
 </div><p>Abide might be used in examples like this one:</p>
 <div class="codeblock"><div class="codeline">A thing can be fragile or robust.</div>
 <div class="codeline">This is the can&#39;t handle fragile things roughly rule: if the noun is fragile, say &quot;[The noun] is too fragile for such rough handling.&quot; instead.</div>
 <div class="codeline">A check dropping rule: abide by the can&#39;t handle fragile things roughly rule. A check throwing it at rule: abide by the can&#39;t handle fragile things roughly rule.</div>
 </div><p>Had we used &quot;follow&quot; instead of &quot;abide by&quot;, then in the event of the player typing &quot;drop angel&quot; the text &quot;The glass angel is too fragile for such rough handling&quot; would be printed, which is correct &ndash; but then the action would continue as though no difficulty had occurred, which is definitely not correct.</p>
 <p>Finally, we can &quot;anonymously abide&quot;:</p>
-<div class="defn" id="ph_abideanon"><span class="defn">anonymously abide by </span><span class="neutral">(rule)</span> [or&hellip;]<br><span class="defn">anonymously abide by </span><span class="neutral">(values based rule producing values)</span><span class="defn"> for </span><span class="neutral">(value)</span><p>This phrase applies the given rule, and makes its result the result of the present rule. If the rule being abided by succeeds or fails then the original rule also stops, at once and without going on to any further instructions. However, the rule deemed to have decided the outcome is the one abided by, not the one doing the abiding.</p>
+<div class="defn" id="ph_abideanon"><div class="defnline"><span class="defn">anonymously abide by </span><span class="neutral">(rule)</span></div><div class="defn-or">or&hellip;</div><div class="defnline"><span class="defn">anonymously abide by </span><span class="neutral">(values based rule producing values)</span><span class="defn"> for </span><span class="neutral">(value)</span></div><p>This phrase applies the given rule, and makes its result the result of the present rule. If the rule being abided by succeeds or fails then the original rule also stops, at once and without going on to any further instructions. However, the rule deemed to have decided the outcome is the one abided by, not the one doing the abiding.</p>
 </div><p>This is only useful in complicated situations where one rulebook uses another which&hellip; and so on. Its effect is exactly the same as &quot;abide&quot;, except that the rule deemed to have decided the outcome is the one abided by, not the one doing the abiding. It thus allows a rule or rulebook to act purely as a middle-man, never getting the blame or the credit for what happens. The rule which made the decision is often not very relevant anyway, but it&#39;s used as the source of the value &quot;reason the action failed&quot; (see the Advanced Actions chapter).</p>
 <h3 id="section_15">WI §19.15 Two rulebooks used internally</h3>
 <div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_14">19.14 Abide by</a></div><div class="sect-navbar-center"><a href="#chapter_19">19. Rulebooks</a></div><div class="sect-navbar-right"><a href="#section_16">19.16 The Laws for Sorting Rulebooks</a></div></div>

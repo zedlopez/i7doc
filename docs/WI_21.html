@@ -103,7 +103,7 @@
 <div class="codeblock"><div class="codeline">let L1 be {2, 3, 5, 7, 11};</div>
 <div class="codeline">say L1;</div>
 </div><p>produces the text &quot;2, 3, 5, 7 and 11&quot; &ndash; unless we have &quot;Use serial comma.&quot; set, in which case a comma appears after the 7. We also have the option of using the more formal notation:</p>
-<div class="defn" id="phs_listbraced"><span class="defn">say "[</span><span class="neutral">(list of values)</span><span class="defn"> in brace notation]"</span><p>This text substitution produces the list in the form of &quot;{&quot;, then a comma-separated list, and then &quot;}&quot;, which looks less like an English sentence but more mathematical. Example:</p>
+<div class="defn" id="phs_listbraced"><div class="defnline"><span class="defn">say "[</span><span class="neutral">(list of values)</span><span class="defn"> in brace notation]"</span></div><p>This text substitution produces the list in the form of &quot;{&quot;, then a comma-separated list, and then &quot;}&quot;, which looks less like an English sentence but more mathematical. Example:</p>
 <div class="codeblock"><div class="codeline">&quot;[list of people in brace notation]&quot;</div>
 </div><p>might produce &quot;{ yourself, Mr Darcy, Flashman }&quot;.</p>
 </div><p>If we say a list of lists, then the individual entry lists are always printed in brace notation: the ordinary sentence way would be incomprehensible.</p>
@@ -111,11 +111,11 @@
 <div class="codeblock"><div class="codeline">let L2 be {the piano, the music stand};</div>
 <div class="codeline">say L2;</div>
 </div><p>which produces &quot;piano and music stand&quot;. Lists of objects can be said in two additional ways:</p>
-<div class="defn" id="phs_listdef"><span class="defn">say "[</span><span class="neutral">(list of objects)</span><span class="defn"> with definite articles]"</span><p>This text substitution writes out the list in sentence form, adding the appropriate definite articles. Example:</p>
+<div class="defn" id="phs_listdef"><div class="defnline"><span class="defn">say "[</span><span class="neutral">(list of objects)</span><span class="defn"> with definite articles]"</span></div><p>This text substitution writes out the list in sentence form, adding the appropriate definite articles. Example:</p>
 <div class="codeblock"><div class="codeline">let L be {the piano, the music stand};</div>
 <div class="codeline">say &quot;[L with definite articles]&quot;;</div>
 </div><p>says &quot;the piano and the music stand&quot;.</p>
-</div><div class="defn" id="phs_listindef"><span class="defn">say "[</span><span class="neutral">(list of objects)</span><span class="defn"> with indefinite articles]"</span><p>This text substitution writes out the list in sentence form, adding the appropriate indefinite articles. Example:</p>
+</div><div class="defn" id="phs_listindef"><div class="defnline"><span class="defn">say "[</span><span class="neutral">(list of objects)</span><span class="defn"> with indefinite articles]"</span></div><p>This text substitution writes out the list in sentence form, adding the appropriate indefinite articles. Example:</p>
 <div class="codeblock"><div class="codeline">let L be {the piano, the music stand};</div>
 <div class="codeline">say &quot;[L with definite articles]&quot;;</div>
 </div><p>says &quot;a piano and a music stand&quot;.</p>
@@ -125,10 +125,10 @@
 <h3 id="section_4">WI §21.4 Testing and iterating over lists</h3>
 <div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_3">21.3 Saying lists of values</a></div><div class="sect-navbar-center"><a href="#chapter_21">21. Lists</a></div><div class="sect-navbar-right"><a href="#section_5">21.5 Building lists</a></div></div>
 <p>If L is a list, we can interrogate it to see whether it does or does not contain (at least one instance of) any compatible value V:</p>
-<div class="defn" id="ph_islistedin"><span class="defn">if </span><span class="neutral">(value)</span><span class="defn"> is listed in </span><span class="neutral">(list of values)</span><span class="defn">:</span><p>This condition is true if the given value, which must be of a compatible kind, is one of those in the list. For instance, if L is our list of the numbers 2, 3, 5, 7 and 11 then 5 is listed in it but 6 is not.</p>
-</div><div class="defn" id="ph_isnotlistedin"><span class="defn">if </span><span class="neutral">(value)</span><span class="defn"> is not listed in </span><span class="neutral">(list of values)</span><span class="defn">:</span><p>This condition is true if the given value, which must be of a compatible kind, is not one of those in the list.</p>
+<div class="defn" id="ph_islistedin"><div class="defnline"><span class="defn">if </span><span class="neutral">(value)</span><span class="defn"> is listed in </span><span class="neutral">(list of values)</span><span class="defn">:</span></div><p>This condition is true if the given value, which must be of a compatible kind, is one of those in the list. For instance, if L is our list of the numbers 2, 3, 5, 7 and 11 then 5 is listed in it but 6 is not.</p>
+</div><div class="defn" id="ph_isnotlistedin"><div class="defnline"><span class="defn">if </span><span class="neutral">(value)</span><span class="defn"> is not listed in </span><span class="neutral">(list of values)</span><span class="defn">:</span></div><p>This condition is true if the given value, which must be of a compatible kind, is not one of those in the list.</p>
 </div><p>We can also repeat running through a list (just as we can with table rows). Thus:</p>
-<div class="defn" id="ph_repeatlist"><span class="defn">repeat with </span><span class="neutral">(a name not so far used)</span><span class="defn"> running through </span><span class="neutral">(list of values)</span><span class="defn">:</span><p>This phrase causes the block of phrases following it to be repeated once for each item in the given list, storing that value in the named variable. (The variable exists only temporarily, within the repetition.) Example:</p>
+<div class="defn" id="ph_repeatlist"><div class="defnline"><span class="defn">repeat with </span><span class="neutral">(a name not so far used)</span><span class="defn"> running through </span><span class="neutral">(list of values)</span><span class="defn">:</span></div><p>This phrase causes the block of phrases following it to be repeated once for each item in the given list, storing that value in the named variable. (The variable exists only temporarily, within the repetition.) Example:</p>
 <div class="codeblock"><div class="codeline">let L be {2, 3, 5, 7, 11, 13, 17, 19};</div>
 <div class="codeline">repeat with prime running through L:</div>
 <div class="codeline">&ensp;&ensp;...</div>
@@ -141,22 +141,22 @@
 <h3 id="section_5">WI §21.5 Building lists</h3>
 <div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_4">21.4 Testing and iterating over lists</a></div><div class="sect-navbar-center"><a href="#chapter_21">21. Lists</a></div><div class="sect-navbar-right"><a href="#section_6">21.6 Lists of objects</a></div></div>
 <p>We have already seen &quot;add&hellip; to&hellip;&quot;. This in fact comes in two forms:</p>
-<div class="defn" id="ph_addtolist"><span class="defn">add </span><span class="neutral">(value)</span><span class="defn"> to </span><span class="neutral">(list of values)</span><p>This phrase adds the given value to the end of the list. Example:</p>
+<div class="defn" id="ph_addtolist"><div class="defnline"><span class="defn">add </span><span class="neutral">(value)</span><span class="defn"> to </span><span class="neutral">(list of values)</span></div><p>This phrase adds the given value to the end of the list. Example:</p>
 <div class="codeblock"><div class="codeline">let L be {60, 168};</div>
 <div class="codeline">add 360 to L;</div>
 </div><p>results in L being {60, 168, 360}. Note that the value is added even if it already occurs somewhere in L; this can be avoided with &quot;if absent&quot;. So:</p>
 <div class="codeblock"><div class="codeline">add 168 to L, if absent;</div>
 </div><p>would do nothing &ndash; it is already there.</p>
-</div><div class="defn" id="ph_addlisttolist"><span class="defn">add </span><span class="neutral">(list of values)</span><span class="defn"> to </span><span class="neutral">(list of values)</span><p>This phrase adds the first list to the end of the second. Example:</p>
+</div><div class="defn" id="ph_addlisttolist"><div class="defnline"><span class="defn">add </span><span class="neutral">(list of values)</span><span class="defn"> to </span><span class="neutral">(list of values)</span></div><p>This phrase adds the first list to the end of the second. Example:</p>
 <div class="codeblock"><div class="codeline">let L be {2, 3, 5, 7};</div>
 <div class="codeline">add {11, 13, 17, 19} to L;</div>
 </div><p>results in L being {2, 3, 5, 7, 11, 13, 17, 19}.</p>
 </div><p>If we don&#39;t want to add new entries at the end, we can instead say where they should go:</p>
-<div class="defn" id="ph_addatentry"><span class="defn">add </span><span class="neutral">(value)</span><span class="defn"> at entry </span><span class="neutral">(number)</span><span class="defn"> in/from </span><span class="neutral">(list of values)</span><p>This phrase adds the given value so that it becomes the entry with that index number in the list. Example:</p>
+<div class="defn" id="ph_addatentry"><div class="defnline"><span class="defn">add </span><span class="neutral">(value)</span><span class="defn"> at entry </span><span class="neutral">(number)</span><span class="defn"> in/from </span><span class="neutral">(list of values)</span></div><p>This phrase adds the given value so that it becomes the entry with that index number in the list. Example:</p>
 <div class="codeblock"><div class="codeline">let L be {1, 2, 3, 4, 8, 24};</div>
 <div class="codeline">add 12 at entry 6 in L;</div>
 </div><p>sets L to {1, 2, 3, 4, 8, 12, 24}. If there are N entries in L, then we can add at any of entries 1 up to N+1: adding at entry N+1 means adding at the end. The phrase option &quot;if absent&quot; makes the phrase do nothing if the value already exists anywhere in L.</p>
-</div><div class="defn" id="ph_addlistatentry"><span class="defn">add </span><span class="neutral">(list of values)</span><span class="defn"> at entry </span><span class="neutral">(number)</span><span class="defn"> in/from </span><span class="neutral">(list of values)</span><p>This phrase adds the first list to the second so that it begins at the given position. Example:</p>
+</div><div class="defn" id="ph_addlistatentry"><div class="defnline"><span class="defn">add </span><span class="neutral">(list of values)</span><span class="defn"> at entry </span><span class="neutral">(number)</span><span class="defn"> in/from </span><span class="neutral">(list of values)</span></div><p>This phrase adds the first list to the second so that it begins at the given position. Example:</p>
 <div class="codeblock"><div class="codeline">let L be {1, 2, 3, 4};</div>
 <div class="codeline">add {4, 8, 12} at entry 3 in L;</div>
 </div><p>results in L being {1, 2, 4, 8, 12, 3, 4}.</p>
@@ -166,20 +166,20 @@
 <div class="codeblock"><div class="codeline">let M be {2, 3, 2};</div>
 </div><p>even though L and M have the same values, repeated the same number of times &ndash; for two lists to be equal, they must have the same kind of entry, the same number of entries, and the same entries in each position.</p>
 <p>We can also strike out values:</p>
-<div class="defn" id="ph_remfromlist"><span class="defn">remove </span><span class="neutral">(value)</span><span class="defn"> in/from </span><span class="neutral">(list of values)</span><p>This phrase removes every instance of the given value from the list. Example:</p>
+<div class="defn" id="ph_remfromlist"><div class="defnline"><span class="defn">remove </span><span class="neutral">(value)</span><span class="defn"> in/from </span><span class="neutral">(list of values)</span></div><p>This phrase removes every instance of the given value from the list. Example:</p>
 <div class="codeblock"><div class="codeline">let L be {3, 1, 4, 1, 5, 9, 2, 6, 5, 3};</div>
 <div class="codeline">remove 1 from L;</div>
 </div><p>results in L being {3, 4, 5, 9, 2, 6, 5, 3}. Ordinarily &quot;remove 7 from L&quot; would produce a run-time problem, since L does not contain the value 7, but using the &quot;if present&quot; option lets us off this: the phrase then does nothing if L does not contain the value to be removed.</p>
-</div><div class="defn" id="ph_remlistfromlist"><span class="defn">remove </span><span class="neutral">(list of values)</span><span class="defn"> in/from </span><span class="neutral">(list of values)</span><p>This phrase removes every instance of any value in the first list from the second. Example:</p>
+</div><div class="defn" id="ph_remlistfromlist"><div class="defnline"><span class="defn">remove </span><span class="neutral">(list of values)</span><span class="defn"> in/from </span><span class="neutral">(list of values)</span></div><p>This phrase removes every instance of any value in the first list from the second. Example:</p>
 <div class="codeblock"><div class="codeline">let L be {3, 1, 4, 1, 5, 9, 2, 6, 5, 3};</div>
 <div class="codeline">remove {0, 2, 4, 6, 8} from L;</div>
 </div><p>results in L being {3, 1, 1, 5, 9, 5, 3}. If both lists are large, this can be a slow process, and we might do better by sorting them and trying a more sophisticated method. But this is convenient for anything reasonable-sized.</p>
 </div><p>Again, we can also remove from specific positions:</p>
-<div class="defn" id="ph_rementry"><span class="defn">remove entry </span><span class="neutral">(number)</span><span class="defn"> in/from </span><span class="neutral">(list of values)</span><p>This phrase removes the entry at the given position, counting from 1 as the first entry. (Once it is removed, the other entries shuffle down.) Example:</p>
+<div class="defn" id="ph_rementry"><div class="defnline"><span class="defn">remove entry </span><span class="neutral">(number)</span><span class="defn"> in/from </span><span class="neutral">(list of values)</span></div><p>This phrase removes the entry at the given position, counting from 1 as the first entry. (Once it is removed, the other entries shuffle down.) Example:</p>
 <div class="codeblock"><div class="codeline">let L be {3, 1, 4, 1, 5, 9, 2, 6, 5, 3};</div>
 <div class="codeline">remove entry 3 from L;</div>
 </div><p>results in L being {3, 1, 1, 5, 9, 2, 6, 5, 3}.</p>
-</div><div class="defn" id="ph_rementries"><span class="defn">remove entries </span><span class="neutral">(number)</span><span class="defn"> to </span><span class="neutral">(number)</span><span class="defn"> in/from </span><span class="neutral">(list of values)</span><p>This phrase removes the entries at the given range of positions, counting from 1 as the first entry. (Once they are removed, the other entries shuffle down.) Example:</p>
+</div><div class="defn" id="ph_rementries"><div class="defnline"><span class="defn">remove entries </span><span class="neutral">(number)</span><span class="defn"> to </span><span class="neutral">(number)</span><span class="defn"> in/from </span><span class="neutral">(list of values)</span></div><p>This phrase removes the entries at the given range of positions, counting from 1 as the first entry. (Once they are removed, the other entries shuffle down.) Example:</p>
 <div class="codeblock"><div class="codeline">let L be {3, 1, 4, 1, 5, 9, 2, 6, 5, 3};</div>
 <div class="codeline">remove entries 3 to 6 from L;</div>
 </div><p>results in L being {3, 1, 2, 6, 5, 3}.</p>
@@ -191,7 +191,7 @@
 <p>Lists can be made of values of any kind (including other lists), but lists of objects are especially useful. We could always make these &quot;by hand&quot;:</p>
 <div class="codeblock"><div class="codeline">let L be {the pot plant, the foxglove};</div>
 </div><p>But it is usually easier and clearer to use descriptions.</p>
-<div class="defn" id="ph_listofdesc"><span class="defn">list of </span><span class="neutral">(description of values)</span> &rArr; <em>value</em><p>This phrase produces the list of all values matching the given description. Inform will issue a problem message if the result would be an infinite list, or one which is impractical to test: for instance &quot;list of even numbers&quot; is not feasible.</p>
+<div class="defn" id="ph_listofdesc"><div class="defnline"><span class="defn">list of </span><span class="neutral">(description of values)</span> &rArr; <em>value</em></div><p>This phrase produces the list of all values matching the given description. Inform will issue a problem message if the result would be an infinite list, or one which is impractical to test: for instance &quot;list of even numbers&quot; is not feasible.</p>
 </div><p>While that works nicely for many kinds of value (&quot;list of recurring scenes&quot;, say), it&#39;s particularly useful for objects:</p>
 <div class="codeblock"><div class="codeline">let L be the list of open containers;</div>
 <div class="codeline">add the list of open doors to L;</div>
@@ -221,45 +221,45 @@
 <h3 id="section_8">WI §21.8 Sorting, reversing and rotating lists</h3>
 <div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_7">21.7 Lists of values matching a description</a></div><div class="sect-navbar-center"><a href="#chapter_21">21. Lists</a></div><div class="sect-navbar-right"><a href="#section_9">21.9 Accessing entries in a list</a></div></div>
 <p>Any list L can be reversed:</p>
-<div class="defn" id="ph_reverselist"><span class="defn">reverse </span><span class="neutral">(list of values)</span><p>This phrase puts the list in reverse order. The old entry 1 becomes the new last entry, and so on: reversing an empty list or a list containing only one entry leaves it unchanged. Example:</p>
+<div class="defn" id="ph_reverselist"><div class="defnline"><span class="defn">reverse </span><span class="neutral">(list of values)</span></div><p>This phrase puts the list in reverse order. The old entry 1 becomes the new last entry, and so on: reversing an empty list or a list containing only one entry leaves it unchanged. Example:</p>
 <div class="codeblock"><div class="codeline">let L be {11, 12, 14, 15, 16, 17};</div>
 <div class="codeline">reverse L;</div>
 </div><p>results in L being {17, 16, 15, 14, 12, 11}.</p>
 </div><p>And any list can similarly be sorted:</p>
-<div class="defn" id="ph_sortlist"><span class="defn">sort </span><span class="neutral">(list of values)</span><p>This phrase puts the list into ascending order. Example:</p>
+<div class="defn" id="ph_sortlist"><div class="defnline"><span class="defn">sort </span><span class="neutral">(list of values)</span></div><p>This phrase puts the list into ascending order. Example:</p>
 <div class="codeblock"><div class="codeline">let L be {6 PM, 11:13 AM, 4:21 PM, 9:01 AM};</div>
 <div class="codeline">sort L;</div>
 </div><p>results in L being {9:01 AM, 11:13 AM, 4:21 PM, 6 PM}.</p>
-</div><div class="defn" id="ph_sortlistreverse"><span class="defn">sort </span><span class="neutral">(list of values)</span><span class="defn"> in reverse order</span><p>This phrase puts the list into descending order. Example:</p>
+</div><div class="defn" id="ph_sortlistreverse"><div class="defnline"><span class="defn">sort </span><span class="neutral">(list of values)</span><span class="defn"> in reverse order</span></div><p>This phrase puts the list into descending order. Example:</p>
 <div class="codeblock"><div class="codeline">let L be {6 PM, 11:13 AM, 4:21 PM, 9:01 AM};</div>
 <div class="codeline">sort L in reverse order;</div>
 </div><p>results in L being {6 PM, 4:21 PM, 11:13 AM, 9:01 AM}.</p>
-</div><div class="defn" id="ph_sortlistrandom"><span class="defn">sort </span><span class="neutral">(list of values)</span><span class="defn"> in random order</span><p>This phrase puts the list into a uniformly random order, shuffling it as if it were a pack of cards. Example:</p>
+</div><div class="defn" id="ph_sortlistrandom"><div class="defnline"><span class="defn">sort </span><span class="neutral">(list of values)</span><span class="defn"> in random order</span></div><p>This phrase puts the list into a uniformly random order, shuffling it as if it were a pack of cards. Example:</p>
 <div class="codeblock"><div class="codeline">let L be {1, 2, 3, 4, 5, 6};</div>
 <div class="codeline">sort L in random order;</div>
 </div><p>might result in L being {3, 1, 5, 6, 4, 2}. Or any of 719 other arrangements, including being left as it was.</p>
 </div><p>Lists of objects can also be sorted in property value order. For instance,</p>
-<div class="defn" id="ph_sortlistproperty"><span class="defn">sort </span><span class="neutral">(list of objects)</span><span class="defn"> in </span><span class="neutral">(property)</span><span class="defn"> order</span><p>This phrase puts the list into ascending order of the values of the given property for the items in the list; this is only allowed if all of those values do have the property in question. Example:</p>
+<div class="defn" id="ph_sortlistproperty"><div class="defnline"><span class="defn">sort </span><span class="neutral">(list of objects)</span><span class="defn"> in </span><span class="neutral">(property)</span><span class="defn"> order</span></div><p>This phrase puts the list into ascending order of the values of the given property for the items in the list; this is only allowed if all of those values do have the property in question. Example:</p>
 <div class="codeblock"><div class="codeline">let L be the list of people;</div>
 <div class="codeline">sort L in carrying capacity order;</div>
 </div><p>would arrange people with weaklings first, titans last.</p>
-</div><div class="defn" id="ph_sortlistpropertyreverse"><span class="defn">sort </span><span class="neutral">(list of objects)</span><span class="defn"> in reverse </span><span class="neutral">(property)</span><span class="defn"> order</span><p>This phrase puts the list into descending order of the values of the given property for the items in the list; this is only allowed if all of those values do have the property in question. Example:</p>
+</div><div class="defn" id="ph_sortlistpropertyreverse"><div class="defnline"><span class="defn">sort </span><span class="neutral">(list of objects)</span><span class="defn"> in reverse </span><span class="neutral">(property)</span><span class="defn"> order</span></div><p>This phrase puts the list into descending order of the values of the given property for the items in the list; this is only allowed if all of those values do have the property in question. Example:</p>
 <div class="codeblock"><div class="codeline">let L be the list of people;</div>
 <div class="codeline">sort L in reverse carrying capacity order;</div>
 </div><p>would arrange people with titans first, weaklings last.</p>
 </div><p>Rotating a list means moving all of its entries along by one place, and then moving the one on the end back to the start. For instance, if L is {1, 2, 3, 4}, then</p>
-<div class="defn" id="ph_rotatelist"><span class="defn">rotate </span><span class="neutral">(list of values)</span><p>This phrase shuffles the entries of the list forwards (to the right) by one place, so that the 1st becomes 2nd, the 2nd becomes 3rd, and so on until the last, which becomes the new first entry. Example:</p>
+<div class="defn" id="ph_rotatelist"><div class="defnline"><span class="defn">rotate </span><span class="neutral">(list of values)</span></div><p>This phrase shuffles the entries of the list forwards (to the right) by one place, so that the 1st becomes 2nd, the 2nd becomes 3rd, and so on until the last, which becomes the new first entry. Example:</p>
 <div class="codeblock"><div class="codeline">let L be { &quot;cow&quot;, &quot;heifer&quot;, &quot;bullock&quot; };</div>
 <div class="codeline">rotate L;</div>
 </div><p>results in L being { &quot;bullock&quot;, &quot;cow&quot;, &quot;heifer&quot; }.</p>
-</div><div class="defn" id="ph_rotatelistback"><span class="defn">rotate </span><span class="neutral">(list of values)</span><span class="defn"> backwards</span><p>This phrase shuffles the entries of the list backwards (to the left) by one place, so that the 3rd becomes 2nd, the 2nd becomes 1st, and so on; the previous 1st entry becomes the new last entry. Example:</p>
+</div><div class="defn" id="ph_rotatelistback"><div class="defnline"><span class="defn">rotate </span><span class="neutral">(list of values)</span><span class="defn"> backwards</span></div><p>This phrase shuffles the entries of the list backwards (to the left) by one place, so that the 3rd becomes 2nd, the 2nd becomes 1st, and so on; the previous 1st entry becomes the new last entry. Example:</p>
 <div class="codeblock"><div class="codeline">let L be { &quot;cow&quot;, &quot;heifer&quot;, &quot;bullock&quot; };</div>
 <div class="codeline">rotate L backwards;</div>
 </div><p>results in L being { &quot;heifer&quot;, &quot;bullock&quot;, &quot;cow&quot;}. (This achieves the same effect as &quot;reverse L; rotate L; reverse L;&quot; but is a little faster, and a lot less effort to read.)</p>
 </div><h3 id="section_9">WI §21.9 Accessing entries in a list</h3>
 <div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_8">21.8 Sorting, reversing and rotating lists</a></div><div class="sect-navbar-center"><a href="#chapter_21">21. Lists</a></div><div class="sect-navbar-right"><a href="#section_10">21.10 Lengthening or shortening a list</a></div></div>
 <p>The length of a list can change as values are added or removed, and can in principle be any number from 0 upwards. A list with 0 entries is empty. We can find the length with:</p>
-<div class="defn" id="ph_numberentries"><span class="defn">number of entries in/of/from </span><span class="neutral">(list of values)</span> &rArr; <em>number</em><p>This phrase produces the number of positions in the list. Example:</p>
+<div class="defn" id="ph_numberentries"><div class="defnline"><span class="defn">number of entries in/of/from </span><span class="neutral">(list of values)</span> &rArr; <em>number</em></div><p>This phrase produces the number of positions in the list. Example:</p>
 <div class="codeblock"><div class="codeline">the number of entries in {1, 1, 1, 3, 1}</div>
 </div><p>is 5, even though there are only two genuinely different items in the list.</p>
 </div><p>If the length is N then the entries are numbered from 1 (the front) to N (the back). These entries can be accessed directly by their numbers. For instance,</p>
@@ -276,23 +276,23 @@
 <h3 id="section_10">WI §21.10 Lengthening or shortening a list</h3>
 <div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_9">21.9 Accessing entries in a list</a></div><div class="sect-navbar-center"><a href="#chapter_21">21. Lists</a></div><div class="sect-navbar-right"><a href="#section_11">21.11 Variations: arrays, logs, queues, stacks, sets, sieves and rings</a></div></div>
 <p>We can explicitly change the length of a list like so:</p>
-<div class="defn" id="ph_changelength"><span class="defn">change </span><span class="neutral">(list of values)</span><span class="defn"> to have </span><span class="neutral">(number)</span><span class="defn"> entries/entry</span><p>This phrase alters the given list so that it now has exactly the number of entries given. Example:</p>
+<div class="defn" id="ph_changelength"><div class="defnline"><span class="defn">change </span><span class="neutral">(list of values)</span><span class="defn"> to have </span><span class="neutral">(number)</span><span class="defn"> entries/entry</span></div><p>This phrase alters the given list so that it now has exactly the number of entries given. Example:</p>
 <div class="codeblock"><div class="codeline">change L to have 21 entries;</div>
 </div><p>If L previously had more than 21 entries, they are thrown away (and lost forever); if L previously had fewer, then new entries are created, using the default value for whatever kind of value L holds. So extending a list of numbers will pad it out with 0s, but extending a list of texts will pad it out with the empty text &quot;&quot;, and so on.</p>
 </div><p>We can also write the equivalent phrases:</p>
-<div class="defn" id="ph_truncate"><span class="defn">truncate </span><span class="neutral">(list of values)</span><span class="defn"> to </span><span class="neutral">(number)</span><span class="defn"> entries/entry</span><p>This phrase alters the given list so that it now has no more than the number of entries given. Example:</p>
+<div class="defn" id="ph_truncate"><div class="defnline"><span class="defn">truncate </span><span class="neutral">(list of values)</span><span class="defn"> to </span><span class="neutral">(number)</span><span class="defn"> entries/entry</span></div><p>This phrase alters the given list so that it now has no more than the number of entries given. Example:</p>
 <div class="codeblock"><div class="codeline">truncate L to 8 entries;</div>
 </div><p>shortens L to length 8 if it is currently longer than that, trimming entries from the end, but would (for instance) leave a list of length 3 unchanged. Note that</p>
 <div class="codeblock"><div class="codeline">truncate L to 0 entries;</div>
 </div><p>empties it to { }, the list with nothing in.</p>
-</div><div class="defn" id="ph_truncatefirst"><span class="defn">truncate </span><span class="neutral">(list of values)</span><span class="defn"> to the first </span><span class="neutral">(number)</span><span class="defn"> entries/entry</span><p>This phrase alters the given list so that it now consists only of the initial part of the list with the given length. Example:</p>
+</div><div class="defn" id="ph_truncatefirst"><div class="defnline"><span class="defn">truncate </span><span class="neutral">(list of values)</span><span class="defn"> to the first </span><span class="neutral">(number)</span><span class="defn"> entries/entry</span></div><p>This phrase alters the given list so that it now consists only of the initial part of the list with the given length. Example:</p>
 <div class="codeblock"><div class="codeline">truncate L to the first 4 entries;</div>
 </div><p>turns {1, 3, 5, 7, 9, 11} to {1, 3, 5, 7}.</p>
-</div><div class="defn" id="ph_truncatelast"><span class="defn">truncate </span><span class="neutral">(list of values)</span><span class="defn"> to the last </span><span class="neutral">(number)</span><span class="defn"> entries/entry</span><p>This phrase alters the given list so that it now consists only of the final part of the list with the given length. Example:</p>
+</div><div class="defn" id="ph_truncatelast"><div class="defnline"><span class="defn">truncate </span><span class="neutral">(list of values)</span><span class="defn"> to the last </span><span class="neutral">(number)</span><span class="defn"> entries/entry</span></div><p>This phrase alters the given list so that it now consists only of the final part of the list with the given length. Example:</p>
 <div class="codeblock"><div class="codeline">truncate L to the last 4 entries;</div>
 </div><p>turns {1, 3, 5, 7, 9, 11} to {5, 7, 9, 11}.</p>
 </div><p>But we don&#39;t have to truncate: we can also -</p>
-<div class="defn" id="ph_extend"><span class="defn">extend </span><span class="neutral">(list of values)</span><span class="defn"> to </span><span class="neutral">(number)</span><span class="defn"> entries/entry</span><p>This phrase pads out the list with default values as needed so that it now has at least the given length. (If the list is already at least that length, nothing is done.) Example:</p>
+<div class="defn" id="ph_extend"><div class="defnline"><span class="defn">extend </span><span class="neutral">(list of values)</span><span class="defn"> to </span><span class="neutral">(number)</span><span class="defn"> entries/entry</span></div><p>This phrase pads out the list with default values as needed so that it now has at least the given length. (If the list is already at least that length, nothing is done.) Example:</p>
 <div class="codeblock"><div class="codeline">extend L to 80 entries;</div>
 </div><p>lengthens L to length 80 if it is currently shorter than that.</p>
 </div><p>For example,</p>

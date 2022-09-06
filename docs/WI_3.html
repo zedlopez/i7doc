@@ -296,17 +296,17 @@
 <div class="codeblock"><div class="codeline">The blue door is a door. It is south of Notting Hill. Through it is the Flat Landing.</div>
 </div><p>(Note the use of &quot;it&quot; here as an optional abbreviation.) This will make a door visible only on the Notting Hill side; no map connection will be made in the reverse direction, unless we ask for one.</p>
 <p>So much for creating and describing individual doors. Once we need to write about doors in general, we are likely to want a way to find out where a given door sits in the map. The following phrases reveal this:</p>
-<div class="defn" id="ph_frontside"><span class="defn">front side of </span><span class="neutral">(object)</span> &rArr; <em>room</em><p>This phrase produces the first of the one or two rooms containing a door &ndash; first in the order given in the source text. Example: if</p>
+<div class="defn" id="ph_frontside"><div class="defnline"><span class="defn">front side of </span><span class="neutral">(object)</span> &rArr; <em>room</em></div><p>This phrase produces the first of the one or two rooms containing a door &ndash; first in the order given in the source text. Example: if</p>
 <div class="codeblock"><div class="codeline">The red rock stair is east of the Orchard and above the Undertomb.</div>
 </div><p>then &quot;front side of the red rock stair&quot; produces the Orchard. For a one-sided door, this produces the only room containing the door.</p>
-</div><div class="defn" id="ph_backside"><span class="defn">back side of </span><span class="neutral">(object)</span> &rArr; <em>room</em><p>This phrase produces the last of the one or two rooms containing a door &ndash; last in the order given in the source text. Example: if</p>
+</div><div class="defn" id="ph_backside"><div class="defnline"><span class="defn">back side of </span><span class="neutral">(object)</span> &rArr; <em>room</em></div><p>This phrase produces the last of the one or two rooms containing a door &ndash; last in the order given in the source text. Example: if</p>
 <div class="codeblock"><div class="codeline">The red rock stair is east of the Orchard and above the Undertomb.</div>
 </div><p>then &quot;back side of the red rock stair&quot; produces the Undertomb. A one-sided door has no &quot;back side.&quot;</p>
 </div><p>More often, we are dealing with a door and want to know what it leads to, but that depends where we&#39;re standing:</p>
-<div class="defn" id="ph_othersideof"><span class="defn">other side of </span><span class="neutral">(door)</span><span class="defn"> from </span><span class="neutral">(room)</span> &rArr; <em>object</em><p>This phrase produces the room on the other side of the door, as seen from the given vantage point, which needs to be one of its sides. Example: if</p>
+<div class="defn" id="ph_othersideof"><div class="defnline"><span class="defn">other side of </span><span class="neutral">(door)</span><span class="defn"> from </span><span class="neutral">(room)</span> &rArr; <em>object</em></div><p>This phrase produces the room on the other side of the door, as seen from the given vantage point, which needs to be one of its sides. Example: if</p>
 <div class="codeblock"><div class="codeline">The red rock stair is east of the Orchard and above the Undertomb.</div>
 </div><p>then &quot;other side of the red rock stair from the Undertomb&quot; produces the Orchard, and vice versa.</p>
-</div><div class="defn" id="ph_directionofdoor"><span class="defn">direction of </span><span class="neutral">(door)</span><span class="defn"> from </span><span class="neutral">(room)</span> &rArr; <em>object</em><p>This phrase produces the direction in which the door leads, as seen from the given vantage point, which needs to be one of its sides. Example: if</p>
+</div><div class="defn" id="ph_directionofdoor"><div class="defnline"><span class="defn">direction of </span><span class="neutral">(door)</span><span class="defn"> from </span><span class="neutral">(room)</span> &rArr; <em>object</em></div><p>This phrase produces the direction in which the door leads, as seen from the given vantage point, which needs to be one of its sides. Example: if</p>
 <div class="codeblock"><div class="codeline">The red rock stair is east of the Orchard and above the Undertomb.</div>
 </div><p>then &quot;direction of the red rock stair from the Undertomb&quot; produces up.</p>
 </div><div class="see-also">
@@ -506,7 +506,7 @@
 <p>Every thing is either out of play, or can be found in one of the rooms, and the property &quot;location of X&quot; gives us the room in question. The following condition tests, in effect, whether Wilderspin is in play:</p>
 <div class="codeblock"><div class="codeline">if the location of Wilderspin is a room, ...</div>
 </div><p>Which uses a new phrase:</p>
-<div class="defn" id="ph_locationof"><span class="defn">location of </span><span class="neutral">(object)</span> &rArr; <em>room</em><p>This phrase produces the room which, perhaps indirectly, contains the object given. Example: if the player stands in Biblioll College and wears a waistcoat, inside which is a fob watch, then</p>
+<div class="defn" id="ph_locationof"><div class="defnline"><span class="defn">location of </span><span class="neutral">(object)</span> &rArr; <em>room</em></div><p>This phrase produces the room which, perhaps indirectly, contains the object given. Example: if the player stands in Biblioll College and wears a waistcoat, inside which is a fob watch, then</p>
 <div class="codeblock"><div class="codeline">location of the fob watch</div>
 </div><p>is Biblioll College. In general, a thing cannot be in two rooms at once, but there are two exceptions: two-sided doors, present on both sides, and backdrops. The &quot;location of&quot; a door is its front side, but a backdrop has no location. (Objects which are not things at all, such as rooms and directions, also have no location.)</p>
 </div><p>We very often want to know the location of the player, and this is more simply called just &quot;the location&quot;. (This is actually a value that varies rather than a phrase, but that&#39;s a technicality we can ignore here.)</p>

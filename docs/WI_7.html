@@ -115,12 +115,12 @@
 <div class="codeline">&ensp;&ensp;</div>
 <div class="codeline">Instead of taking the key, say &quot;It seems to be soldered to the keyhole.&quot;</div>
 </div><p>It is also possible to be explicit about stopping the action:</p>
-<div class="defn" id="ph_stopaction"><span class="defn">stop the action</span><p>This phrase stops the current rule, stops the rulebook being worked through, and finally stops the action being processed. Example:</p>
+<div class="defn" id="ph_stopaction"><div class="defnline"><span class="defn">stop the action</span></div><p>This phrase stops the current rule, stops the rulebook being worked through, and finally stops the action being processed. Example:</p>
 <div class="codeblock"><div class="codeline">Before taking the key:</div>
 <div class="codeline">&ensp;&ensp;say &quot;It seems to be soldered to the keyhole.&quot;;</div>
 <div class="codeline">&ensp;&ensp;stop the action.</div>
 </div></div><p>Finally, we can prevent Inform from stopping the action when it otherwise might:</p>
-<div class="defn" id="ph_continueaction"><span class="defn">continue the action</span><p>This phrase ends the current rule, but in a way which keeps its rulebook going, so that the action being processed will carry on rather than being stopped. Example:</p>
+<div class="defn" id="ph_continueaction"><div class="defnline"><span class="defn">continue the action</span></div><p>This phrase ends the current rule, but in a way which keeps its rulebook going, so that the action being processed will carry on rather than being stopped. Example:</p>
 <div class="codeblock"><div class="codeline">Instead of taking the napkin:</div>
 <div class="codeline">&ensp;&ensp;say &quot;(first unfolding its delicate origami swan)[command clarification break]&quot;;</div>
 <div class="codeline">&ensp;&ensp;continue the action.</div>
@@ -133,7 +133,7 @@
 <h3 id="section_4">WI §7.4 Try and try silently</h3>
 <div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_3">7.3 Before rules</a></div><div class="sect-navbar-center"><a href="#chapter_7">7. Basic Actions</a></div><div class="sect-navbar-right"><a href="#section_5">7.5 After rules</a></div></div>
 <p>Chapter 2 noted that surveys of Inform source text showed that the three most popular phrases used by authors are &quot;say&quot;, &quot;if&quot; and &quot;now&quot;. The fourth most popular is &quot;try&quot;, which allows us to trigger off actions ourselves, rather than waiting for the player to type something which generates them. Thus:</p>
-<div class="defn" id="ph_try"><span class="defn">try </span><span class="neutral">(action)</span><p>This phrase makes the action, which has to be named literally, take effect now. Example:</p>
+<div class="defn" id="ph_try"><div class="defnline"><span class="defn">try </span><span class="neutral">(action)</span></div><p>This phrase makes the action, which has to be named literally, take effect now. Example:</p>
 <div class="codeblock"><div class="codeline">Instead of entering the trapdoor, try going up.</div>
 </div><p>It&#39;s as if the player had typed GO UP as a command. Note that the action has to be specific:</p>
 <div class="codeblock"><div class="codeline">try eating something;</div>
@@ -145,7 +145,7 @@
 <div class="codeline">&ensp;&ensp;try closing the front door;</div>
 <div class="codeline">&ensp;&ensp;if the front door is open, stop the action.</div>
 </div><p>There&#39;s no need to say anything if closing didn&#39;t work, because the closing action will have done that already. A neater approach still is to use:</p>
-<div class="defn" id="ph_trysilently"><span class="defn">silently try </span><span class="neutral">(action)</span> [or&hellip;]<br><span class="defn">try silently </span><span class="neutral">(action)</span><p>This phrase makes the action, which has to be named literally, take effect now, under the &quot;silent&quot; convention which means that routine messages aren&#39;t printed. Example:</p>
+<div class="defn" id="ph_trysilently"><div class="defnline"><span class="defn">silently try </span><span class="neutral">(action)</span></div><div class="defn-or">or&hellip;</div><div class="defnline"><span class="defn">try silently </span><span class="neutral">(action)</span></div><p>This phrase makes the action, which has to be named literally, take effect now, under the &quot;silent&quot; convention which means that routine messages aren&#39;t printed. Example:</p>
 <div class="codeblock"><div class="codeline">try silently taking the napkin;</div>
 </div><p>Silence is maintained only if this new action, the taking of the napkin, is successful (so if the napkin is successfully taken, the text &quot;Taken.&quot; will not appear): if the action should fail, a suitable objection will be voiced as usual.</p>
 </div><p>So now we have:</p>

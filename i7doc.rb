@@ -956,9 +956,11 @@ def print_blocks(f, blocks, vol = nil, chapter_num = nil, section_num = nil, mon
     when :defn
       f.print %Q{<div class="defn" id="#{block[:id]}">}
       Conf.defns[block[:id]][:list].each.with_index do |defn,i|
+        f.print '<div class="defnline">'
         f.print phrase_defn(defn[:phrase], "defn", "neutral")
         f.print %Q{ &rArr; <em>#{defn[:result]}</em>} unless defn[:result].empty?
-        f.print(' [or&hellip;]<br>') if i < (Conf.defns[block[:id]][:list].count-1)
+        f.print '</div>'
+        f.print('<div class="defn-or">or&hellip;</div>') if i < (Conf.defns[block[:id]][:list].count-1)
       end
     when :end
       f.print '</div>'

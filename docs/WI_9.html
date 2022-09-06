@@ -100,26 +100,26 @@
 <div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_3">9.3 Introducing tables: rankings</a></div><div class="sect-navbar-center"><a href="#chapter_9">9. Time</a></div><div class="sect-navbar-right"><a href="#section_5">9.5 Every turn</a></div></div>
 <p>Short of something like a power cut, the story can only end when one of the two participants chooses to end it: either the player, by deciding that enough is enough, or us.</p>
 <p>In story-telling, there are many kinds of ending: happy, sad, decisive, bittersweet, surprise. Inform doesn&#39;t try to interfere in that kind of artistic choice, but it does need to know one thing about the ending: is it final, or not? Many authors like to make additional menu items available if the player has completed the story right through, but not if she has reached an early or wrong ending. (See the activity &quot;amusing a victorious player&quot;, for example.)</p>
-<div class="defn" id="ph_end"><span class="defn">end the story</span><p>This phrase ends the story at the next opportunity (typically as soon as the current rule ends), with the closing message &quot;The End.&quot; The end is not considered final.</p>
-</div><div class="defn" id="ph_endfinally"><span class="defn">end the story finally</span><p>This phrase ends the story at the next opportunity (typically as soon as the current rule ends), with the closing message &quot;The End.&quot; The end is considered final, and any hidden menu options will be revealed.</p>
-</div><div class="defn" id="ph_endsaying"><span class="defn">end the story saying </span><span class="neutral">(text)</span><p>This phrase ends the story at the next opportunity (typically as soon as the current rule ends), with the closing message given in the text. The end is not considered final. Example:</p>
+<div class="defn" id="ph_end"><div class="defnline"><span class="defn">end the story</span></div><p>This phrase ends the story at the next opportunity (typically as soon as the current rule ends), with the closing message &quot;The End.&quot; The end is not considered final.</p>
+</div><div class="defn" id="ph_endfinally"><div class="defnline"><span class="defn">end the story finally</span></div><p>This phrase ends the story at the next opportunity (typically as soon as the current rule ends), with the closing message &quot;The End.&quot; The end is considered final, and any hidden menu options will be revealed.</p>
+</div><div class="defn" id="ph_endsaying"><div class="defnline"><span class="defn">end the story saying </span><span class="neutral">(text)</span></div><p>This phrase ends the story at the next opportunity (typically as soon as the current rule ends), with the closing message given in the text. The end is not considered final. Example:</p>
 <div class="codeblock"><div class="codeline">end the story saying &quot;You have been stymied&quot;</div>
-</div></div><div class="defn" id="ph_endfinallysaying"><span class="defn">end the story finally saying </span><span class="neutral">(text)</span><p>This phrase ends the story at the next opportunity (typically as soon as the current rule ends), with the closing message given in the text. The end is considered final, and any hidden menu options will be revealed. Example:</p>
+</div></div><div class="defn" id="ph_endfinallysaying"><div class="defnline"><span class="defn">end the story finally saying </span><span class="neutral">(text)</span></div><p>This phrase ends the story at the next opportunity (typically as soon as the current rule ends), with the closing message given in the text. The end is considered final, and any hidden menu options will be revealed. Example:</p>
 <div class="codeblock"><div class="codeline">end the story finally saying &quot;You have defeated Sauron&quot;</div>
 </div></div><p>The closing message is traditionally set out in asterisks:</p>
 <div class="codeblock"><div class="codeline">*** The End ***</div>
 </div><p>This style is traditional in IF, and goes back to 1980 if not earlier.</p>
 <p>We can test the current state like so:</p>
-<div class="defn" id="ph_ended"><span class="defn">if story has ended:</span><p>This condition is true if an end has been declared using one of the &quot;end the story&hellip;&quot; phrases.</p>
-</div><div class="defn" id="ph_notended"><span class="defn">if story has not ended:</span><p>This condition is true if no end has been declared using one of the &quot;end the story&hellip;&quot; phrases.</p>
-</div><div class="defn" id="ph_finallyended"><span class="defn">if story has ended finally:</span><p>This condition is true if an end has been declared using one of the &quot;end the story finally&hellip;&quot; phrases, so that an ending has been reached which the author feels is a completion of the player&#39;s experience.</p>
-</div><div class="defn" id="ph_notfinallyended"><span class="defn">if story has not ended finally:</span><p>This condition is true if an end has been declared using one of the &quot;end the story&hellip;&quot; phrases, but not &quot;finally&quot;, so the author feels that the player can get further experience by playing again and trying different approaches.</p>
+<div class="defn" id="ph_ended"><div class="defnline"><span class="defn">if story has ended:</span></div><p>This condition is true if an end has been declared using one of the &quot;end the story&hellip;&quot; phrases.</p>
+</div><div class="defn" id="ph_notended"><div class="defnline"><span class="defn">if story has not ended:</span></div><p>This condition is true if no end has been declared using one of the &quot;end the story&hellip;&quot; phrases.</p>
+</div><div class="defn" id="ph_finallyended"><div class="defnline"><span class="defn">if story has ended finally:</span></div><p>This condition is true if an end has been declared using one of the &quot;end the story finally&hellip;&quot; phrases, so that an ending has been reached which the author feels is a completion of the player&#39;s experience.</p>
+</div><div class="defn" id="ph_notfinallyended"><div class="defnline"><span class="defn">if story has not ended finally:</span></div><p>This condition is true if an end has been declared using one of the &quot;end the story&hellip;&quot; phrases, but not &quot;finally&quot;, so the author feels that the player can get further experience by playing again and trying different approaches.</p>
 </div><p>The rulebook &quot;when play ends&quot; is the matching bookend to &quot;when play begins&quot;. It is followed when the story decides to end (not when the player simply gives up and quits), and before any epitaph like</p>
 <div class="codeblock"><div class="codeline">*** You have been poisoned ***</div>
 </div><p>appears. For example:</p>
 <div class="codeblock"><div class="codeline">When play ends, say &quot;Oh dear.&quot;</div>
 </div><p>Surprisingly, the end is not always the end:</p>
-<div class="defn" id="ph_resume"><span class="defn">resume the story</span><p>This phrase causes an ended story to resume exactly as if no &quot;end the story&hellip;&quot; phrase had been used. Example:</p>
+<div class="defn" id="ph_resume"><div class="defnline"><span class="defn">resume the story</span></div><p>This phrase causes an ended story to resume exactly as if no &quot;end the story&hellip;&quot; phrase had been used. Example:</p>
 <div class="codeblock"><div class="codeline">When play ends:</div>
 <div class="codeline">&ensp;&ensp;if the story has not ended finally:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;Oh dear. Still, here&#39;s another chance.&quot;;</div>
@@ -165,7 +165,7 @@
 <p>Now that we have the time of day, we can of course use this value in room descriptions and the like:</p>
 <div class="codeblock"><div class="codeline">The Clock Chamber is a room. &quot;The dark chamber behind the clock face, a mill-room of gears which grind down the seconds. Through the glass you can see the reversed hands reading [the time of day].&quot;</div>
 </div><p>It seems odd, though, to read a precise numerical description of the time here: after all, it isn&#39;t a digital clock. A friendlier version would use:</p>
-<div class="defn" id="phs_timewords"><span class="defn">say "[</span><span class="neutral">(time)</span><span class="defn"> in words]"</span><p>This text substitution produces the given time written out in English sentence form. For example:</p>
+<div class="defn" id="phs_timewords"><div class="defnline"><span class="defn">say "[</span><span class="neutral">(time)</span><span class="defn"> in words]"</span></div><p>This text substitution produces the given time written out in English sentence form. For example:</p>
 <div class="codeblock"><div class="codeline">&quot;Through the glass you can see the reversed hands reading [the time of day in words].&quot;</div>
 </div><p>might produce</p>
 <div class="codeblock"><div class="codeline">Through the glass you can see the reversed hands reading twenty to nine.</div>
@@ -180,14 +180,14 @@
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Clock Chamber is a room. &quot;The dark chamber behind the clock face, a mill-room of gears which grind down the seconds. Through the glass you can see the reversed hands reading [the time of day to the nearest five minutes in words].&quot;`)">⧉</button><div class="codeline">The Clock Chamber is a room. &quot;The dark chamber behind the clock face, a mill-room of gears which grind down the seconds. Through the glass you can see the reversed hands reading [the time of day to the nearest five minutes in words].&quot;</div>
 </div><p>The phrase &quot;&hellip; to the nearest &hellip;&quot; rounds off the given time, just as it sounds; as we&#39;ll see later, it can actually round off any arithmetic values, not just times. For instance, &quot;9:58 PM to the nearest ten minutes&quot; is 10:00 PM.</p>
 <p>In talking about lengths of time, rather than times of day, it&#39;s useful to have these:</p>
-<div class="defn" id="ph_durationmins"><span class="neutral">(number)</span><span class="defn"> minutes</span> &rArr; <em>time</em><p>This phrase converts numbers into lengths of time. Example:</p>
+<div class="defn" id="ph_durationmins"><div class="defnline"><span class="neutral">(number)</span><span class="defn"> minutes</span> &rArr; <em>time</em></div><p>This phrase converts numbers into lengths of time. Example:</p>
 <div class="codeblock"><div class="codeline">15 minutes</div>
 </div><p>Because it&#39;s a phrase, not just a notation for writing constants down, the number doesn&#39;t have to be given literally:</p>
 <div class="codeblock"><div class="codeline">let X be 5;</div>
 <div class="codeline">if the player is in the Slow Room, now X is 10;</div>
 <div class="codeline">let deadline be the time of day plus X minutes;</div>
 </div><p>Note that lengths of time can&#39;t exceed 1440 minutes.</p>
-</div><div class="defn" id="ph_durationhours"><span class="neutral">(number)</span><span class="defn"> hours</span> &rArr; <em>time</em><p>This phrase converts numbers into lengths of time. Example:</p>
+</div><div class="defn" id="ph_durationhours"><div class="defnline"><span class="neutral">(number)</span><span class="defn"> hours</span> &rArr; <em>time</em></div><p>This phrase converts numbers into lengths of time. Example:</p>
 <div class="codeblock"><div class="codeline">10 hours</div>
 </div><p>Note that lengths of time can&#39;t exceed 24 hours.</p>
 </div><h3 id="section_9">WI §9.9 Comparing and shifting times</h3>
@@ -195,22 +195,22 @@
 <p>Carrying out easy calculations with times is straightforward:</p>
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The chronometer is in the Clock Chamber. &quot;On one wall is a terribly self-important chronometer showing the time in major world cities. London: [time of day]. Paris: [one hour after the time of day]. Tokyo: [9 hours after the time of day]. Cupertino, California: [7 hours before the time of day].&quot;`)">⧉</button><div class="codeline">The chronometer is in the Clock Chamber. &quot;On one wall is a terribly self-important chronometer showing the time in major world cities. London: [time of day]. Paris: [one hour after the time of day]. Tokyo: [9 hours after the time of day]. Cupertino, California: [7 hours before the time of day].&quot;</div>
 </div><p>Here we are using two phrases:</p>
-<div class="defn" id="ph_shiftbefore"><span class="neutral">(time)</span><span class="defn"> before </span><span class="neutral">(time)</span> &rArr; <em>time</em><p>This phrase produces a time earlier by the amount given, keeping within the 24 hour clock. Example:</p>
+<div class="defn" id="ph_shiftbefore"><div class="defnline"><span class="neutral">(time)</span><span class="defn"> before </span><span class="neutral">(time)</span> &rArr; <em>time</em></div><p>This phrase produces a time earlier by the amount given, keeping within the 24 hour clock. Example:</p>
 <div class="codeblock"><div class="codeline">7 hours before 5:30 AM</div>
 </div><p>produces 10:30 PM.</p>
-</div><div class="defn" id="ph_shiftafter"><span class="neutral">(time)</span><span class="defn"> after </span><span class="neutral">(time)</span> &rArr; <em>time</em><p>This phrase produces a time later by the amount given, keeping within the 24 hour clock. Example:</p>
+</div><div class="defn" id="ph_shiftafter"><div class="defnline"><span class="neutral">(time)</span><span class="defn"> after </span><span class="neutral">(time)</span> &rArr; <em>time</em></div><p>This phrase produces a time later by the amount given, keeping within the 24 hour clock. Example:</p>
 <div class="codeblock"><div class="codeline">9 hours after 11 AM</div>
 </div><p>produces 8 PM.</p>
 </div><p>Similarly, we have conditions:</p>
-<div class="defn" id="ph_timebefore"><span class="defn">if </span><span class="neutral">(time)</span><span class="defn"> is before </span><span class="neutral">(time)</span><span class="defn">:</span><p>This condition is true if the first time occurs earlier in the day than the second. In recognition of the fact that very few stories begin before 4 AM, whereas many run on past midnight, the start of the day is taken to be 4 AM: thus 3:59 AM is after 11:10 PM, but 4:04 AM is before it.</p>
-</div><div class="defn" id="ph_timeafter"><span class="defn">if </span><span class="neutral">(time)</span><span class="defn"> is after </span><span class="neutral">(time)</span><span class="defn">:</span><p>This condition is true if the first time occurs later in the day than the second. In recognition of the fact that very few stories begin before 4 AM, whereas many run on past midnight, the start of the day is taken to be 4 AM: thus 3:59 AM is after 11:10 PM, but 4:04 AM is before it.</p>
+<div class="defn" id="ph_timebefore"><div class="defnline"><span class="defn">if </span><span class="neutral">(time)</span><span class="defn"> is before </span><span class="neutral">(time)</span><span class="defn">:</span></div><p>This condition is true if the first time occurs earlier in the day than the second. In recognition of the fact that very few stories begin before 4 AM, whereas many run on past midnight, the start of the day is taken to be 4 AM: thus 3:59 AM is after 11:10 PM, but 4:04 AM is before it.</p>
+</div><div class="defn" id="ph_timeafter"><div class="defnline"><span class="defn">if </span><span class="neutral">(time)</span><span class="defn"> is after </span><span class="neutral">(time)</span><span class="defn">:</span></div><p>This condition is true if the first time occurs later in the day than the second. In recognition of the fact that very few stories begin before 4 AM, whereas many run on past midnight, the start of the day is taken to be 4 AM: thus 3:59 AM is after 11:10 PM, but 4:04 AM is before it.</p>
 </div><h3 id="section_10">WI §9.10 Calculating times</h3>
 <div class="sect-navbar"><div class="sect-navbar-left"><a href="#section_9">9.9 Comparing and shifting times</a></div><div class="sect-navbar-center"><a href="#chapter_9">9. Time</a></div><div class="sect-navbar-right"><a href="#section_11">9.11 Future events</a></div></div>
 <p>We will occasionally need to perform more complex calculations with time, and in order to do that, we have a way to convert the time of day to numbers. Thus the phrase &quot;the minutes part of &hellip;&quot; takes a time and produces a number from 0 to 59; similarly &quot;the hours part of &hellip;&quot; extracts a number from 0 to 23, using the twenty-four hour clock.</p>
-<div class="defn" id="ph_minspart"><span class="defn">minutes part of </span><span class="neutral">(time)</span> &rArr; <em>number</em><p>This phrase converts a time to a number, then takes the result mod 60, which in effect produces the number of minutes after the hours are thrown away. Example:</p>
+<div class="defn" id="ph_minspart"><div class="defnline"><span class="defn">minutes part of </span><span class="neutral">(time)</span> &rArr; <em>number</em></div><p>This phrase converts a time to a number, then takes the result mod 60, which in effect produces the number of minutes after the hours are thrown away. Example:</p>
 <div class="codeblock"><div class="codeline">minutes part of 12:41 PM</div>
 </div><p>produces 41.</p>
-</div><div class="defn" id="ph_hourspart"><span class="defn">hours part of </span><span class="neutral">(time)</span> &rArr; <em>number</em><p>This phrase converts a time to a number, then divides the result by 60, which in effect produces the number of hours after minutes are thrown away. Example:</p>
+</div><div class="defn" id="ph_hourspart"><div class="defnline"><span class="defn">hours part of </span><span class="neutral">(time)</span> &rArr; <em>number</em></div><p>This phrase converts a time to a number, then divides the result by 60, which in effect produces the number of hours after minutes are thrown away. Example:</p>
 <div class="codeblock"><div class="codeline">hours part of 8:21 AM</div>
 </div><p>produces 8.</p>
 </div><p>To go the other way, we can convert any number to a duration by writing &quot;minutes&quot; or &quot;hours&quot; after it. For instance:</p>
@@ -232,11 +232,11 @@
 <div class="codeline">At the time when the egg-timer clucks:</div>
 <div class="codeline">&ensp;&ensp;say &quot;Cluck! Cluck! Cluck! says the egg-timer.&quot;</div>
 </div><p>The event here is called &quot;the egg-timer clucks&quot;. It only happens if we instruct so, using one of the following phrases:</p>
-<div class="defn" id="ph_timefromnow"><span class="neutral">(rule)</span><span class="defn"> in </span><span class="neutral">(time)</span><span class="defn"> from now</span><p>This phrase causes the given rule to be run at a given time offset from the current time of day. Example:</p>
+<div class="defn" id="ph_timefromnow"><div class="defnline"><span class="neutral">(rule)</span><span class="defn"> in </span><span class="neutral">(time)</span><span class="defn"> from now</span></div><p>This phrase causes the given rule to be run at a given time offset from the current time of day. Example:</p>
 <div class="codeblock"><div class="codeline">the egg-timer clucks in 18 minutes from now;</div>
-</div></div><div class="defn" id="ph_turnsfromnow"><span class="neutral">(rule)</span><span class="defn"> in </span><span class="neutral">(number)</span><span class="defn"> turn/turns from now</span><p>This phrase causes the given rule to be run at a given number of turns after the current one. Example:</p>
+</div></div><div class="defn" id="ph_turnsfromnow"><div class="defnline"><span class="neutral">(rule)</span><span class="defn"> in </span><span class="neutral">(number)</span><span class="defn"> turn/turns from now</span></div><p>This phrase causes the given rule to be run at a given number of turns after the current one. Example:</p>
 <div class="codeblock"><div class="codeline">the egg-timer clucks in four turns from now;</div>
-</div></div><div class="defn" id="ph_attime"><span class="neutral">(rule)</span><span class="defn"> at </span><span class="neutral">(time)</span><p>This phrase causes the given rule to be run at a given time of day. Example:</p>
+</div></div><div class="defn" id="ph_attime"><div class="defnline"><span class="neutral">(rule)</span><span class="defn"> at </span><span class="neutral">(time)</span></div><p>This phrase causes the given rule to be run at a given time of day. Example:</p>
 <div class="codeblock"><div class="codeline">the egg-timer clucks at 11:35 AM;</div>
 </div></div><p>If we know in advance what time we want something to happen, we can more simply write:</p>
 <div class="codeblock"><div class="codeline">At 4 PM: say &quot;The great bells of the clock tower chime four.&quot;</div>
