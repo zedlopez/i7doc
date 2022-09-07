@@ -99,7 +99,7 @@
 </div><p>Commands that affect the world model, on the other hand, can range from simple to very complex indeed. Sometimes we need to do nothing more than add an attribute to an object, like</p>
 <div class="codeblock"><div class="codeline">A thing can be folded or flat. A thing is usually flat.</div>
 </div><p>so that our FOLD command can change the object into its folded form. At other times, we need quite intricate rules to account for a subtle multi-stage process &ndash; how fire is burning and spreading to objects, say, or how a conversation is progressing. Other parts of the Recipe Book offer solutions to some of these challenges.</p>
-<p>(Strictly, we might count a third kind of command: the kind that controls the story itself. The Advanced Actions chapter discusses how to add actions out of world, as these are called, but the difficult ones are already built into Inform &ndash; saving, restoring, restarting, undoing a turn, and so on. Mostly when we need to add new actions out of world, they will be help or hint systems of some kind. More about these can be found in the Helping and Hinting section of the Recipe Book, under Out of World Actions and Effects.)</p>
+<p>(Strictly, we might count a third kind of command: the kind that controls the story itself. The <a href="WI_12.html">Advanced Actions chapter</a> discusses how to add actions out of world, as these are called, but the difficult ones are already built into Inform &ndash; saving, restoring, restarting, undoing a turn, and so on. Mostly when we need to add new actions out of world, they will be help or hint systems of some kind. More about these can be found in the Helping and Hinting section of the Recipe Book, under Out of World Actions and Effects.)</p>
 <p>(3) Most commands that change the world require certain preconditions: the player needs to be holding the gun before he can fire it; the gun must be loaded with ammunition; if we&#39;re being especially detailed in our simulation, the safety must be off.</p>
 <p>Often, there are also subtler details about how the command should interact with special items. For any new command we create, it&#39;s worth asking: should anything special happen if the player performs this action&hellip;</p>
 <div class="codeblock"><div class="codeline">On himself?</div>
@@ -125,30 +125,30 @@
 <div class="codeline">Understand &quot;fold [something]&quot; as folding.</div>
 <div class="codeline">Understand &quot;shoot [something preferably held] at [something]&quot; as shooting it with.</div>
 <div class="codeline">Understand &quot;wrap [something preferably held] in [something preferably held]&quot; as wrapping it in.</div>
-</div><p>(Note how &quot;it&quot; stands in for the first item when we have an action requiring two objects.) The things that go in square brackets are called &quot;tokens&quot;: they are blank spaces for the player to fill in with story objects. The different kinds of tokens are explained in the chapter on Understanding.</p>
+</div><p>(Note how &quot;it&quot; stands in for the first item when we have an action requiring two objects.) The things that go in square brackets are called &quot;tokens&quot;: they are blank spaces for the player to fill in with story objects. The different kinds of tokens are explained in the <a href="WI_17.html">chapter on Understanding</a>.</p>
 <p>We can add synonyms with</p>
 <div class="codeblock"><div class="codeline">Understand the command &quot;grin&quot; as &quot;smile&quot;.</div>
 </div><p>and we can create reversed versions of commands with</p>
 <div class="codeblock"><div class="codeline">Understand &quot;shoot [something] with [something preferably held]&quot; as shooting it with (with nouns reversed).</div>
-</div><p>These variations are also covered in the Understanding chapter. If the action needs to work on things that aren&#39;t within the player&#39;s sight or reach in the normal way, we may need to use an [any thing] token (see the Understanding chapter), as in</p>
+</div><p>These variations are also covered in the <a href="WI_17.html">Understanding chapter</a>. If the action needs to work on things that aren&#39;t within the player&#39;s sight or reach in the normal way, we may need to use an [any thing] token (see the <a href="WI_17.html">Understanding chapter</a>), as in</p>
 <div class="codeblock"><div class="codeline">Understand &quot;contemplate [any thing]&quot; as considering.</div>
-</div><p>We may also need to modify reach or light levels (see Changing reachability and Changing visibility in the Advanced Actions chapter), or rely on the Deciding the scope of&hellip; activity.</p>
-<p>As for guessing the player&#39;s intention when he isn&#39;t clear, we may want to consult the Does the player mean rules (to help Inform make guesses between multiple possible targets) and the activities Supplying a missing noun and Supplying a missing second noun (to help Inform guess an appropriate item when the player leaves something entirely out of his command). For instance, if the player typed SHOOT HENRY, it is the supplying a missing noun/second noun activity that would allow us to make Inform draw the obvious conclusion that he shoots Henry with the pistol in his hand. The Does the player mean rules are discussed in the chapter on Advanced Actions; the activities in the Activities chapter.</p>
+</div><p>We may also need to modify reach or light levels (see Changing reachability and Changing visibility in the <a href="WI_12.html">Advanced Actions chapter</a>), or rely on the Deciding the scope of&hellip; activity.</p>
+<p>As for guessing the player&#39;s intention when he isn&#39;t clear, we may want to consult the Does the player mean rules (to help Inform make guesses between multiple possible targets) and the activities Supplying a missing noun and Supplying a missing second noun (to help Inform guess an appropriate item when the player leaves something entirely out of his command). For instance, if the player typed SHOOT HENRY, it is the supplying a missing noun/second noun activity that would allow us to make Inform draw the obvious conclusion that he shoots Henry with the pistol in his hand. The Does the player mean rules are discussed in the <a href="WI_12.html">chapter on Advanced Actions</a>; the activities in the <a href="WI_18.html">Activities chapter</a>.</p>
 <p>Next we need to define our new action, as in</p>
 <div class="codeblock"><div class="codeline">Smiling is an action applying to nothing.</div>
 <div class="codeline">Folding is an action applying to one thing.</div>
 <div class="codeline">Wrapping it in is an action applying to two carried things.</div>
 </div><p>In cases where we&#39;re using an &quot;[any thing]&quot; token to let the player affect objects that aren&#39;t normally visible or reachable, we&#39;ll need to define the action to apply to <em>visible objects</em>. This tells Inform that the player doesn&#39;t have to be able to touch the object for it to work. So for instance</p>
 <div class="codeblock"><div class="codeline">Considering is an action applying to one visible thing.</div>
-</div><p>For more on this topic, see Visible vs. touchable vs. carried in the Advanced Actions chapter.</p>
+</div><p>For more on this topic, see Visible vs. touchable vs. carried in the <a href="WI_12.html">Advanced Actions chapter</a>.</p>
 <p>The next step is to create rules for Inform to follow when the action happens. These can be check rules (which make sure that the conditions for the action to occur are fulfilled); carry out rules (which perform the action); and report rules (which describe the results of the action to the player). Any new action should have at least a report rule to let the player know what has happened (if anything), and a carry out rule if there are any ramifications for the world model. For instance:</p>
 <div class="codeblock"><div class="codeline">Carry out folding:</div>
 <div class="codeline">&ensp;&ensp;now the noun is swan-like.</div>
 <div class="codeline">&ensp;&ensp;</div>
 <div class="codeline">Report folding:</div>
 <div class="codeline">&ensp;&ensp;say &quot;You deftly fold [the noun] into the shape of a swan.&quot;</div>
-</div><p>It&#39;s important to remember that report rules may be describing something whose name is plural, such as papers or shoes, and write our text so that it sounds right either way; see the chapter on Adaptive Text and Responses.</p>
-<p>More about defining actions and creating carry out and report rules may be found in the chapter on Advanced Actions.</p>
+</div><p>It&#39;s important to remember that report rules may be describing something whose name is plural, such as papers or shoes, and write our text so that it sounds right either way; see the <a href="WI_14.html">chapter on Adaptive Text and Responses</a>.</p>
+<p>More about defining actions and creating carry out and report rules may be found in the <a href="WI_12.html">chapter on Advanced Actions</a>.</p>
 <p>Meanwhile, the check rules give us a chance to provide sensible restrictions on how the command works, as in</p>
 <div class="codeblock"><div class="codeline">Check folding:</div>
 <div class="codeline">&ensp;&ensp;if the noun is not a napkin:</div>
@@ -159,9 +159,9 @@
 <div class="codeline">&ensp;&ensp;</div>
 <div class="codeline">Check burning something which contains the player:</div>
 <div class="codeline">&ensp;&ensp;say &quot;You&#39;re not quite desperate enough to make a funeral pyre for yourself just yet.&quot; instead.</div>
-</div><p>The chapter on Advanced Actions explains how check rules work. In the special case where we want the player to take things automatically before using them, we may want to define the action to work only on carried objects, as in</p>
+</div><p>The <a href="WI_12.html">chapter on Advanced Actions</a> explains how check rules work. In the special case where we want the player to take things automatically before using them, we may want to define the action to work only on carried objects, as in</p>
 <div class="codeblock"><div class="codeline">Wrapping it in is an action applying to two carried things.</div>
-</div><p>The activity Implicitly taking something (documented in the Activities chapter) allows us to modify what should happen during this process.</p>
+</div><p>The activity Implicitly taking something (documented in the <a href="WI_18.html">Activities chapter</a>) allows us to modify what should happen during this process.</p>
 <p>Lastly, a word or two about trouble-shooting. If a newly created command seems not to be working, we can discover what action Inform is really generating with the ACTIONS testing command, as in</p>
 <div class="codeblock"><div class="codeline">&gt;actions</div>
 <div class="codeline">Actions listing on.</div>
@@ -189,9 +189,9 @@
 <div class="codeline">&ensp;&ensp;rule succeeds.</div>
 </div><p>The addition of &quot;rule succeeds&quot; tells Inform that the instead action was a success rather than a failure; this is not usually very important with the player&#39;s own actions, but can be useful for actions performed by other characters, so that a successfully replaced action is not followed by the disconcerting line</p>
 <div class="codeblock"><div class="codeline">Clark is unable to do that.</div>
-</div><p>Before and After offer alternative easy forms of modification; the Basic Actions chapter explains all three.</p>
-<p>Changing the way an action works in all cases is usually better addressed by changing the main rulebook, rather than with one (or many) instead rules. We may add new check, carry out, and report rules to existing action rulebooks. The Advanced Actions chapter describes these, and ends with some guidelines on when to use before, instead, and after, and when to use check, carry out, and report.</p>
-<p>Similarly, we may delete, move, or replace rules that are already present (see the chapter on Rulebooks). This is handy if we decide that an action has restrictions that we dislike and want to abolish. If the restriction we need to change is part of the accessibility rules &ndash; those which check whether the player can take, see, and touch items &ndash; we may need to look at Changing reachability or Changing visibility in the Advanced Actions chapter (to revise what is allowed), at Deciding the scope of something in the Activities chapter (to influence what can be seen when).</p>
+</div><p>Before and After offer alternative easy forms of modification; the <a href="WI_7.html">Basic Actions chapter</a> explains all three.</p>
+<p>Changing the way an action works in all cases is usually better addressed by changing the main rulebook, rather than with one (or many) instead rules. We may add new check, carry out, and report rules to existing action rulebooks. The <a href="WI_12.html">Advanced Actions chapter</a> describes these, and ends with some guidelines on when to use before, instead, and after, and when to use check, carry out, and report.</p>
+<p>Similarly, we may delete, move, or replace rules that are already present (see the <a href="WI_19.html">chapter on Rulebooks</a>). This is handy if we decide that an action has restrictions that we dislike and want to abolish. If the restriction we need to change is part of the accessibility rules &ndash; those which check whether the player can take, see, and touch items &ndash; we may need to look at Changing reachability or Changing visibility in the <a href="WI_12.html">Advanced Actions chapter</a> (to revise what is allowed), at Deciding the scope of something in the <a href="WI_18.html">Activities chapter</a> (to influence what can be seen when).</p>
 <p>If, for instance, the player character is a burly fellow who can lift any other character he likes:</p>
 <div class="codeblock"><div class="codeline">The can&#39;t take other people rule is not listed in any rulebook.</div>
 </div><p>&hellip;and rip knobs off doors:</p>
@@ -225,7 +225,7 @@
 <div class="codeline">&ensp;&ensp;</div>
 <div class="codeline">Report someone tasting something:</div>
 <div class="codeline">&ensp;&ensp;say &quot;[The actor] licks [the noun].&quot;</div>
-</div><p>Finally and most sweepingly, we can rip out whole passages of the Standard Rules and replace them &ndash; or not. This is a drastic measure and rarely necessary (or so we hope); but see the Extensions chapter for ways to replace sections of existing source, or even revise the Inform 6 template files on which Inform depends. By these means almost anything can be changed. We can throw out a whole range of existing commands and start from scratch, for instance, if we want Inform to know about a completely new and different command set.</p>
+</div><p>Finally and most sweepingly, we can rip out whole passages of the Standard Rules and replace them &ndash; or not. This is a drastic measure and rarely necessary (or so we hope); but see the <a href="WI_27.html">Extensions chapter</a> for ways to replace sections of existing source, or even revise the Inform 6 template files on which Inform depends. By these means almost anything can be changed. We can throw out a whole range of existing commands and start from scratch, for instance, if we want Inform to know about a completely new and different command set.</p>
 <div class="see-also">
 <h4>See Also</h4>
 <p><a href="RB_10.html#section_10" title="Physics: Substances, Ropes, Energy and Weight &gt; Magic (Breaking the Laws of Physics)">Magic (Breaking the Laws of Physics)</a> for a hat that lets the player walk through closed doors, and an NPC able to reach through solid containers.<br></p></div><div class="examples">

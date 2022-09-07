@@ -3,6 +3,8 @@
 # Save your sanity and don't look at this ugly, ugly code.
 # It's too late for me; it doesn't have to be too late for you.
 
+# "the (next|previous) chapter"
+
 # build both -rnd and non-rnd versions of the examples. Use the rnd versions for the testme_output and
 # the non-rnd versions for Quixe.
 
@@ -81,7 +83,7 @@ def configure
       %r{(?:https?://)?ifdb(?:\.tads)?\.org/?} => %Q{<a href="https://ifdb.org">ifdb.org</a>},
       %r{https?://(?:upload|www).ifarchive.org/cgi-bin/upload.py} => %Q{<a href="https://upload.ifarchive.org/cgi-bin/upload.py">https://upload.ifarchive.org/cgi-bin/upload.py</a>},
       %r{semver.org} => %Q{<a href="https://semver.org">semver.org</a>},
-      %r{http://www.ifwiki.org/?} => %Q{<a href="https://ifwiki.org">ifwiki.org</a>},
+      %r{https?://www.ifwiki.org/?} => %Q{<a href="https://ifwiki.org">ifwiki.org</a>},
       %r{<strong>XYZZY Awards</strong>} => %Q{<a href="https://xyzzyawards.org">XYZZY Awards</a>},
       %r{Interactive Fiction Technology Foundation} => %Q{<a href="https://iftechfoundation.org/">Interactive Fiction Technology Foundation</a>},
       %r{\s+If you are reading this within the Inform application, you will see that the (Recipe Book|Writing with Inform) pages are on &quot;(yellow|white) paper&quot;, while the (Recipe Book|manual) is on &quot;(yellow|white) paper&quot;\.} => '',
@@ -318,7 +320,13 @@ def htmlify(line, type: :text, level: 0)
     result + '»'
   end
   line = line.gsub(/«/,'<').gsub(/»/,'>').gsub(/<b>/,'<strong>').gsub(/<\/b>/,'</strong>').gsub('<i>','<em>').gsub(/<\/i>/,'</em>')
-  Conf.text_subs.each_pair {|regexp, subst| line.gsub!(regexp, subst) }
+  Conf.text_subs.each_pair { |regexp, subst| line.gsub!(regexp, subst.to_s) }
+  Conf.books.each_pair do |vol,book|
+    book[:chapters].keys.sort.each do |chapter_num|
+      chapter = book[:chapters][chapter_num]
+      line.gsub!(%r{(#{chapter[:name]}\s+chapter|chapter\s+on\s+"?#{chapter[:name]}"?)}i) {|m| %Q{<a href="#{target_chapter(vol, chapter[:chapter_num])}">#{$1}</a>} }
+    end
+  end
   line.gsub!(/-&gt;/,'&rarr;') if type == :defn
   if type == :text
     line.gsub!(/\.\.\./,'&hellip;')
@@ -506,9 +514,11 @@ def first_pass
     Conf.chapter_names[vol] = chapter_names
     Conf.section_names[vol] = section_names
     Conf.defns = defns
+#    chapters.values.each {|ch| dest = target_chapter(vol, ch[:chapter_num]); Conf[:text_subs][%r{(#{ch[:name]}\s+chapter|chapter\s+on\s+#{ch[:name]})}i] = lambda { |m| %Q{<a href="">#{m[1]}</a>} } }
   end
   Conf.books[:rb][:title] = 'Recipe Book'
   Conf[:chapter_names][:rb]['introduction'] = 1
+  
 end
 
 def print_bar(f, alpha)

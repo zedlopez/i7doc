@@ -37,7 +37,7 @@
 </div><p>Because we&#39;ve said that connection is a reciprocal, one-to-one relationship, Inform will do the rest of the bookkeeping: if (for instance) we telephone someone else, the first connection will be broken automatically.</p>
 <div class="codeblock"><div class="codeline">Report calling it on:</div>
 <div class="codeline">&ensp;&ensp;say &quot;&#39;Hello?&#39; says [the other party of the player].&quot;</div>
-</div><p>To avoid annoyance, we should also let the player use CALL #### as well as CALL #### ON TELEPHONE. A rule from the chapter on Activities comes in handy here:</p>
+</div><p>To avoid annoyance, we should also let the player use CALL #### as well as CALL #### ON TELEPHONE. A rule from the <a href="WI_18.html">chapter on Activities</a> comes in handy here:</p>
 <div class="codeblock"><div class="codeline">Rule for supplying a missing second noun while calling something on:</div>
 <div class="codeline">&ensp;&ensp;assign a phone.</div>
 <div class="codeline">&ensp;&ensp;</div>
@@ -104,8 +104,8 @@
 <div class="codeline">After deciding the scope of the player while the player reaches someone:</div>
 <div class="codeline">&ensp;&ensp;place the other party of the player in scope, but not its contents.</div>
 </div><p>A note about this scope addition: the player can refer to the other party whenever he has the other person on the phone. He can&#39;t, however, see or refer to anything that person might be holding or wearing, thanks to the &quot;but not its contents&quot; option.</p>
-<p>Furthermore, the player can&#39;t actually do anything to that person that requires touching. That&#39;s because of the reaching inside rules, which govern whether the player can reach through intervening barriers such as rooms. (See the Advanced Actions chapter for more about changing reachability.) There are two things we might want to be careful about, though.</p>
-<p>First, we should specifically disallow the player from looking at the person on the other end of the line. Since sight doesn&#39;t require touching, the reaching inside rules will not be consulted about a command such as EXAMINE BOSS or LOOK UNDER BOSS. We can, however, intervene in such cases using the visibility rules, which are consulted for any actions that &quot;require light&quot; (including EXAMINE and LOOK UNDER). Here again we borrow some options from the Advanced Actions chapter:</p>
+<p>Furthermore, the player can&#39;t actually do anything to that person that requires touching. That&#39;s because of the reaching inside rules, which govern whether the player can reach through intervening barriers such as rooms. (See the <a href="WI_12.html">Advanced Actions chapter</a> for more about changing reachability.) There are two things we might want to be careful about, though.</p>
+<p>First, we should specifically disallow the player from looking at the person on the other end of the line. Since sight doesn&#39;t require touching, the reaching inside rules will not be consulted about a command such as EXAMINE BOSS or LOOK UNDER BOSS. We can, however, intervene in such cases using the visibility rules, which are consulted for any actions that &quot;require light&quot; (including EXAMINE and LOOK UNDER). Here again we borrow some options from the <a href="WI_12.html">Advanced Actions chapter</a>:</p>
 <div class="codeblock"><div class="codeline">To decide whether acting through the line:</div>
 <div class="codeline">&ensp;&ensp;if the noun is something and the location of the noun is not the location of the player:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;yes;</div>

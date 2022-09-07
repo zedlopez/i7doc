@@ -37,7 +37,7 @@
 <p>Now we&#39;re reasonably sure that the player is only locking keylessly in the case that he is inside the Studio. (We might have to do a more thorough check for this if there were more than two rooms, but as it is, the player can only be in the Stairwell or in the Studio, so if we have ruled out the Stairwell, we are safe.) So now we want to add what happens when locking-without-a-key command succeeds:</p>
 <div class="codeblock"><div class="codeline">Carry out locking keylessly:</div>
 <div class="codeline">&ensp;&ensp;now the noun is locked.</div>
-</div><p>That&#39;s it. We&#39;ve just told Inform to make the door be locked. &quot;Now&hellip;&quot; syntax will be explained more thoroughly in the chapter on change. But we still haven&#39;t described to the player what just happened, so let&#39;s provide a description of that, too:</p>
+</div><p>That&#39;s it. We&#39;ve just told Inform to make the door be locked. &quot;Now&hellip;&quot; syntax will be explained more thoroughly in the <a href="WI_8.html">chapter on change</a>. But we still haven&#39;t described to the player what just happened, so let&#39;s provide a description of that, too:</p>
 <div class="codeblock"><div class="codeline">Report locking keylessly:</div>
 <div class="codeline">&ensp;&ensp;say &quot;You flip over the deadbolt to lock [the noun].&quot;</div>
 </div><p>And now we have to do a similar set of things for unlocking:</p>
