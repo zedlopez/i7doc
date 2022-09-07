@@ -190,10 +190,10 @@ div.indexentry span.indexphrasebracketed { color: purple; font-style: italic; }
 .doc-navbar + .doc-navbar { margin-top: -.5rem; }
 
 .doc-navbar-left, .doc-navbar-center, .doc-navbar-right { display: flex; flex: 1; }
-.doc-navbar-left { text-align: left; }
-.doc-navbar-center { text-align: center; }
-.doc-navbar-right { justify-content: flex-end; }
-.doc-navbar-right > * { text-align: right; }
+.doc-navbar-left { justify-content: flex-start; }
+.doc-navbar-center { justify-content: center; }
+.doc-navbar-right { justify-content: flex-end; text-align: right; }
+/*.doc-navbar-right > * {  }*/
 
 .nav-el { display: flex; border-bottom: .1rem solid rgba(0,0,0,0); }
 a.nav-el:hover { border-bottom: .1rem dotted; }
