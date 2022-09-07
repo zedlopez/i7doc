@@ -142,6 +142,10 @@ div.example-number-cell { display: table-cell; text-align: right; width: 3rem; }
 div.example-name-cell { display: table-cell; padding-left: .75rem; }
 .section-example-name { font-weight: normal; }
 
+div.example-short { display: flex; }
+.example-short-num { font-weight: bold; }
+div.example-short-name { margin-left: .5rem; }
+span.example-short-name { font-weight: bold; }
 details.chapter-details {
     padding-left: 2rem;
     margin-bottom: .5rem;
