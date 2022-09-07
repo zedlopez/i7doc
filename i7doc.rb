@@ -1370,14 +1370,14 @@ def output_chapter(f, vol, chapter_num, monolithic = false, search: false)
     end
     navbar << '</div>'
     navbar << %Q{<div class="doc-navbar-center"><div class="nav-el"><span class="hidden">0</span></div></div>}
-
+    navbar << %Q{<div class="doc-navbar-right">}
     if book[:chapters].key?(chapter_num+1) 
-        navbar << %Q{<div class="doc-navbar-right"><a class="nav-el" href="#{book[:abbrev]}_#{chapter_num+1}.html"><div class="doc-navbar-text">#{chapter_num+1}. #{book[:chapters][chapter_num+1][:name]}</div> <div class="nav-arrow">→</div></a></div>}
+        navbar << %Q{<a class="nav-el" href="#{book[:abbrev]}_#{chapter_num+1}.html"><div class="doc-navbar-text">#{chapter_num+1}. #{book[:chapters][chapter_num+1][:name]}</div> <div class="nav-arrow">→</div></a>}
         #    navbar << %Q{<a href="#{book[:abbrev]}_#{chapter_num+1}.html">#{chapter_num+1}. #{book[:chapters][chapter_num+1][:name]}</a>} 
     else
       navbar << %Q{<div class="nav-el"><span class="hidden">0</span></div>}
     end
-    navbar <<  %Q{</div>}
+    navbar <<  %Q{</div></div>}
     f.puts navbar.join('')
     output_chapter_toc(f, vol, chapter)
     chapter[:sections].keys.sort_by(&:to_i).each do |section_num|

@@ -199,6 +199,8 @@ div.indexentry span.indexphrasebracketed { color: purple; font-style: italic; }
 a.nav-el:hover { border-bottom: .1rem dotted; }
 .nav-arrow { flex-shrink: 0; }
 a.nav-about { border-bottom: .1rem solid rgba(0,0,0,0); }
+a.nav-about:hover { border-bottom: .1rem dotted; }
+
 doc-navbar-text { vertical-align: top; }
 body.toc { width: 100%; }
 main.toc { margin-right: 5rem; margin-left: 5rem; }
