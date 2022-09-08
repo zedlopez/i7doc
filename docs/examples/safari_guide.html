@@ -18,27 +18,27 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex307">Play/modify Safari Guide in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="LongTravel/index.html">Play Safari Guide in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Safari Guide&quot;\n\nInclude Locksmith by Emily Short.\n\nThe Monkey House is a room. The African Grasslands Exhibit is north of the Monkey House. The bird door is north of the African Grasslands Exhibit and south of the Aviary. The Ostrich Enclosure is west of the Aviary. The bird door is a door. It is closed, lockable, and locked. The silver key is a passkey. It unlocks the bird door. The player carries the silver key.\n\nUnderstand &quot;go to [any room]&quot; as going by name. Understand &quot;[any room]&quot; as going by name. Understand &quot;[door]&quot; as entering.\n\nGoing by name is an action applying to one thing.\n\nCheck going by name:\n\tif the noun is the location, say &quot;You&apos;re already in [the location].&quot; instead.\n\nCarry out going by name:\n\twhile the player is not in the noun:\n\t\tlet heading be the best route from the location to the noun, using even locked doors;\n\t\tif heading is not a direction, say &quot;You can&apos;t think how to get there from here.&quot; instead;\n\t\tlet destination be the room heading from the location;\n\t\tsay &quot;(heading [heading])[command clarification break]&quot;;\n\t\ttry going heading;\n\t\tif the player is not in the destination, rule fails.\n\nTest me with &quot;go to aviary / go to ostrich enclosure / african grasslands&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Safari Guide&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Include Locksmith by Emily Short.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Monkey House is a room. The African Grasslands Exhibit is north of the Monkey House. The bird door is north of the African Grasslands Exhibit and south of the Aviary. The Ostrich Enclosure is west of the Aviary. The bird door is a door. It is closed, lockable, and locked. The silver key is a passkey. It unlocks the bird door. The player carries the silver key.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Understand &quot;go to [any room]&quot; as going by name. Understand &quot;[any room]&quot; as going by name. Understand &quot;[door]&quot; as entering.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Going by name is an action applying to one thing.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Check going by name:</div>
-<div class="codeline">&ensp;&ensp;if the noun is the location, say &quot;You&#39;re already in [the location].&quot; instead.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the noun is the location, say &quot;You&#39;re already in [the location].&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Carry out going by name:</div>
-<div class="codeline">&ensp;&ensp;while the player is not in the noun:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;let heading be the best route from the location to the noun, using even locked doors;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;if heading is not a direction, say &quot;You can&#39;t think how to get there from here.&quot; instead;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;let destination be the room heading from the location;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;(heading [heading])[command clarification break]&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;try going heading;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;if the player is not in the destination, rule fails.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;while the player is not in the noun:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;let heading be the best route from the location to the noun, using even locked doors;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if heading is not a direction, say &quot;You can&#39;t think how to get there from here.&quot; instead;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;let destination be the room heading from the location;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;(heading [heading])[command clarification break]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;try going heading;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the player is not in the destination, rule fails.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;go to aviary / go to ostrich enclosure / african grasslands&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "go to aviary / go to ostrich enclosure / african grasslands".</summary><div class="testme-output">Monkey House<br><br>&gt;(Testing.)<br><br>&gt;[1] go to aviary<br>(heading north)<br><br>African Grasslands Exhibit<br>You can see a bird door here.<br><br>(heading north)<br>(first opening the bird door)<br>(first unlocking the bird door)<br>(with the silver key)<br><br>Aviary<br>You can see a bird door here.<br><br>&gt;[2] go to ostrich enclosure<br>(heading west)<br><br>Ostrich Enclosure<br><br>&gt;[3] african grasslands<br>(heading east)<br><br>Aviary<br>You can see a bird door here.<br><br>(heading south)<br><br>African Grasslands Exhibit<br>You can see a bird door here.
 </div></details><p>Notice that we continue the movement until one of two things happens: either the player reaches the room that is his destination, or the going attempt doesn&#39;t work. In the latter case we stop the action in order to avoid hanging the game up in a loop. This event might occur when the player runs into a locked door, for instance.</p>

@@ -18,14 +18,14 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex134a">Play/modify Zork II in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Carousel_1/index.html">Play Zork II in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Zork II&quot;\n\nThe Carousel Room is a room.\n\nInstead of going from the Carousel Room:\n\tmove the player to a random adjacent room.\n\n\nThe Games of Chance is north of the Carousel Room. The Haunted Funhouse is northwest of the Carousel Room. The Ferris Wheel is east of the Carousel Room. The Topsy-Turvy is northeast of the Carousel Room. The Reproduction Henge is south of the Carousel Room. The Women&apos;s Toilet is southwest of the Carousel Room. The Men&apos;s Toilet is southeast of the Carousel Room. The Cotton Candy Shop is west of the Carousel Room.\n\nTest me with &quot;s&quot;.\n\n\nWhen play begins, seed the random-number generator with 1234.`)">⧉</button><div class="codeline storytitle">&quot;Zork II&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Carousel Room is a room.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of going from the Carousel Room:</div>
-<div class="codeline">&ensp;&ensp;move the player to a random adjacent room.</div>
+<div class="codeline">&ensp;&ensp;&ensp;move the player to a random adjacent room.</div>
 </div><p>To avoid infringing the original game too much, let&#39;s try a somewhat different setting:</p>
 <div class="codeblock"><div class="codeline">The Games of Chance is north of the Carousel Room. The Haunted Funhouse is northwest of the Carousel Room. The Ferris Wheel is east of the Carousel Room. The Topsy-Turvy is northeast of the Carousel Room. The Reproduction Henge is south of the Carousel Room. The Women&#39;s Toilet is southwest of the Carousel Room. The Men&#39;s Toilet is southeast of the Carousel Room. The Cotton Candy Shop is west of the Carousel Room.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;s&quot;.</div>
 </div><p>And the following means that the test runs consistently even though the numbers are theoretically random. To make them truly random, remove this line.</p>
 <div class="codeblock"><div class="codeline">When play begins, seed the random-number generator with 1234.</div>
@@ -34,16 +34,16 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex134b">Play/modify Zork II in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Carousel_2/index.html">Play Zork II in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Zork II&quot;\n\nThe Carousel Room is a room. The spinning machine is a switched on device in the Carousel Room.\n\n\nInstead of going from the Carousel Room when the spinning machine is switched on:\n\tmove the player to a random adjacent room.\n\nThe Games of Chance is north of the Carousel Room. The Haunted Funhouse is northwest of the Carousel Room. The Ferris Wheel is east of the Carousel Room. The Topsy-Turvy is northeast of the Carousel Room. The Reproduction Henge is south of the Carousel Room. The Women&apos;s Toilet is southwest of the Carousel Room. The Men&apos;s Toilet is southeast of the Carousel Room. The Cotton Candy Shop is west of the Carousel Room.\n\nTest me with &quot;turn off machine / s / n / turn on machine / s&quot;.\n\nWhen play begins, seed the random-number generator with 1234.`)">⧉</button><div class="codeline storytitle">&quot;Zork II&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Carousel Room is a room. The spinning machine is a switched on device in the Carousel Room.</div>
 </div><p>And then</p>
 <div class="codeblock"><div class="codeline">Instead of going from the Carousel Room when the spinning machine is switched on:</div>
-<div class="codeline">&ensp;&ensp;move the player to a random adjacent room.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;move the player to a random adjacent room.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Games of Chance is north of the Carousel Room. The Haunted Funhouse is northwest of the Carousel Room. The Ferris Wheel is east of the Carousel Room. The Topsy-Turvy is northeast of the Carousel Room. The Reproduction Henge is south of the Carousel Room. The Women&#39;s Toilet is southwest of the Carousel Room. The Men&#39;s Toilet is southeast of the Carousel Room. The Cotton Candy Shop is west of the Carousel Room.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;turn off machine / s / n / turn on machine / s&quot;.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">When play begins, seed the random-number generator with 1234.</div>
 </div><details class="testme-output"><summary>Test me with "turn off machine / s / n / turn on machine / s".</summary><div class="testme-output">Carousel Room<br>You can see a spinning machine here.<br><br>&gt;(Testing.)<br><br>&gt;[1] turn off machine<br>You switch the spinning machine off.<br><br>&gt;[2] s<br><br>Reproduction Henge<br><br>&gt;[3] n<br><br>Carousel Room<br>You can see a spinning machine here.<br><br>&gt;[4] turn on machine<br>You switch the spinning machine on.<br><br>&gt;[5] s<br>Men&#39;s Toilet
 </div></details><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="candy.html" title="One of several identical candies chosen at the start of play to be poisonous."><div class="nav-arrow">←</div> <div class="doc-navbar-text">133. Candy</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="clueless.html" title="A murderer for the mystery is selected randomly at the beginning of the game."><div class="doc-navbar-text">135. Clueless</div> <div class="nav-arrow">→</div></a></div></div>

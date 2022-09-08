@@ -19,61 +19,61 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex209">Play/modify Fate Steps In in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="McQuerry/index.html">Play Fate Steps In in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Fate Steps In&quot;\n\nFate is a woman. After deciding the scope of the player: place Fate in scope. The description of Fate is &quot;Not smiling.&quot; Instead of doing something other than examining to fate: say &quot;As if.&quot;\n\nEvery turn: try fate tripping.\n\nTripping is an action applying to nothing.\n\nCarry out someone tripping:\n\tif something dangerous (called the trap) is in the location:\n\t\tsay &quot;Lise chooses this moment to lick her fingers -- it&apos;s not gross, it&apos;s natural, you decide -- stand up, and head for the door. Unfortunately, her path crosses directly over [the trap]. There is a vaudevillesque moment where you try to warn or catch her; the next moment she&apos;s on the floor, looking shocked and also in quite a lot of pain. &apos;I&apos;m not sure,&apos; she says to you steadily but with unfocused gaze, &apos;but I think I might have broken my tailbone.&apos;&quot;;\n\t\tend the story saying &quot;Well, she&apos;s paying attention to you now&quot;.\n\nBefore someone tripping when the location does not contain a dangerous thing: try the person asked making a mess instead.\n\nMaking a mess is an action applying to nothing.\n\nCarry out someone making a mess:\n\tlet calamitous object be a random visible supporter which supports at least three things;\n\tif calamitous object is a supporter:\n\t\tsay &quot;[The calamitous object] tips over, spilling [the list of things on calamitous object] all over the place.&quot;;\n\t\tmove the calamitous object to the location;\n\t\tnow every thing on the calamitous object is in the location.\n\nDefinition: a thing is dangerous if it is not the carton and it is not the table and it is not a person.\n\nBefore someone making a mess when a safe supporter (called target) is visible:\n\tif Lise carries something, try Lise putting a random thing carried by Lise on the target instead.\n\nInstead of someone making a mess when the tray is on the table:\n\tsay &quot;Just at that moment, a large blond man-thing in a red jacket walks more or less through you, and you come into violent contact with the table, knocking [the list of the things on the table] onto the floor.&quot;;\n\tnow every thing on the table is in the location;\n\tnow every thing on the tray is in the location instead.\n\nDefinition: a supporter is safe if the number of things on it is less than two.\n\nMcQuerry Dining Hall is a room.\n\nThe table is scenery in the dining hall. The table is a supporter.\n\nLise Fitzwallace is a woman in the Dining Hall. &quot;Lise is at the nearest table, not apparently paying any attention to you.&quot; The description of Lise is &quot;A capella singer, women&apos;s rugby champion, general object of attention from all genders. Unlikely to notice you unless fate smiles broadly.&quot; Lise carries a fork, a napkin, an empty glass, and a plate of half-eaten eggplant parmesan.\n\nReport Lise putting something on something:\n\tsay &quot;Lise, still deep in thought, absently puts [the noun] on [the second noun].&quot; instead.\n\nThe carrying capacity of the player is 2. The carton of chocolate milk is in the Hall. &quot;There&apos;s a carton of milk beside you, which you set down for a moment -- but you do want it.&quot;\n\nInstead of taking something when the player carries the tray:\n\tsay &quot;You&apos;ve got both hands full with this tray.&quot;\n\nThe player carries the tray. On the tray is some macaroni and some overdone chicken. The macaroni and the chicken are edible. The tray is portable.\n\nTest me with &quot;get milk / put tray on table / get milk&quot;.\n\nTest again with &quot;drop tray&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Fate Steps In&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Fate is a woman. After deciding the scope of the player: place Fate in scope. The description of Fate is &quot;Not smiling.&quot; Instead of doing something other than examining to fate: say &quot;As if.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Every turn: try fate tripping.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Tripping is an action applying to nothing.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Carry out someone tripping:</div>
-<div class="codeline">&ensp;&ensp;if something dangerous (called the trap) is in the location:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;Lise chooses this moment to lick her fingers -- it&#39;s not gross, it&#39;s natural, you decide -- stand up, and head for the door. Unfortunately, her path crosses directly over [the trap]. There is a vaudevillesque moment where you try to warn or catch her; the next moment she&#39;s on the floor, looking shocked and also in quite a lot of pain. &#39;I&#39;m not sure,&#39; she says to you steadily but with unfocused gaze, &#39;but I think I might have broken my tailbone.&#39;&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;end the story saying &quot;Well, she&#39;s paying attention to you now&quot;.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if something dangerous (called the trap) is in the location:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;Lise chooses this moment to lick her fingers -- it&#39;s not gross, it&#39;s natural, you decide -- stand up, and head for the door. Unfortunately, her path crosses directly over [the trap]. There is a vaudevillesque moment where you try to warn or catch her; the next moment she&#39;s on the floor, looking shocked and also in quite a lot of pain. &#39;I&#39;m not sure,&#39; she says to you steadily but with unfocused gaze, &#39;but I think I might have broken my tailbone.&#39;&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;end the story saying &quot;Well, she&#39;s paying attention to you now&quot;.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Before someone tripping when the location does not contain a dangerous thing: try the person asked making a mess instead.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Making a mess is an action applying to nothing.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Carry out someone making a mess:</div>
-<div class="codeline">&ensp;&ensp;let calamitous object be a random visible supporter which supports at least three things;</div>
-<div class="codeline">&ensp;&ensp;if calamitous object is a supporter:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;[The calamitous object] tips over, spilling [the list of things on calamitous object] all over the place.&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;move the calamitous object to the location;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;now every thing on the calamitous object is in the location.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let calamitous object be a random visible supporter which supports at least three things;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if calamitous object is a supporter:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[The calamitous object] tips over, spilling [the list of things on calamitous object] all over the place.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;move the calamitous object to the location;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now every thing on the calamitous object is in the location.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Definition: a thing is dangerous if it is not the carton and it is not the table and it is not a person.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Before someone making a mess when a safe supporter (called target) is visible:</div>
-<div class="codeline">&ensp;&ensp;if Lise carries something, try Lise putting a random thing carried by Lise on the target instead.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if Lise carries something, try Lise putting a random thing carried by Lise on the target instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of someone making a mess when the tray is on the table:</div>
-<div class="codeline">&ensp;&ensp;say &quot;Just at that moment, a large blond man-thing in a red jacket walks more or less through you, and you come into violent contact with the table, knocking [the list of the things on the table] onto the floor.&quot;;</div>
-<div class="codeline">&ensp;&ensp;now every thing on the table is in the location;</div>
-<div class="codeline">&ensp;&ensp;now every thing on the tray is in the location instead.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Just at that moment, a large blond man-thing in a red jacket walks more or less through you, and you come into violent contact with the table, knocking [the list of the things on the table] onto the floor.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now every thing on the table is in the location;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now every thing on the tray is in the location instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Definition: a supporter is safe if the number of things on it is less than two.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">McQuerry Dining Hall is a room.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The table is scenery in the dining hall. The table is a supporter.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Lise Fitzwallace is a woman in the Dining Hall. &quot;Lise is at the nearest table, not apparently paying any attention to you.&quot; The description of Lise is &quot;A capella singer, women&#39;s rugby champion, general object of attention from all genders. Unlikely to notice you unless fate smiles broadly.&quot; Lise carries a fork, a napkin, an empty glass, and a plate of half-eaten eggplant parmesan.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Report Lise putting something on something:</div>
-<div class="codeline">&ensp;&ensp;say &quot;Lise, still deep in thought, absently puts [the noun] on [the second noun].&quot; instead.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Lise, still deep in thought, absently puts [the noun] on [the second noun].&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The carrying capacity of the player is 2. The carton of chocolate milk is in the Hall. &quot;There&#39;s a carton of milk beside you, which you set down for a moment -- but you do want it.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of taking something when the player carries the tray:</div>
-<div class="codeline">&ensp;&ensp;say &quot;You&#39;ve got both hands full with this tray.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You&#39;ve got both hands full with this tray.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The player carries the tray. On the tray is some macaroni and some overdone chicken. The macaroni and the chicken are edible. The tray is portable.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;get milk / put tray on table / get milk&quot;.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test again with &quot;drop tray&quot;.</div>
-</div><details class="testme-output"><summary>Test me with "get milk / put tray on table / get milk".</summary><div class="testme-output">McQuerry Dining Hall<br>Lise is at the nearest table, not apparently paying any attention to you.<br><br>There&#39;s a carton of milk beside you, which you set down for a moment -- but you do want it.<br><br>&gt;(Testing.)<br><br>&gt;[1] get milk<br>You&#39;ve got both hands full with this tray.<br><br>Lise, still deep in thought, absently puts the fork on the table.<br><br>&gt;[2] put tray on table<br>You put the tray on the table.<br><br>Just at that moment, a large blond man-thing in a red jacket walks more or less through you, and you come into violent contact with the table, knocking the tray and the fork onto the floor.<br><br>&gt;[3] get milk<br>Taken.<br><br>Lise chooses this moment to lick her fingers -- it&#39;s not gross, it&#39;s natural, you decide -- stand up, and head for the door. Unfortunately, her path crosses directly over the overdone chicken. There is a vaudevillesque moment where you try to warn or catch her; the next moment she&#39;s on the floor, looking shocked and also in quite a lot of pain. &quot;I&#39;m not sure,&quot; she says to you steadily but with unfocused gaze, &quot;but I think I might have broken my tailbone.&quot;<br><br><br><br>    *** Well, she&#39;s paying attention to you now ***
+</div><details class="testme-output"><summary>Test me with "get milk / put tray on table / get milk".</summary><div class="testme-output">McQuerry Dining Hall<br>Lise is at the nearest table, not apparently paying any attention to you.<br><br>There&#39;s a carton of milk beside you, which you set down for a moment -- but you do want it.<br><br>&gt;(Testing.)<br><br>&gt;[1] get milk<br>You&#39;ve got both hands full with this tray.<br><br>Lise, still deep in thought, absently puts the plate of half-eaten eggplant parmesan on the table.<br><br>&gt;[2] put tray on table<br>You put the tray on the table.<br><br>Just at that moment, a large blond man-thing in a red jacket walks more or less through you, and you come into violent contact with the table, knocking the tray and the plate of half-eaten eggplant parmesan onto the floor.<br><br>&gt;[3] get milk<br>Taken.<br><br>Lise chooses this moment to lick her fingers -- it&#39;s not gross, it&#39;s natural, you decide -- stand up, and head for the door. Unfortunately, her path crosses directly over the overdone chicken. There is a vaudevillesque moment where you try to warn or catch her; the next moment she&#39;s on the floor, looking shocked and also in quite a lot of pain. &quot;I&#39;m not sure,&quot; she says to you steadily but with unfocused gaze, &quot;but I think I might have broken my tailbone.&quot;<br><br><br><br>    *** Well, she&#39;s paying attention to you now ***
 </div></details><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="man_of_steel_excuses_himself.html" title="Elaborating the report rules to be more interesting than &quot;Clark goes west.&quot;"><div class="nav-arrow">←</div> <div class="doc-navbar-text">208. The Man of Steel Excuses Himself</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="spellbreaker.html" title="P. David Lebling&#39;s classic &quot;Spellbreaker&quot; (1986) includes a room where the game cannot be saved: here is an Inform implementation."><div class="doc-navbar-text">210. Spellbreaker</div> <div class="nav-arrow">→</div></a></div></div>
 <footer id="credits-footer"><nav><div class="nav-el"><a class="nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="nav-el" href="../search.html">Search</a></div></nav>
 <div class="footing"><p id="i7credit"><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p class="about"><a class="nav-about" href="../about.html">About this edition</a> &bull; <a class="nav-about" href="https://twitter.com/inform7tips">@inform7tips</a></p></div></footer>

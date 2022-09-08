@@ -18,46 +18,46 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex201">Play/modify Puff of Orange Smoke in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="PuffOfOrangeSmoke/index.html">Play Puff of Orange Smoke in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Puff of Orange Smoke&quot;\n\nParaguay is a room. Bolivia is north of Paraguay. Lydia is a woman in Paraguay. &quot;Lydia is, as usual, here.&quot; The description of Lydia is &quot;Long, long legs and a sarcastic attitude.&quot; Instead of touching Lydia: say &quot;&apos;Watch it, sailor,&apos; she snaps.&quot;\n\nA body is a kind of thing. A body is a part of every person. Instead of touching a body: say &quot;[The noun] is grotesquely inert.&quot;\n\nThe description of Lydia&apos;s body is &quot;Long, long legs and no attitude at all.&quot; The initial appearance of Lydia&apos;s body is &quot;Lydia&apos;s corpse is sprawled at your feet.&quot;\n\n\nSpirit-possession relates one person to one body. The verb to be owner of means the spirit-possession relation.\n\nWhen play begins:\n\trepeat with victim running through people:\n\t\tlet the corpse be a random body which is part of the victim;\n\t\tnow the victim is owner of the corpse.\n\n\nSetting action variables when the noun is a body which is part of a person (called owner):\n\tnow the noun is the owner.\n\nSetting action variables when the second noun is a body which is part of a person (called owner):\n\tnow the second noun is the owner.\n\n\nSetting action variables when the noun is a dead person and the noun is owner of a visible body (called the mortal remains):\n\tnow the noun is the mortal remains.\n\n\nThe worldview is a privately-named backdrop. It is everywhere. The spirit-world is a privately-named transparent closed unopenable container. It is part of the worldview.\n\nDefinition: a person is dead if he is in the spirit-world.\n\n\nBefore doing something to a dead person:\n\tsay &quot;[The noun] is dead; or had you blocked that out?&quot; instead.\n\n\nInstead of attacking someone:\n\tlet the corpse be a random body which is part of the noun;\n\tmove the corpse to the location;\n\tmove the noun to the spirit-world;\n\tsay &quot;With a single blow, you rid the world of [the noun].&quot;\n\n\nUnderstand &quot;corpse&quot; as a body when the item described is not part of a person.\n\nTest me with &quot;x body / x lydia&apos;s body / touch lydia&apos;s body / x corpse / kill lydia / look / x lydia&apos;s body / x lydia&apos;s corpse / x corpse / x lydia / touch lydia / lydia, hello / n / x lydia / touch lydia / lydia, hello&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Puff of Orange Smoke&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Paraguay is a room. Bolivia is north of Paraguay. Lydia is a woman in Paraguay. &quot;Lydia is, as usual, here.&quot; The description of Lydia is &quot;Long, long legs and a sarcastic attitude.&quot; Instead of touching Lydia: say &quot;&#39;Watch it, sailor,&#39; she snaps.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A body is a kind of thing. A body is a part of every person. Instead of touching a body: say &quot;[The noun] is grotesquely inert.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The description of Lydia&#39;s body is &quot;Long, long legs and no attitude at all.&quot; The initial appearance of Lydia&#39;s body is &quot;Lydia&#39;s corpse is sprawled at your feet.&quot;</div>
 </div><p>Using our &quot;part of every person&hellip;&quot; line, we&#39;ve conveniently assigned one body per person. Since we&#39;re going to separate people from their bodies when the bodies die, though, we also want a more permanent relation that will help us keep track of which bodies used to belong to which people:</p>
 <div class="codeblock"><div class="codeline">Spirit-possession relates one person to one body. The verb to be owner of means the spirit-possession relation.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">When play begins:</div>
-<div class="codeline">&ensp;&ensp;repeat with victim running through people:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;let the corpse be a random body which is part of the victim;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;now the victim is owner of the corpse.</div>
+<div class="codeline">&ensp;&ensp;&ensp;repeat with victim running through people:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;let the corpse be a random body which is part of the victim;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the victim is owner of the corpse.</div>
 </div><p>When Lydia is alive, we want &gt;TOUCH LYDIA&#39;S BODY to mean the same thing as &gt;TOUCH LYDIA, so we use the setting action variables rules as a convenient point at which to reassign the action:</p>
 <div class="codeblock"><div class="codeline">Setting action variables when the noun is a body which is part of a person (called owner):</div>
-<div class="codeline">&ensp;&ensp;now the noun is the owner.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the noun is the owner.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Setting action variables when the second noun is a body which is part of a person (called owner):</div>
-<div class="codeline">&ensp;&ensp;now the second noun is the owner.</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the second noun is the owner.</div>
 </div><p>This doesn&#39;t change Inform&#39;s idea about what action is being performed; just about the object it&#39;s being performed on. The rest of the action will now proceed as if the player had typed &gt;TOUCH LYDIA.</p>
 <p>Along similar lines, once Lydia is dead, we want &gt;MOVE LYDIA to mean &gt;MOVE LYDIA&#39;S BODY if the body is in view:</p>
 <div class="codeblock"><div class="codeline">Setting action variables when the noun is a dead person and the noun is owner of a visible body (called the mortal remains):</div>
-<div class="codeline">&ensp;&ensp;now the noun is the mortal remains.</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the noun is the mortal remains.</div>
 </div><p>The trick is, though, that &gt;MOVE LYDIA will only be understood if there is something called Lydia that the player can see and refer to, even after she&#39;s dead. There are various ways to do this, but the least painful here will be to make the deceased Lydia permanently visible, by putting her in an always-accessible backdrop. The backdrop itself will never be mentioned in the game, and we should make its name something that the player is unlikely to type casually; we don&#39;t want the player to interact with it directly. So:</p>
 <div class="codeblock"><div class="codeline">The worldview is a privately-named backdrop. It is everywhere. The spirit-world is a privately-named transparent closed unopenable container. It is part of the worldview.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Definition: a person is dead if he is in the spirit-world.</div>
 </div><p>It&#39;s also possible that the player will type something like &gt;X LYDIA when Lydia&#39;s corpse is not in view, so we should have an appropriate answer to that as well:</p>
 <div class="codeblock"><div class="codeline">Before doing something to a dead person:</div>
-<div class="codeline">&ensp;&ensp;say &quot;[The noun] is dead; or had you blocked that out?&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;[The noun] is dead; or had you blocked that out?&quot; instead.</div>
 </div><p>Because the before rules happen after the setting action variables rules, this will only ever happen if the corpse is not visible.</p>
 <p>Now we define the attack itself, which should discard the body, move the spirit to its eternal resting place, and describe the event to the player:</p>
 <div class="codeblock"><div class="codeline">Instead of attacking someone:</div>
-<div class="codeline">&ensp;&ensp;let the corpse be a random body which is part of the noun;</div>
-<div class="codeline">&ensp;&ensp;move the corpse to the location;</div>
-<div class="codeline">&ensp;&ensp;move the noun to the spirit-world;</div>
-<div class="codeline">&ensp;&ensp;say &quot;With a single blow, you rid the world of [the noun].&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let the corpse be a random body which is part of the noun;</div>
+<div class="codeline">&ensp;&ensp;&ensp;move the corpse to the location;</div>
+<div class="codeline">&ensp;&ensp;&ensp;move the noun to the spirit-world;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;With a single blow, you rid the world of [the noun].&quot;</div>
 </div><p>And finally a trick borrowed from the <a href="WI_17.html">chapter on understanding</a>, so that we can refer to &quot;Lydia&#39;s body&quot; while Lydia is alive, but &quot;Lydia&#39;s corpse&quot; only after Lydia has died:</p>
 <div class="codeblock"><div class="codeline">Understand &quot;corpse&quot; as a body when the item described is not part of a person.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;x body / x lydia&#39;s body / touch lydia&#39;s body / x corpse / kill lydia / look / x lydia&#39;s body / x lydia&#39;s corpse / x corpse / x lydia / touch lydia / lydia, hello / n / x lydia / touch lydia / lydia, hello&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "x body / x lydia's body / touch lydia's body / x corpse / kill lydia / look / x lydia's body / x lydia's corpse / x corpse / x lydia / touch lydia / lydia, hello / n / x lydia / touch lydia / lydia, hello".</summary><div class="testme-output">Paraguay<br>Lydia is, as usual, here.<br><br>&gt;(Testing.)<br><br>&gt;[1] x body<br>Which do you mean, your body or Lydia&#39;s body?<br><br>&gt;[2] x lydia&#39;s body<br>Long, long legs and a sarcastic attitude.<br><br>&gt;[3] touch lydia&#39;s body<br>&quot;Watch it, sailor,&quot; she snaps.<br><br>&gt;[4] x corpse<br>You can&#39;t see any such thing.<br><br>&gt;[5] kill lydia<br>With a single blow, you rid the world of Lydia.<br><br>&gt;[6] look<br>Paraguay<br>Lydia&#39;s corpse is sprawled at your feet.<br><br>&gt;[7] x lydia&#39;s body<br>Long, long legs and no attitude at all.<br><br>&gt;[8] x lydia&#39;s corpse<br>Long, long legs and no attitude at all.<br><br>&gt;[9] x corpse<br>Long, long legs and no attitude at all.<br><br>&gt;[10] x lydia<br>Long, long legs and no attitude at all.<br><br>&gt;[11] touch lydia<br>Lydia&#39;s body is grotesquely inert.<br><br>&gt;[12] lydia, hello<br>There is no reply.<br><br>&gt;[13] n<br><br>Bolivia<br><br>&gt;[14] x lydia<br>Lydia is dead; or had you blocked that out?<br><br>&gt;[15] touch lydia<br>Lydia is dead; or had you blocked that out?<br><br>&gt;[16] lydia, hello<br>Lydia is dead; or had you blocked that out?
 </div></details><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="second_oldest_problem.html" title="Adapting the going action so that something special can happen when going from a dark room to another dark room."><div class="nav-arrow">←</div> <div class="doc-navbar-text">200. The Second Oldest Problem</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="croft.html" title="Adding special reporting and handling for objects dropped when the player is on a supporter, and special entering rules for moving from one supporter to another."><div class="doc-navbar-text">202. Croft</div> <div class="nav-arrow">→</div></a></div></div>

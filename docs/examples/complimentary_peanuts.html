@@ -18,30 +18,30 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex376">Play/modify Complimentary Peanuts in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Keyword/index.html">Play Complimentary Peanuts in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Complimentary Peanuts&quot;\n\nInstead of asking Aunt Martha to try doing something:\n\trepeat through Table of Aunt Martha&apos;s Commentary:\n\t\tif player&apos;s command includes topic entry:\n\t\t\tsay &quot;[commentary entry][paragraph break]&quot;;\n\t\t\trule succeeds;\n\tsay &quot;&apos;Hmmf,&apos; says Aunt Martha.&quot;\n\n\nAsking someone about something is speech.\nTelling someone about something is speech.\nAnswering someone that something is speech.\nAsking someone for something is speech.\n\nInstead of speech when the noun is Aunt Martha:\n\trepeat through Table of Aunt Martha&apos;s commentary:\n\t\tif the topic understood includes topic entry:\n\t\t\tsay &quot;[commentary entry][paragraph break]&quot;;\n\t\t\trule succeeds;\n\tsay &quot;&apos;Hmmf,&apos; says Aunt Martha.&quot;\n\n\nThe Empyrean Shuttle Bay is a room. &quot;From here you have an excellent view of the colony world, which looks... well, it looks discouragingly orange. But terraforming is in progress.&quot;\n\nAunt Martha is a woman in the Empyrean Shuttle Bay. A gleaming shuttle and a stack of rations are in the Shuttle Bay. The shuttle is a vehicle. &quot;Your shuttle awaits.&quot;\n\nTable of Aunt Martha&apos;s Commentary\ntopic\tcommentary\n&quot;shuttle&quot;\t&quot;&apos;Shuttles! I hate shuttles,&apos; Aunt Martha grumbles. &apos;Give me an airplane! AIRPLANE.&apos;&quot;\n&quot;airplane/airport&quot;\t&quot;&apos;Those were the days,&apos; Aunt Martha agrees, plainly reliving the days when she wore a blue-and-white uniform and passed out packets of salted pretzels.&quot;\n&quot;rations&quot;\t&quot;&apos;Do you think there are any peanuts in there?&apos; she asks in a wistful tone.&quot;\n\nTest me with &quot;martha, get in the shuttle / martha, for pity&apos;s sake, do you see an airplane around here? / martha, pass me the rations&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Complimentary Peanuts&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of asking Aunt Martha to try doing something:</div>
-<div class="codeline">&ensp;&ensp;repeat through Table of Aunt Martha&#39;s Commentary:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;if player&#39;s command includes topic entry:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[commentary entry][paragraph break]&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;rule succeeds;</div>
-<div class="codeline">&ensp;&ensp;say &quot;&#39;Hmmf,&#39; says Aunt Martha.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;repeat through Table of Aunt Martha&#39;s Commentary:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if player&#39;s command includes topic entry:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[commentary entry][paragraph break]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;rule succeeds;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;&#39;Hmmf,&#39; says Aunt Martha.&quot;</div>
 </div><p>The topic understood is also a snippet, so that whenever one has been generated, we can treat it in the same way as &quot;the player&#39;s command&quot;:</p>
 <div class="codeblock"><div class="codeline">Asking someone about something is speech.</div>
 <div class="codeline">Telling someone about something is speech.</div>
 <div class="codeline">Answering someone that something is speech.</div>
 <div class="codeline">Asking someone for something is speech.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of speech when the noun is Aunt Martha:</div>
-<div class="codeline">&ensp;&ensp;repeat through Table of Aunt Martha&#39;s commentary:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;if the topic understood includes topic entry:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[commentary entry][paragraph break]&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;rule succeeds;</div>
-<div class="codeline">&ensp;&ensp;say &quot;&#39;Hmmf,&#39; says Aunt Martha.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;repeat through Table of Aunt Martha&#39;s commentary:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the topic understood includes topic entry:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[commentary entry][paragraph break]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;rule succeeds;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;&#39;Hmmf,&#39; says Aunt Martha.&quot;</div>
 </div><p>This is superior to checking &quot;the player&#39;s command&quot; because we do not want ASK MARTHA ABOUT FRENCH FRIES to trigger the &quot;Martha&quot; keyword, only the &quot;french fries&quot; keywords.</p>
 <div class="codeblock"><div class="codeline">The Empyrean Shuttle Bay is a room. &quot;From here you have an excellent view of the colony world, which looks... well, it looks discouragingly orange. But terraforming is in progress.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Aunt Martha is a woman in the Empyrean Shuttle Bay. A gleaming shuttle and a stack of rations are in the Shuttle Bay. The shuttle is a vehicle. &quot;Your shuttle awaits.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline tablename">Table of Aunt Martha&#39;s Commentary</div><table>
 <tr><td>topic</td><td>commentary</td></tr><tr><td>&quot;shuttle&quot;</td><td>&quot;&#39;Shuttles! I hate shuttles,&#39; Aunt Martha grumbles. &#39;Give me an airplane! AIRPLANE.&#39;&quot;</td></tr><tr><td>&quot;airplane/airport&quot;</td><td>&quot;&#39;Those were the days,&#39; Aunt Martha agrees, plainly reliving the days when she wore a blue-and-white uniform and passed out packets of salted pretzels.&quot;</td></tr><tr><td>&quot;rations&quot;</td><td>&quot;&#39;Do you think there are any peanuts in there?&#39; she asks in a wistful tone.&quot;</td></tr></table>
 <div class="codeline">Test me with &quot;martha, get in the shuttle / martha, for pity&#39;s sake, do you see an airplane around here? / martha, pass me the rations&quot;.</div>
@@ -49,10 +49,10 @@
 </div></details><p>This means that Martha will respond to keywords regardless of the setting in which they occur. For instance:</p>
 <div class="codeblock"><div class="codeline">&gt;martha, get in the shuttle</div>
 <div class="codeline">&quot;Shuttles! I hate shuttles,&quot; Aunt Martha grumbles. &quot;Give me an airplane! AIRPLANE.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">&gt;martha, for pity&#39;s sake, do you see an airplane around here?</div>
 <div class="codeline">&quot;Those were the days,&quot; Aunt Martha agrees, plainly reliving the days when she wore a blue-and-white uniform and passed out packets of salted peanuts.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">&gt;martha, pass me the rations</div>
 <div class="codeline">&quot;Do you think there are any peanuts in there?&quot; she asks in a wistful tone.</div>
 </div><p>This is not the stuff of which Loebner-winning chatbots are made, admittedly, but it is occasionally a useful alternative to stricter modes of command-parsing.</p>

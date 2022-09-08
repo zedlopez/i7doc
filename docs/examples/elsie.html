@@ -18,22 +18,22 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex151">Play/modify Elsie in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Elsie/index.html">Play Elsie in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Elsie&quot;\n\nThe axis-ward is a direction. The opposite of axis-ward is hub-ward. Understand &quot;aw&quot; or &quot;axisward&quot; as axis-ward.\nThe hub-ward is a direction. The opposite of hub-ward is axis-ward. Understand &quot;hw&quot; or &quot;hubward&quot; as hub-ward.\n\nThe Ship&apos;s Bridge is a room.\n\nThe sliding door is a door. It is axis-ward from Bridge and hub-ward from C Deck. The initial appearance is &quot;There is a door in this wall[if closed] -- or at least, the potential for a door, since currently it is sealed, distinguishable from the rest of the wall only by the warning stripes on its surface[end if].&quot;\n\nEvery turn when the sliding door was open:\n\tnow the sliding door is closed;\n\tif the player can see the sliding door:\n\t\tsay &quot;The sliding door slips back into place, sealing the wall as though there had never been a breach.&quot;\n\nAfter opening the sliding door:\n\tsay &quot;You press the appropriate buttons, and a section of wall slides away.&quot;\n\nTest me with &quot;open door / look / enter door / z&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Elsie&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The axis-ward is a direction. The opposite of axis-ward is hub-ward. Understand &quot;aw&quot; or &quot;axisward&quot; as axis-ward.</div>
 <div class="codeline">The hub-ward is a direction. The opposite of hub-ward is axis-ward. Understand &quot;hw&quot; or &quot;hubward&quot; as hub-ward.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Ship&#39;s Bridge is a room.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The sliding door is a door. It is axis-ward from Bridge and hub-ward from C Deck. The initial appearance is &quot;There is a door in this wall[if closed] -- or at least, the potential for a door, since currently it is sealed, distinguishable from the rest of the wall only by the warning stripes on its surface[end if].&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Every turn when the sliding door was open:</div>
-<div class="codeline">&ensp;&ensp;now the sliding door is closed;</div>
-<div class="codeline">&ensp;&ensp;if the player can see the sliding door:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;The sliding door slips back into place, sealing the wall as though there had never been a breach.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the sliding door is closed;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the player can see the sliding door:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;The sliding door slips back into place, sealing the wall as though there had never been a breach.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">After opening the sliding door:</div>
-<div class="codeline">&ensp;&ensp;say &quot;You press the appropriate buttons, and a section of wall slides away.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You press the appropriate buttons, and a section of wall slides away.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;open door / look / enter door / z&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "open door / look / enter door / z".</summary><div class="testme-output">Ship&#39;s Bridge<br>There is a door in this wall -- or at least, the potential for a door, since currently it is sealed, distinguishable from the rest of the wall only by the warning stripes on its surface.<br><br>&gt;(Testing.)<br><br>&gt;[1] open door<br>You press the appropriate buttons, and a section of wall slides away.<br><br>&gt;[2] look<br>Ship&#39;s Bridge<br>There is a door in this wall.<br><br>The sliding door slips back into place, sealing the wall as though there had never been a breach.<br><br>&gt;[3] enter door<br>(first opening the sliding door)<br>You press the appropriate buttons, and a section of wall slides away.<br><br>C Deck<br>There is a door in this wall.<br><br>&gt;[4] z<br>Time passes.<br><br>The sliding door slips back into place, sealing the wall as though there had never been a breach.
 </div></details><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="bruneseaus_journey.html" title="A candle which reacts to lighting and blowing actions differently depending on whether it has already been lit once."><div class="nav-arrow">←</div> <div class="doc-navbar-text">150. Bruneseau's Journey</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="infiltration.html" title="A room whose description changes depending on the number of times the player has visited."><div class="doc-navbar-text">152. Infiltration</div> <div class="nav-arrow">→</div></a></div></div>

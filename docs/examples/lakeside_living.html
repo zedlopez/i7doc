@@ -18,124 +18,124 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex333">Play/modify Lakeside Living in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Lakeside/index.html">Play Lakeside Living in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Lakeside Living&quot;\n\nA volume is a kind of value. 15.9 fl oz specifies a volume with parts ounces and tenths (optional, preamble optional).\n\nA fluid container is a kind of container. A fluid container has a volume called a fluid capacity. A fluid container has a volume called current volume.\n\nThe fluid capacity of a fluid container is usually 12.0 fl oz. The current volume of a fluid container is usually 0.0 fl oz.\n\nLiquid is a kind of value. The liquids are water, absinthe, and iced tea. A fluid container has a liquid.\n\nInstead of examining a fluid container:\n\tif the noun is empty,\n\t\tsay &quot;You catch just a hint of [the liquid of the noun] at the bottom.&quot;;\n\totherwise\n\t\tsay &quot;[The noun] contains [current volume of the noun in rough terms] of [liquid of the noun].&quot;\n\nTo say (amount - a volume) in rough terms:\n\tif the amount is less than 0.5 fl oz:\n\t\tsay &quot;a swallow or two&quot;;\n\totherwise if tenths part of amount is greater than 3 and tenths part of amount is less than 7:\n\t\tlet estimate be ounces part of amount;\n\t\tsay &quot;[estimate in words] or [estimate plus 1 in words] fluid ounces&quot;;\n\totherwise:\n\t\tif tenths part of amount is greater than 6, increase amount by 1.0 fl oz;\n\t\tsay &quot;about [ounces part of amount in words] fluid ounce[s]&quot;.\n\nBefore printing the name of a fluid container (called the target) while not drinking or pouring:\n\tif the target is empty:\n\t\tsay &quot;empty &quot;;\n\totherwise:\n\t\tdo nothing.\n\nAfter printing the name of a fluid container (called the target) while not examining or pouring:\n\tunless the target is empty:\n\t\tsay &quot; of [liquid of the target]&quot;;\n\t\tomit contents in listing.\n\nInstead of inserting something into a fluid container:\n\tsay &quot;[The second noun] has too narrow a mouth to accept anything but liquids.&quot;\n\nDefinition: a fluid container is empty if the current volume of it is 0.0 fl oz. Definition: a fluid container is full if the current volume of it is the fluid capacity of it.\n\nUnderstand &quot;drink from [fluid container]&quot; as drinking.\n\nInstead of drinking a fluid container:\n\tif the noun is empty:\n\t\tsay &quot;There is no more [liquid of the noun] within.&quot; instead;\n\totherwise:\n\t\tdecrease the current volume of the noun by 0.2 fl oz;\n\t\tif the current volume of the noun is less than 0.0 fl oz, now the current volume of the noun is 0.0 fl oz;\n\t\tsay &quot;You take a sip of [the liquid of the noun][if the noun is empty], leaving [the noun] empty[end if].&quot;\n\nPart 2 - Filling\n\nUnderstand the command &quot;fill&quot; as something new.\n\n\nUnderstand &quot;fill [fluid container] with/from [full liquid source]&quot; as filling it with. Understand &quot;fill [fluid container] with/from [fluid container]&quot; as filling it with.\n\n\nUnderstand &quot;fill [something] with/from [something]&quot; as filling it with.\n\nFilling it with is an action applying to two things. Carry out filling it with: try pouring the second noun into the noun instead.\n\nUnderstand &quot;pour [fluid container] in/into/on/onto [fluid container]&quot; as pouring it into. Understand &quot;empty [fluid container] into [fluid container]&quot; as pouring it into.\n\nUnderstand &quot;pour [something] in/into/on/onto [something]&quot; as pouring it into. Understand &quot;empty [something] into [something]&quot; as pouring it into.\n\nPouring it into is an action applying to two things.\n\nCheck pouring it into:\n\tif the noun is not a fluid container, say &quot;You can&apos;t pour [the noun].&quot; instead;\n\tif the second noun is not a fluid container, say &quot;You can&apos;t pour liquids into [the second noun].&quot; instead;\n\tif the noun is the second noun, say &quot;You can hardly pour [the noun] into itself.&quot; instead;\n\tif the liquid of the noun is not the liquid of the second noun:\n\t\tif the second noun is empty, now the liquid of the second noun is the liquid of the noun;\n\t\totherwise say &quot;Mixing [the liquid of the noun] with [the liquid of the second noun] would give unsavory results.&quot; instead;\n\tif the noun is empty, say &quot;No more [liquid of the noun] remains in [the noun].&quot; instead;\n\tif the second noun is full, say &quot;[The second noun] cannot contain any more than it already holds.&quot; instead.\n\nCarry out pouring it into:\n\tlet available capacity be the fluid capacity of the second noun minus the current volume of the second noun;\n\tif the available capacity is greater than the current volume of the noun, now the available capacity is the current volume of the noun;\n\tincrease the current volume of the second noun by available capacity;\n\tdecrease the current volume of the noun by available capacity.\n\nReport pouring it into:\n\tsay &quot;[if the noun is empty][The noun] is now empty;[otherwise][The noun] now contains [current volume of the noun in rough terms] of [liquid of the noun]; [end if]&quot;;\n\tsay &quot;[the second noun] contains [current volume of the second noun in rough terms] of [liquid of the second noun][if the second noun is full], and is now full[end if].&quot;\n\nUnderstand the liquid property as describing a fluid container. Understand &quot;of&quot; as a fluid container.\n\n\nA liquid source is a kind of fluid container. A liquid source has a liquid. A liquid source is usually scenery. The fluid capacity of a liquid source is usually 3276.7 fl oz. The current volume of a liquid source is usually 3276.7 fl oz. Instead of examining a liquid source: say &quot;[The noun] is full of [liquid of the noun].&quot;\n\nCarry out pouring a liquid source into something: now the current volume of the noun is 3276.7 fl oz.\n\n\nAfter pouring a liquid source into a fluid container:\n\tsay &quot;You fill [the second noun] up with [liquid of the noun] from [the noun].&quot;\n\n\nInstead of pouring a fluid container into a liquid source:\n\tif the noun is empty, say &quot;[The noun] is already empty.&quot; instead;\n\tnow the current volume of the noun is 0.0 fl oz;\n\tsay &quot;You dump out [the noun] into [the second noun].&quot;\n\n\nSwimming is an action applying to nothing. Understand &quot;swim&quot; or &quot;dive&quot; as swimming.\n\nInstead of swimming in the presence of a liquid source:\n\tsay &quot;You don&apos;t feel like a dip just now.&quot;\n\nBefore inserting something into a liquid source: say &quot;[The noun] would get lost and never be seen again.&quot; instead.\n\nPart 3 - Scenario\n\nThe Lakeside is a room. The Lakeside swing is an enterable supporter in the Lakeside. &quot;Here you are by the lake, enjoying a summery view.&quot;\n\nThe glass is a fluid container carried by the player. The liquid of the glass is absinthe. The current volume of the glass is 0.8 fl oz.\n\nThe pitcher is a fluid container in the Lakeside. The fluid capacity of the pitcher is 32.0 fl oz. The current volume of the pitcher is 20.0 fl oz. The liquid of the pitcher is absinthe.\n\nThe lake is a liquid source. It is in the Lakeside.\n\nThe player wears a bathing outfit. The description of the bathing outfit is &quot;Stylishly striped in blue and white, and daringly cut to reveal almost all of your calves, and quite a bit of upper arm, as well. You had a moral struggle, purchasing it; but mercifully the lakeshore is sufficiently secluded that no one can see you in this immodest apparel.&quot;\n\nInstead of taking off the outfit: say &quot;What odd ideas come into your head sometimes!&quot;\n\nTest me with &quot;fill glass / empty absinthe into lake / fill glass / swim / drink lake / drink / x water / x lake&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Lakeside Living&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A volume is a kind of value. 15.9 fl oz specifies a volume with parts ounces and tenths (optional, preamble optional).</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A fluid container is a kind of container. A fluid container has a volume called a fluid capacity. A fluid container has a volume called current volume.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The fluid capacity of a fluid container is usually 12.0 fl oz. The current volume of a fluid container is usually 0.0 fl oz.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Liquid is a kind of value. The liquids are water, absinthe, and iced tea. A fluid container has a liquid.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of examining a fluid container:</div>
-<div class="codeline">&ensp;&ensp;if the noun is empty,</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;You catch just a hint of [the liquid of the noun] at the bottom.&quot;;</div>
-<div class="codeline">&ensp;&ensp;otherwise</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;[The noun] contains [current volume of the noun in rough terms] of [liquid of the noun].&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the noun is empty,</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;You catch just a hint of [the liquid of the noun] at the bottom.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[The noun] contains [current volume of the noun in rough terms] of [liquid of the noun].&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">To say (amount - a volume) in rough terms:</div>
-<div class="codeline">&ensp;&ensp;if the amount is less than 0.5 fl oz:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;a swallow or two&quot;;</div>
-<div class="codeline">&ensp;&ensp;otherwise if tenths part of amount is greater than 3 and tenths part of amount is less than 7:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;let estimate be ounces part of amount;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;[estimate in words] or [estimate plus 1 in words] fluid ounces&quot;;</div>
-<div class="codeline">&ensp;&ensp;otherwise:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;if tenths part of amount is greater than 6, increase amount by 1.0 fl oz;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;about [ounces part of amount in words] fluid ounce[s]&quot;.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the amount is less than 0.5 fl oz:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;a swallow or two&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise if tenths part of amount is greater than 3 and tenths part of amount is less than 7:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;let estimate be ounces part of amount;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[estimate in words] or [estimate plus 1 in words] fluid ounces&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if tenths part of amount is greater than 6, increase amount by 1.0 fl oz;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;about [ounces part of amount in words] fluid ounce[s]&quot;.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Before printing the name of a fluid container (called the target) while not drinking or pouring:</div>
-<div class="codeline">&ensp;&ensp;if the target is empty:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;empty &quot;;</div>
-<div class="codeline">&ensp;&ensp;otherwise:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;do nothing.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the target is empty:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;empty &quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;do nothing.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">After printing the name of a fluid container (called the target) while not examining or pouring:</div>
-<div class="codeline">&ensp;&ensp;unless the target is empty:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot; of [liquid of the target]&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;omit contents in listing.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;unless the target is empty:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot; of [liquid of the target]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;omit contents in listing.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of inserting something into a fluid container:</div>
-<div class="codeline">&ensp;&ensp;say &quot;[The second noun] has too narrow a mouth to accept anything but liquids.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;[The second noun] has too narrow a mouth to accept anything but liquids.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Definition: a fluid container is empty if the current volume of it is 0.0 fl oz. Definition: a fluid container is full if the current volume of it is the fluid capacity of it.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Understand &quot;drink from [fluid container]&quot; as drinking.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of drinking a fluid container:</div>
-<div class="codeline">&ensp;&ensp;if the noun is empty:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;There is no more [liquid of the noun] within.&quot; instead;</div>
-<div class="codeline">&ensp;&ensp;otherwise:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;decrease the current volume of the noun by 0.2 fl oz;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;if the current volume of the noun is less than 0.0 fl oz, now the current volume of the noun is 0.0 fl oz;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;You take a sip of [the liquid of the noun][if the noun is empty], leaving [the noun] empty[end if].&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the noun is empty:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;There is no more [liquid of the noun] within.&quot; instead;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;decrease the current volume of the noun by 0.2 fl oz;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the current volume of the noun is less than 0.0 fl oz, now the current volume of the noun is 0.0 fl oz;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;You take a sip of [the liquid of the noun][if the noun is empty], leaving [the noun] empty[end if].&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline i7header">Part 2 - Filling</div><div class="codeline">Understand the command &quot;fill&quot; as something new.</div>
 </div><p>Here we want Inform to prefer full liquid sources to other containers when it chooses an end to a player&#39;s unfinished or ambiguous command. And so:</p>
 <div class="codeblock"><div class="codeline">Understand &quot;fill [fluid container] with/from [full liquid source]&quot; as filling it with. Understand &quot;fill [fluid container] with/from [fluid container]&quot; as filling it with.</div>
 </div><p>Both grammar lines point to the same ultimate outcome; the purpose of specifying both is to tell Inform to check thoroughly for full liquid sources before falling back on other fluid containers when making its decisions.</p>
 <div class="codeblock"><div class="codeline">Understand &quot;fill [something] with/from [something]&quot; as filling it with.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Filling it with is an action applying to two things. Carry out filling it with: try pouring the second noun into the noun instead.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Understand &quot;pour [fluid container] in/into/on/onto [fluid container]&quot; as pouring it into. Understand &quot;empty [fluid container] into [fluid container]&quot; as pouring it into.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Understand &quot;pour [something] in/into/on/onto [something]&quot; as pouring it into. Understand &quot;empty [something] into [something]&quot; as pouring it into.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Pouring it into is an action applying to two things.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Check pouring it into:</div>
-<div class="codeline">&ensp;&ensp;if the noun is not a fluid container, say &quot;You can&#39;t pour [the noun].&quot; instead;</div>
-<div class="codeline">&ensp;&ensp;if the second noun is not a fluid container, say &quot;You can&#39;t pour liquids into [the second noun].&quot; instead;</div>
-<div class="codeline">&ensp;&ensp;if the noun is the second noun, say &quot;You can hardly pour [the noun] into itself.&quot; instead;</div>
-<div class="codeline">&ensp;&ensp;if the liquid of the noun is not the liquid of the second noun:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;if the second noun is empty, now the liquid of the second noun is the liquid of the noun;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;otherwise say &quot;Mixing [the liquid of the noun] with [the liquid of the second noun] would give unsavory results.&quot; instead;</div>
-<div class="codeline">&ensp;&ensp;if the noun is empty, say &quot;No more [liquid of the noun] remains in [the noun].&quot; instead;</div>
-<div class="codeline">&ensp;&ensp;if the second noun is full, say &quot;[The second noun] cannot contain any more than it already holds.&quot; instead.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the noun is not a fluid container, say &quot;You can&#39;t pour [the noun].&quot; instead;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the second noun is not a fluid container, say &quot;You can&#39;t pour liquids into [the second noun].&quot; instead;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the noun is the second noun, say &quot;You can hardly pour [the noun] into itself.&quot; instead;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the liquid of the noun is not the liquid of the second noun:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the second noun is empty, now the liquid of the second noun is the liquid of the noun;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;otherwise say &quot;Mixing [the liquid of the noun] with [the liquid of the second noun] would give unsavory results.&quot; instead;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the noun is empty, say &quot;No more [liquid of the noun] remains in [the noun].&quot; instead;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the second noun is full, say &quot;[The second noun] cannot contain any more than it already holds.&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Carry out pouring it into:</div>
-<div class="codeline">&ensp;&ensp;let available capacity be the fluid capacity of the second noun minus the current volume of the second noun;</div>
-<div class="codeline">&ensp;&ensp;if the available capacity is greater than the current volume of the noun, now the available capacity is the current volume of the noun;</div>
-<div class="codeline">&ensp;&ensp;increase the current volume of the second noun by available capacity;</div>
-<div class="codeline">&ensp;&ensp;decrease the current volume of the noun by available capacity.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let available capacity be the fluid capacity of the second noun minus the current volume of the second noun;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the available capacity is greater than the current volume of the noun, now the available capacity is the current volume of the noun;</div>
+<div class="codeline">&ensp;&ensp;&ensp;increase the current volume of the second noun by available capacity;</div>
+<div class="codeline">&ensp;&ensp;&ensp;decrease the current volume of the noun by available capacity.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Report pouring it into:</div>
-<div class="codeline">&ensp;&ensp;say &quot;[if the noun is empty][The noun] is now empty;[otherwise][The noun] now contains [current volume of the noun in rough terms] of [liquid of the noun]; [end if]&quot;;</div>
-<div class="codeline">&ensp;&ensp;say &quot;[the second noun] contains [current volume of the second noun in rough terms] of [liquid of the second noun][if the second noun is full], and is now full[end if].&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;[if the noun is empty][The noun] is now empty;[otherwise][The noun] now contains [current volume of the noun in rough terms] of [liquid of the noun]; [end if]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;[the second noun] contains [current volume of the second noun in rough terms] of [liquid of the second noun][if the second noun is full], and is now full[end if].&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Understand the liquid property as describing a fluid container. Understand &quot;of&quot; as a fluid container.</div>
 </div><p>And now we add our liquid source kind, which will represent lakes, absinthe fountains, and any other infinite supplies of liquid we might need. Note that 3276.7 is the largest possible number of fluid ounces available to us.</p>
 <div class="codeblock"><div class="codeline">A liquid source is a kind of fluid container. A liquid source has a liquid. A liquid source is usually scenery. The fluid capacity of a liquid source is usually 3276.7 fl oz. The current volume of a liquid source is usually 3276.7 fl oz. Instead of examining a liquid source: say &quot;[The noun] is full of [liquid of the noun].&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Carry out pouring a liquid source into something: now the current volume of the noun is 3276.7 fl oz.</div>
 </div><p>We want filling things from liquid sources to work the same way as usual, with the distinction that a) the liquid source never depletes in quantity (hence the carry-out rule resetting its fullness); and b) we should report the results a bit differently as well:</p>
 <div class="codeblock"><div class="codeline">After pouring a liquid source into a fluid container:</div>
-<div class="codeline">&ensp;&ensp;say &quot;You fill [the second noun] up with [liquid of the noun] from [the noun].&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You fill [the second noun] up with [liquid of the noun] from [the noun].&quot;</div>
 </div><p>On the other hand, pouring liquids into a liquid source needs to work completely differently from pouring liquids into anything else. Let&#39;s say we&#39;re going to allow any liquid at all to be dumped into rivers and streams (environmental protections evidently are not very well-enforced in this scenario):</p>
 <div class="codeblock"><div class="codeline">Instead of pouring a fluid container into a liquid source:</div>
-<div class="codeline">&ensp;&ensp;if the noun is empty, say &quot;[The noun] is already empty.&quot; instead;</div>
-<div class="codeline">&ensp;&ensp;now the current volume of the noun is 0.0 fl oz;</div>
-<div class="codeline">&ensp;&ensp;say &quot;You dump out [the noun] into [the second noun].&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the noun is empty, say &quot;[The noun] is already empty.&quot; instead;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the current volume of the noun is 0.0 fl oz;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You dump out [the noun] into [the second noun].&quot;</div>
 </div><p>A couple of minor refinements:</p>
 <div class="codeblock"><div class="codeline">Swimming is an action applying to nothing. Understand &quot;swim&quot; or &quot;dive&quot; as swimming.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of swimming in the presence of a liquid source:</div>
-<div class="codeline">&ensp;&ensp;say &quot;You don&#39;t feel like a dip just now.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You don&#39;t feel like a dip just now.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Before inserting something into a liquid source: say &quot;[The noun] would get lost and never be seen again.&quot; instead.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline i7header">Part 3 - Scenario</div><div class="codeline">The Lakeside is a room. The Lakeside swing is an enterable supporter in the Lakeside. &quot;Here you are by the lake, enjoying a summery view.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The glass is a fluid container carried by the player. The liquid of the glass is absinthe. The current volume of the glass is 0.8 fl oz.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The pitcher is a fluid container in the Lakeside. The fluid capacity of the pitcher is 32.0 fl oz. The current volume of the pitcher is 20.0 fl oz. The liquid of the pitcher is absinthe.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The lake is a liquid source. It is in the Lakeside.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The player wears a bathing outfit. The description of the bathing outfit is &quot;Stylishly striped in blue and white, and daringly cut to reveal almost all of your calves, and quite a bit of upper arm, as well. You had a moral struggle, purchasing it; but mercifully the lakeshore is sufficiently secluded that no one can see you in this immodest apparel.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of taking off the outfit: say &quot;What odd ideas come into your head sometimes!&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;fill glass / empty absinthe into lake / fill glass / swim / drink lake / drink / x water / x lake&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "fill glass / empty absinthe into lake / fill glass / swim / drink lake / drink / x water / x lake".</summary><div class="testme-output">Lakeside<br>Here you are by the lake, enjoying a summery view.<br><br>You can also see a pitcher of absinthe here.<br><br>&gt;(Testing.)<br><br>&gt;[1] fill glass<br>(with the lake of water)<br>Mixing water with absinthe would give unsavory results.<br><br>&gt;[2] empty absinthe into lake<br>(the glass of absinthe into the lake of water)<br>You dump out the glass into the lake.<br><br>&gt;[3] fill glass<br>(with the lake of water)<br>You fill the glass up with water from the lake.<br><br>&gt;[4] swim<br>You don&#39;t feel like a dip just now.<br><br>&gt;[5] drink lake<br>You take a sip of water.<br><br>&gt;[6] drink<br>What do you want to drink?<br><br>&gt;[7] x water<br>(the glass of water)<br>The glass contains about twelve fluid ounces of water.<br><br>&gt;[8] x lake<br>The lake is full of water.
 </div></details><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="some_assembly_required.html" title="Building different styles of shirt from component sleeves and collars."><div class="nav-arrow">←</div> <div class="doc-navbar-text">332. Some Assembly Required</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="antsensitive_sunglasses.html" title="What are activities good for? Controlling output when we want the same action to be able to produce very flexible text depending on the state of the world -- in this case, making highly variable room description and object description text."><div class="doc-navbar-text">334. Ant-Sensitive Sunglasses</div> <div class="nav-arrow">→</div></a></div></div>

@@ -18,27 +18,27 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex47">Play/modify Change of Basis in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Eigenvalue/index.html">Play Change of Basis in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Change of Basis&quot;\n\nA person is either awake or asleep. A person is usually awake.\n\n\nLinear Algebra Class is a room. &quot;The blackboard is covered with square arrangements of numbers. These are supposed to convey something to you, but mostly you&apos;re finding them soporific.&quot;\n\n\nInstead of sleeping: now the player is asleep; say &quot;You drop off.&quot;\n\nInstead of doing something other than waking up, waiting or sleeping when the player is asleep:\n\tsay &quot;Ssh! You&apos;re sleeping!&quot;\n\nInstead of sleeping when the player is asleep:\n\tsay &quot;Zzzz.&quot;\n\nInstead of waking up when the player is asleep:\n\tnow the player is awake;\n\tsay &quot;You come to suddenly, wiping drool from your lips.&quot;\n\nInstead of doing something other than looking or sleeping when the player is awake:\n\tsay &quot;You&apos;d really rather just sleep through this.&quot;\n\nTest me with &quot;wake up / sleep / look / z / sleep / wake up / look&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Change of Basis&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A person is either awake or asleep. A person is usually awake.</div>
 </div><p>The important thing to note here is that it does not work to say &quot;the player is either asleep or awake&quot;. This is because the player is not necessarily one specific person or thing during the game: the identity of the player can be changed, as we will see later.</p>
 <p>So if we want to make rules about the properties of the player, we should attach these rules to the &quot;person&quot; kind.</p>
 <div class="codeblock"><div class="codeline">Linear Algebra Class is a room. &quot;The blackboard is covered with square arrangements of numbers. These are supposed to convey something to you, but mostly you&#39;re finding them soporific.&quot;</div>
 </div><p>Now a few rules about changing from one state to the other:</p>
 <div class="codeblock"><div class="codeline">Instead of sleeping: now the player is asleep; say &quot;You drop off.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of doing something other than waking up, waiting or sleeping when the player is asleep:</div>
-<div class="codeline">&ensp;&ensp;say &quot;Ssh! You&#39;re sleeping!&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Ssh! You&#39;re sleeping!&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of sleeping when the player is asleep:</div>
-<div class="codeline">&ensp;&ensp;say &quot;Zzzz.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Zzzz.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of waking up when the player is asleep:</div>
-<div class="codeline">&ensp;&ensp;now the player is awake;</div>
-<div class="codeline">&ensp;&ensp;say &quot;You come to suddenly, wiping drool from your lips.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the player is awake;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You come to suddenly, wiping drool from your lips.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of doing something other than looking or sleeping when the player is awake:</div>
-<div class="codeline">&ensp;&ensp;say &quot;You&#39;d really rather just sleep through this.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You&#39;d really rather just sleep through this.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;wake up / sleep / look / z / sleep / wake up / look&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "wake up / sleep / look / z / sleep / wake up / look".</summary><div class="testme-output">Linear Algebra Class<br>The blackboard is covered with square arrangements of numbers. These are supposed to convey something to you, but mostly you&#39;re finding them soporific.<br><br>&gt;(Testing.)<br><br>&gt;[1] wake up<br>You&#39;d really rather just sleep through this.<br><br>&gt;[2] sleep<br>You drop off.<br><br>&gt;[3] look<br>Ssh! You&#39;re sleeping!<br><br>&gt;[4] z<br>Time passes.<br><br>&gt;[5] sleep<br>Zzzz.<br><br>&gt;[6] wake up<br>You come to suddenly, wiping drool from your lips.<br><br>&gt;[7] look<br>Linear Algebra Class<br>The blackboard is covered with square arrangements of numbers. These are supposed to convey something to you, but mostly you&#39;re finding them soporific.
 </div></details><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="get_me_to_the_church_on_time.html" title="Using kinds of clothing to prevent the player from wearing several pairs of trousers at the same time."><div class="nav-arrow">←</div> <div class="doc-navbar-text">46. Get Me to the Church on Time</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="would_you.html" title="Adding new properties to objects, and checking for their presence."><div class="doc-navbar-text">48. Would you...?</div> <div class="nav-arrow">→</div></a></div></div>

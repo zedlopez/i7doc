@@ -19,31 +19,31 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex320">Play/modify Puncak Jaya in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="PuncakJaya/index.html">Play Puncak Jaya in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Puncak Jaya&quot;\n\nA ghost is a kind of person. A man-ghost is a kind of ghost. A man-ghost is always male. A woman-ghost is a kind of ghost. A woman-ghost is always female.\n\n\nRepresentation relates one ghost to one person. The verb to represent means the representation relation.\n\nOne man-ghost represents every man. One woman-ghost represents every woman.\n\n\nIndication relates a ghost (called X) to a person (called Y) when X represents Y and Y is not visible.\n\nUnderstand &quot;[something related by indication]&quot; as a ghost.\n\nWhen play begins:\n\tnow every ghost is in the concept-repository.\n\nInstead of doing something to a ghost:\n\tsay &quot;You seem to have left [a random person which is represented by the noun] behind.&quot;\n\nInstead of doing something when the second noun is a ghost:\n\tsay &quot;You seem to have left [a random person which is represented by the second noun] behind.&quot;\n\nThe concept-repository is an open unopenable transparent container. It is part of the air. The air is a backdrop. It is everywhere.\n\nBase of Puncak Jaya is a room. Temple, Kippax, and Huizenga are men in Base. Peak of Puncak Jaya is above Base of Puncak Jaya.\n\nTest me with &quot;x kippax / up / x kippax / kiss kippax / kippax, hello&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Puncak Jaya&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A ghost is a kind of person. A man-ghost is a kind of ghost. A man-ghost is always male. A woman-ghost is a kind of ghost. A woman-ghost is always female.</div>
 </div><p>We make the ghost a person rather than some other kind of thing so that it will be able to respond to commands such as KISS BOB or (even trickier) BOB, JUMP: if Inform did not recognize the ghost as an animate creature, it would not accept such input.</p>
 <div class="codeblock"><div class="codeline">Representation relates one ghost to one person. The verb to represent means the representation relation.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">One man-ghost represents every man. One woman-ghost represents every woman.</div>
 </div><p>This is, technically, an assembly -- except instead of saying that every device has a button part, or that there are three daffodils in every garden room, the assembly is based on a non-physical relation that we just designed.</p>
 <p>Based on the &quot;representation&quot; relation, we now devise a conditional relation that applies only when the represented thing is not itself in view:</p>
 <div class="codeblock"><div class="codeline">Indication relates a ghost (called X) to a person (called Y) when X represents Y and Y is not visible.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Understand &quot;[something related by indication]&quot; as a ghost.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">When play begins:</div>
-<div class="codeline">&ensp;&ensp;now every ghost is in the concept-repository.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now every ghost is in the concept-repository.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of doing something to a ghost:</div>
-<div class="codeline">&ensp;&ensp;say &quot;You seem to have left [a random person which is represented by the noun] behind.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You seem to have left [a random person which is represented by the noun] behind.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of doing something when the second noun is a ghost:</div>
-<div class="codeline">&ensp;&ensp;say &quot;You seem to have left [a random person which is represented by the second noun] behind.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You seem to have left [a random person which is represented by the second noun] behind.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The concept-repository is an open unopenable transparent container. It is part of the air. The air is a backdrop. It is everywhere.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Base of Puncak Jaya is a room. Temple, Kippax, and Huizenga are men in Base. Peak of Puncak Jaya is above Base of Puncak Jaya.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;x kippax / up / x kippax / kiss kippax / kippax, hello&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "x kippax / up / x kippax / kiss kippax / kippax, hello".</summary><div class="testme-output">Base of Puncak Jaya<br>You can see Temple, Kippax and Huizenga here.<br><br>&gt;(Testing.)<br><br>&gt;[1] x kippax<br>You see nothing special about Kippax.<br><br>&gt;[2] up<br><br>Peak of Puncak Jaya<br><br>&gt;[3] x kippax<br>You seem to have left Kippax behind.<br><br>&gt;[4] kiss kippax<br>You seem to have left Kippax behind.<br><br>&gt;[5] kippax, hello<br>You seem to have left Kippax behind.
 </div></details><p>Further complications of this example might require that the player meet a character before being able to refer to him or her.</p>

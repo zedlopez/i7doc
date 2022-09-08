@@ -18,41 +18,41 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex408">Play/modify Timeless in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Timeless/index.html">Play Timeless in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Timeless&quot;\n\nExamining something is acting fast. Looking is acting fast.\n\n\nThe take visual actions out of world rule is listed before the every turn stage rule in the turn sequence rules.\n\nThis is the take visual actions out of world rule: if acting fast, rule succeeds.\n\n\nWhen play begins:\n\tsay &quot;You are cornered by a pack of zombie wolves, armed only with a torch and a pair of pinking shears. This may be your last moment on earth, unless you can think fast!&quot;\n\nCleft is a room. &quot;You&apos;re backed into a cleft in the granite: behind you are only steep, high faces of stone, and before you a narrow passage.&quot;\n\nThe plural of zombie wolf is zombie wolves. A zombie wolf is a kind of animal. Four zombie wolves are in Cleft.\n\nRule for writing a paragraph about zombie wolves:\n\tsay &quot;The good news is that there isn&apos;t much space in which for the zombie wolves to attack.&quot;;\n\tnow every zombie wolf is mentioned.\n\nA steep high face of stone is scenery in Cleft. Understand &quot;rock&quot; as the stone. The description is &quot;Now that you look more closely, there appear to be pitons driven into the rock.&quot;\n\nSome pitons are part of the stone. The description of the pitons is &quot;It looks as though someone else has made this ascent before.&quot;\n\nInstead of climbing the stone, try going up. Instead of climbing the pitons, try going up.\n\nAbove the Cleft is Clifftop.\n\nEvery turn when the location is Cleft:\n\tsay &quot;Alas, your time has run out. The alpha wolf springs--&quot;;\n\tend the story.\n\nEvery turn when the location is Clifftop:\n\tsay &quot;After a breathless climb, you emerge at last onto the open clifftop.&quot;;\n\tend the story finally.\n\nTest me with &quot;x me / x stone / x pitons / climb pitons&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Timeless&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Examining something is acting fast. Looking is acting fast.</div>
 </div><p>Now we need a rule which, just at the right moment, stops the turn sequence rulebook in the cast of our new fast-acting actions:</p>
 <div class="codeblock"><div class="codeline">The take visual actions out of world rule is listed before the every turn stage rule in the turn sequence rules.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">This is the take visual actions out of world rule: if acting fast, rule succeeds.</div>
 </div><p>Thus the rest of the turn sequence rulebook is omitted for looking or examining: in effect, they become out-of-world actions like &quot;saving the game&quot;. If we wanted to add, say, taking inventory to the list of instant activities, we would just need to define it as acting fast, too.</p>
 <p>Now the scenario for testing:</p>
 <div class="codeblock"><div class="codeline">When play begins:</div>
-<div class="codeline">&ensp;&ensp;say &quot;You are cornered by a pack of zombie wolves, armed only with a torch and a pair of pinking shears. This may be your last moment on earth, unless you can think fast!&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You are cornered by a pack of zombie wolves, armed only with a torch and a pair of pinking shears. This may be your last moment on earth, unless you can think fast!&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Cleft is a room. &quot;You&#39;re backed into a cleft in the granite: behind you are only steep, high faces of stone, and before you a narrow passage.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The plural of zombie wolf is zombie wolves. A zombie wolf is a kind of animal. Four zombie wolves are in Cleft.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Rule for writing a paragraph about zombie wolves:</div>
-<div class="codeline">&ensp;&ensp;say &quot;The good news is that there isn&#39;t much space in which for the zombie wolves to attack.&quot;;</div>
-<div class="codeline">&ensp;&ensp;now every zombie wolf is mentioned.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;The good news is that there isn&#39;t much space in which for the zombie wolves to attack.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now every zombie wolf is mentioned.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A steep high face of stone is scenery in Cleft. Understand &quot;rock&quot; as the stone. The description is &quot;Now that you look more closely, there appear to be pitons driven into the rock.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Some pitons are part of the stone. The description of the pitons is &quot;It looks as though someone else has made this ascent before.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of climbing the stone, try going up. Instead of climbing the pitons, try going up.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Above the Cleft is Clifftop.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Every turn when the location is Cleft:</div>
-<div class="codeline">&ensp;&ensp;say &quot;Alas, your time has run out. The alpha wolf springs--&quot;;</div>
-<div class="codeline">&ensp;&ensp;end the story.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Alas, your time has run out. The alpha wolf springs--&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;end the story.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Every turn when the location is Clifftop:</div>
-<div class="codeline">&ensp;&ensp;say &quot;After a breathless climb, you emerge at last onto the open clifftop.&quot;;</div>
-<div class="codeline">&ensp;&ensp;end the story finally.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;After a breathless climb, you emerge at last onto the open clifftop.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;end the story finally.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;x me / x stone / x pitons / climb pitons&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "x me / x stone / x pitons / climb pitons".</summary><div class="testme-output">Cleft<br>You&#39;re backed into a cleft in the granite: behind you are only steep, high faces of stone, and before you a narrow passage.<br><br>The good news is that there isn&#39;t much space in which for the zombie wolves to attack.<br><br>&gt;(Testing.)<br><br>&gt;[1] x me<br>As good-looking as ever.<br><br>&gt;[2] x stone<br>Now that you look more closely, there appear to be pitons driven into the rock.<br><br>&gt;[3] x pitons<br>It looks as though someone else has made this ascent before.<br><br>&gt;[4] climb pitons<br><br>Clifftop<br>After a breathless climb, you emerge at last onto the open clifftop.<br><br><br><br>    *** The End ***
 </div></details><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="electrified.html" title="Adding a rule before the basic accessibility rule that will prevent the player from touching electrified objects under the wrong circumstances."><div class="nav-arrow">←</div> <div class="doc-navbar-text">407. Electrified</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="endurance.html" title="Giving different actions a range of durations using a time allotment rulebook."><div class="doc-navbar-text">409. Endurance</div> <div class="nav-arrow">→</div></a></div></div>

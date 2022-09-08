@@ -18,57 +18,57 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex58">Play/modify U-Stor-It in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Chests/index.html">Play U-Stor-It in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;U-Stor-It&quot;\n\nSection 1 - Assemblies and Supporters\n\nA chest is a kind of container. A chest is always openable. A chest is usually fixed in place. A chest is usually closed. The specification of a chest is &quot;Represents a container with a separately implemented lid; the lid is itself a supporter.&quot;\n\nA lid is a kind of supporter. A lid is part of every chest. The specification of a lid is &quot;A supporter attached to a chest, which can only support things when the chest is closed.&quot;\n\n\nSection 2 - Opening and closing\n\nBefore opening a lid which is part of a chest (called the item):\n\ttry opening the item instead.\n\nBefore closing a lid which is part of a chest (called the item):\n\ttry closing the item instead.\n\nBefore opening a chest (called the box) when something is on a lid (called the obstruction) which is part of the box:\n\trepeat with item running through things on the obstruction:\n\t\tsay &quot;(first removing [the item])&quot;;\n\t\ttry taking the item.\n\nInstead of opening a chest when something is on a lid (called the item) which is part of the noun:\n\tsay &quot;You&apos;d have to remove [the list of things on the item] from the lid first.&quot; instead.\n\nInstead of looking under a lid which is part of a chest (called the item):\n\ttry opening the item.\n\n\n\nSection 3 - Insertion and Support\n\nBefore inserting something into a lid which is part of a chest (called the item):\n\ttry inserting the noun into the item instead.\n\nBefore putting something on a chest when a lid (called the item) is part of the second noun:\n\ttry putting the noun on the item instead.\n\n\nBefore putting something on a lid which is part of an open chest (called the item):\n\tsay &quot;(first closing [the item])&quot;;\n\ttry closing the item.\n\nInstead of putting something on a lid which is part of an open chest (called the item):\n\tsay &quot;[The item] would need to be closed first.&quot;\n\n\nSection 4 - Description in Rooms\n\nInstead of examining a closed chest when something is on a lid (called the top) which is part of the noun:\n\tsay &quot;[The noun] is closed, and there [is-are a list of things on the top] on top.&quot;\n\nAfter printing the name of a chest (called the item) while listing contents of a room:\n\tif a lid (called the second item) which supports something is part of the item:\n\t\tsay &quot; (on which [is-are a list of things on the second item])&quot;;\n\t\tomit contents in listing.\n\n\nSection 5 - U-Stor-It Facility\n\nThe U-Stor-It Facility is a room. The sea trunk, the shipping crate, and a metal box are chests in the U-Stor-It Facility. The metal box contains a sapphire, a gold coin, and a signed photograph of Babe Ruth.\n\n\nThe metal box&apos;s lid supports a small card. The description of the small card is &quot;It reads, &apos;Back in 5 mins - Pandora.&apos;&quot;\n\nTest me with &quot;open trunk / x card / open metal box / put all in metal box / get card / put card on box&quot;.`)">⧉</button><div class="codeline storytitle">&quot;U-Stor-It&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline i7header">Section 1 - Assemblies and Supporters</div><div class="codeline">A chest is a kind of container. A chest is always openable. A chest is usually fixed in place. A chest is usually closed. The specification of a chest is &quot;Represents a container with a separately implemented lid; the lid is itself a supporter.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A lid is a kind of supporter. A lid is part of every chest. The specification of a lid is &quot;A supporter attached to a chest, which can only support things when the chest is closed.&quot;</div>
 </div><p>(The &quot;specification&quot; of a kind is not really a property, and is used instead to describe the kind in the Index. So the text of these specifications is never found in the game.) Of course, this doesn&#39;t get us very far. We will also want the game to correctly interpret variations on &quot;open the chest&quot; and &quot;close the lid&quot;, redirecting actions appropriately.</p>
-<div class="codeblock"><div class="codeline i7header">Section 2 - Opening and closing</div><div class="codeline">&ensp;&ensp;</div>
+<div class="codeblock"><div class="codeline i7header">Section 2 - Opening and closing</div><div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Before opening a lid which is part of a chest (called the item):</div>
-<div class="codeline">&ensp;&ensp;try opening the item instead.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;try opening the item instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Before closing a lid which is part of a chest (called the item):</div>
-<div class="codeline">&ensp;&ensp;try closing the item instead.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;try closing the item instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Before opening a chest (called the box) when something is on a lid (called the obstruction) which is part of the box:</div>
-<div class="codeline">&ensp;&ensp;repeat with item running through things on the obstruction:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;(first removing [the item])&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;try taking the item.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;repeat with item running through things on the obstruction:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;(first removing [the item])&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;try taking the item.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of opening a chest when something is on a lid (called the item) which is part of the noun:</div>
-<div class="codeline">&ensp;&ensp;say &quot;You&#39;d have to remove [the list of things on the item] from the lid first.&quot; instead.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You&#39;d have to remove [the list of things on the item] from the lid first.&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of looking under a lid which is part of a chest (called the item):</div>
-<div class="codeline">&ensp;&ensp;try opening the item.</div>
+<div class="codeline">&ensp;&ensp;&ensp;try opening the item.</div>
 </div><p>We may also want to be able to deal with &quot;put in&quot; and &quot;put on&quot; appropriately, even if the player names the wrong part of the object:</p>
-<div class="codeblock"><div class="codeline i7header">Section 3 - Insertion and Support</div><div class="codeline">&ensp;&ensp;</div>
+<div class="codeblock"><div class="codeline i7header">Section 3 - Insertion and Support</div><div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Before inserting something into a lid which is part of a chest (called the item):</div>
-<div class="codeline">&ensp;&ensp;try inserting the noun into the item instead.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;try inserting the noun into the item instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Before putting something on a chest when a lid (called the item) is part of the second noun:</div>
-<div class="codeline">&ensp;&ensp;try putting the noun on the item instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;try putting the noun on the item instead.</div>
 </div><p>Furthermore, we don&#39;t want the player to be able to put things on the lid while the chest is open:</p>
 <div class="codeblock"><div class="codeline">Before putting something on a lid which is part of an open chest (called the item):</div>
-<div class="codeline">&ensp;&ensp;say &quot;(first closing [the item])&quot;;</div>
-<div class="codeline">&ensp;&ensp;try closing the item.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;(first closing [the item])&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;try closing the item.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of putting something on a lid which is part of an open chest (called the item):</div>
-<div class="codeline">&ensp;&ensp;say &quot;[The item] would need to be closed first.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;[The item] would need to be closed first.&quot;</div>
 </div><p>And then we may also want a couple of rules for describing our assembled object nicely:</p>
-<div class="codeblock"><div class="codeline i7header">Section 4 - Description in Rooms</div><div class="codeline">&ensp;&ensp;</div>
+<div class="codeblock"><div class="codeline i7header">Section 4 - Description in Rooms</div><div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of examining a closed chest when something is on a lid (called the top) which is part of the noun:</div>
-<div class="codeline">&ensp;&ensp;say &quot;[The noun] is closed, and there [is-are a list of things on the top] on top.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;[The noun] is closed, and there [is-are a list of things on the top] on top.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">After printing the name of a chest (called the item) while listing contents of a room:</div>
-<div class="codeline">&ensp;&ensp;if a lid (called the second item) which supports something is part of the item:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot; (on which [is-are a list of things on the second item])&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;omit contents in listing.</div>
+<div class="codeline">&ensp;&ensp;&ensp;if a lid (called the second item) which supports something is part of the item:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot; (on which [is-are a list of things on the second item])&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;omit contents in listing.</div>
 </div><p>Now we are free to create entire treasure rooms at a single blow:</p>
-<div class="codeblock"><div class="codeline i7header">Section 5 - U-Stor-It Facility</div><div class="codeline">&ensp;&ensp;</div>
+<div class="codeblock"><div class="codeline i7header">Section 5 - U-Stor-It Facility</div><div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The U-Stor-It Facility is a room. The sea trunk, the shipping crate, and a metal box are chests in the U-Stor-It Facility. The metal box contains a sapphire, a gold coin, and a signed photograph of Babe Ruth.</div>
 </div><p>Even though we have never explicitly defined it, the metal box has a &quot;metal box&#39;s lid&quot;, which we can use at need.</p>
 <div class="codeblock"><div class="codeline">The metal box&#39;s lid supports a small card. The description of the small card is &quot;It reads, &#39;Back in 5 mins - Pandora.&#39;&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;open trunk / x card / open metal box / put all in metal box / get card / put card on box&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "open trunk / x card / open metal box / put all in metal box / get card / put card on box".</summary><div class="testme-output">U-Stor-It Facility<br>You can see a sea trunk (closed), a shipping crate (closed) and a metal box (on which is a small card) here.<br><br>&gt;(Testing.)<br><br>&gt;[1] open trunk<br>You open the sea trunk.<br><br>&gt;[2] x card<br>It reads, &quot;Back in 5 mins - Pandora.&quot;<br><br>&gt;[3] open metal box<br>(first removing the small card)<br>Taken.<br><br>You open the metal box, revealing a sapphire, a gold coin and a signed photograph of Babe Ruth.<br><br>&gt;[4] put all in metal box<br>small card: Done.<br><br>&gt;[5] get card<br>Taken.<br><br>&gt;[6] put card on box<br>(first closing the metal box)<br>You close the metal box.<br><br>You put the small card on the metal box&#39;s lid.
 </div></details><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="model_shop.html" title="An &quot;on/off button&quot; which controls whatever device it is part of."><div class="nav-arrow">←</div> <div class="doc-navbar-text">57. Model Shop</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="night_before.html" title="Instructing Inform to prefer different interpretations of EXAMINE NOSE, depending on whether the player is alone, in company, or with Rudolph the Red-nosed Reindeer."><div class="doc-navbar-text">59. The Night Before</div> <div class="nav-arrow">→</div></a></div></div>

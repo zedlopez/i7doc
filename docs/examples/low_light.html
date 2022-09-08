@@ -20,33 +20,33 @@
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Low Light&quot;\n\n\nThe Workroom is a room. The desk is in the Workroom. The brilliant lamp is a device on the desk.\n\nTo decide whether the light level is high:\n\tif the brilliant lamp is switched off, no;\n\tif the player cannot see the brilliant lamp, no;\n\tyes.\n\nTo decide whether the light level is low:\n\tif the light level is high, no;\n\tyes.\n\n\nThe shadow is a privately-named thing on the desk.\n\nUnderstand &quot;barely-visible&quot; or &quot;barely visible&quot; or &quot;shadow&quot; as the shadow when the light level is high. Understand &quot;invisible&quot; or &quot;shadow&quot; as the shadow when the player encloses the shadow.\n\n\nBefore printing the name of the shadow:\n\tif the light level is high:\n\t\tsay &quot;barely-visible &quot;;\n\totherwise if the player encloses the shadow:\n\t\tsay &quot;invisible (but tangible) &quot;\n\nAfter dropping the shadow when the light level is low:\n\tsay &quot;You let it go and it fades into the ambient gloom.&quot;\n\n\nAfter choosing notable locale objects:\n\tunless the light level is high:\n\t\tset locale priority of the shadow to 0.\n\nTest me with &quot;look / get shadow / turn on lamp / look / get shadow / i / turn off lamp / i / drop shadow / look / get shadow / turn on lamp / look&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Low Light&quot;</div>
 </div><p>First we make our environment and its light:</p>
 <div class="codeblock"><div class="codeline">The Workroom is a room. The desk is in the Workroom. The brilliant lamp is a device on the desk.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">To decide whether the light level is high:</div>
-<div class="codeline">&ensp;&ensp;if the brilliant lamp is switched off, no;</div>
-<div class="codeline">&ensp;&ensp;if the player cannot see the brilliant lamp, no;</div>
-<div class="codeline">&ensp;&ensp;yes.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the brilliant lamp is switched off, no;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the player cannot see the brilliant lamp, no;</div>
+<div class="codeline">&ensp;&ensp;&ensp;yes.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">To decide whether the light level is low:</div>
-<div class="codeline">&ensp;&ensp;if the light level is high, no;</div>
-<div class="codeline">&ensp;&ensp;yes.</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the light level is high, no;</div>
+<div class="codeline">&ensp;&ensp;&ensp;yes.</div>
 </div><p>Now we make a shadow so that the player can only refer to it if the shadow is in inventory or the light is on:</p>
 <div class="codeblock"><div class="codeline">The shadow is a privately-named thing on the desk.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Understand &quot;barely-visible&quot; or &quot;barely visible&quot; or &quot;shadow&quot; as the shadow when the light level is high. Understand &quot;invisible&quot; or &quot;shadow&quot; as the shadow when the player encloses the shadow.</div>
 </div><p>And finally a couple of extra touches to make it clear why we&#39;re able to interact with the shadow when it&#39;s in inventory, even if the light is low:</p>
 <div class="codeblock"><div class="codeline">Before printing the name of the shadow:</div>
-<div class="codeline">&ensp;&ensp;if the light level is high:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;barely-visible &quot;;</div>
-<div class="codeline">&ensp;&ensp;otherwise if the player encloses the shadow:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;invisible (but tangible) &quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the light level is high:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;barely-visible &quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise if the player encloses the shadow:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;invisible (but tangible) &quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">After dropping the shadow when the light level is low:</div>
-<div class="codeline">&ensp;&ensp;say &quot;You let it go and it fades into the ambient gloom.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You let it go and it fades into the ambient gloom.&quot;</div>
 </div><p>To handle the appearance of the object, we want to set its locale priority to 0: that will prevent it being named in room descriptions.</p>
 <div class="codeblock"><div class="codeline">After choosing notable locale objects:</div>
-<div class="codeline">&ensp;&ensp;unless the light level is high:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;set locale priority of the shadow to 0.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;unless the light level is high:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;set locale priority of the shadow to 0.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;look / get shadow / turn on lamp / look / get shadow / i / turn off lamp / i / drop shadow / look / get shadow / turn on lamp / look&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "look / get shadow / turn on lamp / look / get shadow / i / turn off lamp / i / drop shadow / look / get shadow / turn on lamp / look".</summary><div class="testme-output">Workroom<br>You can see a desk (on which is a brilliant lamp) here.<br><br>&gt;(Testing.)<br><br>&gt;[1] look<br>Workroom<br>You can see a desk (on which is a brilliant lamp) here.<br><br>&gt;[2] get shadow<br>You can&#39;t see any such thing.<br><br>&gt;[3] turn on lamp<br>You switch the brilliant lamp on.<br><br>&gt;[4] look<br>Workroom<br>You can see a desk (on which are a brilliant lamp and a barely-visible shadow) here.<br><br>&gt;[5] get shadow<br>Taken.<br><br>&gt;[6] i<br>You are carrying:<br>  a barely-visible shadow<br><br>&gt;[7] turn off lamp<br>You switch the brilliant lamp off.<br><br>&gt;[8] i<br>You are carrying:<br>  an invisible (but tangible) shadow<br><br>&gt;[9] drop shadow<br>You let it go and it fades into the ambient gloom.<br><br>&gt;[10] look<br>Workroom<br>You can see a desk (on which is a brilliant lamp) here.<br><br>&gt;[11] get shadow<br>You can&#39;t see any such thing.<br><br>&gt;[12] turn on lamp<br>You switch the brilliant lamp on.<br><br>&gt;[13] look<br>Workroom<br>You can see a barely-visible shadow and a desk (on which is a brilliant lamp) here.
 </div></details><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="priority_lab.html" title="A debugging rule useful for checking the priorities of objects about to be listed."><div class="nav-arrow">←</div> <div class="doc-navbar-text">358. Priority Lab</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="casino_banale.html" title="Creating room descriptions and object descriptions that change as the player learns new facts and pieces things together."><div class="doc-navbar-text">360. Casino Banale</div> <div class="nav-arrow">→</div></a></div></div>

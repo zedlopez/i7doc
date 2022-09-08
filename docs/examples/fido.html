@@ -22,28 +22,28 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex419">Play/modify Fido in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Fido/index.html">Play Fido in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Fido&quot;\n\nThe Back Yard is a room.\n\nA dog is an animal in Back Yard. The dog has some text called the nickname. The nickname of the dog is &quot;nothing&quot;. Understand the nickname property as describing the dog.\n\nRule for printing the name of the dog when the nickname of the dog is not &quot;nothing&quot;:\n\tsay &quot;[nickname of the dog]&quot;\n\nNaming it with is an action applying to one thing and one topic. Understand &quot;name [something] [text]&quot; as naming it with. Check naming it with: say &quot;You can&apos;t name that.&quot;\n\nInstead of naming the dog with &quot;nothing&quot;:\n\tnow the nickname of the dog is &quot;nothing&quot;;\n\tnow the dog is improper-named;\n\tsay &quot;You revoke your choice of dog-name.&quot;\n\nInstead of naming the dog with something:\n\tlet N be &quot;[the topic understood]&quot;;\n\treplace the text &quot;&apos;&quot; in N with &quot;&quot;;\n\tnow the nickname of the dog is &quot;[N]&quot;;\n\tnow the dog is proper-named;\n\tsay &quot;The dog is now known as [nickname of the dog].&quot;\n\nTest me with &quot;name the dog Fido / name the dog Lawrence / look / x lawrence / name Lawrence nothing / look / x lawrence&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Fido&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Back Yard is a room.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A dog is an animal in Back Yard. The dog has some text called the nickname. The nickname of the dog is &quot;nothing&quot;. Understand the nickname property as describing the dog.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Rule for printing the name of the dog when the nickname of the dog is not &quot;nothing&quot;:</div>
-<div class="codeline">&ensp;&ensp;say &quot;[nickname of the dog]&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;[nickname of the dog]&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Naming it with is an action applying to one thing and one topic. Understand &quot;name [something] [text]&quot; as naming it with. Check naming it with: say &quot;You can&#39;t name that.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of naming the dog with &quot;nothing&quot;:</div>
-<div class="codeline">&ensp;&ensp;now the nickname of the dog is &quot;nothing&quot;;</div>
-<div class="codeline">&ensp;&ensp;now the dog is improper-named;</div>
-<div class="codeline">&ensp;&ensp;say &quot;You revoke your choice of dog-name.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the nickname of the dog is &quot;nothing&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the dog is improper-named;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You revoke your choice of dog-name.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of naming the dog with something:</div>
-<div class="codeline">&ensp;&ensp;let N be &quot;[the topic understood]&quot;;</div>
-<div class="codeline">&ensp;&ensp;replace the text &quot;&#39;&quot; in N with &quot;&quot;;</div>
-<div class="codeline">&ensp;&ensp;now the nickname of the dog is &quot;[N]&quot;;</div>
-<div class="codeline">&ensp;&ensp;now the dog is proper-named;</div>
-<div class="codeline">&ensp;&ensp;say &quot;The dog is now known as [nickname of the dog].&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let N be &quot;[the topic understood]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;replace the text &quot;&#39;&quot; in N with &quot;&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the nickname of the dog is &quot;[N]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the dog is proper-named;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;The dog is now known as [nickname of the dog].&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;name the dog Fido / name the dog Lawrence / look / x lawrence / name Lawrence nothing / look / x lawrence&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "name the dog Fido / name the dog Lawrence / look / x lawrence / name Lawrence nothing / look / x lawrence".</summary><div class="testme-output">Back Yard<br>You can see a dog here.<br><br>&gt;(Testing.)<br><br>&gt;[1] name the dog fido<br>The dog is now known as fido.<br><br>&gt;[2] name the dog lawrence<br>The dog is now known as lawrence.<br><br>&gt;[3] look<br>Back Yard<br>You can see lawrence here.<br><br>&gt;[4] x lawrence<br>You see nothing special about lawrence.<br><br>&gt;[5] name lawrence nothing<br>You revoke your choice of dog-name.<br><br>&gt;[6] look<br>Back Yard<br>You can see a dog here.<br><br>&gt;[7] x lawrence<br>You can&#39;t see any such thing.
 </div></details><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="blackout.html" title="Filtering the names of rooms printed while in darkness."><div class="nav-arrow">←</div> <div class="doc-navbar-text">418. Blackout</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="igpay_atinlay.html" title="A pig Latin filter for the player&#39;s commands."><div class="doc-navbar-text">420. Igpay Atinlay</div> <div class="nav-arrow">→</div></a></div></div>

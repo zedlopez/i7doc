@@ -66,7 +66,7 @@
 </div>
 </div>
 <h3 id="section_1">WI §7.1 Actions</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><div>&nbsp;</div></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_7"><div class="nav-arrow">↑</div><div class="doc-navbar-text">7. Basic Actions</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_2"><div class="doc-navbar-text">7.2 Instead rules</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="WI_6.html#section_16" title="Counting while comparing"><div class="nav-arrow">←6.16 </div><div class="doc-navbar-text">Counting while comparing</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_7"><div class="nav-arrow">↑7. </div><div class="doc-navbar-text">Basic Actions</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_2"><div class="doc-navbar-text">Instead rules</div><div class="nav-arrow">7.2→</div></a></div></div></div>
 <p>&quot;Actions&quot; are what we get if we try to break down a narrative into its irreducible parts. We might casually say that we are &quot;going shopping&quot;, but this involves many smaller steps: going north, going east, entering the shop, examining a loaf of bread, taking it, giving money to the baker, and so on.</p>
 <p>An action is an impulse to do something. This may or may not be a reasonable aspiration, and may or may not be achieved. The player&#39;s exploration of an interactive fiction is made by a sequence of actions, so much of the designing process comes down to responding to these actions.</p>
 <p>We write actions using present participles. For instance, if the player types &quot;take napkin&quot; or &quot;get the napkin&quot; or something similar then the resulting action would be written as:</p>
@@ -89,7 +89,7 @@
 <div class="codeline">[taking metal door - failed the can&#39;t take what&#39;s fixed in place rule]</div>
 </div><p>A good way to get a sense of the constant flow of actions is to use this command and then wander around an existing work, trying things out. ACTIONS can also give an insight into the web of rules governing play: there are more than ten different ways an attempt to take something can fail, for instance.</p>
 <h3 id="section_2">WI §7.2 Instead rules</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_1" title="Actions"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">7.1 Actions</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_7"><div class="nav-arrow">↑</div><div class="doc-navbar-text">7. Basic Actions</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_3"><div class="doc-navbar-text">7.3 Before rules</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_1" title="Actions"><div class="nav-arrow">←7.1 </div><div class="doc-navbar-text">Actions</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_7"><div class="nav-arrow">↑7. </div><div class="doc-navbar-text">Basic Actions</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_3"><div class="doc-navbar-text">Before rules</div><div class="nav-arrow">7.3→</div></a></div></div></div>
 <p>An action is ordinarily handled by running it through Inform&#39;s extensive rulebooks of what might be called normal behaviour. An action such as &quot;taking the napkin&quot;, for instance, will be run through numerous checks to see if it is physically reasonable, and then provided all is well, the napkin will be moved into the possession of the player.</p>
 <p>Instead, though, we can bypass the rules to do with an action and do something else:</p>
 <div class="codeblock"><div class="codeline">Instead of eating the napkin: say &quot;Why not wait for the actual dinner to arrive?&quot;</div>
@@ -104,7 +104,7 @@
 <div class="linkback"><a href="RB_5.html#section_3" title="The Viewpoint Character &gt; Characterization">RB §5.3 Characterization</a></div>
 </div>
 <h3 id="section_3">WI §7.3 Before rules</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_2" title="Instead rules"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">7.2 Instead rules</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_7"><div class="nav-arrow">↑</div><div class="doc-navbar-text">7. Basic Actions</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_4"><div class="doc-navbar-text">7.4 Try and try silently</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_2" title="Instead rules"><div class="nav-arrow">←7.2 </div><div class="doc-navbar-text">Instead rules</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_7"><div class="nav-arrow">↑7. </div><div class="doc-navbar-text">Basic Actions</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_4"><div class="doc-navbar-text">Try and try silently</div><div class="nav-arrow">7.4→</div></a></div></div></div>
 <p>Despite what was said in the previous section, instead rules do not quite bypass all of the usual rules. Inform knows that certain actions require light: for instance,</p>
 <div class="codeblock"><div class="codeline">examining the napkin; looking; looking under the dining table</div>
 </div><p>and if it is dark then none of these actions will be allowed, and any instead rules about them will not even be reached. Similarly, Inform knows that most actions require physical access to their objects: so &quot;taking the napkin&quot; would be blocked if the napkin were, say, inside a closed glass bottle, whereas &quot;examining the napkin&quot; would not. So an instead rule can only take effect if the action has already passed these basic reasonability tests.</p>
@@ -116,18 +116,18 @@
 <div class="codeline">Taken.</div>
 </div><p>We have seen that instead rules automatically stop actions, whereas before rules automatically allow them to continue. We sometimes want to change this. The magic word &quot;instead&quot; can therefore be tacked on to any instruction in a before rule, and will have the effect of immediately stopping the action at that instruction. Thus the following two rules are (almost) equivalent:</p>
 <div class="codeblock"><div class="codeline">Before taking the key, instead say &quot;It seems to be soldered to the keyhole.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of taking the key, say &quot;It seems to be soldered to the keyhole.&quot;</div>
 </div><p>It is also possible to be explicit about stopping the action:</p>
 <div class="defn" id="ph_stopaction"><div class="defnline"><span class="defn">stop the action</span></div><p>This phrase stops the current rule, stops the rulebook being worked through, and finally stops the action being processed. Example:</p>
 <div class="codeblock"><div class="codeline">Before taking the key:</div>
-<div class="codeline">&ensp;&ensp;say &quot;It seems to be soldered to the keyhole.&quot;;</div>
-<div class="codeline">&ensp;&ensp;stop the action.</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;It seems to be soldered to the keyhole.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;stop the action.</div>
 </div></div><p>Finally, we can prevent Inform from stopping the action when it otherwise might:</p>
 <div class="defn" id="ph_continueaction"><div class="defnline"><span class="defn">continue the action</span></div><p>This phrase ends the current rule, but in a way which keeps its rulebook going, so that the action being processed will carry on rather than being stopped. Example:</p>
 <div class="codeblock"><div class="codeline">Instead of taking the napkin:</div>
-<div class="codeline">&ensp;&ensp;say &quot;(first unfolding its delicate origami swan)[command clarification break]&quot;;</div>
-<div class="codeline">&ensp;&ensp;continue the action.</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;(first unfolding its delicate origami swan)[command clarification break]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;continue the action.</div>
 </div><p>An &quot;instead&quot; rule ordinarily stops the action when it finishes, so the &quot;continue the action&quot; is needed to make things carry on. (This rule would have been better written as a &quot;before&quot; rule, in fact, but it shows the idea.)</p>
 </div><p>As a general principle, it is good style to use instead rules whenever blocking actions, and before rules only when it is genuinely necessary to do something first but then to continue: in fact, it is good style to use &quot;stop the action&quot; or &quot;continue the action&quot; as little as possible.</p>
 <div class="examples">
@@ -138,7 +138,7 @@
 <div class="linkback"><a href="RB_6.html#section_8" title="Commands &gt; Taking, Dropping, Inserting and Putting">RB §6.8 Taking, Dropping, Inserting and Putting</a></div>
 </div>
 <h3 id="section_4">WI §7.4 Try and try silently</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_3" title="Before rules"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">7.3 Before rules</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_7"><div class="nav-arrow">↑</div><div class="doc-navbar-text">7. Basic Actions</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_5"><div class="doc-navbar-text">7.5 After rules</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_3" title="Before rules"><div class="nav-arrow">←7.3 </div><div class="doc-navbar-text">Before rules</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_7"><div class="nav-arrow">↑7. </div><div class="doc-navbar-text">Basic Actions</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_5"><div class="doc-navbar-text">After rules</div><div class="nav-arrow">7.5→</div></a></div></div></div>
 <p>Chapter 2 noted that surveys of Inform source text showed that the three most popular phrases used by authors are &quot;say&quot;, &quot;if&quot; and &quot;now&quot;. The fourth most popular is &quot;try&quot;, which allows us to trigger off actions ourselves, rather than waiting for the player to type something which generates them. Thus:</p>
 <div class="defn" id="ph_try"><div class="defnline"><span class="defn">try </span><span class="neutral">(action)</span></div><p>This phrase makes the action, which has to be named literally, take effect now. Example:</p>
 <div class="codeblock"><div class="codeline">Instead of entering the trapdoor, try going up.</div>
@@ -149,16 +149,16 @@
 <div class="codeblock"><div class="codeline">Before locking the front door, try closing the front door.</div>
 </div><p>could go wrong in any number of ways &ndash; perhaps the door is closed already, perhaps it is not openable, perhaps somebody has wedged it open. It would be safer to write:</p>
 <div class="codeblock"><div class="codeline">Before locking the front door:</div>
-<div class="codeline">&ensp;&ensp;try closing the front door;</div>
-<div class="codeline">&ensp;&ensp;if the front door is open, stop the action.</div>
+<div class="codeline">&ensp;&ensp;&ensp;try closing the front door;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the front door is open, stop the action.</div>
 </div><p>There&#39;s no need to say anything if closing didn&#39;t work, because the closing action will have done that already. A neater approach still is to use:</p>
 <div class="defn" id="ph_trysilently"><div class="defnline"><span class="defn">silently try </span><span class="neutral">(action)</span></div><div class="defn-or">or&hellip;</div><div class="defnline"><span class="defn">try silently </span><span class="neutral">(action)</span></div><p>This phrase makes the action, which has to be named literally, take effect now, under the &quot;silent&quot; convention which means that routine messages aren&#39;t printed. Example:</p>
 <div class="codeblock"><div class="codeline">try silently taking the napkin;</div>
 </div><p>Silence is maintained only if this new action, the taking of the napkin, is successful (so if the napkin is successfully taken, the text &quot;Taken.&quot; will not appear): if the action should fail, a suitable objection will be voiced as usual.</p>
 </div><p>So now we have:</p>
 <div class="codeblock"><div class="codeline">Before locking the front door:</div>
-<div class="codeline">&ensp;&ensp;try silently closing the front door;</div>
-<div class="codeline">&ensp;&ensp;if the front door is open, stop the action.</div>
+<div class="codeline">&ensp;&ensp;&ensp;try silently closing the front door;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the front door is open, stop the action.</div>
 </div><p>And this is neater because it won&#39;t produce a pointless &quot;You close the front door.&quot; message.</p>
 <div class="see-also">
 <h4>See Also</h4>
@@ -170,7 +170,7 @@
 <div class="linkback"><a href="RB_3.html#section_5" title="Place &gt; Doors, Staircases, and Bridges">RB §3.5 Doors, Staircases, and Bridges</a></div>
 </div>
 <h3 id="section_5">WI §7.5 After rules</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_4" title="Try and try silently"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">7.4 Try and try silently</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_7"><div class="nav-arrow">↑</div><div class="doc-navbar-text">7. Basic Actions</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_6"><div class="doc-navbar-text">7.6 Reading and talking</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_4" title="Try and try silently"><div class="nav-arrow">←7.4 </div><div class="doc-navbar-text">Try and try silently</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_7"><div class="nav-arrow">↑7. </div><div class="doc-navbar-text">Basic Actions</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_6"><div class="doc-navbar-text">Reading and talking</div><div class="nav-arrow">7.6→</div></a></div></div></div>
 <p>There is pleasantly little to be said about &quot;after&quot; rules. If an action has survived all the rules in its way, and has actually succeeded, then we need to give the player a response which acknowledges this. Inform&#39;s normal rules will be sufficient to say something undramatic: for instance, if &quot;taking the napkin&quot; has succeeded then it will reply &quot;Taken.&quot; to the player.</p>
 <p>An after rule is an opportunity to say something more interesting:</p>
 <div class="codeblock"><div class="codeline">After taking the diamonds, say &quot;Taken!&quot;</div>
@@ -182,19 +182,19 @@
 <div class="linkback"><a href="RB_6.html#section_8" title="Commands &gt; Taking, Dropping, Inserting and Putting">RB §6.8 Taking, Dropping, Inserting and Putting</a></div>
 </div>
 <h3 id="section_6">WI §7.6 Reading and talking</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_5" title="After rules"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">7.5 After rules</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_7"><div class="nav-arrow">↑</div><div class="doc-navbar-text">7. Basic Actions</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_7"><div class="doc-navbar-text">7.7 The other four senses</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_5" title="After rules"><div class="nav-arrow">←7.5 </div><div class="doc-navbar-text">After rules</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_7"><div class="nav-arrow">↑7. </div><div class="doc-navbar-text">Basic Actions</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_7"><div class="doc-navbar-text">The other four senses</div><div class="nav-arrow">7.7→</div></a></div></div></div>
 <p>A few actions apply not to items alone, but also involve what might be called conversation. The first is the one used for looking things up in books (which is conversation of a kind, even if the author is not present): &quot;consulting &hellip; about &hellip;&quot;. For example,</p>
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`In the Grove is a book of sybilline verses.\n\nAfter consulting the book about &quot;grove&quot;, say &quot;The Grove is a sacred yadda, yadda. There&apos;s a tree, that sort of thing. Wisdom.&quot;\n\nAfter consulting the book about &quot;future events&quot;, say &quot;It&apos;s a bit, what&apos;s the word? Delphic.&quot;`)">⧉</button><div class="codeline">In the Grove is a book of sybilline verses.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">After consulting the book about &quot;grove&quot;, say &quot;The Grove is a sacred yadda, yadda. There&#39;s a tree, that sort of thing. Wisdom.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">After consulting the book about &quot;future events&quot;, say &quot;It&#39;s a bit, what&#39;s the word? Delphic.&quot;</div>
 </div><p>Note that what follows &quot;about&quot; here is a piece of text in double-quotes, and not the name of something. It can be almost any text at all, and in fact we shall later see (in the chapter on &quot;Understanding&quot;) that we can match complicated patterns of words, too.</p>
 <p>Similar actions are used for conversing with people:</p>
 <div class="codeblock"><div class="codeline">After asking the Sybil about &quot;verses&quot;, say &quot;She blushes.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">After telling the Sybil about &quot;persians&quot;, say &quot;She nods gravely.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">After answering the Sybil that &quot;I am mad&quot;, say &quot;She sighs.&quot;</div>
 </div><p>These would be produced by commands like &quot;ask sybil about verses&quot;, &quot;tell sybil about persians&quot; and &quot;answer i am mad&quot;. Answering is little-used except that it also catches commands like &quot;sybil, something unrecognized&quot;, which inexperienced players sometimes type. Asking and telling, however, are important actions and the difference between them is often worth preserving. If you would prefer to make &quot;tell sybil about X&quot; do the same as &quot;ask sybil about X&quot;, the following rule would serve:</p>
 <div class="codeblock"><div class="codeline">Instead of telling the Sybil about something, try asking the Sybil about it.</div>
@@ -213,11 +213,11 @@
 <div class="linkback"><a href="RB_9.html#section_6" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Reading Matter">RB §9.6 Reading Matter</a></div>
 </div>
 <h3 id="section_7">WI §7.7 The other four senses</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_6" title="Reading and talking"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">7.6 Reading and talking</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_7"><div class="nav-arrow">↑</div><div class="doc-navbar-text">7. Basic Actions</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_8"><div class="doc-navbar-text">7.8 Rules applying to more than one action</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_6" title="Reading and talking"><div class="nav-arrow">←7.6 </div><div class="doc-navbar-text">Reading and talking</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_7"><div class="nav-arrow">↑7. </div><div class="doc-navbar-text">Basic Actions</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_8"><div class="doc-navbar-text">Rules applying to more than one action</div><div class="nav-arrow">7.8→</div></a></div></div></div>
 <p>The five senses are all simulated with actions. Sight is so informative that it is handled by a whole range of actions: &quot;looking&quot;, which describes the general scene; &quot;examining something&quot;, which takes a closer look at a specific thing; &quot;looking under something&quot;, and so on.</p>
 <p>The other senses have one action each: &quot;listening to something&quot;, &quot;touching something&quot;, &quot;tasting something&quot; and &quot;smelling something&quot;. It makes no sense to touch or taste the general scene, but listening and smelling are a different matter: we often just listen, without listening to anything specific. If the player types the command &quot;listen&quot;, Inform understands that as listening to the current location: similarly for the bare command &quot;smell&quot;. Thus:</p>
 <div class="codeblock"><div class="codeline">Instead of listening to the Seashore, say &quot;The song of gulls.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of smelling the Cave, say &quot;Salt and old seaweed.&quot;</div>
 </div><div class="examples">
 <h4>Example</h4>
@@ -225,7 +225,7 @@
 <div class="linkback"><a href="RB_3.html#section_8" title="Place &gt; Sounds">RB §3.8 Sounds</a></div>
 </div>
 <h3 id="section_8">WI §7.8 Rules applying to more than one action</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_7" title="The other four senses"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">7.7 The other four senses</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_7"><div class="nav-arrow">↑</div><div class="doc-navbar-text">7. Basic Actions</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_9"><div class="doc-navbar-text">7.9 All actions and exceptional actions</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_7" title="The other four senses"><div class="nav-arrow">←7.7 </div><div class="doc-navbar-text">The other four senses</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_7"><div class="nav-arrow">↑7. </div><div class="doc-navbar-text">Basic Actions</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_9"><div class="doc-navbar-text">All actions and exceptional actions</div><div class="nav-arrow">7.9→</div></a></div></div></div>
 <p>A description can include more than one choice of action. For instance:</p>
 <div class="codeblock"><div class="codeline">examining or searching the desk</div>
 </div><p>matches either of &quot;examining the desk&quot; or &quot;searching the desk&quot;. We can have more than two actions, of course:</p>
@@ -238,7 +238,7 @@
 <p>For example, the following saves us writing the same basic rule three times over:</p>
 <div class="codeblock"><div class="codeline">Instead of examining, looking under or searching the desk: say &quot;There&#39;s no use poking around in that old desk.&quot;</div>
 </div><h3 id="section_9">WI §7.9 All actions and exceptional actions</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_8" title="Rules applying to more than one action"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">7.8 Rules applying to more than one action</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_7"><div class="nav-arrow">↑</div><div class="doc-navbar-text">7. Basic Actions</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_10"><div class="doc-navbar-text">7.10 The noun and the second noun</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_8" title="Rules applying to more than one action"><div class="nav-arrow">←7.8 </div><div class="doc-navbar-text">Rules applying to more than one action</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_7"><div class="nav-arrow">↑7. </div><div class="doc-navbar-text">Basic Actions</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_10"><div class="doc-navbar-text">The noun and the second noun</div><div class="nav-arrow">7.10→</div></a></div></div></div>
 <p>The special description &quot;doing something&quot; (or &quot;doing anything&quot;) matches any action, and &quot;doing something to &hellip;&quot; also allows the noun to be specified.</p>
 <p>For instance, the following puts its object out of bounds:</p>
 <div class="codeblock"><div class="codeline">Instead of doing something to the cucumber sandwich, say &quot;Lady Bracknell stares disapprovingly down her pince-nez at you, in a way which no amount of hunger or curiosity could overcome.&quot;</div>
@@ -256,14 +256,14 @@
 <div class="linkback"><a href="RB_7.html#section_3" title="Other Characters &gt; Reactive Characters">RB §7.3 Reactive Characters</a></div>
 </div>
 <h3 id="section_10">WI §7.10 The noun and the second noun</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_9" title="All actions and exceptional actions"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">7.9 All actions and exceptional actions</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_7"><div class="nav-arrow">↑</div><div class="doc-navbar-text">7. Basic Actions</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_11"><div class="doc-navbar-text">7.11 In rooms and regions</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_9" title="All actions and exceptional actions"><div class="nav-arrow">←7.9 </div><div class="doc-navbar-text">All actions and exceptional actions</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_7"><div class="nav-arrow">↑7. </div><div class="doc-navbar-text">Basic Actions</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_11"><div class="doc-navbar-text">In rooms and regions</div><div class="nav-arrow">7.11→</div></a></div></div></div>
 <p>Once we begin applying rules to actions which are not entirely known in advance, we have a problem: there&#39;s no way to find out what specifically is happening. Consider the following:</p>
 <div class="codeblock"><div class="codeline">Instead of examining something, say &quot;It is none of your concern!&quot;</div>
 </div><p>This is fine as far as it goes, but clumsy. What if the player had examined a human being? Then &quot;it&quot; would be inappropriate. A better approach would be this:</p>
 <div class="codeblock"><div class="codeline">Instead of examining something, say &quot;[The noun] is none of your concern!&quot;</div>
 </div><p>The &quot;noun&quot; and, when necessary, the &quot;second noun&quot; are values which can be used in any rule about actions, and it follows that they can also be substituted into text, as this example demonstrates. Results might include:</p>
 <div class="codeblock"><div class="codeline">Lady Bracknell is none of your concern!</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The silver cigarette case is none of your concern!</div>
 </div><p>This seems a good moment to mention that if you use &quot;The&quot; in a substitution, then a capitalised &quot;The&quot; will be used so long as this is grammatically correct (Lady Bracknell, as a proper noun, takes no article); &quot;the&quot; becomes a lower-case &quot;the&quot; along the same lines; and &quot;a&quot; a lower-case indefinite article.</p>
 <div class="codeblock"><div class="codeline">Instead of examining something in the Drawing Room, say &quot;Under Lady Bracknell&#39;s eye, you feel constrained. Besides, it is only [a noun].&quot;</div>
@@ -273,19 +273,19 @@
 <div class="linkback"><a href="RB_10.html#section_4" title="Physics: Substances, Ropes, Energy and Weight &gt; Glass and Other Damage-Prone Substances">RB §10.4 Glass and Other Damage-Prone Substances</a></div>
 </div>
 <h3 id="section_11">WI §7.11 In rooms and regions</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_10" title="The noun and the second noun"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">7.10 The noun and the second noun</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_7"><div class="nav-arrow">↑</div><div class="doc-navbar-text">7. Basic Actions</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_12"><div class="doc-navbar-text">7.12 In the presence of, and when</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_10" title="The noun and the second noun"><div class="nav-arrow">←7.10 </div><div class="doc-navbar-text">The noun and the second noun</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_7"><div class="nav-arrow">↑7. </div><div class="doc-navbar-text">Basic Actions</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_12"><div class="doc-navbar-text">In the presence of, and when</div><div class="nav-arrow">7.12→</div></a></div></div></div>
 <p>Three elaborations of action descriptions increase the range of possibilities further.</p>
 <div class="codeblock"><div class="codeline">Instead of taking something in the Supernatural Void, say &quot;In this peculiar mist you feel unable to grasp anything.&quot;</div>
 </div><p>Like the objects to which the action applies, this location &ndash; the &quot;in&quot; clause &ndash; can take any description, not just an explicit place like &quot;Supernatural Void&quot;:</p>
 <div class="codeblock"><div class="codeline">Instead of listening in a dead end, say &quot;You strain to hear further clues as to the course of the underground river, but to no avail.&quot;</div>
 </div><p>But we often want a rule to apply in any of a set of rooms: and where, unlike the &quot;dead end&quot; example above, the rooms have nothing much in common except where they happen to lie on a map. For instance, we might want a rule to apply only inside a given building, or a garden consisting of five miscellaneous rooms. If so, we can create a &quot;region&quot; as a convenient way to refer to that group of rooms:</p>
 <div class="codeblock"><div class="codeline">The Arboretum is east of the Botanical Gardens. Northwest of the Gardens is the Tropical Greenhouse.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Public Area is a region. The Arboretum and Gardens are in the Public Area.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of eating in the Public Area, say &quot;The curators of the Gardens are ever among you, eagle-eyed and generally cussed.&quot;</div>
 </div><h3 id="section_12">WI §7.12 In the presence of, and when</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_11" title="In rooms and regions"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">7.11 In rooms and regions</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_7"><div class="nav-arrow">↑</div><div class="doc-navbar-text">7. Basic Actions</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_13"><div class="doc-navbar-text">7.13 Going from, going to</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_11" title="In rooms and regions"><div class="nav-arrow">←7.11 </div><div class="doc-navbar-text">In rooms and regions</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_7"><div class="nav-arrow">↑7. </div><div class="doc-navbar-text">Basic Actions</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_13"><div class="doc-navbar-text">Going from, going to</div><div class="nav-arrow">7.13→</div></a></div></div></div>
 <p>Relative location can also be important: relative to other people, that is -</p>
 <div class="codeblock"><div class="codeline">Instead of eating something in the presence of Lady Bracknell, say &quot;Lady Bracknell disapproves thoroughly of gentlemen who snack between meals, and there are few disapprovals in this world quite so thorough as Lady Bracknell&#39;s.&quot;</div>
 </div><p>As might be guessed, this applies when the action takes place in the same location as the person named: and of course that person can also be described more vaguely (&quot;&hellip; in the presence of a woman&quot;, say), and can just as easily be an inanimate thing (&quot;&hellip; in the presence of the radio set&quot;).</p>
@@ -303,16 +303,16 @@
 <div class="linkback"><a href="RB_8.html#section_3" title="Vehicles, Animals and Furniture &gt; Animals">RB §8.3 Animals</a></div>
 </div>
 <h3 id="section_13">WI §7.13 Going from, going to</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_12" title="In the presence of, and when"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">7.12 In the presence of, and when</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_7"><div class="nav-arrow">↑</div><div class="doc-navbar-text">7. Basic Actions</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_14"><div class="doc-navbar-text">7.14 Going by, going through, going with</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_12" title="In the presence of, and when"><div class="nav-arrow">←7.12 </div><div class="doc-navbar-text">In the presence of, and when</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_7"><div class="nav-arrow">↑7. </div><div class="doc-navbar-text">Basic Actions</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_14"><div class="doc-navbar-text">Going by, going through, going with</div><div class="nav-arrow">7.14→</div></a></div></div></div>
 <p>Going is an action defined like any other: it is the one which happens when the player tries to go from one location to another. But it is unlike other actions because it happens in two locations, not just one, and has other complications such as vehicles and doors to contend with. To make it easier to write legible and flexible rules, &quot;going&quot; is allowed to be described in a number of special ways not open to other actions, as demonstrated by the following example story:</p>
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Going Going&quot;\n\nThe Catalogue Room is east of the Front Stacks. South of the Catalogue Room is the Musicology Section.\n\nInstead of going nowhere from the Front Stacks, say &quot;Bookcases obstruct almost all passages out of here.&quot;\n\nInstead of going nowhere, say &quot;You really can&apos;t wander around at random in the Library.&quot;\n\nBefore going to the Catalogue Room, say &quot;You emerge back into the Catalogue Room.&quot;`)">⧉</button><div class="codeline storytitle">&quot;Going Going&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Catalogue Room is east of the Front Stacks. South of the Catalogue Room is the Musicology Section.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of going nowhere from the Front Stacks, say &quot;Bookcases obstruct almost all passages out of here.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of going nowhere, say &quot;You really can&#39;t wander around at random in the Library.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Before going to the Catalogue Room, say &quot;You emerge back into the Catalogue Room.&quot;</div>
 </div><p>Note that &quot;going nowhere&quot; means trying a map connection which is blank, and if no rules intervene then &quot;You can&#39;t go that way&quot; is normally printed. Unless &quot;nowhere&quot; is specified, descriptions of going apply only when there is a map connection. So &quot;going from the Musicology Section&quot; would not match if the player were trying to go east from there, since there is no map connection to the east. Similarly, &quot;going somewhere&quot; excludes blank connections.</p>
 <p>The places gone &quot;from&quot; or &quot;to&quot; can be specific named regions instead of rooms. This is convenient when there are several different ways into or out of an area of map but a common rule needs to apply to all: so, for example,</p>
@@ -339,14 +339,14 @@
 <div class="linkback"><a href="RB_6.html#section_9" title="Commands &gt; Going, Pushing Things in Directions">RB §6.9 Going, Pushing Things in Directions</a></div>
 </div>
 <h3 id="section_14">WI §7.14 Going by, going through, going with</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_13" title="Going from, going to"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">7.13 Going from, going to</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_7"><div class="nav-arrow">↑</div><div class="doc-navbar-text">7. Basic Actions</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_15"><div class="doc-navbar-text">7.15 Kinds of action</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_13" title="Going from, going to"><div class="nav-arrow">←7.13 </div><div class="doc-navbar-text">Going from, going to</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_7"><div class="nav-arrow">↑7. </div><div class="doc-navbar-text">Basic Actions</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_15"><div class="doc-navbar-text">Kinds of action</div><div class="nav-arrow">7.15→</div></a></div></div></div>
 <p>Adding to the previous example story, we apply rules which depend on travelling by a particular vehicle:</p>
 <div class="codeblock"><div class="codeline">The book trolley is in the Musicology Section. &quot;The book trolley, a sort of motorised tractor for trundling around through the stacks, is parked here.&quot; The trolley is a vehicle. Instead of going nowhere by the trolley, say &quot;Don&#39;t go crashing the trolley into walls.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of going to the Front Stacks by the trolley, say &quot;The Front Stacks are far too confined for the trolley to manoeuvre into them.&quot;</div>
 </div><p>And, lastly, rules which apply to movements through particular doors:</p>
 <div class="codeblock"><div class="codeline">The green baize door is east of the Catalogue Room and west of the Clerk&#39;s Office. The green baize door is an open door.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Before going through the green baize door, say &quot;Through you go...&quot; After going through the green baize door: try looking; say &quot;...and here you are.&quot;</div>
 </div><p>(Note that these apply whether the action is &quot;going east&quot; or &quot;entering the green baize door&quot;, each having the same effect.) The last rule is worth a second look: the normal way that a &quot;going&quot; action is reported is to produce the room description of the new location. So if an &quot;after&quot; rule stops the action before we get to reporting, we have to produce any room description by hand (hence the &quot;try looking&quot; to cause the looking action). Alternatively, we could simply say something and let the normal course of events take place:</p>
 <div class="codeblock"><div class="codeline">After going through the green baize door: say &quot;...and here you are:&quot;; continue the action.</div>
@@ -354,7 +354,7 @@
 <div class="codeblock"><div class="codeline">Instead of going from the Office with the trolley, say &quot;But it looks perfectly placed here. Why push any further?&quot;</div>
 </div><p>&quot;Going&quot; is not the only action which moves the player. Another is &quot;exiting&quot;, an action which moves the player out of whatever he/she is currently in or on. This action is often caused by the player typing just OUT or GET DOWN, and there&#39;s no noun as such. But Inform allows the syntax &quot;exiting from&quot; to make it easier to write rules about the exiting of particular containers or supporters:</p>
 <div class="codeblock"><div class="codeline">After exiting from the Mini Cooper:</div>
-<div class="codeline">&ensp;&ensp;say &quot;You painstakingly unpack your limbs from the tiny car.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You painstakingly unpack your limbs from the tiny car.&quot;</div>
 </div><div class="examples">
 <h4>Examples</h4>
 <div class="example-short"><div class="example-short-num"><span class="hidden"></span>104.</div><div class="example-short-name"><span class="example-short-name"><a href="examples/no_relation.html">No Relation</a></span> <span class="stars">★</span></div></div><div class="example-short"><div class="example-short-num"><span class="hidden">000.</span></div><div class="example-short-name">A car which must be turned on before it can be driven, and can only go to roads.</div></div>
@@ -369,11 +369,11 @@
 <div class="linkback"><a href="RB_6.html#section_9" title="Commands &gt; Going, Pushing Things in Directions">RB §6.9 Going, Pushing Things in Directions</a></div>
 </div>
 <h3 id="section_15">WI §7.15 Kinds of action</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_14" title="Going by, going through, going with"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">7.14 Going by, going through, going with</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_7"><div class="nav-arrow">↑</div><div class="doc-navbar-text">7. Basic Actions</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_16"><div class="doc-navbar-text">7.16 Repeated actions</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_14" title="Going by, going through, going with"><div class="nav-arrow">←7.14 </div><div class="doc-navbar-text">Going by, going through, going with</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_7"><div class="nav-arrow">↑7. </div><div class="doc-navbar-text">Basic Actions</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_16"><div class="doc-navbar-text">Repeated actions</div><div class="nav-arrow">7.16→</div></a></div></div></div>
 <p>Especially when people need to react to events going on around them, it is helpful to be able to categorise actions into whole areas of behaviour. For instance:</p>
 <div class="codeblock"><div class="codeline">Kissing Mr Carr is unmaidenly behaviour.</div>
 <div class="codeline">Doing something to the painting is unmaidenly behaviour.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of unmaidenly behaviour in the Inn, say &quot;How unmaidenly!&quot;</div>
 </div><p>Here a new kind of action called &quot;unmaidenly behaviour&quot; has been created and then used in the description of an instead rule. The convenience of this approach is that when further actions suddenly occur to us as also being unmaidenly &ndash; say, attacking Mr Carr &ndash; we only need to add a single line:</p>
 <div class="codeblock"><div class="codeline">Attacking Mr Carr is unmaidenly behaviour.</div>
@@ -387,12 +387,12 @@
 <div class="linkback"><a href="RB_7.html#section_6" title="Other Characters &gt; Getting Started with Conversation">RB §7.6 Getting Started with Conversation</a></div>
 </div>
 <h3 id="section_16">WI §7.16 Repeated actions</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_15" title="Kinds of action"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">7.15 Kinds of action</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_7"><div class="nav-arrow">↑</div><div class="doc-navbar-text">7. Basic Actions</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_17"><div class="doc-navbar-text">7.17 Actions on consecutive turns</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_15" title="Kinds of action"><div class="nav-arrow">←7.15 </div><div class="doc-navbar-text">Kinds of action</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_7"><div class="nav-arrow">↑7. </div><div class="doc-navbar-text">Basic Actions</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_17"><div class="doc-navbar-text">Actions on consecutive turns</div><div class="nav-arrow">7.17→</div></a></div></div></div>
 <p>We come at last to the final thing which can be specified about an action, and appropriately enough it must be specified with the final words of the description. This is the way to talk about repeated activity:</p>
 <div class="codeblock"><div class="codeline">Instead of examining the tapestry for the third time, say &quot;All right, so it&#39;s a masterpiece, but is this really the time to make a detailed study?&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of examining the urn at least twice, say &quot;It&#39;s an urn. What do you want from me?&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of going nowhere for the 20th time, say &quot;Do stop walking into walls, there&#39;s a good fellow.&quot;</div>
 </div><p>Note that we are allowed to spell out numbers up to twelve in English words, but beyond that must use digits (thus &quot;twelfth&quot; is allowed but not &quot;thirteenth&quot;: &quot;13th&quot; should be used instead). The following example is instructive:</p>
 <div class="codeblock"><div class="codeline">Instead of taking something for the fourth time, say &quot;No. I&#39;m capricious.&quot;</div>
@@ -405,24 +405,24 @@
 <div class="linkback"><a href="RB_7.html#section_3" title="Other Characters &gt; Reactive Characters">RB §7.3 Reactive Characters</a></div>
 </div>
 <h3 id="section_17">WI §7.17 Actions on consecutive turns</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_16" title="Repeated actions"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">7.16 Repeated actions</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_7"><div class="nav-arrow">↑</div><div class="doc-navbar-text">7. Basic Actions</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_18"><div class="doc-navbar-text">7.18 Postscript on actions</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_16" title="Repeated actions"><div class="nav-arrow">←7.16 </div><div class="doc-navbar-text">Repeated actions</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_7"><div class="nav-arrow">↑7. </div><div class="doc-navbar-text">Basic Actions</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_18"><div class="doc-navbar-text">Postscript on actions</div><div class="nav-arrow">7.18→</div></a></div></div></div>
 <p>We can also reckon the number of consecutive turns on which an action has been repeated, by talking about &quot;turns&quot; instead of &quot;times&quot;, as demonstrated in the following example story. Note also that we are allowed to use the phrase &quot;doing it&quot; to mean &quot;the same description as the previous one except for the part about turns or times&quot;, like so:</p>
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Waiting Room&quot;\n\nThe Antechamber is a room. The tattered copy of Women&apos;s Wear Daily is in the Antechamber. Instead of taking the Daily, say &quot;It is stamped NOT TO BE TAKEN AWAY.&quot;\n\nInstead of examining the Daily for the first time, say &quot;The best article seems to be about how your star sign affects your best swimsuit colour. Really: that&apos;s the best article.&quot;\n\nInstead of doing it for the second time, say &quot;You now know a generous amount about a typical week in the life of a weather forecaster.&quot;\n\nInstead of doing it for the third time, say &quot;You would now know how to cook herb bread, except that you have already forgotten the names of both of the herbs.&quot;\n\nInstead of doing it more than three times, say &quot;Nope, you&apos;ve drained it of all conceivable sustenance, even the small ads about French farmhouses to let (sleeps 7) and breast reduction surgery (with alarming photographs in sallow light).&quot;\n\nAfter waiting for four to six turns, say &quot;This is getting mighty dull.&quot; After waiting for seven to eight turns, say &quot;Really, exceptionally dull.&quot; After waiting for nine turns, end the story saying &quot;You have died of boredom, something previously thought medically impossible&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Waiting Room&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Antechamber is a room. The tattered copy of Women&#39;s Wear Daily is in the Antechamber. Instead of taking the Daily, say &quot;It is stamped NOT TO BE TAKEN AWAY.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of examining the Daily for the first time, say &quot;The best article seems to be about how your star sign affects your best swimsuit colour. Really: that&#39;s the best article.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of doing it for the second time, say &quot;You now know a generous amount about a typical week in the life of a weather forecaster.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of doing it for the third time, say &quot;You would now know how to cook herb bread, except that you have already forgotten the names of both of the herbs.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of doing it more than three times, say &quot;Nope, you&#39;ve drained it of all conceivable sustenance, even the small ads about French farmhouses to let (sleeps 7) and breast reduction surgery (with alarming photographs in sallow light).&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">After waiting for four to six turns, say &quot;This is getting mighty dull.&quot; After waiting for seven to eight turns, say &quot;Really, exceptionally dull.&quot; After waiting for nine turns, end the story saying &quot;You have died of boredom, something previously thought medically impossible&quot;.</div>
 </div><p>Note once again that numbers above twelve must not be written out, so &quot;more than twelve times&quot; would be acceptable, but we would write &quot;more than 13 times&quot;.</p>
 <h3 id="section_18">WI §7.18 Postscript on actions</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_17" title="Actions on consecutive turns"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">7.17 Actions on consecutive turns</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_7"><div class="nav-arrow">↑</div><div class="doc-navbar-text">7. Basic Actions</div></a></div><div class="doc-navbar-right"><div>&nbsp;</div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_17" title="Actions on consecutive turns"><div class="nav-arrow">←7.17 </div><div class="doc-navbar-text">Actions on consecutive turns</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_7"><div class="nav-arrow">↑7. </div><div class="doc-navbar-text">Basic Actions</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="WI_8.html" title="Change"><div class="doc-navbar-text">Change</div><div class="nav-arrow">8.→</div></a></div></div></div>
 <p>In this chapter, all actions have been carried out by the player, all have been drawn from the standard stock of built-in actions (&quot;unlocking&quot;, &quot;taking&quot;, &quot;going&quot; and so forth), and all of those built-in actions have been allowed to work in the standard way &ndash; we have seen how to prevent the taking of something, and how to give this unexpected consequences, but not how to make taking work in an entirely different way.</p>
 <p>All three of those restrictions will later be lifted in the chapter on &quot;Advanced Actions&quot;, but otherwise we have covered the ground thoroughly, and it is time to move on to the techniques enabling us to do more than make tart replies to the player: it is time to change the world.</p>
 <div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="WI_6.html"><div class="nav-arrow">←</div> <div class="doc-navbar-text">6. Descriptions</div></a></div><div class="doc-navbar-center"><div class="nav-el"><span class="hidden">0</span></div></div><div class="doc-navbar-right"><a class="nav-el" href="WI_8.html"><div class="doc-navbar-text">8. Change</div> <div class="nav-arrow">→</div></a></div></div>

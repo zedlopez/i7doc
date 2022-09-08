@@ -18,46 +18,46 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex55a">Play/modify Early Childhood 1 in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Blocks_1/index.html">Play Early Childhood 1 in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Early Childhood 1&quot;\n\nA building block is a kind of thing. A red block, a blue block and a green block are kinds of building block.\n\nThe Nursery is a room. In the Nursery are six red blocks, four blue blocks and a green block.\n\nTest me with &quot;look / get red block&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Early Childhood 1&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A building block is a kind of thing. A red block, a blue block and a green block are kinds of building block.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Nursery is a room. In the Nursery are six red blocks, four blue blocks and a green block.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;look / get red block&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "look / get red block".</summary><div class="testme-output">Nursery<br>You can see six red blocks, four blue blocks and a green block here.<br><br>&gt;(Testing.)<br><br>&gt;[1] look<br>Nursery<br>You can see six red blocks, four blue blocks and a green block here.<br><br>&gt;[2] get red block<br>Taken.
 </div></details><p>But a kind cannot change during play, so this will not do. Instead, the colour will have to be a property of the block. So we might first try this:</p>
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex55b">Play/modify Early Childhood 2 in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Blocks_2/index.html">Play Early Childhood 2 in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Early Childhood 2&quot;\n\nColour is a kind of value. The colours are red, blue and green. A block is a kind of thing. A block has a colour. A block is usually blue.\n\nThe Nursery is a room. In the Nursery are six red blocks, four blue blocks and a green block.\n\nTest me with &quot;look / get red block&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Early Childhood 2&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Colour is a kind of value. The colours are red, blue and green. A block is a kind of thing. A block has a colour. A block is usually blue.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Nursery is a room. In the Nursery are six red blocks, four blue blocks and a green block.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;look / get red block&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "look / get red block".</summary><div class="testme-output">Nursery<br>You can see eleven blocks here.<br><br>&gt;(Testing.)<br><br>&gt;[1] look<br>Nursery<br>You can see eleven blocks here.<br><br>&gt;[2] get red block<br>You can&#39;t see any such thing.
 </div></details><p>Which is fine, so far as it goes, but the colour property is not at all visible to the player, who simply sees &quot;eleven blocks&quot;. We thought of colour as being something outwardly apparent, but Inform does not know this. To achieve a better effect, we will need features from distant chapters. The first is an activity called &quot;printing the name of&quot;:</p>
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex55c">Play/modify Early Childhood 3 in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Blocks_3/index.html">Play Early Childhood 3 in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Early Childhood 3&quot;\n\nColour is a kind of value. The colours are red, blue and green. A block is a kind of thing. A block has a colour. A block is usually blue. Before printing the name of a block: say &quot;[colour] &quot;. Before printing the plural name of a block: say &quot;[colour] &quot;.\n\nThe Nursery is a room. In the Nursery are six red blocks, four blue blocks and a green block.\n\nTest me with &quot;look / get red block&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Early Childhood 3&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Colour is a kind of value. The colours are red, blue and green. A block is a kind of thing. A block has a colour. A block is usually blue. Before printing the name of a block: say &quot;[colour] &quot;. Before printing the plural name of a block: say &quot;[colour] &quot;.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Nursery is a room. In the Nursery are six red blocks, four blue blocks and a green block.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;look / get red block&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "look / get red block".</summary><div class="testme-output">Nursery<br>You can see eleven red blocks here.<br><br>&gt;(Testing.)<br><br>&gt;[1] look<br>Nursery<br>You can see eleven red blocks here.<br><br>&gt;[2] get red block<br>You can&#39;t see any such thing.
 </div></details><p>This too, however, is unsatisfactory. The individual blocks are correctly described, but we are unable to distinguish them during play: we cannot type &quot;take a green block&quot;, for instance. And because the blocks are indistinguishable in play, they are still massed together as &quot;eleven blocks&quot; in room descriptions. We need to go one step further:</p>
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex55d">Play/modify Early Childhood 4 in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Blocks_4/index.html">Play Early Childhood 4 in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Early Childhood 4&quot;\n\nColour is a kind of value. The colours are red, blue and green. A block is a kind of thing. A block has a colour. A block is usually blue. Before printing the name of a block: say &quot;[colour] &quot;. Before printing the plural name of a block: say &quot;[colour] &quot;. Understand the colour property as describing a block.\n\nThe Nursery is a room. In the Nursery are six red blocks, four blue blocks and a green block.\n\n\nUnderstand &quot;paint [something] [colour]&quot; as painting it. Painting it is an action applying to one thing and one colour. Check painting it: if the noun is not a block, say &quot;Paints are only for blocks.&quot; instead. Carry out painting it: now the colour of the noun is the colour understood. Report painting it: say &quot;The block is now [the colour of the noun].&quot;\n\nTest me with &quot;get red block / get blue block / g / i / look / paint blue block red / i / look / paint me red&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Early Childhood 4&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Colour is a kind of value. The colours are red, blue and green. A block is a kind of thing. A block has a colour. A block is usually blue. Before printing the name of a block: say &quot;[colour] &quot;. Before printing the plural name of a block: say &quot;[colour] &quot;. Understand the colour property as describing a block.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Nursery is a room. In the Nursery are six red blocks, four blue blocks and a green block.</div>
 </div><p>And now everything works nicely: the blocks are grouped by colour, and can be referred to by colour, and we can even change the colour of an individual block during play, using a bit of extra trickery from later:</p>
 <div class="codeblock"><div class="codeline">Understand &quot;paint [something] [colour]&quot; as painting it. Painting it is an action applying to one thing and one colour. Check painting it: if the noun is not a block, say &quot;Paints are only for blocks.&quot; instead. Carry out painting it: now the colour of the noun is the colour understood. Report painting it: say &quot;The block is now [the colour of the noun].&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;get red block / get blue block / g / i / look / paint blue block red / i / look / paint me red&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "get red block / get blue block / g / i / look / paint blue block red / i / look / paint me red".</summary><div class="testme-output">Nursery<br>You can see six red blocks, four blue blocks and a green block here.<br><br>&gt;(Testing.)<br><br>&gt;[1] get red block<br>Taken.<br><br>&gt;[2] get blue block<br>Taken.<br><br>&gt;[3] g<br>Taken.<br><br>&gt;[4] i<br>You are carrying:<br>  two blue blocks<br>  a red block<br><br>&gt;[5] look<br>Nursery<br>You can see five red blocks, two blue blocks and a green block here.<br><br>&gt;[6] paint blue block red<br>The block is now red.<br><br>&gt;[7] i<br>You are carrying:<br>  two red blocks<br>  a blue block<br><br>&gt;[8] look<br>Nursery<br>You can see five red blocks, two blue blocks and a green block here.<br><br>&gt;[9] paint me red<br>Paints are only for blocks.
 </div></details><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="real_adventurers_need_no_help.html" title="Allowing the player to turn off all access to hints for the duration of a game, in order to avoid the temptation to rely on them overmuch."><div class="nav-arrow">←</div> <div class="doc-navbar-text">54. Real Adventurers Need No Help</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="being_prepared.html" title="A kind for jackets, which always includes a container called a pocket."><div class="doc-navbar-text">56. Being Prepared</div> <div class="nav-arrow">→</div></a></div></div>

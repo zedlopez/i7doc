@@ -20,72 +20,72 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex248">Play/modify Narrative Register in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="NarrativeRegister/index.html">Play Narrative Register in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Narrative Register&quot;\n\nSection 1 - Descriptive Functionality\n\nDescribing relates various verbs to various action names. The verb to describe means the describing relation.\n\nTo take is a verb. To acquire is a verb. To get is a verb. To gain is a verb. To obtain is a verb. To pick up is a verb. To bag is a verb. To procure is a verb. To score is a verb. To grab is a verb. To snag is a verb. To snatch is a verb. To collect is a verb.\n\nTo drop is a verb. To put down is a verb. To discard is a verb. To throw away is a verb. To dispose of is a verb. To set down is a verb. To toss aside is a verb. To ditch is a verb. To abandon is a verb. To dump is a verb. To jettison is a verb. To abjure is a verb. To foresake is a verb. To dispense with is a verb.\n\nAfter an actor doing something to something when a verb describes (the action name part of the current action) (this is the apply random verbs to describing actions rule):\n\tscore the relevant verbs;\n\tsort the Table of Verb Meanings in reverse relevance order;\n\tchoose row 1 in the Table of Verb Meanings;\n\tlet top score be the relevance entry;\n\tsort Table of Verb Meanings in random order;\n\trepeat through the Table of Verb Meanings:\n\t\tif relevance entry is top score:\n\t\t\tsay &quot;[The actor] [verb rendering applied to (word entry)] [the noun].&quot;;\n\t\t\terase relevance;\n\t\t\trule succeeds.\n\nTo decide which text is the rendering of (V - verb) (this is verb rendering):\n\tdecide on &quot;[adapt V]&quot;.\n\nTo score the relevant verbs:\n\trepeat through the Table of Verb Meanings:\n\t\tif the meaning entry is (the action name part of the current action):\n\t\t\tincrease relevance entry by 1;\n\t\t\trepeat with chosen connotation running through connotations entry:\n\t\t\t\tif the chosen connotation is listed in the current register:\n\t\t\t\t\tincrease relevance entry by 1;\n\t\t\t\totherwise:\n\t\t\t\t\tdecrease relevance entry by 1.\n\nTo erase relevance:\n\trepeat through Table of Verb Meanings:\n\t\tnow relevance entry is 0.\n\n\nA tonality is a kind of value. The tonalities are pompous, archaic, slangy, upbeat, downbeat.\n\nConnoting relates various verbs to various tonalities. The verb to connote means the connoting relation.\n\nThe current register is a list of tonalities that varies. The current register is { }.\n\nWhen play begins:\n\trepeat through the Table of Verb Meanings:\n\t\tnow the word entry describes the meaning entry;\n\t\tnow relevance entry is 0;\n\t\trepeat with chosen tone running through the connotations entry:\n\t\t\tnow the word entry connotes the chosen tone.\n\nTable of Verb Meanings\nword\tmeaning\tconnotations\trelevance ( a number )\nthe verb take\tthe taking action\t{ }\nthe verb acquire\tthe taking action\t{ pompous }\nthe verb get\tthe taking action\t{ }\nthe verb gain\tthe taking action\t{ }\nthe verb obtain\tthe taking action\t{ pompous }\nthe verb pick up \tthe taking action\t{ }\nthe verb bag\tthe taking action\t{ slangy }\nthe verb score\tthe taking action\t{ slangy, upbeat }\nthe verb procure\tthe taking action\t{ archaic }\nthe verb grab\tthe taking action\t{ slangy }\nthe verb snag\tthe taking action\t{ slangy }\nthe verb snatch\tthe taking action\t{ slangy }\nthe verb collect\tthe taking action\t{ }\nthe verb discard\tthe dropping action\t{ pompous }\nthe verb drop\tthe dropping action\t{ }\nthe verb put down\tthe dropping action\t{ }\nthe verb toss aside\tthe dropping action\t{ }\nthe verb ditch\tthe dropping action\t{ slangy }\nthe verb throw away\tthe dropping action\t{ }\nthe verb dispose of\tthe dropping action\t{ }\nthe verb set down\tthe dropping action\t{ }\nthe verb abandon\tthe dropping action\t{ downbeat }\nthe verb dump\tthe dropping action\t{ downbeat }\nthe verb abjure\tthe dropping action\t{ archaic }\nthe verb foresake\tthe dropping action\t{ archaic }\nthe verb jettison\tthe dropping action\t{ pompous }\nthe verb dispense with\tthe dropping action\t{ pompous }\n\nSection 2 - Changing Tone Mid-Game\n\nUnderstand &quot;new tone&quot; as changing the tone. Changing the tone is an action out of world.\n\nCarry out changing the tone:\n\tnow the current register is { };\n\tif a random chance of 1 in 4 succeeds:\n\t\tsay &quot;Your narrator will now adopt an ordinary tone.&quot;;\n\t\trule succeeds;\n\tlet rando be a random tonality;\n\tadd rando to the current register, if absent;\n\tsay &quot;Your narrator will now be [rando].&quot;\n\n\nSection 3 - Scenario\n\nLab is a room. The table is here. The bat and the ball are on the table.\n\nTest me with &quot;get ball / drop ball / get bat / drop bat / new tone / get all / drop all / new tone / get all / drop all&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Narrative Register&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline i7header">Section 1 - Descriptive Functionality</div><div class="codeline">Describing relates various verbs to various action names. The verb to describe means the describing relation.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">To take is a verb. To acquire is a verb. To get is a verb. To gain is a verb. To obtain is a verb. To pick up is a verb. To bag is a verb. To procure is a verb. To score is a verb. To grab is a verb. To snag is a verb. To snatch is a verb. To collect is a verb.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">To drop is a verb. To put down is a verb. To discard is a verb. To throw away is a verb. To dispose of is a verb. To set down is a verb. To toss aside is a verb. To ditch is a verb. To abandon is a verb. To dump is a verb. To jettison is a verb. To abjure is a verb. To foresake is a verb. To dispense with is a verb.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">After an actor doing something to something when a verb describes (the action name part of the current action) (this is the apply random verbs to describing actions rule):</div>
-<div class="codeline">&ensp;&ensp;score the relevant verbs;</div>
-<div class="codeline">&ensp;&ensp;sort the Table of Verb Meanings in reverse relevance order;</div>
-<div class="codeline">&ensp;&ensp;choose row 1 in the Table of Verb Meanings;</div>
-<div class="codeline">&ensp;&ensp;let top score be the relevance entry;</div>
-<div class="codeline">&ensp;&ensp;sort Table of Verb Meanings in random order;</div>
-<div class="codeline">&ensp;&ensp;repeat through the Table of Verb Meanings:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;if relevance entry is top score:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[The actor] [verb rendering applied to (word entry)] [the noun].&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;erase relevance;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;rule succeeds.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;score the relevant verbs;</div>
+<div class="codeline">&ensp;&ensp;&ensp;sort the Table of Verb Meanings in reverse relevance order;</div>
+<div class="codeline">&ensp;&ensp;&ensp;choose row 1 in the Table of Verb Meanings;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let top score be the relevance entry;</div>
+<div class="codeline">&ensp;&ensp;&ensp;sort Table of Verb Meanings in random order;</div>
+<div class="codeline">&ensp;&ensp;&ensp;repeat through the Table of Verb Meanings:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if relevance entry is top score:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[The actor] [verb rendering applied to (word entry)] [the noun].&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;erase relevance;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;rule succeeds.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">To decide which text is the rendering of (V - verb) (this is verb rendering):</div>
-<div class="codeline">&ensp;&ensp;decide on &quot;[adapt V]&quot;.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;decide on &quot;[adapt V]&quot;.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">To score the relevant verbs:</div>
-<div class="codeline">&ensp;&ensp;repeat through the Table of Verb Meanings:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;if the meaning entry is (the action name part of the current action):</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;increase relevance entry by 1;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;repeat with chosen connotation running through connotations entry:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the chosen connotation is listed in the current register:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;increase relevance entry by 1;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;otherwise:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;decrease relevance entry by 1.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;repeat through the Table of Verb Meanings:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the meaning entry is (the action name part of the current action):</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;increase relevance entry by 1;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;repeat with chosen connotation running through connotations entry:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the chosen connotation is listed in the current register:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;increase relevance entry by 1;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;decrease relevance entry by 1.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">To erase relevance:</div>
-<div class="codeline">&ensp;&ensp;repeat through Table of Verb Meanings:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;now relevance entry is 0.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;repeat through Table of Verb Meanings:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now relevance entry is 0.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A tonality is a kind of value. The tonalities are pompous, archaic, slangy, upbeat, downbeat.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Connoting relates various verbs to various tonalities. The verb to connote means the connoting relation.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The current register is a list of tonalities that varies. The current register is { }.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">When play begins:</div>
-<div class="codeline">&ensp;&ensp;repeat through the Table of Verb Meanings:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;now the word entry describes the meaning entry;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;now relevance entry is 0;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;repeat with chosen tone running through the connotations entry:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the word entry connotes the chosen tone.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;repeat through the Table of Verb Meanings:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the word entry describes the meaning entry;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now relevance entry is 0;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;repeat with chosen tone running through the connotations entry:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the word entry connotes the chosen tone.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline tablename">Table of Verb Meanings</div><table>
-<tr><td>word</td><td>meaning</td><td>connotations</td><td>relevance ( a number )</td></tr><tr><td>the verb take</td><td>the taking action</td><td>{ }</td><td> </td></tr><tr><td>the verb acquire</td><td>the taking action</td><td>{ pompous }</td><td> </td></tr><tr><td>the verb get</td><td>the taking action</td><td>{ }</td><td> </td></tr><tr><td>the verb gain</td><td>the taking action</td><td>{ }</td><td> </td></tr><tr><td>the verb obtain</td><td>the taking action</td><td>{ pompous }</td><td> </td></tr><tr><td>the verb pick up </td><td>the taking action</td><td>{ }</td><td> </td></tr><tr><td>the verb bag</td><td>the taking action</td><td>{ slangy }</td><td> </td></tr><tr><td>the verb score</td><td>the taking action</td><td>{ slangy, upbeat }</td><td> </td></tr><tr><td>the verb procure</td><td>the taking action</td><td>{ archaic }</td><td> </td></tr><tr><td>the verb grab</td><td>the taking action</td><td>{ slangy }</td><td> </td></tr><tr><td>the verb snag</td><td>the taking action</td><td>{ slangy }</td><td> </td></tr><tr><td>the verb snatch</td><td>the taking action</td><td>{ slangy }</td><td> </td></tr><tr><td>the verb collect</td><td>the taking action</td><td>{ }</td><td> </td></tr><tr><td>the verb discard</td><td>the dropping action</td><td>{ pompous }</td><td> </td></tr><tr><td>the verb drop</td><td>the dropping action</td><td>{ }</td><td> </td></tr><tr><td>the verb put down</td><td>the dropping action</td><td>{ }</td><td> </td></tr><tr><td>the verb toss aside</td><td>the dropping action</td><td>{ }</td><td> </td></tr><tr><td>the verb ditch</td><td>the dropping action</td><td>{ slangy }</td><td> </td></tr><tr><td>the verb throw away</td><td>the dropping action</td><td>{ }</td><td> </td></tr><tr><td>the verb dispose of</td><td>the dropping action</td><td>{ }</td><td> </td></tr><tr><td>the verb set down</td><td>the dropping action</td><td>{ }</td><td> </td></tr><tr><td>the verb abandon</td><td>the dropping action</td><td>{ downbeat }</td><td> </td></tr><tr><td>the verb dump</td><td>the dropping action</td><td>{ downbeat }</td><td> </td></tr><tr><td>the verb abjure</td><td>the dropping action</td><td>{ archaic }</td><td> </td></tr><tr><td>the verb foresake</td><td>the dropping action</td><td>{ archaic }</td><td> </td></tr><tr><td>the verb jettison</td><td>the dropping action</td><td>{ pompous }</td><td> </td></tr><tr><td>the verb dispense with</td><td>the dropping action</td><td>{ pompous }</td><td> </td></tr></table>
+<tr><td>word</td><td>meaning</td><td>connotations</td><td>relevance ( a number )</td></tr><tr><td>the verb take</td><td>the taking action</td><td>{ }</td><td> </td></tr><tr><td>the verb acquire</td><td>the taking action</td><td>{ pompous }</td><td> </td></tr><tr><td>the verb get</td><td>the taking action</td><td>{ }</td><td> </td></tr><tr><td>the verb gain</td><td>the taking action</td><td>{ }</td><td> </td></tr><tr><td>the verb obtain</td><td>the taking action</td><td>{ pompous }</td><td> </td></tr><tr><td>the verb pick up</td><td>the taking action</td><td>{ }</td><td> </td></tr><tr><td>the verb bag</td><td>the taking action</td><td>{ slangy }</td><td> </td></tr><tr><td>the verb score</td><td>the taking action</td><td>{ slangy, upbeat }</td><td> </td></tr><tr><td>the verb procure</td><td>the taking action</td><td>{ archaic }</td><td> </td></tr><tr><td>the verb grab</td><td>the taking action</td><td>{ slangy }</td><td> </td></tr><tr><td>the verb snag</td><td>the taking action</td><td>{ slangy }</td><td> </td></tr><tr><td>the verb snatch</td><td>the taking action</td><td>{ slangy }</td><td> </td></tr><tr><td>the verb collect</td><td>the taking action</td><td>{ }</td><td> </td></tr><tr><td>the verb discard</td><td>the dropping action</td><td>{ pompous }</td><td> </td></tr><tr><td>the verb drop</td><td>the dropping action</td><td>{ }</td><td> </td></tr><tr><td>the verb put down</td><td>the dropping action</td><td>{ }</td><td> </td></tr><tr><td>the verb toss aside</td><td>the dropping action</td><td>{ }</td><td> </td></tr><tr><td>the verb ditch</td><td>the dropping action</td><td>{ slangy }</td><td> </td></tr><tr><td>the verb throw away</td><td>the dropping action</td><td>{ }</td><td> </td></tr><tr><td>the verb dispose of</td><td>the dropping action</td><td>{ }</td><td> </td></tr><tr><td>the verb set down</td><td>the dropping action</td><td>{ }</td><td> </td></tr><tr><td>the verb abandon</td><td>the dropping action</td><td>{ downbeat }</td><td> </td></tr><tr><td>the verb dump</td><td>the dropping action</td><td>{ downbeat }</td><td> </td></tr><tr><td>the verb abjure</td><td>the dropping action</td><td>{ archaic }</td><td> </td></tr><tr><td>the verb foresake</td><td>the dropping action</td><td>{ archaic }</td><td> </td></tr><tr><td>the verb jettison</td><td>the dropping action</td><td>{ pompous }</td><td> </td></tr><tr><td>the verb dispense with</td><td>the dropping action</td><td>{ pompous }</td><td> </td></tr></table>
 <div class="codeline i7header">Section 2 - Changing Tone Mid-Game</div><div class="codeline">Understand &quot;new tone&quot; as changing the tone. Changing the tone is an action out of world.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Carry out changing the tone:</div>
-<div class="codeline">&ensp;&ensp;now the current register is { };</div>
-<div class="codeline">&ensp;&ensp;if a random chance of 1 in 4 succeeds:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;Your narrator will now adopt an ordinary tone.&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;rule succeeds;</div>
-<div class="codeline">&ensp;&ensp;let rando be a random tonality;</div>
-<div class="codeline">&ensp;&ensp;add rando to the current register, if absent;</div>
-<div class="codeline">&ensp;&ensp;say &quot;Your narrator will now be [rando].&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the current register is { };</div>
+<div class="codeline">&ensp;&ensp;&ensp;if a random chance of 1 in 4 succeeds:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;Your narrator will now adopt an ordinary tone.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;rule succeeds;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let rando be a random tonality;</div>
+<div class="codeline">&ensp;&ensp;&ensp;add rando to the current register, if absent;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Your narrator will now be [rando].&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline i7header">Section 3 - Scenario</div><div class="codeline">Lab is a room. The table is here. The bat and the ball are on the table.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;get ball / drop ball / get bat / drop bat / new tone / get all / drop all / new tone / get all / drop all&quot;.</div>
-</div><details class="testme-output"><summary>Test me with "get ball / drop ball / get bat / drop bat / new tone / get all / drop all / new tone / get all / drop all".</summary><div class="testme-output">Lab<br>You can see a table (on which are a bat and a ball) here.<br><br>&gt;(Testing.)<br><br>&gt;[1] get ball<br>You take the ball.<br><br>&gt;[2] drop ball<br>You toss aside the ball.<br><br>&gt;[3] get bat<br>You pick up the bat.<br><br>&gt;[4] drop bat<br>You drop the bat.<br><br>&gt;[5] new tone<br>Your narrator will now be pompous.<br><br>&gt;[6] get all<br>bat: You obtain the bat.<br>ball: You obtain the ball.<br><br>&gt;[7] drop all<br>ball: You discard the ball.<br>bat: You dispense with the bat.<br><br>&gt;[8] new tone<br>Your narrator will now adopt an ordinary tone.<br><br>&gt;[9] get all<br>bat: You pick up the bat.<br>ball: You gain the ball.<br><br>&gt;[10] drop all<br>ball: You toss aside the ball.<br>bat: You toss aside the bat.
+</div><details class="testme-output"><summary>Test me with "get ball / drop ball / get bat / drop bat / new tone / get all / drop all / new tone / get all / drop all".</summary><div class="testme-output">Lab<br>You can see a table (on which are a bat and a ball) here.<br><br>&gt;(Testing.)<br><br>&gt;[1] get ball<br>You pick up the ball.<br><br>&gt;[2] drop ball<br>You toss aside the ball.<br><br>&gt;[3] get bat<br>You gain the bat.<br><br>&gt;[4] drop bat<br>You set down the bat.<br><br>&gt;[5] new tone<br>Your narrator will now be pompous.<br><br>&gt;[6] get all<br>bat: You obtain the bat.<br>ball: You obtain the ball.<br><br>&gt;[7] drop all<br>ball: You discard the ball.<br>bat: You dispense with the bat.<br><br>&gt;[8] new tone<br>Your narrator will now be pompous.<br><br>&gt;[9] get all<br>bat: You acquire the bat.<br>ball: You obtain the ball.<br><br>&gt;[10] drop all<br>ball: You discard the ball.<br>bat: You dispense with the bat.
 </div></details><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="variety2.html" title="This builds on the Variety example to add responses such as &quot;You are now carrying the fedora&quot; that describe relations that result from a given verb, as alternate responses."><div class="nav-arrow">←</div> <div class="doc-navbar-text">247. Variety 2</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="olfactory_settings.html" title="Some adaptive text for smelling the flowers, or indeed, anything else."><div class="doc-navbar-text">249. Olfactory Settings</div> <div class="nav-arrow">→</div></a></div></div>
 <footer id="credits-footer"><nav><div class="nav-el"><a class="nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="nav-el" href="../search.html">Search</a></div></nav>
 <div class="footing"><p id="i7credit"><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p class="about"><a class="nav-about" href="../about.html">About this edition</a> &bull; <a class="nav-about" href="https://twitter.com/inform7tips">@inform7tips</a></p></div></footer>

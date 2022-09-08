@@ -18,26 +18,26 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex22">Play/modify Garibaldi in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Garibaldi/index.html">Play Garibaldi in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Garibaldi&quot;\n\nThe security readout is a device. The description of the readout is &quot;The screen is blank.&quot;\n\nInstead of examining the switched on security readout:\n\tsay &quot;The screen reads: [fixed letter spacing]&quot;;\n\tsay line break;\n\trepeat with item running through doors:\n\t\tsay line break;\n\t\tsay &quot;  [item] ([front side of the item]/[back side of the item]): [if the item is locked]LOCKED[otherwise]UNLOCKED[end if]&quot;;\n\tsay variable letter spacing;\n\tsay paragraph break.\n\n\nThe player carries the security readout.\n\nThe Docking Bay is a room. The inner airlock is a door. It is north of the Docking Bay and south of the Zocalo. The inner airlock is lockable and unlocked.  The outer airlock is lockable and locked. It is a door. It is south of the Docking Bay and north of Space.\n\nThe quarantine seal is a door. It is west of the Zocalo and east of Medlab. Quarantine seal is locked.\n\nThe security pass unlocks the inner airlock. The player carries the security pass.\n\nTest me with &quot;x readout / turn on readout / x readout / lock inner airlock with security pass / x readout&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Garibaldi&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The security readout is a device. The description of the readout is &quot;The screen is blank.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of examining the switched on security readout:</div>
-<div class="codeline">&ensp;&ensp;say &quot;The screen reads: [fixed letter spacing]&quot;;</div>
-<div class="codeline">&ensp;&ensp;say line break;</div>
-<div class="codeline">&ensp;&ensp;repeat with item running through doors:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say line break;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;  [item] ([front side of the item]/[back side of the item]): [if the item is locked]LOCKED[otherwise]UNLOCKED[end if]&quot;;</div>
-<div class="codeline">&ensp;&ensp;say variable letter spacing;</div>
-<div class="codeline">&ensp;&ensp;say paragraph break.</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;The screen reads: [fixed letter spacing]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say line break;</div>
+<div class="codeline">&ensp;&ensp;&ensp;repeat with item running through doors:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say line break;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;  [item] ([front side of the item]/[back side of the item]): [if the item is locked]LOCKED[otherwise]UNLOCKED[end if]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say variable letter spacing;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say paragraph break.</div>
 </div><p>It is more or less arbitrary which room winds up as the &quot;front side&quot; and which as the &quot;back&quot;, but in this case it hardly matters.</p>
 <div class="codeblock"><div class="codeline">The player carries the security readout.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Docking Bay is a room. The inner airlock is a door. It is north of the Docking Bay and south of the Zocalo. The inner airlock is lockable and unlocked.  The outer airlock is lockable and locked. It is a door. It is south of the Docking Bay and north of Space.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The quarantine seal is a door. It is west of the Zocalo and east of Medlab. Quarantine seal is locked.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The security pass unlocks the inner airlock. The player carries the security pass.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;x readout / turn on readout / x readout / lock inner airlock with security pass / x readout&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "x readout / turn on readout / x readout / lock inner airlock with security pass / x readout".</summary><div class="testme-output">Docking Bay<br>You can see an outer airlock and an inner airlock here.<br><br>&gt;(Testing.)<br><br>&gt;[1] x readout<br>The screen is blank.<br><br>The security readout is currently switched off.<br><br>&gt;[2] turn on readout<br>You switch the security readout on.<br><br>&gt;[3] x readout<br>The screen reads:<br><br>  inner airlock (Docking Bay/Zocalo): UNLOCKED<br>  outer airlock (Docking Bay/Space): LOCKED<br>  quarantine seal (Zocalo/Medlab): LOCKED<br><br>&gt;[4] lock inner airlock with security pass<br>You lock the inner airlock.<br><br>&gt;[5] x readout<br>The screen reads:<br><br>  inner airlock (Docking Bay/Zocalo): LOCKED<br>  outer airlock (Docking Bay/Space): LOCKED<br>  quarantine seal (Zocalo/Medlab): LOCKED
 </div></details><div class="doc-navbar"><div class="doc-navbar-left"></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="garibaldi2.html" title="Adding coloured text to the example of door-status readouts."><div class="doc-navbar-text">69. Garibaldi 2</div> <div class="nav-arrow">→</div></a></div></div></div><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="escape.html" title="Window that can be climbed through or looked through."><div class="nav-arrow">←</div> <div class="doc-navbar-text">21. Escape</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="disenchantment_bay6.html" title="Disenchantment Bay: locking up the charter boat&#39;s fishing rods."><div class="doc-navbar-text">23. Disenchantment Bay 6</div> <div class="nav-arrow">→</div></a></div></div>

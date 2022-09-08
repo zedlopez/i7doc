@@ -19,33 +19,33 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex328">Play/modify Western Art History 305 in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Gallery/index.html">Play Western Art History 305 in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Western Art History 305&quot;\n\nA painting is a kind of thing. A painting is usually fixed in place. Understand &quot;painting&quot; as a painting. Understand &quot;paintings&quot; as the plural of painting.\n\nThe painting-collective is a thing. The printed name of the painting-collective is &quot;paintings&quot;. The description of the painting-collective is &quot;There&apos;s [a list of visible paintings].&quot;\n\n\nUnderstand &quot;examine [things]&quot; as examining.\n\n\nA multiple action processing rule when the current action is examining (this is the examine kinds rule):\n\tlet L be the multiple object list;\n\tlet F be L;\n\tlet the painting count be 0;\n\trepeat with item running through L:\n\t\tif the item is a painting:\n\t\t\tincrement the painting count;\n\t\t\tremove the item from F;\n\tif the painting count is greater than one:\n\t\tadd the painting-collective to F;\n\t\talter the multiple object list to F.\n\n\nGallery is a room. &quot;Various paintings hang on the walls of this gallery, awaiting critical attention. A side chamber to the north contains smaller works.&quot;\n\nThe abstract painting, the pointilist painting, and the French academic painting are paintings in the Gallery.\n\nNorth of the Gallery is the Side Chamber. A handsome miniature is a painting in the Side Chamber. The description of the handsome miniature is &quot;The miniature depicts a uniformed soldier of the late 18th century, with braid on his shoulders and a curl in his beard.&quot;\n\nThe player carries a small notebook. The description of the notebook is &quot;It contains the notes you&apos;ve taken so far towards a paper for Western Art History 305. So far you&apos;re still feeling a bit uninspired.&quot;\n\nTest me with &quot;x paintings / x all / n / x paintings / x all&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Western Art History 305&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A painting is a kind of thing. A painting is usually fixed in place. Understand &quot;painting&quot; as a painting. Understand &quot;paintings&quot; as the plural of painting.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The painting-collective is a thing. The printed name of the painting-collective is &quot;paintings&quot;. The description of the painting-collective is &quot;There&#39;s [a list of visible paintings].&quot;</div>
 </div><p>We could if we wanted tweak the description to be different in style in different rooms of the gallery, but this will do for now. Next we need to make it possible to type something like EXAMINE PAINTINGS, which normally wouldn&#39;t work because the Standard Rules don&#39;t tell Inform to recognise multiple objects with the EXAMINE command (unlike, say, DROP or TAKE). This is easy:</p>
 <div class="codeblock"><div class="codeline">Understand &quot;examine [things]&quot; as examining.</div>
 </div><p>Now to make use of the special object. If the player types EXAMINE PAINTINGS, the multiple object list will become a list of the visible paintings. The following rule looks at this list: if it contains more than one painting, it replaces them with the painting-collective instead. Now there&#39;s only one examining action, so we get a reply like &quot;There&#39;s an abstract painting, a pointilist painting and a French academic painting.&quot; instead of a list of descriptions of each in turn.</p>
 <div class="codeblock"><div class="codeline">A multiple action processing rule when the current action is examining (this is the examine kinds rule):</div>
-<div class="codeline">&ensp;&ensp;let L be the multiple object list;</div>
-<div class="codeline">&ensp;&ensp;let F be L;</div>
-<div class="codeline">&ensp;&ensp;let the painting count be 0;</div>
-<div class="codeline">&ensp;&ensp;repeat with item running through L:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;if the item is a painting:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;increment the painting count;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;remove the item from F;</div>
-<div class="codeline">&ensp;&ensp;if the painting count is greater than one:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;add the painting-collective to F;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;alter the multiple object list to F.</div>
+<div class="codeline">&ensp;&ensp;&ensp;let L be the multiple object list;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let F be L;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let the painting count be 0;</div>
+<div class="codeline">&ensp;&ensp;&ensp;repeat with item running through L:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the item is a painting:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;increment the painting count;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;remove the item from F;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the painting count is greater than one:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;add the painting-collective to F;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;alter the multiple object list to F.</div>
 </div><p>And now some art to try this out on:</p>
 <div class="codeblock"><div class="codeline">Gallery is a room. &quot;Various paintings hang on the walls of this gallery, awaiting critical attention. A side chamber to the north contains smaller works.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The abstract painting, the pointilist painting, and the French academic painting are paintings in the Gallery.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">North of the Gallery is the Side Chamber. A handsome miniature is a painting in the Side Chamber. The description of the handsome miniature is &quot;The miniature depicts a uniformed soldier of the late 18th century, with braid on his shoulders and a curl in his beard.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The player carries a small notebook. The description of the notebook is &quot;It contains the notes you&#39;ve taken so far towards a paper for Western Art History 305. So far you&#39;re still feeling a bit uninspired.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;x paintings / x all / n / x paintings / x all&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "x paintings / x all / n / x paintings / x all".</summary><div class="testme-output">Gallery<br>Various paintings hang on the walls of this gallery, awaiting critical attention. A side chamber to the north contains smaller works.<br><br>You can see an abstract painting, a pointilist painting and a French academic painting here.<br><br>&gt;(Testing.)<br><br>&gt;[1] x paintings<br>There&#39;s an abstract painting, a pointilist painting and a French academic painting.<br><br>&gt;[2] x all<br>small notebook: It contains the notes you&#39;ve taken so far towards a paper for Western Art History 305. So far you&#39;re still feeling a bit uninspired.<br><br>paintings: There&#39;s an abstract painting, a pointilist painting and a French academic painting.<br><br>&gt;[3] n<br><br>Side Chamber<br>You can see a handsome miniature here.<br><br>&gt;[4] x paintings<br>The miniature depicts a uniformed soldier of the late 18th century, with braid on his shoulders and a curl in his beard.<br><br>&gt;[5] x all<br>small notebook: It contains the notes you&#39;ve taken so far towards a paper for Western Art History 305. So far you&#39;re still feeling a bit uninspired.<br><br>handsome miniature: The miniature depicts a uniformed soldier of the late 18th century, with braid on his shoulders and a curl in his beard.
 </div></details><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="best_till_last.html" title="Reordering multiple objects for dramatic effect."><div class="nav-arrow">←</div> <div class="doc-navbar-text">327. The Best Till Last</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="query.html" title="Catching all questions that begin with WHO, WHAT, WHERE, and similar question words, and responding with the instruction to use commands, instead."><div class="doc-navbar-text">329. Query</div> <div class="nav-arrow">→</div></a></div></div>

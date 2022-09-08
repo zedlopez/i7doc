@@ -18,28 +18,28 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex96a">Play/modify Zodiac in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Zodiac_1/index.html">Play Zodiac in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Zodiac&quot;\n\nThe Secluded Alley is a room. The Capricorn Killer is a man in the Secluded Alley.\n\nThe player carries a can of mace and a roll of duct tape.\n\nInstead of doing something other than examining with the Capricorn Killer:\n\tsay &quot;You wouldn&apos;t dare!&quot;\n\nTest me with &quot;x me / x killer / touch killer / smell mace&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Zodiac&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Secluded Alley is a room. The Capricorn Killer is a man in the Secluded Alley.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The player carries a can of mace and a roll of duct tape.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of doing something other than examining with the Capricorn Killer:</div>
-<div class="codeline">&ensp;&ensp;say &quot;You wouldn&#39;t dare!&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You wouldn&#39;t dare!&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;x me / x killer / touch killer / smell mace&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "x me / x killer / touch killer / smell mace".</summary><div class="testme-output">Secluded Alley<br>You can see a Capricorn Killer here.<br><br>&gt;(Testing.)<br><br>&gt;[1] x me<br>As good-looking as ever.<br><br>&gt;[2] x killer<br>You see nothing special about the Capricorn Killer.<br><br>&gt;[3] touch killer<br>You wouldn&#39;t dare!<br><br>&gt;[4] smell mace<br>You smell nothing unexpected.
 </div></details><p>&hellip;will prevent the player from doing anything else to the killer, but allow him free range of action with other objects. By contrast, the following will prevent him doing anything other than examining to any item:</p>
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex96b">Play/modify Zodiac in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Zodiac_2/index.html">Play Zodiac in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Zodiac&quot;\n\nThe Secluded Alley is a room. The Capricorn Killer is a man in the Secluded Alley.\n\nThe player carries a can of mace and a roll of duct tape.\n\nInstead of doing something other than examining with something in the presence of the Capricorn Killer:\n\tsay &quot;You dare not attempt it!&quot;\n\nTest me with &quot;x me / x killer / touch killer / smell mace&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Zodiac&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Secluded Alley is a room. The Capricorn Killer is a man in the Secluded Alley.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The player carries a can of mace and a roll of duct tape.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of doing something other than examining with something in the presence of the Capricorn Killer:</div>
-<div class="codeline">&ensp;&ensp;say &quot;You dare not attempt it!&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You dare not attempt it!&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;x me / x killer / touch killer / smell mace&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "x me / x killer / touch killer / smell mace".</summary><div class="testme-output">Secluded Alley<br>You can see a Capricorn Killer here.<br><br>&gt;(Testing.)<br><br>&gt;[1] x me<br>As good-looking as ever.<br><br>&gt;[2] x killer<br>You see nothing special about the Capricorn Killer.<br><br>&gt;[3] touch killer<br>You dare not attempt it!<br><br>&gt;[4] smell mace<br>You dare not attempt it!
 </div></details><p>But notice that because we specified &quot;with something&quot;, actions that take no object (like sing) are still not affected.</p>
@@ -47,14 +47,14 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex96c">Play/modify Zodiac in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Zodiac_3/index.html">Play Zodiac in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Zodiac&quot;\n\nThe Secluded Alley is a room. The Capricorn Killer is a man in the Secluded Alley.\n\nThe player carries a can of mace and a roll of duct tape.\n\nInstead of doing something other than looking or examining in the presence of the Capricorn Killer:\n\tsay &quot;You dare not attempt it!&quot;\n\nTest me with &quot;x me / x killer / touch killer / smell mace&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Zodiac&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Secluded Alley is a room. The Capricorn Killer is a man in the Secluded Alley.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The player carries a can of mace and a roll of duct tape.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of doing something other than looking or examining in the presence of the Capricorn Killer:</div>
-<div class="codeline">&ensp;&ensp;say &quot;You dare not attempt it!&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You dare not attempt it!&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;x me / x killer / touch killer / smell mace&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "x me / x killer / touch killer / smell mace".</summary><div class="testme-output">Secluded Alley<br>You can see a Capricorn Killer here.<br><br>&gt;(Testing.)<br><br>&gt;[1] x me<br>As good-looking as ever.<br><br>&gt;[2] x killer<br>You see nothing special about the Capricorn Killer.<br><br>&gt;[3] touch killer<br>You dare not attempt it!<br><br>&gt;[4] smell mace<br>You dare not attempt it!
 </div></details><p>Because we left &quot;something&quot; out, now the pattern does not have to match an activity with an object; it will match any activity at all. Singing too will be deemed too risky in the presence of our sinister foe. But we do need to make an exception for &quot;look&quot;, or else we won&#39;t get even the room description.</p>

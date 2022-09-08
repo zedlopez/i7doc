@@ -19,25 +19,25 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex49">Play/modify Straw Boater in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="StrawBoater/index.html">Play Straw Boater in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Straw Boater&quot;\n\nBoathouse is a room. &quot;A boathouse circa 1915, which -- though in poor repair -- still suggests Sunday afternoon jaunts taken by women in white gowns and men in straw hats.&quot;\n\nNorth of the Boathouse is the Shallow Water. The description of Shallow Water is &quot;Just south is the boathouse, and beyond it are trees and the marble terrace of the house above. The water deepens to the north.&quot;\n\nNorth of Shallow Water is Deep Water. The description of Deep Water is &quot;From here the boathouse has dwindled invisibly to the south, and you have a broad panorama of the shoreline, all the way down to the Skeleton Point Lighthouse in the southeast.&quot;\n\nA vehicle has some text called the movement sound. The sailboat and the motorboat are vehicles in the Boathouse. The movement sound of the motorboat is &quot;VRRRROOOMMMM...&quot; Understand &quot;boat&quot; as the sailboat. Understand &quot;boat&quot; as the motorboat.\n\n\nAfter going somewhere by a vehicle (called cart):\n\tif the movement sound of the cart is not &quot;&quot;, say &quot;[the movement sound of the cart][paragraph break]&quot;;\n\tcontinue the action.\n\nInstead of exiting when the player is in a vehicle and the location is not the Boathouse:\n\tsay &quot;You&apos;re not dressed for a swim.&quot;\n\nInstead of going somewhere when the player is not in a vehicle:\n\tsay &quot;You&apos;d rather not try to make this journey by swimming alone.&quot;\n\nTest me with &quot;n / get in sailboat / n / get out / s / get in motorboat / n / n&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Straw Boater&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Boathouse is a room. &quot;A boathouse circa 1915, which -- though in poor repair -- still suggests Sunday afternoon jaunts taken by women in white gowns and men in straw hats.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">North of the Boathouse is the Shallow Water. The description of Shallow Water is &quot;Just south is the boathouse, and beyond it are trees and the marble terrace of the house above. The water deepens to the north.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">North of Shallow Water is Deep Water. The description of Deep Water is &quot;From here the boathouse has dwindled invisibly to the south, and you have a broad panorama of the shoreline, all the way down to the Skeleton Point Lighthouse in the southeast.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A vehicle has some text called the movement sound. The sailboat and the motorboat are vehicles in the Boathouse. The movement sound of the motorboat is &quot;VRRRROOOMMMM...&quot; Understand &quot;boat&quot; as the sailboat. Understand &quot;boat&quot; as the motorboat.</div>
 </div><p>Note that we haven&#39;t given the sailboat any movement sound at all.</p>
 <div class="codeblock"><div class="codeline">After going somewhere by a vehicle (called cart):</div>
-<div class="codeline">&ensp;&ensp;if the movement sound of the cart is not &quot;&quot;, say &quot;[the movement sound of the cart][paragraph break]&quot;;</div>
-<div class="codeline">&ensp;&ensp;continue the action.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the movement sound of the cart is not &quot;&quot;, say &quot;[the movement sound of the cart][paragraph break]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;continue the action.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of exiting when the player is in a vehicle and the location is not the Boathouse:</div>
-<div class="codeline">&ensp;&ensp;say &quot;You&#39;re not dressed for a swim.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You&#39;re not dressed for a swim.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of going somewhere when the player is not in a vehicle:</div>
-<div class="codeline">&ensp;&ensp;say &quot;You&#39;d rather not try to make this journey by swimming alone.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You&#39;d rather not try to make this journey by swimming alone.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;n / get in sailboat / n / get out / s / get in motorboat / n / n&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "n / get in sailboat / n / get out / s / get in motorboat / n / n".</summary><div class="testme-output">Boathouse<br>A boathouse circa 1915, which -- though in poor repair -- still suggests Sunday afternoon jaunts taken by women in white gowns and men in straw hats.<br><br>You can see a sailboat (empty) and a motorboat (empty) here.<br><br>&gt;(Testing.)<br><br>&gt;[1] n<br>You&#39;d rather not try to make this journey by swimming alone.<br><br>&gt;[2] get in sailboat<br>You get into the sailboat.<br><br>&gt;[3] n<br><br>Shallow Water (in the sailboat)<br>Just south is the boathouse, and beyond it are trees and the marble terrace of the house above. The water deepens to the north.<br><br>&gt;[4] get out<br>You&#39;re not dressed for a swim.<br><br>&gt;[5] s<br><br>Boathouse (in the sailboat)<br>A boathouse circa 1915, which -- though in poor repair -- still suggests Sunday afternoon jaunts taken by women in white gowns and men in straw hats.<br><br>You can see a motorboat (empty) here.<br><br>&gt;[6] get in motorboat<br>(getting out of the sailboat)<br>You get into the motorboat.<br><br>&gt;[7] n<br>VRRRROOOMMMM...<br><br>Shallow Water (in the motorboat)<br>Just south is the boathouse, and beyond it are trees and the marble terrace of the house above. The water deepens to the north.<br><br>&gt;[8] n<br>VRRRROOOMMMM...<br><br>Deep Water (in the motorboat)<br>From here the boathouse has dwindled invisibly to the south, and you have a broad panorama of the shoreline, all the way down to the Skeleton Point Lighthouse in the southeast.
 </div></details><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="would_you.html" title="Adding new properties to objects, and checking for their presence."><div class="nav-arrow">←</div> <div class="doc-navbar-text">48. Would you...?</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="undertomb.html" title="A small map of dead ends, in which the sound of an underground river has different strengths in different caves."><div class="doc-navbar-text">50. The Undertomb 1</div> <div class="nav-arrow">→</div></a></div></div>

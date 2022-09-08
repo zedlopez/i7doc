@@ -18,14 +18,14 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex114">Play/modify Politics as Usual in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="StatusRegion/index.html">Play Politics as Usual in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Politics as Usual&quot;\n\nWhen play begins:\n\tnow the right hand status line is &quot;[map region of the location]&quot;.\n\nWashington is west of Idaho.\n\nRed is a region. Blue is a region. Idaho is in red. Washington is in blue.\n\nTest me with &quot;e / w&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Politics as Usual&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">When play begins:</div>
-<div class="codeline">&ensp;&ensp;now the right hand status line is &quot;[map region of the location]&quot;.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the right hand status line is &quot;[map region of the location]&quot;.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Washington is west of Idaho.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Red is a region. Blue is a region. Idaho is in red. Washington is in blue.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;e / w&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "e / w".</summary><div class="testme-output">Washington<br><br>&gt;(Testing.)<br><br>&gt;[1] e<br><br>Idaho<br><br>&gt;[2] w<br><br>Washington
 </div></details><p>Note that, since regions can be stacked, we technically can be within more than one region at once. In the Port Royal example, for instance, the Tavern region is inside the Inland region. If there is any ambiguity, &quot;the map region of the location&quot; will be construed as &quot;the smallest region that the location belongs to&quot;: so we would see &quot;Tavern&quot; rather than &quot;Inland&quot; in the status bar, when the player was in the Feathers or the Feathers Bedroom.</p>

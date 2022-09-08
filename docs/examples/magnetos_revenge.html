@@ -17,37 +17,37 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex215">Play/modify Magneto's Revenge in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Kitty/index.html">Play Magneto's Revenge in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Magneto&apos;s Revenge&quot;\n\nThe School for Gifted Youngsters is a room. Kitty Pryde is a woman in the School for Gifted Youngsters. &quot;Kitty Pryde waits for you to say why you summoned her out of class.&quot; The description is &quot;You see nothing special about Kitty Pryde. But that is only because she has learned to conceal her mutant powers: in fact she has the alternative name Shadowcat, and the ability to phase through solid objects.&quot;\n\nThe glass box is a container in the School for Gifted Youngsters. It is closed, openable, and transparent. In the box is a quantity of poisonous gas. In the box is a thing called the message from Magneto.\n\nInstead of examining the message when the player is not carrying the message:\n\tsay &quot;You&apos;d need to be holding it before you could read it.&quot;\n\nInstead of opening the glass box: say &quot;You&apos;re deterred by the swirling bottle-green mist within.&quot;\n\nCheck someone taking the gas (this is the gaseous object rule): rule fails.\n\nUnsuccessful attempt by someone taking the gas: say &quot;The gas isn&apos;t something one can pick up in one&apos;s bare hands.&quot;\n\nEvery turn:\n\tif the player can touch the gas:\n\t\tsay &quot;The gas has reached your lungs!&quot;;\n\t\tend the story.\n\nA rule for reaching inside something:\n\tif the person reaching is Kitty, allow access.\n\nPersuasion rule for asking someone to try doing something: persuasion succeeds.\n\nTest me with &quot;get message / kitty, get message / open box / kitty, open box&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Magneto&#39;s Revenge&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The School for Gifted Youngsters is a room. Kitty Pryde is a woman in the School for Gifted Youngsters. &quot;Kitty Pryde waits for you to say why you summoned her out of class.&quot; The description is &quot;You see nothing special about Kitty Pryde. But that is only because she has learned to conceal her mutant powers: in fact she has the alternative name Shadowcat, and the ability to phase through solid objects.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The glass box is a container in the School for Gifted Youngsters. It is closed, openable, and transparent. In the box is a quantity of poisonous gas. In the box is a thing called the message from Magneto.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of examining the message when the player is not carrying the message:</div>
-<div class="codeline">&ensp;&ensp;say &quot;You&#39;d need to be holding it before you could read it.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You&#39;d need to be holding it before you could read it.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of opening the glass box: say &quot;You&#39;re deterred by the swirling bottle-green mist within.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Check someone taking the gas (this is the gaseous object rule): rule fails.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Unsuccessful attempt by someone taking the gas: say &quot;The gas isn&#39;t something one can pick up in one&#39;s bare hands.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Every turn:</div>
-<div class="codeline">&ensp;&ensp;if the player can touch the gas:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;The gas has reached your lungs!&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;end the story.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the player can touch the gas:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;The gas has reached your lungs!&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;end the story.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A rule for reaching inside something:</div>
-<div class="codeline">&ensp;&ensp;if the person reaching is Kitty, allow access.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the person reaching is Kitty, allow access.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Persuasion rule for asking someone to try doing something: persuasion succeeds.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;get message / kitty, get message / open box / kitty, open box&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "get message / kitty, get message / open box / kitty, open box".</summary><div class="testme-output">School for Gifted Youngsters<br>Kitty Pryde waits for you to say why you summoned her out of class.<br><br>You can also see a glass box (closed) (in which are a quantity of poisonous gas and the message from Magneto) here.<br><br>&gt;(Testing.)<br><br>&gt;[1] get message<br>The glass box isn&#39;t open.<br><br>&gt;[2] kitty, get message<br>Kitty Pryde picks up the message from Magneto.<br><br>&gt;[3] open box<br>You&#39;re deterred by the swirling bottle-green mist within.<br><br>&gt;[4] kitty, open box<br>Kitty Pryde opens the glass box.<br><br>The gas has reached your lungs!<br><br><br><br>    *** The End ***
 </div></details><p>Now the player can get Kitty to take the message without releasing the poisonous gas:</p>
 <div class="codeblock"><div class="codeline">Kitty Pride waits for you to tell her why you summoned her out of class.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">You can also see a glass box (closed) (in which are some poisonous gas and a message from Magneto) here.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">&gt;kitty, get message</div>
 <div class="codeline">Kitty Pryde picks up a message from Magneto.</div>
 </div><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="slogars_revenge.html" title="Creating an amulet of tumblers that can be used to lock and unlock things even when it is worn, overriding the usual requirement that keys be carried."><div class="nav-arrow">←</div> <div class="doc-navbar-text">214. Slogar's Revenge</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="waterworld.html" title="A backdrop which the player can examine, but cannot interact with in any other way."><div class="doc-navbar-text">216. Waterworld</div> <div class="nav-arrow">→</div></a></div></div>

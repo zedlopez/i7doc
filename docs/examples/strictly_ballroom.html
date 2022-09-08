@@ -18,50 +18,50 @@
 <div class="codeblock"><div class="codeline">now every person is angry</div>
 </div><p>than</p>
 <div class="codeblock"><div class="codeline">repeat with offended party running through people:</div>
-<div class="codeline">&ensp;&ensp;now the offended party is angry.</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the offended party is angry.</div>
 </div><p>Repeat comes in handy when we have something a bit more complicated to do with each item:</p>
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex176">Play/modify Strictly Ballroom in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Ballroom/index.html">Play Strictly Ballroom in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Strictly Ballroom&quot;\n\nA person can be alert or occupied. A person is usually alert.\n\nWhen play begins:\n\tnow the player is occupied.\n\nDance is a kind of value. The dances are waltzes, polkas, cha-chas, charlestons, fox-trots, tangos, lambadas, and two-steps.\n\nThe current round is a dance that varies.\n\nManner is a kind of value. The manners are swiftly, primly, energetically, suavely, seductively, elegantly, and badly.\n\nEvery turn: now the current round is a random dance.\n\nEvery turn:\n\trepeat with dancer running through people who are not the player:\n\t\tif dancer is alert:\n\t\t\tnow dancer is occupied;\n\t\t\tlet partner be a random alert person who is not the dancer;\n\t\t\tif partner is a person:\n\t\t\t\tnow partner is occupied;\n\t\t\t\tsay &quot;[The dancer] [the current round][if a random chance of 1 in 5 succeeds] [a random manner][end if] with [partner]. &quot;;\n\t\t\totherwise:\n\t\t\t\tsay &quot;[paragraph break][The dancer] is forced to be a wallflower. Poor [dancer]. &quot;;\n\tsay paragraph break.\n\n\nEvery turn: now every person is alert; now the player is occupied.\n\nBefore doing something to someone: now the noun is occupied.\n\nBefore doing something when the second noun is a person: now the second noun is occupied.\n\nInstead of doing something to someone: say &quot;You successfully distract [the noun].&quot;\n\nThe Pacific Ballroom is a room. &quot;A rather utilitarian space at the moment, since this is a class and not a party.&quot; Timmy, Tommy, Joey, George, Mary, Martha, Yvette, McQueen, Linus, and Patricia are people in the Pacific Ballroom.\n\nTest me with &quot;z / ask linus about blanket / z / z&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Strictly Ballroom&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A person can be alert or occupied. A person is usually alert.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">When play begins:</div>
-<div class="codeline">&ensp;&ensp;now the player is occupied.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the player is occupied.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Dance is a kind of value. The dances are waltzes, polkas, cha-chas, charlestons, fox-trots, tangos, lambadas, and two-steps.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The current round is a dance that varies.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Manner is a kind of value. The manners are swiftly, primly, energetically, suavely, seductively, elegantly, and badly.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Every turn: now the current round is a random dance.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Every turn:</div>
-<div class="codeline">&ensp;&ensp;repeat with dancer running through people who are not the player:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;if dancer is alert:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now dancer is occupied;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;let partner be a random alert person who is not the dancer;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if partner is a person:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now partner is occupied;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[The dancer] [the current round][if a random chance of 1 in 5 succeeds] [a random manner][end if] with [partner]. &quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;otherwise:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[paragraph break][The dancer] is forced to be a wallflower. Poor [dancer]. &quot;;</div>
-<div class="codeline">&ensp;&ensp;say paragraph break.</div>
+<div class="codeline">&ensp;&ensp;&ensp;repeat with dancer running through people who are not the player:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if dancer is alert:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now dancer is occupied;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;let partner be a random alert person who is not the dancer;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if partner is a person:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now partner is occupied;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[The dancer] [the current round][if a random chance of 1 in 5 succeeds] [a random manner][end if] with [partner]. &quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[paragraph break][The dancer] is forced to be a wallflower. Poor [dancer]. &quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say paragraph break.</div>
 </div><p>Notice we did not say &quot;repeat with dancer running through alert people who are not the player&hellip;&quot;. This is because Inform would draw up a list of alert people at the beginning of the repeat, and not take into account which people became occupied partway through the repetition. If we want to make sure that each person dances only with one other person, we have to continue checking alertness each time we run through the repetition.</p>
 <p>After all the partners are assigned, we can set up for the next turn by making everyone alert again, and for this we do not need &quot;repeat&quot;:</p>
 <div class="codeblock"><div class="codeline">Every turn: now every person is alert; now the player is occupied.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Before doing something to someone: now the noun is occupied.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Before doing something when the second noun is a person: now the second noun is occupied.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of doing something to someone: say &quot;You successfully distract [the noun].&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Pacific Ballroom is a room. &quot;A rather utilitarian space at the moment, since this is a class and not a party.&quot; Timmy, Tommy, Joey, George, Mary, Martha, Yvette, McQueen, Linus, and Patricia are people in the Pacific Ballroom.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;z / ask linus about blanket / z / z&quot;.</div>
-</div><details class="testme-output"><summary>Test me with "z / ask linus about blanket / z / z".</summary><div class="testme-output">Pacific Ballroom<br>A rather utilitarian space at the moment, since this is a class and not a party.<br><br>You can see Timmy, Tommy, Joey, George, Mary, Martha, Yvette, McQueen, Linus and Patricia here.<br><br>&gt;(Testing.)<br><br>&gt;[1] z<br>Time passes.<br><br>Timmy polkas with Tommy. Joey polkas with Linus. George polkas with Yvette. Mary polkas with McQueen. Martha polkas with Patricia.<br><br>&gt;[2] ask linus about blanket<br>You successfully distract Linus.<br><br>Timmy cha-chas with McQueen. Tommy cha-chas with Yvette. Joey cha-chas with Mary. George cha-chas with Martha.<br><br>Patricia is forced to be a wallflower. Poor Patricia.<br><br>&gt;[3] z<br>Time passes.<br><br>Timmy polkas with Martha. Tommy polkas with Patricia. Joey polkas with George. Mary polkas with McQueen. Yvette polkas with Linus.<br><br>&gt;[4] z<br>Time passes.<br><br>Timmy lambadas with Linus. Tommy lambadas with Yvette. Joey lambadas with Martha. George lambadas with Patricia. Mary lambadas with McQueen.
+</div><details class="testme-output"><summary>Test me with "z / ask linus about blanket / z / z".</summary><div class="testme-output">Pacific Ballroom<br>A rather utilitarian space at the moment, since this is a class and not a party.<br><br>You can see Timmy, Tommy, Joey, George, Mary, Martha, Yvette, McQueen, Linus and Patricia here.<br><br>&gt;(Testing.)<br><br>&gt;[1] z<br>Time passes.<br><br>Timmy polkas with McQueen. Tommy polkas with Joey. George polkas badly with Patricia. Mary polkas with Linus. Martha polkas with Yvette.<br><br>&gt;[2] ask linus about blanket<br>You successfully distract Linus.<br><br>Timmy charlestons seductively with George. Tommy charlestons with Joey. Mary charlestons primly with Yvette. Martha charlestons with Patricia.<br><br>McQueen is forced to be a wallflower. Poor McQueen.<br><br>&gt;[3] z<br>Time passes.<br><br>Timmy cha-chas seductively with McQueen. Tommy cha-chas with Martha. Joey cha-chas primly with Patricia. George cha-chas with Yvette. Mary cha-chas swiftly with Linus.<br><br>&gt;[4] z<br>Time passes.<br><br>Timmy waltzes with Martha. Tommy waltzes primly with Yvette. Joey waltzes with Mary. George waltzes elegantly with McQueen. Linus waltzes with Patricia.
 </div></details><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="wonkas_revenge.html" title="A lottery drum which redistributes the tickets inside whenever the player spins it."><div class="nav-arrow">←</div> <div class="doc-navbar-text">175. Wonka's Revenge</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="equipment_list.html" title="Overview of all the phrase options associated with listing, and examples of how to change the inventory list into some other standard formats."><div class="doc-navbar-text">177. Equipment List</div> <div class="nav-arrow">→</div></a></div></div>
 <footer id="credits-footer"><nav><div class="nav-el"><a class="nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="nav-el" href="../search.html">Search</a></div></nav>
 <div class="footing"><p id="i7credit"><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p class="about"><a class="nav-about" href="../about.html">About this edition</a> &bull; <a class="nav-about" href="https://twitter.com/inform7tips">@inform7tips</a></p></div></footer>

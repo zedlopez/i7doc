@@ -17,30 +17,30 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex225">Play/modify Interrogation in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Inquisition/index.html">Play Interrogation in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Interrogation&quot;\n\nThe X-Ray Vision Wand is carried by the player.\n\nInstead of waving the X-Ray Vision Wand:\n\tsay &quot;Disappointingly, nothing happens.&quot;\n\nInstead of waving the X-Ray Vision Wand when the player can see someone who is concealing something:\n\tsay &quot;The wand glows green. Immediately you see on the monitor [a list of things which are concealed by people who can be seen by the player].&quot;\n\nAfter printing the name of a thing (called target) which is carried by someone while waving the wand:\n\tsay &quot; (carried by [a random person who carries the target])&quot;\n\nThe Interrogation Chamber is a room. &quot;Despite its gothic name, this room is a rather civilized place for your work, with large plate-glass windows and a fitted carpet.&quot;\n\nA thing can be secret or obvious. A thing is usually obvious.\n\nBrian is in the Interrogation Chamber.&quot;Brian lounges against the wall.&quot; Brian carries a quantity of plastic explosive. The explosive is secret.\n\nJanine is in the Interrogation Chamber. &quot;Janine toys nervously with a laptop bag.&quot; Janine carries a chocolate biscuit, a laptop bag, and a microfilm. The microfilm is secret. The laptop bag is wearable. In the bag is a laptop computer.\n\nRule for deciding the concealed possessions of something: if the particular possession is secret, yes; otherwise no.\n\nInstead of examining someone: say &quot;[The noun] is openly carrying [a list of unconcealed things carried by the noun].&quot;\n\nTest me with &quot;wave wand / examine janine / examine brian&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Interrogation&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The X-Ray Vision Wand is carried by the player.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of waving the X-Ray Vision Wand:</div>
-<div class="codeline">&ensp;&ensp;say &quot;Disappointingly, nothing happens.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Disappointingly, nothing happens.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of waving the X-Ray Vision Wand when the player can see someone who is concealing something:</div>
-<div class="codeline">&ensp;&ensp;say &quot;The wand glows green. Immediately you see on the monitor [a list of things which are concealed by people who can be seen by the player].&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;The wand glows green. Immediately you see on the monitor [a list of things which are concealed by people who can be seen by the player].&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">After printing the name of a thing (called target) which is carried by someone while waving the wand:</div>
-<div class="codeline">&ensp;&ensp;say &quot; (carried by [a random person who carries the target])&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot; (carried by [a random person who carries the target])&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Interrogation Chamber is a room. &quot;Despite its gothic name, this room is a rather civilized place for your work, with large plate-glass windows and a fitted carpet.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A thing can be secret or obvious. A thing is usually obvious.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Brian is in the Interrogation Chamber.&quot;Brian lounges against the wall.&quot; Brian carries a quantity of plastic explosive. The explosive is secret.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Janine is in the Interrogation Chamber. &quot;Janine toys nervously with a laptop bag.&quot; Janine carries a chocolate biscuit, a laptop bag, and a microfilm. The microfilm is secret. The laptop bag is wearable. In the bag is a laptop computer.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Rule for deciding the concealed possessions of something: if the particular possession is secret, yes; otherwise no.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of examining someone: say &quot;[The noun] is openly carrying [a list of unconcealed things carried by the noun].&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;wave wand / examine janine / examine brian&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "wave wand / examine janine / examine brian".</summary><div class="testme-output">Interrogation Chamber<br>Despite its gothic name, this room is a rather civilized place for your work, with large plate-glass windows and a fitted carpet.<br><br>Brian lounges against the wall.<br><br>Janine toys nervously with a laptop bag.<br><br>&gt;(Testing.)<br><br>&gt;[1] wave wand<br>The wand glows green. Immediately you see on the monitor a quantity of plastic explosive (carried by Brian) and a microfilm (carried by Janine).<br><br>&gt;[2] examine janine<br>Janine is openly carrying a chocolate biscuit and a laptop bag.<br><br>&gt;[3] examine brian<br>Brian is openly carrying nothing.
 </div></details><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="celadon.html" title="Using the enclosure relation to let the player drop things which he only indirectly carries."><div class="nav-arrow">←</div> <div class="doc-navbar-text">224. Celadon</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="four_cheeses.html" title="A system of telephones on which the player can call distant persons and have conversations."><div class="doc-navbar-text">226. Four Cheeses</div> <div class="nav-arrow">→</div></a></div></div>

@@ -17,46 +17,46 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex36">Play/modify Brown in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="RedStickyLabel/index.html">Play Brown in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Brown&quot;\n\nThe Shipping Room is a room. The red sticky label is a thing carried by the player. The description of the red sticky label is &quot;It reads: AIRMAIL[if the label is part of something (called the parent)]. It is stuck to [the parent][end if].&quot;\n\nA black crate is in Shipping. The description is &quot;A boring black crate.&quot;  The brown crate is a thing in Shipping. The description is &quot;An ordinary brown crate.&quot;\n\nAfter examining something when the label is part of the noun:\n\tsay &quot;A bright red sticky label is attached to [the noun]!&quot;\n\n\nInstead of tying the red sticky label to something:\n\tnow the red sticky label is part of the second noun;\n\tsay &quot;You stick [the label] to [the second noun].&quot;\n\n\nBefore tying the label to something when the label is part of something:\n\tif the label is part of the second noun:\n\t\tsay &quot;[The label] is already stuck to [the second noun].&quot; instead;\n\totherwise:\n\t\tsay &quot;(first freeing the label)[line break]&quot;;\n\t\tsilently try taking the label;\n\t\tif the label is part of something, stop the action.\n\nInstead of tying the red sticky label to the label:\n\tsay &quot;That would ruin the label entirely.&quot;\n\nInstead of taking the label when the label is part of something:\n\tnow the player carries the label;\n\tsay &quot;You peel the label off again.&quot;\n\n\nInstead of tying something to the label:\n\ttry tying the label to the noun.\n\nInstead of putting the label on something:\n\ttry tying the label to the second noun.\n\nInstead of inserting the label into something:\n\ttry tying the label to the second noun.\n\nUnderstand the commands &quot;stick&quot; or &quot;apply&quot; as &quot;tie&quot;.\n\n\nUnderstand &quot;peel [something]&quot; or &quot;peel off [something]&quot; as taking.\n\nTest me with &quot;i / put label on the black crate / look / x black / x label / get the label / apply label to brown crate / look / x brown / peel off label / stick label to label&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Brown&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Shipping Room is a room. The red sticky label is a thing carried by the player. The description of the red sticky label is &quot;It reads: AIRMAIL[if the label is part of something (called the parent)]. It is stuck to [the parent][end if].&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A black crate is in Shipping. The description is &quot;A boring black crate.&quot;  The brown crate is a thing in Shipping. The description is &quot;An ordinary brown crate.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">After examining something when the label is part of the noun:</div>
-<div class="codeline">&ensp;&ensp;say &quot;A bright red sticky label is attached to [the noun]!&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;A bright red sticky label is attached to [the noun]!&quot;</div>
 </div><p>Here is the essential point: whenever we ATTACH LABEL TO something, it becomes part of that object.</p>
 <div class="codeblock"><div class="codeline">Instead of tying the red sticky label to something:</div>
-<div class="codeline">&ensp;&ensp;now the red sticky label is part of the second noun;</div>
-<div class="codeline">&ensp;&ensp;say &quot;You stick [the label] to [the second noun].&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the red sticky label is part of the second noun;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You stick [the label] to [the second noun].&quot;</div>
 </div><p>And of course the label cannot be stuck to itself or to more than one thing at a time.</p>
 <div class="codeblock"><div class="codeline">Before tying the label to something when the label is part of something:</div>
-<div class="codeline">&ensp;&ensp;if the label is part of the second noun:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;[The label] is already stuck to [the second noun].&quot; instead;</div>
-<div class="codeline">&ensp;&ensp;otherwise:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;(first freeing the label)[line break]&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;silently try taking the label;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;if the label is part of something, stop the action.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the label is part of the second noun:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[The label] is already stuck to [the second noun].&quot; instead;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;(first freeing the label)[line break]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;silently try taking the label;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the label is part of something, stop the action.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of tying the red sticky label to the label:</div>
-<div class="codeline">&ensp;&ensp;say &quot;That would ruin the label entirely.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;That would ruin the label entirely.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of taking the label when the label is part of something:</div>
-<div class="codeline">&ensp;&ensp;now the player carries the label;</div>
-<div class="codeline">&ensp;&ensp;say &quot;You peel the label off again.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the player carries the label;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You peel the label off again.&quot;</div>
 </div><p>Much of the rest is just tidying to make sure that the player&#39;s commands are redirected into the right syntax.</p>
 <div class="codeblock"><div class="codeline">Instead of tying something to the label:</div>
-<div class="codeline">&ensp;&ensp;try tying the label to the noun.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;try tying the label to the noun.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of putting the label on something:</div>
-<div class="codeline">&ensp;&ensp;try tying the label to the second noun.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;try tying the label to the second noun.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of inserting the label into something:</div>
-<div class="codeline">&ensp;&ensp;try tying the label to the second noun.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;try tying the label to the second noun.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Understand the commands &quot;stick&quot; or &quot;apply&quot; as &quot;tie&quot;.</div>
 </div><p>We could have created a new &quot;sticking&quot; action, but to keep the example short we will use the built-in &quot;tying&quot; action instead, and respond to the command &quot;stick&quot; just as if it were &quot;tie&quot;.</p>
 <div class="codeblock"><div class="codeline">Understand &quot;peel [something]&quot; or &quot;peel off [something]&quot; as taking.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;i / put label on the black crate / look / x black / x label / get the label / apply label to brown crate / look / x brown / peel off label / stick label to label&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "i / put label on the black crate / look / x black / x label / get the label / apply label to brown crate / look / x brown / peel off label / stick label to label".</summary><div class="testme-output">Shipping Room<br>You can see a black crate and a brown crate here.<br><br>&gt;(Testing.)<br><br>&gt;[1] i<br>You are carrying:<br>  a red sticky label<br><br>&gt;[2] put label on the black crate<br>You stick the red sticky label to the black crate.<br><br>&gt;[3] look<br>Shipping Room<br>You can see a black crate and a brown crate here.<br><br>&gt;[4] x black<br>A boring black crate.<br><br>A bright red sticky label is attached to the black crate!<br><br>&gt;[5] x label<br>It reads: AIRMAIL. It is stuck to the black crate.<br><br>&gt;[6] get the label<br>You peel the label off again.<br><br>&gt;[7] apply label to brown crate<br>You stick the red sticky label to the brown crate.<br><br>&gt;[8] look<br>Shipping Room<br>You can see a black crate and a brown crate here.<br><br>&gt;[9] x brown<br>An ordinary brown crate.<br><br>A bright red sticky label is attached to the brown crate!<br><br>&gt;[10] peel off label<br>You peel the label off again.<br><br>&gt;[11] stick label to label<br>That would ruin the label entirely.
 </div></details><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="fallout_enclosure.html" title="Adding an enclosure kind that includes both containers and supporters in order to simplify text that would apply to both."><div class="nav-arrow">←</div> <div class="doc-navbar-text">35. Fallout Enclosure</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="disenchantment_bay12.html" title="A final trip to Disenchantment Bay: the scenario turned into a somewhat fuller scene, with various features that have not yet been explained."><div class="doc-navbar-text">37. Disenchantment Bay 12</div> <div class="nav-arrow">→</div></a></div></div>

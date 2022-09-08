@@ -16,35 +16,35 @@
 </header>
 <p>Making major changes to display features, such as the construction of the status line, sometimes requires that we rely on Inform 6 in bulk; here is how we might produce the Trinity-style status line, with the location centered at the top center of the screen.</p>
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Corner of No and Where&quot;\n\nNo is a room. Where is west of No.\n\nRule for constructing the status line:\n\tprint the location in the center of the status line;\n\trule succeeds.\n\nTo print the location in the center of the status line:\n\t(- PrintCenteredStatus(); -).\n\nInclude (-\n\nArray printed_text --> 64;\n\n[ PrintCenteredStatus i j;\n\t@set_cursor 1 0;\n\ti = 0->33;\n\tspaces(i);\n\t@output_stream 3 printed_text;\n\tprint (name) location;\n\t@output_stream -3;\n\tj = (i - (printed_text-->0))/2;\n\t@set_cursor 1 j;\n\tprint (name) location;\n\tspaces j-1;\n];\n\n-)\n\nTest me with &quot;w / e&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Corner of No and Where&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">No is a room. Where is west of No.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Rule for constructing the status line:</div>
-<div class="codeline">&ensp;&ensp;print the location in the center of the status line;</div>
-<div class="codeline">&ensp;&ensp;rule succeeds.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;print the location in the center of the status line;</div>
+<div class="codeline">&ensp;&ensp;&ensp;rule succeeds.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">To print the location in the center of the status line:</div>
-<div class="codeline">&ensp;&ensp;(- PrintCenteredStatus(); -).</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;(- PrintCenteredStatus(); -).</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Include (-</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Array printed_text --&gt; 64;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">[ PrintCenteredStatus i j;</div>
-<div class="codeline">&ensp;&ensp;@set_cursor 1 0;</div>
-<div class="codeline">&ensp;&ensp;i = 0-&gt;33;</div>
-<div class="codeline">&ensp;&ensp;spaces(i);</div>
-<div class="codeline">&ensp;&ensp;@output_stream 3 printed_text;</div>
-<div class="codeline">&ensp;&ensp;print (name) location;</div>
-<div class="codeline">&ensp;&ensp;@output_stream -3;</div>
-<div class="codeline">&ensp;&ensp;j = (i - (printed_text--&gt;0))/2;</div>
-<div class="codeline">&ensp;&ensp;@set_cursor 1 j;</div>
-<div class="codeline">&ensp;&ensp;print (name) location;</div>
-<div class="codeline">&ensp;&ensp;spaces j-1;</div>
+<div class="codeline">&ensp;&ensp;&ensp;@set_cursor 1 0;</div>
+<div class="codeline">&ensp;&ensp;&ensp;i = 0-&gt;33;</div>
+<div class="codeline">&ensp;&ensp;&ensp;spaces(i);</div>
+<div class="codeline">&ensp;&ensp;&ensp;@output_stream 3 printed_text;</div>
+<div class="codeline">&ensp;&ensp;&ensp;print (name) location;</div>
+<div class="codeline">&ensp;&ensp;&ensp;@output_stream -3;</div>
+<div class="codeline">&ensp;&ensp;&ensp;j = (i - (printed_text--&gt;0))/2;</div>
+<div class="codeline">&ensp;&ensp;&ensp;@set_cursor 1 j;</div>
+<div class="codeline">&ensp;&ensp;&ensp;print (name) location;</div>
+<div class="codeline">&ensp;&ensp;&ensp;spaces j-1;</div>
 <div class="codeline">];</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">-)</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;w / e&quot;.</div>
 </div><p>In fact, as we&#39;ve already seen, many extra modifications to the display behavior are possible using Basic Screen Effects.</p>
 <div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="pink_or_blue.html" title="Asking the player to select a gender to begin play."><div class="nav-arrow">←</div> <div class="doc-navbar-text">450. Pink or Blue</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="chanel_version.html" title="Making paired italic and boldface tags like those used by HTML for web pages."><div class="doc-navbar-text">452. Chanel Version 1</div> <div class="nav-arrow">→</div></a></div></div>

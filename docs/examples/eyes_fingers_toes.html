@@ -19,35 +19,35 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex432">Play/modify Eyes, Fingers, Toes in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="EyesFingersToes/index.html">Play Eyes, Fingers, Toes in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Eyes, Fingers, Toes&quot;\n\nThe Addams Wine Cellar is a room. It contains a closed lockable locked container called a safe.\n\nThe safe has a list of numbers called the current combination.\n\nThe safe has a list of numbers called the true combination. The true combination of the safe is {2, 10, 11}.\n\nUnderstand &quot;set [something] to [a number]&quot; as setting it numerically to. Setting it numerically to is an action applying to one thing and one number.\n\nInstead of examining the safe:\n\tif the number of entries in the current combination of the safe is 0,\n\t\tsay &quot;You haven&apos;t dialed the safe to any combination yet.&quot;;\n\totherwise say &quot;You have dialed the safe to [the current combination of the safe].&quot;.\n\nCheck setting something numerically to (this is the block setting numerically rule):\n\tsay &quot;[The noun] cannot be set.&quot;\n\nInstead of setting the safe numerically to the number understood:\n\ttruncate the current combination of the safe to the last 2 entries;\n\tadd the number understood to the current combination of the safe;\n\tif the safe is locked and the current combination of the safe is the true combination of the safe:\n\t\tsay &quot;You dial [the number understood], and [the safe] gives a joyous CLICK.&quot;;\n\t\tnow the safe is unlocked;\n\totherwise if safe is unlocked and the safe is closed and the current combination of the safe is not the true combination of the safe:\n\t\tsay &quot;You spin the dial, and [the safe] snicks locked.&quot;;\n\t\tnow the safe is locked;\n\totherwise:\n\t\tsay &quot;You dial [the number understood] on the safe.&quot;\n\nTest me with &quot;x safe / set safe to 10 / x safe / set safe to 29 / x safe / set safe to 2 / x safe / set safe to 10 / x safe / set safe to 11 / open safe / set safe to 14 / close safe / set safe to 15 / open safe&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Eyes, Fingers, Toes&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Addams Wine Cellar is a room. It contains a closed lockable locked container called a safe.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The safe has a list of numbers called the current combination.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The safe has a list of numbers called the true combination. The true combination of the safe is {2, 10, 11}.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Understand &quot;set [something] to [a number]&quot; as setting it numerically to. Setting it numerically to is an action applying to one thing and one number.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of examining the safe:</div>
-<div class="codeline">&ensp;&ensp;if the number of entries in the current combination of the safe is 0,</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;You haven&#39;t dialed the safe to any combination yet.&quot;;</div>
-<div class="codeline">&ensp;&ensp;otherwise say &quot;You have dialed the safe to [the current combination of the safe].&quot;.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the number of entries in the current combination of the safe is 0,</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;You haven&#39;t dialed the safe to any combination yet.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise say &quot;You have dialed the safe to [the current combination of the safe].&quot;.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Check setting something numerically to (this is the block setting numerically rule):</div>
-<div class="codeline">&ensp;&ensp;say &quot;[The noun] cannot be set.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;[The noun] cannot be set.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of setting the safe numerically to the number understood:</div>
-<div class="codeline">&ensp;&ensp;truncate the current combination of the safe to the last 2 entries;</div>
-<div class="codeline">&ensp;&ensp;add the number understood to the current combination of the safe;</div>
-<div class="codeline">&ensp;&ensp;if the safe is locked and the current combination of the safe is the true combination of the safe:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;You dial [the number understood], and [the safe] gives a joyous CLICK.&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;now the safe is unlocked;</div>
-<div class="codeline">&ensp;&ensp;otherwise if safe is unlocked and the safe is closed and the current combination of the safe is not the true combination of the safe:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;You spin the dial, and [the safe] snicks locked.&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;now the safe is locked;</div>
-<div class="codeline">&ensp;&ensp;otherwise:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;You dial [the number understood] on the safe.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;truncate the current combination of the safe to the last 2 entries;</div>
+<div class="codeline">&ensp;&ensp;&ensp;add the number understood to the current combination of the safe;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the safe is locked and the current combination of the safe is the true combination of the safe:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;You dial [the number understood], and [the safe] gives a joyous CLICK.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the safe is unlocked;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise if safe is unlocked and the safe is closed and the current combination of the safe is not the true combination of the safe:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;You spin the dial, and [the safe] snicks locked.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the safe is locked;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;You dial [the number understood] on the safe.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;x safe / set safe to 10 / x safe / set safe to 29 / x safe / set safe to 2 / x safe / set safe to 10 / x safe / set safe to 11 / open safe / set safe to 14 / close safe / set safe to 15 / open safe&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "x safe / set safe to 10 / x safe / set safe to 29 / x safe / set safe to 2 / x safe / set safe to 10 / x safe / set safe to 11 / open safe / set safe to 14 / close safe / set safe to 15 / open safe".</summary><div class="testme-output">Addams Wine Cellar<br>You can see a safe (closed) here.<br><br>&gt;(Testing.)<br><br>&gt;[1] x safe<br>You haven&#39;t dialed the safe to any combination yet.<br><br>&gt;[2] set safe to 10<br>You dial 10 on the safe.<br><br>&gt;[3] x safe<br>You have dialed the safe to 10.<br><br>&gt;[4] set safe to 29<br>You dial 29 on the safe.<br><br>&gt;[5] x safe<br>You have dialed the safe to 10 and 29.<br><br>&gt;[6] set safe to 2<br>You dial 2 on the safe.<br><br>&gt;[7] x safe<br>You have dialed the safe to 10, 29 and 2.<br><br>&gt;[8] set safe to 10<br>You dial 10 on the safe.<br><br>&gt;[9] x safe<br>You have dialed the safe to 29, 2 and 10.<br><br>&gt;[10] set safe to 11<br>You dial 11, and the safe gives a joyous CLICK.<br><br>&gt;[11] open safe<br>You open the safe.<br><br>&gt;[12] set safe to 14<br>You dial 14 on the safe.<br><br>&gt;[13] close safe<br>You close the safe.<br><br>&gt;[14] set safe to 15<br>You spin the dial, and the safe snicks locked.<br><br>&gt;[15] open safe<br>It seems to be locked.
 </div></details><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="circle_of_misery.html" title="Retrieving items from an airport luggage carousel is such fun, how can we resist simulating it, using a list as a ring buffer?"><div class="nav-arrow">←</div> <div class="doc-navbar-text">431. Circle of Misery</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="fibonacci_sequence.html" title="The modest Leonardo Fibonacci of Pisa will be only too happy to construct his sequence on request, using an array."><div class="doc-navbar-text">433. The Fibonacci Sequence</div> <div class="nav-arrow">→</div></a></div></div>

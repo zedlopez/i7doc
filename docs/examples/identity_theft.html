@@ -18,50 +18,50 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex415">Play/modify Identity Theft in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Identitytheft/index.html">Play Identity Theft in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Identity Theft&quot;\n\nThe player&apos;s forename is a text that varies. The player&apos;s full name is a text that varies.\n\nWhen play begins:\n\tnow the command prompt is &quot;What is your name? > &quot;.\n\nTo decide whether collecting names:\n\tif the command prompt is &quot;What is your name? > &quot;, yes;\n\tno.\n\nAfter reading a command when collecting names:\n\tif the number of words in the player&apos;s command is greater than 5:\n\t\tsay &quot;[paragraph break]Who are you, a member of the British royal family? No one has that many names. Let&apos;s try this again.&quot;;\n\t\treject the player&apos;s command;\n\tnow the player&apos;s full name is the player&apos;s command;\n\tnow the player&apos;s forename is word number 1 in the player&apos;s command;\n\tnow the command prompt is &quot;>&quot;;\n\tsay &quot;Hi, [player&apos;s forename]![paragraph break]&quot;;\n\tsay &quot;[banner text]&quot;;\n\tmove the player to the location;\n\treject the player&apos;s command.\n\n\nInstead of looking when collecting names: do nothing.\n\nRule for printing the banner text when collecting names: do nothing.\n\nRule for constructing the status line when collecting names: do nothing.\n\nYour Bedroom is a room. The printed name of Your Bedroom is &quot;[player&apos;s forename]&apos;s Bedroom&quot;.\n\nThe player carries a letter. The description of the letter is &quot;Dear [player&apos;s full name], [paragraph break]You have won the Norwegian Daily Lottery! ...&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Identity Theft&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The player&#39;s forename is a text that varies. The player&#39;s full name is a text that varies.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">When play begins:</div>
-<div class="codeline">&ensp;&ensp;now the command prompt is &quot;What is your name? &gt; &quot;.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the command prompt is &quot;What is your name? &gt; &quot;.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">To decide whether collecting names:</div>
-<div class="codeline">&ensp;&ensp;if the command prompt is &quot;What is your name? &gt; &quot;, yes;</div>
-<div class="codeline">&ensp;&ensp;no.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the command prompt is &quot;What is your name? &gt; &quot;, yes;</div>
+<div class="codeline">&ensp;&ensp;&ensp;no.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">After reading a command when collecting names:</div>
-<div class="codeline">&ensp;&ensp;if the number of words in the player&#39;s command is greater than 5:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;[paragraph break]Who are you, a member of the British royal family? No one has that many names. Let&#39;s try this again.&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;reject the player&#39;s command;</div>
-<div class="codeline">&ensp;&ensp;now the player&#39;s full name is the player&#39;s command;</div>
-<div class="codeline">&ensp;&ensp;now the player&#39;s forename is word number 1 in the player&#39;s command;</div>
-<div class="codeline">&ensp;&ensp;now the command prompt is &quot;&gt;&quot;;</div>
-<div class="codeline">&ensp;&ensp;say &quot;Hi, [player&#39;s forename]![paragraph break]&quot;;</div>
-<div class="codeline">&ensp;&ensp;say &quot;[banner text]&quot;;</div>
-<div class="codeline">&ensp;&ensp;move the player to the location;</div>
-<div class="codeline">&ensp;&ensp;reject the player&#39;s command.</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the number of words in the player&#39;s command is greater than 5:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[paragraph break]Who are you, a member of the British royal family? No one has that many names. Let&#39;s try this again.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;reject the player&#39;s command;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the player&#39;s full name is the player&#39;s command;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the player&#39;s forename is word number 1 in the player&#39;s command;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the command prompt is &quot;&gt;&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Hi, [player&#39;s forename]![paragraph break]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;[banner text]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;move the player to the location;</div>
+<div class="codeline">&ensp;&ensp;&ensp;reject the player&#39;s command.</div>
 </div><p>We also want to postpone the proper beginning of the game until we&#39;ve gotten the name:</p>
 <div class="codeblock"><div class="codeline">Instead of looking when collecting names: do nothing.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Rule for printing the banner text when collecting names: do nothing.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Rule for constructing the status line when collecting names: do nothing.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Your Bedroom is a room. The printed name of Your Bedroom is &quot;[player&#39;s forename]&#39;s Bedroom&quot;.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The player carries a letter. The description of the letter is &quot;Dear [player&#39;s full name], [paragraph break]You have won the Norwegian Daily Lottery! ...&quot;.</div>
 </div><p>If we are compiling for Glulx, this is enough to capture not only the player&#39;s name but also the capitalization he uses.</p>
 <p>If we are compiling for the Z-machine, the player&#39;s input will unfortunately be reduced to lower case before we can inspect it. If we would like by default to capitalize the first letter of each word of the name, we might substitute the following after reading a command rule:</p>
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`After reading a command when collecting names:\n\tif the number of words in the player&apos;s command is greater than 5:\n\t\tsay &quot;[paragraph break]Who are you, a member of the British royal family? No one has that many names. Let&apos;s try this again.&quot;;\n\t\treject the player&apos;s command;\n\tnow the player&apos;s full name is the substituted form of &quot;[the player&apos;s command in title case]&quot;;\n\tnow the player&apos;s forename is word number 1 in the player&apos;s full name;\n\tnow the command prompt is &quot;>&quot;;\n\tsay &quot;Hi, [player&apos;s forename]![paragraph break]&quot;;\n\tsay &quot;[banner text]&quot;;\n\tmove the player to the location;\n\treject the player&apos;s command.`)">⧉</button><div class="codeline">After reading a command when collecting names:</div>
-<div class="codeline">&ensp;&ensp;if the number of words in the player&#39;s command is greater than 5:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;[paragraph break]Who are you, a member of the British royal family? No one has that many names. Let&#39;s try this again.&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;reject the player&#39;s command;</div>
-<div class="codeline">&ensp;&ensp;now the player&#39;s full name is the substituted form of &quot;[the player&#39;s command in title case]&quot;;</div>
-<div class="codeline">&ensp;&ensp;now the player&#39;s forename is word number 1 in the player&#39;s full name;</div>
-<div class="codeline">&ensp;&ensp;now the command prompt is &quot;&gt;&quot;;</div>
-<div class="codeline">&ensp;&ensp;say &quot;Hi, [player&#39;s forename]![paragraph break]&quot;;</div>
-<div class="codeline">&ensp;&ensp;say &quot;[banner text]&quot;;</div>
-<div class="codeline">&ensp;&ensp;move the player to the location;</div>
-<div class="codeline">&ensp;&ensp;reject the player&#39;s command.</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the number of words in the player&#39;s command is greater than 5:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[paragraph break]Who are you, a member of the British royal family? No one has that many names. Let&#39;s try this again.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;reject the player&#39;s command;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the player&#39;s full name is the substituted form of &quot;[the player&#39;s command in title case]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the player&#39;s forename is word number 1 in the player&#39;s full name;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the command prompt is &quot;&gt;&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Hi, [player&#39;s forename]![paragraph break]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;[banner text]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;move the player to the location;</div>
+<div class="codeline">&ensp;&ensp;&ensp;reject the player&#39;s command.</div>
 </div><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="about_informs_regular_expression_support.html" title="Some footnotes on Inform&#39;s regular expressions, and how they compare to those of other programming languages."><div class="nav-arrow">←</div> <div class="doc-navbar-text">414. About Inform's regular expression support</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="mirror_mirror.html" title="The sorcerer&#39;s mirror can, when held up high, form an impression of its surroundings which it then preserves."><div class="doc-navbar-text">416. Mirror, Mirror</div> <div class="nav-arrow">→</div></a></div></div>
 <footer id="credits-footer"><nav><div class="nav-el"><a class="nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="nav-el" href="../search.html">Search</a></div></nav>
 <div class="footing"><p id="i7credit"><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p class="about"><a class="nav-about" href="../about.html">About this edition</a> &bull; <a class="nav-about" href="https://twitter.com/inform7tips">@inform7tips</a></p></div></footer>

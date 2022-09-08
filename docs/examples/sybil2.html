@@ -18,21 +18,21 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex93">Play/modify Replies in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Replies/index.html">Play Replies in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Replies&quot;\n\nThe Grove is a room. In the Grove is a woman called the Sybil.\n\nInstead of asking the Sybil to try saying no: try saying no. Instead of asking the Sybil to try saying yes: try saying yes. Instead of asking the Sybil to try saying sorry: try saying sorry.\n\nInstead of answering the Sybil that &quot;yes&quot;, try saying yes. Instead of answering the Sybil that &quot;no&quot;, try saying no. Instead of answering the Sybil that &quot;sorry&quot;, try saying sorry.\n\nInstead of saying yes in the presence of the Sybil:\n\tsay &quot;She looks interested.&quot;\n\nInstead of saying no in the presence of the Sybil:\n\tsay &quot;She looks annoyed.&quot;\n\nInstead of saying sorry in the presence of the Sybil:\n\tsay &quot;She looks bored.&quot;\n\n\nUnderstand &quot;tell [someone] [text]&quot; as answering it that. Understand &quot;tell [someone] that [text]&quot; as answering it that.\n\n\nTest me with &quot;yes / sybil, yes / say yes to sybil / answer yes / tell sybil yes / no / sybil, no / say no to sybil / answer no / tell sybil no /  sorry / sybil, sorry / say sorry to sybil / answer sorry / tell sybil sorry&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Replies&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Grove is a room. In the Grove is a woman called the Sybil.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of asking the Sybil to try saying no: try saying no. Instead of asking the Sybil to try saying yes: try saying yes. Instead of asking the Sybil to try saying sorry: try saying sorry.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of answering the Sybil that &quot;yes&quot;, try saying yes. Instead of answering the Sybil that &quot;no&quot;, try saying no. Instead of answering the Sybil that &quot;sorry&quot;, try saying sorry.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of saying yes in the presence of the Sybil:</div>
-<div class="codeline">&ensp;&ensp;say &quot;She looks interested.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;She looks interested.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of saying no in the presence of the Sybil:</div>
-<div class="codeline">&ensp;&ensp;say &quot;She looks annoyed.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;She looks annoyed.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of saying sorry in the presence of the Sybil:</div>
-<div class="codeline">&ensp;&ensp;say &quot;She looks bored.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;She looks bored.&quot;</div>
 </div><p>The complexity arises from the fact that we want to handle both YES and SYBIL, YES. If we only had the latter, &#39;yes&#39; would be treated as a text given to the Sybil, just as in the commands SAY YES TO SYBIL or ANSWER YES. But because we have defined it as a command (so that the player can use it independently), SYBIL, YES is understood as an order to the Sybil to do the YES action.</p>
 <p>Fortunately, we can redirect everything, as here, so that the results wind up the same.</p>
 <p>And if we want yet another variation not covered by the Inform standard:</p>

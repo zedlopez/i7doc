@@ -20,73 +20,73 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex342">Play/modify Hudsucker Industries in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Hudsucker/index.html">Play Hudsucker Industries in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Hudsucker Industries&quot;\n\nTone is a kind of value. The tones are effusive, affectionate, polite, curt, and flamingly rude.\n\nA letter is a kind of thing. The description of a letter is usually &quot;On inspection, it turns out to be quite [tone].&quot; A letter has a tone. The tone of a letter is usually polite.\n\nA letter can be read or unread. A letter is usually unread. Carry out examining a letter: now the noun is read.\n\nBefore printing the name of a read letter: say &quot;[tone] &quot;.\n\nBefore printing the name of an ungrouped letter: say &quot;random &quot;.\n\nBefore printing the plural name of a letter (called the subject):\n\tif the subject is grouped:\n\t\tsay &quot;[tone] &quot;;\n\totherwise if the number of unread letters which are next to the subject is 0:\n\t\tsay &quot;unsorted &quot;.\n\nAfter printing the plural name of a letter (called the subject):\n\tif the number of read letters which are next to the subject is 0, say &quot; (all unread, at the moment)&quot; instead;\n\tif the number of unread letters which are next to the subject is greater than 0, say &quot; (some as yet unread)&quot; instead.\n\nProximity relates a thing (called X) to a thing (called Y) when the holder of X is the holder of Y. The verb to be next to means the proximity relation.\n\nDefinition: a letter is grouped:\n\tif it is unread, no;\n\tif the number of unread letters next to it is greater than 0, no;\n\trepeat with item running through letters which are next to it:\n\t\tif the tone of item is not the tone of it, no;\n\tyes.\n\nDefinition: a letter is ungrouped if it is not grouped.\n\nThe Mailroom is a room. &quot;Usually a thrumming hive of bee-like workers, but you got in early to get a jump on the day&apos;s work.&quot;\n\nThe satchel is carried by the player. Two flamingly rude letters are in the satchel. Five polite letters are in the satchel.\n\nThe mail wall are fixed in place in the mailroom. &quot;Before you is a wall of mailboxes, including [a list of mailboxes which are part of the mail wall].&quot;\n\nThe plural of mailbox is mailboxes. A mailbox is a kind of container. The CEO box is a mailbox. The Hold box is a mailbox. The Trash box is a mailbox. Understand &quot;mailbox&quot; as a mailbox.\n\n\nDoes the player mean examining a letter (called the subject):\n\tif we have examined the subject, it is very unlikely;\n\tit is very likely.\n\n\nDoes the player mean taking a letter (called subject) which is grouped:\n\tif the player carries the subject, it is very unlikely;\n\tif the subject is in the satchel, it is possible;\n\tit is unlikely.\n\nDoes the player mean taking a letter (called subject) which is ungrouped:\n\tif the player carries the subject, it is very unlikely;\n\tif the subject is in the satchel, it is very likely;\n\tit is possible.\n\n\nDoes the player mean doing something other than examining or taking with a letter (called the subject):\n\tif we have examined the subject, it is likely;\n\tit is unlikely.\n\n\nUnderstand the tone property as referring to a letter when the item described is grouped. Understand &quot;random&quot; as a letter when the item described is ungrouped.\n\nWhen play begins:\n\tnow every mailbox is part of the mail wall;\n\trepeat with switch count running from 1 to 5:\n\t\tmove a random letter to the satchel.\n\nTest me with &quot;inventory / examine letter / get letter / i / put letter in ceo box / inventory / get letter / x letter / g / g / i / x letter / g / g / i / put letter in hold box / get letter / g / g / i&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Hudsucker Industries&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Tone is a kind of value. The tones are effusive, affectionate, polite, curt, and flamingly rude.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A letter is a kind of thing. The description of a letter is usually &quot;On inspection, it turns out to be quite [tone].&quot; A letter has a tone. The tone of a letter is usually polite.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A letter can be read or unread. A letter is usually unread. Carry out examining a letter: now the noun is read.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Before printing the name of a read letter: say &quot;[tone] &quot;.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Before printing the name of an ungrouped letter: say &quot;random &quot;.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Before printing the plural name of a letter (called the subject):</div>
-<div class="codeline">&ensp;&ensp;if the subject is grouped:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;[tone] &quot;;</div>
-<div class="codeline">&ensp;&ensp;otherwise if the number of unread letters which are next to the subject is 0:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;unsorted &quot;.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the subject is grouped:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[tone] &quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise if the number of unread letters which are next to the subject is 0:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;unsorted &quot;.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">After printing the plural name of a letter (called the subject):</div>
-<div class="codeline">&ensp;&ensp;if the number of read letters which are next to the subject is 0, say &quot; (all unread, at the moment)&quot; instead;</div>
-<div class="codeline">&ensp;&ensp;if the number of unread letters which are next to the subject is greater than 0, say &quot; (some as yet unread)&quot; instead.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the number of read letters which are next to the subject is 0, say &quot; (all unread, at the moment)&quot; instead;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the number of unread letters which are next to the subject is greater than 0, say &quot; (some as yet unread)&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Proximity relates a thing (called X) to a thing (called Y) when the holder of X is the holder of Y. The verb to be next to means the proximity relation.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Definition: a letter is grouped:</div>
-<div class="codeline">&ensp;&ensp;if it is unread, no;</div>
-<div class="codeline">&ensp;&ensp;if the number of unread letters next to it is greater than 0, no;</div>
-<div class="codeline">&ensp;&ensp;repeat with item running through letters which are next to it:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;if the tone of item is not the tone of it, no;</div>
-<div class="codeline">&ensp;&ensp;yes.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if it is unread, no;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the number of unread letters next to it is greater than 0, no;</div>
+<div class="codeline">&ensp;&ensp;&ensp;repeat with item running through letters which are next to it:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the tone of item is not the tone of it, no;</div>
+<div class="codeline">&ensp;&ensp;&ensp;yes.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Definition: a letter is ungrouped if it is not grouped.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Mailroom is a room. &quot;Usually a thrumming hive of bee-like workers, but you got in early to get a jump on the day&#39;s work.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The satchel is carried by the player. Two flamingly rude letters are in the satchel. Five polite letters are in the satchel.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The mail wall are fixed in place in the mailroom. &quot;Before you is a wall of mailboxes, including [a list of mailboxes which are part of the mail wall].&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The plural of mailbox is mailboxes. A mailbox is a kind of container. The CEO box is a mailbox. The Hold box is a mailbox. The Trash box is a mailbox. Understand &quot;mailbox&quot; as a mailbox.</div>
 </div><p>Now, there&#39;s a good bit of interaction to streamline. We intend that the player will be taking letters from the satchel, reading them, and putting them (perhaps grouped) into boxes. Our interaction rules should assist in this process as much as possible. To start with, the player will be most likely to examine letters he hasn&#39;t read yet:</p>
 <div class="codeblock"><div class="codeline">Does the player mean examining a letter (called the subject):</div>
-<div class="codeline">&ensp;&ensp;if we have examined the subject, it is very unlikely;</div>
-<div class="codeline">&ensp;&ensp;it is very likely.</div>
+<div class="codeline">&ensp;&ensp;&ensp;if we have examined the subject, it is very unlikely;</div>
+<div class="codeline">&ensp;&ensp;&ensp;it is very likely.</div>
 </div><p>The rules about taking are more subtle: the player is more likely to want to take an ungrouped letter than a grouped one; he is more likely to want one from the satchel than not; and he is most unlikely to want to take a letter (grouped or ungrouped) that he is already holding.</p>
 <div class="codeblock"><div class="codeline">Does the player mean taking a letter (called subject) which is grouped:</div>
-<div class="codeline">&ensp;&ensp;if the player carries the subject, it is very unlikely;</div>
-<div class="codeline">&ensp;&ensp;if the subject is in the satchel, it is possible;</div>
-<div class="codeline">&ensp;&ensp;it is unlikely.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the player carries the subject, it is very unlikely;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the subject is in the satchel, it is possible;</div>
+<div class="codeline">&ensp;&ensp;&ensp;it is unlikely.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Does the player mean taking a letter (called subject) which is ungrouped:</div>
-<div class="codeline">&ensp;&ensp;if the player carries the subject, it is very unlikely;</div>
-<div class="codeline">&ensp;&ensp;if the subject is in the satchel, it is very likely;</div>
-<div class="codeline">&ensp;&ensp;it is possible.</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the player carries the subject, it is very unlikely;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the subject is in the satchel, it is very likely;</div>
+<div class="codeline">&ensp;&ensp;&ensp;it is possible.</div>
 </div><p>And finally, we will assume by default that anything other than examining or taking is most likely to apply to a letter he&#39;s already identified:</p>
 <div class="codeblock"><div class="codeline">Does the player mean doing something other than examining or taking with a letter (called the subject):</div>
-<div class="codeline">&ensp;&ensp;if we have examined the subject, it is likely;</div>
-<div class="codeline">&ensp;&ensp;it is unlikely.</div>
+<div class="codeline">&ensp;&ensp;&ensp;if we have examined the subject, it is likely;</div>
+<div class="codeline">&ensp;&ensp;&ensp;it is unlikely.</div>
 </div><p>And we would also like to understand properties under the same circumstances as printing -- a letter will be identifiable as &quot;polite&quot; if it&#39;s already been read and it is either by itself or in a sorted stack of polite letters, but otherwise not. What&#39;s more, to make it possible to disambiguate commands in the other direction, we&#39;ll call any unsorted letter &quot;random&quot;, to represent that the player doesn&#39;t know what it is.</p>
 <div class="codeblock"><div class="codeline">Understand the tone property as referring to a letter when the item described is grouped. Understand &quot;random&quot; as a letter when the item described is ungrouped.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">When play begins:</div>
-<div class="codeline">&ensp;&ensp;now every mailbox is part of the mail wall;</div>
-<div class="codeline">&ensp;&ensp;repeat with switch count running from 1 to 5:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;move a random letter to the satchel.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now every mailbox is part of the mail wall;</div>
+<div class="codeline">&ensp;&ensp;&ensp;repeat with switch count running from 1 to 5:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;move a random letter to the satchel.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;inventory / examine letter / get letter / i / put letter in ceo box / inventory / get letter / x letter / g / g / i / x letter / g / g / i / put letter in hold box / get letter / g / g / i&quot;.</div>
-</div><details class="testme-output"><summary>Test me with "inventory / examine letter / get letter / i / put letter in ceo box / inventory / get letter / x letter / g / g / i / x letter / g / g / i / put letter in hold box / get letter / g / g / i".</summary><div class="testme-output">Mailroom<br>Usually a thrumming hive of bee-like workers, but you got in early to get a jump on the day&#39;s work.<br><br>Before you is a wall of mailboxes, including a CEO box, a Hold box and a Trash box.<br><br>&gt;(Testing.)<br><br>&gt;[1] inventory<br>You are carrying:<br>  a satchel<br>    seven letters (all unread, at the moment)<br><br>&gt;[2] examine letter<br>On inspection, it turns out to be quite flamingly rude.<br><br>&gt;[3] get letter<br>Taken.<br><br>&gt;[4] i<br>You are carrying:<br>  a flamingly rude letter<br>  a satchel<br>    six letters (all unread, at the moment)<br><br>&gt;[5] put letter in ceo box<br>(the flamingly rude letter in the CEO box)<br>You put the flamingly rude letter into the CEO box.<br><br>&gt;[6] inventory<br>You are carrying:<br>  a satchel<br>    six letters (all unread, at the moment)<br><br>&gt;[7] get letter<br>(the random letter)<br>Taken.<br><br>&gt;[8] x letter<br>(the random letter)<br>On inspection, it turns out to be quite flamingly rude.<br><br>&gt;[9] g<br>(the random letter)<br>On inspection, it turns out to be quite polite.<br><br>&gt;[10] g<br>(the random letter)<br>On inspection, it turns out to be quite polite.<br><br>&gt;[11] i<br>You are carrying:<br>  a flamingly rude letter<br>  a satchel<br>    five letters (some as yet unread)<br><br>&gt;[12] x letter<br>(the random letter)<br>On inspection, it turns out to be quite polite.<br><br>&gt;[13] g<br>(the random letter)<br>On inspection, it turns out to be quite polite.<br><br>&gt;[14] g<br>(the random letter)<br>On inspection, it turns out to be quite polite.<br><br>&gt;[15] i<br>You are carrying:<br>  a flamingly rude letter<br>  a satchel<br>    five polite letters<br><br>&gt;[16] put letter in hold box<br>(the flamingly rude letter in the Hold box)<br>You put the flamingly rude letter into the Hold box.<br><br>&gt;[17] get letter<br>(the polite letter)<br>Taken.<br><br>&gt;[18] g<br>(the polite letter)<br>Taken.<br><br>&gt;[19] g<br>(the polite letter)<br>Taken.<br><br>&gt;[20] i<br>You are carrying:<br>  three polite letters<br>  a satchel<br>    two polite letters
+</div><details class="testme-output"><summary>Test me with "inventory / examine letter / get letter / i / put letter in ceo box / inventory / get letter / x letter / g / g / i / x letter / g / g / i / put letter in hold box / get letter / g / g / i".</summary><div class="testme-output">Mailroom<br>Usually a thrumming hive of bee-like workers, but you got in early to get a jump on the day&#39;s work.<br><br>Before you is a wall of mailboxes, including a CEO box, a Hold box and a Trash box.<br><br>&gt;(Testing.)<br><br>&gt;[1] inventory<br>You are carrying:<br>  a satchel<br>    seven letters (all unread, at the moment)<br><br>&gt;[2] examine letter<br>On inspection, it turns out to be quite polite.<br><br>&gt;[3] get letter<br>Taken.<br><br>&gt;[4] i<br>You are carrying:<br>  a polite letter<br>  a satchel<br>    six letters (all unread, at the moment)<br><br>&gt;[5] put letter in ceo box<br>(the polite letter in the CEO box)<br>You put the polite letter into the CEO box.<br><br>&gt;[6] inventory<br>You are carrying:<br>  a satchel<br>    six letters (all unread, at the moment)<br><br>&gt;[7] get letter<br>(the random letter)<br>Taken.<br><br>&gt;[8] x letter<br>(the random letter)<br>On inspection, it turns out to be quite polite.<br><br>&gt;[9] g<br>(the random letter)<br>On inspection, it turns out to be quite polite.<br><br>&gt;[10] g<br>(the random letter)<br>On inspection, it turns out to be quite polite.<br><br>&gt;[11] i<br>You are carrying:<br>  a polite letter<br>  a satchel<br>    five letters (some as yet unread)<br><br>&gt;[12] x letter<br>(the random letter)<br>On inspection, it turns out to be quite flamingly rude.<br><br>&gt;[13] g<br>(the random letter)<br>On inspection, it turns out to be quite flamingly rude.<br><br>&gt;[14] g<br>(the random letter)<br>On inspection, it turns out to be quite polite.<br><br>&gt;[15] i<br>You are carrying:<br>  a polite letter<br>  a satchel<br>    five unsorted letters<br><br>&gt;[16] put letter in hold box<br>(the polite letter in the Hold box)<br>You put the polite letter into the Hold box.<br><br>&gt;[17] get letter<br>(the polite random letter)<br>Taken.<br><br>&gt;[18] g<br>(the polite random letter)<br>Taken.<br><br>&gt;[19] g<br>(the flamingly rude random letter)<br>Taken.<br><br>&gt;[20] i<br>You are carrying:<br>  three unsorted letters<br>  a satchel<br>    two unsorted letters
 </div></details><p>That last &quot;repeat&quot; is merely a device to shuffle the order of items in the satchel so that the player will not always encounter the letters in a neatly presorted order, despite our defining them that way. (Of course, that means that the test produced by TEST ME cannot be very exciting&hellip;)</p>
 <div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="chronic_hinting_syndrome.html" title="Using name-printing rules to keep track of whether the player knows about objects, and also to highlight things he might want to follow up."><div class="nav-arrow">←</div> <div class="doc-navbar-text">341. Chronic Hinting Syndrome</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="prolegomena.html" title="Replacing precise numbers with &quot;some&quot; or other quantifiers when too many objects are clustered together for the player to count at a glance."><div class="doc-navbar-text">343. Prolegomena</div> <div class="nav-arrow">→</div></a></div></div>
 <footer id="credits-footer"><nav><div class="nav-el"><a class="nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="nav-el" href="../search.html">Search</a></div></nav>

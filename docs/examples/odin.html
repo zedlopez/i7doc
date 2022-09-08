@@ -22,19 +22,19 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex44">Play/modify Odin in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Odin/index.html">Play Odin in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Odin&quot;\n\nThe House of a Mortal Farmer is a room. &quot;Having two separate rooms, this house testifies to considerable wealth and success at agriculture.&quot;\n\nThe Bedroom is inside from the House.\n\nA chair is a kind of supporter. A chair is always enterable.\n\nIn the House are a table, two chairs, a basket, and a hearth. On the table is a loaf of bread.\n\nThe description of a thing is usually &quot;You give [the noun] a glance, but it is plainly beneath your attention.&quot;\n\n\nThe infant is a man in the basket. The description of the infant is &quot;So strong and fat that you wonder whether one of your fellow gods is acquainted with the mistress of the house-- but it&apos;s no concern of yours, of course.&quot;\n\nTest me with &quot;x table / x chair / x infant&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Odin&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The House of a Mortal Farmer is a room. &quot;Having two separate rooms, this house testifies to considerable wealth and success at agriculture.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Bedroom is inside from the House.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A chair is a kind of supporter. A chair is always enterable.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">In the House are a table, two chairs, a basket, and a hearth. On the table is a loaf of bread.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The description of a thing is usually &quot;You give [the noun] a glance, but it is plainly beneath your attention.&quot;</div>
 </div><p>Because the description is attached to a whole kind (&quot;thing&quot;), it is really a blanket instruction about many objects at once. More specific instructions always override less specific ones, so we can easily make exceptions. For instance, the following will work correctly:</p>
 <div class="codeblock"><div class="codeline">The infant is a man in the basket. The description of the infant is &quot;So strong and fat that you wonder whether one of your fellow gods is acquainted with the mistress of the house-- but it&#39;s no concern of yours, of course.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;x table / x chair / x infant&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "x table / x chair / x infant".</summary><div class="testme-output">House of a Mortal Farmer<br>Having two separate rooms, this house testifies to considerable wealth and success at agriculture.<br><br>You can see a table (on which is a loaf of bread), a basket (in which is an infant), a hearth and two chairs here.<br><br>&gt;(Testing.)<br><br>&gt;[1] x table<br>You give the table a glance, but it is plainly beneath your attention.<br><br>On the table is a loaf of bread.<br><br>&gt;[2] x chair<br>You give the chair a glance, but it is plainly beneath your attention.<br><br>&gt;[3] x infant<br>So strong and fat that you wonder whether one of your fellow gods is acquainted with the mistress of the house-- but it&#39;s no concern of yours, of course.
 </div></details><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="vouvray.html" title="Adding synonyms to an entire kind of thing."><div class="nav-arrow">←</div> <div class="doc-navbar-text">43. Vouvray</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="something_narsty.html" title="A staircase always open and never openable."><div class="doc-navbar-text">45. Something Narsty</div> <div class="nav-arrow">→</div></a></div></div>

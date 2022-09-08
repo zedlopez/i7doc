@@ -18,27 +18,27 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex346">Play/modify Rules of Attraction in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Magnet/index.html">Play Rules of Attraction in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Rules of Attraction&quot;\n\nA metal form is a kind of thing. A magnet is a kind of metal form.\n\nEvery turn:\n\trepeat with item running through nonmagnetic metal forms which are not part of something:\n\t\tif item is in a container which contains a magnet (called attractor):\n\t\t\tsay &quot;[The item] sticks to [the attractor].&quot;;\n\t\t\tnow the item is part of the attractor.\n\nThe horseshoe magnet is a magnet carried by the player. The nail is a metal form carried by the player. The Barn is a room. In the Barn is a bucket. In the bucket is a metal form called the iron hook.\n\nDefinition: a thing is nonmagnetic if it is not a magnet.\n\nRule for printing room description details of a magnet (called attractor): if something is part of the attractor, say &quot; (stuck to which [is-are the list of things which are part of the attractor])&quot;.\n\nAfter printing the name of a magnet (called attractor) while taking inventory:\n\tif something is part of the attractor, say &quot; (stuck to which [is-are the list of things which are part of the attractor])&quot;.\n\nBefore taking a touchable thing which is part of a magnet (called attractor):\n\tmove the noun to the holder of the attractor.\n\nTest me with &quot;i / put horseshoe in bucket / look / get horseshoe / i / drop horseshoe / i / look / get all / put all in bucket / i / x magnet / get nail / i&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Rules of Attraction&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A metal form is a kind of thing. A magnet is a kind of metal form.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Every turn:</div>
-<div class="codeline">&ensp;&ensp;repeat with item running through nonmagnetic metal forms which are not part of something:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;if item is in a container which contains a magnet (called attractor):</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[The item] sticks to [the attractor].&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the item is part of the attractor.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;repeat with item running through nonmagnetic metal forms which are not part of something:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if item is in a container which contains a magnet (called attractor):</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[The item] sticks to [the attractor].&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the item is part of the attractor.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The horseshoe magnet is a magnet carried by the player. The nail is a metal form carried by the player. The Barn is a room. In the Barn is a bucket. In the bucket is a metal form called the iron hook.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Definition: a thing is nonmagnetic if it is not a magnet.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Rule for printing room description details of a magnet (called attractor): if something is part of the attractor, say &quot; (stuck to which [is-are the list of things which are part of the attractor])&quot;.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">After printing the name of a magnet (called attractor) while taking inventory:</div>
-<div class="codeline">&ensp;&ensp;if something is part of the attractor, say &quot; (stuck to which [is-are the list of things which are part of the attractor])&quot;.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if something is part of the attractor, say &quot; (stuck to which [is-are the list of things which are part of the attractor])&quot;.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Before taking a touchable thing which is part of a magnet (called attractor):</div>
-<div class="codeline">&ensp;&ensp;move the noun to the holder of the attractor.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;move the noun to the holder of the attractor.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;i / put horseshoe in bucket / look / get horseshoe / i / drop horseshoe / i / look / get all / put all in bucket / i / x magnet / get nail / i&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "i / put horseshoe in bucket / look / get horseshoe / i / drop horseshoe / i / look / get all / put all in bucket / i / x magnet / get nail / i".</summary><div class="testme-output">Barn<br>You can see a bucket (in which is the iron hook) here.<br><br>&gt;(Testing.)<br><br>&gt;[1] i<br>You are carrying:<br>  a horseshoe magnet<br>  a nail<br><br>&gt;[2] put horseshoe in bucket<br>You put the horseshoe magnet into the bucket.<br><br>The iron hook sticks to the horseshoe magnet.<br><br>&gt;[3] look<br>Barn<br>You can see a bucket (in which is a horseshoe magnet (stuck to which is the iron hook)) here.<br><br>&gt;[4] get horseshoe<br>Taken.<br><br>&gt;[5] i<br>You are carrying:<br>  a horseshoe magnet (stuck to which is the iron hook)<br>  a nail<br><br>&gt;[6] drop horseshoe<br>Dropped.<br><br>&gt;[7] i<br>You are carrying:<br>  a nail<br><br>&gt;[8] look<br>Barn<br>You can see a horseshoe magnet (stuck to which is the iron hook) and a bucket (empty) here.<br><br>&gt;[9] get all<br>horseshoe magnet: Taken.<br>bucket: Taken.<br><br>&gt;[10] put all in bucket<br>horseshoe magnet: Done.<br>nail: Done.<br><br>The nail sticks to the horseshoe magnet.<br><br>&gt;[11] i<br>You are carrying:<br>  a bucket<br>    a horseshoe magnet (stuck to which are the nail and the iron hook)<br><br>&gt;[12] x magnet<br>You see nothing special about the horseshoe magnet.<br><br>&gt;[13] get nail<br>Taken.<br><br>&gt;[14] i<br>You are carrying:<br>  a nail<br>  a bucket<br>    a horseshoe magnet (stuck to which is the iron hook)
 </div></details><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="wesponses.html" title="Parser messages that are delivered with a speech impediment."><div class="nav-arrow">←</div> <div class="doc-navbar-text">345. Wesponses</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="zorn_of_zorna.html" title="Light levels vary depending on the number of candles the player has lit, and this determines whether or not he is able to examine detailed objects successfully."><div class="doc-navbar-text">347. Zorn of Zorna</div> <div class="nav-arrow">→</div></a></div></div>

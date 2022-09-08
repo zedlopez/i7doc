@@ -18,20 +18,20 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex27">Play/modify Peugeot in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Zed/index.html">Play Peugeot in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Peugeot&quot;\n\nInclude Rideable Vehicles by Graham Nelson.\n\nThe Lot is a room. The ten-speed bike is a rideable vehicle in the Lot.\n\n\nCambridge is east of the Lot.\n\n\nInstead of going to Cambridge when the player is not on the ten-speed bike:\n\tsay &quot;It&apos;s a long journey to Cambridge: you&apos;ll never make it on foot.&quot;\n\nAfter going to Cambridge:\n\tsay &quot;You begin pedalling determinedly.&quot;;\n\tcontinue the action.\n\nTest me with &quot;e / get on ten-speed bike / e&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Peugeot&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Include Rideable Vehicles by Graham Nelson.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Lot is a room. The ten-speed bike is a rideable vehicle in the Lot.</div>
 </div><p>We make the ten-speed bike a rideable vehicle because we want to say that the player is on it rather than in it. Then our other room:</p>
 <div class="codeblock"><div class="codeline">Cambridge is east of the Lot.</div>
 </div><p>And now we borrow from the Actions chapter to prevent travel without the proper equipment:</p>
 <div class="codeblock"><div class="codeline">Instead of going to Cambridge when the player is not on the ten-speed bike:</div>
-<div class="codeline">&ensp;&ensp;say &quot;It&#39;s a long journey to Cambridge: you&#39;ll never make it on foot.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;It&#39;s a long journey to Cambridge: you&#39;ll never make it on foot.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">After going to Cambridge:</div>
-<div class="codeline">&ensp;&ensp;say &quot;You begin pedalling determinedly.&quot;;</div>
-<div class="codeline">&ensp;&ensp;continue the action.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You begin pedalling determinedly.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;continue the action.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;e / get on ten-speed bike / e&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "e / get on ten-speed bike / e".</summary><div class="testme-output">Lot<br>You can see a ten-speed bike here.<br><br>&gt;(Testing.)<br><br>&gt;[1] e<br>It&#39;s a long journey to Cambridge: you&#39;ll never make it on foot.<br><br>&gt;[2] get on ten-speed bike<br>You mount the ten-speed bike.<br><br>&gt;[3] e<br>You begin pedalling determinedly.<br><br>Cambridge (on the ten-speed bike)
 </div></details><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="down_below.html" title="A light switch which makes the room it is in dark or light."><div class="nav-arrow">←</div> <div class="doc-navbar-text">26. Down Below</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="disenchantment_bay8.html" title="Disenchantment Bay: a pushable chest of ice for the boat."><div class="doc-navbar-text">28. Disenchantment Bay 8</div> <div class="nav-arrow">→</div></a></div></div>

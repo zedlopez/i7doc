@@ -18,58 +18,58 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex335">Play/modify AARP-Gnosis in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Encyclopedia/index.html">Play AARP-Gnosis in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;AARP-Gnosis&quot;\n\nFitting relates various things to one thing (called the home). The verb to fit means the fitting relation. Definition: a thing is missing if it is not part of the home of it.\n\nA collective is a kind of thing.\n\nBefore doing something to something which is part of a collective:\n\tlet space be the holder of the home of the noun;\n\tmove the noun to the space.\n\nInstead of examining a collective:\n\tsay &quot;[The noun] consists of [the list of things which are part of the noun].&quot;\n\n\nCollecting something is an activity.\n\nEvery turn:\n\trepeat with item running through collectives:\n\t\tcarry out the collecting activity with the item.\n\nTo remove (item - a thing) when empty:\n\tlet space be the holder of the item;\n\tif the number of things which are part of the item is 0:\n\t\tnow the item is nowhere;\n\tif the number of things which are part of the item is 1:\n\t\tlet the last thing be a random thing which is part of the item;\n\t\tmove the last thing to the space;\n\t\tnow the item is nowhere.\n\nBefore collecting a thing (called the item):\n\tremove item when empty;\n\tlet space be the holder of the item;\n\tif space is not a thing and space is not a room:\n\t\tif something (called the other space) contains at least two things which fit the item, move item to the other space;\n\t\tif a room (called the other space) contains at least two things which fit the item, move item to the other space;\n\t\tif someone (called the owner) carries at least two things which fit the item, move item to the owner.\n\nRule for collecting a thing (called the item):\n\tlet space be the holder of the item;\n\tif space is a thing or space is a room:\n\t\trepeat with component running through things held by the space:\n\t\t\tif the component fits the item, now the component is part of the item;\n\t\tremove item when empty.\n\n\nThe Boise Memorial Library is a room. &quot;A concrete box of a room, roughly eight feet by fourteen, which contains all the fallout shelter has to offer by way of entertainment. Someone with a grim sense of humor has tacked a READ! literacy poster to the door, as though there were anything else to do while you await the calming of the Geiger counters.&quot; The shelf is a supporter in the Library. &quot;A battered utility shelf stands against the south wall.&quot;\n\nThe New Idahoan Encyclopedia Set is a collective. Volume A-Aalto fits the Encyclopedia. It is part of the Set. Volume AAM-Aardvark fits the Encyclopedia. It is part of the Set. Volume Aarhus-Aaron fits the Encyclopedia. It is part of the Set. Volume AARP-Gnosis fits the Encyclopedia. It is part of the Set. Volume Gnu-Zygote fits the Encyclopedia. It is part of the Set. The Set is on the shelf.\n\n\nAfter printing the name of the Set when something missing fits the Set:\n\tsay &quot; (missing [a list of missing things which fit the Set])&quot;\n\nBefore printing the name of the Set when the number of missing things which fit the set is 0:\n\tsay &quot;complete &quot;.\n\nTest me with &quot;get aarhus-aaron / look / inventory / get aam-aardvark / look / get gnu-zygote / look / get aarp-gnosis / look / inventory / drop set / look / get set / get a-aalto / inventory&quot;.`)">⧉</button><div class="codeline storytitle">&quot;AARP-Gnosis&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Fitting relates various things to one thing (called the home). The verb to fit means the fitting relation. Definition: a thing is missing if it is not part of the home of it.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A collective is a kind of thing.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Before doing something to something which is part of a collective:</div>
-<div class="codeline">&ensp;&ensp;let space be the holder of the home of the noun;</div>
-<div class="codeline">&ensp;&ensp;move the noun to the space.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let space be the holder of the home of the noun;</div>
+<div class="codeline">&ensp;&ensp;&ensp;move the noun to the space.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of examining a collective:</div>
-<div class="codeline">&ensp;&ensp;say &quot;[The noun] consists of [the list of things which are part of the noun].&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;[The noun] consists of [the list of things which are part of the noun].&quot;</div>
 </div><p>Now the real work begins. One reason to make this an activity is that we might easily want to override it for specific objects; for instance, the generic collecting activity here would not deal properly with collectives of clothing where some items might be worn and others not. In that case, we would want to write another, more specific &quot;collecting&quot; activity to handle the complexities of fashion.</p>
 <div class="codeblock"><div class="codeline">Collecting something is an activity.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Every turn:</div>
-<div class="codeline">&ensp;&ensp;repeat with item running through collectives:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;carry out the collecting activity with the item.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;repeat with item running through collectives:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;carry out the collecting activity with the item.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">To remove (item - a thing) when empty:</div>
-<div class="codeline">&ensp;&ensp;let space be the holder of the item;</div>
-<div class="codeline">&ensp;&ensp;if the number of things which are part of the item is 0:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;now the item is nowhere;</div>
-<div class="codeline">&ensp;&ensp;if the number of things which are part of the item is 1:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;let the last thing be a random thing which is part of the item;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;move the last thing to the space;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;now the item is nowhere.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let space be the holder of the item;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the number of things which are part of the item is 0:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the item is nowhere;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the number of things which are part of the item is 1:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;let the last thing be a random thing which is part of the item;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;move the last thing to the space;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the item is nowhere.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Before collecting a thing (called the item):</div>
-<div class="codeline">&ensp;&ensp;remove item when empty;</div>
-<div class="codeline">&ensp;&ensp;let space be the holder of the item;</div>
-<div class="codeline">&ensp;&ensp;if space is not a thing and space is not a room:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;if something (called the other space) contains at least two things which fit the item, move item to the other space;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;if a room (called the other space) contains at least two things which fit the item, move item to the other space;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;if someone (called the owner) carries at least two things which fit the item, move item to the owner.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;remove item when empty;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let space be the holder of the item;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if space is not a thing and space is not a room:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if something (called the other space) contains at least two things which fit the item, move item to the other space;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if a room (called the other space) contains at least two things which fit the item, move item to the other space;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if someone (called the owner) carries at least two things which fit the item, move item to the owner.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Rule for collecting a thing (called the item):</div>
-<div class="codeline">&ensp;&ensp;let space be the holder of the item;</div>
-<div class="codeline">&ensp;&ensp;if space is a thing or space is a room:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;repeat with component running through things held by the space:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the component fits the item, now the component is part of the item;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;remove item when empty.</div>
+<div class="codeline">&ensp;&ensp;&ensp;let space be the holder of the item;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if space is a thing or space is a room:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;repeat with component running through things held by the space:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the component fits the item, now the component is part of the item;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;remove item when empty.</div>
 </div><p>And now for a cheerful scenario:</p>
 <div class="codeblock"><div class="codeline">The Boise Memorial Library is a room. &quot;A concrete box of a room, roughly eight feet by fourteen, which contains all the fallout shelter has to offer by way of entertainment. Someone with a grim sense of humor has tacked a READ! literacy poster to the door, as though there were anything else to do while you await the calming of the Geiger counters.&quot; The shelf is a supporter in the Library. &quot;A battered utility shelf stands against the south wall.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The New Idahoan Encyclopedia Set is a collective. Volume A-Aalto fits the Encyclopedia. It is part of the Set. Volume AAM-Aardvark fits the Encyclopedia. It is part of the Set. Volume Aarhus-Aaron fits the Encyclopedia. It is part of the Set. Volume AARP-Gnosis fits the Encyclopedia. It is part of the Set. Volume Gnu-Zygote fits the Encyclopedia. It is part of the Set. The Set is on the shelf.</div>
 </div><p>Let&#39;s have the Encyclopedia describe itself differently depending on whether it&#39;s all in one place:</p>
 <div class="codeblock"><div class="codeline">After printing the name of the Set when something missing fits the Set:</div>
-<div class="codeline">&ensp;&ensp;say &quot; (missing [a list of missing things which fit the Set])&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot; (missing [a list of missing things which fit the Set])&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Before printing the name of the Set when the number of missing things which fit the set is 0:</div>
-<div class="codeline">&ensp;&ensp;say &quot;complete &quot;.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;complete &quot;.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;get aarhus-aaron / look / inventory / get aam-aardvark / look / get gnu-zygote / look / get aarp-gnosis / look / inventory / drop set / look / get set / get a-aalto / inventory&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "get aarhus-aaron / look / inventory / get aam-aardvark / look / get gnu-zygote / look / get aarp-gnosis / look / inventory / drop set / look / get set / get a-aalto / inventory".</summary><div class="testme-output">Boise Memorial Library<br>A concrete box of a room, roughly eight feet by fourteen, which contains all the fallout shelter has to offer by way of entertainment. Someone with a grim sense of humor has tacked a READ! literacy poster to the door, as though there were anything else to do while you await the calming of the Geiger counters.<br><br>A battered utility shelf stands against the south wall.<br><br>On the shelf is a complete New Idahoan Encyclopedia Set.<br><br>&gt;(Testing.)<br><br>&gt;[1] get aarhus-aaron<br>Taken.<br><br>&gt;[2] look<br>Boise Memorial Library<br>A concrete box of a room, roughly eight feet by fourteen, which contains all the fallout shelter has to offer by way of entertainment. Someone with a grim sense of humor has tacked a READ! literacy poster to the door, as though there were anything else to do while you await the calming of the Geiger counters.<br><br>A battered utility shelf stands against the south wall.<br><br>On the shelf is a New Idahoan Encyclopedia Set (missing Volume Aarhus-Aaron).<br><br>&gt;[3] inventory<br>You are carrying:<br>  Volume Aarhus-Aaron<br><br>&gt;[4] get aam-aardvark<br>Taken.<br><br>&gt;[5] look<br>Boise Memorial Library<br>A concrete box of a room, roughly eight feet by fourteen, which contains all the fallout shelter has to offer by way of entertainment. Someone with a grim sense of humor has tacked a READ! literacy poster to the door, as though there were anything else to do while you await the calming of the Geiger counters.<br><br>A battered utility shelf stands against the south wall.<br><br>On the shelf is a New Idahoan Encyclopedia Set (missing Volume AAM-Aardvark and Volume Aarhus-Aaron).<br><br>&gt;[6] get gnu-zygote<br>Taken.<br><br>&gt;[7] look<br>Boise Memorial Library<br>A concrete box of a room, roughly eight feet by fourteen, which contains all the fallout shelter has to offer by way of entertainment. Someone with a grim sense of humor has tacked a READ! literacy poster to the door, as though there were anything else to do while you await the calming of the Geiger counters.<br><br>A battered utility shelf stands against the south wall.<br><br>On the shelf is a New Idahoan Encyclopedia Set (missing Volume Gnu-Zygote, Volume AAM-Aardvark and Volume Aarhus-Aaron).<br><br>&gt;[8] get aarp-gnosis<br>Taken.<br><br>&gt;[9] look<br>Boise Memorial Library<br>A concrete box of a room, roughly eight feet by fourteen, which contains all the fallout shelter has to offer by way of entertainment. Someone with a grim sense of humor has tacked a READ! literacy poster to the door, as though there were anything else to do while you await the calming of the Geiger counters.<br><br>A battered utility shelf stands against the south wall.<br><br>On the shelf is Volume A-Aalto.<br><br>&gt;[10] inventory<br>You are carrying:<br>  a New Idahoan Encyclopedia Set (missing Volume A-Aalto)<br><br>&gt;[11] drop set<br>Dropped.<br><br>&gt;[12] look<br>Boise Memorial Library<br>A concrete box of a room, roughly eight feet by fourteen, which contains all the fallout shelter has to offer by way of entertainment. Someone with a grim sense of humor has tacked a READ! literacy poster to the door, as though there were anything else to do while you await the calming of the Geiger counters.<br><br>A battered utility shelf stands against the south wall.<br><br>On the shelf is Volume A-Aalto.<br><br>You can also see a New Idahoan Encyclopedia Set (missing Volume A-Aalto) here.<br><br>&gt;[13] get set<br>Taken.<br><br>&gt;[14] get a-aalto<br>Taken.<br><br>&gt;[15] inventory<br>You are carrying:<br>  a complete New Idahoan Encyclopedia Set
 </div></details><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="antsensitive_sunglasses.html" title="What are activities good for? Controlling output when we want the same action to be able to produce very flexible text depending on the state of the world -- in this case, making highly variable room description and object description text."><div class="nav-arrow">←</div> <div class="doc-navbar-text">334. Ant-Sensitive Sunglasses</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="aftershock.html" title="Modifying the rules for examining a device so that all devices have some specific behavior when switched on, which is described at various times."><div class="doc-navbar-text">336. Aftershock</div> <div class="nav-arrow">→</div></a></div></div>

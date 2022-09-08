@@ -18,36 +18,36 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex450">Play/modify Pink or Blue in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Gender/index.html">Play Pink or Blue in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Pink or Blue&quot;\n\nWhen play begins:\n\tsay &quot;Should your character be male or female? >&quot;;\n\tif men win, now the player is male;\n\totherwise now the player is female;\n\tsay paragraph break.\n\n\nTo decide whether men win:\n\t(- Question(&apos;male&apos;,&apos;M//&apos;,&apos;man&apos;,&apos;female&apos;,&apos;F//&apos;,&apos;woman&apos;) -)\n\nInclude (-\n\n[ Question pos1 pos2 pos3 neg1 neg2 neg3 first_word_typed;\n\twhile (true) {\n\t\tVM_ReadKeyboard(buffer, parse);\n\t\twn = 1; first_word_typed = NextWordStopped();\n\t\tif (first_word_typed == pos1 or pos2 or pos3) rtrue;\n\t\tif (first_word_typed == neg1 or neg2 or neg3) rfalse;\n\t\tprint &quot;Please choose &quot;, (address) pos1, &quot; or &quot;, (address) neg1, &quot;. > &quot;;\n\t}\n];\n\n\n-)\n\nInstead of examining the player when the player is female:\n\tsay &quot;Congratulations, you are a girl!&quot;\n\nInstead of examining the player when the player is male:\n\tsay &quot;Congratulations, you are a boy!&quot;\n\nThe Room of Self-Knowledge is a room. &quot;Mirrors cover every available wall-surface of this hexagonal chamber, allowing you to examine yourself from all angles.&quot;`)">⧉</button><div class="codeline storytitle">&quot;Pink or Blue&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">When play begins:</div>
-<div class="codeline">&ensp;&ensp;say &quot;Should your character be male or female? &gt;&quot;;</div>
-<div class="codeline">&ensp;&ensp;if men win, now the player is male;</div>
-<div class="codeline">&ensp;&ensp;otherwise now the player is female;</div>
-<div class="codeline">&ensp;&ensp;say paragraph break.</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Should your character be male or female? &gt;&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if men win, now the player is male;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise now the player is female;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say paragraph break.</div>
 </div><p>Now a piece of Inform 6 code handles the unusual input. It&#39;s not necessary to understand this to use it, and the code should work for any question you&#39;d like to ask the player. The first three words in quotation marks (&#39;male&#39;, &#39;M&#39;, &#39;man&#39;&hellip;) correspond to positive feedback; the later three words correspond to negative feedback. So &quot;to decide whether men win&quot; will be true if the player types one of the first three, and false if he types one of the last three.</p>
 <div class="codeblock"><div class="codeline">To decide whether men win:</div>
-<div class="codeline">&ensp;&ensp;(- Question(&#39;male&#39;,&#39;M//&#39;,&#39;man&#39;,&#39;female&#39;,&#39;F//&#39;,&#39;woman&#39;) -)</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;(- Question(&#39;male&#39;,&#39;M//&#39;,&#39;man&#39;,&#39;female&#39;,&#39;F//&#39;,&#39;woman&#39;) -)</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Include (-</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">[ Question pos1 pos2 pos3 neg1 neg2 neg3 first_word_typed;</div>
-<div class="codeline">&ensp;&ensp;while (true) {</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;VM_ReadKeyboard(buffer, parse);</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;wn = 1; first_word_typed = NextWordStopped();</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;if (first_word_typed == pos1 or pos2 or pos3) rtrue;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;if (first_word_typed == neg1 or neg2 or neg3) rfalse;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;print &quot;Please choose &quot;, (address) pos1, &quot; or &quot;, (address) neg1, &quot;. &gt; &quot;;</div>
-<div class="codeline">&ensp;&ensp;}</div>
+<div class="codeline">&ensp;&ensp;&ensp;while (true) {</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;VM_ReadKeyboard(buffer, parse);</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;wn = 1; first_word_typed = NextWordStopped();</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if (first_word_typed == pos1 or pos2 or pos3) rtrue;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if (first_word_typed == neg1 or neg2 or neg3) rfalse;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;print &quot;Please choose &quot;, (address) pos1, &quot; or &quot;, (address) neg1, &quot;. &gt; &quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;}</div>
 <div class="codeline">];</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">-)</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of examining the player when the player is female:</div>
-<div class="codeline">&ensp;&ensp;say &quot;Congratulations, you are a girl!&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Congratulations, you are a girl!&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of examining the player when the player is male:</div>
-<div class="codeline">&ensp;&ensp;say &quot;Congratulations, you are a boy!&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Congratulations, you are a boy!&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Room of Self-Knowledge is a room. &quot;Mirrors cover every available wall-surface of this hexagonal chamber, allowing you to examine yourself from all angles.&quot;</div>
 </div><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="tilt3.html" title="Displaying the card suits from our deck of cards with red and black colored unicode symbols."><div class="nav-arrow">←</div> <div class="doc-navbar-text">449. Tilt 3</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="status_line_with_centered_text_the_hard_way.html" title="A status line which has only the name of the location, centered."><div class="doc-navbar-text">451. Status line with centered text, the hard way</div> <div class="nav-arrow">→</div></a></div></div>
 <footer id="credits-footer"><nav><div class="nav-el"><a class="nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="nav-el" href="../search.html">Search</a></div></nav>

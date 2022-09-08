@@ -17,24 +17,24 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex218">Play/modify Flashlight in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Marble/index.html">Play Flashlight in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Flashlight&quot;\n\nThe Schoolhouse is a room. &quot;Though normally comfortable, the room is dark and menacing during the storm; rain sheets on the windows, and you can barely see the flash of the lighthouse only a few miles away.&quot;\n\nThe cabinet is a fixed in place openable container in the Schoolhouse. The hurricane lantern is a thing in the Schoolhouse. &quot;A hurricane lantern hangs from a peg.&quot; The lantern is lit.\n\nVisibility rule when looking under something:\n\tif the player is carrying a lit thing (called lamp):\n\t\tsay &quot;You shine [the lamp] under [the noun]...&quot;;\n\t\tthere is sufficient light;\n\tthere is insufficient light.\n\nThere is a marble. The marble can be found or lost. The marble is lost.\n\nInstead of looking under the cabinet when the marble is lost:\n\tmove the marble to the player;\n\tnow the marble is found;\n\tsay &quot;Billy&apos;s lost marble! So that&apos;s where it got to!&quot;\n\nTest me with &quot;look under cabinet / get lantern / look under cabinet&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Flashlight&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Schoolhouse is a room. &quot;Though normally comfortable, the room is dark and menacing during the storm; rain sheets on the windows, and you can barely see the flash of the lighthouse only a few miles away.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The cabinet is a fixed in place openable container in the Schoolhouse. The hurricane lantern is a thing in the Schoolhouse. &quot;A hurricane lantern hangs from a peg.&quot; The lantern is lit.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Visibility rule when looking under something:</div>
-<div class="codeline">&ensp;&ensp;if the player is carrying a lit thing (called lamp):</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;You shine [the lamp] under [the noun]...&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;there is sufficient light;</div>
-<div class="codeline">&ensp;&ensp;there is insufficient light.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the player is carrying a lit thing (called lamp):</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;You shine [the lamp] under [the noun]...&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;there is sufficient light;</div>
+<div class="codeline">&ensp;&ensp;&ensp;there is insufficient light.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">There is a marble. The marble can be found or lost. The marble is lost.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of looking under the cabinet when the marble is lost:</div>
-<div class="codeline">&ensp;&ensp;move the marble to the player;</div>
-<div class="codeline">&ensp;&ensp;now the marble is found;</div>
-<div class="codeline">&ensp;&ensp;say &quot;Billy&#39;s lost marble! So that&#39;s where it got to!&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;move the marble to the player;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the marble is found;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Billy&#39;s lost marble! So that&#39;s where it got to!&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;look under cabinet / get lantern / look under cabinet&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "look under cabinet / get lantern / look under cabinet".</summary><div class="testme-output">Schoolhouse<br>Though normally comfortable, the room is dark and menacing during the storm; rain sheets on the windows, and you can barely see the flash of the lighthouse only a few miles away.<br><br>A hurricane lantern hangs from a peg.<br><br>You can also see a cabinet (empty) here.<br><br>&gt;(Testing.)<br><br>&gt;[1] look under cabinet<br>It is pitch dark, and you can&#39;t see a thing.<br><br>&gt;[2] get lantern<br>Taken.<br><br>&gt;[3] look under cabinet<br>You shine the hurricane lantern under the cabinet...<br><br>Billy&#39;s lost marble! So that&#39;s where it got to!
 </div></details><p>Because visibility is checked before instead rules, this discovery will (correctly) occur only when the player does have enough light.</p>

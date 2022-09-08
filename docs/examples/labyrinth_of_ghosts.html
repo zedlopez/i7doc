@@ -19,59 +19,59 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex440">Play/modify Labyrinth of Ghosts in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Labyrinth-G/index.html">Play Labyrinth of Ghosts in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Labyrinth of Ghosts&quot;\n\nUse scoring.\n\nA demise is a kind of value. The demises are drowned, buried by a rockfall, pierced by an arrow and slain. The latest demise is a demise that varies.\n\nA grid location is a kind of value. (1,19) specifies a grid location. A room has a grid location called coordinates.\n\nThe Gateway is a room. &quot;For the foolhardy adventurer, the perilous labyrinth lies north, east or south.&quot; The coordinates are (6,6). The Tomb is east of the Gateway. The coordinates are (7,6). The Rockfall Cave is north of the Gateway. &quot;This partly fallen cave may perhaps extend further north.&quot; The coordinates are (6,5). Instead of going north in the Rockfall Cave, have the player buried by a rockfall. The Archery Canyon is south of the Gateway. &quot;No telling why this canyon is named after archery, but perhaps if you wait around you&apos;ll find out.&quot; The coordinates are (6,7). Instead of waiting in the Archery Canyon, have the player pierced by an arrow. The Rock Pool is east of the Tomb. The coordinates are (8,6). The cold mountain pool is in the Rock Pool. The cold pool is fixed in place. Instead of entering the cold mountain pool, have the player drowned.\n\nEvery turn when a random chance of 1 in 10 succeeds:\n\tsay &quot;A dwarf appears out of nowhere, and throws a nasty little knife.&quot;;\n\thave the player slain.\n\n\nSome silver bars are in the Tomb. The emerald is in the Rock Pool. The platinum pyramid is in the Canyon.\n\nTable of Point Values\nitem \t  \tscore\nsilver bars\t\t3\nplatinum pyramid\t10\nemerald\t\t4\n\nReport taking an item listed in the Table of Point Values:\n\tincrease the score by the score entry;\n\tblank out the whole row.\n\n\nTable of Ghostly Presences\nhaunted position\tscore at death\tturns at death\tmanner of death\tsequence\na grid location\t\ta number\t\ta number\t\ta demise\t\ta number\nwith 19 blank rows.\n\n\nThe File of Ghosts is called &quot;ghosts&quot;.\n\nWhen play begins:\n\tif the File of Ghosts exists, read File of Ghosts into the Table of Ghostly Presences;\n\tsort the Table of Ghostly Presences in sequence order.\n\n\nAfter looking:\n\trepeat through the Table of Ghostly Presences in reverse sequence order:\n\t\tif the haunted position entry is the coordinates of the location, say &quot;You sense the ghostly presence of an adventurer, [manner of death entry] with a score of [score at death entry] in [turns at death entry] turns.&quot;\n\n\nTo have the player (sticky end - a demise):\n\tlet the new sequence number be 0;\n\trepeat through the Table of Ghostly Presences:\n\t\tlet S be the sequence entry;\n\t\tif S is greater than the new sequence number, let the new sequence number be S;\n\tincrement the new sequence number;\n\tif the number of blank rows in the Table of Ghostly Presences is 0:\n\t\tchoose row 1 in the Table of Ghostly Presences;\n\t\tblank out the whole row;\n\tchoose a blank row in the Table of Ghostly Presences;\n\tnow the sequence entry is the new sequence number;\n\tnow the manner of death entry is the sticky end;\n\tnow the turns at death entry is the turn count;\n\tnow the score at death entry is the score;\n\tnow the haunted position entry is the coordinates of the location;\n\twrite the File of Ghosts from the Table of Ghostly Presences;\n\tnow the latest demise is the sticky end;\n\tend the story saying &quot;You have been [latest demise]&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Labyrinth of Ghosts&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Use scoring.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A demise is a kind of value. The demises are drowned, buried by a rockfall, pierced by an arrow and slain. The latest demise is a demise that varies.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A grid location is a kind of value. (1,19) specifies a grid location. A room has a grid location called coordinates.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Gateway is a room. &quot;For the foolhardy adventurer, the perilous labyrinth lies north, east or south.&quot; The coordinates are (6,6). The Tomb is east of the Gateway. The coordinates are (7,6). The Rockfall Cave is north of the Gateway. &quot;This partly fallen cave may perhaps extend further north.&quot; The coordinates are (6,5). Instead of going north in the Rockfall Cave, have the player buried by a rockfall. The Archery Canyon is south of the Gateway. &quot;No telling why this canyon is named after archery, but perhaps if you wait around you&#39;ll find out.&quot; The coordinates are (6,7). Instead of waiting in the Archery Canyon, have the player pierced by an arrow. The Rock Pool is east of the Tomb. The coordinates are (8,6). The cold mountain pool is in the Rock Pool. The cold pool is fixed in place. Instead of entering the cold mountain pool, have the player drowned.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Every turn when a random chance of 1 in 10 succeeds:</div>
-<div class="codeline">&ensp;&ensp;say &quot;A dwarf appears out of nowhere, and throws a nasty little knife.&quot;;</div>
-<div class="codeline">&ensp;&ensp;have the player slain.</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;A dwarf appears out of nowhere, and throws a nasty little knife.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;have the player slain.</div>
 </div><p>And as compensation for these hazards:</p>
 <div class="codeblock"><div class="codeline">Some silver bars are in the Tomb. The emerald is in the Rock Pool. The platinum pyramid is in the Canyon.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline tablename">Table of Point Values</div><table>
-<tr><td>item </td><td>  </td><td>score</td></tr><tr><td>silver bars</td><td>3</td><td> </td></tr><tr><td>platinum pyramid</td><td>10</td><td> </td></tr><tr><td>emerald</td><td>4</td><td> </td></tr></table>
+<tr><td>item</td><td></td><td>score</td></tr><tr><td>silver bars</td><td>3</td><td> </td></tr><tr><td>platinum pyramid</td><td>10</td><td> </td></tr><tr><td>emerald</td><td>4</td><td> </td></tr></table>
 <div class="codeline">Report taking an item listed in the Table of Point Values:</div>
-<div class="codeline">&ensp;&ensp;increase the score by the score entry;</div>
-<div class="codeline">&ensp;&ensp;blank out the whole row.</div>
+<div class="codeline">&ensp;&ensp;&ensp;increase the score by the score entry;</div>
+<div class="codeline">&ensp;&ensp;&ensp;blank out the whole row.</div>
 </div><p>We are now ready for the actual undertaking. The Table of Ghostly Presences holds up to twenty death notices, and is initially blank. Deaths are sequentially numbered, and this number is stored in the sequence column.</p>
 <div class="codeblock"><div class="codeline tablename">Table of Ghostly Presences</div><table>
 <tr><td>haunted position</td><td>score at death</td><td>turns at death</td><td>manner of death</td><td>sequence</td></tr><tr><td>a grid location</td><td>a number</td><td>a number</td><td>a demise</td><td>a number</td></tr></table>
 <div class="codeline blankrows">with 19 blank rows.</div>
 </div><p>As the story file starts up, we look to see if a ghosts file already exists. If one does, we load up the Table of Ghostly Presences with it: and if not, as will be the case the first time the player explores, we leave the table blank. We sort the table so that it has earlier deaths (lower sequence numbers) first.</p>
 <div class="codeblock"><div class="codeline">The File of Ghosts is called &quot;ghosts&quot;.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">When play begins:</div>
-<div class="codeline">&ensp;&ensp;if the File of Ghosts exists, read File of Ghosts into the Table of Ghostly Presences;</div>
-<div class="codeline">&ensp;&ensp;sort the Table of Ghostly Presences in sequence order.</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the File of Ghosts exists, read File of Ghosts into the Table of Ghostly Presences;</div>
+<div class="codeline">&ensp;&ensp;&ensp;sort the Table of Ghostly Presences in sequence order.</div>
 </div><p>How will ghosts manifest themselves? Because this is only a small example, we will simply tell the player that he senses something. If several ghosts are present in the same place, the most aggrieved (that is, the most recent) is sensed first&hellip;</p>
 <div class="codeblock"><div class="codeline">After looking:</div>
-<div class="codeline">&ensp;&ensp;repeat through the Table of Ghostly Presences in reverse sequence order:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;if the haunted position entry is the coordinates of the location, say &quot;You sense the ghostly presence of an adventurer, [manner of death entry] with a score of [score at death entry] in [turns at death entry] turns.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;repeat through the Table of Ghostly Presences in reverse sequence order:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the haunted position entry is the coordinates of the location, say &quot;You sense the ghostly presence of an adventurer, [manner of death entry] with a score of [score at death entry] in [turns at death entry] turns.&quot;</div>
 </div><p>(For instance, &quot;You sense the ghostly presence of an adventurer, buried by a rockfall with a score of 10 in 5 turns.&quot;) That just leaves the rule for bumping off the player. When the Table is full, and there are already 20 ghosts, the one who died longest ago (with the lowest sequence count) is eliminated, and his row blanked out. (This will always be row 1 since we sorted the table in sequence order on reading it in.)</p>
 <div class="codeblock"><div class="codeline">To have the player (sticky end - a demise):</div>
-<div class="codeline">&ensp;&ensp;let the new sequence number be 0;</div>
-<div class="codeline">&ensp;&ensp;repeat through the Table of Ghostly Presences:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;let S be the sequence entry;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;if S is greater than the new sequence number, let the new sequence number be S;</div>
-<div class="codeline">&ensp;&ensp;increment the new sequence number;</div>
-<div class="codeline">&ensp;&ensp;if the number of blank rows in the Table of Ghostly Presences is 0:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;choose row 1 in the Table of Ghostly Presences;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;blank out the whole row;</div>
-<div class="codeline">&ensp;&ensp;choose a blank row in the Table of Ghostly Presences;</div>
-<div class="codeline">&ensp;&ensp;now the sequence entry is the new sequence number;</div>
-<div class="codeline">&ensp;&ensp;now the manner of death entry is the sticky end;</div>
-<div class="codeline">&ensp;&ensp;now the turns at death entry is the turn count;</div>
-<div class="codeline">&ensp;&ensp;now the score at death entry is the score;</div>
-<div class="codeline">&ensp;&ensp;now the haunted position entry is the coordinates of the location;</div>
-<div class="codeline">&ensp;&ensp;write the File of Ghosts from the Table of Ghostly Presences;</div>
-<div class="codeline">&ensp;&ensp;now the latest demise is the sticky end;</div>
-<div class="codeline">&ensp;&ensp;end the story saying &quot;You have been [latest demise]&quot;.</div>
+<div class="codeline">&ensp;&ensp;&ensp;let the new sequence number be 0;</div>
+<div class="codeline">&ensp;&ensp;&ensp;repeat through the Table of Ghostly Presences:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;let S be the sequence entry;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if S is greater than the new sequence number, let the new sequence number be S;</div>
+<div class="codeline">&ensp;&ensp;&ensp;increment the new sequence number;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the number of blank rows in the Table of Ghostly Presences is 0:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;choose row 1 in the Table of Ghostly Presences;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;blank out the whole row;</div>
+<div class="codeline">&ensp;&ensp;&ensp;choose a blank row in the Table of Ghostly Presences;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the sequence entry is the new sequence number;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the manner of death entry is the sticky end;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the turns at death entry is the turn count;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the score at death entry is the score;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the haunted position entry is the coordinates of the location;</div>
+<div class="codeline">&ensp;&ensp;&ensp;write the File of Ghosts from the Table of Ghostly Presences;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the latest demise is the sticky end;</div>
+<div class="codeline">&ensp;&ensp;&ensp;end the story saying &quot;You have been [latest demise]&quot;.</div>
 </div><p>Strictly speaking we ought to worry that after 2,147,483,647 deaths, the sequence numbers would grow too large to store in a single value, and then the sequence of ghosts will be erratic. But it seems unlikely that anyone will play this example 2.1 billion times.</p>
 <div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="alien_invasion_part23.html" title="Keeping a preference file that could be loaded by any game in a series."><div class="nav-arrow">←</div> <div class="doc-navbar-text">439. Alien Invasion Part 23</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="rubies.html" title="A scoreboard that keeps track of the ten highest-scoring players from one playthrough to the next, adding the player&#39;s name if he has done well enough."><div class="doc-navbar-text">441. Rubies</div> <div class="nav-arrow">→</div></a></div></div>
 <footer id="credits-footer"><nav><div class="nav-el"><a class="nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="nav-el" href="../search.html">Search</a></div></nav>

@@ -48,8 +48,6 @@ def configure
   Conf[:examples] = {}
   Conf[:examples_by_num] = {}
   Conf[:subnames] = Hash.new {|h,k| h[k] = {} }
-#  Conf[:tmpl_dir] = '/home/zed/inf7/lib/i7/tmpl'
-#  Conf[:file_dir] = '/home/zed/inf7/lib/i7/file'
   Conf[:gi] = {}
   Conf[:gi_by_tag] = {}
   Conf[:gi_by_name] = {}
@@ -70,15 +68,15 @@ def configure
       %r{(<strong>)?www.inform-fiction.org(</strong>)?} => %Q{<a href="https://inform-fiction.org">inform-fiction.org</a>},
       %r{(https://)?github.com/ganelson/inform} => %Q{<a href="https://github.com/ganelson/inform">github.com/ganelson/inform</a>},
       %r{<strong>github.com/ganelson/inform</strong>} => %Q{<a href="https://github.com/ganelson/inform">github.com/ganelson/inform</a>},
-      %r{https://intfiction.org/(\s)} => %Q{<a href="https://intfiction.org/">intfiction.org</a>#{$1}},
-      %r{https://intfiction.org/c/general/events/47} => %Q{<a href="https://intfiction.org/c/general/events/47">intfiction.org/c/general/events/47</a>},
+      %r{https?://intfiction.org/c/general/events/47} => %Q{<a href="https://intfiction.org/c/general/events/47">intfiction.org/c/general/events/47</a>},
+      %r{https?://intfiction.org/(\s)} => %Q{<a href="https://intfiction.org/">intfiction.org</a>#{$1}},
       %r{<strong>(?:www\.)?intfiction.org</strong>} => %Q{<a href="https://intfiction.org/">intfiction.org</a>},
-      %r{http://inform7.com/downloads?/} => %Q{<a href="http://inform7.com/downloads/">inform7.com/downloads/</a>},
+      %r{https?://inform7.com/downloads?/} => %Q{<a href="http://inform7.com/downloads/">inform7.com/downloads/</a>},
       %r{<strong>(?:www.vorbis.com|xiph.org/vorbis)</strong>} => %Q{<a href="https://xiph.org/vorbis/">xiph.org/vorbis</a>},
       %r{https?://vorple-if.com} => %Q{<a href="https://vorple-if.com/">vorple-if.com</a>},
       %r{www.csszengarden.com} => %Q{<a href="http://csszengarden.com/">csszengarden.com</a>},
-      %r{https://itch.io/jams} => %Q{<a href="https://itch.io/jams">itch.io/jams</a>},
-      %r{https://www.procjam.com/} => %Q{<a href="https://www.procjam.com/">procjam.com</a>},
+      %r{https?://itch.io/jams} => %Q{<a href="https://itch.io/jams">itch.io/jams</a>},
+      %r{https?://www.procjam.com/} => %Q{<a href="https://www.procjam.com/">procjam.com</a>},
       %r{https://emshort.blog/} => %Q{<a href="https://emshort.blog/">emshort.blog</a>},
       %r{(?:https?://)?ifdb(?:\.tads)?\.org/?} => %Q{<a href="https://ifdb.org">ifdb.org</a>},
       %r{https?://(?:upload|www).ifarchive.org/cgi-bin/upload.py} => %Q{<a href="https://upload.ifarchive.org/cgi-bin/upload.py">https://upload.ifarchive.org/cgi-bin/upload.py</a>},
@@ -290,7 +288,7 @@ def replace_example(line, vol, monolithic = false, level: 0)
       if Conf.examples.key?(cname)
         example = Conf.examples[cname]
         target = (monolithic ? "#example_#{cname}" : "examples/#{cname}.html")
-        result << %Q{<span class="example-name"><a href="#{target}" onClick="(function() { document.getElementById('example_#{example[:cname]}').setAttribute('open','open'); return true; })();" title="#{CGI.escapeHTML(example[:desc])}">#{htmlify(word, level: level)}</a></span> #{'★' * example[:stars]}}
+        result << %Q{<span class="example-name"><a href="#{target}" title="#{CGI.escapeHTML(example[:desc])}">#{htmlify(word, level: level)}</a></span> #{'★' * example[:stars]}}
       elsif orig.match(/(Writing with Inform|The Inform Recipe Book)/)
         target = ($1 == 'Writing with Inform') ? "wi" : "rb"
         result << %Q{<a href="##{target}"><strong>#{htmlify(orig, level: level)}</strong></a>}
@@ -476,11 +474,9 @@ def read_rawtext(lines = [], filename = nil, vol = nil)
         container[:blocks] << { type: :text, content: content }
       end
     end
-#    previous_pastie = pastie if pastie
     if current_code
       current_code[:code] << '' unless !current_code[:code][-1].match(/\S/)
       pastie[:pastie] << '' if pastie and !pastie[:pastie][-1].match(/\S/)
-#      pastie[:last_codeblock] = current_code
     end
      
    current_code = nil
@@ -842,7 +838,7 @@ def print_table(f)
     f.print '<tr><td>'
     extra_columns = (max - columns.count)
     columns += ["\xC2\xA0"] * extra_columns if extra_columns > 0 # xA0 = nbsp
-    f.print columns.map {|x| htmlify(x, type: :code) }.join('</td><td>')
+    f.print columns.map {|x| htmlify(x, type: :code) }.map {|x| x.strip.gsub(/\n/,'<br>') }.join('</td><td>')
     f.print '</td></tr>'
   end
   f.puts '</table>'
@@ -907,37 +903,54 @@ def print_blocks(f, blocks, vol = nil, chapter_num = nil, section_num = nil, mon
       really_in_table = false
       in_table = false
       quotes = 0
+      prev_quotes = 0
       prev_blank = nil
-      block[:code].each.with_index do |codeline, idx|
-        codeline.gsub!(/\A\tcheck\tan actor throwing something at\t/,"check\tan actor throwing something at\t")
+      codelines = block[:code].clone
+      idx = -1
+      # while loop / shifting instead of looping with 'each' so that we can eat additional lines within the loop in case of still-open quoted texts
+      while !codelines.empty?
+        codeline = codelines.shift
+        idx += 1
+        codeline.gsub!(/\A\tcheck\tan actor throwing something at\t/,"check\tan actor throwing something at\t") # special case for example "Kyoto"/Throwing.txt
         codeline.match(/\A(\t*)(.*)/);
         indent = $1.length
         payload = $2
+        prev_quotes = quotes
+        quotes += payload.scan(/"/).count
         if really_in_table
-          if quotes.even?
-            if !payload.match(/\S/) or payload.match(/\A\s*with\s+\d+\s+blank\s+rows/i)
-              print_table(f)
-              really_in_table = false
-              in_table = false
-              quotes = 0
-              if payload.match(/\A\s*with\s+\d+\s+blank\s+rows/i)
-                f.puts %Q{<div class="codeline blankrows">#{payload}</div>}
-                f.puts %Q{<div class="codeline">&thinsp;</div>} unless (idx == (block[:code].count-1))
+          if prev_quotes.odd?
+            q = prev_quotes
+            Conf.table[-1][-1] += "\n"
+            parts = payload.split(/\t+/)
+            while !parts.empty?
+              part = parts.shift
+              Conf.table[-1][-1] += part
+              q+=part.scan(/"/).count
+              if q.even?
+                Conf.table[-1] += parts unless parts.empty?
+                break
               end
-            else
-              quotes = payload.scan(/"/).count
-              Conf.table << codeline.split(/\t+/)
             end
-          else # in table and quotes are odd
-            quotes += payload.scan(/"/).count
+            next
+          end
+          if !payload.match(/\S/) or payload.match(/\A\s*with\s+\d+\s+blank\s+rows/i)
+            print_table(f)
+            really_in_table = false
+            in_table = false
+            prev_quotes = quotes = 0
+            if payload.match(/\A\s*with\s+\d+\s+blank\s+rows/i)
+              f.puts %Q{<div class="codeline blankrows">#{payload}</div>}
+              f.puts %Q{<div class="codeline">&thinsp;</div>} unless idx == (block[:code].count - 1)
+            end
+          else
             parts = codeline.split(/\t+/)
-            Conf.table[-1][-1] += "\n" + (!parts.empty? ? parts.pop : '')
-            Conf.table[-1] += parts
+            Conf.table << parts
           end
           next
         end
-        if payload.match(/\t/)
+        if payload.match(/\t/) and !payload.blank?
           in_table = true
+          Conf.table ||= []
           Conf.table << codeline.split(/\t+/)
           next
         end
@@ -947,7 +960,8 @@ def print_blocks(f, blocks, vol = nil, chapter_num = nil, section_num = nil, mon
           f.print %Q{<div class="codeline tablename">#{htmlify(payload, type: :code)}</div>}
           in_table = true
           really_in_table = true
-          quotes = 0
+          Conf.table = []
+          prev_quotes = quotes = 0
         else
           if payload.empty?
             next if prev_blank
@@ -956,7 +970,7 @@ def print_blocks(f, blocks, vol = nil, chapter_num = nil, section_num = nil, mon
           else
             prev_blank = false
           end
-          f.puts %Q{<div class="codeline#{((idx.zero? and !block[:pastie].empty? and indent.zero? and payload.start_with?('"')) ? ' storytitle': '')}">}+('&ensp;'*(indent*2))+htmlify(payload, type: :code)+'</div>'
+          f.puts %Q{<div class="codeline#{((idx.zero? and !block[:pastie].empty? and indent.zero? and payload.start_with?('"')) ? ' storytitle': '')}">}+('&ensp;'*(indent*3))+htmlify(payload, type: :code)+'</div>'
         end
       end
       print_table(f)
@@ -1082,8 +1096,6 @@ def nav(f, page = nil, level: 0)
     el << ((k == page) ? "<strong>#{v[:name]}</strong>" : %Q{<a class="nav-el" href="#{((['..']*level)+[v[:dest]]).join('/')}">#{v[:name]}</a>})
   end
   el.each.with_index do|x,i|   f.print %Q{<div class="nav-el}
-#    f.print " leftmost" if i.zero?
-#    f.print " rightmost" if i == (el.count - 1)
     f.print %Q{">#{x}</div>}
   end 
   f.puts '</nav>'
@@ -1128,24 +1140,36 @@ def output_section(f, vol, chapter_num, section_num, monolithic = false, search:
   f.puts '</h3>'
   navbar = []
   navbar << %Q{<div class="doc-navbar"><div class="doc-navbar-left">}
-  if section_num > 1
-    prev = book[:chapters][chapter_num][:sections][section_num-1]
-    dest = search ? "#{Conf.books[vol][:abbrev]}_#{chapter_num}.html#section_#{prev[:section_num]}" : "#section_#{prev[:section_num]}"
-    navbar << %Q{<a class="nav-el" href="#{dest}" title="#{htmlify(prev[:name])}"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">#{chapter_num}.#{prev[:section_num]} #{prev[:name]}</div></a>}
+  prev = nil
+  prev = book[:chapters][chapter_num][:sections][section_num-1] if section_num > 1
+  prev ||= book[:chapters][chapter_num-1][:sections][book[:chapters][chapter_num-1][:sections].keys.max] if chapter_num > 1
+#  abbr = Conf.books[vol][:abbrev]
+  prev ||= Conf.books[:wi][:chapters][Conf.books[:wi][:chapters].keys.max][:sections][Conf.books[:wi][:chapters][Conf.books[:wi][:chapters].keys.max][:sections].keys.max] if vol == :rb
+  if !prev.blank?
+    abbr = Conf.books[prev[:vol]][:abbrev]
+    prefix = ((prev[:vol] == vol) ? '' : "#{Conf.books[Conf.books.keys.find {|x| x != vol}][:abbrev]} ")
+    dest = ((prev[:chapter_num] == chapter_num) ? "#section_#{prev[:section_num]}" : "#{abbr}_#{prev[:chapter_num]}.html#section_#{prev[:section_num]}")
+    navbar << %Q{<a class="nav-el" href="#{dest}" title="#{htmlify(prev[:name])}"><div class="nav-arrow">←#{prefix}#{prev[:chapter_num]}.#{prev[:section_num]} </div><div class="doc-navbar-text">#{htmlify(prev[:name])}</div></a>}
   else
-    navbar << %Q{<div>&nbsp;</div>}
+    navbar << %Q{<div>&thinsp;</div>}
   end
   navbar << '</div>'
-#  navbar << '<div class="doc-navbar-gap">&thinsp;</div>'
   dest = search ? "#{Conf.books[vol][:abbrev]}_#{chapter_num}.html" : "#chapter_#{chapter_num}"
-  navbar << %Q{<div class="doc-navbar-center"><a class="nav-el" href="#{dest}"><div class="nav-arrow">↑</div><div class="doc-navbar-text">#{chapter_num}. #{book[:chapters][chapter_num][:name]}</div></a></div>}
-#  navbar << '<div class="doc-navbar-gap">&thinsp;</div>'
+  navbar << %Q{<div class="doc-navbar-center"><a class="nav-el" href="#{dest}"><div class="nav-arrow">↑#{chapter_num}. </div><div class="doc-navbar-text">#{book[:chapters][chapter_num][:name]}</div></a></div>}
   navbar << %Q{<div class="doc-navbar-right">}
   if book[:chapters][chapter_num][:sections].key?(section_num+1)
     dest = search ? "#{Conf.books[vol][:abbrev]}_#{chapter_num}.html#section_#{section_num+1}" : "#section_#{section_num+1}"
-    navbar << %Q{<a class="nav-el" href="#{dest}"><div class="doc-navbar-text">#{chapter_num}.#{section_num+1} #{book[:chapters][chapter_num][:sections][section_num+1][:name]}</div>&thinsp;<div class="nav-arrow">→</div></a></div>}
+    navbar << %Q{<a class="nav-el" href="#{dest}"><div class="doc-navbar-text">#{book[:chapters][chapter_num][:sections][section_num+1][:name]}</div><div class="nav-arrow">#{chapter_num}.#{section_num+1}→</div></a></div>}
+  elsif book[:chapters].key?(chapter_num+1)
+    dest = "#{Conf.books[vol][:abbrev]}_#{chapter_num+1}.html"
+    ch_name = htmlify(book[:chapters][chapter_num+1][:name])
+    navbar << %Q{<a class="nav-el" href="#{dest}" title="#{ch_name}"><div class="doc-navbar-text">#{ch_name}</div><div class="nav-arrow">#{chapter_num+1}.→</div></a></div>}
+  elsif vol == :wi
+    dest = "#{Conf.books[:rb][:abbrev]}_1.html"
+    ch_name = htmlify(Conf.books[:rb][:chapters][1][:name])
+    navbar << %Q{<a class="nav-el" href="#{dest}" title="#{ch_name}"><div class="doc-navbar-text">#{ch_name}</div><div class="nav-arrow">RB 1.→</div></a></div>}
   else
-    navbar << %Q{<div>&nbsp;</div>}
+    navbar << %Q{<div class="doc-navbar-text finit">Finit</div>}
   end
   navbar << %Q{</div></div>}
   f.puts(navbar.join(''))
@@ -1235,7 +1259,6 @@ def output_examples(monolithic = false)
           navbar << '<div class="doc-navbar-right">'
           following = Conf.subnames[example[:subname]][example[:subnum]+1]
           navbar << %Q{<a class="nav-el" href="#{following[:cname]}.html" title="#{htmlify(following[:desc])}"><div class="doc-navbar-text">#{following[:example_num]}. #{following[:name]}</div> <div class="nav-arrow">→</div></a></div>}
-#          navbar << %Q{<a title="#{htmlify(following[:desc])}" href="#{following[:cname]}.html">#{following[:example_num]}. #{following[:name]}</a>}
           have_linked_to[following[:example_num]] = true
           navbar << '</div>'
         end
@@ -1246,7 +1269,6 @@ def output_examples(monolithic = false)
       if example[:example_num] > 1
         prev = Conf.examples_by_num[example[:example_num]-1]
         navbar << %Q{<a class="nav-el" href="#{prev[:cname]}.html" title="#{htmlify(prev[:desc])}"><div class="nav-arrow">←</div> <div class="doc-navbar-text">#{prev[:example_num]}. #{prev[:name]}</div></a>} unless have_linked_to[prev[:example_num]]
-#        navbar << %Q{<a href="#{prev[:cname]}.html" title="#{htmlify(prev[:desc])}">#{prev[:example_num]}. #{prev[:name]}</a>} 
       end
       navbar << '</div>'
       navbar << %Q{<div class="doc-navbar-center">&thinsp;</div>}
@@ -1254,14 +1276,14 @@ def output_examples(monolithic = false)
       if Conf.examples_by_num.key?(example[:example_num] + 1)
         following = Conf.examples_by_num[example[:example_num]+1]
         navbar << %Q{<div class="doc-navbar-right"><a class="nav-el" href="#{following[:cname]}.html" title="#{htmlify(following[:desc])}"><div class="doc-navbar-text">#{following[:example_num]}. #{following[:name]}</div> <div class="nav-arrow">→</div></a></div>} unless have_linked_to[following[:example_num]]
-        #navbar << %Q{<div class="doc-navbar-right"><a href="#{following[:cname]}.html" title="#{htmlify(following[:desc])}">#{following[:example_num]}. #{following[:name]}</a></div>} unless have_linked_to[following[:example_num]]
+      else
+        navbar << %Q{<div class="doc-navbar-right finit">Finit</div>}
       end
       navbar << '</div>'
       f.puts navbar.join('')
       f.puts '</header>'
       print_blocks(f, example[:body][:blocks], level: 1)
       f.puts navbar.join('')
-#      nav(f, level: 1)
       footer(f, level: 1)
       f.puts '</body></html>'
     end
@@ -1319,7 +1341,6 @@ def output_toc(monolithic = false)
       f.puts '</div>'
     end
     f.puts '</div></main>'
-#    nav(f, :toc)
     footer(f, css: "toc-er", page: :toc)
     f.puts '</body></html>'
   end
@@ -1338,7 +1359,6 @@ def output_search
         output_chapter(f, vol, chapter_num, search: true)
       end
     end
-#    nav(f, :search)
     footer(f, page: :search)
     f.puts %Q{</body></html>}
   end
@@ -1375,6 +1395,11 @@ def output_chapter(f, vol, chapter_num, monolithic = false, search: false)
     navbar << %Q{<div class="doc-navbar"><div class="doc-navbar-left">}
     if chapter_num > 1
       navbar << %Q{<a class="nav-el" href="#{book[:abbrev]}_#{chapter_num-1}.html"><div class="nav-arrow">←</div> <div class="doc-navbar-text">#{chapter_num-1}. #{book[:chapters][chapter_num-1][:name]}</div></a>}
+    elsif :rb == vol
+      last_ch = Conf.books[:wi][:chapters][Conf.books[:wi][:chapters].keys.max]
+      dest = "#{Conf.books[:wi][:abbrev]}_#{last_ch[:chapter_num]}.html"
+      ch_name = htmlify(last_ch[:name])
+      navbar << %Q{<a class="nav-el" href="#{dest}" title="#{ch_name}"><div class="nav-arrow">←WI #{last_ch[:chapter_num]}.</div><div class="doc-navbar-text">#{ch_name}</div></a>}
     else
       navbar << %Q{<span class="hidden">0</span>}
     end
@@ -1383,9 +1408,12 @@ def output_chapter(f, vol, chapter_num, monolithic = false, search: false)
     navbar << %Q{<div class="doc-navbar-right">}
     if book[:chapters].key?(chapter_num+1) 
         navbar << %Q{<a class="nav-el" href="#{book[:abbrev]}_#{chapter_num+1}.html"><div class="doc-navbar-text">#{chapter_num+1}. #{book[:chapters][chapter_num+1][:name]}</div> <div class="nav-arrow">→</div></a>}
-        #    navbar << %Q{<a href="#{book[:abbrev]}_#{chapter_num+1}.html">#{chapter_num+1}. #{book[:chapters][chapter_num+1][:name]}</a>} 
+    elsif :wi == vol
+      dest = "#{Conf.books[:rb][:abbrev]}_1.html"
+      ch_name = htmlify(Conf.books[:rb][:chapters][1][:name])
+      navbar << %Q{<a class="nav-el" href="#{dest}" title="#{ch_name}"><div class="doc-navbar-text">#{ch_name}</div><div class="nav-arrow">RB 1.→</div></a></div>}
     else
-      navbar << %Q{<div class="nav-el"><span class="hidden">0</span></div>}
+      navbar << %Q{<div class="finit">Finit</div>}
     end
     navbar <<  %Q{</div></div>}
     f.puts navbar.join('')
@@ -1429,7 +1457,6 @@ def output_general_index(monolithic = false)
     f.puts %Q{</header><main>}
     print_index(f, monolithic)
     f.puts '</main>'
-#    nav(f, :general_index)
     footer(f, page: :general_index)
     f.puts"</body></html>"
   end

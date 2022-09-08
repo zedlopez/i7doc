@@ -18,41 +18,41 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex405">Play/modify Feline Behavior in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Feline/index.html">Play Feline Behavior in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Feline Behavior&quot;\n\nThe Kitchen is a room. The cat is an animal in the Kitchen. In the Kitchen is a bowl, a ball of wool, a newspaper. The bowl contains a quantity of cream.\n\nThe cat is wearing a silver collar. The description of the cat is &quot;It is wearing [a list of things worn by the cat].&quot;\n\nThe player carries a closed openable container called a bag. The bag contains catnip.\n\nThe cat behavior rules is a rulebook producing an object.\n\nA cat behavior rule when the cat can touch the catnip:\n\tsay &quot;The cat frolics with the catnip until nothing remains of it.&quot;;\n\trule succeeds with result catnip.\n\nA cat behavior rule when the cat can touch the cream:\n\tsay &quot;The cat laps up the cream.&quot;;\n\trule succeeds with result cream.\n\nA cat behavior rule when the cat can touch the ball of wool:\n\tsay &quot;The cat makes the ball of wool into a useless tangle which must be discarded.&quot;;\n\trule succeeds with result ball.\n\nA cat behavior rule when the cat can touch the newspaper:\n\tsay &quot;The cat bats playfully at the newspaper until all the nasty boring articles are destroyed.&quot;;\n\trule succeeds with result newspaper.\n\nA cat behavior rule:\n\tsay &quot;The cat looks miffed at the lack of ready entertainment, and glares at you with yellow eyes as though wondering whether your pants leg is good for claw-sharpening.&quot;;\n\trule fails.\n\nEvery turn:\n\tlet the destroyed object be the object produced by the cat behavior rules;\n\tif the destroyed object is not nothing:\n\t\tnow the destroyed object is nowhere;\n\t\tsay &quot;[line break]Good thing you have no use for [the destroyed object] yourself.[paragraph break]&quot;.\n\nTest me with &quot;z / z / open bag / z / z&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Feline Behavior&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Kitchen is a room. The cat is an animal in the Kitchen. In the Kitchen is a bowl, a ball of wool, a newspaper. The bowl contains a quantity of cream.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The cat is wearing a silver collar. The description of the cat is &quot;It is wearing [a list of things worn by the cat].&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The player carries a closed openable container called a bag. The bag contains catnip.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The cat behavior rules is a rulebook producing an object.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A cat behavior rule when the cat can touch the catnip:</div>
-<div class="codeline">&ensp;&ensp;say &quot;The cat frolics with the catnip until nothing remains of it.&quot;;</div>
-<div class="codeline">&ensp;&ensp;rule succeeds with result catnip.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;The cat frolics with the catnip until nothing remains of it.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;rule succeeds with result catnip.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A cat behavior rule when the cat can touch the cream:</div>
-<div class="codeline">&ensp;&ensp;say &quot;The cat laps up the cream.&quot;;</div>
-<div class="codeline">&ensp;&ensp;rule succeeds with result cream.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;The cat laps up the cream.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;rule succeeds with result cream.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A cat behavior rule when the cat can touch the ball of wool:</div>
-<div class="codeline">&ensp;&ensp;say &quot;The cat makes the ball of wool into a useless tangle which must be discarded.&quot;;</div>
-<div class="codeline">&ensp;&ensp;rule succeeds with result ball.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;The cat makes the ball of wool into a useless tangle which must be discarded.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;rule succeeds with result ball.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A cat behavior rule when the cat can touch the newspaper:</div>
-<div class="codeline">&ensp;&ensp;say &quot;The cat bats playfully at the newspaper until all the nasty boring articles are destroyed.&quot;;</div>
-<div class="codeline">&ensp;&ensp;rule succeeds with result newspaper.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;The cat bats playfully at the newspaper until all the nasty boring articles are destroyed.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;rule succeeds with result newspaper.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A cat behavior rule:</div>
-<div class="codeline">&ensp;&ensp;say &quot;The cat looks miffed at the lack of ready entertainment, and glares at you with yellow eyes as though wondering whether your pants leg is good for claw-sharpening.&quot;;</div>
-<div class="codeline">&ensp;&ensp;rule fails.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;The cat looks miffed at the lack of ready entertainment, and glares at you with yellow eyes as though wondering whether your pants leg is good for claw-sharpening.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;rule fails.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Every turn:</div>
-<div class="codeline">&ensp;&ensp;let the destroyed object be the object produced by the cat behavior rules;</div>
-<div class="codeline">&ensp;&ensp;if the destroyed object is not nothing:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;now the destroyed object is nowhere;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;[line break]Good thing you have no use for [the destroyed object] yourself.[paragraph break]&quot;.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let the destroyed object be the object produced by the cat behavior rules;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the destroyed object is not nothing:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the destroyed object is nowhere;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[line break]Good thing you have no use for [the destroyed object] yourself.[paragraph break]&quot;.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;z / z / open bag / z / z&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "z / z / open bag / z / z".</summary><div class="testme-output">Kitchen<br>You can see a cat, a bowl (in which is a quantity of cream), a ball of wool and a newspaper here.<br><br>&gt;(Testing.)<br><br>&gt;[1] z<br>Time passes.<br><br>The cat laps up the cream.<br><br>Good thing you have no use for the quantity of cream yourself.<br><br>&gt;[2] z<br>Time passes.<br><br>The cat makes the ball of wool into a useless tangle which must be discarded.<br><br>Good thing you have no use for the ball of wool yourself.<br><br>&gt;[3] open bag<br>You open the bag, revealing catnip.<br><br>The cat frolics with the catnip until nothing remains of it.<br><br>Good thing you have no use for catnip yourself.<br><br>&gt;[4] z<br>Time passes.<br><br>The cat bats playfully at the newspaper until all the nasty boring articles are destroyed.<br><br>Good thing you have no use for the newspaper yourself.<br><br>&gt;[5] z<br>Time passes.<br><br>The cat looks miffed at the lack of ready entertainment, and glares at you with yellow eyes as though wondering whether your pants leg is good for claw-sharpening.
 </div></details><p>We include the if rule succeeded&hellip; condition here because nothing will be returned if the cat&#39;s search failed (as for instance in the result of the final rule).</p>

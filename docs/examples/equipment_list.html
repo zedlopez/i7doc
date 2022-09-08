@@ -30,70 +30,70 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex177">Play/modify Equipment List in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Equipment/index.html">Play Equipment List in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Equipment List&quot;\n\nThe Watery Room is a room. The player carries a snorkel and a waterproof sack. The waterproof sack contains an undersea map, a diving guide, a cup, and 500 Argentine pesos. The cup contains a worm. The player wears a swimsuit and a pair of flippers. The sack is openable and open.\n\nInventory listing style is a kind of value. The inventory listing styles are tall, wide, curt, minimal, divided tall, and divided wide. Current inventory listing style is an inventory listing style that varies.\n\nUnderstand &quot;inventory [inventory listing style]&quot; as requesting styled inventory. Requesting styled inventory is an action applying to an inventory listing style. It is an action out of world.\n\nCarry out requesting styled inventory:\n\tnow current inventory listing style is the inventory listing style understood.\n\nReport requesting styled inventory:\n\tsay &quot;Inventory listing is now set to [current inventory listing style].&quot;\n\n\nInstead of taking inventory when current inventory listing style is tall:\n\tif the number of things enclosed by the player is 0, say &quot;You are empty-handed.&quot; instead;\n\tsay &quot;You are carrying: [line break]&quot;;\n\tlist the contents of the player, with newlines, indented, giving inventory information, including contents, with extra indentation.\n\n\nInstead of taking inventory when current inventory listing style is wide:\n\tif the number of things enclosed by the player is 0, say &quot;You are empty-handed.&quot; instead;\n\tsay &quot;You are carrying &quot;;\n\tlist the contents of the player, giving inventory information, as a sentence, including contents;\n\tsay &quot;.&quot;\n\n\nInstead of taking inventory when current inventory listing style is curt:\n\tif the number of things enclosed by the player is 0, say &quot;You are empty-handed.&quot; instead;\n\tsay &quot;You are carrying &quot;;\n\tlist the contents of the player, tersely, giving brief inventory information, as a sentence, including contents;\n\tsay &quot;.&quot;\n\n\nInstead of taking inventory when current inventory listing style is minimal:\n\tif the number of things enclosed by the player is 0, say &quot;You are empty-handed.&quot; instead;\n\tsay &quot;You are carrying &quot;;\n\tlist the contents of the player, tersely, as a sentence, including contents;\n\tsay &quot;.&quot;\n\n\nInstead of taking inventory when the current inventory listing style is divided wide:\n\tif the number of things enclosed by the player is 0, say &quot;You are empty-handed.&quot; instead;\n\tsay &quot;You are wearing &quot;;\n\tnow all things enclosed by the player are unmarked for listing;\n\tnow all things worn by the player are marked for listing;\n\tif no things worn by the player are marked for listing, say &quot;nothing&quot;;\n\totherwise list the contents of the player, as a sentence, listing marked items only;\n\tsay &quot;.[paragraph break]&quot;;\n\tsay &quot;You are carrying &quot;;\n\tnow all things carried by the player are marked for listing;\n\tnow all things worn by the player are unmarked for listing;\n\tif no things carried by the player are marked for listing, say &quot;nothing&quot;;\n\totherwise list the contents of the player, as a sentence, tersely, giving brief inventory information, listing marked items only;\n\tsay &quot;.[paragraph break]&quot;.\n\n\nInstead of taking inventory when the current inventory listing style is divided tall:\n\tif the number of things enclosed by the player is 0, say &quot;You are empty-handed.&quot; instead;\n\tif the player carries something:\n\t\tnow all things enclosed by the player are unmarked for listing;\n\t\tnow all things carried by the player are marked for listing;\n\t\tsay &quot;You are carrying: [line break]&quot;;\n\t\tlist the contents of the player, with newlines, indented, giving inventory information, including contents, with extra indentation, listing marked items only;\n\tif the player wears something:\n\t\tnow all things enclosed by the player are unmarked for listing;\n\t\tnow all things worn by the player are marked for listing;\n\t\tsay &quot;You are wearing: [line break]&quot;;\n\t\tlist the contents of the player, with newlines, indented, including contents, with extra indentation, listing marked items only.\n\nTest me with &quot;i / inventory wide / i / inventory curt / i / close sack / i / open sack / inventory minimal / i / close sack / i / open sack / inventory divided wide / i / inventory divided tall / i / drop all / i / take all / take off swimsuit / take off flippers / i / i divided wide / i / wear swimsuit / drop all / i&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Equipment List&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Watery Room is a room. The player carries a snorkel and a waterproof sack. The waterproof sack contains an undersea map, a diving guide, a cup, and 500 Argentine pesos. The cup contains a worm. The player wears a swimsuit and a pair of flippers. The sack is openable and open.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Inventory listing style is a kind of value. The inventory listing styles are tall, wide, curt, minimal, divided tall, and divided wide. Current inventory listing style is an inventory listing style that varies.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Understand &quot;inventory [inventory listing style]&quot; as requesting styled inventory. Requesting styled inventory is an action applying to an inventory listing style. It is an action out of world.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Carry out requesting styled inventory:</div>
-<div class="codeline">&ensp;&ensp;now current inventory listing style is the inventory listing style understood.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now current inventory listing style is the inventory listing style understood.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Report requesting styled inventory:</div>
-<div class="codeline">&ensp;&ensp;say &quot;Inventory listing is now set to [current inventory listing style].&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Inventory listing is now set to [current inventory listing style].&quot;</div>
 </div><p>We begin by emulating the standard inventory listing style:</p>
 <div class="codeblock"><div class="codeline">Instead of taking inventory when current inventory listing style is tall:</div>
-<div class="codeline">&ensp;&ensp;if the number of things enclosed by the player is 0, say &quot;You are empty-handed.&quot; instead;</div>
-<div class="codeline">&ensp;&ensp;say &quot;You are carrying: [line break]&quot;;</div>
-<div class="codeline">&ensp;&ensp;list the contents of the player, with newlines, indented, giving inventory information, including contents, with extra indentation.</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the number of things enclosed by the player is 0, say &quot;You are empty-handed.&quot; instead;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You are carrying: [line break]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;list the contents of the player, with newlines, indented, giving inventory information, including contents, with extra indentation.</div>
 </div><p>Here we offer the alternative of listing everything together as a paragraph:</p>
 <div class="codeblock"><div class="codeline">Instead of taking inventory when current inventory listing style is wide:</div>
-<div class="codeline">&ensp;&ensp;if the number of things enclosed by the player is 0, say &quot;You are empty-handed.&quot; instead;</div>
-<div class="codeline">&ensp;&ensp;say &quot;You are carrying &quot;;</div>
-<div class="codeline">&ensp;&ensp;list the contents of the player, giving inventory information, as a sentence, including contents;</div>
-<div class="codeline">&ensp;&ensp;say &quot;.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the number of things enclosed by the player is 0, say &quot;You are empty-handed.&quot; instead;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You are carrying &quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;list the contents of the player, giving inventory information, as a sentence, including contents;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;.&quot;</div>
 </div><p>This may be unsatisfactory, however. Items that are inside other items are not set off from those merely carried by the player. One way around this is to use terse listing, giving such descriptions as &quot;a waterproof sack (in which are an undersea map, a diving guide, a cup (in which is a worm) and a 500 Argentine pesos)&quot; as opposed to the more confusing &quot; a waterproof sack (open), inside which are an undersea map, a diving guide, a cup, inside which is a worm and a 500 Argentine pesos&quot;.</p>
 <div class="codeblock"><div class="codeline">Instead of taking inventory when current inventory listing style is curt:</div>
-<div class="codeline">&ensp;&ensp;if the number of things enclosed by the player is 0, say &quot;You are empty-handed.&quot; instead;</div>
-<div class="codeline">&ensp;&ensp;say &quot;You are carrying &quot;;</div>
-<div class="codeline">&ensp;&ensp;list the contents of the player, tersely, giving brief inventory information, as a sentence, including contents;</div>
-<div class="codeline">&ensp;&ensp;say &quot;.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the number of things enclosed by the player is 0, say &quot;You are empty-handed.&quot; instead;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You are carrying &quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;list the contents of the player, tersely, giving brief inventory information, as a sentence, including contents;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;.&quot;</div>
 </div><p>If, using the above style, we close the sack, we will still get &quot;(closed)&quot; after the sack&#39;s listing. The following minimalist listing style abolishes even that nicety:</p>
 <div class="codeblock"><div class="codeline">Instead of taking inventory when current inventory listing style is minimal:</div>
-<div class="codeline">&ensp;&ensp;if the number of things enclosed by the player is 0, say &quot;You are empty-handed.&quot; instead;</div>
-<div class="codeline">&ensp;&ensp;say &quot;You are carrying &quot;;</div>
-<div class="codeline">&ensp;&ensp;list the contents of the player, tersely, as a sentence, including contents;</div>
-<div class="codeline">&ensp;&ensp;say &quot;.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the number of things enclosed by the player is 0, say &quot;You are empty-handed.&quot; instead;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You are carrying &quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;list the contents of the player, tersely, as a sentence, including contents;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;.&quot;</div>
 </div><p>If we want to list worn things separately from carried things, we have occasion to put &quot;listing marked items only&quot; to work:</p>
 <div class="codeblock"><div class="codeline">Instead of taking inventory when the current inventory listing style is divided wide:</div>
-<div class="codeline">&ensp;&ensp;if the number of things enclosed by the player is 0, say &quot;You are empty-handed.&quot; instead;</div>
-<div class="codeline">&ensp;&ensp;say &quot;You are wearing &quot;;</div>
-<div class="codeline">&ensp;&ensp;now all things enclosed by the player are unmarked for listing;</div>
-<div class="codeline">&ensp;&ensp;now all things worn by the player are marked for listing;</div>
-<div class="codeline">&ensp;&ensp;if no things worn by the player are marked for listing, say &quot;nothing&quot;;</div>
-<div class="codeline">&ensp;&ensp;otherwise list the contents of the player, as a sentence, listing marked items only;</div>
-<div class="codeline">&ensp;&ensp;say &quot;.[paragraph break]&quot;;</div>
-<div class="codeline">&ensp;&ensp;say &quot;You are carrying &quot;;</div>
-<div class="codeline">&ensp;&ensp;now all things carried by the player are marked for listing;</div>
-<div class="codeline">&ensp;&ensp;now all things worn by the player are unmarked for listing;</div>
-<div class="codeline">&ensp;&ensp;if no things carried by the player are marked for listing, say &quot;nothing&quot;;</div>
-<div class="codeline">&ensp;&ensp;otherwise list the contents of the player, as a sentence, tersely, giving brief inventory information, listing marked items only;</div>
-<div class="codeline">&ensp;&ensp;say &quot;.[paragraph break]&quot;.</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the number of things enclosed by the player is 0, say &quot;You are empty-handed.&quot; instead;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You are wearing &quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now all things enclosed by the player are unmarked for listing;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now all things worn by the player are marked for listing;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if no things worn by the player are marked for listing, say &quot;nothing&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise list the contents of the player, as a sentence, listing marked items only;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;.[paragraph break]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You are carrying &quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now all things carried by the player are marked for listing;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now all things worn by the player are unmarked for listing;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if no things carried by the player are marked for listing, say &quot;nothing&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise list the contents of the player, as a sentence, tersely, giving brief inventory information, listing marked items only;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;.[paragraph break]&quot;.</div>
 </div><p>And similarly for a tall divided inventory:</p>
 <div class="codeblock"><div class="codeline">Instead of taking inventory when the current inventory listing style is divided tall:</div>
-<div class="codeline">&ensp;&ensp;if the number of things enclosed by the player is 0, say &quot;You are empty-handed.&quot; instead;</div>
-<div class="codeline">&ensp;&ensp;if the player carries something:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;now all things enclosed by the player are unmarked for listing;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;now all things carried by the player are marked for listing;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;You are carrying: [line break]&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;list the contents of the player, with newlines, indented, giving inventory information, including contents, with extra indentation, listing marked items only;</div>
-<div class="codeline">&ensp;&ensp;if the player wears something:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;now all things enclosed by the player are unmarked for listing;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;now all things worn by the player are marked for listing;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;You are wearing: [line break]&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;list the contents of the player, with newlines, indented, including contents, with extra indentation, listing marked items only.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the number of things enclosed by the player is 0, say &quot;You are empty-handed.&quot; instead;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the player carries something:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now all things enclosed by the player are unmarked for listing;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now all things carried by the player are marked for listing;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;You are carrying: [line break]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;list the contents of the player, with newlines, indented, giving inventory information, including contents, with extra indentation, listing marked items only;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the player wears something:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now all things enclosed by the player are unmarked for listing;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now all things worn by the player are marked for listing;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;You are wearing: [line break]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;list the contents of the player, with newlines, indented, including contents, with extra indentation, listing marked items only.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;i / inventory wide / i / inventory curt / i / close sack / i / open sack / inventory minimal / i / close sack / i / open sack / inventory divided wide / i / inventory divided tall / i / drop all / i / take all / take off swimsuit / take off flippers / i / i divided wide / i / wear swimsuit / drop all / i&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "i / inventory wide / i / inventory curt / i / close sack / i / open sack / inventory minimal / i / close sack / i / open sack / inventory divided wide / i / inventory divided tall / i / drop all / i / take all / take off swimsuit / take off flippers / i / i divided wide / i / wear swimsuit / drop all / i".</summary><div class="testme-output">Watery Room<br><br>&gt;(Testing.)<br><br>&gt;[1] i<br>You are carrying:<br>  a snorkel<br>  a waterproof sack (open)<br>    an undersea map<br>    a diving guide<br>    a cup<br>      a worm<br>    500 Argentine pesos<br>  a swimsuit (being worn)<br>  a pair of flippers (being worn)<br><br>&gt;[2] inventory wide<br>Inventory listing is now set to wide.<br><br>&gt;[3] i<br>You are carrying a snorkel, a waterproof sack (open), inside which are an undersea map, a diving guide, a cup, inside which is a worm and 500 Argentine pesos, a swimsuit (being worn) and a pair of flippers (being worn).<br><br>&gt;[4] inventory curt<br>Inventory listing is now set to curt.<br><br>&gt;[5] i<br>You are carrying a snorkel, a waterproof sack (in which are an undersea map, a diving guide, a cup (in which is a worm) and 500 Argentine pesos), a swimsuit and a pair of flippers.<br><br>&gt;[6] close sack<br>You close the waterproof sack.<br><br>&gt;[7] i<br>You are carrying a snorkel, a waterproof sack (closed), a swimsuit and a pair of flippers.<br><br>&gt;[8] open sack<br>You open the waterproof sack, revealing an undersea map, a diving guide, a cup and 500 Argentine pesos.<br><br>&gt;[9] inventory minimal<br>Inventory listing is now set to minimal.<br><br>&gt;[10] i<br>You are carrying a snorkel, a waterproof sack (in which are an undersea map, a diving guide, a cup (in which is a worm) and 500 Argentine pesos), a swimsuit and a pair of flippers.<br><br>&gt;[11] close sack<br>You close the waterproof sack.<br><br>&gt;[12] i<br>You are carrying a snorkel, a waterproof sack, a swimsuit and a pair of flippers.<br><br>&gt;[13] open sack<br>You open the waterproof sack, revealing an undersea map, a diving guide, a cup and 500 Argentine pesos.<br><br>&gt;[14] inventory divided wide<br>Inventory listing is now set to divided wide.<br><br>&gt;[15] i<br>You are wearing a swimsuit and a pair of flippers.<br><br>You are carrying a snorkel and a waterproof sack.<br><br>&gt;[16] inventory divided tall<br>Inventory listing is now set to divided tall.<br><br>&gt;[17] i<br>You are carrying:<br>  a snorkel<br>  a waterproof sack (open)<br>    an undersea map<br>    a diving guide<br>    a cup<br>      a worm<br>    500 Argentine pesos<br>You are wearing:<br>  a swimsuit<br>  a pair of flippers<br><br>&gt;[18] drop all<br>snorkel: Dropped.<br>waterproof sack: Dropped.<br><br>&gt;[19] i<br>You are wearing:<br>  a swimsuit<br>  a pair of flippers<br><br>&gt;[20] take all<br>waterproof sack: Taken.<br>snorkel: Taken.<br>undersea map: Taken.<br>diving guide: Taken.<br>cup: Taken.<br>worm: Taken.<br>500 Argentine pesos: Taken.<br><br>&gt;[21] take off swimsuit<br>You take off the swimsuit.<br><br>&gt;[22] take off flippers<br>You take off the pair of flippers.<br><br>&gt;[23] i<br>You are carrying:<br>  500 Argentine pesos<br>  a worm<br>  a cup<br>  a diving guide<br>  an undersea map<br>  a snorkel<br>  a waterproof sack (open but empty)<br>  a swimsuit<br>  a pair of flippers<br><br>&gt;[24] i divided wide<br>Inventory listing is now set to divided wide.<br><br>&gt;[25] i<br>You are wearing nothing.<br><br>You are carrying 500 Argentine pesos, a worm, a cup (empty), a diving guide, an undersea map, a snorkel, a waterproof sack (empty), a swimsuit and a pair of flippers.<br><br>&gt;[26] wear swimsuit<br>You put on the swimsuit.<br><br>&gt;[27] drop all<br>500 Argentine pesos: Dropped.<br>worm: Dropped.<br>cup: Dropped.<br>diving guide: Dropped.<br>undersea map: Dropped.<br>snorkel: Dropped.<br>waterproof sack: Dropped.<br>pair of flippers: Dropped.<br><br>&gt;[28] i<br>You are wearing a swimsuit.<br><br>You are carrying nothing.
 </div></details><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="strictly_ballroom.html" title="People who select partners for dance lessons each turn."><div class="nav-arrow">←</div> <div class="doc-navbar-text">176. Strictly Ballroom</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="m_melmoths_duel.html" title="Three basic ways to inject random or not-so-random variations into text."><div class="doc-navbar-text">178. M. Melmoth's Duel</div> <div class="nav-arrow">→</div></a></div></div>

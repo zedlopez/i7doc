@@ -19,19 +19,19 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex384">Play/modify Finality in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Finality/index.html">Play Finality in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Finality&quot;\n\nCliff Edge is a room. &quot;This narrow strip overlooks a gorge many hundreds of feet deep, at whose bottom is a river of molten lava. The walls of the gorge are lined with poison-tipped spikes. Furthermore, the birds that inhabit this valley spit balls of fire. Good thing you&apos;re safe up here.&quot;\n\n\nWhen play begins:\n\tchoose row with a final response rule of immediately undo rule in the Table of Final Question Options;\n\tblank out the final question wording entry.\n\nInstead of jumping:\n\tsay &quot;If you insist.&quot;;\n\tend the story.\n\n\nUse undo prevention.\n\nTest me with &quot;jump&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Finality&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Cliff Edge is a room. &quot;This narrow strip overlooks a gorge many hundreds of feet deep, at whose bottom is a river of molten lava. The walls of the gorge are lined with poison-tipped spikes. Furthermore, the birds that inhabit this valley spit balls of fire. Good thing you&#39;re safe up here.&quot;</div>
 </div><p>The Table of Final Question Options determines what options are to be given to the player after the story ends. We can change what is mentioned there by altering the entries. (The example Jamaica 1688 explains this table in more detail, and demonstrates some other things that we might do with it.)</p>
 <div class="codeblock"><div class="codeline">When play begins:</div>
-<div class="codeline">&ensp;&ensp;choose row with a final response rule of immediately undo rule in the Table of Final Question Options;</div>
-<div class="codeline">&ensp;&ensp;blank out the final question wording entry.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;choose row with a final response rule of immediately undo rule in the Table of Final Question Options;</div>
+<div class="codeline">&ensp;&ensp;&ensp;blank out the final question wording entry.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of jumping:</div>
-<div class="codeline">&ensp;&ensp;say &quot;If you insist.&quot;;</div>
-<div class="codeline">&ensp;&ensp;end the story.</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;If you insist.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;end the story.</div>
 </div><p>And if we decided that we didn&#39;t want the player to be able to undo the command at all, we should add the use option</p>
 <div class="codeblock"><div class="codeline">Use undo prevention.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;jump&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "jump".</summary><div class="testme-output">Cliff Edge<br>This narrow strip overlooks a gorge many hundreds of feet deep, at whose bottom is a river of molten lava. The walls of the gorge are lined with poison-tipped spikes. Furthermore, the birds that inhabit this valley spit balls of fire. Good thing you&#39;re safe up here.<br><br>&gt;(Testing.)<br><br>&gt;[1] jump<br>If you insist.<br><br><br><br>    *** The End ***<br><br><br><br><br>Would you like to RESTART, RESTORE a saved game or QUIT?
 </div></details><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="battle_of_ridgefield.html" title="Completely replacing the endgame text and stopping the game without giving the player a chance to restart or restore."><div class="nav-arrow">←</div> <div class="doc-navbar-text">383. Battle of Ridgefield</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="jamaica1688.html" title="Adding a feature to the final question after victory, so that the player can choose to reveal notes about items in the game."><div class="doc-navbar-text">385. Jamaica 1688</div> <div class="nav-arrow">→</div></a></div></div>

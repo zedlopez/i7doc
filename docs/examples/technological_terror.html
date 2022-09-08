@@ -17,36 +17,36 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex127">Play/modify Technological Terror in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Raygun/index.html">Play Technological Terror in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Technological Terror&quot;\n\nThe Decomposition Ray Gun is a thing carried by the player.\n\n\nShooting it with is an action applying to two things.\n\nCheck shooting something with something:\n\tif the player is not carrying the Ray Gun, say &quot;You are pathetically unarmed!&quot; instead;\n\tif the second noun is not the Ray Gun, say &quot;[The second noun] does not fire.&quot; instead;\n\tif the noun is the Ray Gun, say &quot;Nice trick if you can do it!&quot; instead;\n\tif the noun is the player, say &quot;That would be disastrous!&quot; instead.\n\n\nUnderstand &quot;shoot [gun] at [something ungunlike]&quot; as shooting it with (with nouns reversed).\n\nDefinition: a thing is ungunlike if it is not the gun.\n\nUnderstand &quot;shoot [something ungunlike] with [gun]&quot; as shooting it with. Understand &quot;shoot [something] with [something]&quot; as shooting it with.\n\nUnderstand &quot;shoot [something] at [something]&quot; as shooting it with (with nouns reversed). Understand &quot;fire [gun] at [something ungunlike]&quot; as shooting it with (with nouns reversed). Understand &quot;fire at [something ungunlike] with [gun]&quot; as shooting it with. Understand &quot;fire at [something] with [something]&quot; as shooting it with.\n\n\nCarry out shooting something with something:\n\tsay &quot;ZAP! [The noun] twinkles out of existence! [if something is part of the noun][The list of things which are part of the noun] clatter to the ground! [end if][paragraph break]&quot;;\n\tnow every thing which is part of the noun is in the location;\n\tnow the noun is nowhere.\n\nThe Deathbot Assembly Line is a room. &quot;Here is the heart of the whole operation, where your opponents are assembled fresh from scrap metal and bits of old car.&quot; The dangerous robot is a thing in the Assembly Line. &quot;One dangerous robot looks ready to take you on!&quot; A robotic head, a drill arm, a needle arm, a crushing leg and a kicking leg are parts of the dangerous robot.\n\nInstead of examining something when something is part of the noun:\n\tsay &quot;[The noun] consists of [a list of things which are part of the noun].&quot;\n\nTest me with &quot;x robot / shoot robot / fire at kicking leg / shoot gun at drill arm / look&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Technological Terror&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Decomposition Ray Gun is a thing carried by the player.</div>
 </div><p>First we need to define our shooting action:</p>
 <div class="codeblock"><div class="codeline">Shooting it with is an action applying to two things.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Check shooting something with something:</div>
-<div class="codeline">&ensp;&ensp;if the player is not carrying the Ray Gun, say &quot;You are pathetically unarmed!&quot; instead;</div>
-<div class="codeline">&ensp;&ensp;if the second noun is not the Ray Gun, say &quot;[The second noun] does not fire.&quot; instead;</div>
-<div class="codeline">&ensp;&ensp;if the noun is the Ray Gun, say &quot;Nice trick if you can do it!&quot; instead;</div>
-<div class="codeline">&ensp;&ensp;if the noun is the player, say &quot;That would be disastrous!&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the player is not carrying the Ray Gun, say &quot;You are pathetically unarmed!&quot; instead;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the second noun is not the Ray Gun, say &quot;[The second noun] does not fire.&quot; instead;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the noun is the Ray Gun, say &quot;Nice trick if you can do it!&quot; instead;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the noun is the player, say &quot;That would be disastrous!&quot; instead.</div>
 </div><p>Next, some grammar to allow the player to use this action:</p>
 <div class="codeblock"><div class="codeline">Understand &quot;shoot [gun] at [something ungunlike]&quot; as shooting it with (with nouns reversed).</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Definition: a thing is ungunlike if it is not the gun.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Understand &quot;shoot [something ungunlike] with [gun]&quot; as shooting it with. Understand &quot;shoot [something] with [something]&quot; as shooting it with.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Understand &quot;shoot [something] at [something]&quot; as shooting it with (with nouns reversed). Understand &quot;fire [gun] at [something ungunlike]&quot; as shooting it with (with nouns reversed). Understand &quot;fire at [something ungunlike] with [gun]&quot; as shooting it with. Understand &quot;fire at [something] with [something]&quot; as shooting it with.</div>
 </div><p>Strictly speaking, we only need these last grammar lines (with &quot;understand shoot something&hellip;&quot;) in order to define an action that the player can take. Adding more grammar lines means that Inform will try to match the most specific ones first, which is useful when the player types something ambiguous and there is one choice that obviously fits this action better than the others. See the <a href="WI_17.html">chapter on Understanding</a> for a further discussion.</p>
 <p>Here we get to use &quot;now&hellip;&quot; to give it its destructive effect:</p>
 <div class="codeblock"><div class="codeline">Carry out shooting something with something:</div>
-<div class="codeline">&ensp;&ensp;say &quot;ZAP! [The noun] twinkles out of existence! [if something is part of the noun][The list of things which are part of the noun] clatter to the ground! [end if][paragraph break]&quot;;</div>
-<div class="codeline">&ensp;&ensp;now every thing which is part of the noun is in the location;</div>
-<div class="codeline">&ensp;&ensp;now the noun is nowhere.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;ZAP! [The noun] twinkles out of existence! [if something is part of the noun][The list of things which are part of the noun] clatter to the ground! [end if][paragraph break]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now every thing which is part of the noun is in the location;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the noun is nowhere.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Deathbot Assembly Line is a room. &quot;Here is the heart of the whole operation, where your opponents are assembled fresh from scrap metal and bits of old car.&quot; The dangerous robot is a thing in the Assembly Line. &quot;One dangerous robot looks ready to take you on!&quot; A robotic head, a drill arm, a needle arm, a crushing leg and a kicking leg are parts of the dangerous robot.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of examining something when something is part of the noun:</div>
-<div class="codeline">&ensp;&ensp;say &quot;[The noun] consists of [a list of things which are part of the noun].&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;[The noun] consists of [a list of things which are part of the noun].&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;x robot / shoot robot / fire at kicking leg / shoot gun at drill arm / look&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "x robot / shoot robot / fire at kicking leg / shoot gun at drill arm / look".</summary><div class="testme-output">Deathbot Assembly Line<br>Here is the heart of the whole operation, where your opponents are assembled fresh from scrap metal and bits of old car.<br><br>One dangerous robot looks ready to take you on!<br><br>&gt;(Testing.)<br><br>&gt;[1] x robot<br>The dangerous robot consists of a robotic head, a drill arm, a needle arm, a crushing leg and a kicking leg.<br><br>&gt;[2] shoot robot<br>(with the Decomposition Ray Gun)<br>ZAP! The dangerous robot twinkles out of existence! The robotic head, the drill arm, the needle arm, the crushing leg and the kicking leg clatter to the ground!<br><br>&gt;[3] fire at kicking leg<br>(with the Decomposition Ray Gun)<br>ZAP! The kicking leg twinkles out of existence!<br><br>&gt;[4] shoot gun at drill arm<br>ZAP! The drill arm twinkles out of existence!<br><br>&gt;[5] look<br>Deathbot Assembly Line<br>Here is the heart of the whole operation, where your opponents are assembled fresh from scrap metal and bits of old car.<br><br>You can see a crushing leg, a needle arm and a robotic head here.
 </div></details><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="hatless.html" title="It&#39;s tempting to use &quot;now&hellip;&quot; to distribute items randomly at the start of play, but we need to be a little cautious about how we do that."><div class="nav-arrow">←</div> <div class="doc-navbar-text">126. Hatless</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="higher_calling.html" title="All doors in the game automatically attempt to open if the player approaches them when they are closed."><div class="doc-navbar-text">128. Higher Calling</div> <div class="nav-arrow">→</div></a></div></div>

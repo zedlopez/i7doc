@@ -18,60 +18,60 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex394a">Play/modify Uptempo in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Uptempo_1/index.html">Play Uptempo in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Uptempo&quot;\n\nThe fast time rule is listed instead of the advance time rule in the turn sequence rules.\n\nThis is the fast time rule:\n\tincrement the turn count;\n\tincrease the time of day by 15 minutes.\n\nWhen play begins: now the right hand status line is &quot;[time of day]&quot;.\n\nThe Temporal Hot Spot is a room.\n\nTest me with &quot;z / z&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Uptempo&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The fast time rule is listed instead of the advance time rule in the turn sequence rules.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">This is the fast time rule:</div>
-<div class="codeline">&ensp;&ensp;increment the turn count;</div>
-<div class="codeline">&ensp;&ensp;increase the time of day by 15 minutes.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;increment the turn count;</div>
+<div class="codeline">&ensp;&ensp;&ensp;increase the time of day by 15 minutes.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">When play begins: now the right hand status line is &quot;[time of day]&quot;.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Temporal Hot Spot is a room.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;z / z&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "z / z".</summary><div class="testme-output">Temporal Hot Spot<br><br>&gt;(Testing.)<br><br>&gt;[1] z<br>Time passes.<br><br>&gt;[2] z<br>Time passes.
 </div></details><p>This works fine as it stands, but we may run into some difficulty with it if we add scheduled events:</p>
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`At 9:30 AM:\n\tsay &quot;Two turtles run by, almost too fast to see.&quot;\n\nAt 9:37 AM:\n\tsay &quot;A snail blitzes past.&quot;\n\nAt 9:42 AM:\n\tsay &quot;The grass grows.&quot;\n\nAt 9:50 AM:\n\tsay &quot;Several flowers burst open.&quot;`)">⧉</button><div class="codeline">At 9:30 AM:</div>
-<div class="codeline">&ensp;&ensp;say &quot;Two turtles run by, almost too fast to see.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Two turtles run by, almost too fast to see.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">At 9:37 AM:</div>
-<div class="codeline">&ensp;&ensp;say &quot;A snail blitzes past.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;A snail blitzes past.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">At 9:42 AM:</div>
-<div class="codeline">&ensp;&ensp;say &quot;The grass grows.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;The grass grows.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">At 9:50 AM:</div>
-<div class="codeline">&ensp;&ensp;say &quot;Several flowers burst open.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Several flowers burst open.&quot;</div>
 </div><p>Time is counted forward after the schedule has already been consulted, so that only the 9:30 AM event happens between 9:30 and 9:45; the next two appear to occur between 9:45 and 10:00 AM, and the 9:50 AM event is not reported until the 10:00 AM to 10:15 wait. To get around this, we might schedule events only on the fifteen-minute mark when we want them to occur. Alternatively, we might try instead</p>
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex394b">Play/modify Uptempo in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Uptempo_2/index.html">Play Uptempo in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Uptempo&quot;\n\nThe fast time rule is listed before the timed events rule in the turn sequence rules.\n\nThe advance time rule is not listed in the turn sequence rules.\n\nThis is the fast time rule:\n\tincrement the turn count;\n\tincrease the time of day by 15 minutes.\n\nWhen play begins: now the right hand status line is &quot;[time of day]&quot;.\n\nThe Temporal Hot Spot is a room.\n\nAt 9:30 AM:\n\tsay &quot;Two turtles run by, almost too fast to see.&quot;\n\nAt 9:37 AM:\n\tsay &quot;A snail blitzes past.&quot;\n\nAt 9:42 AM:\n\tsay &quot;The grass grows.&quot;\n\nAt 9:50 AM:\n\tsay &quot;Several flowers burst open.&quot;\n\nTest me with &quot;z / z / z / z&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Uptempo&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The fast time rule is listed before the timed events rule in the turn sequence rules.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The advance time rule is not listed in the turn sequence rules.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">This is the fast time rule:</div>
-<div class="codeline">&ensp;&ensp;increment the turn count;</div>
-<div class="codeline">&ensp;&ensp;increase the time of day by 15 minutes.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;increment the turn count;</div>
+<div class="codeline">&ensp;&ensp;&ensp;increase the time of day by 15 minutes.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">When play begins: now the right hand status line is &quot;[time of day]&quot;.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Temporal Hot Spot is a room.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">At 9:30 AM:</div>
-<div class="codeline">&ensp;&ensp;say &quot;Two turtles run by, almost too fast to see.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Two turtles run by, almost too fast to see.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">At 9:37 AM:</div>
-<div class="codeline">&ensp;&ensp;say &quot;A snail blitzes past.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;A snail blitzes past.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">At 9:42 AM:</div>
-<div class="codeline">&ensp;&ensp;say &quot;The grass grows.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;The grass grows.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">At 9:50 AM:</div>
-<div class="codeline">&ensp;&ensp;say &quot;Several flowers burst open.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Several flowers burst open.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;z / z / z / z&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "z / z / z / z".</summary><div class="testme-output">Temporal Hot Spot<br><br>&gt;(Testing.)<br><br>&gt;[1] z<br>Time passes.<br><br>&gt;[2] z<br>Time passes.<br><br>Two turtles run by, almost too fast to see.<br><br>&gt;[3] z<br>Time passes.<br><br>A snail blitzes past.<br><br>The grass grows.<br><br>&gt;[4] z<br>Time passes.<br><br>Several flowers burst open.
 </div></details><p>This time our revised time-advancing rule is listed just before the event scheduler, not just afterwards.</p>

@@ -19,45 +19,45 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex375">Play/modify North by Northwest in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="NorthbyNorthwest/index.html">Play North by Northwest in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;North by Northwest&quot;\n\nSection 1 - Procedure\n\nThe north-northwest is a direction. North-northwest has opposite south-southeast. Understand &quot;n-nw&quot; or &quot;nnw&quot; as north-northwest.\n\nThe north-northeast is a direction. North-northeast has opposite south-southwest. Understand &quot;n-ne&quot; or &quot;nne&quot; as north-northeast.\n\nThe south-southwest is a direction. South-southwest has opposite north-northeast. Understand &quot;s-sw&quot; or &quot;ssw&quot; as north-northwest.\n\nThe south-southeast is a direction. South-southeast has opposite north-northwest. Understand &quot;s-se&quot; or &quot;sse&quot; as south-southeast.\n\nThe west-northwest is a direction. West-northwest has opposite east-southeast. Understand &quot;w-nw&quot; or &quot;wnw&quot; as west-northwest.\n\nThe east-northeast is a direction. East-northeast has opposite west-southwest. Understand &quot;e-ne&quot; or &quot;ene&quot; as east-northeast.\n\nThe west-southwest is a direction. West-southwest has opposite east-northeast. Understand &quot;w-sw&quot; or &quot;wsw&quot; as west-northwest.\n\nThe east-southeast is a direction. East-southeast has opposite west-northwest. Understand &quot;e-se&quot; or &quot;ese&quot; as east-southeast.\n\n\nAfter reading a command:\n\tlet N be &quot;[the player&apos;s command]&quot;;\n\treplace the text &quot;north&quot; in N with &quot;n&quot;;\n\treplace the text &quot;east&quot; in N with &quot;e&quot;;\n\treplace the text &quot;south&quot; in N with &quot;s&quot;;\n\treplace the text &quot;west&quot; in N with &quot;w&quot;;\n\tchange the text of the player&apos;s command to N.\n\n\nSection 2 - Scenario\n\nThe Empty Field is north-northwest of the Deserted Road.\n\nA crop-dusting plane is a backdrop. It is not scenery. It is in the Deserted Road and Empty Field. The initial appearance of the crop-dusting plane is &quot;[one of]In the distance[or]Approaching faster and faster[or]Flying ominously low and directly towards you[or]Immediately overhead[or]Circling around for another approach[cycling] is a standard crop-dusting plane.&quot;\n\nAfter looking:\n\tsay &quot;From here you can run to [the list of adjacent rooms].&quot;\n\nRule for printing the name of a room (called the target) which is not the location while looking:\n\tlet chosen direction be the best route from the location to the target;\n\tsay &quot;[chosen direction]&quot;.\n\nTest me with &quot;sse / north-northwest&quot;.`)">⧉</button><div class="codeline storytitle">&quot;North by Northwest&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline i7header">Section 1 - Procedure</div><div class="codeline">The north-northwest is a direction. North-northwest has opposite south-southeast. Understand &quot;n-nw&quot; or &quot;nnw&quot; as north-northwest.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The north-northeast is a direction. North-northeast has opposite south-southwest. Understand &quot;n-ne&quot; or &quot;nne&quot; as north-northeast.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The south-southwest is a direction. South-southwest has opposite north-northeast. Understand &quot;s-sw&quot; or &quot;ssw&quot; as north-northwest.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The south-southeast is a direction. South-southeast has opposite north-northwest. Understand &quot;s-se&quot; or &quot;sse&quot; as south-southeast.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The west-northwest is a direction. West-northwest has opposite east-southeast. Understand &quot;w-nw&quot; or &quot;wnw&quot; as west-northwest.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The east-northeast is a direction. East-northeast has opposite west-southwest. Understand &quot;e-ne&quot; or &quot;ene&quot; as east-northeast.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The west-southwest is a direction. West-southwest has opposite east-northeast. Understand &quot;w-sw&quot; or &quot;wsw&quot; as west-northwest.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The east-southeast is a direction. East-southeast has opposite west-northwest. Understand &quot;e-se&quot; or &quot;ese&quot; as east-southeast.</div>
 </div><p>A complication arises because we reach the 9-character limit: Inform truncates the names of objects to nine characters before trying to understand them. To make matters worse, the hyphen (and other punctuation marks) count as two letters. So both north-northwest and north-northeast will get truncated to &quot;north-no&quot;, and be indistinguishable when the player types them.</p>
 <p>When we are compiling for Glulx, the limit is easily changed with a single line, setting the constant called DICT_WORD_SIZE. For instance, if we wanted to raise the limit to 15, we would simply write &quot;Use DICT_WORD_SIZE of 15.&quot;</p>
 <p>If we&#39;re compiling to the Z-machine, however, we&#39;ll have to resort to some manipulation of the player&#39;s command. The general solution is that when the player&#39;s name for an object is going to have to be longer than we can correctly read, we can substitute an unambiguous abbreviation for the thing the player typed. In this case, it will be simplest and most efficient always to condense the player&#39;s direction names to single letters, thus:</p>
 <div class="codeblock"><div class="codeline">After reading a command:</div>
-<div class="codeline">&ensp;&ensp;let N be &quot;[the player&#39;s command]&quot;;</div>
-<div class="codeline">&ensp;&ensp;replace the text &quot;north&quot; in N with &quot;n&quot;;</div>
-<div class="codeline">&ensp;&ensp;replace the text &quot;east&quot; in N with &quot;e&quot;;</div>
-<div class="codeline">&ensp;&ensp;replace the text &quot;south&quot; in N with &quot;s&quot;;</div>
-<div class="codeline">&ensp;&ensp;replace the text &quot;west&quot; in N with &quot;w&quot;;</div>
-<div class="codeline">&ensp;&ensp;change the text of the player&#39;s command to N.</div>
+<div class="codeline">&ensp;&ensp;&ensp;let N be &quot;[the player&#39;s command]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;replace the text &quot;north&quot; in N with &quot;n&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;replace the text &quot;east&quot; in N with &quot;e&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;replace the text &quot;south&quot; in N with &quot;s&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;replace the text &quot;west&quot; in N with &quot;w&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;change the text of the player&#39;s command to N.</div>
 </div><p>For more on the use of text, see the Advanced <a href="WI_5.html">Text chapter</a>.</p>
-<div class="codeblock"><div class="codeline i7header">Section 2 - Scenario</div><div class="codeline">&ensp;&ensp;</div>
+<div class="codeblock"><div class="codeline i7header">Section 2 - Scenario</div><div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Empty Field is north-northwest of the Deserted Road.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A crop-dusting plane is a backdrop. It is not scenery. It is in the Deserted Road and Empty Field. The initial appearance of the crop-dusting plane is &quot;[one of]In the distance[or]Approaching faster and faster[or]Flying ominously low and directly towards you[or]Immediately overhead[or]Circling around for another approach[cycling] is a standard crop-dusting plane.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">After looking:</div>
-<div class="codeline">&ensp;&ensp;say &quot;From here you can run to [the list of adjacent rooms].&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;From here you can run to [the list of adjacent rooms].&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Rule for printing the name of a room (called the target) which is not the location while looking:</div>
-<div class="codeline">&ensp;&ensp;let chosen direction be the best route from the location to the target;</div>
-<div class="codeline">&ensp;&ensp;say &quot;[chosen direction]&quot;.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let chosen direction be the best route from the location to the target;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;[chosen direction]&quot;.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;sse / north-northwest&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "sse / north-northwest".</summary><div class="testme-output">Empty Field<br>In the distance is a standard crop-dusting plane.<br><br>From here you can run to the south-southeast.<br><br>&gt;(Testing.)<br><br>&gt;[1] sse<br><br>Deserted Road<br>Approaching faster and faster is a standard crop-dusting plane.<br><br>From here you can run to the north-northwest.<br><br>&gt;[2] north-northwest<br><br>Empty Field<br>Flying ominously low and directly towards you is a standard crop-dusting plane.<br><br>From here you can run to the south-southeast.
 </div></details><p>In practice, this is going to be overkill for almost all games: most players already find eight compass directions plus up and down to be enough (or more than enough) to keep track of. But the option exists, in case there is a compelling reason to use it.</p>

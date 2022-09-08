@@ -20,10 +20,10 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex430">Play/modify The Facts Were These in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="FactsWereThese/index.html">Play The Facts Were These in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;The Facts Were These&quot;\n\nSection 1 - Procedure\n\n\nA price is a kind of value. $10 specifies a price. A thing has a price.\n\nUnderstand &quot;give [things preferably held] to [someone]&quot; as multiply-giving it to. Understand &quot;give [things] to [someone]&quot; as multiply-giving it to.  Multiply-giving it to is an action applying to two things.\n\n\nA thing can be given or ungiven. A thing is usually ungiven.\n\n\nFirst check multiply-giving it to:\n\tif already gave at the office is true:\n\t\tstop the action.\n\nAlready gave at the office is a truth state that varies.\n\n\nCheck multiply-giving something to the player:\n\t\tnow already gave at the office is true;\n\t\tsay &quot;You can hardly bribe yourself.[paragraph break]&quot; instead;\n\n\nCheck multiply-giving it to:\n\tlet L be the multiple object list;\n\tlet bribe-price be $0;\n\trepeat with item running through L:\n\t\tif the player does not carry the item:\n\t\t\tabide by the ungivability rules for the item;\n\t\t\tcarry out the implicitly taking activity with the item;\n\t\t\tif the player does not carry the item:\n\t\t\t\tnow already gave at the office is true;\n\t\t\t\tsay &quot;You can&apos;t include [the item] in your bribe, since you&apos;re not holding [them]![paragraph break]&quot; instead;\n\t\tincrease bribe-price by the price of item;\n\tif the number of entries in the recently-collected list is greater than 0:\n\t\trepeat with item running through the recently-collected list:\n\t\t\tnow item is marked for listing;\n\t\tsay &quot;You pick up [the list of marked for listing things] and make your offer. [run paragraph on]&quot;;\n\t\tnow everything is unmarked for listing;\n\tif the bribe-price is less than the price of the second noun:\n\t\tnow already gave at the office is true;\n\t\tsay &quot;[The second noun] angrily rejects your piffling bribe.[paragraph break]&quot; instead.\n\n\nCarry out multiply-giving it to:\n\tlet L be the multiple object list;\n\trepeat with item running through L:\n\t\tnow the second noun carries the item;\n\t\tnow the item is given;\n\tnow already gave at the office is true;\n\nReport multiply-giving it to:\n\tsay &quot;[The second noun] rather shamefacedly tucks [the list of given things] away into a pocket.[paragraph break]&quot;.\n\n\nThe ungivability rules are an object-based rulebook.\n\nAn ungivability rule for a person:\n\tnow already gave at the office is true;\n\tsay &quot;Slavery is illegal.[paragraph break]&quot; instead.\n\nAn ungivability rule for something (called the item) which is enclosed by someone who is not the player:\n\tnow already gave at the office is true;\n\tsay &quot;[The item] [aren&apos;t] yours to give.[paragraph break]&quot; instead.\n\nAn ungivability rule for something which encloses the player:\n\tnow already gave at the office is true;\n\tsay &quot;You don&apos;t want to end up as part of the gift.[paragraph break]&quot; instead;\n\nAn ungivability rule for something (called the item) which is part of something:\n\tnow already gave at the office is true;\n\tsay &quot;[The item] [are] attached to [a random thing which incorporates the item][paragraph break]&quot; instead.\n\nAn ungivability rule for something (called the item) which is scenery:\n\tnow already gave at the office is true;\n\tsay &quot;[The item] [are] unremovable.[paragraph break]&quot; instead.\n\nAn ungivability rule for something (called the item) which is fixed in place:\n\tnow already gave at the office is true;\n\tsay &quot;[The item] [are] fixed in place.[paragraph break]&quot; instead.\n\nAn ungivability rule for a direction (called the item):\n\tnow already gave at the office is true;\n\tsay &quot;[The item] [are] not susceptible to giving.[paragraph break]&quot; instead.\n\nRule for implicitly taking something (called target) while multiply-giving:\n\tsilently try taking the target;\n\tif the player carries the target:\n\t\tadd the target to the recently-collected list.\n\nThe recently-collected list is a list of objects that varies.\n\n\nThe selectively announce items from multiple object lists rule is listed instead of the announce items from multiple object lists rule in the action-processing rules.\n\nThis is the selectively announce items from multiple object lists rule:\n\tif multiply-giving:\n\t\tdo nothing;\n\totherwise:\n\t\tif the current item from the multiple object list is not nothing:\n\t\t\tsay &quot;[current item from the multiple object list]: [run paragraph on]&quot;.\n\n\nCheck giving something to someone:\n\tif the price of the noun is less than the price of the second noun:\n\t\tsay &quot;[The second noun] angrily rejects your piffling bribe.&quot; instead.\n\n\nThe block giving rule is not listed in any rulebook.\n\nThe new report giving rule is listed instead of the standard report giving rule in the report giving it to rules.\n\nThis is the new report giving rule:\n\tsay &quot;[The second noun] rather shamefacedly tucks [the noun] away into a pocket.&quot;\n\n\nThe before-generation rule is listed before the generate action rule in the turn sequence rules.\n\nThis is the before-generation rule:\n\tnow every thing is ungiven;\n\tnow already gave at the office is false;\n\ttruncate the recently-collected list to 0 entries.\n\nSection 2 - Scenario\n\nThe Morgue Office is a room. &quot;This is not the Morgue itself; this is only its outer office. The familiar room full of silver drawers and cold air lies beyond.&quot;\n\nThe Morgue Attendant is a man in the Morgue Office. &quot;The Attendant has seen you come through a number of times, and is becoming suspicious of your abiding interest in dead people.&quot; The description is &quot;The Morgue Attendant is fifty-four years, six months, five days, and three minutes old.&quot; The price of the Morgue Attendant is $3.\n\nA dollar is a kind of thing. The player carries three dollars.  The price of a dollar is always $1.\n\nThe player carries a miniature rhubarb pie. The price of the miniature rhubarb pie is $5.\n\nThe player carries a knitted cap. The price of the knitted cap is $2.\n\nTest me with &quot;test dollars / purloin three dollars / test multi-line / purloin three dollars / purloin pie / purloin cap / test specificity / purloin three dollars / test largesse / test mixed-gift&quot;.\n\nTest multi-line with &quot;give dollar and pie to attendant. give dollars and cap to attendant&quot;.\n\nTest dollars with &quot;drop all / give dollar to Morgue Attendant / give dollars to Morgue Attendant / get dollars / give dollars to morgue attendant / purloin three dollars / drop dollars / give dollars to Morgue Attendant&quot;.\n\nTest specificity with &quot;give three dollars to Morgue Attendant&quot;.\n\nTest largesse with &quot;give pie to Morgue Attendant&quot;.\n\nTest mixed-gift with &quot;give dollar and cap to Morgue Attendant / get cap / give dollar and cap to morgue attendant / give me and dollar to attendant&quot;.`)">⧉</button><div class="codeline storytitle">&quot;The Facts Were These&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline i7header">Section 1 - Procedure</div></div><p>We start by creating the idea that everything in the game has a monetary value:</p>
 <div class="codeblock"><div class="codeline">A price is a kind of value. $10 specifies a price. A thing has a price.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Understand &quot;give [things preferably held] to [someone]&quot; as multiply-giving it to. Understand &quot;give [things] to [someone]&quot; as multiply-giving it to.  Multiply-giving it to is an action applying to two things.</div>
 </div><p>A subtlety here: we say &quot;things preferably held&quot; to prefer items that the player is holding (so if the player has two dollars in hand and a third lies on the ground, he will use just the two he has).</p>
 <p>The second grammar line allows Inform to match things that aren&#39;t held if it can&#39;t make up the list from things that are. If all three dollars are on the ground, the player can pick them up before spending them.</p>
@@ -31,130 +31,130 @@
 <div class="codeblock"><div class="codeline">A thing can be given or ungiven. A thing is usually ungiven.</div>
 </div><p>This is for record-keeping purposes so that we can print an attractive list of what was given at the end of the turn.</p>
 <div class="codeblock"><div class="codeline">First check multiply-giving it to:</div>
-<div class="codeline">&ensp;&ensp;if already gave at the office is true:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;stop the action.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if already gave at the office is true:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;stop the action.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Already gave at the office is a truth state that varies.</div>
 </div><p>&quot;Already gave at the office&quot; is the perhaps-excessively-named flag that keeps track of whether we&#39;ve already done this action once.</p>
 <div class="codeblock"><div class="codeline">Check multiply-giving something to the player:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;now already gave at the office is true;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;You can hardly bribe yourself.[paragraph break]&quot; instead;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now already gave at the office is true;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;You can hardly bribe yourself.[paragraph break]&quot; instead;</div>
 </div><p>The following rule is longish because it processes the entire list at once, generating implicit takes if necessary (but processing those implicit takes silently according to its own special rule, so that the output can be managed attractively). We are also, at the same time, calculating the total value of the player&#39;s offer.</p>
 <div class="codeblock"><div class="codeline">Check multiply-giving it to:</div>
-<div class="codeline">&ensp;&ensp;let L be the multiple object list;</div>
-<div class="codeline">&ensp;&ensp;let bribe-price be $0;</div>
-<div class="codeline">&ensp;&ensp;repeat with item running through L:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;if the player does not carry the item:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;abide by the ungivability rules for the item;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;carry out the implicitly taking activity with the item;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let L be the multiple object list;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let bribe-price be $0;</div>
+<div class="codeline">&ensp;&ensp;&ensp;repeat with item running through L:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the player does not carry the item:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now already gave at the office is true;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;You can&#39;t include [the item] in your bribe, since you&#39;re not holding [them]![paragraph break]&quot; instead;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;increase bribe-price by the price of item;</div>
-<div class="codeline">&ensp;&ensp;if the number of entries in the recently-collected list is greater than 0:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;repeat with item running through the recently-collected list:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now item is marked for listing;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;You pick up [the list of marked for listing things] and make your offer. [run paragraph on]&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;now everything is unmarked for listing;</div>
-<div class="codeline">&ensp;&ensp;if the bribe-price is less than the price of the second noun:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;now already gave at the office is true;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;[The second noun] angrily rejects your piffling bribe.[paragraph break]&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;abide by the ungivability rules for the item;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;carry out the implicitly taking activity with the item;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the player does not carry the item:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now already gave at the office is true;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;You can&#39;t include [the item] in your bribe, since you&#39;re not holding [them]![paragraph break]&quot; instead;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;increase bribe-price by the price of item;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the number of entries in the recently-collected list is greater than 0:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;repeat with item running through the recently-collected list:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now item is marked for listing;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;You pick up [the list of marked for listing things] and make your offer. [run paragraph on]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now everything is unmarked for listing;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the bribe-price is less than the price of the second noun:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now already gave at the office is true;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[The second noun] angrily rejects your piffling bribe.[paragraph break]&quot; instead.</div>
 </div><p>The bit about making some items &quot;marked for listing&quot;, above, rather than printing the list directly, is that using the &quot;[the list of&hellip;.]&quot; syntax guarantees that Inform will respect grouping rules in writing its description. For instance, if the player has automatically taken all three dollars, the output will say &quot;the three dollars&quot; instead of &quot;the dollar, the dollar, and the dollar.&quot;</p>
 <div class="codeblock"><div class="codeline">Carry out multiply-giving it to:</div>
-<div class="codeline">&ensp;&ensp;let L be the multiple object list;</div>
-<div class="codeline">&ensp;&ensp;repeat with item running through L:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;now the second noun carries the item;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;now the item is given;</div>
-<div class="codeline">&ensp;&ensp;now already gave at the office is true;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let L be the multiple object list;</div>
+<div class="codeline">&ensp;&ensp;&ensp;repeat with item running through L:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the second noun carries the item;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the item is given;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now already gave at the office is true;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Report multiply-giving it to:</div>
-<div class="codeline">&ensp;&ensp;say &quot;[The second noun] rather shamefacedly tucks [the list of given things] away into a pocket.[paragraph break]&quot;.</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;[The second noun] rather shamefacedly tucks [the list of given things] away into a pocket.[paragraph break]&quot;.</div>
 </div><p>Now we create our own variation of implicitly taking in order to customize the output for the multiply-giving action. The &quot;ungivability rules&quot; should disallow any object that the player absolutely cannot take, because we want &quot;carry out the implicitly taking activity&quot; to succeed every time -- and therefore not print out any less-attractive results from implicit takes that don&#39;t succeed. Otherwise, the player&#39;s GIVE TREE AND DOG TO ATTENDANT might produce the reply &quot;That&#39;s fixed in place&quot; -- without specifying which object is fixed in place.</p>
 <p>Because of the way this works, we will want to be careful: if we have any &quot;instead of taking&hellip;&quot; rules for special objects in the game, we should be sure to mirror those with an ungivability rule to print something more suitable in the case that the player tries taking that object as part of the multiple giving action.</p>
 <div class="codeblock"><div class="codeline">The ungivability rules are an object-based rulebook.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">An ungivability rule for a person:</div>
-<div class="codeline">&ensp;&ensp;now already gave at the office is true;</div>
-<div class="codeline">&ensp;&ensp;say &quot;Slavery is illegal.[paragraph break]&quot; instead.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now already gave at the office is true;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Slavery is illegal.[paragraph break]&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">An ungivability rule for something (called the item) which is enclosed by someone who is not the player:</div>
-<div class="codeline">&ensp;&ensp;now already gave at the office is true;</div>
-<div class="codeline">&ensp;&ensp;say &quot;[The item] [aren&#39;t] yours to give.[paragraph break]&quot; instead.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now already gave at the office is true;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;[The item] [aren&#39;t] yours to give.[paragraph break]&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">An ungivability rule for something which encloses the player:</div>
-<div class="codeline">&ensp;&ensp;now already gave at the office is true;</div>
-<div class="codeline">&ensp;&ensp;say &quot;You don&#39;t want to end up as part of the gift.[paragraph break]&quot; instead;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now already gave at the office is true;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You don&#39;t want to end up as part of the gift.[paragraph break]&quot; instead;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">An ungivability rule for something (called the item) which is part of something:</div>
-<div class="codeline">&ensp;&ensp;now already gave at the office is true;</div>
-<div class="codeline">&ensp;&ensp;say &quot;[The item] [are] attached to [a random thing which incorporates the item][paragraph break]&quot; instead.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now already gave at the office is true;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;[The item] [are] attached to [a random thing which incorporates the item][paragraph break]&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">An ungivability rule for something (called the item) which is scenery:</div>
-<div class="codeline">&ensp;&ensp;now already gave at the office is true;</div>
-<div class="codeline">&ensp;&ensp;say &quot;[The item] [are] unremovable.[paragraph break]&quot; instead.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now already gave at the office is true;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;[The item] [are] unremovable.[paragraph break]&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">An ungivability rule for something (called the item) which is fixed in place:</div>
-<div class="codeline">&ensp;&ensp;now already gave at the office is true;</div>
-<div class="codeline">&ensp;&ensp;say &quot;[The item] [are] fixed in place.[paragraph break]&quot; instead.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now already gave at the office is true;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;[The item] [are] fixed in place.[paragraph break]&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">An ungivability rule for a direction (called the item):</div>
-<div class="codeline">&ensp;&ensp;now already gave at the office is true;</div>
-<div class="codeline">&ensp;&ensp;say &quot;[The item] [are] not susceptible to giving.[paragraph break]&quot; instead.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now already gave at the office is true;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;[The item] [are] not susceptible to giving.[paragraph break]&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Rule for implicitly taking something (called target) while multiply-giving:</div>
-<div class="codeline">&ensp;&ensp;silently try taking the target;</div>
-<div class="codeline">&ensp;&ensp;if the player carries the target:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;add the target to the recently-collected list.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;silently try taking the target;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the player carries the target:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;add the target to the recently-collected list.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The recently-collected list is a list of objects that varies.</div>
 </div><p>And since we don&#39;t want to list the individual objects separately:</p>
 <div class="codeblock"><div class="codeline">The selectively announce items from multiple object lists rule is listed instead of the announce items from multiple object lists rule in the action-processing rules.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">This is the selectively announce items from multiple object lists rule:</div>
-<div class="codeline">&ensp;&ensp;if multiply-giving:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;do nothing;</div>
-<div class="codeline">&ensp;&ensp;otherwise:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;if the current item from the multiple object list is not nothing:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[current item from the multiple object list]: [run paragraph on]&quot;.</div>
+<div class="codeline">&ensp;&ensp;&ensp;if multiply-giving:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;do nothing;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the current item from the multiple object list is not nothing:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[current item from the multiple object list]: [run paragraph on]&quot;.</div>
 </div><p>And now, since this ought to work symmetrically if the player provides just one high-value item:</p>
 <div class="codeblock"><div class="codeline">Check giving something to someone:</div>
-<div class="codeline">&ensp;&ensp;if the price of the noun is less than the price of the second noun:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;[The second noun] angrily rejects your piffling bribe.&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the price of the noun is less than the price of the second noun:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[The second noun] angrily rejects your piffling bribe.&quot; instead.</div>
 </div><p>As we&#39;ve seen elsewhere, the giving action by default returns a refusal, but is also written to start working if we remove the blockage. So we do that here, and revise the report rule to match the report rule we have for multiple giving.</p>
 <div class="codeblock"><div class="codeline">The block giving rule is not listed in any rulebook.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The new report giving rule is listed instead of the standard report giving rule in the report giving it to rules.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">This is the new report giving rule:</div>
-<div class="codeline">&ensp;&ensp;say &quot;[The second noun] rather shamefacedly tucks [the noun] away into a pocket.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;[The second noun] rather shamefacedly tucks [the noun] away into a pocket.&quot;</div>
 </div><p>After each instance of the multiply-giving action, we need to clear the variables we used to track its state. We could do this in &quot;Before reading a command&quot;, but that&#39;s unsafe because the player might type GIVE PIE AND CAP TO ATTENDANT. GIVE DOLLARS TO ATTENDANT. all on a single line, and we would like to be able to clear the variables between one action and the next. The correct place to attach this behavior is immediately before the generate action rule, thus:</p>
 <div class="codeblock"><div class="codeline">The before-generation rule is listed before the generate action rule in the turn sequence rules.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">This is the before-generation rule:</div>
-<div class="codeline">&ensp;&ensp;now every thing is ungiven;</div>
-<div class="codeline">&ensp;&ensp;now already gave at the office is false;</div>
-<div class="codeline">&ensp;&ensp;truncate the recently-collected list to 0 entries.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now every thing is ungiven;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now already gave at the office is false;</div>
+<div class="codeline">&ensp;&ensp;&ensp;truncate the recently-collected list to 0 entries.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline i7header">Section 2 - Scenario</div><div class="codeline">The Morgue Office is a room. &quot;This is not the Morgue itself; this is only its outer office. The familiar room full of silver drawers and cold air lies beyond.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Morgue Attendant is a man in the Morgue Office. &quot;The Attendant has seen you come through a number of times, and is becoming suspicious of your abiding interest in dead people.&quot; The description is &quot;The Morgue Attendant is fifty-four years, six months, five days, and three minutes old.&quot; The price of the Morgue Attendant is $3.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A dollar is a kind of thing. The player carries three dollars.  The price of a dollar is always $1.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The player carries a miniature rhubarb pie. The price of the miniature rhubarb pie is $5.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The player carries a knitted cap. The price of the knitted cap is $2.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;test dollars / purloin three dollars / test multi-line / purloin three dollars / purloin pie / purloin cap / test specificity / purloin three dollars / test largesse / test mixed-gift&quot;.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test multi-line with &quot;give dollar and pie to attendant. give dollars and cap to attendant&quot;.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test dollars with &quot;drop all / give dollar to Morgue Attendant / give dollars to Morgue Attendant / get dollars / give dollars to morgue attendant / purloin three dollars / drop dollars / give dollars to Morgue Attendant&quot;.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test specificity with &quot;give three dollars to Morgue Attendant&quot;.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test largesse with &quot;give pie to Morgue Attendant&quot;.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test mixed-gift with &quot;give dollar and cap to Morgue Attendant / get cap / give dollar and cap to morgue attendant / give me and dollar to attendant&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "test dollars / purloin three dollars / test multi-line / purloin three dollars / purloin pie / purloin cap / test specificity / purloin three dollars / test largesse / test mixed-gift".</summary><div class="testme-output">Morgue Office<br>This is not the Morgue itself; this is only its outer office. The familiar room full of silver drawers and cold air lies beyond.<br><br>The Attendant has seen you come through a number of times, and is becoming suspicious of your abiding interest in dead people.<br><br>&gt;(Testing.)<br><br>&gt;[1] test dollars<br>(Testing.)<br><br>&gt;[2] drop all<br>dollar: Dropped.<br>dollar: Dropped.<br>dollar: Dropped.<br>miniature rhubarb pie: Dropped.<br>knitted cap: Dropped.<br><br>&gt;[3] give dollar to morgue attendant<br>(first taking the dollar)<br>The Morgue Attendant angrily rejects your piffling bribe.<br><br>&gt;[4] give dollars to morgue attendant<br>The Morgue Attendant angrily rejects your piffling bribe.<br><br>&gt;[5] get dollars<br>dollar: Taken.<br>dollar: Taken.<br><br>&gt;[6] give dollars to morgue attendant<br>The Morgue Attendant rather shamefacedly tucks the three dollars away into a pocket.<br><br>&gt;[7] purloin three dollars<br>[Purloined.]<br>[Purloined.]<br>[Purloined.]<br><br>&gt;[8] drop dollars<br>dollar: Dropped.<br>dollar: Dropped.<br>dollar: Dropped.<br><br>&gt;[9] give dollars to morgue attendant<br>You pick up the three dollars and make your offer. The Morgue Attendant rather shamefacedly tucks the three dollars away into a pocket.<br><br>&gt;[10] purloin three dollars<br>[Purloined.]<br>[Purloined.]<br>[Purloined.]<br><br>&gt;[11] test multi-line<br>(Testing.)<br><br>&gt;[12] give dollar and pie to attendant. give dollars and cap to attendant<br>You pick up the miniature rhubarb pie and make your offer. The Morgue Attendant rather shamefacedly tucks the miniature rhubarb pie and the dollar away into a pocket.<br><br>You pick up the knitted cap and make your offer. The Morgue Attendant rather shamefacedly tucks the knitted cap and the two dollars away into a pocket.<br><br>&gt;[13] purloin three dollars<br>[Purloined.]<br>[Purloined.]<br>[Purloined.]<br><br>&gt;[14] purloin pie<br>[Purloined.]<br><br>&gt;[15] purloin cap<br>[Purloined.]<br><br>&gt;[16] test specificity<br>(Testing.)<br><br>&gt;[17] give three dollars to morgue attendant<br>The Morgue Attendant rather shamefacedly tucks the three dollars away into a pocket.<br><br>&gt;[18] purloin three dollars<br>[Purloined.]<br>[Purloined.]<br>[Purloined.]<br><br>&gt;[19] test largesse<br>(Testing.)<br><br>&gt;[20] give pie to morgue attendant<br>The Morgue Attendant rather shamefacedly tucks the miniature rhubarb pie away into a pocket.<br><br>&gt;[21] test mixed-gift<br>(Testing.)<br><br>&gt;[22] give dollar and cap to morgue attendant<br>The Morgue Attendant rather shamefacedly tucks the knitted cap and the dollar away into a pocket.<br><br>&gt;[23] get cap<br>That seems to belong to the Morgue Attendant.<br><br>&gt;[24] give dollar and cap to morgue attendant<br>The knitted cap isn&#39;t yours to give.<br><br>&gt;[25] give me and dollar to attendant<br>Slavery is illegal.
 </div></details><p>PURLOIN, used in the tests here, is a special debugging command that allows the player to acquire objects that wouldn&#39;t otherwise be possible to take. It is only active in non-release versions of the story. For more about debugging commands, see the <a href="WI_24.html">chapter on Testing and Debugging</a>.</p>

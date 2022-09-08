@@ -18,64 +18,64 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex145">Play/modify Empire in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Train/index.html">Play Empire in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Empire&quot;\n\nThe Empire Builder Train is a room. The Train has a room called the station. The station of the Train is Seattle.\n\nThe description of the Empire Builder is &quot;One of the (relatively) plush long-distance Amtrak trains. You&apos;re in a two-story car with toilets and a cafe at one end, not having sprung for a sleeper.\n\n[if the station of the Train is the train]Outside the window there is rapidly-passing countryside.[otherwise]Through the windows you can see the [station of the Train] train station.[end if]&quot;\n\nInstead of exiting when the player is in the Train:\n\tif the station of the Train is the Train:\n\t\tsay &quot;The train is not stopped at a station.&quot; instead;\n\totherwise:\n\t\tmove the player to the station of the train instead.\n\nBefore going outside when the player is in the Train:\n\ttry exiting instead.\n\nBefore going inside when the player is in the station of the Train:\n\tmove the player to the Train instead.\n\nSeattle, Edmonds, Everett, Wenatchee, and Spokane are rooms. The description of a room is usually &quot;The scenic train station of [the location][if the location is the station of the train].\n\nThe pompously-titled Empire Builder train is pulled up here, soon to continue its journey towards Chicago[end if].&quot;\n\n\nAt 4:45 PM:\n\tif the player is in the train or the player is in the station of the train, say &quot;The train pulls out of [the station of the Train]!&quot;;\n\tnow the station of the Train is the Train.\n\nAt 5:10 PM:\n\tnow the station of the Train is Edmonds;\n\tif the player is in the train or the player is in the station of the train, say &quot;The train pulls into Edmonds and comes to a stop.&quot;\n\nAt 5:17 PM:\n\tif the player is in the train or the player is in the station of the train, say &quot;The train pulls out of [the station of the Train], running north along the shore towards Everett.&quot;;\n\tnow the station of the Train is the Train.\n\nAt 5:39 PM:\n\tnow the station of the Train is Everett;\n\tif the player is in the train or the player is in the station of the train, say &quot;The train arrives in scenic Everett, WA: the last stop before it turns east and heads over the mountains.&quot;\n\nAt 5:44 PM:\n\tif the player is in the train or the player is in the station of the train, say &quot;The train pulls out of [the station of the Train] and turns east.&quot;;\n\tnow the station of the Train is the Train.\n\nAt 8:39 PM:\n\tif the player is in the train or the player is in the station of the train, say &quot;In darkness the train rolls into Wenatchee; which is just fine, considering that there is nothing to see here at all.&quot;;\n\tnow the station of the Train is Wenatchee.\n\nAt 8:44 PM:\n\tif the player is in the train or the player is in the station of the train, say &quot;The train pulls out of [the station of the Train] and continues east through the darkness towards Spokane.&quot;;\n\tnow the station of the Train is the Train.\n\n\nThe time of day is 4:43 PM.\n\n\nWhen play begins:\n\tnow the right hand status line is &quot;[time of day]&quot;.\n\nTest me with &quot;out / in / z/ z / z / out / z / z / z / z / z / z / z / z / z / z / z / z / z / z / z / z / z / z / z / z / z / z / z / out / in / out / z / z&quot;.\n\nTest more with &quot;out / z/ z / z  / z / z / z / z / z / z / z / z / z / z / z / z / z / z / z / z / z / z / z / z / z / z / z / z / z&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Empire&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Empire Builder Train is a room. The Train has a room called the station. The station of the Train is Seattle.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The description of the Empire Builder is &quot;One of the (relatively) plush long-distance Amtrak trains. You&#39;re in a two-story car with toilets and a cafe at one end, not having sprung for a sleeper.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">[if the station of the Train is the train]Outside the window there is rapidly-passing countryside.[otherwise]Through the windows you can see the [station of the Train] train station.[end if]&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of exiting when the player is in the Train:</div>
-<div class="codeline">&ensp;&ensp;if the station of the Train is the Train:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;The train is not stopped at a station.&quot; instead;</div>
-<div class="codeline">&ensp;&ensp;otherwise:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;move the player to the station of the train instead.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the station of the Train is the Train:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;The train is not stopped at a station.&quot; instead;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;move the player to the station of the train instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Before going outside when the player is in the Train:</div>
-<div class="codeline">&ensp;&ensp;try exiting instead.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;try exiting instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Before going inside when the player is in the station of the Train:</div>
-<div class="codeline">&ensp;&ensp;move the player to the Train instead.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;move the player to the Train instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Seattle, Edmonds, Everett, Wenatchee, and Spokane are rooms. The description of a room is usually &quot;The scenic train station of [the location][if the location is the station of the train].</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The pompously-titled Empire Builder train is pulled up here, soon to continue its journey towards Chicago[end if].&quot;</div>
 </div><p>And now our schedule for the train -- somewhat truncated, admittedly, since the full three-day journey from Seattle to Chicago is a bit long even for an ambitious example.</p>
 <div class="codeblock"><div class="codeline">At 4:45 PM:</div>
-<div class="codeline">&ensp;&ensp;if the player is in the train or the player is in the station of the train, say &quot;The train pulls out of [the station of the Train]!&quot;;</div>
-<div class="codeline">&ensp;&ensp;now the station of the Train is the Train.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the player is in the train or the player is in the station of the train, say &quot;The train pulls out of [the station of the Train]!&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the station of the Train is the Train.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">At 5:10 PM:</div>
-<div class="codeline">&ensp;&ensp;now the station of the Train is Edmonds;</div>
-<div class="codeline">&ensp;&ensp;if the player is in the train or the player is in the station of the train, say &quot;The train pulls into Edmonds and comes to a stop.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the station of the Train is Edmonds;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the player is in the train or the player is in the station of the train, say &quot;The train pulls into Edmonds and comes to a stop.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">At 5:17 PM:</div>
-<div class="codeline">&ensp;&ensp;if the player is in the train or the player is in the station of the train, say &quot;The train pulls out of [the station of the Train], running north along the shore towards Everett.&quot;;</div>
-<div class="codeline">&ensp;&ensp;now the station of the Train is the Train.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the player is in the train or the player is in the station of the train, say &quot;The train pulls out of [the station of the Train], running north along the shore towards Everett.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the station of the Train is the Train.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">At 5:39 PM:</div>
-<div class="codeline">&ensp;&ensp;now the station of the Train is Everett;</div>
-<div class="codeline">&ensp;&ensp;if the player is in the train or the player is in the station of the train, say &quot;The train arrives in scenic Everett, WA: the last stop before it turns east and heads over the mountains.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the station of the Train is Everett;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the player is in the train or the player is in the station of the train, say &quot;The train arrives in scenic Everett, WA: the last stop before it turns east and heads over the mountains.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">At 5:44 PM:</div>
-<div class="codeline">&ensp;&ensp;if the player is in the train or the player is in the station of the train, say &quot;The train pulls out of [the station of the Train] and turns east.&quot;;</div>
-<div class="codeline">&ensp;&ensp;now the station of the Train is the Train.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the player is in the train or the player is in the station of the train, say &quot;The train pulls out of [the station of the Train] and turns east.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the station of the Train is the Train.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">At 8:39 PM:</div>
-<div class="codeline">&ensp;&ensp;if the player is in the train or the player is in the station of the train, say &quot;In darkness the train rolls into Wenatchee; which is just fine, considering that there is nothing to see here at all.&quot;;</div>
-<div class="codeline">&ensp;&ensp;now the station of the Train is Wenatchee.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the player is in the train or the player is in the station of the train, say &quot;In darkness the train rolls into Wenatchee; which is just fine, considering that there is nothing to see here at all.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the station of the Train is Wenatchee.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">At 8:44 PM:</div>
-<div class="codeline">&ensp;&ensp;if the player is in the train or the player is in the station of the train, say &quot;The train pulls out of [the station of the Train] and continues east through the darkness towards Spokane.&quot;;</div>
-<div class="codeline">&ensp;&ensp;now the station of the Train is the Train.</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the player is in the train or the player is in the station of the train, say &quot;The train pulls out of [the station of the Train] and continues east through the darkness towards Spokane.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the station of the Train is the Train.</div>
 </div><p>Playing this out would of course require near inhuman patience. Let&#39;s set things up so that the player at least doesn&#39;t have to wait too long for his first departure:</p>
 <div class="codeblock"><div class="codeline">The time of day is 4:43 PM.</div>
 </div><p>&hellip;and provide fair warning of how slowly time is elapsing.</p>
 <div class="codeblock"><div class="codeline">When play begins:</div>
-<div class="codeline">&ensp;&ensp;now the right hand status line is &quot;[time of day]&quot;.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the right hand status line is &quot;[time of day]&quot;.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;out / in / z/ z / z / out / z / z / z / z / z / z / z / z / z / z / z / z / z / z / z / z / z / z / z / z / z / z / z / out / in / out / z / z&quot;.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test more with &quot;out / z/ z / z  / z / z / z / z / z / z / z / z / z / z / z / z / z / z / z / z / z / z / z / z / z / z / z / z / z&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "out / in / z/ z / z / out / z / z / z / z / z / z / z / z / z / z / z / z / z / z / z / z / z / z / z / z / z / z / z / out / in / out / z / z".</summary><div class="testme-output">Empire Builder Train<br>One of the (relatively) plush long-distance Amtrak trains. You&#39;re in a two-story car with toilets and a cafe at one end, not having sprung for a sleeper.<br><br>Through the windows you can see the Seattle train station.<br><br>&gt;(Testing.)<br><br>&gt;[1] out<br>Seattle<br>The scenic train station of Seattle.<br><br>The pompously-titled Empire Builder train is pulled up here, soon to continue its journey towards Chicago.<br><br>&gt;[2] in<br>Empire Builder Train<br>One of the (relatively) plush long-distance Amtrak trains. You&#39;re in a two-story car with toilets and a cafe at one end, not having sprung for a sleeper.<br><br>Through the windows you can see the Seattle train station.<br><br>&gt;[3] z<br>Time passes.<br><br>The train pulls out of Seattle!<br><br>&gt;[4] z<br>Time passes.<br><br>&gt;[5] z<br>Time passes.<br><br>&gt;[6] out<br>The train is not stopped at a station.<br><br>&gt;[7] z<br>Time passes.<br><br>&gt;[8] z<br>Time passes.<br><br>&gt;[9] z<br>Time passes.<br><br>&gt;[10] z<br>Time passes.<br><br>&gt;[11] z<br>Time passes.<br><br>&gt;[12] z<br>Time passes.<br><br>&gt;[13] z<br>Time passes.<br><br>&gt;[14] z<br>Time passes.<br><br>&gt;[15] z<br>Time passes.<br><br>&gt;[16] z<br>Time passes.<br><br>&gt;[17] z<br>Time passes.<br><br>&gt;[18] z<br>Time passes.<br><br>&gt;[19] z<br>Time passes.<br><br>&gt;[20] z<br>Time passes.<br><br>&gt;[21] z<br>Time passes.<br><br>&gt;[22] z<br>Time passes.<br><br>&gt;[23] z<br>Time passes.<br><br>&gt;[24] z<br>Time passes.<br><br>&gt;[25] z<br>Time passes.<br><br>&gt;[26] z<br>Time passes.<br><br>&gt;[27] z<br>Time passes.<br><br>&gt;[28] z<br>Time passes.<br><br>The train pulls into Edmonds and comes to a stop.<br><br>&gt;[29] z<br>Time passes.<br><br>&gt;[30] out<br>Edmonds<br>The scenic train station of Edmonds.<br><br>The pompously-titled Empire Builder train is pulled up here, soon to continue its journey towards Chicago.<br><br>&gt;[31] in<br>Empire Builder Train<br>One of the (relatively) plush long-distance Amtrak trains. You&#39;re in a two-story car with toilets and a cafe at one end, not having sprung for a sleeper.<br><br>Through the windows you can see the Edmonds train station.<br><br>&gt;[32] out<br>Edmonds<br>The scenic train station of Edmonds.<br><br>The pompously-titled Empire Builder train is pulled up here, soon to continue its journey towards Chicago.<br><br>&gt;[33] z<br>Time passes.<br><br>&gt;[34] z<br>Time passes.
 </div></details><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="totality.html" title="To schedule an eclipse of the sun, which involves a number of related events."><div class="nav-arrow">←</div> <div class="doc-navbar-text">144. Totality</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="hour_of_the_wren.html" title="Allowing the player to make an appointment, which is then kept."><div class="doc-navbar-text">146. Hour of the Wren</div> <div class="nav-arrow">→</div></a></div></div>

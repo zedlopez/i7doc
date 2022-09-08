@@ -19,156 +19,156 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex428">Play/modify Robo 2 in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Robo2/index.html">Play Robo 2 in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Robo 2&quot;\n\nChapter 1 - Programming\n\nSection 1 - The Programs Themselves\n\nThe hard drive is a container. A program is a kind of thing. 15 programs are in hard drive. A program has some text called the starter command. A program has a list of stored actions called the script. Understand the starter command property as describing a program.\n\nRule for printing the name of a program (called the target) which is not blank:\n\tsay &quot;[starter command of the target in upper case]&quot;.\n\nDefinition: a program is blank if the number of entries in its script is 0.\n\nThe current instruction name is some text that varies. The current instruction set is a list of stored actions that varies.\n\n\nSection 2 - Learning New Programs\n\nUnderstand &quot;learn [text]&quot; as learning. Learning is an action applying to one topic.\n\nCheck learning:\n\tsay &quot;You have already learned all you need to know. Robo, however, remains to be trained.&quot; instead.\n\nCheck Robo learning:\n\tif Robo is watching, say &quot;Robo is already recording &apos;[the current instruction name]&apos;.&quot; instead.\n\nCarry out Robo learning:\n\ttruncate the current instruction set to 0 entries;\n\tnow the current instruction name is the topic understood;\n\tnow Robo is watching.\n\nReport Robo learning:\n\tsay &quot;&apos;Learning [the current instruction name in upper case],&apos; Robo replies.&quot;\n\nAfter doing something when Robo is watching and Robo can see the player:\n\tnow the actor is Robo;\n\tadd the current action to the current instruction set;\n\tnow the actor is the player;\n\tsay &quot;Robo watches you [the current action][one of], his yellow eyes lamp-like and observant[or]. In his metal head, gears whirr[or], his brushed-copper handlebar moustaches twitching[or] impassively[at random].&quot;;\n\tcontinue the action.\n\n\nSection 3 - Returning to Standby Mode\n\nUnderstand &quot;stop&quot; as stopping. Stopping is an action applying to nothing.\n\nCheck stopping:\n\tsay &quot;The command is useful only for Robo.&quot; instead.\n\nCheck Robo stopping:\n\tif Robo is standing by, stop the action.\n\nCarry out Robo stopping when Robo is watching:\n\tlet N be a random blank program;\n\tif N is a program:\n\t\tnow the starter command of N is the current instruction name;\n\t\tnow the script of N is the current instruction set;\n\t\tsay &quot;&apos;Stored [current instruction name in upper case].&apos;&quot;;\n\totherwise:\n\t\tsay &quot;FAILURE: no program slots remaining.&quot;\n\nCarry out Robo stopping:\n\tnow Robo is standing by.\n\nReport Robo stopping:\n\tsay &quot;Robo is now standing by.&quot;\n\n\nSection 4 - Running Learned Programs\n\nUnderstand &quot;run [any program]&quot; as running. Running is an action applying to one visible thing.\n\nCheck running:\n\tsay &quot;Only Robo can perform Robo&apos;s programs.&quot; instead.\n\nCheck Robo running:\n\tif Robo is not standing by, stop the action.\n\nUnsuccessful attempt by Robo running:\n\tsay &quot;&apos;ERROR: Robo can launch new programs only when on standby.&apos;&quot;\n\nCarry out Robo running:\n\tnow the current program of Robo is the noun;\n\tnow the stage of Robo is 1;\n\tnow Robo is replaying.\n\nReport Robo running:\n\tsay &quot;&apos;Running [the starter command in upper case],&apos; Robo confirms.&quot;\n\nEvery turn when Robo is replaying:\n\tlet the chosen script be the script of the current program of Robo;\n\tlet maximum be the number of entries in the chosen script;\n\tlet N be the stage of Robo;\n\tlet the next step be entry N of the chosen script;\n\ttry the next step;\n\tincrement the stage of Robo;\n\tif the stage of Robo is greater than the maximum:\n\t\tsay &quot;Robo&apos;s program ends, and he reverts to stand-by mode.&quot;;\n\t\tnow Robo is standing by;\n\t\tnow the stage of Robo is 1.\n\n\nSection 5 - Listing Learned Programs\n\nUnderstand &quot;list programs&quot; as requesting program list. Requesting program list is an action applying to nothing.\n\nCheck requesting program list:\n\tsay &quot;You will have to ask Robo to list programs.&quot; instead.\n\nCarry out Robo requesting program list:\n\tsay &quot;&apos;The available program[if more than one program is not blank]s[end if] [is-are list of programs which are not blank].&apos;&quot;.\n\n\nUnderstand &quot;describe [any program]&quot; or &quot;list [any program]&quot; as requesting script of. Requesting script of is an action applying to one visible thing.\n\nCheck requesting script of:\n\tsay &quot;You will have to ask Robo to give you the script.&quot; instead.\n\nCarry out Robo requesting script of:\n\tsay &quot;The script of [noun] is: [script of the noun].&quot;\n\n\nSection 6 - Deleting Learned Programs\n\nUnderstand &quot;delete [any program]&quot; as deleting. Deleting is an action applying to one visible thing. Understand the command &quot;erase&quot; as &quot;delete&quot;.\n\nCheck deleting:\n\tsay &quot;You will have to instruct Robo to delete [the noun].&quot; instead.\n\nCheck Robo deleting (this is the can&apos;t delete except in standby rule):\n\tif Robo is not standing by, stop the action.\n\nUnsuccessful attempt by Robo deleting:\n\tsay &quot;&apos;ERROR: programs may only be deleted while Robo is in stand-by mode.&apos;&quot; instead.\n\nCarry out Robo deleting:\n\ttruncate the script of the noun to 0 entries;\n\tnow the starter command of the noun is &quot;&quot;.\n\nReport Robo deleting:\n\tsay &quot;&apos;Program deleted.&apos;&quot;\n\n\nChapter 2 - The Scenario\n\nThe Experimentation Chamber is a room.\n\nRobo is a man in the Experimentation Chamber. &quot;Robo, your prototype tin companion, stands awkwardly beside you[if watching], watching[end if].&quot; Robo can be watching, replaying, or standing by. Robo is standing by. Robo has a program called the current program. Robo has a number called the stage.\n\nPersuasion rule: persuasion succeeds.\n\nThe red block and the blue cylinder are things in the Experimentation Chamber. The counter is a supporter in the Experimentation Chamber. The counter is scenery.\n\nReport Robo examining Robo:\n\tsay &quot;Robo examines each of his hands in turn, then each of his legs (bending over mostly double in the middle to do this).&quot; instead.\n\nReport Robo examining the player:\n\tsay &quot;Robo stares at you, unblinkingly, for several seconds together[if a random chance of 1 in 7 succeeds]. His left moustache-bar twitches infinitesimally upward[end if].&quot; instead.\n\nReport Robo taking the cylinder:\n\tsay &quot;[one of][Robo] needs several attempts to get his metal fingers around [the cylinder] -- they are not designed for grasping small objects elegantly. But at last he succeeds[or]Once again, Robo struggles a bit before picking up [the cylinder][stopping].&quot; instead.\n\nTest me with &quot;test chocolate / test vanilla&quot;.\n\nTest chocolate with &quot;learn chocolate / stop / list programs / Robo, learn chocolate / take red / put all on counter / Robo, stop / Robo, list programs / Robo, run chocolate / z / Robo, run chocolate / Robo, stop / z&quot;.\n\nTest vanilla with &quot;Robo, learn vanilla / take all / i / drop all / x robo / x me / Robo, stop / Robo, list programs / Robo, list vanilla / Robo, run vanilla / z / z / robo, delete vanilla / robo, stop / robo, list vanilla / robo, delete vanilla / robo, list programs&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Robo 2&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline i7header">Chapter 1 - Programming</div><div class="codeline i7header">Section 1 - The Programs Themselves</div><div class="codeline">The hard drive is a container. A program is a kind of thing. 15 programs are in hard drive. A program has some text called the starter command. A program has a list of stored actions called the script. Understand the starter command property as describing a program.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Rule for printing the name of a program (called the target) which is not blank:</div>
-<div class="codeline">&ensp;&ensp;say &quot;[starter command of the target in upper case]&quot;.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;[starter command of the target in upper case]&quot;.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Definition: a program is blank if the number of entries in its script is 0.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The current instruction name is some text that varies. The current instruction set is a list of stored actions that varies.</div>
 </div><p>Now, we want to let Robo learn new programs; for this purpose, we&#39;ll emulate the code from our previous implementation, so that Robo watches what the player does and stores those actions in his script:</p>
-<div class="codeblock"><div class="codeline i7header">Section 2 - Learning New Programs</div><div class="codeline">&ensp;&ensp;</div>
+<div class="codeblock"><div class="codeline i7header">Section 2 - Learning New Programs</div><div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Understand &quot;learn [text]&quot; as learning. Learning is an action applying to one topic.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Check learning:</div>
-<div class="codeline">&ensp;&ensp;say &quot;You have already learned all you need to know. Robo, however, remains to be trained.&quot; instead.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You have already learned all you need to know. Robo, however, remains to be trained.&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Check Robo learning:</div>
-<div class="codeline">&ensp;&ensp;if Robo is watching, say &quot;Robo is already recording &#39;[the current instruction name]&#39;.&quot; instead.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if Robo is watching, say &quot;Robo is already recording &#39;[the current instruction name]&#39;.&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Carry out Robo learning:</div>
-<div class="codeline">&ensp;&ensp;truncate the current instruction set to 0 entries;</div>
-<div class="codeline">&ensp;&ensp;now the current instruction name is the topic understood;</div>
-<div class="codeline">&ensp;&ensp;now Robo is watching.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;truncate the current instruction set to 0 entries;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the current instruction name is the topic understood;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now Robo is watching.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Report Robo learning:</div>
-<div class="codeline">&ensp;&ensp;say &quot;&#39;Learning [the current instruction name in upper case],&#39; Robo replies.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;&#39;Learning [the current instruction name in upper case],&#39; Robo replies.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">After doing something when Robo is watching and Robo can see the player:</div>
-<div class="codeline">&ensp;&ensp;now the actor is Robo;</div>
-<div class="codeline">&ensp;&ensp;add the current action to the current instruction set;</div>
-<div class="codeline">&ensp;&ensp;now the actor is the player;</div>
-<div class="codeline">&ensp;&ensp;say &quot;Robo watches you [the current action][one of], his yellow eyes lamp-like and observant[or]. In his metal head, gears whirr[or], his brushed-copper handlebar moustaches twitching[or] impassively[at random].&quot;;</div>
-<div class="codeline">&ensp;&ensp;continue the action.</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the actor is Robo;</div>
+<div class="codeline">&ensp;&ensp;&ensp;add the current action to the current instruction set;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the actor is the player;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Robo watches you [the current action][one of], his yellow eyes lamp-like and observant[or]. In his metal head, gears whirr[or], his brushed-copper handlebar moustaches twitching[or] impassively[at random].&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;continue the action.</div>
 </div><p>Of course, we also need to be able to switch learning mode off, and store any script learned this way. We&#39;ll also use the same STOP command to make Robo terminate a program he&#39;s in the middle of running.</p>
-<div class="codeblock"><div class="codeline i7header">Section 3 - Returning to Standby Mode</div><div class="codeline">&ensp;&ensp;</div>
+<div class="codeblock"><div class="codeline i7header">Section 3 - Returning to Standby Mode</div><div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Understand &quot;stop&quot; as stopping. Stopping is an action applying to nothing.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Check stopping:</div>
-<div class="codeline">&ensp;&ensp;say &quot;The command is useful only for Robo.&quot; instead.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;The command is useful only for Robo.&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Check Robo stopping:</div>
-<div class="codeline">&ensp;&ensp;if Robo is standing by, stop the action.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if Robo is standing by, stop the action.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Carry out Robo stopping when Robo is watching:</div>
-<div class="codeline">&ensp;&ensp;let N be a random blank program;</div>
-<div class="codeline">&ensp;&ensp;if N is a program:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;now the starter command of N is the current instruction name;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;now the script of N is the current instruction set;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;&#39;Stored [current instruction name in upper case].&#39;&quot;;</div>
-<div class="codeline">&ensp;&ensp;otherwise:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;FAILURE: no program slots remaining.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let N be a random blank program;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if N is a program:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the starter command of N is the current instruction name;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the script of N is the current instruction set;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;&#39;Stored [current instruction name in upper case].&#39;&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;FAILURE: no program slots remaining.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Carry out Robo stopping:</div>
-<div class="codeline">&ensp;&ensp;now Robo is standing by.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now Robo is standing by.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Report Robo stopping:</div>
-<div class="codeline">&ensp;&ensp;say &quot;Robo is now standing by.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Robo is now standing by.&quot;</div>
 </div><p>Next, we need to be able to play these programs back again. We&#39;ll give Robo a &quot;current program&quot; to store which program he&#39;s currently working on, and a number called &quot;stage&quot; which will record where he is in the script. Our previous implementation simply had Robo erase entries from his script list as he performed them, but this time we would like Robo to be able to remember and rerun the same scripts over and over, so we need something a little more subtle.</p>
-<div class="codeblock"><div class="codeline i7header">Section 4 - Running Learned Programs</div><div class="codeline">&ensp;&ensp;</div>
+<div class="codeblock"><div class="codeline i7header">Section 4 - Running Learned Programs</div><div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Understand &quot;run [any program]&quot; as running. Running is an action applying to one visible thing.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Check running:</div>
-<div class="codeline">&ensp;&ensp;say &quot;Only Robo can perform Robo&#39;s programs.&quot; instead.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Only Robo can perform Robo&#39;s programs.&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Check Robo running:</div>
-<div class="codeline">&ensp;&ensp;if Robo is not standing by, stop the action.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if Robo is not standing by, stop the action.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Unsuccessful attempt by Robo running:</div>
-<div class="codeline">&ensp;&ensp;say &quot;&#39;ERROR: Robo can launch new programs only when on standby.&#39;&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;&#39;ERROR: Robo can launch new programs only when on standby.&#39;&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Carry out Robo running:</div>
-<div class="codeline">&ensp;&ensp;now the current program of Robo is the noun;</div>
-<div class="codeline">&ensp;&ensp;now the stage of Robo is 1;</div>
-<div class="codeline">&ensp;&ensp;now Robo is replaying.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the current program of Robo is the noun;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the stage of Robo is 1;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now Robo is replaying.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Report Robo running:</div>
-<div class="codeline">&ensp;&ensp;say &quot;&#39;Running [the starter command in upper case],&#39; Robo confirms.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;&#39;Running [the starter command in upper case],&#39; Robo confirms.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Every turn when Robo is replaying:</div>
-<div class="codeline">&ensp;&ensp;let the chosen script be the script of the current program of Robo;</div>
-<div class="codeline">&ensp;&ensp;let maximum be the number of entries in the chosen script;</div>
-<div class="codeline">&ensp;&ensp;let N be the stage of Robo;</div>
-<div class="codeline">&ensp;&ensp;let the next step be entry N of the chosen script;</div>
-<div class="codeline">&ensp;&ensp;try the next step;</div>
-<div class="codeline">&ensp;&ensp;increment the stage of Robo;</div>
-<div class="codeline">&ensp;&ensp;if the stage of Robo is greater than the maximum:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;Robo&#39;s program ends, and he reverts to stand-by mode.&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;now Robo is standing by;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;now the stage of Robo is 1.</div>
+<div class="codeline">&ensp;&ensp;&ensp;let the chosen script be the script of the current program of Robo;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let maximum be the number of entries in the chosen script;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let N be the stage of Robo;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let the next step be entry N of the chosen script;</div>
+<div class="codeline">&ensp;&ensp;&ensp;try the next step;</div>
+<div class="codeline">&ensp;&ensp;&ensp;increment the stage of Robo;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the stage of Robo is greater than the maximum:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;Robo&#39;s program ends, and he reverts to stand-by mode.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now Robo is standing by;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the stage of Robo is 1.</div>
 </div><p>For the player&#39;s sanity, we should also provide a way to find out which programs Robo has stored in memory and what they do, so we design two listing commands:</p>
-<div class="codeblock"><div class="codeline i7header">Section 5 - Listing Learned Programs</div><div class="codeline">&ensp;&ensp;</div>
+<div class="codeblock"><div class="codeline i7header">Section 5 - Listing Learned Programs</div><div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Understand &quot;list programs&quot; as requesting program list. Requesting program list is an action applying to nothing.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Check requesting program list:</div>
-<div class="codeline">&ensp;&ensp;say &quot;You will have to ask Robo to list programs.&quot; instead.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You will have to ask Robo to list programs.&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Carry out Robo requesting program list:</div>
-<div class="codeline">&ensp;&ensp;say &quot;&#39;The available program[if more than one program is not blank]s[end if] [is-are list of programs which are not blank].&#39;&quot;.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;&#39;The available program[if more than one program is not blank]s[end if] [is-are list of programs which are not blank].&#39;&quot;.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Understand &quot;describe [any program]&quot; or &quot;list [any program]&quot; as requesting script of. Requesting script of is an action applying to one visible thing.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Check requesting script of:</div>
-<div class="codeline">&ensp;&ensp;say &quot;You will have to ask Robo to give you the script.&quot; instead.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You will have to ask Robo to give you the script.&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Carry out Robo requesting script of:</div>
-<div class="codeline">&ensp;&ensp;say &quot;The script of [noun] is: [script of the noun].&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;The script of [noun] is: [script of the noun].&quot;</div>
 </div><p>And to complete the suite, in case the player runs into Robo&#39;s fifteen-program limit:</p>
-<div class="codeblock"><div class="codeline i7header">Section 6 - Deleting Learned Programs</div><div class="codeline">&ensp;&ensp;</div>
+<div class="codeblock"><div class="codeline i7header">Section 6 - Deleting Learned Programs</div><div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Understand &quot;delete [any program]&quot; as deleting. Deleting is an action applying to one visible thing. Understand the command &quot;erase&quot; as &quot;delete&quot;.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Check deleting:</div>
-<div class="codeline">&ensp;&ensp;say &quot;You will have to instruct Robo to delete [the noun].&quot; instead.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You will have to instruct Robo to delete [the noun].&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Check Robo deleting (this is the can&#39;t delete except in standby rule):</div>
-<div class="codeline">&ensp;&ensp;if Robo is not standing by, stop the action.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if Robo is not standing by, stop the action.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Unsuccessful attempt by Robo deleting:</div>
-<div class="codeline">&ensp;&ensp;say &quot;&#39;ERROR: programs may only be deleted while Robo is in stand-by mode.&#39;&quot; instead.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;&#39;ERROR: programs may only be deleted while Robo is in stand-by mode.&#39;&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Carry out Robo deleting:</div>
-<div class="codeline">&ensp;&ensp;truncate the script of the noun to 0 entries;</div>
-<div class="codeline">&ensp;&ensp;now the starter command of the noun is &quot;&quot;.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;truncate the script of the noun to 0 entries;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the starter command of the noun is &quot;&quot;.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Report Robo deleting:</div>
-<div class="codeline">&ensp;&ensp;say &quot;&#39;Program deleted.&#39;&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;&#39;Program deleted.&#39;&quot;</div>
 </div><p>Now we use pretty much the same set-up as before to test Robo&#39;s abilities:</p>
-<div class="codeblock"><div class="codeline i7header">Chapter 2 - The Scenario</div><div class="codeline">&ensp;&ensp;</div>
+<div class="codeblock"><div class="codeline i7header">Chapter 2 - The Scenario</div><div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Experimentation Chamber is a room.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Robo is a man in the Experimentation Chamber. &quot;Robo, your prototype tin companion, stands awkwardly beside you[if watching], watching[end if].&quot; Robo can be watching, replaying, or standing by. Robo is standing by. Robo has a program called the current program. Robo has a number called the stage.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Persuasion rule: persuasion succeeds.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The red block and the blue cylinder are things in the Experimentation Chamber. The counter is a supporter in the Experimentation Chamber. The counter is scenery.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Report Robo examining Robo:</div>
-<div class="codeline">&ensp;&ensp;say &quot;Robo examines each of his hands in turn, then each of his legs (bending over mostly double in the middle to do this).&quot; instead.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Robo examines each of his hands in turn, then each of his legs (bending over mostly double in the middle to do this).&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Report Robo examining the player:</div>
-<div class="codeline">&ensp;&ensp;say &quot;Robo stares at you, unblinkingly, for several seconds together[if a random chance of 1 in 7 succeeds]. His left moustache-bar twitches infinitesimally upward[end if].&quot; instead.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Robo stares at you, unblinkingly, for several seconds together[if a random chance of 1 in 7 succeeds]. His left moustache-bar twitches infinitesimally upward[end if].&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Report Robo taking the cylinder:</div>
-<div class="codeline">&ensp;&ensp;say &quot;[one of][Robo] needs several attempts to get his metal fingers around [the cylinder] -- they are not designed for grasping small objects elegantly. But at last he succeeds[or]Once again, Robo struggles a bit before picking up [the cylinder][stopping].&quot; instead.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;[one of][Robo] needs several attempts to get his metal fingers around [the cylinder] -- they are not designed for grasping small objects elegantly. But at last he succeeds[or]Once again, Robo struggles a bit before picking up [the cylinder][stopping].&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;test chocolate / test vanilla&quot;.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test chocolate with &quot;learn chocolate / stop / list programs / Robo, learn chocolate / take red / put all on counter / Robo, stop / Robo, list programs / Robo, run chocolate / z / Robo, run chocolate / Robo, stop / z&quot;.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test vanilla with &quot;Robo, learn vanilla / take all / i / drop all / x robo / x me / Robo, stop / Robo, list programs / Robo, list vanilla / Robo, run vanilla / z / z / robo, delete vanilla / robo, stop / robo, list vanilla / robo, delete vanilla / robo, list programs&quot;.</div>
-</div><details class="testme-output"><summary>Test me with "test chocolate / test vanilla".</summary><div class="testme-output">Experimentation Chamber<br>Robo, your prototype tin companion, stands awkwardly beside you.<br><br>You can also see a red block and a blue cylinder here.<br><br>&gt;(Testing.)<br><br>&gt;[1] test chocolate<br>(Testing.)<br><br>&gt;[2] learn chocolate<br>You have already learned all you need to know. Robo, however, remains to be trained.<br><br>&gt;[3] stop<br>The command is useful only for Robo.<br><br>&gt;[4] list programs<br>You will have to ask Robo to list programs.<br><br>&gt;[5] robo, learn chocolate<br>&quot;Learning CHOCOLATE,&quot; Robo replies.<br><br>&gt;[6] take red<br>Robo watches you taking the red block, his yellow eyes lamp-like and observant.<br><br>Taken.<br><br>&gt;[7] put all on counter<br>red block: Robo watches you putting the red block on the counter impassively.<br><br>Done.<br><br>&gt;[8] robo, stop<br>&quot;Stored CHOCOLATE.&quot;<br><br>Robo is now standing by.<br><br>&gt;[9] robo, list programs<br>&quot;The available program is CHOCOLATE.&quot;<br><br>&gt;[10] robo, run chocolate<br>&quot;Running CHOCOLATE,&quot; Robo confirms.<br><br>Robo picks up the red block.<br><br>&gt;[11] z<br>Time passes.<br><br>Robo puts the red block on the counter.<br><br>Robo&#39;s program ends, and he reverts to stand-by mode.<br><br>&gt;[12] robo, run chocolate<br>&quot;Running CHOCOLATE,&quot; Robo confirms.<br><br>Robo picks up the red block.<br><br>&gt;[13] robo, stop<br>Robo is now standing by.<br><br>&gt;[14] z<br>Time passes.<br><br>&gt;[15] test vanilla<br>(Testing.)<br><br>&gt;[16] robo, learn vanilla<br>&quot;Learning VANILLA,&quot; Robo replies.<br><br>&gt;[17] take all<br>blue cylinder: Robo watches you taking the blue cylinder, his brushed-copper handlebar moustaches twitching.<br><br>Taken.<br>red block: That seems to belong to Robo.<br><br>&gt;[18] i<br>You are carrying:<br>  a blue cylinder<br><br>Robo watches you taking inventory. In his metal head, gears whirr.<br><br>&gt;[19] drop all<br>(the blue cylinder)<br>Robo watches you dropping the blue cylinder impassively.<br><br>Dropped.<br><br>&gt;[20] x robo<br>You see nothing special about Robo.<br><br>Robo watches you examining Robo, his brushed-copper handlebar moustaches twitching.<br><br>&gt;[21] x me<br>As good-looking as ever.<br><br>Robo watches you examining yourself. In his metal head, gears whirr.<br><br>&gt;[22] robo, stop<br>&quot;Stored VANILLA.&quot;<br><br>Robo is now standing by.<br><br>&gt;[23] robo, list programs<br>&quot;The available programs are VANILLA and CHOCOLATE.&quot;<br><br>&gt;[24] robo, list vanilla<br>The script of VANILLA is: Robo taking the blue cylinder, Robo taking inventory, Robo dropping the blue cylinder, Robo examining Robo and Robo examining yourself.<br><br>&gt;[25] robo, run vanilla<br>&quot;Running VANILLA,&quot; Robo confirms.<br><br>Robo needs several attempts to get his metal fingers around the blue cylinder -- they are not designed for grasping small objects elegantly. But at last he succeeds.<br><br>&gt;[26] z<br>Time passes.<br><br>Robo looks through his possessions.<br><br>&gt;[27] z<br>Time passes.<br><br>Robo puts down the blue cylinder.<br><br>&gt;[28] robo, delete vanilla<br>&quot;ERROR: programs may only be deleted while Robo is in stand-by mode.&quot;<br><br>Robo examines each of his hands in turn, then each of his legs (bending over mostly double in the middle to do this).<br><br>&gt;[29] robo, stop<br>Robo is now standing by.<br><br>&gt;[30] robo, list vanilla<br>The script of VANILLA is: Robo taking the blue cylinder, Robo taking inventory, Robo dropping the blue cylinder, Robo examining Robo and Robo examining yourself.<br><br>&gt;[31] robo, delete vanilla<br>&quot;Program deleted.&quot;<br><br>&gt;[32] robo, list programs<br>&quot;The available program is CHOCOLATE.&quot;
+</div><details class="testme-output"><summary>Test me with "test chocolate / test vanilla".</summary><div class="testme-output">Experimentation Chamber<br>Robo, your prototype tin companion, stands awkwardly beside you.<br><br>You can also see a red block and a blue cylinder here.<br><br>&gt;(Testing.)<br><br>&gt;[1] test chocolate<br>(Testing.)<br><br>&gt;[2] learn chocolate<br>You have already learned all you need to know. Robo, however, remains to be trained.<br><br>&gt;[3] stop<br>The command is useful only for Robo.<br><br>&gt;[4] list programs<br>You will have to ask Robo to list programs.<br><br>&gt;[5] robo, learn chocolate<br>&quot;Learning CHOCOLATE,&quot; Robo replies.<br><br>&gt;[6] take red<br>Robo watches you taking the red block, his yellow eyes lamp-like and observant.<br><br>Taken.<br><br>&gt;[7] put all on counter<br>red block: Robo watches you putting the red block on the counter. In his metal head, gears whirr.<br><br>Done.<br><br>&gt;[8] robo, stop<br>&quot;Stored CHOCOLATE.&quot;<br><br>Robo is now standing by.<br><br>&gt;[9] robo, list programs<br>&quot;The available program is CHOCOLATE.&quot;<br><br>&gt;[10] robo, run chocolate<br>&quot;Running CHOCOLATE,&quot; Robo confirms.<br><br>Robo picks up the red block.<br><br>&gt;[11] z<br>Time passes.<br><br>Robo puts the red block on the counter.<br><br>Robo&#39;s program ends, and he reverts to stand-by mode.<br><br>&gt;[12] robo, run chocolate<br>&quot;Running CHOCOLATE,&quot; Robo confirms.<br><br>Robo picks up the red block.<br><br>&gt;[13] robo, stop<br>Robo is now standing by.<br><br>&gt;[14] z<br>Time passes.<br><br>&gt;[15] test vanilla<br>(Testing.)<br><br>&gt;[16] robo, learn vanilla<br>&quot;Learning VANILLA,&quot; Robo replies.<br><br>&gt;[17] take all<br>blue cylinder: Robo watches you taking the blue cylinder impassively.<br><br>Taken.<br>red block: That seems to belong to Robo.<br><br>&gt;[18] i<br>You are carrying:<br>  a blue cylinder<br><br>Robo watches you taking inventory, his yellow eyes lamp-like and observant.<br><br>&gt;[19] drop all<br>(the blue cylinder)<br>Robo watches you dropping the blue cylinder. In his metal head, gears whirr.<br><br>Dropped.<br><br>&gt;[20] x robo<br>You see nothing special about Robo.<br><br>Robo watches you examining Robo, his yellow eyes lamp-like and observant.<br><br>&gt;[21] x me<br>As good-looking as ever.<br><br>Robo watches you examining yourself. In his metal head, gears whirr.<br><br>&gt;[22] robo, stop<br>&quot;Stored VANILLA.&quot;<br><br>Robo is now standing by.<br><br>&gt;[23] robo, list programs<br>&quot;The available programs are CHOCOLATE and VANILLA.&quot;<br><br>&gt;[24] robo, list vanilla<br>The script of VANILLA is: Robo taking the blue cylinder, Robo taking inventory, Robo dropping the blue cylinder, Robo examining Robo and Robo examining yourself.<br><br>&gt;[25] robo, run vanilla<br>&quot;Running VANILLA,&quot; Robo confirms.<br><br>Robo needs several attempts to get his metal fingers around the blue cylinder -- they are not designed for grasping small objects elegantly. But at last he succeeds.<br><br>&gt;[26] z<br>Time passes.<br><br>Robo looks through his possessions.<br><br>&gt;[27] z<br>Time passes.<br><br>Robo puts down the blue cylinder.<br><br>&gt;[28] robo, delete vanilla<br>&quot;ERROR: programs may only be deleted while Robo is in stand-by mode.&quot;<br><br>Robo examines each of his hands in turn, then each of his legs (bending over mostly double in the middle to do this).<br><br>&gt;[29] robo, stop<br>Robo is now standing by.<br><br>&gt;[30] robo, list vanilla<br>The script of VANILLA is: Robo taking the blue cylinder, Robo taking inventory, Robo dropping the blue cylinder, Robo examining Robo and Robo examining yourself.<br><br>&gt;[31] robo, delete vanilla<br>&quot;Program deleted.&quot;<br><br>&gt;[32] robo, list programs<br>&quot;The available program is CHOCOLATE.&quot;
 </div></details><p>We could also have written this so that Robo learns new scripts by accepting the player&#39;s instructions, so that</p>
 <div class="codeblock"><div class="codeline">&gt;ROBO, LEARN LIBRARY THEFT</div>
 <div class="codeline">&gt;ROBO, TAKE BOOK</div>
@@ -176,11 +176,11 @@
 <div class="codeline">&gt;ROBO, STOP</div>
 </div><p>&hellip;would store the script &#39;library theft&#39; with the actions taking the book and going east. The implementation there would have been mostly identical, except that instead of an &quot;after doing something&hellip;&quot; rule, we would have captured commands as we asked Robo to perform them, and added those to the command list in progress. The alternative code might look something like this:</p>
 <div class="codeblock"><div class="codeline">Before Robo doing something other than stopping when Robo is watching:</div>
-<div class="codeline">&ensp;&ensp;add the current action to the current instruction set;</div>
-<div class="codeline">&ensp;&ensp;say &quot;&#39;CHECK: [current action] added to script,&#39; says Robo.&quot; instead.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;add the current action to the current instruction set;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;&#39;CHECK: [current action] added to script,&#39; says Robo.&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Unsuccessful attempt by Robo doing something when Robo is watching:</div>
-<div class="codeline">&ensp;&ensp;say &quot;He does not actually perform the action.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;He does not actually perform the action.&quot;</div>
 </div><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="robo.html" title="A robot which watches and records the player&#39;s actions, then tries to repeat them back in the same order when he is switched into play-back mode."><div class="nav-arrow">←</div> <div class="doc-navbar-text">425. Robo 1</div></a></div><div class="doc-navbar-center">&thinsp;</div></div><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="formicidae.html" title="Manipulating the order in which items are handled after TAKE ALL."><div class="nav-arrow">←</div> <div class="doc-navbar-text">427. Formicidae</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="leopardskin.html" title="A maze that the player can escape if he performs an exact sequence of actions."><div class="doc-navbar-text">429. Leopard-skin</div> <div class="nav-arrow">→</div></a></div></div>
 <footer id="credits-footer"><nav><div class="nav-el"><a class="nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="nav-el" href="../search.html">Search</a></div></nav>
 <div class="footing"><p id="i7credit"><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p class="about"><a class="nav-about" href="../about.html">About this edition</a> &bull; <a class="nav-about" href="https://twitter.com/inform7tips">@inform7tips</a></p></div></footer>

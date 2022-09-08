@@ -18,23 +18,23 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex86">Play/modify Democratic Process in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="PutTake/index.html">Play Democratic Process in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Democratic Process&quot;\n\nBefore inserting something which is not carried by the player into something:\n\tif the noun is in the second noun, say &quot;Already done.&quot; instead;\n\tsay &quot;(first taking [the noun])[line break]&quot;;\n\tsilently try taking the noun;\n\tif the player is not holding the noun, stop the action.\n\nBefore putting something which is not carried by the player on something:\n\tif the noun is on the second noun, say &quot;Already done.&quot; instead;\n\tsay &quot;(first taking [the noun])[line break]&quot;;\n\tsilently try taking the noun;\n\tif the player is not holding the noun, stop the action.\n\nThe Assembly Room is a room. &quot;On most days, this room is used for elementary school assemblies; at the moment, it serves as a voting place.&quot; The ballot is on the desk. The desk is in the Assembly Room.\n\nThe machine is a container in the Assembly Room. &quot;On the ballot machine is a sign which reads &apos;PUT BALLOTS IN ME :)&apos;.&quot; Understand &quot;ballot machine&quot; as the machine.\n\nTest me with &quot;put ballot in machine&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Democratic Process&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Before inserting something which is not carried by the player into something:</div>
-<div class="codeline">&ensp;&ensp;if the noun is in the second noun, say &quot;Already done.&quot; instead;</div>
-<div class="codeline">&ensp;&ensp;say &quot;(first taking [the noun])[line break]&quot;;</div>
-<div class="codeline">&ensp;&ensp;silently try taking the noun;</div>
-<div class="codeline">&ensp;&ensp;if the player is not holding the noun, stop the action.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the noun is in the second noun, say &quot;Already done.&quot; instead;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;(first taking [the noun])[line break]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;silently try taking the noun;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the player is not holding the noun, stop the action.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Before putting something which is not carried by the player on something:</div>
-<div class="codeline">&ensp;&ensp;if the noun is on the second noun, say &quot;Already done.&quot; instead;</div>
-<div class="codeline">&ensp;&ensp;say &quot;(first taking [the noun])[line break]&quot;;</div>
-<div class="codeline">&ensp;&ensp;silently try taking the noun;</div>
-<div class="codeline">&ensp;&ensp;if the player is not holding the noun, stop the action.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the noun is on the second noun, say &quot;Already done.&quot; instead;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;(first taking [the noun])[line break]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;silently try taking the noun;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the player is not holding the noun, stop the action.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Assembly Room is a room. &quot;On most days, this room is used for elementary school assemblies; at the moment, it serves as a voting place.&quot; The ballot is on the desk. The desk is in the Assembly Room.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The machine is a container in the Assembly Room. &quot;On the ballot machine is a sign which reads &#39;PUT BALLOTS IN ME :)&#39;.&quot; Understand &quot;ballot machine&quot; as the machine.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;put ballot in machine&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "put ballot in machine".</summary><div class="testme-output">Assembly Room<br>On most days, this room is used for elementary school assemblies; at the moment, it serves as a voting place.<br><br>On the ballot machine is a sign which reads &quot;PUT BALLOTS IN ME :)&quot;.<br><br>You can also see a desk (on which is a ballot) here.<br><br>&gt;(Testing.)<br><br>&gt;[1] put ballot in machine<br>(first taking the ballot)<br><br>You put the ballot into the machine.
 </div></details><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="bad_hair_day.html" title="Change the player&#39;s appearance in response to EXAMINE ME."><div class="nav-arrow">←</div> <div class="doc-navbar-text">85. Bad Hair Day</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="sand.html" title="Extend PUT and INSERT handling to cases where multiple objects are intended at once."><div class="doc-navbar-text">87. Sand</div> <div class="nav-arrow">→</div></a></div></div>

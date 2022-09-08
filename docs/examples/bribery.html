@@ -18,57 +18,57 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex392">Play/modify Bribery in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Give/index.html">Play Bribery in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Bribery&quot;\n\nThe block giving rule is not listed in the check giving it to rules.\n\n\nCarry out giving (this is the gratitude for gifts rule): improve the mood of the second noun.\n\nMood is a kind of value. The moods are hostile, suspicious, indifferent, friendly, and adoring. An animal has a mood. An animal is usually indifferent.\n\nTo improve the mood of (character - an animal):\n\tif the mood of character is less than friendly, now the mood of the character is the mood after the mood of the character.\n\n\nCheck giving (this is the polite refusal of unwanted objects rule):\n\tunless the noun interests the second noun:\n\t\tsay &quot;[The second noun] disdainfully refuses [the noun].&quot; instead.\n\nTo decide whether (item - a thing) interests (character - a person):\n\tif the character has the item, no;\n\tif the item is edible, yes;\n\tno.\n\nInstead of showing something to someone:\ntry giving the noun to the second noun.\n\n\nAfter giving something to someone:\n\tsay &quot;You give [the noun] to [the second noun], who appears mollified and is now merely [mood of the second noun].&quot;\n\n\nThe Leafy Branch is a room. &quot;You stand on smooth bark dappled by sunlight. The scent-trail runs forward to home.\n\nThe branch continues forward and backward from here, and a stem extends forward-up.&quot;\n\nInstead of going south in Leafy Branch, say &quot;You must not back down! The scent trail leads onward!&quot;\n\nThe Very Hungry Caterpillar is a hostile animal in the Leafy Branch. &quot;[The Caterpillar] looks [mood].&quot; Instead of examining the Caterpillar, say &quot;[The caterpillar] appears [mood].&quot;\n\nThe player carries an edible thing called a peanut crumb. The carrying capacity of the player is 1. After taking something, say &quot;You lift [the noun], though it is nearly your own size.&quot;\n\nInstead of going north in the presence of a hostile caterpillar:\n\tsay &quot;[The Caterpillar] moves to block your exit, glaring down at you with all the bristles on its skin extended to full size.&quot;\n\nInstead of going north in the presence of a suspicious caterpillar:\n\tsay &quot;[The Caterpillar] moves to block your exit, though it might allow you past if you offered further tribute.&quot;\n\nThe Leaf Face is above the branch. &quot;The smooth and shiny surface of the leaf extends forward from here, but you have lost the scent-trail. This is not the way home.&quot;  The pear fragment is an edible thing in Leaf Face. The dead aphid is a thing in Leaf Face.\n\nThe Twig is north of Leafy Branch. &quot;The scent-trail is weak but not entirely gone, and you pursue it faithfully...&quot;\n\nAfter going to the Twig:\n\tsay &quot;The scent-trail is weak but not entirely gone, and you pursue it faithfully...&quot;;\n\tend the story finally.\n\nUnderstand &quot;forward-up&quot; as up. Understand &quot;forward&quot; as north. Understand &quot;backward&quot; as south.  Understand &quot;backward-down&quot; as down.\n\nTest me with &quot;forward / give crumb to caterpillar / forward / forward-up / get aphid / get fragment / down / give aphid to caterpillar / drop aphid / forward-up / get fragment / down / give fragment / forward&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Bribery&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The block giving rule is not listed in the check giving it to rules.</div>
 </div><p>As it happens, correct behavior is built into the GIVE command once &quot;block giving&quot; is turned off, so we do not have to write a replacement report or carry-out rule; the object will be transferred to the possession of the caterpillar. But we do want to adjust the action just a little so that our gift cheers up the recipient:</p>
 <div class="codeblock"><div class="codeline">Carry out giving (this is the gratitude for gifts rule): improve the mood of the second noun.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Mood is a kind of value. The moods are hostile, suspicious, indifferent, friendly, and adoring. An animal has a mood. An animal is usually indifferent.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">To improve the mood of (character - an animal):</div>
-<div class="codeline">&ensp;&ensp;if the mood of character is less than friendly, now the mood of the character is the mood after the mood of the character.</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the mood of character is less than friendly, now the mood of the character is the mood after the mood of the character.</div>
 </div><p>Now whenever we give something to an animal, the animal will be pleased about the present. Of course, we might also want to add a check rule to giving, to see whether the offering is something the recipient really wants:</p>
 <div class="codeblock"><div class="codeline">Check giving (this is the polite refusal of unwanted objects rule):</div>
-<div class="codeline">&ensp;&ensp;unless the noun interests the second noun:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;[The second noun] disdainfully refuses [the noun].&quot; instead.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;unless the noun interests the second noun:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[The second noun] disdainfully refuses [the noun].&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">To decide whether (item - a thing) interests (character - a person):</div>
-<div class="codeline">&ensp;&ensp;if the character has the item, no;</div>
-<div class="codeline">&ensp;&ensp;if the item is edible, yes;</div>
-<div class="codeline">&ensp;&ensp;no.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the character has the item, no;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the item is edible, yes;</div>
+<div class="codeline">&ensp;&ensp;&ensp;no.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of showing something to someone:</div>
 <div class="codeline">try giving the noun to the second noun.</div>
 </div><p>There is already a perfectly workable report rule that will describe what happens when we give something to someone, but let&#39;s say we want to report on the recipient&#39;s changed mood, too:</p>
 <div class="codeblock"><div class="codeline">After giving something to someone:</div>
-<div class="codeline">&ensp;&ensp;say &quot;You give [the noun] to [the second noun], who appears mollified and is now merely [mood of the second noun].&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You give [the noun] to [the second noun], who appears mollified and is now merely [mood of the second noun].&quot;</div>
 </div><p>And the rest is all scenario:</p>
 <div class="codeblock"><div class="codeline">The Leafy Branch is a room. &quot;You stand on smooth bark dappled by sunlight. The scent-trail runs forward to home.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The branch continues forward and backward from here, and a stem extends forward-up.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of going south in Leafy Branch, say &quot;You must not back down! The scent trail leads onward!&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Very Hungry Caterpillar is a hostile animal in the Leafy Branch. &quot;[The Caterpillar] looks [mood].&quot; Instead of examining the Caterpillar, say &quot;[The caterpillar] appears [mood].&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The player carries an edible thing called a peanut crumb. The carrying capacity of the player is 1. After taking something, say &quot;You lift [the noun], though it is nearly your own size.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of going north in the presence of a hostile caterpillar:</div>
-<div class="codeline">&ensp;&ensp;say &quot;[The Caterpillar] moves to block your exit, glaring down at you with all the bristles on its skin extended to full size.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;[The Caterpillar] moves to block your exit, glaring down at you with all the bristles on its skin extended to full size.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of going north in the presence of a suspicious caterpillar:</div>
-<div class="codeline">&ensp;&ensp;say &quot;[The Caterpillar] moves to block your exit, though it might allow you past if you offered further tribute.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;[The Caterpillar] moves to block your exit, though it might allow you past if you offered further tribute.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Leaf Face is above the branch. &quot;The smooth and shiny surface of the leaf extends forward from here, but you have lost the scent-trail. This is not the way home.&quot;  The pear fragment is an edible thing in Leaf Face. The dead aphid is a thing in Leaf Face.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Twig is north of Leafy Branch. &quot;The scent-trail is weak but not entirely gone, and you pursue it faithfully...&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">After going to the Twig:</div>
-<div class="codeline">&ensp;&ensp;say &quot;The scent-trail is weak but not entirely gone, and you pursue it faithfully...&quot;;</div>
-<div class="codeline">&ensp;&ensp;end the story finally.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;The scent-trail is weak but not entirely gone, and you pursue it faithfully...&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;end the story finally.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Understand &quot;forward-up&quot; as up. Understand &quot;forward&quot; as north. Understand &quot;backward&quot; as south.  Understand &quot;backward-down&quot; as down.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;forward / give crumb to caterpillar / forward / forward-up / get aphid / get fragment / down / give aphid to caterpillar / drop aphid / forward-up / get fragment / down / give fragment / forward&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "forward / give crumb to caterpillar / forward / forward-up / get aphid / get fragment / down / give aphid to caterpillar / drop aphid / forward-up / get fragment / down / give fragment / forward".</summary><div class="testme-output">Leafy Branch<br>You stand on smooth bark dappled by sunlight. The scent-trail runs forward to home.<br><br>The branch continues forward and backward from here, and a stem extends forward-up.<br><br>The Very Hungry Caterpillar looks hostile.<br><br>&gt;(Testing.)<br><br>&gt;[1] forward<br>The Very Hungry Caterpillar moves to block your exit, glaring down at you with all the bristles on its skin extended to full size.<br><br>&gt;[2] give crumb to caterpillar<br>You give the peanut crumb to the Very Hungry Caterpillar, who appears mollified and is now merely suspicious.<br><br>&gt;[3] forward<br>The Very Hungry Caterpillar moves to block your exit, though it might allow you past if you offered further tribute.<br><br>&gt;[4] forward-up<br><br>Leaf Face<br>The smooth and shiny surface of the leaf extends forward from here, but you have lost the scent-trail. This is not the way home.<br><br>You can see a pear fragment and a dead aphid here.<br><br>&gt;[5] get aphid<br>You lift the dead aphid, though it is nearly your own size.<br><br>&gt;[6] get fragment<br>You&#39;re carrying too many things already.<br><br>&gt;[7] down<br><br>Leafy Branch<br>You stand on smooth bark dappled by sunlight. The scent-trail runs forward to home.<br><br>The branch continues forward and backward from here, and a stem extends forward-up.<br><br>The Very Hungry Caterpillar looks suspicious.<br><br>&gt;[8] give aphid to caterpillar<br>The Very Hungry Caterpillar disdainfully refuses the dead aphid.<br><br>&gt;[9] drop aphid<br>Dropped.<br><br>&gt;[10] forward-up<br><br>Leaf Face<br>The smooth and shiny surface of the leaf extends forward from here, but you have lost the scent-trail. This is not the way home.<br><br>You can see a pear fragment here.<br><br>&gt;[11] get fragment<br>You lift the pear fragment, though it is nearly your own size.<br><br>&gt;[12] down<br><br>Leafy Branch<br>You stand on smooth bark dappled by sunlight. The scent-trail runs forward to home.<br><br>The branch continues forward and backward from here, and a stem extends forward-up.<br><br>The Very Hungry Caterpillar looks suspicious.<br><br>You can also see a dead aphid here.<br><br>&gt;[13] give fragment<br>(to the Very Hungry Caterpillar)<br>You give the pear fragment to the Very Hungry Caterpillar, who appears mollified and is now merely indifferent.<br><br>&gt;[14] forward<br>The scent-trail is weak but not entirely gone, and you pursue it faithfully...<br><br><br><br>    *** The End ***
 </div></details><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="stone.html" title="A soup to which the player can add ingredients, which will have different effects when the player eats."><div class="nav-arrow">←</div> <div class="doc-navbar-text">391. Stone</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="saint_eligius.html" title="Adding a first look rule that comments on locations when we visit them for the first time, inserting text after objects are listed but before any &quot;every turn&quot; rules might occur."><div class="doc-navbar-text">393. Saint Eligius</div> <div class="nav-arrow">→</div></a></div></div>

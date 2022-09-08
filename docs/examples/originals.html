@@ -18,56 +18,56 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex369">Play/modify Originals in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Originals/index.html">Play Originals in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Originals&quot;\n\nA model is a kind of thing. 10 models are in the model-repository.\n\nAppearance relates one thing to various models. The verb to be shown by means the appearance relation.\n\nIndication relates a model (called X) to a thing (called Y) when Y is shown by X and Y is suitable.\n\nUnderstand &quot;actual&quot; or &quot;original&quot; as &quot;[actual]&quot;. Understand &quot;[actual]&quot; as something when the item described is not a model.\n\nDefinition: a thing is suitable:\n\tif the player&apos;s command includes &quot;[actual]&quot;, no;\n\tyes.\n\nUnderstand &quot;[something related by indication]&quot; as a model.\n\nAfter printing the name of a model (called target): say &quot; [random thing shown by the target]&quot;\n\n\nUnderstand &quot;duplicate [something]&quot; as duplicating. Duplicating is an action applying to one visible thing.\n\nThe duplicating action has an object called the selected model.\n\nSetting action variables for duplicating:\n\tlet N be a random model in the model-repository;\n\tnow the selected model is N.\n\nCheck duplicating:\n\tif the selected model is nothing, say &quot;You&apos;re out of power.&quot; instead.\n\nCarry out duplicating:\n\tnow the noun is shown by the selected model;\n\tmove the selected model to the player.\n\nReport duplicating:\n\tsay &quot;You concentrate and manifest [a selected model].&quot;\n\n\nThe virtual-context is a truth state that varies. The virtual-context is false.\n\nBefore printing the name of a model:\n\tnow virtual-context is true.\n\nAfter printing the name of a model:\n\tnow virtual-context is false.\n\nBefore printing the name of something (called target) while asking which do you mean:\n\tif the target is not a model and virtual-context is false:\n\t\tsay &quot;actual &quot;.\n\nForest is a room. It contains a deer and a daisy. The deer is an animal.\n\nTest me with &quot;duplicate deer / x model deer / x deer model / drop deer / x deer / actual / x deer / model&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Originals&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A model is a kind of thing. 10 models are in the model-repository.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Appearance relates one thing to various models. The verb to be shown by means the appearance relation.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Indication relates a model (called X) to a thing (called Y) when Y is shown by X and Y is suitable.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Understand &quot;actual&quot; or &quot;original&quot; as &quot;[actual]&quot;. Understand &quot;[actual]&quot; as something when the item described is not a model.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Definition: a thing is suitable:</div>
-<div class="codeline">&ensp;&ensp;if the player&#39;s command includes &quot;[actual]&quot;, no;</div>
-<div class="codeline">&ensp;&ensp;yes.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the player&#39;s command includes &quot;[actual]&quot;, no;</div>
+<div class="codeline">&ensp;&ensp;&ensp;yes.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Understand &quot;[something related by indication]&quot; as a model.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">After printing the name of a model (called target): say &quot; [random thing shown by the target]&quot;</div>
 </div><p>Now our duplication command -- for the sake of simplicity, we&#39;ll suppose that in this scenario the player is duplicating objects by magic rather than creating them out of physical materials or supplies:</p>
 <div class="codeblock"><div class="codeline">Understand &quot;duplicate [something]&quot; as duplicating. Duplicating is an action applying to one visible thing.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The duplicating action has an object called the selected model.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Setting action variables for duplicating:</div>
-<div class="codeline">&ensp;&ensp;let N be a random model in the model-repository;</div>
-<div class="codeline">&ensp;&ensp;now the selected model is N.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let N be a random model in the model-repository;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the selected model is N.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Check duplicating:</div>
-<div class="codeline">&ensp;&ensp;if the selected model is nothing, say &quot;You&#39;re out of power.&quot; instead.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the selected model is nothing, say &quot;You&#39;re out of power.&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Carry out duplicating:</div>
-<div class="codeline">&ensp;&ensp;now the noun is shown by the selected model;</div>
-<div class="codeline">&ensp;&ensp;move the selected model to the player.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the noun is shown by the selected model;</div>
+<div class="codeline">&ensp;&ensp;&ensp;move the selected model to the player.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Report duplicating:</div>
-<div class="codeline">&ensp;&ensp;say &quot;You concentrate and manifest [a selected model].&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You concentrate and manifest [a selected model].&quot;</div>
 </div><p>Now, the challenge is that we want to print the word &quot;actual&quot; before printing the name of an object, but only during disambiguation questions and only when we are not printing the name of the object as part of a model-name! (If we are not careful about the latter point, we will get responses such as &quot;Which do you mean, the model actual deer or the actual deer?&quot; which of course defeats the whole purpose.</p>
 <p>The way around this is to remember that activities stack: we&#39;re printing the name of the deer while printing the name of a model that involves the deer. So if we set a flag while printing the name of a model, we can control the way the deer&#39;s name prints during the transaction. (We could use our &hellip;while clause to specify while not printing the name of a model, except that we&#39;re already using it for &quot;while asking which do you mean&quot;, and these do not stack.) So:</p>
 <div class="codeblock"><div class="codeline">The virtual-context is a truth state that varies. The virtual-context is false.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Before printing the name of a model:</div>
-<div class="codeline">&ensp;&ensp;now virtual-context is true.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now virtual-context is true.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">After printing the name of a model:</div>
-<div class="codeline">&ensp;&ensp;now virtual-context is false.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now virtual-context is false.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Before printing the name of something (called target) while asking which do you mean:</div>
-<div class="codeline">&ensp;&ensp;if the target is not a model and virtual-context is false:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;actual &quot;.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the target is not a model and virtual-context is false:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;actual &quot;.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Forest is a room. It contains a deer and a daisy. The deer is an animal.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;duplicate deer / x model deer / x deer model / drop deer / x deer / actual / x deer / model&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "duplicate deer / x model deer / x deer model / drop deer / x deer / actual / x deer / model".</summary><div class="testme-output">Forest<br>You can see a deer and a daisy here.<br><br>&gt;(Testing.)<br><br>&gt;[1] duplicate deer<br>You concentrate and manifest a model deer.<br><br>&gt;[2] x model deer<br>You see nothing special about the model deer.<br><br>&gt;[3] x deer model<br>You see nothing special about the model deer.<br><br>&gt;[4] drop deer<br>(the model deer)<br>Dropped.<br><br>&gt;[5] x deer<br>Which do you mean, the model deer or the actual deer?<br><br>&gt;[6] actual<br>You see nothing special about the deer.<br><br>&gt;[7] x deer<br>Which do you mean, the model deer or the actual deer?<br><br>&gt;[8] model<br>You see nothing special about the model deer.
 </div></details><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="apples.html" title="Prompting the player on how to disambiguate otherwise similar objects."><div class="nav-arrow">←</div> <div class="doc-navbar-text">368. Apples</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="walls_and_noses.html" title="Responding to &quot;EXAMINE WALL&quot; with &quot;In which direction?&quot;, and to &quot;EXAMINE NOSE&quot; with &quot;Whose nose do you mean, Frederica&#39;s, Betty&#39;s, Wilma&#39;s or your own?&quot;"><div class="doc-navbar-text">370. Walls and Noses</div> <div class="nav-arrow">→</div></a></div></div>

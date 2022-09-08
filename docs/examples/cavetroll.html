@@ -24,31 +24,31 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex423">Play/modify Cave-troll" by JDC in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Cave-troll/index.html">Play Cave-troll" by JDC in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Cave-troll&quot; by JDC\n\nSection 1 - The Mechanism\n\nThe last command is a text that varies.\n\nThe parser error flag is a truth state that varies. The parser error flag is false.\n\nRule for printing a parser error when the latest parser error is the only understood as far as error and the player&apos;s command matches the text &quot;with&quot;:\n\tnow the last command is the player&apos;s command;\n\tnow the parser error flag is true;\n\tlet n be &quot;[the player&apos;s command]&quot;;\n\treplace the regular expression &quot;.* with (.*)&quot; in n with &quot;with \1&quot;;\n\tsay &quot;(ignoring the unnecessary words &apos;[n]&apos;)[line break]&quot;;\n\treplace the regular expression &quot;with .*&quot; in the last command with &quot;&quot;.\n\nRule for reading a command when the parser error flag is true:\n\tnow the parser error flag is false;\n\tchange the text of the player&apos;s command to the last command.\n\nSection 2 - The Scenario\n\nThe Cave is a room.\n\nThe troll is a man in the cave.\n\nThe player carries a sword.\n\nThe chest is a locked lockable container in the cave.\n\nTest me with &quot;attack troll with sword / unlock chest with sword / attack troll as a test&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Cave-troll&quot; by JDC</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline i7header">Section 1 - The Mechanism</div><div class="codeline">The last command is a text that varies.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The parser error flag is a truth state that varies. The parser error flag is false.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Rule for printing a parser error when the latest parser error is the only understood as far as error and the player&#39;s command matches the text &quot;with&quot;:</div>
-<div class="codeline">&ensp;&ensp;now the last command is the player&#39;s command;</div>
-<div class="codeline">&ensp;&ensp;now the parser error flag is true;</div>
-<div class="codeline">&ensp;&ensp;let n be &quot;[the player&#39;s command]&quot;;</div>
-<div class="codeline">&ensp;&ensp;replace the regular expression &quot;.* with (.*)&quot; in n with &quot;with \1&quot;;</div>
-<div class="codeline">&ensp;&ensp;say &quot;(ignoring the unnecessary words &#39;[n]&#39;)[line break]&quot;;</div>
-<div class="codeline">&ensp;&ensp;replace the regular expression &quot;with .*&quot; in the last command with &quot;&quot;.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the last command is the player&#39;s command;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the parser error flag is true;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let n be &quot;[the player&#39;s command]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;replace the regular expression &quot;.* with (.*)&quot; in n with &quot;with \1&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;(ignoring the unnecessary words &#39;[n]&#39;)[line break]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;replace the regular expression &quot;with .*&quot; in the last command with &quot;&quot;.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Rule for reading a command when the parser error flag is true:</div>
-<div class="codeline">&ensp;&ensp;now the parser error flag is false;</div>
-<div class="codeline">&ensp;&ensp;change the text of the player&#39;s command to the last command.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the parser error flag is false;</div>
+<div class="codeline">&ensp;&ensp;&ensp;change the text of the player&#39;s command to the last command.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline i7header">Section 2 - The Scenario</div><div class="codeline">The Cave is a room.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The troll is a man in the cave.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The player carries a sword.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The chest is a locked lockable container in the cave.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;attack troll with sword / unlock chest with sword / attack troll as a test&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "attack troll with sword / unlock chest with sword / attack troll as a test".</summary><div class="testme-output">Cave<br>You can see a troll and a chest (closed) here.<br><br>&gt;(Testing.)<br><br>&gt;[1] attack troll with sword<br>(ignoring the unnecessary words &quot;with sword&quot;)<br><br>Violence isn&#39;t the answer to this one.<br><br>&gt;[2] unlock chest with sword<br>That doesn&#39;t seem to fit the lock.<br><br>&gt;[3] attack troll as a test<br>I only understood you as far as wanting to attack the troll.
 </div></details><p>A caveat about using this method in a larger game: &quot;parser error flag&quot; will not automatically control the behavior of any rules we might have written for Before reading a command&hellip; or After reading a command&hellip;, so they may now fire at inappropriate times. It is a good idea to check for parser error flag in those rules as well.</p>

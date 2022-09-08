@@ -18,29 +18,29 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex241">Play/modify Murder on the Orient Express in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Murder/index.html">Play Murder on the Orient Express in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Murder on the Orient Express&quot;\n\nThe Dining Car is a room. Lord Peter is a man in the Dining Car. Sherlock Holmes is a man in the Dining Car. Miss Marple is a woman in the Dining Car. Adam Dalgliesh is a man in the Dining Car.\n\nSuspecting relates various people to one person.\n\nThe verb to suspect means the suspecting relation.\n\nDalgliesh suspects Holmes. Holmes suspects Lord Peter. Lord Peter suspects Holmes. Miss Marple suspects the player.\n\nExculpating relates one thing to various people.\n\nThe verb to exculpate means the exculpating relation.\n\nThe silver bullet exculpates the player. The pipe ash exculpates Holmes. The poison pen letter exculpates Lord Peter. The poison pen letter exculpates Miss Marple. [Poor Dalgliesh. I guess he did it.]\n\nThe pipe ash, the letter and the silver bullet are carried.\n\n\nInstead of showing something to a person who suspects the player:\n\tsay &quot;&apos;You would say that,&apos; remarks [the second noun] darkly.&quot;.\n\nInstead of showing something which exculpates the player to someone:\n\tsay &quot;&apos;How striking!&apos; says [the second noun]. &apos;Almost I begin to distrust myself.&apos;&quot;.\n\nTest me with &quot;show the letter to miss marple / show the silver bullet to holmes&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Murder on the Orient Express&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Dining Car is a room. Lord Peter is a man in the Dining Car. Sherlock Holmes is a man in the Dining Car. Miss Marple is a woman in the Dining Car. Adam Dalgliesh is a man in the Dining Car.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Suspecting relates various people to one person.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The verb to suspect means the suspecting relation.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Dalgliesh suspects Holmes. Holmes suspects Lord Peter. Lord Peter suspects Holmes. Miss Marple suspects the player.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Exculpating relates one thing to various people.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The verb to exculpate means the exculpating relation.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The silver bullet exculpates the player. The pipe ash exculpates Holmes. The poison pen letter exculpates Lord Peter. The poison pen letter exculpates Miss Marple. [Poor Dalgliesh. I guess he did it.]</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The pipe ash, the letter and the silver bullet are carried.</div>
 </div><p>Given this, we can then set up elaborate rules:</p>
 <div class="codeblock"><div class="codeline">Instead of showing something to a person who suspects the player:</div>
-<div class="codeline">&ensp;&ensp;say &quot;&#39;You would say that,&#39; remarks [the second noun] darkly.&quot;.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;&#39;You would say that,&#39; remarks [the second noun] darkly.&quot;.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of showing something which exculpates the player to someone:</div>
-<div class="codeline">&ensp;&ensp;say &quot;&#39;How striking!&#39; says [the second noun]. &#39;Almost I begin to distrust myself.&#39;&quot;.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;&#39;How striking!&#39; says [the second noun]. &#39;Almost I begin to distrust myself.&#39;&quot;.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;show the letter to miss marple / show the silver bullet to holmes&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "show the letter to miss marple / show the silver bullet to holmes".</summary><div class="testme-output">Dining Car<br>You can see Lord Peter, Sherlock Holmes, Miss Marple and Adam Dalgliesh here.<br><br>&gt;(Testing.)<br><br>&gt;[1] show the letter to miss marple<br>&quot;You would say that,&quot; remarks Miss Marple darkly.<br><br>&gt;[2] show the silver bullet to holmes<br>&quot;How striking!&quot; says Sherlock Holmes. &quot;Almost I begin to distrust myself.&quot;
 </div></details><p>And so on: &quot;if Dalgliesh suspects someone who is exculpated by something carried by the player&hellip;&quot;, for instance, makes a fitting final example for this chapter. The description</p>

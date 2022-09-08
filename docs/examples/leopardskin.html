@@ -19,34 +19,34 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex429">Play/modify Leopard-skin in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Leopard-skin/index.html">Play Leopard-skin in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Leopard-skin&quot;\n\nThe Fur-Lined Maze is a room. &quot;This seemingly endless sequence of rooms is decorated in a tasteful selection of exotic furs and gilded fixtures.&quot;\n\nClapping is an action applying to nothing. Understand &quot;clap&quot; as clapping.\nKweepaing is an action applying to nothing. Understand &quot;kweepa&quot; as kweepaing.\n\nCarry out clapping:\n\tsay &quot;You clap.&quot;\n\nCarry out kweepaing:\n\tsay &quot;You holler &apos;KWEEPA!&apos; triumphantly.&quot;\n\nThe maze-sequence is a list of stored actions that varies.\n\nWhen play begins:\n\tadd jumping to the maze-sequence;\n\tadd clapping to the maze-sequence;\n\tadd kweepaing to the maze-sequence.\n\nThe attempted-sequence is a list of stored actions that varies.\n\nEvery turn when the player is in the Fur-Lined Maze:\n\ttruncate the attempted-sequence to the last two entries;\n\tadd the current action to the attempted-sequence;\n\tif the attempted-sequence is the maze-sequence:\n\t\tsay &quot;That does it! You are instantly transported from the maze!&quot;;\n\t\tend the story finally.\n\nTest me with &quot;hop / clap / clap / hop / kweepa / hop / clap / kweepa&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Leopard-skin&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Fur-Lined Maze is a room. &quot;This seemingly endless sequence of rooms is decorated in a tasteful selection of exotic furs and gilded fixtures.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Clapping is an action applying to nothing. Understand &quot;clap&quot; as clapping.</div>
 <div class="codeline">Kweepaing is an action applying to nothing. Understand &quot;kweepa&quot; as kweepaing.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Carry out clapping:</div>
-<div class="codeline">&ensp;&ensp;say &quot;You clap.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You clap.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Carry out kweepaing:</div>
-<div class="codeline">&ensp;&ensp;say &quot;You holler &#39;KWEEPA!&#39; triumphantly.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You holler &#39;KWEEPA!&#39; triumphantly.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The maze-sequence is a list of stored actions that varies.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">When play begins:</div>
-<div class="codeline">&ensp;&ensp;add jumping to the maze-sequence;</div>
-<div class="codeline">&ensp;&ensp;add clapping to the maze-sequence;</div>
-<div class="codeline">&ensp;&ensp;add kweepaing to the maze-sequence.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;add jumping to the maze-sequence;</div>
+<div class="codeline">&ensp;&ensp;&ensp;add clapping to the maze-sequence;</div>
+<div class="codeline">&ensp;&ensp;&ensp;add kweepaing to the maze-sequence.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The attempted-sequence is a list of stored actions that varies.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Every turn when the player is in the Fur-Lined Maze:</div>
-<div class="codeline">&ensp;&ensp;truncate the attempted-sequence to the last two entries;</div>
-<div class="codeline">&ensp;&ensp;add the current action to the attempted-sequence;</div>
-<div class="codeline">&ensp;&ensp;if the attempted-sequence is the maze-sequence:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;That does it! You are instantly transported from the maze!&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;end the story finally.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;truncate the attempted-sequence to the last two entries;</div>
+<div class="codeline">&ensp;&ensp;&ensp;add the current action to the attempted-sequence;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the attempted-sequence is the maze-sequence:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;That does it! You are instantly transported from the maze!&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;end the story finally.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;hop / clap / clap / hop / kweepa / hop / clap / kweepa&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "hop / clap / clap / hop / kweepa / hop / clap / kweepa".</summary><div class="testme-output">Fur-Lined Maze<br>This seemingly endless sequence of rooms is decorated in a tasteful selection of exotic furs and gilded fixtures.<br><br>&gt;(Testing.)<br><br>&gt;[1] hop<br>You jump on the spot.<br><br>&gt;[2] clap<br>You clap.<br><br>&gt;[3] clap<br>You clap.<br><br>&gt;[4] hop<br>You jump on the spot.<br><br>&gt;[5] kweepa<br>You holler &quot;KWEEPA!&quot; triumphantly.<br><br>&gt;[6] hop<br>You jump on the spot.<br><br>&gt;[7] clap<br>You clap.<br><br>&gt;[8] kweepa<br>You holler &quot;KWEEPA!&quot; triumphantly.<br><br>That does it! You are instantly transported from the maze!<br><br><br><br>    *** The End ***
 </div></details><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="robo2.html" title="A robot which watches and records the player&#39;s actions, then tries to repeat them back in the same order when he is switched into play-back mode."><div class="nav-arrow">←</div> <div class="doc-navbar-text">428. Robo 2</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="facts_were_these.html" title="Creating a variant GIVE action that lets the player give multiple objects simultaneously with commands like GIVE ALL TO ATTENDANT or GIVE THREE DOLLARS TO ATTENDANT or GIVE PIE AND HAT TO ATTENDANT. The attendant accepts the gifts only if their total combined value matches some minimum amount."><div class="doc-navbar-text">430. The Facts Were These</div> <div class="nav-arrow">→</div></a></div></div>

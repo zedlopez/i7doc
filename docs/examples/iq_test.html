@@ -18,28 +18,28 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex189">Play/modify IQ Test in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Ogg/index.html">Play IQ Test in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;IQ Test&quot;\n\nThe Donut Shop is a room. &quot;Vibrantly decorated in donut colors: pink, brown, and cream.&quot;\n\nOgg is a man in the Donut Shop. &quot;Ogg is slumped in the corner[if Ogg carries something] with [a list of things carried by Ogg][end if]. He wears a nametag which says &apos;HELLO MY NAME IS OG.&apos;&quot; Understand &quot;og&quot; as Ogg. Ogg wears a nametag. The description of the nametag is &quot;Sadly misspelled.&quot;\n\nThe Donut Shop contains a transparent closed openable locked lockable container called a case. The case contains some cake donuts. The donuts are edible.\n\nThe matching key of the case is a silver key. The silver key is carried by Ogg.\n\nA persuasion rule for asking someone to try doing something:\n\tpersuasion succeeds.\n\nBefore someone opening a locked thing (called the sealed chest):\n\tif the person asked is carrying the matching key of the sealed chest, try the person asked unlocking the sealed chest with the matching key of the sealed chest;\n\tif the sealed chest is locked, stop the action.\n\nBefore someone taking something which is in a closed container (called the shut chest):\n\ttry the person asked opening the shut chest;\n\tif the shut chest is closed, stop the action.\n\nThe block giving rule is not listed in the check giving it to rules.\n\nTest me with &quot;open case / get donuts / og, get donuts / og, give me the donuts / eat donuts&quot;.`)">⧉</button><div class="codeline storytitle">&quot;IQ Test&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Donut Shop is a room. &quot;Vibrantly decorated in donut colors: pink, brown, and cream.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Ogg is a man in the Donut Shop. &quot;Ogg is slumped in the corner[if Ogg carries something] with [a list of things carried by Ogg][end if]. He wears a nametag which says &#39;HELLO MY NAME IS OG.&#39;&quot; Understand &quot;og&quot; as Ogg. Ogg wears a nametag. The description of the nametag is &quot;Sadly misspelled.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Donut Shop contains a transparent closed openable locked lockable container called a case. The case contains some cake donuts. The donuts are edible.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The matching key of the case is a silver key. The silver key is carried by Ogg.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A persuasion rule for asking someone to try doing something:</div>
-<div class="codeline">&ensp;&ensp;persuasion succeeds.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;persuasion succeeds.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Before someone opening a locked thing (called the sealed chest):</div>
-<div class="codeline">&ensp;&ensp;if the person asked is carrying the matching key of the sealed chest, try the person asked unlocking the sealed chest with the matching key of the sealed chest;</div>
-<div class="codeline">&ensp;&ensp;if the sealed chest is locked, stop the action.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the person asked is carrying the matching key of the sealed chest, try the person asked unlocking the sealed chest with the matching key of the sealed chest;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the sealed chest is locked, stop the action.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Before someone taking something which is in a closed container (called the shut chest):</div>
-<div class="codeline">&ensp;&ensp;try the person asked opening the shut chest;</div>
-<div class="codeline">&ensp;&ensp;if the shut chest is closed, stop the action.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;try the person asked opening the shut chest;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the shut chest is closed, stop the action.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The block giving rule is not listed in the check giving it to rules.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;open case / get donuts / og, get donuts / og, give me the donuts / eat donuts&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "open case / get donuts / og, get donuts / og, give me the donuts / eat donuts".</summary><div class="testme-output">Donut Shop<br>Vibrantly decorated in donut colors: pink, brown, and cream.<br><br>Ogg is slumped in the corner with a silver key. He wears a nametag which says &quot;HELLO MY NAME IS OG.&quot;<br><br>You can also see a case (closed) (in which are some cake donuts) here.<br><br>&gt;(Testing.)<br><br>&gt;[1] open case<br>It seems to be locked.<br><br>&gt;[2] get donuts<br>The case isn&#39;t open.<br><br>&gt;[3] og, get donuts<br>Ogg unlocks the case.<br><br>Ogg opens the case.<br><br>Ogg picks up the cake donuts.<br><br>&gt;[4] og, give me the donuts<br>Ogg gives the cake donuts to you.<br><br>&gt;[5] eat donuts<br>You eat the cake donuts. Not bad.
 </div></details><p>(A more detailed set of before rules for people using doors and locks is provided in Emily Short&#39;s Locksmith extension.)</p>

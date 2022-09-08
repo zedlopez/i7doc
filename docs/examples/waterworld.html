@@ -18,28 +18,28 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex216a">Play/modify Waterworld 1 in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="View_1/index.html">Play Waterworld 1 in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Waterworld 1&quot;\n\nA view is a kind of backdrop. Instead of doing something other than examining to a view, say &quot;You are too far from [the noun] to do anything but look.&quot;\n\nThe sun is a view. It is everywhere. The description is &quot;A blazing sun makes you wish you had never been born.&quot;\n\nThe Sahara is a room. North of the Sahara is More Sahara. North of More Sahara is Yet Further Sahara.\n\nTest me with &quot;x sun / get sun / n / x sun / n / x sun&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Waterworld 1&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A view is a kind of backdrop. Instead of doing something other than examining to a view, say &quot;You are too far from [the noun] to do anything but look.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The sun is a view. It is everywhere. The description is &quot;A blazing sun makes you wish you had never been born.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Sahara is a room. North of the Sahara is More Sahara. North of More Sahara is Yet Further Sahara.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;x sun / get sun / n / x sun / n / x sun&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "x sun / get sun / n / x sun / n / x sun".</summary><div class="testme-output">Sahara<br><br>&gt;(Testing.)<br><br>&gt;[1] x sun<br>A blazing sun makes you wish you had never been born.<br><br>&gt;[2] get sun<br>You are too far from the sun to do anything but look.<br><br>&gt;[3] n<br><br>More Sahara<br><br>&gt;[4] x sun<br>A blazing sun makes you wish you had never been born.<br><br>&gt;[5] n<br><br>Yet Further Sahara<br><br>&gt;[6] x sun<br>A blazing sun makes you wish you had never been born.
 </div></details><p>Unfortunately, the rule does not address the case where the object in question is the second noun; so for instance the following example reveals the difficulty:</p>
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex216b">Play/modify Waterworld 2 in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="View_2/index.html">Play Waterworld 2 in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Waterworld 2&quot;\n\nA view is a kind of backdrop. Instead of doing something other than examining to a view, say &quot;You are too far from [the noun] to do anything but look.&quot;\n\nThe player carries a rope.\n\nThe sun is a view. It is everywhere. The description is &quot;A blazing sun makes you wish you had never been born.&quot;\n\nThe Sahara is a room. North of the Sahara is More Sahara. North of More Sahara is Yet Further Sahara.\n\nTest me with &quot;x sun / get sun / n / x sun / n / x sun / tie rope to the sun&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Waterworld 2&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A view is a kind of backdrop. Instead of doing something other than examining to a view, say &quot;You are too far from [the noun] to do anything but look.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The player carries a rope.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The sun is a view. It is everywhere. The description is &quot;A blazing sun makes you wish you had never been born.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Sahara is a room. North of the Sahara is More Sahara. North of More Sahara is Yet Further Sahara.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;x sun / get sun / n / x sun / n / x sun / tie rope to the sun&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "x sun / get sun / n / x sun / n / x sun / tie rope to the sun".</summary><div class="testme-output">Sahara<br><br>&gt;(Testing.)<br><br>&gt;[1] x sun<br>A blazing sun makes you wish you had never been born.<br><br>&gt;[2] get sun<br>You are too far from the sun to do anything but look.<br><br>&gt;[3] n<br><br>More Sahara<br><br>&gt;[4] x sun<br>A blazing sun makes you wish you had never been born.<br><br>&gt;[5] n<br><br>Yet Further Sahara<br><br>&gt;[6] x sun<br>A blazing sun makes you wish you had never been born.<br><br>&gt;[7] tie rope to the sun<br>You would achieve nothing by this.
 </div></details><p>&hellip;where the response here behaves as though the sun is in reach. If we had a fully implemented tying action, the player would (even more disastrously) be allowed to lasso celestial objects.</p>
@@ -47,20 +47,20 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex216c">Play/modify Waterworld 3 in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="View_3/index.html">Play Waterworld 3 in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Waterworld 3&quot;\n\nA view is a kind of backdrop.\n\nInstead of doing something other than examining when the noun is a view:\n\tsay &quot;You are too far from [the noun] to do anything but look.&quot;\nInstead of doing something other than examining when the second noun is a view:\n\tsay &quot;You are too far from [the second noun] to do anything but look.&quot;\n\nThe player carries a rope.\n\nThe sun is a view. It is everywhere. The description is &quot;A blazing sun makes you wish you had never been born.&quot;\n\nThe Sahara is a room. North of the Sahara is More Sahara. North of More Sahara is Yet Further Sahara.\n\nTest me with &quot;x sun / get sun / n / x sun / n / x sun / tie rope to sun&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Waterworld 3&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A view is a kind of backdrop.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of doing something other than examining when the noun is a view:</div>
-<div class="codeline">&ensp;&ensp;say &quot;You are too far from [the noun] to do anything but look.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You are too far from [the noun] to do anything but look.&quot;</div>
 <div class="codeline">Instead of doing something other than examining when the second noun is a view:</div>
-<div class="codeline">&ensp;&ensp;say &quot;You are too far from [the second noun] to do anything but look.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You are too far from [the second noun] to do anything but look.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The player carries a rope.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The sun is a view. It is everywhere. The description is &quot;A blazing sun makes you wish you had never been born.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Sahara is a room. North of the Sahara is More Sahara. North of More Sahara is Yet Further Sahara.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;x sun / get sun / n / x sun / n / x sun / tie rope to sun&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "x sun / get sun / n / x sun / n / x sun / tie rope to sun".</summary><div class="testme-output">Sahara<br><br>&gt;(Testing.)<br><br>&gt;[1] x sun<br>A blazing sun makes you wish you had never been born.<br><br>&gt;[2] get sun<br>You are too far from the sun to do anything but look.<br><br>&gt;[3] n<br><br>More Sahara<br><br>&gt;[4] x sun<br>A blazing sun makes you wish you had never been born.<br><br>&gt;[5] n<br><br>Yet Further Sahara<br><br>&gt;[6] x sun<br>A blazing sun makes you wish you had never been born.<br><br>&gt;[7] tie rope to sun<br>You are too far from the sun to do anything but look.
 </div></details><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="magnetos_revenge.html" title="Kitty Pryde of the X-Men is able to reach through solid objects, so we might implement her with special powers that the player does not have&hellip;"><div class="nav-arrow">←</div> <div class="doc-navbar-text">215. Magneto's Revenge</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="dinner_is_served.html" title="A window between two locations. When the window is open, the player can reach through into the other location; when it isn&#39;t, access is barred."><div class="doc-navbar-text">217. Dinner is Served</div> <div class="nav-arrow">→</div></a></div></div>

@@ -15,45 +15,45 @@
 <div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="tense_boxing.html" title="An overview of all the variations of past and present tenses, and how they might be used."><div class="nav-arrow">←</div> <div class="doc-navbar-text">149. Tense Boxing</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="elsie.html" title="A door that closes automatically one turn after the player opens it."><div class="doc-navbar-text">151. Elsie</div> <div class="nav-arrow">→</div></a></div></div>
 </header>
 <div class="codeblock"><div class="codeline">&quot;Sire,&quot; said the Minister of the Interior to Napoleon, &quot;yesterday I saw the most intrepid man in your Empire.&quot; - &quot;What man is that?&quot; said the Emperor brusquely, &quot;and what has he done?&quot; - &quot;He wants to do something, Sire.&quot; - &quot;What is it?&quot; - &quot;To visit the sewers of Paris.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">This man existed and his name was Bruneseau.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">- Victor Hugo, Les Miserables</div>
 </div><p>Let&#39;s say that our intrepid explorer has a candle that can be lit and blown out again, and should accordingly appear unlit, burning, or partly burnt:</p>
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex150">Play/modify Bruneseau's Journey in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Candle/index.html">Play Bruneseau's Journey in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Bruneseau&apos;s Journey&quot;\n\nThe Sewer Beneath St Denis is a room. &quot;A narrow, stone-lined passageway, with only a little ledge to walk above the level of the refuse that flows down towards the Seine.&quot;\n\nThe candle is carried by the player. The description of the candle is &quot;A candle, [if the candle has been lit]partially burnt[otherwise]still in pristine condition with untouched wick[end if].&quot;\n\nInstead of examining the lit candle, say &quot;It burns with a pure heart.&quot;\n\nThe block burning rule is not listed in the check burning rules.\n\nInstead of burning the lit candle:\n\tsay &quot;The candle is already lit.&quot;\n\nCheck burning:\n\tif the noun is not the candle, say &quot;[The noun] cannot profitably be set on fire.&quot;\n\nCarry out burning the candle:\n\tnow the candle is lit.\n\nReport burning:\n\tif the candle had been lit, say &quot;You relight the candle.&quot;;\n\totherwise say &quot;You light the candle for the first time.&quot;.\n\nUnderstand &quot;blow out [something]&quot; as blowing out. Understand &quot;blow [something] out&quot; as blowing out. Blowing out is an action applying to one thing.\n\nCarry out blowing out the candle:\n\tnow the candle is unlit.\n\nReport blowing out:\n\tif the noun is the candle and the candle was lit, say &quot;You blow out [the noun].&quot;;\n\totherwise say &quot;You blow on [the noun], to little effect.&quot;\n\nTest me with &quot;x candle / light candle / x candle / blow out candle / x candle&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Bruneseau&#39;s Journey&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Sewer Beneath St Denis is a room. &quot;A narrow, stone-lined passageway, with only a little ledge to walk above the level of the refuse that flows down towards the Seine.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The candle is carried by the player. The description of the candle is &quot;A candle, [if the candle has been lit]partially burnt[otherwise]still in pristine condition with untouched wick[end if].&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of examining the lit candle, say &quot;It burns with a pure heart.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The block burning rule is not listed in the check burning rules.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of burning the lit candle:</div>
-<div class="codeline">&ensp;&ensp;say &quot;The candle is already lit.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;The candle is already lit.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Check burning:</div>
-<div class="codeline">&ensp;&ensp;if the noun is not the candle, say &quot;[The noun] cannot profitably be set on fire.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the noun is not the candle, say &quot;[The noun] cannot profitably be set on fire.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Carry out burning the candle:</div>
-<div class="codeline">&ensp;&ensp;now the candle is lit.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the candle is lit.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Report burning:</div>
-<div class="codeline">&ensp;&ensp;if the candle had been lit, say &quot;You relight the candle.&quot;;</div>
-<div class="codeline">&ensp;&ensp;otherwise say &quot;You light the candle for the first time.&quot;.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the candle had been lit, say &quot;You relight the candle.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise say &quot;You light the candle for the first time.&quot;.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Understand &quot;blow out [something]&quot; as blowing out. Understand &quot;blow [something] out&quot; as blowing out. Blowing out is an action applying to one thing.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Carry out blowing out the candle:</div>
-<div class="codeline">&ensp;&ensp;now the candle is unlit.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the candle is unlit.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Report blowing out:</div>
-<div class="codeline">&ensp;&ensp;if the noun is the candle and the candle was lit, say &quot;You blow out [the noun].&quot;;</div>
-<div class="codeline">&ensp;&ensp;otherwise say &quot;You blow on [the noun], to little effect.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the noun is the candle and the candle was lit, say &quot;You blow out [the noun].&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise say &quot;You blow on [the noun], to little effect.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;x candle / light candle / x candle / blow out candle / x candle&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "x candle / light candle / x candle / blow out candle / x candle".</summary><div class="testme-output">Sewer Beneath St Denis<br>A narrow, stone-lined passageway, with only a little ledge to walk above the level of the refuse that flows down towards the Seine.<br><br>&gt;(Testing.)<br><br>&gt;[1] x candle<br>A candle, still in pristine condition with untouched wick.<br><br>&gt;[2] light candle<br>You light the candle for the first time.<br><br>&gt;[3] x candle<br>It burns with a pure heart.<br><br>&gt;[4] blow out candle<br>You blow out the candle.<br><br>&gt;[5] x candle<br>A candle, partially burnt.
 </div></details><p>We must be careful: &quot;if the noun was lit&quot; would throw errors because past-tense rules can only be applied to specific items, not to variables that could be anything.</p>

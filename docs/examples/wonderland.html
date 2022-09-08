@@ -18,40 +18,40 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex256">Play/modify Wonderland in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Rainier/index.html">Play Wonderland in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Wonderland&quot;\n\nAn altitude is a kind of value. 1000 feet specifies an altitude. A room has an altitude.\n\nDefinition: a room is low if its altitude is 3000 feet or less. Definition: a room is high if its altitude is 5000 feet or more.\n\nInstead of going down:\n\tif an adjacent room is lower than the location:\n\t\tlet the valley be the lowest adjacent room;\n\t\tlet the way be the best route from the location to the valley;\n\t\tsay &quot;(that is, [way])[paragraph break]&quot;;\n\t\ttry going the way;\n\totherwise:\n\t\tsay &quot;You&apos;re in a local valley: there&apos;s no down from here.&quot;\n\nInstead of going up:\n\tif an adjacent room is higher than the location:\n\t\tlet the peak be the highest adjacent room;\n\t\tlet the way be the best route from the location to the peak;\n\t\tsay &quot;(that is, [way])[paragraph break]&quot;;\n\t\ttry going the way;\n\totherwise:\n\t\tsay &quot;You&apos;re on a local peak.&quot;\n\nParadise is a room. Paradise has altitude 5400 feet. &quot;A handsome parking lot, a picnic ground, and the Henry M. Jackson Memorial Visitor Center. The latter offers, for serious climbers, a hot shower; for nature enthusiasts, an interpretive museum; and for car-trippers, a gift shop selling canned slugs. All of which is a largely unsuccessful distraction from the peak of Mt. Rainier beyond.&quot;\n\nCougar Rock is southwest of Paradise. The altitude of Cougar Rock is 3180 feet. &quot;Numerous individual campsites and (on the road inventively labeled &apos;F&apos;) a handful of larger campgrounds suitable for church groups and family reunions.&quot;\n\nLongmire is southwest of Cougar Rock. It has altitude 2760 feet. &quot;A tiny town: it has to offer a few groceries, a post office, and a lodge for people who do not care to camp, all built in a rustic Park Service way.&quot;\n\nPanorama Point is north of Paradise. It has altitude 6800 feet. Camp Muir is north of Panorama Point. It has altitude 10188 feet. Columbia Crest is northwest of Camp Muir. It has altitude 14410 feet. St Andrews Rock is west of Columbia Crest. It has altitude 10992 feet. Camp Schuman is northeast of Columbia Crest. It has altitude 9510 feet.\n\n\nInstead of going up in the highest room:\n\tsay &quot;You&apos;re standing at the summit of Mt. Rainier, the highest point in the state of Washington. There is no up.&quot;\n\nTest me with &quot;up / up / up / down / down / up / up&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Wonderland&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">An altitude is a kind of value. 1000 feet specifies an altitude. A room has an altitude.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Definition: a room is low if its altitude is 3000 feet or less. Definition: a room is high if its altitude is 5000 feet or more.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of going down:</div>
-<div class="codeline">&ensp;&ensp;if an adjacent room is lower than the location:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;let the valley be the lowest adjacent room;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;let the way be the best route from the location to the valley;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;(that is, [way])[paragraph break]&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;try going the way;</div>
-<div class="codeline">&ensp;&ensp;otherwise:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;You&#39;re in a local valley: there&#39;s no down from here.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if an adjacent room is lower than the location:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;let the valley be the lowest adjacent room;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;let the way be the best route from the location to the valley;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;(that is, [way])[paragraph break]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;try going the way;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;You&#39;re in a local valley: there&#39;s no down from here.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of going up:</div>
-<div class="codeline">&ensp;&ensp;if an adjacent room is higher than the location:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;let the peak be the highest adjacent room;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;let the way be the best route from the location to the peak;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;(that is, [way])[paragraph break]&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;try going the way;</div>
-<div class="codeline">&ensp;&ensp;otherwise:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;You&#39;re on a local peak.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if an adjacent room is higher than the location:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;let the peak be the highest adjacent room;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;let the way be the best route from the location to the peak;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;(that is, [way])[paragraph break]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;try going the way;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;You&#39;re on a local peak.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Paradise is a room. Paradise has altitude 5400 feet. &quot;A handsome parking lot, a picnic ground, and the Henry M. Jackson Memorial Visitor Center. The latter offers, for serious climbers, a hot shower; for nature enthusiasts, an interpretive museum; and for car-trippers, a gift shop selling canned slugs. All of which is a largely unsuccessful distraction from the peak of Mt. Rainier beyond.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Cougar Rock is southwest of Paradise. The altitude of Cougar Rock is 3180 feet. &quot;Numerous individual campsites and (on the road inventively labeled &#39;F&#39;) a handful of larger campgrounds suitable for church groups and family reunions.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Longmire is southwest of Cougar Rock. It has altitude 2760 feet. &quot;A tiny town: it has to offer a few groceries, a post office, and a lodge for people who do not care to camp, all built in a rustic Park Service way.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Panorama Point is north of Paradise. It has altitude 6800 feet. Camp Muir is north of Panorama Point. It has altitude 10188 feet. Columbia Crest is northwest of Camp Muir. It has altitude 14410 feet. St Andrews Rock is west of Columbia Crest. It has altitude 10992 feet. Camp Schuman is northeast of Columbia Crest. It has altitude 9510 feet.</div>
 </div><p>Since Mount Rainier National Park runs to over 235,000 acres, we will omit the rest of the locations, but it does seem fair to give a little more credit to anyone who makes the summit:</p>
 <div class="codeblock"><div class="codeline">Instead of going up in the highest room:</div>
-<div class="codeline">&ensp;&ensp;say &quot;You&#39;re standing at the summit of Mt. Rainier, the highest point in the state of Washington. There is no up.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You&#39;re standing at the summit of Mt. Rainier, the highest point in the state of Washington. There is no up.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;up / up / up / down / down / up / up&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "up / up / up / down / down / up / up".</summary><div class="testme-output">Paradise<br>A handsome parking lot, a picnic ground, and the Henry M. Jackson Memorial Visitor Center. The latter offers, for serious climbers, a hot shower; for nature enthusiasts, an interpretive museum; and for car-trippers, a gift shop selling canned slugs. All of which is a largely unsuccessful distraction from the peak of Mt. Rainier beyond.<br><br>&gt;(Testing.)<br><br>&gt;[1] up<br>(that is, north)<br><br>Panorama Point<br><br>&gt;[2] up<br>(that is, north)<br><br>Camp Muir<br><br>&gt;[3] up<br>(that is, northwest)<br><br>Columbia Crest<br><br>&gt;[4] down<br>(that is, northeast)<br><br>Camp Schuman<br><br>&gt;[5] down<br>You&#39;re in a local valley: there&#39;s no down from here.<br><br>&gt;[6] up<br>(that is, southwest)<br><br>Columbia Crest<br><br>&gt;[7] up<br>You&#39;re standing at the summit of Mt. Rainier, the highest point in the state of Washington. There is no up.
 </div></details><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="lethal_concentration.html" title="A poisonous gas that spreads from room to room, incapacitating or killing the player when it reaches sufficient levels."><div class="nav-arrow">←</div> <div class="doc-navbar-text">255. Lethal Concentration 1</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="lethal_concentration2.html" title="Poisonous gas again, only this time it sinks."><div class="doc-navbar-text">257. Lethal Concentration 2</div> <div class="nav-arrow">→</div></a></div></div>

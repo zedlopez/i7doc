@@ -20,100 +20,100 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex318">Play/modify Tilt in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Tilt1/index.html">Play Tilt in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Tilt&quot;\n\nSection 1 - Cards\n\nSuit is a kind of value. The suits are hearts, clubs, diamonds, and spades. Understand &quot;heart&quot; as hearts. Understand &quot;club&quot; as clubs. Understand &quot;diamond&quot; as diamonds. Understand &quot;spade&quot; as spades. [Providing the singular forms means that Inform will also understand >EXAMINE SPADE, >DISCARD CLUB, and so on.]\n\nA card is a kind of thing.  A card has a suit. A card has a number called rank. Understand the suit property as describing a card. Understand the rank property as describing a card.\n\n52 cards are in the card repository.\n\n\nTo say (count - a number) as a card value:\n\tchoose row count in the Table of Value Names;\n\tsay &quot;[term entry]&quot;.\n\nRule for printing the name of a card (called target):\n\tsay &quot;[rank of the target as a card value] of [suit of the target]&quot;\n\nTable of Value Names\nterm\tvalue\ttopic\n&quot;ace&quot;\t&quot;1&quot;\t&quot;ace/A/one&quot;\n&quot;deuce&quot;\t&quot;2&quot;\t&quot;deuce/two&quot;\n&quot;three&quot;\t&quot;3&quot;\t&quot;three&quot;\n&quot;four&quot;\t&quot;4&quot;\t&quot;four&quot;\n&quot;five&quot;\t&quot;5&quot;\t&quot;five&quot;\n&quot;six&quot;\t&quot;6&quot;\t&quot;six&quot;\n&quot;seven&quot;\t&quot;7&quot;\t&quot;seven&quot;\n&quot;eight&quot;\t&quot;8&quot;\t&quot;eight&quot;\n&quot;nine&quot;\t&quot;9&quot;\t&quot;nine&quot;\n&quot;ten&quot;\t&quot;10&quot;\t&quot;ten&quot;\n&quot;jack&quot;\t&quot;11&quot;\t&quot;jack/knave/J&quot;\n&quot;queen&quot;\t&quot;12&quot;\t&quot;queen/Q&quot;\n&quot;king&quot;\t&quot;13&quot;\t&quot;king/K&quot;\n\n\nAfter reading a command:\n\tif the player&apos;s command includes &quot;of [suit]&quot;:\n\t\twhile the player&apos;s command includes &quot;of&quot;:\n\t\t\tcut the matched text;\n\trepeat through the Table of Value Names:\n\t\twhile the player&apos;s command includes topic entry:\n\t\t\treplace the matched text with value entry.\n\t[This allows Inform to understand &quot;ace&quot;, &quot;deuce&quot;, &quot;king&quot;, etc., as numerical ranks.]\n\n\nWhen play begins:\n\treconstitute deck.\n\nTo reconstitute deck:\n\tlet current suit be hearts;\n\tnow every card is in the card repository;\n\twhile a card is in the card repository:\n\t\trepeat with current rank running from 1 to 13:\n\t\t\tlet item be a random card in card repository;\n\t\t\tnow rank of item is current rank;\n\t\t\tnow suit of item is current suit;\n\t\t\tnow item is in the deck of cards;\n\t\tnow current suit is the suit after the current suit.\n\n\nSection 2 - The Deck and the Discard Pile\n\nThe Empty Room is a room. &quot;Nothing to see here.&quot;\n\nThe deck of cards is in the Empty Room. It is a closed unopenable container. The description is &quot;A standard poker deck.&quot;\n\nThe discard pile is a closed unopenable container. The description is &quot;Cards in this game are discarded face-down, so the discard pile is not very interesting to see. All you can observe is that it currently contains [if the number of cards which are in the discard pile is less than ten][the number of cards which are in the discard pile in words][otherwise]about [the rounded number of cards which are in the discard pile in words][end if] card[s].&quot;\n\nTo decide what number is the rounded number of (described set - a description of objects):\n\tlet N be the number of members of the described set;\n\tlet R be N divided by 5;\n\tlet total be R times 5;\n\tdecide on total.\n\n\nRule for printing room description details of something: do nothing instead.\n\n\nSection 3 - Drawing and Discarding Actions\n\nUnderstand the commands &quot;take&quot; and &quot;carry&quot; and &quot;hold&quot; and &quot;get&quot; and &quot;drop&quot; and &quot;throw&quot; and &quot;discard&quot; as something new.\n\nUnderstand &quot;take [text]&quot; or &quot;get [text]&quot; or &quot;drop [text]&quot; as a mistake (&quot;Here, you only draw and discard. Nothing else matters at the moment.&quot;).\n\nUnderstand &quot;draw&quot; or &quot;draw card&quot; or &quot;draw a card&quot; as drawing. Drawing is an action applying to nothing. The drawing action has an object called the card drawn.\n\nSetting action variables for drawing:\n\tnow the card drawn is a random card which is in the deck of cards.\n\nCheck drawing:\n\tif the card drawn is nothing, say &quot;The deck is completely depleted.&quot; instead.\n\nCheck drawing:\n\tif the number of cards carried by the player is greater than four,\n\t\tsay &quot;This is a five-card game; you must discard something before drawing anything further.&quot; instead.\n\nCarry out drawing:\n\tmove the card drawn to the player.\n\nReport drawing:\n\tsay &quot;You draw [a card drawn].&quot;\n\n\nUnderstand &quot;discard [card]&quot; as discarding. Discarding is an action applying to one thing.\n\nCheck discarding:\n\tif the player does not carry the noun, say &quot;You can only discard cards from your own hand.&quot; instead.\n\nCarry out discarding:\n\tnow the noun is in the discard pile;\n\tif the discard pile is not visible, move the discard pile to the location.\n\nReport discarding:\n\tsay &quot;You toss [the noun] nonchalantly onto the discard pile.&quot;\n\nSeeding is an action out of world. Understand &quot;seed&quot; as seeding. Carry out seeding: seed the random-number generator with 5681.\n\nTest me with &quot;seed / draw / g / g / g / g / i / discard seven of spades / draw / discard six / draw / i / discard hearts / discard six of diamonds card / draw / draw / i / discard spades card / draw / discard king card&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Tilt&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline i7header">Section 1 - Cards</div><div class="codeline">Suit is a kind of value. The suits are hearts, clubs, diamonds, and spades. Understand &quot;heart&quot; as hearts. Understand &quot;club&quot; as clubs. Understand &quot;diamond&quot; as diamonds. Understand &quot;spade&quot; as spades. [Providing the singular forms means that Inform will also understand &gt;EXAMINE SPADE, &gt;DISCARD CLUB, and so on.]</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A card is a kind of thing.  A card has a suit. A card has a number called rank. Understand the suit property as describing a card. Understand the rank property as describing a card.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">52 cards are in the card repository.</div>
 </div><p>Now, we&#39;re going to describe the higher numbers as face cards, so it helps to write a new &quot;to say&quot; phrase, just as we did in Jokers Wild. (A subsequent version of this example shows how to print card values with red and black symbols representing the different suits; see &quot;Tilt 3&quot;.)</p>
 <div class="codeblock"><div class="codeline">To say (count - a number) as a card value:</div>
-<div class="codeline">&ensp;&ensp;choose row count in the Table of Value Names;</div>
-<div class="codeline">&ensp;&ensp;say &quot;[term entry]&quot;.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;choose row count in the Table of Value Names;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;[term entry]&quot;.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Rule for printing the name of a card (called target):</div>
-<div class="codeline">&ensp;&ensp;say &quot;[rank of the target as a card value] of [suit of the target]&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;[rank of the target as a card value] of [suit of the target]&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline tablename">Table of Value Names</div><table>
 <tr><td>term</td><td>value</td><td>topic</td></tr><tr><td>&quot;ace&quot;</td><td>&quot;1&quot;</td><td>&quot;ace/A/one&quot;</td></tr><tr><td>&quot;deuce&quot;</td><td>&quot;2&quot;</td><td>&quot;deuce/two&quot;</td></tr><tr><td>&quot;three&quot;</td><td>&quot;3&quot;</td><td>&quot;three&quot;</td></tr><tr><td>&quot;four&quot;</td><td>&quot;4&quot;</td><td>&quot;four&quot;</td></tr><tr><td>&quot;five&quot;</td><td>&quot;5&quot;</td><td>&quot;five&quot;</td></tr><tr><td>&quot;six&quot;</td><td>&quot;6&quot;</td><td>&quot;six&quot;</td></tr><tr><td>&quot;seven&quot;</td><td>&quot;7&quot;</td><td>&quot;seven&quot;</td></tr><tr><td>&quot;eight&quot;</td><td>&quot;8&quot;</td><td>&quot;eight&quot;</td></tr><tr><td>&quot;nine&quot;</td><td>&quot;9&quot;</td><td>&quot;nine&quot;</td></tr><tr><td>&quot;ten&quot;</td><td>&quot;10&quot;</td><td>&quot;ten&quot;</td></tr><tr><td>&quot;jack&quot;</td><td>&quot;11&quot;</td><td>&quot;jack/knave/J&quot;</td></tr><tr><td>&quot;queen&quot;</td><td>&quot;12&quot;</td><td>&quot;queen/Q&quot;</td></tr><tr><td>&quot;king&quot;</td><td>&quot;13&quot;</td><td>&quot;king/K&quot;</td></tr></table>
 </div><p>This is enough already to let inform understand things like &quot;ten clubs&quot;, but we want to add a couple of refinements. For one thing, we&#39;d like to accept &quot;of&quot; when it appears in phrases such as &quot;ten of clubs&quot; (but not generically otherwise); for another, we&#39;d like the player to be able to use various names for ranks. To this end, we need to borrow from the <a href="WI_18.html">Activities chapter</a> and modify the player&#39;s command before attempting to understand it:</p>
 <div class="codeblock"><div class="codeline">After reading a command:</div>
-<div class="codeline">&ensp;&ensp;if the player&#39;s command includes &quot;of [suit]&quot;:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;while the player&#39;s command includes &quot;of&quot;:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;cut the matched text;</div>
-<div class="codeline">&ensp;&ensp;repeat through the Table of Value Names:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;while the player&#39;s command includes topic entry:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;replace the matched text with value entry.</div>
-<div class="codeline">&ensp;&ensp;[This allows Inform to understand &quot;ace&quot;, &quot;deuce&quot;, &quot;king&quot;, etc., as numerical ranks.]</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the player&#39;s command includes &quot;of [suit]&quot;:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;while the player&#39;s command includes &quot;of&quot;:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;cut the matched text;</div>
+<div class="codeline">&ensp;&ensp;&ensp;repeat through the Table of Value Names:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;while the player&#39;s command includes topic entry:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;replace the matched text with value entry.</div>
+<div class="codeline">&ensp;&ensp;&ensp;[This allows Inform to understand &quot;ace&quot;, &quot;deuce&quot;, &quot;king&quot;, etc., as numerical ranks.]</div>
 </div><p>It may be a bit confusing that the Table of Value Names has both a topic column and a term column, to all appearances essentially identical. But items in the topic column can be matched against the player&#39;s input, whereas items in other kinds of text column can be printed out; the two kinds of text are not treated identically by Inform, so we need to have both. Notice that the topic column contains entries like &quot;jack/knave,&quot; which will match either &quot;jack&quot; or &quot;knave&quot; in the player&#39;s input.</p>
 <p>Now to set up the deck at the outset. With some intelligent looping, we avoid having to declare every combination of suit and number individually:</p>
 <div class="codeblock"><div class="codeline">When play begins:</div>
-<div class="codeline">&ensp;&ensp;reconstitute deck.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;reconstitute deck.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">To reconstitute deck:</div>
-<div class="codeline">&ensp;&ensp;let current suit be hearts;</div>
-<div class="codeline">&ensp;&ensp;now every card is in the card repository;</div>
-<div class="codeline">&ensp;&ensp;while a card is in the card repository:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;repeat with current rank running from 1 to 13:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;let item be a random card in card repository;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now rank of item is current rank;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now suit of item is current suit;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now item is in the deck of cards;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;now current suit is the suit after the current suit.</div>
+<div class="codeline">&ensp;&ensp;&ensp;let current suit be hearts;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now every card is in the card repository;</div>
+<div class="codeline">&ensp;&ensp;&ensp;while a card is in the card repository:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;repeat with current rank running from 1 to 13:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;let item be a random card in card repository;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now rank of item is current rank;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now suit of item is current suit;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now item is in the deck of cards;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now current suit is the suit after the current suit.</div>
 </div><p>And now we need a simple setting and some actions to manipulate the deck with:</p>
-<div class="codeblock"><div class="codeline i7header">Section 2 - The Deck and the Discard Pile</div><div class="codeline">&ensp;&ensp;</div>
+<div class="codeblock"><div class="codeline i7header">Section 2 - The Deck and the Discard Pile</div><div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Empty Room is a room. &quot;Nothing to see here.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The deck of cards is in the Empty Room. It is a closed unopenable container. The description is &quot;A standard poker deck.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The discard pile is a closed unopenable container. The description is &quot;Cards in this game are discarded face-down, so the discard pile is not very interesting to see. All you can observe is that it currently contains [if the number of cards which are in the discard pile is less than ten][the number of cards which are in the discard pile in words][otherwise]about [the rounded number of cards which are in the discard pile in words][end if] card[s].&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">To decide what number is the rounded number of (described set - a description of objects):</div>
-<div class="codeline">&ensp;&ensp;let N be the number of members of the described set;</div>
-<div class="codeline">&ensp;&ensp;let R be N divided by 5;</div>
-<div class="codeline">&ensp;&ensp;let total be R times 5;</div>
-<div class="codeline">&ensp;&ensp;decide on total.</div>
+<div class="codeline">&ensp;&ensp;&ensp;let N be the number of members of the described set;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let R be N divided by 5;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let total be R times 5;</div>
+<div class="codeline">&ensp;&ensp;&ensp;decide on total.</div>
 </div><p>The above phrase rounds a number to the nearest five, because it seems unrealistic for the player to be able to count a large number of cards in the discard pile at a single glance.</p>
 <p>This next bit is an optional borrowing from the <a href="WI_18.html">Activities chapter</a>: we want to prevent Inform printing things like &quot;You can see a discard pile (closed) here.&quot;, since we don&#39;t want the player to think of the piles as containers, even though Inform thinks of them in those terms.</p>
 <div class="codeblock"><div class="codeline">Rule for printing room description details of something: do nothing instead.</div>
 </div><p>Finally, we want the player to use &quot;draw&quot; and &quot;discard&quot; to manipulate his hand of cards:</p>
-<div class="codeblock"><div class="codeline i7header">Section 3 - Drawing and Discarding Actions</div><div class="codeline">&ensp;&ensp;</div>
+<div class="codeblock"><div class="codeline i7header">Section 3 - Drawing and Discarding Actions</div><div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Understand the commands &quot;take&quot; and &quot;carry&quot; and &quot;hold&quot; and &quot;get&quot; and &quot;drop&quot; and &quot;throw&quot; and &quot;discard&quot; as something new.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Understand &quot;take [text]&quot; or &quot;get [text]&quot; or &quot;drop [text]&quot; as a mistake (&quot;Here, you only draw and discard. Nothing else matters at the moment.&quot;).</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Understand &quot;draw&quot; or &quot;draw card&quot; or &quot;draw a card&quot; as drawing. Drawing is an action applying to nothing. The drawing action has an object called the card drawn.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Setting action variables for drawing:</div>
-<div class="codeline">&ensp;&ensp;now the card drawn is a random card which is in the deck of cards.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the card drawn is a random card which is in the deck of cards.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Check drawing:</div>
-<div class="codeline">&ensp;&ensp;if the card drawn is nothing, say &quot;The deck is completely depleted.&quot; instead.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the card drawn is nothing, say &quot;The deck is completely depleted.&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Check drawing:</div>
-<div class="codeline">&ensp;&ensp;if the number of cards carried by the player is greater than four,</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;This is a five-card game; you must discard something before drawing anything further.&quot; instead.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the number of cards carried by the player is greater than four,</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;This is a five-card game; you must discard something before drawing anything further.&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Carry out drawing:</div>
-<div class="codeline">&ensp;&ensp;move the card drawn to the player.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;move the card drawn to the player.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Report drawing:</div>
-<div class="codeline">&ensp;&ensp;say &quot;You draw [a card drawn].&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You draw [a card drawn].&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Understand &quot;discard [card]&quot; as discarding. Discarding is an action applying to one thing.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Check discarding:</div>
-<div class="codeline">&ensp;&ensp;if the player does not carry the noun, say &quot;You can only discard cards from your own hand.&quot; instead.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the player does not carry the noun, say &quot;You can only discard cards from your own hand.&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Carry out discarding:</div>
-<div class="codeline">&ensp;&ensp;now the noun is in the discard pile;</div>
-<div class="codeline">&ensp;&ensp;if the discard pile is not visible, move the discard pile to the location.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the noun is in the discard pile;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the discard pile is not visible, move the discard pile to the location.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Report discarding:</div>
-<div class="codeline">&ensp;&ensp;say &quot;You toss [the noun] nonchalantly onto the discard pile.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You toss [the noun] nonchalantly onto the discard pile.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Seeding is an action out of world. Understand &quot;seed&quot; as seeding. Carry out seeding: seed the random-number generator with 5681.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;seed / draw / g / g / g / g / i / discard seven of spades / draw / discard six / draw / i / discard hearts / discard six of diamonds card / draw / draw / i / discard spades card / draw / discard king card&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "seed / draw / g / g / g / g / i / discard seven of spades / draw / discard six / draw / i / discard hearts / discard six of diamonds card / draw / draw / i / discard spades card / draw / discard king card".</summary><div class="testme-output">Empty Room<br>Nothing to see here.<br><br>You can see a deck of cards here.<br><br>&gt;(Testing.)<br><br>&gt;[1] seed<br>&gt;[2] draw<br>You draw a three of hearts.<br><br>&gt;[3] g<br>You draw a ten of spades.<br><br>&gt;[4] g<br>You draw a four of spades.<br><br>&gt;[5] g<br>You draw a ten of diamonds.<br><br>&gt;[6] g<br>You draw an eight of clubs.<br><br>&gt;[7] i<br>You are carrying:<br>  an eight of clubs<br>  a ten of diamonds<br>  a four of spades<br>  a ten of spades<br>  a three of hearts<br><br>&gt;[8] discard seven of spades<br>You can&#39;t use multiple objects with that verb.<br><br>&gt;[9] draw<br>This is a five-card game; you must discard something before drawing anything further.<br><br>&gt;[10] discard six<br>You can&#39;t see any such thing.<br><br>&gt;[11] draw<br>This is a five-card game; you must discard something before drawing anything further.<br><br>&gt;[12] i<br>You are carrying:<br>  an eight of clubs<br>  a ten of diamonds<br>  a four of spades<br>  a ten of spades<br>  a three of hearts<br><br>&gt;[13] discard hearts<br>You toss the three of hearts nonchalantly onto the discard pile.<br><br>&gt;[14] discard six of diamonds card<br>You can&#39;t use multiple objects with that verb.<br><br>&gt;[15] draw<br>You draw a seven of diamonds.<br><br>&gt;[16] draw<br>This is a five-card game; you must discard something before drawing anything further.<br><br>&gt;[17] i<br>You are carrying:<br>  a seven of diamonds<br>  an eight of clubs<br>  a ten of diamonds<br>  a four of spades<br>  a ten of spades<br><br>&gt;[18] discard spades card<br>Which do you mean, the four of spades or the ten of spades?<br><br>&gt;[19] draw<br>This is a five-card game; you must discard something before drawing anything further.<br><br>&gt;[20] discard king card<br>You can&#39;t use multiple objects with that verb.
 </div></details><div class="doc-navbar"><div class="doc-navbar-left"></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="tilt2.html" title="A deck of cards with fully implemented individual cards; when the player has a full poker hand, the inventory listing describes the resulting hand accordingly."><div class="doc-navbar-text">406. Tilt 2</div> <div class="nav-arrow">→</div></a></div></div></div><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="terracottissima_maxima.html" title="Flowerpots with textual names that might change during play."><div class="nav-arrow">←</div> <div class="doc-navbar-text">317. Terracottissima Maxima</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="cinco.html" title="A taco shell that can be referred to (when it contains things) in terms of its contents."><div class="doc-navbar-text">319. Cinco</div> <div class="nav-arrow">→</div></a></div></div>

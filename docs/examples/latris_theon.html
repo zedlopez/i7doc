@@ -18,36 +18,36 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex185">Play/modify Latris Theon in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Hermes/index.html">Play Latris Theon in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Latris Theon&quot;\n\nA person has a room called destination.\n\nUnderstand &quot;go to [any room]&quot; as going vaguely.\n\nGoing vaguely is an action applying to one visible thing.\n\nCarry out someone going vaguely:\n\tnow the destination of the person asked is the noun.\n\nReport someone going vaguely:\n\tsay &quot;[The person asked] looks amused, but accepts the commission to go to [the noun].&quot;\n\n\nCarry out going vaguely:\n\tsay &quot;You&apos;re too thoroughly lost.&quot;\n\n\nCorinth is a room. Athens is east of Corinth. Epidaurus is southeast of Corinth and east of Mycenae. Mycenae is south of Corinth. Olympia is west of Mycenae. Argos is south of Mycenae. Thebes is northwest of Athens. Pylos is south of Olympia. Sparta is east of Pylos and south of Argos. Delphi is northwest of Thebes.\n\nHermes is a man in Corinth. The destination of Hermes is Corinth. [So he is initially happy where he is.] Persuasion rule for asking Hermes to try going vaguely: persuasion succeeds. [But he is open to suggestions.]\n\nEvery turn when the destination of Hermes is not the location of Hermes:\n\tlet the right direction be the best route from the location of Hermes to the destination of Hermes;\n\ttry Hermes going the right direction.\n\nTest me with &quot;hermes, go to athens / e&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Latris Theon&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A person has a room called destination.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Understand &quot;go to [any room]&quot; as going vaguely.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Going vaguely is an action applying to one visible thing.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Carry out someone going vaguely:</div>
-<div class="codeline">&ensp;&ensp;now the destination of the person asked is the noun.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the destination of the person asked is the noun.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Report someone going vaguely:</div>
-<div class="codeline">&ensp;&ensp;say &quot;[The person asked] looks amused, but accepts the commission to go to [the noun].&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;[The person asked] looks amused, but accepts the commission to go to [the noun].&quot;</div>
 </div><p>It stands to reason the player plays Zeus or at the very least Apollo, but let&#39;s not let this go to the player&#39;s head. Note that the following rule applies to the player, but not to anyone else, so HERMES, GO TO ATHENS will work but GO TO ATHENS will not.</p>
 <div class="codeblock"><div class="codeline">Carry out going vaguely:</div>
-<div class="codeline">&ensp;&ensp;say &quot;You&#39;re too thoroughly lost.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You&#39;re too thoroughly lost.&quot;</div>
 </div><p>And finally we recreate Greece and one of its heroes.</p>
 <div class="codeblock"><div class="codeline">Corinth is a room. Athens is east of Corinth. Epidaurus is southeast of Corinth and east of Mycenae. Mycenae is south of Corinth. Olympia is west of Mycenae. Argos is south of Mycenae. Thebes is northwest of Athens. Pylos is south of Olympia. Sparta is east of Pylos and south of Argos. Delphi is northwest of Thebes.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Hermes is a man in Corinth. The destination of Hermes is Corinth. [So he is initially happy where he is.] Persuasion rule for asking Hermes to try going vaguely: persuasion succeeds. [But he is open to suggestions.]</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Every turn when the destination of Hermes is not the location of Hermes:</div>
-<div class="codeline">&ensp;&ensp;let the right direction be the best route from the location of Hermes to the destination of Hermes;</div>
-<div class="codeline">&ensp;&ensp;try Hermes going the right direction.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let the right direction be the best route from the location of Hermes to the destination of Hermes;</div>
+<div class="codeline">&ensp;&ensp;&ensp;try Hermes going the right direction.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;hermes, go to athens / e&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "hermes, go to athens / e".</summary><div class="testme-output">Corinth<br>You can see Hermes here.<br><br>&gt;(Testing.)<br><br>&gt;[1] hermes, go to athens<br>Hermes looks amused, but accepts the commission to go to Athens.<br><br>Hermes goes east.<br><br>&gt;[2] e<br><br>Athens<br>You can see Hermes here.
 </div></details><p>It simplifies matters that our map of Greece makes it possible to reach any location from any other location, by some sequence of movements: if there were an isolated location -- say, Crete -- with no map connection to the mainland, then we would have to worry about the &quot;right direction&quot; not being a direction at all. The following version of Hermes&#39; trekking rule is protected against the possibility:</p>
 <div class="codeblock"><div class="codeline">Every turn when the destination of Hermes is not the location of Hermes:</div>
-<div class="codeline">&ensp;&ensp;let the right direction be the best route from the location of Hermes to the destination of Hermes;</div>
-<div class="codeline">&ensp;&ensp;if the right direction is a direction, try Hermes going the right direction.</div>
+<div class="codeline">&ensp;&ensp;&ensp;let the right direction be the best route from the location of Hermes to the destination of Hermes;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the right direction is a direction, try Hermes going the right direction.</div>
 </div><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="virtue.html" title="Defining certain kinds of behavior as inappropriate, so that other characters will refuse indignantly to do any such thing."><div class="nav-arrow">←</div> <div class="doc-navbar-text">184. Virtue</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="hypnotist_of_blois.html" title="A hypnotist who can make people obedient and then set them free again."><div class="doc-navbar-text">186. The Hypnotist of Blois</div> <div class="nav-arrow">→</div></a></div></div>
 <footer id="credits-footer"><nav><div class="nav-el"><a class="nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="nav-el" href="../search.html">Search</a></div></nav>
 <div class="footing"><p id="i7credit"><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p class="about"><a class="nav-about" href="../about.html">About this edition</a> &bull; <a class="nav-about" href="https://twitter.com/inform7tips">@inform7tips</a></p></div></footer>

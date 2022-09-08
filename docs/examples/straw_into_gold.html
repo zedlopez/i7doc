@@ -17,26 +17,26 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex305">Play/modify Straw Into Gold in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="StrawIntoGold/index.html">Play Straw Into Gold in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Straw Into Gold&quot;\n\nThe Cell is a room. Rumpelstiltskin is an improper-named man in the Cell.  Rumpelstiltskin can be identified or unidentified. Rumpelstiltskin is unidentified.\n\nR-name is a kind of value. The R-names are dwarf, guy, dude, and man-thing. Rumpelstiltskin has an R-name. Understand &quot;[R-name]&quot; as Rumpelstiltskin.\n\n\nUnderstand &quot;man&quot; as man-thing.\n\n\nAfter reading a command:\n\tif the player&apos;s command includes &quot;[R-name]&quot;,\n\t\tnow the R-name of Rumpelstiltskin is the R-name understood;\n\tif the player&apos;s command includes &quot;Rumpelstiltskin&quot;:\n\t\tnow Rumpelstiltskin is identified;\n\t\tnow Rumpelstiltskin is proper-named.\n\nRule for printing the name of Rumpelstiltskin when Rumpelstiltskin is unidentified:\n\tif the R-name of Rumpelstiltskin is man-thing:\n\t\tsay &quot;man&quot;;\n\totherwise:\n\t\tsay &quot;[R-name]&quot;.\n\nTest me with &quot;x dwarf / x guy / x dude / look / x rumpelstiltskin / look / x man&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Straw Into Gold&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Cell is a room. Rumpelstiltskin is an improper-named man in the Cell.  Rumpelstiltskin can be identified or unidentified. Rumpelstiltskin is unidentified.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">R-name is a kind of value. The R-names are dwarf, guy, dude, and man-thing. Rumpelstiltskin has an R-name. Understand &quot;[R-name]&quot; as Rumpelstiltskin.</div>
 </div><p>Our example is slightly complicated by the fact that &quot;man&quot; is a name already known to Inform, so we can&#39;t re-use it as a kind of value. This is possible to work around, though:</p>
 <div class="codeblock"><div class="codeline">Understand &quot;man&quot; as man-thing.</div>
 </div><p>Now we borrow from the <a href="WI_18.html">Activities chapter</a> to look at the exact wording of the player&#39;s command:</p>
 <div class="codeblock"><div class="codeline">After reading a command:</div>
-<div class="codeline">&ensp;&ensp;if the player&#39;s command includes &quot;[R-name]&quot;,</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;now the R-name of Rumpelstiltskin is the R-name understood;</div>
-<div class="codeline">&ensp;&ensp;if the player&#39;s command includes &quot;Rumpelstiltskin&quot;:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;now Rumpelstiltskin is identified;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;now Rumpelstiltskin is proper-named.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the player&#39;s command includes &quot;[R-name]&quot;,</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the R-name of Rumpelstiltskin is the R-name understood;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the player&#39;s command includes &quot;Rumpelstiltskin&quot;:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now Rumpelstiltskin is identified;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now Rumpelstiltskin is proper-named.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Rule for printing the name of Rumpelstiltskin when Rumpelstiltskin is unidentified:</div>
-<div class="codeline">&ensp;&ensp;if the R-name of Rumpelstiltskin is man-thing:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;man&quot;;</div>
-<div class="codeline">&ensp;&ensp;otherwise:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;[R-name]&quot;.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the R-name of Rumpelstiltskin is man-thing:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;man&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[R-name]&quot;.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;x dwarf / x guy / x dude / look / x rumpelstiltskin / look / x man&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "x dwarf / x guy / x dude / look / x rumpelstiltskin / look / x man".</summary><div class="testme-output">Cell<br>You can see a dwarf here.<br><br>&gt;(Testing.)<br><br>&gt;[1] x dwarf<br>You see nothing special about the dwarf.<br><br>&gt;[2] x guy<br>You see nothing special about the guy.<br><br>&gt;[3] x dude<br>You see nothing special about the dude.<br><br>&gt;[4] look<br>Cell<br>You can see a dude here.<br><br>&gt;[5] x rumpelstiltskin<br>You see nothing special about Rumpelstiltskin.<br><br>&gt;[6] look<br>Cell<br>You can see Rumpelstiltskin here.<br><br>&gt;[7] x man<br>You see nothing special about Rumpelstiltskin.
 </div></details><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="down_in_oodville.html" title="Offering the player a choice of numbered options at certain times, without otherwise interfering with his ability to give regular commands."><div class="nav-arrow">←</div> <div class="doc-navbar-text">304. Down in Oodville</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="misadventure.html" title="A going by name command which does respect movement rules, and accepts names of rooms as commands."><div class="doc-navbar-text">306. Misadventure</div> <div class="nav-arrow">→</div></a></div></div>

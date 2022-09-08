@@ -18,27 +18,27 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex339">Play/modify Shipping Trunk in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="SmellyTrunk/index.html">Play Shipping Trunk in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Shipping Trunk&quot;\n\nA chest is a kind of container. A chest is always openable. A lid is a kind of supporter. A lid is part of every chest.\n\nBefore opening a chest when something (called the obstruction) is on a lid which is part of the noun:\n\tsay &quot;Better remove [the obstruction].&quot; instead.\n\nA thing can be innocent or smelly.\n\nThe Storage Unit is a room. The shipping trunk is a closed chest in the Storage Unit. The trunk contains some garlic, a loaf of moldy sourdough, a mildewy bathtowel, a pair of unwashed socks, two dead trout, and a box of baking powder. The garlic, trout, sourdough, bathtowel, and socks are smelly. The baking powder is innocent.\n\nThe shipping trunk&apos;s lid supports a small card. The description of the small card is &quot;&apos;Please, please do not open this trunk.&apos;&quot;\n\nAfter opening the trunk:\n\tif the trunk had been open:\n\t\tsay &quot;You steel yourself...&quot;;\n\t\tcontinue the action;\n\totherwise:\n\t\tsay &quot;There roils up from inside an indescribable funk, which, when you can see straight, you have no trouble attributing to the presence of [a list of smelly things in the trunk]. You also note [a list of innocent things in the trunk] in the corner.&quot;.\n\n\nBefore printing the name of the baking powder when the powder is in a container which contains a smelly thing: say &quot;completely ineffective &quot;.\n\nTest me with &quot;open trunk / examine card / get card / open trunk / get powder / inventory&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Shipping Trunk&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A chest is a kind of container. A chest is always openable. A lid is a kind of supporter. A lid is part of every chest.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Before opening a chest when something (called the obstruction) is on a lid which is part of the noun:</div>
-<div class="codeline">&ensp;&ensp;say &quot;Better remove [the obstruction].&quot; instead.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Better remove [the obstruction].&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A thing can be innocent or smelly.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Storage Unit is a room. The shipping trunk is a closed chest in the Storage Unit. The trunk contains some garlic, a loaf of moldy sourdough, a mildewy bathtowel, a pair of unwashed socks, two dead trout, and a box of baking powder. The garlic, trout, sourdough, bathtowel, and socks are smelly. The baking powder is innocent.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The shipping trunk&#39;s lid supports a small card. The description of the small card is &quot;&#39;Please, please do not open this trunk.&#39;&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">After opening the trunk:</div>
-<div class="codeline">&ensp;&ensp;if the trunk had been open:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;You steel yourself...&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;continue the action;</div>
-<div class="codeline">&ensp;&ensp;otherwise:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;There roils up from inside an indescribable funk, which, when you can see straight, you have no trouble attributing to the presence of [a list of smelly things in the trunk]. You also note [a list of innocent things in the trunk] in the corner.&quot;.</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the trunk had been open:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;You steel yourself...&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;continue the action;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;There roils up from inside an indescribable funk, which, when you can see straight, you have no trouble attributing to the presence of [a list of smelly things in the trunk]. You also note [a list of innocent things in the trunk] in the corner.&quot;.</div>
 </div><p>And now, with that preparation:</p>
 <div class="codeblock"><div class="codeline">Before printing the name of the baking powder when the powder is in a container which contains a smelly thing: say &quot;completely ineffective &quot;.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;open trunk / examine card / get card / open trunk / get powder / inventory&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "open trunk / examine card / get card / open trunk / get powder / inventory".</summary><div class="testme-output">Storage Unit<br>You can see a shipping trunk (closed) here.<br><br>&gt;(Testing.)<br><br>&gt;[1] open trunk<br>Better remove the small card.<br><br>&gt;[2] examine card<br>&quot;Please, please do not open this trunk.&quot;<br><br>&gt;[3] get card<br>Taken.<br><br>&gt;[4] open trunk<br>There roils up from inside an indescribable funk, which, when you can see straight, you have no trouble attributing to the presence of some garlic, a loaf of moldy sourdough, a mildewy bathtowel, a pair of unwashed socks and two dead trout. You also note a completely ineffective box of baking powder in the corner.<br><br>&gt;[5] get powder<br>Taken.<br><br>&gt;[6] inventory<br>You are carrying:<br>  a box of baking powder<br>  a small card
 </div></details><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="hays_code.html" title="Clark Gable in a pin-striped suit and a pink thong."><div class="nav-arrow">←</div> <div class="doc-navbar-text">338. Hays Code</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="trachypachidae_maturin1803.html" title="Bottles with removable stoppers: when the stopper is in the bottle, the bottle is functionally closed, but the stopper can also be removed and used elsewhere. Descriptions of the bottle reflect its state intelligently."><div class="doc-navbar-text">340. Trachypachidae Maturin 1803</div> <div class="nav-arrow">→</div></a></div></div>

@@ -19,18 +19,18 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex73">Play/modify Finishing School in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Finishing/index.html">Play Finishing School in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Finishing School&quot;\n\nThe apple is an edible thing carried by the player.\n\nThe Hall is a room. Miss Wicket is a woman in the Hall.\n\nThe Dormitory is south of the Hall.\n\nDefinition: a person is another if it is not the player.\n\nInstead of eating something in the presence of another person:\n\tsay &quot;Your mannerly upbringing prevents you from eating without a fork or knife in front of someone.&quot;\n\nTest me with &quot;eat apple / south / eat apple&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Finishing School&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The apple is an edible thing carried by the player.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Hall is a room. Miss Wicket is a woman in the Hall.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Dormitory is south of the Hall.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Definition: a person is another if it is not the player.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of eating something in the presence of another person:</div>
-<div class="codeline">&ensp;&ensp;say &quot;Your mannerly upbringing prevents you from eating without a fork or knife in front of someone.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Your mannerly upbringing prevents you from eating without a fork or knife in front of someone.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;eat apple / south / eat apple&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "eat apple / south / eat apple".</summary><div class="testme-output">Hall<br>You can see Miss Wicket here.<br><br>&gt;(Testing.)<br><br>&gt;[1] eat apple<br>Your mannerly upbringing prevents you from eating without a fork or knife in front of someone.<br><br>&gt;[2] south<br><br>Dormitory<br><br>&gt;[3] eat apple<br>You eat the apple. Not bad.
 </div></details><p>If we did not have &quot;another&quot; here, Inform would interpret even the player as a possible schoolmarm, leading to such lines as &quot;yourself stares at you coldly&hellip;&quot;. Clearly not quite the thing.</p>

@@ -18,18 +18,18 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex40">Play/modify Prisoner's Dilemma in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="BlackButton/index.html">Play Prisoner's Dilemma in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Prisoner&apos;s Dilemma&quot;\n\nChallenger&apos;s Waiting Room is a room. &quot;The challenge is this: to wait as long as you can endure to do so in a room with no features and no clock. If you wait longer than all the other contestants, you win.&quot;\n\nThe button is fixed in place in the Challenger&apos;s Waiting Room. &quot;The only item in view is a black recessed button.&quot;\n\nAmid the Cheering Throng is a room.\n\nInstead of pushing the button for the first time:\n\tchange the east exit of the Challenger&apos;s Waiting Room to Amid the Cheering Throng;\n\tchange the west exit of the Cheering Throng to the Challenger&apos;s Waiting Room;\n\tsay &quot;With a groan of gears, the east wall swings open! If you&apos;ve lost now, well, you&apos;ve lost...&quot;\n\nTest me with &quot;e / push button / e / w&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Prisoner&#39;s Dilemma&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Challenger&#39;s Waiting Room is a room. &quot;The challenge is this: to wait as long as you can endure to do so in a room with no features and no clock. If you wait longer than all the other contestants, you win.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The button is fixed in place in the Challenger&#39;s Waiting Room. &quot;The only item in view is a black recessed button.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Amid the Cheering Throng is a room.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of pushing the button for the first time:</div>
-<div class="codeline">&ensp;&ensp;change the east exit of the Challenger&#39;s Waiting Room to Amid the Cheering Throng;</div>
-<div class="codeline">&ensp;&ensp;change the west exit of the Cheering Throng to the Challenger&#39;s Waiting Room;</div>
-<div class="codeline">&ensp;&ensp;say &quot;With a groan of gears, the east wall swings open! If you&#39;ve lost now, well, you&#39;ve lost...&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;change the east exit of the Challenger&#39;s Waiting Room to Amid the Cheering Throng;</div>
+<div class="codeline">&ensp;&ensp;&ensp;change the west exit of the Cheering Throng to the Challenger&#39;s Waiting Room;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;With a groan of gears, the east wall swings open! If you&#39;ve lost now, well, you&#39;ve lost...&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;e / push button / e / w&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "e / push button / e / w".</summary><div class="testme-output">Challenger&#39;s Waiting Room<br>The challenge is this: to wait as long as you can endure to do so in a room with no features and no clock. If you wait longer than all the other contestants, you win.<br><br>The only item in view is a black recessed button.<br><br>&gt;(Testing.)<br><br>&gt;[1] e<br>You can&#39;t go that way.<br><br>&gt;[2] push button<br>With a groan of gears, the east wall swings open! If you&#39;ve lost now, well, you&#39;ve lost...<br><br>&gt;[3] e<br><br>Amid the Cheering Throng<br><br>&gt;[4] w<br><br>Challenger&#39;s Waiting Room<br>The challenge is this: to wait as long as you can endure to do so in a room with no features and no clock. If you wait longer than all the other contestants, you win.<br><br>The only item in view is a black recessed button.
 </div></details><p>Our instructions about pushing the button will be further explained in the chapter on Actions, but the thing to note here is that we can &quot;change (whatever) exit&quot; in order to set or re-set map directions. Notice that we have to set both directions explicitly: changing the east exit of the Waiting Room does not automatically also change the west exit of Amid the Cheering Throng.</p>

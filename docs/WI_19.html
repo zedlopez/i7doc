@@ -60,7 +60,7 @@
 </div>
 </div>
 <h3 id="section_1">WI §19.1 On rules</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><div>&nbsp;</div></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_19"><div class="nav-arrow">↑</div><div class="doc-navbar-text">19. Rulebooks</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_2"><div class="doc-navbar-text">19.2 Named rules and rulebooks</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="WI_18.html#section_40" title="Starting the virtual machine"><div class="nav-arrow">←18.40 </div><div class="doc-navbar-text">Starting the virtual machine</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_19"><div class="nav-arrow">↑19. </div><div class="doc-navbar-text">Rulebooks</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_2"><div class="doc-navbar-text">Named rules and rulebooks</div><div class="nav-arrow">19.2→</div></a></div></div></div>
 <p>When we open the casing and look inside the machinery of Inform, what we see are rules and rulebooks. We seldom need to know how this machinery works, but every once in a while we want to replace components, or even install new mechanisms of our own. And as we shall see, creating new rulebooks can be a neat way to tackle complicated simulations full of exceptions and special cases.</p>
 <p>So far we have seen many rules, and the term &quot;rulebook&quot; has frequently but vaguely been used. Here is a summary of the rulebooks seen so far:</p>
 <div class="codeblock"><div class="codeline">before</div>
@@ -74,14 +74,14 @@
 <div class="codeline">reaching outside</div>
 <div class="codeline">visibility</div>
 <div class="codeline">does the player mean</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">when play begins</div>
 <div class="codeline">when play ends</div>
 <div class="codeline">every turn</div>
 <div class="codeline">when Confrontation Scene begins</div>
 <div class="codeline">when Confrontation Scene ends</div>
 <div class="codeline"><em>and two similar rulebooks for each scene we create, if any</em></div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">before printing the name of</div>
 <div class="codeline">for printing the name of</div>
 <div class="codeline">after printing the name of</div>
@@ -91,7 +91,7 @@
 <div class="codeline">To dislodge the shelf: ...</div>
 <div class="codeline">Definition: ...</div>
 </div><h3 id="section_2">WI §19.2 Named rules and rulebooks</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_1" title="On rules"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">19.1 On rules</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_19"><div class="nav-arrow">↑</div><div class="doc-navbar-text">19. Rulebooks</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_3"><div class="doc-navbar-text">19.3 New rules</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_1" title="On rules"><div class="nav-arrow">←19.1 </div><div class="doc-navbar-text">On rules</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_19"><div class="nav-arrow">↑19. </div><div class="doc-navbar-text">Rulebooks</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_3"><div class="doc-navbar-text">New rules</div><div class="nav-arrow">19.3→</div></a></div></div></div>
 <p>Most of the rules built into Inform have names. For instance, a rule called &quot;the advance time rule&quot; is the one which increments the number of turns and advances the clock, values which are usually not visible, but are ticking away behind the scenes.</p>
 <p>A rulebook is a list of rules to be followed in sequence until one of them makes a decision. For instance, when actions get to the &quot;instead&quot; stage, each &quot;instead&quot; rule is tried until one of them chooses to do something. If the source text contains the rules</p>
 <div class="codeblock"><div class="codeline">Instead of taking something: say &quot;You have no particular need just now.&quot;</div>
@@ -102,7 +102,7 @@
 </div><p>Inside their rulebook, the rules are not listed in the order of definition in the source text. Rule (1) comes before rule (2) because it applies in more specific circumstances. This is the main idea: a rulebook gathers together rules about making some decision, or taking some action, and sorts them in order to give the more specific rules first choice about whether they want to intervene.</p>
 <p>Whereas only some rules are named (the two &quot;instead&quot; rules above have no name, for instance), every rulebook has a name. For convenience, the following forms of rule and rulebook name are synonymous:</p>
 <div class="codeblock"><div class="codeline">advance time = the advance time rule</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">the instead rules = instead rulebook = instead</div>
 </div><p>The names of built-in rules have been chosen as descriptively as possible: the &quot;can&#39;t go through closed doors rule&quot;, for instance. Names for rules tend to be verbose, but this is a situation where clarity is very much better than brevity.</p>
 <div class="examples">
@@ -113,7 +113,7 @@
 <div class="linkback"><a href="RB_6.html#section_11" title="Commands &gt; Waiting, Sleeping">RB §6.11 Waiting, Sleeping</a></div>
 </div>
 <h3 id="section_3">WI §19.3 New rules</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_2" title="Named rules and rulebooks"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">19.2 Named rules and rulebooks</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_19"><div class="nav-arrow">↑</div><div class="doc-navbar-text">19. Rulebooks</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_4"><div class="doc-navbar-text">19.4 Listing rules explicitly</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_2" title="Named rules and rulebooks"><div class="nav-arrow">←19.2 </div><div class="doc-navbar-text">Named rules and rulebooks</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_19"><div class="nav-arrow">↑19. </div><div class="doc-navbar-text">Rulebooks</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_4"><div class="doc-navbar-text">Listing rules explicitly</div><div class="nav-arrow">19.4→</div></a></div></div></div>
 <p>Stretching a point seasonally, we might write:</p>
 <div class="codeblock"><div class="codeline">Every turn, say &quot;The summer breeze shakes the apple-blossom.&quot;</div>
 </div><p>This rule is nameless. It needs no name because it will never need to be referred to: by identifying it as an every turn rule we have already said enough to lodge it in the &quot;every turn&quot; rulebook. In fact, though, it is easy to create a named rule:</p>
@@ -133,7 +133,7 @@
 <div class="linkback"><a href="RB_7.html#section_4" title="Other Characters &gt; Barter and Exchange">RB §7.4 Barter and Exchange</a></div>
 </div>
 <h3 id="section_4">WI §19.4 Listing rules explicitly</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_3" title="New rules"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">19.3 New rules</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_19"><div class="nav-arrow">↑</div><div class="doc-navbar-text">19. Rulebooks</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_5"><div class="doc-navbar-text">19.5 Changing the behaviour of rules</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_3" title="New rules"><div class="nav-arrow">←19.3 </div><div class="doc-navbar-text">New rules</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_19"><div class="nav-arrow">↑19. </div><div class="doc-navbar-text">Rulebooks</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_5"><div class="doc-navbar-text">Changing the behaviour of rules</div><div class="nav-arrow">19.5→</div></a></div></div></div>
 <p>If rules can manage perfectly well without, why bother to have names for rules?</p>
 <p>The answer is that although Inform contains an elaborate mechanism for placing rules into the correct rulebook at the correct position, and this happens automatically, Inform will sometimes get it wrong. It will use a rule we do not want, or place them in an order which does not suit us. To put this right, we can give explicit instructions which take precedence over Inform&#39;s normal practice. This is done with the &quot;to list&quot; verb, as in the following examples.</p>
 <p>1. The simplest usage is to place a named rule, which currently has no home, in any rulebook of our choice. (This looks redundant, but just occasionally we want the same rule to appear in two different rulebooks.)</p>
@@ -167,7 +167,7 @@
 <div class="linkback"><a href="RB_8.html#section_4" title="Vehicles, Animals and Furniture &gt; Furniture">RB §8.4 Furniture</a></div>
 </div>
 <h3 id="section_5">WI §19.5 Changing the behaviour of rules</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_4" title="Listing rules explicitly"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">19.4 Listing rules explicitly</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_19"><div class="nav-arrow">↑</div><div class="doc-navbar-text">19. Rulebooks</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_6"><div class="doc-navbar-text">19.6 Sorting and indexing of rules</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_4" title="Listing rules explicitly"><div class="nav-arrow">←19.4 </div><div class="doc-navbar-text">Listing rules explicitly</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_19"><div class="nav-arrow">↑19. </div><div class="doc-navbar-text">Rulebooks</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_6"><div class="doc-navbar-text">Sorting and indexing of rules</div><div class="nav-arrow">19.6→</div></a></div></div></div>
 <p>Here is another way to abolish an already-existing rule:</p>
 <div class="codeblock"><div class="codeline">The print final score rule does nothing.</div>
 </div><p>The rule continues to be listed in any rulebook it would normally be listed in: but now it doesn&#39;t do anything. More usefully, we can attach a condition:</p>
@@ -176,8 +176,8 @@
 <div class="codeblock"><div class="codeline">The print final score rule does nothing unless the score is 100.</div>
 </div><p>We can also substitute a rule of our own:</p>
 <div class="codeblock"><div class="codeline">This is the print fancy final score rule:</div>
-<div class="codeline">&ensp;&ensp;say &quot;Oh my, you scored a mammoth [score]!&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Oh my, you scored a mammoth [score]!&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The print fancy final score rule substitutes for the print final score rule.</div>
 </div><p>and once again a condition can be applied:</p>
 <div class="codeblock"><div class="codeline">The print fancy final score rule substitutes for the print final score rule when the score is greater than 100.</div>
@@ -187,13 +187,13 @@
 <div class="linkback"><a href="RB_10.html#section_10" title="Physics: Substances, Ropes, Energy and Weight &gt; Magic (Breaking the Laws of Physics)">RB §10.10 Magic (Breaking the Laws of Physics)</a></div>
 </div>
 <h3 id="section_6">WI §19.6 Sorting and indexing of rules</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_5" title="Changing the behaviour of rules"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">19.5 Changing the behaviour of rules</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_19"><div class="nav-arrow">↑</div><div class="doc-navbar-text">19. Rulebooks</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_7"><div class="doc-navbar-text">19.7 The preamble of a rule</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_5" title="Changing the behaviour of rules"><div class="nav-arrow">←19.5 </div><div class="doc-navbar-text">Changing the behaviour of rules</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_19"><div class="nav-arrow">↑19. </div><div class="doc-navbar-text">Rulebooks</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_7"><div class="doc-navbar-text">The preamble of a rule</div><div class="nav-arrow">19.7→</div></a></div></div></div>
 <p>The Rules page of the index for a project offers a view of the rulebooks and their contents, with two major exceptions: built-in rules for specific actions are left to the Actions page, and any rules for scene endings or beginnings are left to the Scenes page.</p>
 <p>As we have seen, we need to know the name of a rule before we can change its rulebook listing or alter its applicability. The Rules and Actions index pages show the names of the built-in rules, which are not worth memorising. (Typing can be saved by using the paste-into-source buttons, or by selecting a rule&#39;s name and copying and pasting it by hand.)</p>
 <p>In the Rules index, each rulebook is named and then followed by a list of the rules within it, one on each line: if nothing follows, then the rulebook is currently empty. The rules are given in order, and icons are used which indicate which rules are more specific than which others. Hovering the mouse over such an icon should bring up a &quot;tooltip&quot; which explains Inform&#39;s reasoning.</p>
 <p>As this suggests, Inform performs its automatic sorting using a precise collection of Laws (the term &quot;rules&quot; would be ambiguous here, so we call these guidelines Laws instead), and the tooltip shows which Law was applied. It is bad style to write source text which absolutely depends on detailed points of these Laws, but they are documented at the end of this chapter for those who do wish to see the full details.</p>
 <h3 id="section_7">WI §19.7 The preamble of a rule</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_6" title="Sorting and indexing of rules"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">19.6 Sorting and indexing of rules</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_19"><div class="nav-arrow">↑</div><div class="doc-navbar-text">19. Rulebooks</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_8"><div class="doc-navbar-text">19.8 New rulebooks</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_6" title="Sorting and indexing of rules"><div class="nav-arrow">←19.6 </div><div class="doc-navbar-text">Sorting and indexing of rules</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_19"><div class="nav-arrow">↑19. </div><div class="doc-navbar-text">Rulebooks</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_8"><div class="doc-navbar-text">New rulebooks</div><div class="nav-arrow">19.8→</div></a></div></div></div>
 <p>In general, a rule looks like this:</p>
 <div class="codeblock"><div class="codeline">preamble : list of one or more phrases divided by semicolons</div>
 </div><p>though in a few common cases (where the preamble begins with Before, After, Instead of, Every turn, or When, and there is only one phrase in the list) the colon can be replaced with a comma. Three kinds of declaration are special, and these we can tell apart by the first word:</p>
@@ -223,19 +223,19 @@
 </div><p>the word &quot;instead&quot; is the rulebook&#39;s name, while &quot;of&quot; is technically optional. &quot;Instead rule about kissing Clark: &hellip;&quot; would work just as well.</p>
 <p>In this whole list of possible ingredients, only the rulebook name is compulsory. We could define a rule called simply &quot;Instead: &hellip;&quot; if we wanted &ndash; though its universal applicability would make it pretty disruptive, with every action stopped in its tracks.</p>
 <h3 id="section_8">WI §19.8 New rulebooks</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_7" title="The preamble of a rule"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">19.7 The preamble of a rule</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_19"><div class="nav-arrow">↑</div><div class="doc-navbar-text">19. Rulebooks</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_9"><div class="doc-navbar-text">19.9 Basis of a rulebook</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_7" title="The preamble of a rule"><div class="nav-arrow">←19.7 </div><div class="doc-navbar-text">The preamble of a rule</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_19"><div class="nav-arrow">↑19. </div><div class="doc-navbar-text">Rulebooks</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_9"><div class="doc-navbar-text">Basis of a rulebook</div><div class="nav-arrow">19.9→</div></a></div></div></div>
 <p>Creating a new rulebook is also straightforward, as we see in the following modest example story:</p>
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Appraisal&quot;\n\nThe Passage is east of the Tomb. The green-eyed idol is in the Tomb. A Speak-Your-Progress machine is in the Passage.\n\nAppraisal rules is a rulebook.\n\nAn appraisal rule: say &quot;Click... whirr... the score is [the score in words] points.&quot;\n\nAn appraisal rule:\n\tif we have taken the idol, say &quot;Most importantly of all, the idol has been found.&quot;\n\nInstead of switching on the machine, follow the appraisal rules.`)">⧉</button><div class="codeline storytitle">&quot;Appraisal&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Passage is east of the Tomb. The green-eyed idol is in the Tomb. A Speak-Your-Progress machine is in the Passage.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Appraisal rules is a rulebook.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">An appraisal rule: say &quot;Click... whirr... the score is [the score in words] points.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">An appraisal rule:</div>
-<div class="codeline">&ensp;&ensp;if we have taken the idol, say &quot;Most importantly of all, the idol has been found.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if we have taken the idol, say &quot;Most importantly of all, the idol has been found.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of switching on the machine, follow the appraisal rules.</div>
 </div><p>The creation of the rulebook is all very well, but without the final sentence it would never be used. The crucial new phrase here is:</p>
 <div class="defn" id="ph_follow"><div class="defnline"><span class="defn">follow </span><span class="neutral">(rule)</span></div><p>This phrase causes the rule to be obeyed immediately (rather than simply at predetermined times such as when a particular action is being tried, or at the end of every turn, and such). Example:</p>
@@ -255,7 +255,7 @@
 <div class="linkback"><a href="RB_7.html#section_13" title="Other Characters &gt; Traveling Characters">RB §7.13 Traveling Characters</a></div>
 </div>
 <h3 id="section_9">WI §19.9 Basis of a rulebook</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_8" title="New rulebooks"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">19.8 New rulebooks</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_19"><div class="nav-arrow">↑</div><div class="doc-navbar-text">19. Rulebooks</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_10"><div class="doc-navbar-text">19.10 Rulebook variables</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_8" title="New rulebooks"><div class="nav-arrow">←19.8 </div><div class="doc-navbar-text">New rulebooks</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_19"><div class="nav-arrow">↑19. </div><div class="doc-navbar-text">Rulebooks</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_10"><div class="doc-navbar-text">Rulebook variables</div><div class="nav-arrow">19.10→</div></a></div></div></div>
 <p>Every rulebook works on a value supplied to it, though it doesn&#39;t always look that way. The kind of the value is called its &quot;basis&quot;; for example, if a rulebook works on a number, it&#39;s called a &quot;number based rulebook&quot;. Most of the rulebooks seen up to now have been action based rulebooks:</p>
 <div class="codeblock"><div class="codeline">Instead of eating the cake: ...</div>
 </div><p>&quot;Instead&quot; is an action based rulebook, and the action it works on is the one currently being processed. Besides before, after and instead, other action based rulebooks include the check, carry out, and report rules; general rulebooks such as every turn rules, the visibility rules, the turn sequence rules; and rules specially for dealing with the actions of other characters, such as the persuasion and unsuccessful attempt rules. But we have also seen object based rulebooks:</p>
@@ -271,11 +271,11 @@
 <div class="codeline">Grading 5: say &quot;It&#39;s five. What can I say?&quot; instead.</div>
 <div class="codeline">Grading an odd number (called N): say &quot;There&#39;s something odd about [N].&quot; instead.</div>
 <div class="codeline">Grading a number (called N): say &quot;Just [N].&quot; instead.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">When play begins:</div>
 <div class="codeline">repeat with N running from 1 to 10:</div>
-<div class="codeline">&ensp;&ensp;say &quot;Grading [N]: &quot;;</div>
-<div class="codeline">&ensp;&ensp;follow the grading rulebook for N.</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Grading [N]: &quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;follow the grading rulebook for N.</div>
 </div><p>which produces:</p>
 <div class="codeblock"><div class="codeline">Grading 1: There&#39;s something odd about 1.</div>
 <div class="codeline">Grading 2: Just 2.</div>
@@ -297,35 +297,35 @@
 <div class="codeline">A flotation rule: rule fails.</div>
 </div><p>And we might use the flotation rules in a circumstance like this:</p>
 <div class="codeblock"><div class="codeline">After inserting something into the well:</div>
-<div class="codeline">&ensp;&ensp;follow the flotation rules for the noun;</div>
-<div class="codeline">&ensp;&ensp;if the rule succeeded:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;[The noun] bobs on the surface.&quot;;</div>
-<div class="codeline">&ensp;&ensp;otherwise:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;now the noun is nowhere;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;[The noun] sinks out of sight.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;follow the flotation rules for the noun;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the rule succeeded:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[The noun] bobs on the surface.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the noun is nowhere;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[The noun] sinks out of sight.&quot;</div>
 </div><div class="examples">
 <h4>Example</h4>
 <div class="example-short"><div class="example-short-num"><span class="hidden"></span>402.</div><div class="example-short-name"><span class="example-short-name"><a href="examples/flotation.html">Flotation</a></span> <span class="stars">★</span></div></div><div class="example-short"><div class="example-short-num"><span class="hidden">000.</span></div><div class="example-short-name">Objects that can sink or float in a well, depending on their own properties and the state of the surrounding environment.</div></div>
 <div class="linkback"><a href="RB_10.html#section_2" title="Physics: Substances, Ropes, Energy and Weight &gt; Liquids">RB §10.2 Liquids</a></div>
 </div>
 <h3 id="section_10">WI §19.10 Rulebook variables</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_9" title="Basis of a rulebook"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">19.9 Basis of a rulebook</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_19"><div class="nav-arrow">↑</div><div class="doc-navbar-text">19. Rulebooks</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_11"><div class="doc-navbar-text">19.11 Success and failure</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_9" title="Basis of a rulebook"><div class="nav-arrow">←19.9 </div><div class="doc-navbar-text">Basis of a rulebook</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_19"><div class="nav-arrow">↑19. </div><div class="doc-navbar-text">Rulebooks</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_11"><div class="doc-navbar-text">Success and failure</div><div class="nav-arrow">19.11→</div></a></div></div></div>
 <p>When a rulebook is intended to perform some complicated task or calculation, it is sometimes useful for earlier rules to be able to leave information which will help later ones.</p>
 <p>For instance, suppose we want a rulebook which is intended to print out the player&#39;s current aptitude. We will suppose that this is a number from 0 upwards: the higher, the apter. The player gets bonus aptitude marks for achievements, but marks deducted for accidents, and so on. Moreover, we want to design this system so that it&#39;s easy to add further rules. The natural solution is to have a number which varies (or &#39;variable&#39;) acting as the running aptitude total: it should start at 0 and be altered up or down by subsequent rules. First, we should make the rulebook, and then add a variable:</p>
 <div class="codeblock"><div class="codeline">Aptitude is a rulebook. The aptitude rulebook has a number called the aptitude mark.</div>
 </div><p>The new value &#39;aptitude mark&#39; is shared by the rules of the rulebook: nobody else can see it. It is created at the start of the rulebook being followed, and destroyed at the end. (If the rulebook should be followed a second time inside of itself, a new copy is created which does not disturb the old one.) So, in this case, &#39;aptitude mark&#39; is started as 0 (since it is a number) each time the aptitude rules run. We can then write whatever rules we please to modify it:</p>
 <div class="codeblock"><div class="codeline">An aptitude rule:</div>
-<div class="codeline">&ensp;&ensp;if in darkness:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;decrease the aptitude mark by 3.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if in darkness:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;decrease the aptitude mark by 3.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">An aptitude rule:</div>
-<div class="codeline">&ensp;&ensp;if we have taken the idol:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;increase the aptitude mark by 10.</div>
+<div class="codeline">&ensp;&ensp;&ensp;if we have taken the idol:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;increase the aptitude mark by 10.</div>
 </div><p>And we had better do something with the result:</p>
 <div class="codeblock"><div class="codeline">The last aptitude rule: say &quot;Your aptitude rating is [aptitude mark].&quot;</div>
 </div><p>A rulebook can have any number of variables like this. They behave much like &quot;let&quot; values except that they last for a whole rulebook, not an individual rule or To phrase definition. (Well, strictly speaking they are accessible not just to the rules which belong to the rulebook, but also to any rules which previously belonged to the rulebook but were kicked out by means of an explicit rule-listing sentence. This is good because otherwise they will suddenly cause problem messages when unlisted.)</p>
 <h3 id="section_11">WI §19.11 Success and failure</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_10" title="Rulebook variables"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">19.10 Rulebook variables</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_19"><div class="nav-arrow">↑</div><div class="doc-navbar-text">19. Rulebooks</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_12"><div class="doc-navbar-text">19.12 Named outcomes</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_10" title="Rulebook variables"><div class="nav-arrow">←19.10 </div><div class="doc-navbar-text">Rulebook variables</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_19"><div class="nav-arrow">↑19. </div><div class="doc-navbar-text">Rulebooks</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_12"><div class="doc-navbar-text">Named outcomes</div><div class="nav-arrow">19.12→</div></a></div></div></div>
 <p>Though we have blurred over this point so far, each rule must ordinarily end with one of three outcomes: success, failure and neither (&quot;no outcome&quot;).</p>
 <p>When a rulebook is followed, what happens is that each of its rules is followed in turn <strong>until one of them ends in success or failure</strong> &ndash; if ever: it is possible that each rule is tried and each ends with no outcome, so that the rulebook simply runs out of rules to try.</p>
 <p>For some rulebooks, these are not useful ideas: &quot;every turn&quot; rules, for instance, by default never produce an outcome, which is why the &quot;every turn&quot; rulebook normally runs through all its rules at the end of each turn. (Use of the phrases below can change that, so it&#39;s best not to use them in &quot;every turn&quot; rules.) But for other rulebooks, such as &quot;check taking&quot;, it&#39;s important that a rule which fails will stop the whole rulebook. For instance, we might find that the &quot;can&#39;t take yourself rule&quot; produces no outcome (because we aren&#39;t trying to do that), and then likewise the &quot;can&#39;t take other people rule&quot; (ditto) but that the &quot;can&#39;t take component parts rule&quot; prints up a complaint, and fails the action: the rulebook stops, and never goes on to (for instance) the &quot;can&#39;t take scenery rule&quot;. This is good, because an impossible action often fails for several reasons at once, and we only want to print up one objection, not a whole list.</p>
@@ -352,11 +352,11 @@
 <div class="defn" id="ph_succeeded"><div class="defnline"><span class="defn">if rule succeeded:</span></div><p>This condition is true if the most recently followed rule or rulebook ended in success. Example:</p>
 <div class="codeblock"><div class="codeline">follow the hypothetical clever rule;</div>
 <div class="codeline">if rule succeeded:</div>
-<div class="codeline">&ensp;&ensp;...</div>
+<div class="codeline">&ensp;&ensp;&ensp;...</div>
 </div></div><div class="defn" id="ph_failed"><div class="defnline"><span class="defn">if rule failed:</span></div><p>This condition is true if the most recently followed rule or rulebook ended in failure. Example:</p>
 <div class="codeblock"><div class="codeline">follow the hypothetical clever rule;</div>
 <div class="codeline">if rule failed:</div>
-<div class="codeline">&ensp;&ensp;...</div>
+<div class="codeline">&ensp;&ensp;&ensp;...</div>
 </div><p>Note that this is not the opposite of &quot;rule succeeded&quot;, because there&#39;s a third possibility: that it ended with no outcome.</p>
 </div><div class="examples">
 <h4>Example</h4>
@@ -364,7 +364,7 @@
 <div class="linkback"><a href="RB_10.html#section_4" title="Physics: Substances, Ropes, Energy and Weight &gt; Glass and Other Damage-Prone Substances">RB §10.4 Glass and Other Damage-Prone Substances</a></div>
 </div>
 <h3 id="section_12">WI §19.12 Named outcomes</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_11" title="Success and failure"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">19.11 Success and failure</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_19"><div class="nav-arrow">↑</div><div class="doc-navbar-text">19. Rulebooks</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_13"><div class="doc-navbar-text">19.13 Rulebooks producing values</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_11" title="Success and failure"><div class="nav-arrow">←19.11 </div><div class="doc-navbar-text">Success and failure</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_19"><div class="nav-arrow">↑19. </div><div class="doc-navbar-text">Rulebooks</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_13"><div class="doc-navbar-text">Rulebooks producing values</div><div class="nav-arrow">19.13→</div></a></div></div></div>
 <p>We have seen that the terms &quot;success&quot; and &quot;failure&quot; can be misleading &ndash; after all, it might be a good thing for a particular rulebook to &quot;fail&quot;. At any rate, these are vague terms, and we don&#39;t want to have to remember the conventions used by every rulebook. This is why certain rulebooks have explicitly named outcomes instead. For instance, the &quot;visibility&quot; rules are allowed to have the outcomes:</p>
 <div class="codeblock"><div class="codeline">there is sufficient light;</div>
 <div class="codeline">there is insufficient light;</div>
@@ -380,7 +380,7 @@
 <div class="defn" id="ph_rulebookoutcome"><div class="defnline"><span class="defn">outcome of the rulebook</span> &rArr; <em>rulebook outcome</em></div><p>This phrase produces the (named) outcome of the phrase most recently followed. Example:</p>
 <div class="codeblock"><div class="codeline">follow the audibility rules;</div>
 <div class="codeline">if the outcome of the rulebook is the absolute silence outcome:</div>
-<div class="codeline">&ensp;&ensp;say &quot;You could hear a pin drop in here.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You could hear a pin drop in here.&quot;</div>
 </div></div><p>Each named outcome is a value if followed by the word &quot;outcome&quot;, which is how &quot;absolute silence&quot; has become &quot;the absolute silence outcome&quot;. Named outcomes can be said, so we could use the text substitution &quot;[outcome of the rulebook]&quot;, for instance. A final caveat: it is perfectly legal to create a named outcome which means &quot;no outcome&quot;, but if so then this will never be &quot;the outcome of the rulebook&quot; because &quot;no outcome&quot; is not an outcome.</p>
 <div class="examples">
 <h4>Example</h4>
@@ -388,7 +388,7 @@
 <div class="linkback"><a href="RB_7.html#section_10" title="Other Characters &gt; Character Emotion">RB §7.10 Character Emotion</a></div>
 </div>
 <h3 id="section_13">WI §19.13 Rulebooks producing values</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_12" title="Named outcomes"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">19.12 Named outcomes</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_19"><div class="nav-arrow">↑</div><div class="doc-navbar-text">19. Rulebooks</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_14"><div class="doc-navbar-text">19.14 Abide by</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_12" title="Named outcomes"><div class="nav-arrow">←19.12 </div><div class="doc-navbar-text">Named outcomes</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_19"><div class="nav-arrow">↑19. </div><div class="doc-navbar-text">Rulebooks</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_14"><div class="doc-navbar-text">Abide by</div><div class="nav-arrow">19.14→</div></a></div></div></div>
 <p>We have now seen two ways to write the outcome of a rule: as simple success or failure, with more or less explicit phrases like:</p>
 <div class="codeblock"><div class="codeline">rule succeeds;</div>
 <div class="codeline">rule fails;</div>
@@ -410,17 +410,17 @@
 <div class="codeblock"><div class="codeline">The cat behavior rules is a rulebook producing an object.</div>
 </div><p>This rulebook works out which thing the cat will destroy next. We might have rules like this one:</p>
 <div class="codeblock"><div class="codeline">Cat behavior when Austin can see the ball of wool:</div>
-<div class="codeline">&ensp;&ensp;rule succeeds with result the ball of wool.</div>
+<div class="codeline">&ensp;&ensp;&ensp;rule succeeds with result the ball of wool.</div>
 </div><p>The value is produced only when a rule succeeds, using this phrase:</p>
 <div class="defn" id="ph_succeedswith"><div class="defnline"><span class="defn">rule succeeds with result </span><span class="neutral">(value)</span></div><p>This phrase can only be used in a rule which produces a value, and the value given must be of the right kind. It causes the current rule to finish immediately, to succeed, and to produce the value given.</p>
 </div><p>How are we to use the cat behavior rulebook? If we write:</p>
 <div class="codeblock"><div class="codeline">follow cat behavior</div>
 </div><p>then the rulebook runs just as any other rulebook would, but the value produced is lost at the end, which defeats the point. Instead, we might write:</p>
 <div class="codeblock"><div class="codeline">Every turn:</div>
-<div class="codeline">&ensp;&ensp;let the destroyed object be the object produced by the cat behavior rules;</div>
-<div class="codeline">&ensp;&ensp;if the destroyed object is not nothing:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;Austin pounces on [the destroyed object] in a flurry.&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;now the destroyed object is nowhere.</div>
+<div class="codeline">&ensp;&ensp;&ensp;let the destroyed object be the object produced by the cat behavior rules;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the destroyed object is not nothing:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;Austin pounces on [the destroyed object] in a flurry.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the destroyed object is nowhere.</div>
 </div><p>The key phrase here is</p>
 <div class="codeblock"><div class="codeline">object produced by the cat behavior rules</div>
 </div><p>which accesses the value this rulebook produces. In general, we write:</p>
@@ -434,16 +434,16 @@
 <div class="linkback"><a href="RB_9.html#section_5" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Dice and Playing Cards">RB §9.5 Dice and Playing Cards</a></div>
 </div>
 <h3 id="section_14">WI §19.14 Abide by</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_13" title="Rulebooks producing values"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">19.13 Rulebooks producing values</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_19"><div class="nav-arrow">↑</div><div class="doc-navbar-text">19. Rulebooks</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_15"><div class="doc-navbar-text">19.15 Two rulebooks used internally</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_13" title="Rulebooks producing values"><div class="nav-arrow">←19.13 </div><div class="doc-navbar-text">Rulebooks producing values</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_19"><div class="nav-arrow">↑19. </div><div class="doc-navbar-text">Rulebooks</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_15"><div class="doc-navbar-text">Two rulebooks used internally</div><div class="nav-arrow">19.15→</div></a></div></div></div>
 <p>It often happens that one rule needs to invoke another one. Most of the time, the best way to do this is with &quot;follow&quot;:</p>
 <div class="codeblock"><div class="codeline">follow the magical mystery tour rule;</div>
 </div><p>More often, though, we want not only to invoke another rule, but also to be guided by its advice. For this, we use the otherwise identical phrase:</p>
 <div class="defn" id="ph_abide"><div class="defnline"><span class="defn">abide by </span><span class="neutral">(rule)</span></div><p>This phrase applies the given rule, and makes its result the result of the present rule. If the rule being abided by succeeds or fails then the original rule also stops, at once and without going on to any further instructions. Example:</p>
 <div class="codeblock"><div class="codeline">The omnibus rule:</div>
-<div class="codeline">&ensp;&ensp;abide by the first rule;</div>
-<div class="codeline">&ensp;&ensp;abide by the second rule;</div>
-<div class="codeline">&ensp;&ensp;abide by the third rule;</div>
-<div class="codeline">&ensp;&ensp;abide by the fourth rule.</div>
+<div class="codeline">&ensp;&ensp;&ensp;abide by the first rule;</div>
+<div class="codeline">&ensp;&ensp;&ensp;abide by the second rule;</div>
+<div class="codeline">&ensp;&ensp;&ensp;abide by the third rule;</div>
+<div class="codeline">&ensp;&ensp;&ensp;abide by the fourth rule.</div>
 </div><p>This duplicates the effect of a rulebook of four rules: the &quot;omnibus rule&quot; tries each in turn, and stops as soon as any of them stop.</p>
 </div><div class="defn" id="ph_abidefor"><div class="defnline"><span class="defn">abide by </span><span class="neutral">(values based rule producing values)</span><span class="defn"> for </span><span class="neutral">(value)</span></div><p>This phrase applies the given rule to the given value, and makes its result the result of the present rule. If the rule being abided by succeeds or fails then the original rule also stops, at once and without going on to any further instructions.</p>
 </div><p>Abide might be used in examples like this one:</p>
@@ -455,14 +455,14 @@
 <div class="defn" id="ph_abideanon"><div class="defnline"><span class="defn">anonymously abide by </span><span class="neutral">(rule)</span></div><div class="defn-or">or&hellip;</div><div class="defnline"><span class="defn">anonymously abide by </span><span class="neutral">(values based rule producing values)</span><span class="defn"> for </span><span class="neutral">(value)</span></div><p>This phrase applies the given rule, and makes its result the result of the present rule. If the rule being abided by succeeds or fails then the original rule also stops, at once and without going on to any further instructions. However, the rule deemed to have decided the outcome is the one abided by, not the one doing the abiding.</p>
 </div><p>This is only useful in complicated situations where one rulebook uses another which&hellip; and so on. Its effect is exactly the same as &quot;abide&quot;, except that the rule deemed to have decided the outcome is the one abided by, not the one doing the abiding. It thus allows a rule or rulebook to act purely as a middle-man, never getting the blame or the credit for what happens. The rule which made the decision is often not very relevant anyway, but it&#39;s used as the source of the value &quot;reason the action failed&quot; (see the <a href="WI_12.html">Advanced Actions chapter</a>).</p>
 <h3 id="section_15">WI §19.15 Two rulebooks used internally</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_14" title="Abide by"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">19.14 Abide by</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_19"><div class="nav-arrow">↑</div><div class="doc-navbar-text">19. Rulebooks</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_16"><div class="doc-navbar-text">19.16 The Laws for Sorting Rulebooks</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_14" title="Abide by"><div class="nav-arrow">←19.14 </div><div class="doc-navbar-text">Abide by</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_19"><div class="nav-arrow">↑19. </div><div class="doc-navbar-text">Rulebooks</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_16"><div class="doc-navbar-text">The Laws for Sorting Rulebooks</div><div class="nav-arrow">19.16→</div></a></div></div></div>
 <p>Rulebooks handle almost all of the important tasks which an Inform work of IF must carry out in order to keep play going. We have seen them used in clarifying the player&#39;s command, supplying missing ingredients, processing the action to see what should happen, responding, and so on: by this point in the documentation, it must look as if Inform uses rulebooks for everything.</p>
 <p>This is nearly true. There is not actually a super-rulebook controlling everything. (Such a super-rulebook would need to repeat itself and never finish, something a rulebook is not allowed to do.) Instead, what happens during play looks like so:</p>
 <div class="codeblock"><div class="codeline">1. Following the &quot;when play begins&quot; rulebook.</div>
 <div class="codeline">2. Repeating:</div>
-<div class="codeline">&ensp;&ensp;2(a). Reading and parsing a command into an action;</div>
-<div class="codeline">&ensp;&ensp;2(b). Following the &quot;action processing&quot; rulebook;</div>
-<div class="codeline">&ensp;&ensp;2(c). Following the &quot;turn sequence&quot; rulebook.</div>
+<div class="codeline">&ensp;&ensp;&ensp;2(a). Reading and parsing a command into an action;</div>
+<div class="codeline">&ensp;&ensp;&ensp;2(b). Following the &quot;action processing&quot; rulebook;</div>
+<div class="codeline">&ensp;&ensp;&ensp;2(c). Following the &quot;turn sequence&quot; rulebook.</div>
 <div class="codeline">until the story has finished.</div>
 <div class="codeline">3. Following the &quot;when play ends&quot; rulebook.</div>
 </div><p>The command parser occasionally calls on the services of activity rulebooks to help it, but otherwise gets on with its job in ways that we do not &quot;see&quot; as Inform 7 users. The rest of what happens involves rulebooks, and in particular two important beneath-the-surface rulebooks: action processing and turn sequence.</p>
@@ -481,10 +481,10 @@
 <div class="linkback"><a href="RB_6.html#section_15" title="Commands &gt; Actions on Multiple Objects">RB §6.15 Actions on Multiple Objects</a></div>
 </div>
 <h3 id="section_16">WI §19.16 The Laws for Sorting Rulebooks</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_15" title="Two rulebooks used internally"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">19.15 Two rulebooks used internally</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_19"><div class="nav-arrow">↑</div><div class="doc-navbar-text">19. Rulebooks</div></a></div><div class="doc-navbar-right"><div>&nbsp;</div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_15" title="Two rulebooks used internally"><div class="nav-arrow">←19.15 </div><div class="doc-navbar-text">Two rulebooks used internally</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_19"><div class="nav-arrow">↑19. </div><div class="doc-navbar-text">Rulebooks</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="WI_20.html" title="Advanced Text"><div class="doc-navbar-text">Advanced Text</div><div class="nav-arrow">20.→</div></a></div></div></div>
 <p>Large works created by Inform are heaped high with rules, most of them instead rules, but with a leavening of befores and afters as well. What will happen if these conflict with each other? For instance:</p>
 <div class="codeblock"><div class="codeline">Instead of opening a container, say &quot;Your mother-in-law looks on with such evident disappointment that you withdraw your hand again.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of opening an open container, say &quot;Your daughter tuts in theatrical exasperation at your, like, lameness.&quot;</div>
 </div><p>Such clashes are resolved by sorting the rulebooks in order of specificity: thus your daughter gets in before your mother-in-law, because although both have rules hanging on the &quot;opening&quot; action, &quot;an open container&quot; is more specific than &quot;a container&quot;. The full set of Laws used by Inform to sort rulebooks is quite elaborate. As we&#39;ve seen, practical consequences can be investigated using the Rules index; and in most cases, the results are either natural (as above) or irrelevant (because the two rules being compared could not both activate at the same time anyway); but the full set of Laws is laid out below, for reference. It is probably a bad idea to write source text which absolutely relies on non-obvious rule sorting conventions, just the same, because this will make the source text harder to read and understand.</p>
 <p>Sorting is done by comparing rules in pairs to decide which is more specific. We shall call these rules X and Y. The Laws are tried in sequence; the first Law to distinguish X and Y gets to decide which is more specific. If no Law is able to decide, X and Y go into the rulebook in order of their appearance in the source text &ndash; that is, whichever is defined first appears earlier in the rulebook and therefore takes priority.</p>

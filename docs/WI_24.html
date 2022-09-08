@@ -36,7 +36,7 @@
 </div>
 </div>
 <h3 id="section_1">WI §24.1 Checking against the Index</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><div>&nbsp;</div></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_24"><div class="nav-arrow">↑</div><div class="doc-navbar-text">24. Testing and Debugging</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_2"><div class="doc-navbar-text">24.2 Debugging features to use in source</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="WI_23.html#section_15" title="Exchanging files with other programs"><div class="nav-arrow">←23.15 </div><div class="doc-navbar-text">Exchanging files with other programs</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_24"><div class="nav-arrow">↑24. </div><div class="doc-navbar-text">Testing and Debugging</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_2"><div class="doc-navbar-text">Debugging features to use in source</div><div class="nav-arrow">24.2→</div></a></div></div></div>
 <p>Testing a story -- and indeed writing a story so that it is easy to test consistently -- is an art in itself. We should expect that we&#39;ll do some preliminary testing, both by running test commands and by playing through the story ourselves, and that we&#39;ll then hand on the story to beta-testers who will tell us about faults in the play experience that we haven&#39;t been able to see.</p>
 <p>Every time Inform builds a new story file, it assembles a vast amount of information about that world, in the form of the Index. Often a visit to the Index is all that&#39;s needed to explain a piece of undesired behavior.</p>
 <p>Is travel not working as it should? Check the World index and see whether the map shows the rooms arranged the way you thought.</p>
@@ -47,7 +47,7 @@
 </div><p>A human reader wouldn&#39;t make this mistake, but Inform hasn&#39;t actually registered the red door as belonging to the door kind, and consequently has treated it as a room instead. All we need to do is add the kind declaration. The Kinds index will make that obvious.</p>
 <p>When an error appears in the Index, there is often a link back to the source text that defined that room or object. If not, there&#39;s often at least some information about what rule or phrase might be responsible for it.</p>
 <h3 id="section_2">WI §24.2 Debugging features to use in source</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_1" title="Checking against the Index"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">24.1 Checking against the Index</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_24"><div class="nav-arrow">↑</div><div class="doc-navbar-text">24. Testing and Debugging</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_3"><div class="doc-navbar-text">24.3 High-level debugging commands</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_1" title="Checking against the Index"><div class="nav-arrow">←24.1 </div><div class="doc-navbar-text">Checking against the Index</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_24"><div class="nav-arrow">↑24. </div><div class="doc-navbar-text">Testing and Debugging</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_3"><div class="doc-navbar-text">High-level debugging commands</div><div class="nav-arrow">24.3→</div></a></div></div></div>
 <p>The TEST command is an extremely useful way of managing a story and continuing to verify that it does everything we want. We can create new test commands of the form</p>
 <div class="codeblock"><div class="codeline">Test me with &quot;up / kill captain eo&quot;.</div>
 <div class="codeline">Test eo with &quot;zap eo&quot; holding the ray gun.</div>
@@ -59,26 +59,26 @@
 <p>Sometimes we need to get a look at what is happening within the source itself. Many of the most annoying bugs come about because we&#39;re making some assumptions about what&#39;s true in the story world that differ from Inform&#39;s assumptions. When that happens, we may need to add something to the source to check that the variables are set to what we think, that certain parts of the source are being reached, and so on.</p>
 <p>For instance, suppose we have a phrase like this:</p>
 <div class="codeblock"><div class="codeline">To say key score:</div>
-<div class="codeline">&ensp;&ensp;let count be the number of keys which are not carried by the player;</div>
-<div class="codeline">&ensp;&ensp;if count is greater than 2 and the player is timid:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;You&#39;re still missing a lot of keys, bucko!&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let count be the number of keys which are not carried by the player;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if count is greater than 2 and the player is timid:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;You&#39;re still missing a lot of keys, bucko!&quot;</div>
 </div><p>Now, we expect this to print something, but perhaps it&#39;s not doing so when we had anticipated that it would. At some point when we think the count is greater than 2 and the player is timid, at least one of those things is not true. An easy way to check up on this is to add a showme line to the source, like so:</p>
 <div class="codeblock"><div class="codeline">To say key score:</div>
-<div class="codeline">&ensp;&ensp;let count be the number of keys which are not carried by the player;</div>
-<div class="codeline">&ensp;&ensp;showme count;</div>
-<div class="codeline">&ensp;&ensp;if count is greater than 2 and the player is timid:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;You&#39;re still missing a lot of keys, bucko!&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let count be the number of keys which are not carried by the player;</div>
+<div class="codeline">&ensp;&ensp;&ensp;showme count;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if count is greater than 2 and the player is timid:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;You&#39;re still missing a lot of keys, bucko!&quot;</div>
 </div><p>and this will then check the relevant number and print it to screen when this phrase is called, like so</p>
 <div class="codeblock"><div class="codeline">&quot;count&quot; = number: 1</div>
 </div><p>In this case, it looks like the count is not high enough to trigger the text, so we can concentrate on working out why that might be. Maybe we didn&#39;t correctly define something as a key, for instance.</p>
 <h3 id="section_3">WI §24.3 High-level debugging commands</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_2" title="Debugging features to use in source"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">24.2 Debugging features to use in source</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_24"><div class="nav-arrow">↑</div><div class="doc-navbar-text">24. Testing and Debugging</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_4"><div class="doc-navbar-text">24.4 Low-level debugging commands</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_2" title="Debugging features to use in source"><div class="nav-arrow">←24.2 </div><div class="doc-navbar-text">Debugging features to use in source</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_24"><div class="nav-arrow">↑24. </div><div class="doc-navbar-text">Testing and Debugging</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_4"><div class="doc-navbar-text">Low-level debugging commands</div><div class="nav-arrow">24.4→</div></a></div></div></div>
 <p>If an object is not responding in the way we expect, it may be that we&#39;re wrong about where it is or about some of its current properties or relations. We can find our current location and the things around us by typing</p>
 <div class="codeblock"><div class="codeline">&gt;SHOWME</div>
 <div class="codeline">Boudoir - room</div>
-<div class="codeline">&ensp;&ensp;four-poster bed - supporter</div>
-<div class="codeline">&ensp;&ensp;yourself - person</div>
-<div class="codeline">&ensp;&ensp;pillow</div>
+<div class="codeline">&ensp;&ensp;&ensp;four-poster bed - supporter</div>
+<div class="codeline">&ensp;&ensp;&ensp;yourself - person</div>
+<div class="codeline">&ensp;&ensp;&ensp;pillow</div>
 </div><p>and similarly we can inquire about the status of a particular object during play by typing SHOWME and the object&#39;s name:</p>
 <div class="codeblock"><div class="codeline">&gt;SHOWME BAT</div>
 <div class="codeline">bat - thing</div>
@@ -93,7 +93,7 @@
 <p>Another common type of problem is one in which we type a command but Inform does not perform the action that we were expecting as a result. In some cases, this is because the command we&#39;re typing is actually triggering some other action. An easy way to check on this is to type ACTIONS before issuing the command that is behaving unsatisfactorily. Thus:</p>
 <div class="codeblock"><div class="codeline">&gt;ACTIONS</div>
 <div class="codeline">Actions listing on.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">&gt;JUMP</div>
 <div class="codeline">[jumping]</div>
 <div class="codeline">You jump on the spot.</div>
@@ -102,7 +102,7 @@
 <p>Sometimes, however, the action is being correctly understood, but the action rules that are firing are producing a result other than we&#39;d like. If we want to see which rules are running, we can type</p>
 <div class="codeblock"><div class="codeline">&gt;RULES</div>
 <div class="codeline">Rules tracing now switched on. Type &quot;rules off&quot; to switch it off again, or &quot;rules all&quot; to include even rules which do not apply.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">&gt;JUMP</div>
 <div class="codeline">[Rule &quot;announce items from multiple object lists rule&quot; applies.]</div>
 <div class="codeline">[Rule &quot;set pronouns from items from multiple object lists rule&quot; applies.]</div>
@@ -118,7 +118,7 @@
 <div class="codeline">[Rule &quot;report jumping rule&quot; applies.]</div>
 <div class="codeline">You jump on the spot.</div>
 <div class="codeline">[Rule &quot;last specific action-processing rule&quot; applies.]</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">[Rule &quot;A first turn sequence rule&quot; applies.]</div>
 <div class="codeline">[Rule &quot;every turn stage rule&quot; applies.]</div>
 <div class="codeline">[Rule &quot;A last turn sequence rule&quot; applies.]</div>
@@ -132,12 +132,12 @@
 <p>RESPONSES lists all the named responses established by all the extensions currently included. This can be informative, or it can be a bit overwhelming. Except where responses have been changed at runtime, the same information is available in a different form in the Index on Actions. If we&#39;re interested in a particular single response, digging into the actions index is probably the easiest way to find it.</p>
 <p>If, however, we want a rapid overview of all the responses provided by a given extension (perhaps an extension we are ourselves writing), the RESPONSES command can be a help.</p>
 <h3 id="section_4">WI §24.4 Low-level debugging commands</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_3" title="High-level debugging commands"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">24.3 High-level debugging commands</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_24"><div class="nav-arrow">↑</div><div class="doc-navbar-text">24. Testing and Debugging</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_5"><div class="doc-navbar-text">24.5 Adding new testing verbs and Release for Testing</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_3" title="High-level debugging commands"><div class="nav-arrow">←24.3 </div><div class="doc-navbar-text">High-level debugging commands</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_24"><div class="nav-arrow">↑24. </div><div class="doc-navbar-text">Testing and Debugging</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_5"><div class="doc-navbar-text">Adding new testing verbs and Release for Testing</div><div class="nav-arrow">24.5→</div></a></div></div></div>
 <p>There are also several debugging commands going back to the early days of interactive fiction, and relating in a simple way to objects and places. These can still come in handy for a quick and dirty resolution of a problem during gameplay, and are as follows.</p>
 <p>PURLOIN moves an object to your possession, no matter where it is on the map, like so:</p>
 <div class="codeblock"><div class="codeline">&gt;PURLOIN TABLE</div>
 <div class="codeline">[Purloined.]</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">&gt;I</div>
 <div class="codeline">You are carrying:</div>
 <div class="codeline">a table</div>
@@ -148,10 +148,10 @@
 <p>ABSTRACT is PURLOIN&#39;s less useful cousin, allowing the player to move an object from one place to a specified other place, as in</p>
 <div class="codeblock"><div class="codeline">Bar</div>
 <div class="codeline">You can see a table here.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">&gt;ABSTRACT KEY TO TABLE</div>
 <div class="codeline">[Abstracted.]</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">&gt;LOOK</div>
 <div class="codeline">Bar</div>
 <div class="codeline">You can see a table (on which is a key) here.</div>
@@ -166,7 +166,7 @@
 <p>SCOPE lists the objects that are currently in scope for the player, which is to say, things that could be referred to when we&#39;re typing a typical command. Thus:</p>
 <div class="codeblock"><div class="codeline">Bar</div>
 <div class="codeline">You can see a table here.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">&gt;SCOPE</div>
 <div class="codeline">1: yourself (574631)</div>
 <div class="codeline">2: a table (574759)</div>
@@ -176,40 +176,40 @@
 <p>Finally, TRACE (and its more advanced stages TRACE 2, TRACE 3, TRACE 4, and TRACE 5) will reveal things, more things than we ever wanted to know, about the assumptions being made by the parser when it takes in a command. In practice this information is almost never useful to an Inform 7 author.</p>
 <p>There is no guarantee that any of these commands will make life better or that they won&#39;t crash the story or put it into an unwinnable state. There is also no absolute guarantee that they won&#39;t be withdrawn entirely from future versions of Inform. Consider them as Old High Magic, and treat accordingly.</p>
 <h3 id="section_5">WI §24.5 Adding new testing verbs and Release for Testing</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_4" title="Low-level debugging commands"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">24.4 Low-level debugging commands</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_24"><div class="nav-arrow">↑</div><div class="doc-navbar-text">24. Testing and Debugging</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_6"><div class="doc-navbar-text">24.6 Testing for thoroughness</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_4" title="Low-level debugging commands"><div class="nav-arrow">←24.4 </div><div class="doc-navbar-text">Low-level debugging commands</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_24"><div class="nav-arrow">↑24. </div><div class="doc-navbar-text">Testing and Debugging</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_6"><div class="doc-navbar-text">Testing for thoroughness</div><div class="nav-arrow">24.6→</div></a></div></div></div>
 <p>As we saw in Chapter 2, we can mark some of our source text so that it will not be included in a finished story. This means that we can add special testing commands available to the author but not available to our eventual players. This is a good way to add our own suite of testing verbs to a story beyond the &quot;Test me with&hellip;&quot; features already described.</p>
 <p>Here are some types of testing verbs that can be useful to add:</p>
 <p>Chapter jumps. We might create test commands that took us to a later stage of the story (perhaps doing more setup than &quot;Test me&hellip;&quot; alone can handle).</p>
 <p>Status information. We might create a test command that would show us status information beyond what&#39;s covered in the Standard Rules. For instance, if we had a story that heavily modeled the moods of other characters and we wanted to be able to check those moods at any time, we might add a SHOWMOOD command that would tell us about a character&#39;s emotional state.</p>
 <p>Puzzle satisfaction lists. Some simulation-rich stories offer puzzles that can be solved in a variety of ways: for instance, a sealed glass box that can be smashed with any object that has been marked with the properties &quot;hard&quot; and &quot;heavy&quot;. Later, we might want to be able to check which in-story objects would work as a solution to this puzzle, so we might create a command like</p>
 <div class="codeblock"><div class="codeline">Listing hammers is an action out of world applying to nothing.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Understand &quot;list hammers&quot; as listing hammers.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Carry out listing hammers:</div>
-<div class="codeline">&ensp;&ensp;say &quot;These things can break the glass: [line break]&quot;;</div>
-<div class="codeline">&ensp;&ensp;repeat with item running through portable hard heavy things:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;[item][line break]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;These things can break the glass: [line break]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;repeat with item running through portable hard heavy things:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[item][line break]&quot;;</div>
 </div><p>so that we can review that there are enough objects available and that the list doesn&#39;t include anything it shouldn&#39;t. In a small story this kind of thing is pretty easy to keep track of in the author&#39;s head. Large stories can contain  thousands of objects, however, at which point it becomes valuable to have an automated method of verification.</p>
 <p>Just occasionally, we might also want to build a version of a story that will allow beta-testers access to the debugging commands. This is especially relevant for long stories: if we&#39;re testing a story with a lot of playtime and the testers have already thoroughly reviewed the first portion of the story, we might want to let them have access to testing commands that fast-forward to later sections.</p>
 <p>To do this, we can use the &quot;Release for Testing&quot; feature. Release for testing builds a version of the story that <em>does</em> include testing commands and any sections labeled &quot;Not for release&quot;.</p>
 <h3 id="section_6">WI §24.6 Testing for thoroughness</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_5" title="Adding new testing verbs and Release for Testing"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">24.5 Adding new testing verbs and Release for Testing</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_24"><div class="nav-arrow">↑</div><div class="doc-navbar-text">24. Testing and Debugging</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_7"><div class="doc-navbar-text">24.7 Commands for beta-testers</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_5" title="Adding new testing verbs and Release for Testing"><div class="nav-arrow">←24.5 </div><div class="doc-navbar-text">Adding new testing verbs and Release for Testing</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_24"><div class="nav-arrow">↑24. </div><div class="doc-navbar-text">Testing and Debugging</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_7"><div class="doc-navbar-text">Commands for beta-testers</div><div class="nav-arrow">24.7→</div></a></div></div></div>
 <p>The presence of actual bugs or defects is not the only thing we want to consider when testing a story. We may also want to check whether we have built the story with a consistent amount of depth.</p>
 <p>Are there descriptions for everything the player might look at? If we&#39;ve implemented special verbs, do they have appropriate reactions for all the different objects? If most objects in a story about restaurant reviewing have a special response to being tasted, for instance, it might be disappointing for the player to encounter late-added objects that don&#39;t.</p>
 <p>Checking implementation thoroughness can be a laborious process, but there are a few things we can do to automate it. For instance, we might add to a not-for-release section a rule that checks for certain properties:</p>
 <div class="codeblock"><div class="codeline">When play begins (this is the run property checks at the start of play rule):</div>
-<div class="codeline">&ensp;&ensp;repeat with item running through things:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;if description of the item is &quot;&quot;:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[item] has no description.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;repeat with item running through things:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if description of the item is &quot;&quot;:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[item] has no description.&quot;</div>
 </div><p>This will confront us with a reminder of what we still need to fill in every time we start up the story.</p>
 <p>There are also some extensions that are designed to assist with this, notably the massive Object Response Tests by Juhana Leinonen. Object Response Tests allows us to try out a long list of commands against any object in the story, so that we can quickly identify ones with nonsensical replies.</p>
 <h3 id="section_7">WI §24.7 Commands for beta-testers</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_6" title="Testing for thoroughness"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">24.6 Testing for thoroughness</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_24"><div class="nav-arrow">↑</div><div class="doc-navbar-text">24. Testing and Debugging</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_8"><div class="doc-navbar-text">24.8 Help from the user community</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_6" title="Testing for thoroughness"><div class="nav-arrow">←24.6 </div><div class="doc-navbar-text">Testing for thoroughness</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_24"><div class="nav-arrow">↑24. </div><div class="doc-navbar-text">Testing and Debugging</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_8"><div class="doc-navbar-text">Help from the user community</div><div class="nav-arrow">24.8→</div></a></div></div></div>
 <p>Inform includes a command that is especially designed to help beta-testers report flaws: namely, TRANSCRIPT. A tester can type TRANSCRIPT (or just SCRIPT) at the beginning of the story in order to start generating a recording of everything that happens. She can then add her own annotations when something buggy or otherwise notable occurs (for instance by typing a standard symbol, such as *, followed by a note).</p>
 <p>When she then sends us the completed transcript, we can look through for these symbols and note the problems the tester found in the context of the rest of the story&#39;s behavior. Having information about how she reached that position typically makes it much easier to reproduce the problem than if she gave only a general account of it.</p>
 <h3 id="section_8">WI §24.8 Help from the user community</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_7" title="Commands for beta-testers"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">24.7 Commands for beta-testers</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_24"><div class="nav-arrow">↑</div><div class="doc-navbar-text">24. Testing and Debugging</div></a></div><div class="doc-navbar-right"><div>&nbsp;</div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_7" title="Commands for beta-testers"><div class="nav-arrow">←24.7 </div><div class="doc-navbar-text">Commands for beta-testers</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_24"><div class="nav-arrow">↑24. </div><div class="doc-navbar-text">Testing and Debugging</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="WI_25.html" title="Releasing"><div class="doc-navbar-text">Releasing</div><div class="nav-arrow">25.→</div></a></div></div></div>
 <p>Sometimes we get really stuck on a problem and despite all our best efforts cannot figure out how to solve it.</p>
 <p>Fortunately, Inform has a lively and helpful community of users who are often willing to assist other authors. The easiest way to reach these users is to make a post at the intfiction forum at</p>
 <div class="codeblock"><div class="codeline">https://intfiction.org/</div>

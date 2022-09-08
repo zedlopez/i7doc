@@ -19,14 +19,14 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex84">Play/modify Grilling in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Grilling/index.html">Play Grilling in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Grilling&quot;\n\nThe Patio is a room. The Patio contains a grill and an ice chest. The ice chest contains a cold beer. On the grill are a steak and a hot dog.\n\nMom is a woman in the Patio.\n\nInstead of taking something which is on the grill:\n\tsay &quot;&apos;Hey, you&apos;ll burn yourself,&apos; says Mom.&quot;\n\nTest me with &quot;get steak / get all from grill / get all&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Grilling&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Patio is a room. The Patio contains a grill and an ice chest. The ice chest contains a cold beer. On the grill are a steak and a hot dog.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Mom is a woman in the Patio.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of taking something which is on the grill:</div>
-<div class="codeline">&ensp;&ensp;say &quot;&#39;Hey, you&#39;ll burn yourself,&#39; says Mom.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;&#39;Hey, you&#39;ll burn yourself,&#39; says Mom.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;get steak / get all from grill / get all&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "get steak / get all from grill / get all".</summary><div class="testme-output">Patio<br>You can see a grill (on which are a steak and a hot dog), an ice chest (in which is a cold beer) and Mom here.<br><br>&gt;(Testing.)<br><br>&gt;[1] get steak<br>&quot;Hey, you&#39;ll burn yourself,&quot; says Mom.<br><br>&gt;[2] get all from grill<br>steak: &quot;Hey, you&#39;ll burn yourself,&quot; says Mom.<br>hot dog: &quot;Hey, you&#39;ll burn yourself,&quot; says Mom.<br><br>&gt;[3] get all<br>ice chest: Taken.<br>steak: &quot;Hey, you&#39;ll burn yourself,&quot; says Mom.<br>hot dog: &quot;Hey, you&#39;ll burn yourself,&quot; says Mom.<br>cold beer: Taken.
 </div></details><p>We could just as easily adapt this rule to affect a container: &quot;Instead of taking something which is in the ice chest,&quot; for example.</p>

@@ -19,26 +19,26 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex200">Play/modify THE SECOND OLDEST PROBLEM in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="SecondOldest/index.html">Play THE SECOND OLDEST PROBLEM in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;THE SECOND OLDEST PROBLEM&quot;\n\nThe going action has a number called the dark terminus count.\nSetting action variables for going:\n\tnow the dark terminus count is 0;\n\tif in darkness, increment the dark terminus count.\nThe last carry out going rule:\n\tif in darkness, increment the dark terminus count;\n\tif the dark terminus count is 2, end the story saying &quot;YOU FELL INTO A PIT AND BROKE EVERY BONE IN YOUR BODY!&quot; instead.\n\n\nCOBBLE CRAWL is a room. &quot;YOU ARE CRAWLING OVER COBBLES IN A LOW PASSAGE. THERE IS A DIM LIGHT AT THE EAST END OF THE PASSAGE.&quot;\n\nDEBRIS ROOM is west of COBBLE CRAWL. &quot;YOU ARE IN A DEBRIS ROOM, FILLED WITH STUFF WASHED IN FROM THE SURFACE. A LOW WIDE PASSAGE WITH COBBLES BECOMES PLUGGED WITH MUD AND DEBRIS HERE,BUT AN AWKWARD CANYON LEADS UPWARD AND WEST.&quot;\n\nAWKWARD CANYON is west of DEBRIS ROOM. &quot;YOU ARE IN AN AWKWARD SLOPING EAST/WEST CANYON.&quot;\n\nDEBRIS ROOM and AWKWARD CANYON are dark.\n\nRule for printing the name of a dark room: say &quot;DARKNESS&quot; instead.\nRule for printing the description of a dark room: say &quot;IT IS NOW PITCH BLACK. IF YOU PROCEED YOU WILL LIKELY FALL INTO A PIT.&quot; instead.\n\nTest me with &quot;w / e / w / w&quot;.`)">⧉</button><div class="codeline storytitle">&quot;THE SECOND OLDEST PROBLEM&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The going action has a number called the dark terminus count.</div>
 <div class="codeline">Setting action variables for going:</div>
-<div class="codeline">&ensp;&ensp;now the dark terminus count is 0;</div>
-<div class="codeline">&ensp;&ensp;if in darkness, increment the dark terminus count.</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the dark terminus count is 0;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if in darkness, increment the dark terminus count.</div>
 <div class="codeline">The last carry out going rule:</div>
-<div class="codeline">&ensp;&ensp;if in darkness, increment the dark terminus count;</div>
-<div class="codeline">&ensp;&ensp;if the dark terminus count is 2, end the story saying &quot;YOU FELL INTO A PIT AND BROKE EVERY BONE IN YOUR BODY!&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;if in darkness, increment the dark terminus count;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the dark terminus count is 2, end the story saying &quot;YOU FELL INTO A PIT AND BROKE EVERY BONE IN YOUR BODY!&quot; instead.</div>
 </div><p>And now three early rooms to try this out.</p>
 <div class="codeblock"><div class="codeline">COBBLE CRAWL is a room. &quot;YOU ARE CRAWLING OVER COBBLES IN A LOW PASSAGE. THERE IS A DIM LIGHT AT THE EAST END OF THE PASSAGE.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">DEBRIS ROOM is west of COBBLE CRAWL. &quot;YOU ARE IN A DEBRIS ROOM, FILLED WITH STUFF WASHED IN FROM THE SURFACE. A LOW WIDE PASSAGE WITH COBBLES BECOMES PLUGGED WITH MUD AND DEBRIS HERE,BUT AN AWKWARD CANYON LEADS UPWARD AND WEST.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">AWKWARD CANYON is west of DEBRIS ROOM. &quot;YOU ARE IN AN AWKWARD SLOPING EAST/WEST CANYON.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">DEBRIS ROOM and AWKWARD CANYON are dark.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Rule for printing the name of a dark room: say &quot;DARKNESS&quot; instead.</div>
 <div class="codeline">Rule for printing the description of a dark room: say &quot;IT IS NOW PITCH BLACK. IF YOU PROCEED YOU WILL LIKELY FALL INTO A PIT.&quot; instead.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;w / e / w / w&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "w / e / w / w".</summary><div class="testme-output">COBBLE CRAWL<br>YOU ARE CRAWLING OVER COBBLES IN A LOW PASSAGE. THERE IS A DIM LIGHT AT THE EAST END OF THE PASSAGE.<br><br>&gt;(Testing.)<br><br>&gt;[1] w<br><br>DARKNESS<br>IT IS NOW PITCH BLACK. IF YOU PROCEED YOU WILL LIKELY FALL INTO A PIT.<br><br>&gt;[2] e<br><br>COBBLE CRAWL<br>YOU ARE CRAWLING OVER COBBLES IN A LOW PASSAGE. THERE IS A DIM LIGHT AT THE EAST END OF THE PASSAGE.<br><br>&gt;[3] w<br><br>DARKNESS<br>IT IS NOW PITCH BLACK. IF YOU PROCEED YOU WILL LIKELY FALL INTO A PIT.<br><br>&gt;[4] w<br><br><br>    *** YOU FELL INTO A PIT AND BROKE EVERY BONE IN YOUR BODY! ***
 </div></details><p>This is only the second oldest problem in the IF literature: the earliest puzzle is unlocking the steel grate which bars entrance to the cave.</p>

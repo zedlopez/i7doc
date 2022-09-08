@@ -18,59 +18,59 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex221">Play/modify The Actor's Studio in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="ActorsStudio/index.html">Play The Actor's Studio in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;The Actor&apos;s Studio&quot;\n\nSection 1 - The Video Camera\n\nThe video camera is a thing carried by the player.\n\nTable of Videotape\nrecorded action\ttime stamp\nwaiting\t9:00 AM\nwith 25 blank rows.\n\nMode is a kind of value. The modes are idle, recording, and playing back. The video camera has a mode. The video camera is idle.\n\nUnderstand &quot;play back&quot; as playing back. Instead of switching on the camera, try tuning the camera to recording. Instead of switching off the camera, try tuning the camera to idle.\n\nThe description of the video camera is &quot;It is currently [mode]; its available settings are idle, recording, and playing back.&quot;\n\nUnderstand &quot;set [camera] to [a mode]&quot; as tuning it to. Tuning it to is an action applying to one thing and one mode.\n\nInstead of setting the camera to something:\n\tsay &quot;The available settings are idle, recording, and playing back.&quot;\n\nCheck tuning it to:\n\tif the noun is not the camera, say &quot;Only the video camera can be set to [the mode understood].&quot; instead.\n\nCarry out tuning it to:\n\tnow the mode of the noun is the mode understood.\n\nReport tuning it to:\n\tsay &quot;You set [the noun] to [mode understood].&quot;\n\nAfter an actor doing something when the video camera is recording:\n\tif the current action is tuning the video camera to recording, make no decision;\n\tif the number of blank rows in the Table of Videotape is greater than zero:\n\t\tchoose a blank row in the Table of Videotape;\n\t\tnow the recorded action entry is the current action;\n\t\tnow the time stamp entry is the time of day;\n\totherwise:\n\t\tnow the video camera is idle;\n\t\tsay &quot;The video camera runs out of recording memory and switches off.&quot;;\n\tcontinue the action.\n\nEvery turn when the video camera is playing back:\n\tsay &quot;On the camera screen, you see [run paragraph on]&quot;;\n\tlet starting playback be false;\n\trepeat through the Table of Videotape:\n\t\tif the recorded action entry is not waiting:\n\t\t\tnow starting playback is true;\n\t\t\tsay &quot;[line break] -- [if the actor part of the recorded action entry is the player]you [end if][the recorded action entry], time stamped at [time stamp entry]&quot;;\n\t\t\tblank out the whole row;\n\tif starting playback is false, say &quot;only static.&quot;;\n\totherwise say paragraph break.\n\nSection 2 - The Scenario\n\nThe Actor&apos;s Studio is a room. Lucas is a man in the Actor&apos;s Studio. Persuasion rule: persuasion succeeds.\n\nThe Studio contains an edible thing called a croissant.\n\nTest me with &quot;set camera to recording / x lucas / lucas, take inventory / lucas, eat croissant / set camera to playing back / z&quot;.`)">⧉</button><div class="codeline storytitle">&quot;The Actor&#39;s Studio&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline i7header">Section 1 - The Video Camera</div><div class="codeline">The video camera is a thing carried by the player.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline tablename">Table of Videotape</div><table>
 <tr><td>recorded action</td><td>time stamp</td></tr><tr><td>waiting</td><td>9:00 AM</td></tr></table>
 <div class="codeline blankrows">with 25 blank rows.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">Mode is a kind of value. The modes are idle, recording, and playing back. The video camera has a mode. The video camera is idle.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Understand &quot;play back&quot; as playing back. Instead of switching on the camera, try tuning the camera to recording. Instead of switching off the camera, try tuning the camera to idle.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The description of the video camera is &quot;It is currently [mode]; its available settings are idle, recording, and playing back.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Understand &quot;set [camera] to [a mode]&quot; as tuning it to. Tuning it to is an action applying to one thing and one mode.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of setting the camera to something:</div>
-<div class="codeline">&ensp;&ensp;say &quot;The available settings are idle, recording, and playing back.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;The available settings are idle, recording, and playing back.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Check tuning it to:</div>
-<div class="codeline">&ensp;&ensp;if the noun is not the camera, say &quot;Only the video camera can be set to [the mode understood].&quot; instead.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the noun is not the camera, say &quot;Only the video camera can be set to [the mode understood].&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Carry out tuning it to:</div>
-<div class="codeline">&ensp;&ensp;now the mode of the noun is the mode understood.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the mode of the noun is the mode understood.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Report tuning it to:</div>
-<div class="codeline">&ensp;&ensp;say &quot;You set [the noun] to [mode understood].&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You set [the noun] to [mode understood].&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">After an actor doing something when the video camera is recording:</div>
-<div class="codeline">&ensp;&ensp;if the current action is tuning the video camera to recording, make no decision;</div>
-<div class="codeline">&ensp;&ensp;if the number of blank rows in the Table of Videotape is greater than zero:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;choose a blank row in the Table of Videotape;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;now the recorded action entry is the current action;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;now the time stamp entry is the time of day;</div>
-<div class="codeline">&ensp;&ensp;otherwise:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;now the video camera is idle;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;The video camera runs out of recording memory and switches off.&quot;;</div>
-<div class="codeline">&ensp;&ensp;continue the action.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the current action is tuning the video camera to recording, make no decision;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the number of blank rows in the Table of Videotape is greater than zero:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;choose a blank row in the Table of Videotape;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the recorded action entry is the current action;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the time stamp entry is the time of day;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the video camera is idle;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;The video camera runs out of recording memory and switches off.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;continue the action.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Every turn when the video camera is playing back:</div>
-<div class="codeline">&ensp;&ensp;say &quot;On the camera screen, you see [run paragraph on]&quot;;</div>
-<div class="codeline">&ensp;&ensp;let starting playback be false;</div>
-<div class="codeline">&ensp;&ensp;repeat through the Table of Videotape:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;if the recorded action entry is not waiting:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now starting playback is true;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[line break] -- [if the actor part of the recorded action entry is the player]you [end if][the recorded action entry], time stamped at [time stamp entry]&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;blank out the whole row;</div>
-<div class="codeline">&ensp;&ensp;if starting playback is false, say &quot;only static.&quot;;</div>
-<div class="codeline">&ensp;&ensp;otherwise say paragraph break.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;On the camera screen, you see [run paragraph on]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let starting playback be false;</div>
+<div class="codeline">&ensp;&ensp;&ensp;repeat through the Table of Videotape:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the recorded action entry is not waiting:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now starting playback is true;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[line break] -- [if the actor part of the recorded action entry is the player]you [end if][the recorded action entry], time stamped at [time stamp entry]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;blank out the whole row;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if starting playback is false, say &quot;only static.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise say paragraph break.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline i7header">Section 2 - The Scenario</div><div class="codeline">The Actor&#39;s Studio is a room. Lucas is a man in the Actor&#39;s Studio. Persuasion rule: persuasion succeeds.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Studio contains an edible thing called a croissant.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;set camera to recording / x lucas / lucas, take inventory / lucas, eat croissant / set camera to playing back / z&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "set camera to recording / x lucas / lucas, take inventory / lucas, eat croissant / set camera to playing back / z".</summary><div class="testme-output">Actor&#39;s Studio<br>You can see Lucas and a croissant here.<br><br>&gt;(Testing.)<br><br>&gt;[1] set camera to recording<br>You set the video camera to recording.<br><br>&gt;[2] x lucas<br>You see nothing special about Lucas.<br><br>&gt;[3] lucas, take inventory<br>Lucas looks through his possessions.<br><br>&gt;[4] lucas, eat croissant<br>(Lucas first taking the croissant)<br>Lucas eats the croissant.<br><br>&gt;[5] set camera to playing back<br>You set the video camera to playing back.<br><br>On the camera screen, you see<br> -- you examining Lucas, time stamped at 9:01 am<br> -- Lucas taking inventory, time stamped at 9:02 am<br> -- Lucas taking the croissant, time stamped at 9:03 am<br> -- Lucas eating the croissant, time stamped at 9:03 am<br><br>&gt;[6] z<br>Time passes.<br><br>On the camera screen, you see only static.
 </div></details><p>Notice that both Lucas&#39; implied taking action (picking up the croissant) and his eating action are recorded on the same move.</p>

@@ -22,25 +22,25 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex196">Play/modify Delicious, Delicious Rocks in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="DeliciousDeliciousRocks/index.html">Play Delicious, Delicious Rocks in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Delicious, Delicious Rocks&quot;\n\nSection 1 - Procedure\n\nThe sanity-check rules are a rulebook.\n\nThis is the sanity-check stage rule:\n\tabide by the sanity-check rules.\n\nThe sanity-check stage rule is listed after the before stage rule  in the action-processing rules.\n\nSection 2 - Scenario\n\nCandyland is a room. The lollipop tree is an edible thing in Candyland. The genuine rock is a thing in Candyland.\n\nSanity-check eating an inedible thing:\n\tsay &quot;Your digestion is so delicate -- you&apos;re sure [the noun] wouldn&apos;t agree with you.&quot; instead.\n\nTest me with &quot;eat lollipop / eat rock&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Delicious, Delicious Rocks&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline i7header">Section 1 - Procedure</div><div class="codeline">The sanity-check rules are a rulebook.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">This is the sanity-check stage rule:</div>
-<div class="codeline">&ensp;&ensp;abide by the sanity-check rules.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;abide by the sanity-check rules.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The sanity-check stage rule is listed after the before stage rule  in the action-processing rules.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline i7header">Section 2 - Scenario</div><div class="codeline">Candyland is a room. The lollipop tree is an edible thing in Candyland. The genuine rock is a thing in Candyland.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Sanity-check eating an inedible thing:</div>
-<div class="codeline">&ensp;&ensp;say &quot;Your digestion is so delicate -- you&#39;re sure [the noun] wouldn&#39;t agree with you.&quot; instead.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Your digestion is so delicate -- you&#39;re sure [the noun] wouldn&#39;t agree with you.&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;eat lollipop / eat rock&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "eat lollipop / eat rock".</summary><div class="testme-output">Candyland<br>You can see a lollipop tree and a genuine rock here.<br><br>&gt;(Testing.)<br><br>&gt;[1] eat lollipop<br>(first taking the lollipop tree)<br>You eat the lollipop tree. Not bad.<br><br>&gt;[2] eat rock<br>Your digestion is so delicate -- you&#39;re sure the genuine rock wouldn&#39;t agree with you.
 </div></details><p>Notice that now Inform does not try taking the rock before rejecting the player&#39;s attempt to eat it.</p>
 <p>It is of course possible to get the same effect with</p>
 <div class="codeblock"><div class="codeline">Before eating an inedible thing:</div>
-<div class="codeline">&ensp;&ensp;say &quot;Your digestion is so delicate -- you&#39;re sure [the noun] wouldn&#39;t agree with you.&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Your digestion is so delicate -- you&#39;re sure [the noun] wouldn&#39;t agree with you.&quot; instead.</div>
 </div><p>&hellip;and in a small game with few rules, there&#39;s not much reason to add an extra stage. The ability to modify the stages of action processing becomes useful when we have a fairly large game with sophisticated modeling and want to be sure that some kinds of message (such as the sanity-check) are always handled before other things that we might be doing at the before stage (such as generating implicit actions like opening doors before going through them).</p>
 <div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="paddington.html" title="A CUT [something] WITH [something] command which acts differently on different types of objects."><div class="nav-arrow">←</div> <div class="doc-navbar-text">195. Paddington</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="noisemaking.html" title="Creating a stage after the report stage of an action, during which other characters may observe and react."><div class="doc-navbar-text">197. Noisemaking</div> <div class="nav-arrow">→</div></a></div></div>
 <footer id="credits-footer"><nav><div class="nav-el"><a class="nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="nav-el" href="../search.html">Search</a></div></nav>

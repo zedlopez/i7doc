@@ -20,91 +20,91 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex424">Play/modify Oyster Wide Shut in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Oyster/index.html">Play Oyster Wide Shut in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Oyster Wide Shut&quot;\n\nSection 1 - Procedure\n\nThe print standard inventory rule is not listed in any rulebook.\n\nCarry out taking inventory (this is the new print inventory rule):\n\tsay &quot;You are carrying: [line break]&quot;;\n\tlist the contents of the player, with newlines, indented, including contents, with extra indentation.\n\n\nAfter printing the name of something (called target) while taking inventory:\n\tfollow the property-aggregation rules for the target.\n\n\nThe property-aggregation rules are an object-based rulebook.\nThe property-aggregation rulebook has a list of text called the tagline.\n\nA first property-aggregation rule for an openable open thing (this is the mention open openables rule):\n\tadd &quot;open&quot; to the tagline.\n\nA first property-aggregation rule for an openable closed thing (this is the mention closed openables rule):\n\tadd &quot;closed&quot; to the tagline.\n\nA property-aggregation rule for a closed transparent container which contains nothing (this is the mention empty transparent containers rule):\n\tadd &quot;empty&quot; to the tagline.\n\nA property-aggregation rule for an open container which contains nothing (this is the mention empty open containers rule):\n\tadd &quot;empty&quot; to the tagline.\n\nA property-aggregation rule for a lit thing (this is the mention lit objects rule):\n\tadd &quot;providing light&quot; to the tagline.\n\nA property-aggregation rule for a thing worn by the player (this is the mention worn objects rule):\n\tadd &quot;being worn&quot; to the tagline.\n\nThe last property-aggregation rule (this is the print aggregated properties rule):\n\tif the number of entries in the tagline is greater than 0:\n\t\tsay &quot; ([tagline])&quot;;\n\t\trule succeeds;\n\trule fails.\n\n\nSection 2 - Scenario\n\nThe Curved Beach is a room. &quot;White sand stretches away both northeast and northwest, enclosing this attractive little bay. Gentle waves lap at the beach.&quot;\n\nThe player carries a glowing plastic sack. The glowing plastic sack is lit and transparent and openable and open. It contains a rock. It is wearable.\n\nThe player wears a flashlight lanyard. The flashlight lanyard is a device.\n\nCarry out switching on the lanyard: now the noun is lit.\nCarry out switching off the lanyard: now the noun is unlit.\n\nThe player carries an oyster. The oyster contains a pearl. The oyster is openable.\n\n\nA property-aggregation rule for the oyster:\n\tif the oyster is closed:\n\t\tsay &quot; (clamped shut)&quot;;\n\trule succeeds.\n\n\nThe sacklight rule is listed after the mention lit objects rule in the property-aggregation rules.\n\nA property-aggregation rule for the plastic sack (this is the sacklight rule):\n\tif &quot;providing light&quot; is listed in the tagline:\n\t\tremove &quot;providing light&quot; from the tagline;\n\t\tadd &quot;gently glowing&quot; to the tagline.\n\n\nA thing can be magical or non-magical. A thing is usually non-magical.\n\nUnderstand &quot;enchant [something]&quot; as enchanting. Enchanting is an action applying to one thing.\n\nCarry out enchanting something:\n\tnow the noun is magical.\n\nReport enchanting something:\n\tsay &quot;Ding! You turn [the noun] magical.&quot;\n\nA property-aggregation rule for a magical thing:\n\tadd &quot;enchanted&quot; to the tagline.\n\nTest me with &quot;i / close oyster / i  / turn on flashlight / i / take off flashlight / i / turn off flashlight / i / close sack / i / open sack / i / take all from sack / i / close sack / i  / wear sack / i / enchant sack / i / open sack / put all in sack / i / close sack / i&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Oyster Wide Shut&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline i7header">Section 1 - Procedure</div><div class="codeline">The print standard inventory rule is not listed in any rulebook.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Carry out taking inventory (this is the new print inventory rule):</div>
-<div class="codeline">&ensp;&ensp;say &quot;You are carrying: [line break]&quot;;</div>
-<div class="codeline">&ensp;&ensp;list the contents of the player, with newlines, indented, including contents, with extra indentation.</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You are carrying: [line break]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;list the contents of the player, with newlines, indented, including contents, with extra indentation.</div>
 </div><p>This is very much like the library&#39;s standard behavior, but with the exception that &quot;giving inventory information&quot; or even &quot;giving brief inventory information&quot; are omitted. Here&#39;s how we supplant it:</p>
 <div class="codeblock"><div class="codeline">After printing the name of something (called target) while taking inventory:</div>
-<div class="codeline">&ensp;&ensp;follow the property-aggregation rules for the target.</div>
+<div class="codeline">&ensp;&ensp;&ensp;follow the property-aggregation rules for the target.</div>
 </div><p>Now, our property-aggregation rulebook is going to look at a given object and decide on a list of features that should be mentioned in inventory. We&#39;ll start by producing something quite similar to Inform&#39;s default behavior:</p>
 <div class="codeblock"><div class="codeline">The property-aggregation rules are an object-based rulebook.</div>
 <div class="codeline">The property-aggregation rulebook has a list of text called the tagline.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A first property-aggregation rule for an openable open thing (this is the mention open openables rule):</div>
-<div class="codeline">&ensp;&ensp;add &quot;open&quot; to the tagline.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;add &quot;open&quot; to the tagline.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A first property-aggregation rule for an openable closed thing (this is the mention closed openables rule):</div>
-<div class="codeline">&ensp;&ensp;add &quot;closed&quot; to the tagline.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;add &quot;closed&quot; to the tagline.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A property-aggregation rule for a closed transparent container which contains nothing (this is the mention empty transparent containers rule):</div>
-<div class="codeline">&ensp;&ensp;add &quot;empty&quot; to the tagline.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;add &quot;empty&quot; to the tagline.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A property-aggregation rule for an open container which contains nothing (this is the mention empty open containers rule):</div>
-<div class="codeline">&ensp;&ensp;add &quot;empty&quot; to the tagline.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;add &quot;empty&quot; to the tagline.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A property-aggregation rule for a lit thing (this is the mention lit objects rule):</div>
-<div class="codeline">&ensp;&ensp;add &quot;providing light&quot; to the tagline.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;add &quot;providing light&quot; to the tagline.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A property-aggregation rule for a thing worn by the player (this is the mention worn objects rule):</div>
-<div class="codeline">&ensp;&ensp;add &quot;being worn&quot; to the tagline.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;add &quot;being worn&quot; to the tagline.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The last property-aggregation rule (this is the print aggregated properties rule):</div>
-<div class="codeline">&ensp;&ensp;if the number of entries in the tagline is greater than 0:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot; ([tagline])&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;rule succeeds;</div>
-<div class="codeline">&ensp;&ensp;rule fails.</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the number of entries in the tagline is greater than 0:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot; ([tagline])&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;rule succeeds;</div>
+<div class="codeline">&ensp;&ensp;&ensp;rule fails.</div>
 </div><p>Notice that we don&#39;t need to write any rules about how to print that list of text: because Inform is printing out a list, it will automatically insert commas, spaces, and the word &quot;and&quot; where appropriate; and it will automatically follow the &quot;use serial comma&quot; option, if we have it set.</p>
 <p>Now we&#39;re free to meddle. Let&#39;s give the player a bunch of possessions that will be listed in interesting ways in inventory:</p>
-<div class="codeblock"><div class="codeline i7header">Section 2 - Scenario</div><div class="codeline">&ensp;&ensp;</div>
+<div class="codeblock"><div class="codeline i7header">Section 2 - Scenario</div><div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Curved Beach is a room. &quot;White sand stretches away both northeast and northwest, enclosing this attractive little bay. Gentle waves lap at the beach.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The player carries a glowing plastic sack. The glowing plastic sack is lit and transparent and openable and open. It contains a rock. It is wearable.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The player wears a flashlight lanyard. The flashlight lanyard is a device.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Carry out switching on the lanyard: now the noun is lit.</div>
 <div class="codeline">Carry out switching off the lanyard: now the noun is unlit.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The player carries an oyster. The oyster contains a pearl. The oyster is openable.</div>
 </div><p>Now suppose that we don&#39;t want the oyster to say &quot;closed&quot; when it&#39;s closed. Instead, we&#39;d like it to say &quot;clamped shut&quot;. As this is the only property the oyster will ever have, we can simply override his whole property-aggregation rulebook:</p>
 <div class="codeblock"><div class="codeline">A property-aggregation rule for the oyster:</div>
-<div class="codeline">&ensp;&ensp;if the oyster is closed:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot; (clamped shut)&quot;;</div>
-<div class="codeline">&ensp;&ensp;rule succeeds.</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the oyster is closed:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot; (clamped shut)&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;rule succeeds.</div>
 </div><p>That&#39;s fine for the oyster because &quot;clamped shut&quot; is the only property he&#39;ll ever have. What if we&#39;d like instead just to revise the way the sack (and only the sack) gets described as providing light?</p>
 <div class="codeblock"><div class="codeline">The sacklight rule is listed after the mention lit objects rule in the property-aggregation rules.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A property-aggregation rule for the plastic sack (this is the sacklight rule):</div>
-<div class="codeline">&ensp;&ensp;if &quot;providing light&quot; is listed in the tagline:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;remove &quot;providing light&quot; from the tagline;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;add &quot;gently glowing&quot; to the tagline.</div>
+<div class="codeline">&ensp;&ensp;&ensp;if &quot;providing light&quot; is listed in the tagline:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;remove &quot;providing light&quot; from the tagline;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;add &quot;gently glowing&quot; to the tagline.</div>
 </div><p>Now the flashlight (and any other regular light sources we might add to the game) will be described as &quot;providing light&quot;, but the sack will only be said to be gently glowing -- a bit more appropriate for its rather fainter gleam.</p>
 <p>We might also wish to add a systematic feature across the board to include a new property in the inventory list? Let&#39;s say the player can enchant his possessions, and enchanted possessions should thereafter be listed accordingly:</p>
 <div class="codeblock"><div class="codeline">A thing can be magical or non-magical. A thing is usually non-magical.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Understand &quot;enchant [something]&quot; as enchanting. Enchanting is an action applying to one thing.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Carry out enchanting something:</div>
-<div class="codeline">&ensp;&ensp;now the noun is magical.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the noun is magical.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Report enchanting something:</div>
-<div class="codeline">&ensp;&ensp;say &quot;Ding! You turn [the noun] magical.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Ding! You turn [the noun] magical.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A property-aggregation rule for a magical thing:</div>
-<div class="codeline">&ensp;&ensp;add &quot;enchanted&quot; to the tagline.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;add &quot;enchanted&quot; to the tagline.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;i / close oyster / i  / turn on flashlight / i / take off flashlight / i / turn off flashlight / i / close sack / i / open sack / i / take all from sack / i / close sack / i  / wear sack / i / enchant sack / i / open sack / put all in sack / i / close sack / i&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "i / close oyster / i  / turn on flashlight / i / take off flashlight / i / turn off flashlight / i / close sack / i / open sack / i / take all from sack / i / close sack / i  / wear sack / i / enchant sack / i / open sack / put all in sack / i / close sack / i".</summary><div class="testme-output">Curved Beach<br>White sand stretches away both northeast and northwest, enclosing this attractive little bay. Gentle waves lap at the beach.<br><br>&gt;(Testing.)<br><br>&gt;[1] i<br>You are carrying:<br>  a glowing plastic sack (open and gently glowing)<br>    a rock<br>  a flashlight lanyard (being worn)<br>  an oyster<br>    a pearl<br><br>&gt;[2] close oyster<br>You close the oyster.<br><br>&gt;[3] i<br>You are carrying:<br>  a glowing plastic sack (open and gently glowing)<br>    a rock<br>  a flashlight lanyard (being worn)<br>  an oyster (clamped shut)<br><br>&gt;[4] turn on flashlight<br>You switch the flashlight lanyard on.<br><br>&gt;[5] i<br>You are carrying:<br>  a glowing plastic sack (open and gently glowing)<br>    a rock<br>  a flashlight lanyard (being worn and providing light)<br>  an oyster (clamped shut)<br><br>&gt;[6] take off flashlight<br>You take off the flashlight lanyard.<br><br>&gt;[7] i<br>You are carrying:<br>  a glowing plastic sack (open and gently glowing)<br>    a rock<br>  a flashlight lanyard (providing light)<br>  an oyster (clamped shut)<br><br>&gt;[8] turn off flashlight<br>You switch the flashlight lanyard off.<br><br>&gt;[9] i<br>You are carrying:<br>  a glowing plastic sack (open and gently glowing)<br>    a rock<br>  a flashlight lanyard<br>  an oyster (clamped shut)<br><br>&gt;[10] close sack<br>You close the glowing plastic sack.<br><br>&gt;[11] i<br>You are carrying:<br>  a glowing plastic sack (closed and gently glowing)<br>    a rock<br>  a flashlight lanyard<br>  an oyster (clamped shut)<br><br>&gt;[12] open sack<br>You open the glowing plastic sack.<br><br>&gt;[13] i<br>You are carrying:<br>  a glowing plastic sack (open and gently glowing)<br>    a rock<br>  a flashlight lanyard<br>  an oyster (clamped shut)<br><br>&gt;[14] take all from sack<br>Taken.<br><br>&gt;[15] i<br>You are carrying:<br>  a rock<br>  a glowing plastic sack (open, empty and gently glowing)<br>  a flashlight lanyard<br>  an oyster (clamped shut)<br><br>&gt;[16] close sack<br>You close the glowing plastic sack.<br><br>&gt;[17] i<br>You are carrying:<br>  a rock<br>  a glowing plastic sack (closed, empty and gently glowing)<br>  a flashlight lanyard<br>  an oyster (clamped shut)<br><br>&gt;[18] wear sack<br>You put on the glowing plastic sack.<br><br>&gt;[19] i<br>You are carrying:<br>  a rock<br>  a glowing plastic sack (closed, empty, being worn and gently glowing)<br>  a flashlight lanyard<br>  an oyster (clamped shut)<br><br>&gt;[20] enchant sack<br>Ding! You turn the glowing plastic sack magical.<br><br>&gt;[21] i<br>You are carrying:<br>  a rock<br>  a glowing plastic sack (closed, empty, being worn, gently glowing and enchanted)<br>  a flashlight lanyard<br>  an oyster (clamped shut)<br><br>&gt;[22] open sack<br>You open the glowing plastic sack.<br><br>&gt;[23] put all in sack<br>rock: Done.<br>flashlight lanyard: Done.<br>oyster: Done.<br><br>&gt;[24] i<br>You are carrying:<br>  a glowing plastic sack (open, being worn, gently glowing and enchanted)<br>    an oyster (clamped shut)<br>    a flashlight lanyard<br>    a rock<br><br>&gt;[25] close sack<br>You close the glowing plastic sack.<br><br>&gt;[26] i<br>You are carrying:<br>  a glowing plastic sack (closed, being worn, gently glowing and enchanted)<br>    an oyster (clamped shut)<br>    a flashlight lanyard<br>    a rock
 </div></details><p>Further variations are possible as well: if we used a &quot;before printing the name&hellip;&quot; rather than an &quot;after printing the name&hellip;&quot; rule, we could automatically generate lines like &quot;an open and empty phosphorescent plastic sack&quot;, removing some of the artificiality of the parentheses.</p>
 <p>Or we could add more logic to the rules about which properties are mentioned, so that some features of objects were mentioned in inventory only if the player was wearing the correct detection device, like so:</p>
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The player wears enchantment-detecting goggles.\n\nA property-aggregation rule for a magical thing:\n\tif the player is wearing the goggles:\n\t\tadd &quot;enchanted&quot; to the tagline.`)">⧉</button><div class="codeline">The player wears enchantment-detecting goggles.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A property-aggregation rule for a magical thing:</div>
-<div class="codeline">&ensp;&ensp;if the player is wearing the goggles:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;add &quot;enchanted&quot; to the tagline.</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the player is wearing the goggles:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;add &quot;enchanted&quot; to the tagline.</div>
 </div><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="cavetroll.html" title="Determining that the command the player typed is invalid, editing it, and re-examining it to see whether it now reads correctly."><div class="nav-arrow">←</div> <div class="doc-navbar-text">423. Cave-troll</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="robo.html" title="A robot which watches and records the player&#39;s actions, then tries to repeat them back in the same order when he is switched into play-back mode."><div class="doc-navbar-text">425. Robo 1</div> <div class="nav-arrow">→</div></a></div></div>
 <footer id="credits-footer"><nav><div class="nav-el"><a class="nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="nav-el" href="../search.html">Search</a></div></nav>
 <div class="footing"><p id="i7credit"><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p class="about"><a class="nav-about" href="../about.html">About this edition</a> &bull; <a class="nav-about" href="https://twitter.com/inform7tips">@inform7tips</a></p></div></footer>

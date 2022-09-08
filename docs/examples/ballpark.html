@@ -18,22 +18,22 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex60">Play/modify Ballpark in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Approximation/index.html">Play Ballpark in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Ballpark&quot;\n\nTo say (count - a number) in round numbers:\n\trepeat through the Table of Numerical Approximation:\n\t\tif count is less than threshold entry:\n\t\t\tsay &quot;[approximation entry]&quot;;\n\t\t\trule succeeds.\n\n\nTable of Numerical Approximation\nthreshold\tapproximation\n1\t&quot;no&quot;\n2\t&quot;one&quot;\n3\t&quot;a couple of&quot;\n6\t&quot;a few&quot;\n11\t&quot;some&quot;\n21\t&quot;many&quot;\n1000\t&quot;lots and lots of&quot;\n\n\nA room has a number called the population. The population of a room is usually 0. The description of a room is usually &quot;You observe [population of the location in round numbers] [if population of the location is 1]person [otherwise]people [end if]here.&quot;.\n\nThe Stadium is a room. The Hot Dog Stand is west of the Stadium. The Women&apos;s Restroom is south of the Stadium.\n\nThe population of the Stadium is 500. The population of the Hot Dog Stand is 3. The population of the Restroom is 750.\n\nTest me with &quot;w / e / s&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Ballpark&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">To say (count - a number) in round numbers:</div>
-<div class="codeline">&ensp;&ensp;repeat through the Table of Numerical Approximation:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;if count is less than threshold entry:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[approximation entry]&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;rule succeeds.</div>
+<div class="codeline">&ensp;&ensp;&ensp;repeat through the Table of Numerical Approximation:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if count is less than threshold entry:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[approximation entry]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;rule succeeds.</div>
 </div><p>Phrases will be explained more thoroughly in a later chapter, but as we have already seen in the examples, we can make a &quot;To say&hellip;&quot; phrase that will allow us to create our own text substitutions. In this case, we are going to replace the specific number with a vaguer one chosen from a chart, so:</p>
 <div class="codeblock"><div class="codeline tablename">Table of Numerical Approximation</div><table>
 <tr><td>threshold</td><td>approximation</td></tr><tr><td>1</td><td>&quot;no&quot;</td></tr><tr><td>2</td><td>&quot;one&quot;</td></tr><tr><td>3</td><td>&quot;a couple of&quot;</td></tr><tr><td>6</td><td>&quot;a few&quot;</td></tr><tr><td>11</td><td>&quot;some&quot;</td></tr><tr><td>21</td><td>&quot;many&quot;</td></tr><tr><td>1000</td><td>&quot;lots and lots of&quot;</td></tr></table>
 </div><p>The idea here is that we will work our way through the table until we hit a line where the threshold number is higher than the number we want to express, and then print that output: so if we have less than one item, we&#39;ll print &quot;no&quot;; if we have more than none but less than two, we&#39;ll print &quot;one&quot;; if we have less than three, we&#39;ll print &quot;a couple of&quot;; if we have three, four, or five (but not six), we&#39;ll print &quot;a few.&quot;</p>
 <div class="codeblock"><div class="codeline">A room has a number called the population. The population of a room is usually 0. The description of a room is usually &quot;You observe [population of the location in round numbers] [if population of the location is 1]person [otherwise]people [end if]here.&quot;.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Stadium is a room. The Hot Dog Stand is west of the Stadium. The Women&#39;s Restroom is south of the Stadium.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The population of the Stadium is 500. The population of the Hot Dog Stand is 3. The population of the Restroom is 750.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;w / e / s&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "w / e / s".</summary><div class="testme-output">Stadium<br>You observe lots and lots of people here.<br><br>&gt;(Testing.)<br><br>&gt;[1] w<br><br>Hot Dog Stand<br>You observe a few people here.<br><br>&gt;[2] e<br><br>Stadium<br>You observe lots and lots of people here.<br><br>&gt;[3] s<br><br>Women&#39;s Restroom<br>You observe lots and lots of people here.
 </div></details><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="night_before.html" title="Instructing Inform to prefer different interpretations of EXAMINE NOSE, depending on whether the player is alone, in company, or with Rudolph the Red-nosed Reindeer."><div class="nav-arrow">←</div> <div class="doc-navbar-text">59. The Night Before</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="control_center.html" title="Objects which automatically include a description of their component parts whenever they are examined."><div class="doc-navbar-text">61. Control Center</div> <div class="nav-arrow">→</div></a></div></div>

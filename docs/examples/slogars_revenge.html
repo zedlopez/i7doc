@@ -19,27 +19,27 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex214">Play/modify Slogar's Revenge in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="SlogarsRevenge/index.html">Play Slogar's Revenge in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Slogar&apos;s Revenge&quot;\n\nSection 1 - Procedure\n\nThe amulet carrying rule substitutes for the carrying requirements rule when locking something with the Amulet of Tumblers.\n\nThe amulet carrying rule substitutes for the carrying requirements rule when unlocking something with the Amulet of Tumblers.\n\n\nThis is the amulet carrying rule:\n\tif the player has the second noun:\n\t\tcontinue the action;\n\tsay &quot;(first picking up the amulet)[command clarification break]&quot;;\n\ttry silently taking the second noun;\n\tif the player is not carrying the second noun:\n\t\tstop the action;\n\nSection 2 - Scenario\n\nThe Daunting Dungeon is a room.\n\nWest of the Daunting Dungeon is the Disturbing Door. The Disturbing Door is a door. West of the Disturbing Door is the Fallow Field.\n\nThe Disturbing Door is closed and locked.\n\nThe player wears the Amulet of Tumblers. The Amulet of Tumblers unlocks the Disturbing Door.\n\nTest me with &quot;unlock disturbing door with amulet / open door / west / remove amulet / close door / lock disturbing door with amulet / drop amulet / unlock disturbing door with amulet&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Slogar&#39;s Revenge&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline i7header">Section 1 - Procedure</div><div class="codeline">The amulet carrying rule substitutes for the carrying requirements rule when locking something with the Amulet of Tumblers.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The amulet carrying rule substitutes for the carrying requirements rule when unlocking something with the Amulet of Tumblers.</div>
 </div><p>We can now replace the usual behavior of the carrying requirements rule (to check whether the player is carrying something and, if not, to generate an implicit take) with a similar rule of our own; note that &quot;if the player has the second noun&quot; is a more compact way to write &quot;if the player carries the second noun or the player wears the second noun&quot;:</p>
 <div class="codeblock"><div class="codeline">This is the amulet carrying rule:</div>
-<div class="codeline">&ensp;&ensp;if the player has the second noun:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;continue the action;</div>
-<div class="codeline">&ensp;&ensp;say &quot;(first picking up the amulet)[command clarification break]&quot;;</div>
-<div class="codeline">&ensp;&ensp;try silently taking the second noun;</div>
-<div class="codeline">&ensp;&ensp;if the player is not carrying the second noun:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;stop the action;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the player has the second noun:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;continue the action;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;(first picking up the amulet)[command clarification break]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;try silently taking the second noun;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the player is not carrying the second noun:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;stop the action;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline i7header">Section 2 - Scenario</div><div class="codeline">The Daunting Dungeon is a room.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">West of the Daunting Dungeon is the Disturbing Door. The Disturbing Door is a door. West of the Disturbing Door is the Fallow Field.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Disturbing Door is closed and locked.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The player wears the Amulet of Tumblers. The Amulet of Tumblers unlocks the Disturbing Door.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;unlock disturbing door with amulet / open door / west / remove amulet / close door / lock disturbing door with amulet / drop amulet / unlock disturbing door with amulet&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "unlock disturbing door with amulet / open door / west / remove amulet / close door / lock disturbing door with amulet / drop amulet / unlock disturbing door with amulet".</summary><div class="testme-output">Daunting Dungeon<br>You can see a Disturbing Door here.<br><br>&gt;(Testing.)<br><br>&gt;[1] unlock disturbing door with amulet<br>You unlock the Disturbing Door.<br><br>&gt;[2] open door<br>You open the Disturbing Door.<br><br>&gt;[3] west<br><br>Fallow Field<br>You can see a Disturbing Door here.<br><br>&gt;[4] remove amulet<br>You take off the Amulet of Tumblers.<br><br>&gt;[5] close door<br>You close the Disturbing Door.<br><br>&gt;[6] lock disturbing door with amulet<br>You lock the Disturbing Door.<br><br>&gt;[7] drop amulet<br>Dropped.<br><br>&gt;[8] unlock disturbing door with amulet<br>(first picking up the amulet)<br>You unlock the Disturbing Door.
 </div></details><p>For a more systematic handling of the keychain problem (and a number of other refinements to the behavior of doors), see the Locksmith extension included with Inform.</p>

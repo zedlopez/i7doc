@@ -18,21 +18,21 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex288">Play/modify Xylan in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Xylan/index.html">Play Xylan in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Xylan&quot;\n\nUnderstand &quot;hydrolyze [something]&quot; as hydrolyzing. Hydrolyzing is an action applying to one thing.\n\nCarry out hydrolyzing:\n\tsay &quot;[The noun] cannot be hydrolyzed.&quot;\n\nInstead of hydrolyzing the xylan:\n\tmove the xylose to the holder of the xylan;\n\tnow the xylan is nowhere;\n\tsay &quot;At once the xylan becomes xylose.&quot;\n\nPlant Cell Wall is a room.\n\nThere is a xylose sample. The xylan sample is a thing in Plant Cell Wall. The description of the xylan is &quot;A polysaccharide. Totally useless. If only you had some xylose, instead!&quot; The description of the xylose is &quot;Awesome!&quot;\n\nTest me with &quot;x xylan / hydrolyze xylan / x xylose&quot;.\n\n\nUnderstand &quot;break down [something] with water&quot; or &quot;break [something] down with water&quot; as hydrolyzing.\n\n\nUnderstand &quot;hydrolyse [something]&quot; as hydrolyzing.\n\n\nInstead of examining the player, say &quot;You&apos;re a drop of water, which means that you can break down certain chemicals!&quot;\n\nUnderstand &quot;break down [something]&quot; or &quot;break [something] down&quot; as hydrolyzing.\n\n\nUnderstand &quot;help&quot; or &quot;hint&quot; or &quot;hints&quot; or &quot;instructions&quot; or &quot;info&quot; or &quot;about&quot; as asking for help. Asking for help is an action out of world. Carry out asking for help: say &quot;The following commands are understood, in addition to the standard ones: EVAPORATE, FREEZE, HYDROLYZE, SUBLIME...&quot;\n\nTest more with &quot;help / x me / break down xylan&quot;`)">⧉</button><div class="codeline storytitle">&quot;Xylan&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Understand &quot;hydrolyze [something]&quot; as hydrolyzing. Hydrolyzing is an action applying to one thing.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Carry out hydrolyzing:</div>
-<div class="codeline">&ensp;&ensp;say &quot;[The noun] cannot be hydrolyzed.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;[The noun] cannot be hydrolyzed.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of hydrolyzing the xylan:</div>
-<div class="codeline">&ensp;&ensp;move the xylose to the holder of the xylan;</div>
-<div class="codeline">&ensp;&ensp;now the xylan is nowhere;</div>
-<div class="codeline">&ensp;&ensp;say &quot;At once the xylan becomes xylose.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;move the xylose to the holder of the xylan;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the xylan is nowhere;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;At once the xylan becomes xylose.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Plant Cell Wall is a room.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">There is a xylose sample. The xylan sample is a thing in Plant Cell Wall. The description of the xylan is &quot;A polysaccharide. Totally useless. If only you had some xylose, instead!&quot; The description of the xylose is &quot;Awesome!&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;x xylan / hydrolyze xylan / x xylose&quot;.</div>
 </div><p>Of course, how our players will ever solve this problem is another question (especially if their biology and chemistry are both rusty). When adding entirely new commands to a game, it is often a good idea to provide as many ways of phrasing the command as possible; to drop hints about the correct phrasing within the game&#39;s text; or even to tell the player about the expanded command list in some documentation or help at the beginning of the game. So for instance we might also add</p>
 <div class="codeblock"><div class="codeline">Understand &quot;break down [something] with water&quot; or &quot;break [something] down with water&quot; as hydrolyzing.</div>
@@ -40,11 +40,11 @@
 <div class="codeblock"><div class="codeline">Understand &quot;hydrolyse [something]&quot; as hydrolyzing.</div>
 </div><p>Then some text in-game might offer a clue, subtle or (since this is an example) blunt:</p>
 <div class="codeblock"><div class="codeline">Instead of examining the player, say &quot;You&#39;re a drop of water, which means that you can break down certain chemicals!&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Understand &quot;break down [something]&quot; or &quot;break [something] down&quot; as hydrolyzing.</div>
 </div><p>And finally, we could try adding instructions explicitly:</p>
 <div class="codeblock"><div class="codeline">Understand &quot;help&quot; or &quot;hint&quot; or &quot;hints&quot; or &quot;instructions&quot; or &quot;info&quot; or &quot;about&quot; as asking for help. Asking for help is an action out of world. Carry out asking for help: say &quot;The following commands are understood, in addition to the standard ones: EVAPORATE, FREEZE, HYDROLYZE, SUBLIME...&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test more with &quot;help / x me / break down xylan&quot;</div>
 </div><details class="testme-output"><summary>Test me with "x xylan / hydrolyze xylan / x xylose".</summary><div class="testme-output">Plant Cell Wall<br>You can see a xylan sample here.<br><br>&gt;(Testing.)<br><br>&gt;[1] x xylan<br>A polysaccharide. Totally useless. If only you had some xylose, instead!<br><br>&gt;[2] hydrolyze xylan<br>At once the xylan becomes xylose.<br><br>&gt;[3] x xylose<br>Awesome!
 </div></details><p>&hellip;though of course in fact these other commands won&#39;t be available until we define them, too.</p>

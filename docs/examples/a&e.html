@@ -18,19 +18,19 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex101">Play/modify A&E in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="VIP/index.html">Play A&E in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;A&E&quot;\n\nWinding Street is a room. Winding Street is west of Duck Pond. Sloping Street is north of Winding Street, northwest of Duck Pond, west of Stately Lawn, and southwest of Stately Home. Stately Lawn is north of Duck Pond. Stately Home is north of Stately Lawn.\n\nFilm Set is a region. Duck Pond, Stately Lawn, and Stately Home are in Film Set.\n\nInstead of going to Film Set when the player does not carry the VIP Pass: say &quot;A burly studio guard materializes in your path, convincing you that you would prefer to be elsewhere.&quot;\n\nThe VIP Pass is in the garbage can. The garbage can is in Sloping Street.\n\nAfter going to the Film Set:\n\tsay &quot;Success! At last you are inside the set of &apos;Prouder and More Prejudiced&apos;. Next step: locating Mr Firth.&quot;;\n\tend the story finally.\n\nTest me with &quot;e / n / e / get pass / e&quot;.`)">⧉</button><div class="codeline storytitle">&quot;A&amp;E&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Winding Street is a room. Winding Street is west of Duck Pond. Sloping Street is north of Winding Street, northwest of Duck Pond, west of Stately Lawn, and southwest of Stately Home. Stately Lawn is north of Duck Pond. Stately Home is north of Stately Lawn.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Film Set is a region. Duck Pond, Stately Lawn, and Stately Home are in Film Set.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of going to Film Set when the player does not carry the VIP Pass: say &quot;A burly studio guard materializes in your path, convincing you that you would prefer to be elsewhere.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The VIP Pass is in the garbage can. The garbage can is in Sloping Street.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">After going to the Film Set:</div>
-<div class="codeline">&ensp;&ensp;say &quot;Success! At last you are inside the set of &#39;Prouder and More Prejudiced&#39;. Next step: locating Mr Firth.&quot;;</div>
-<div class="codeline">&ensp;&ensp;end the story finally.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Success! At last you are inside the set of &#39;Prouder and More Prejudiced&#39;. Next step: locating Mr Firth.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;end the story finally.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;e / n / e / get pass / e&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "e / n / e / get pass / e".</summary><div class="testme-output">Winding Street<br><br>&gt;(Testing.)<br><br>&gt;[1] e<br>A burly studio guard materializes in your path, convincing you that you would prefer to be elsewhere.<br><br>&gt;[2] n<br><br>Sloping Street<br>You can see a garbage can (in which is a VIP Pass) here.<br><br>&gt;[3] e<br>A burly studio guard materializes in your path, convincing you that you would prefer to be elsewhere.<br><br>&gt;[4] get pass<br>Taken.<br><br>&gt;[5] e<br>Success! At last you are inside the set of &quot;Prouder and More Prejudiced&quot;. Next step: locating Mr Firth.<br><br><br><br>    *** The End ***
 </div></details><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="veronica.html" title="An effect that occurs only when the player leaves a region entirely."><div class="nav-arrow">←</div> <div class="doc-navbar-text">100. Veronica</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="bumping_into_walls.html" title="Offering the player a list of valid directions if he tries to go in a direction that leads nowhere."><div class="doc-navbar-text">102. Bumping into Walls</div> <div class="nav-arrow">→</div></a></div></div>

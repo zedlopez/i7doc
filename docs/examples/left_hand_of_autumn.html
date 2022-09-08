@@ -22,88 +22,88 @@
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;The Left Hand of Autumn&quot;\n\nSection 1 - Procedure\n\nUnderstand &quot;examine [things]&quot; or &quot;look at [things]&quot; as multiply-examining. Multiply-examining is an action applying to one thing.\n\nUnderstand &quot;examine [things inside] in/on [something]&quot; or &quot;look at [things inside] in/on [something]&quot; as multiply-examining it from. Multiply-examining it from is an action applying to two things.\n\nGroup-description-complete is a truth state that varies.\n\nCarry out multiply-examining it from:\n\ttry multiply-examining the noun instead.\n\nCheck multiply-examining when group-description-complete is true:\n\tstop the action.\n\nCarry out multiply-examining:\n\tlet L be the list of matched things;\n\tif the number of entries in L is 0, try examining the noun instead;\n\tif the number of entries in L is 1, try examining entry 1 of L instead;\n\tdescribe L;\n\tsay line break;\n\tnow group-description-complete is true.\n\nBefore reading a command:\n\tnow group-description-complete is false.\n\n\nThe silently announce items from multiple object lists rule is listed instead of the announce items from multiple object lists rule in the action-processing rules.\n\nThis is the silently announce items from multiple object lists rule:\n\tunless multiply-examining or multiply-examining something from something:\n\t\tif the current item from the multiple object list is not nothing, say &quot;[current item from the multiple object list]: [run paragraph on]&quot;.\n\nDefinition: a thing is matched if it is listed in the multiple object list.\n\n\nAfter reading a command:\n\trepeat through the Table of Collective Names:\n\t\tlet N be &quot;[the player&apos;s command]&quot;;\n\t\tlet Y be relevant list entry;\n\t\twhile N matches the regular expression &quot;[name-text entry]&quot;:\n\t\t\treplace the regular expression &quot;(.*)[name-text entry](.*)&quot; in N with &quot;\1[Y]\2&quot;;\n\t\tchange the text of the player&apos;s command to N.\n\n\nReport taking something:\n\tsay &quot;You pick up [the noun].&quot; instead.\n\n\nUnderstand &quot;look on [something]&quot; as searching.\n\nInstead of searching something which supports at least two things:\n\tlet L be the list of things supported by the noun;\n\tdescribe L.\nInstead of searching something which contains at least two things:\n\tlet L be the list of things contained by the noun;\n\tdescribe L.\n\nSection 2 - Scenario\n\nEight-Walled Chamber is a room. &quot;A perfectly octagonal room whose walls are tinted in various hues.&quot;\n\nThe display table is a supporter in the Chamber. A twig of rowan wood is on the table.\n\nThe player carries an apple and a pear.\n\nA glove is a kind of thing. A glove is always wearable. Understand &quot;glove&quot; as a glove. The player carries a left glove and a right glove. The left glove and the right glove are gloves.\n\n\nFruit list is a list of objects which varies. Fruit list is { apple, pear }.\nGlove list is a list of objects which varies. Glove list is { right glove, left glove }.\nArcane list is a list of objects which varies. Arcane list is { left glove, twig, pear }.\n\nTo describe (L - a list of objects):\n\tsort L;\n\tif L is fruit list:\n\t\tsay &quot;Just a couple of fruits.&quot;;\n\totherwise if L is glove list:\n\t\tsay &quot;It&apos;s a matched pair of fuzzy blue gloves.&quot;;\n\totherwise if L is arcane list:\n\t\tsay &quot;To anyone else it might look like a random collection of objects, but these three things -- [L with definite articles] -- constitute a mystic key known as the Left Hand of Autumn. They practically hum with power.&quot;;\n\totherwise:\n\t\tsay &quot;You see [L with indefinite articles].&quot;\n\nWhen play begins:\n\tsort fruit list;\n\tsort glove list;\n\tsort the arcane list.\n\n\nTable of Collective Names\nname-text\trelevant list\n&quot;left hand of autumn&quot;\t&quot;[arcane list]&quot;\n&quot;gloves&quot;\t&quot;[glove list]&quot;\n&quot;pair of gloves&quot;\t&quot;[glove list]&quot;\n\nTest me with &quot;x apple and pear / x left and right / put pear on table / put left glove on table / x all on table / put all on table / examine all on table / get apple, twig, pear / x all on table / search table&quot;.`)">⧉</button><div class="codeline">(1) we need to create a version of the EXAMINE command that can apply to multiple objects at once.</div>
 <div class="codeline">(2) we need to correct the way Inform normally deals with multiple-object commands, because we want our group description to print only one time, and we want to avoid stubs such as &quot;pear: ... apple: ...&quot; before or after the group description.</div>
 <div class="codeline">(3) we need to define a way for Inform to identify interesting groups and describe them.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">&quot;The Left Hand of Autumn&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline i7header">Section 1 - Procedure</div><div class="codeline">Understand &quot;examine [things]&quot; or &quot;look at [things]&quot; as multiply-examining. Multiply-examining is an action applying to one thing.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Understand &quot;examine [things inside] in/on [something]&quot; or &quot;look at [things inside] in/on [something]&quot; as multiply-examining it from. Multiply-examining it from is an action applying to two things.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Group-description-complete is a truth state that varies.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Carry out multiply-examining it from:</div>
-<div class="codeline">&ensp;&ensp;try multiply-examining the noun instead.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;try multiply-examining the noun instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Check multiply-examining when group-description-complete is true:</div>
-<div class="codeline">&ensp;&ensp;stop the action.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;stop the action.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Carry out multiply-examining:</div>
-<div class="codeline">&ensp;&ensp;let L be the list of matched things;</div>
-<div class="codeline">&ensp;&ensp;if the number of entries in L is 0, try examining the noun instead;</div>
-<div class="codeline">&ensp;&ensp;if the number of entries in L is 1, try examining entry 1 of L instead;</div>
-<div class="codeline">&ensp;&ensp;describe L;</div>
-<div class="codeline">&ensp;&ensp;say line break;</div>
-<div class="codeline">&ensp;&ensp;now group-description-complete is true.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let L be the list of matched things;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the number of entries in L is 0, try examining the noun instead;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the number of entries in L is 1, try examining entry 1 of L instead;</div>
+<div class="codeline">&ensp;&ensp;&ensp;describe L;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say line break;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now group-description-complete is true.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Before reading a command:</div>
-<div class="codeline">&ensp;&ensp;now group-description-complete is false.</div>
+<div class="codeline">&ensp;&ensp;&ensp;now group-description-complete is false.</div>
 </div><p>Now for step 2, overriding Inform&#39;s usual output of names of objects:</p>
 <div class="codeblock"><div class="codeline">The silently announce items from multiple object lists rule is listed instead of the announce items from multiple object lists rule in the action-processing rules.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">This is the silently announce items from multiple object lists rule:</div>
-<div class="codeline">&ensp;&ensp;unless multiply-examining or multiply-examining something from something:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;if the current item from the multiple object list is not nothing, say &quot;[current item from the multiple object list]: [run paragraph on]&quot;.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;unless multiply-examining or multiply-examining something from something:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the current item from the multiple object list is not nothing, say &quot;[current item from the multiple object list]: [run paragraph on]&quot;.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Definition: a thing is matched if it is listed in the multiple object list.</div>
 </div><p>We&#39;ll save our &quot;to describe&quot; phrase until Section 2, when we can give the game specific instructions about how to report different lists of objects.</p>
 <p>Now, the player might also want to be able to refer to a group of item by some kind of group name, so let&#39;s add the option of creating a Table of Collective Names which will interpret these:</p>
 <div class="codeblock"><div class="codeline">After reading a command:</div>
-<div class="codeline">&ensp;&ensp;repeat through the Table of Collective Names:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;let N be &quot;[the player&#39;s command]&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;let Y be relevant list entry;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;while N matches the regular expression &quot;[name-text entry]&quot;:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;replace the regular expression &quot;(.*)[name-text entry](.*)&quot; in N with &quot;\1[Y]\2&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;change the text of the player&#39;s command to N.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;repeat through the Table of Collective Names:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;let N be &quot;[the player&#39;s command]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;let Y be relevant list entry;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;while N matches the regular expression &quot;[name-text entry]&quot;:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;replace the regular expression &quot;(.*)[name-text entry](.*)&quot; in N with &quot;\1[Y]\2&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;change the text of the player&#39;s command to N.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Report taking something:</div>
-<div class="codeline">&ensp;&ensp;say &quot;You pick up [the noun].&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You pick up [the noun].&quot; instead.</div>
 </div><p>And as a bit of polish, because we&#39;d like SEARCH TABLE to have the same effect as EXAMINE ALL ON TABLE:</p>
 <div class="codeblock"><div class="codeline">Understand &quot;look on [something]&quot; as searching.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of searching something which supports at least two things:</div>
-<div class="codeline">&ensp;&ensp;let L be the list of things supported by the noun;</div>
-<div class="codeline">&ensp;&ensp;describe L.</div>
+<div class="codeline">&ensp;&ensp;&ensp;let L be the list of things supported by the noun;</div>
+<div class="codeline">&ensp;&ensp;&ensp;describe L.</div>
 <div class="codeline">Instead of searching something which contains at least two things:</div>
-<div class="codeline">&ensp;&ensp;let L be the list of things contained by the noun;</div>
-<div class="codeline">&ensp;&ensp;describe L.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let L be the list of things contained by the noun;</div>
+<div class="codeline">&ensp;&ensp;&ensp;describe L.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline i7header">Section 2 - Scenario</div><div class="codeline">Eight-Walled Chamber is a room. &quot;A perfectly octagonal room whose walls are tinted in various hues.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The display table is a supporter in the Chamber. A twig of rowan wood is on the table.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The player carries an apple and a pear.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A glove is a kind of thing. A glove is always wearable. Understand &quot;glove&quot; as a glove. The player carries a left glove and a right glove. The left glove and the right glove are gloves.</div>
 </div><p>Now we define a few actual lists of items:</p>
 <div class="codeblock"><div class="codeline">Fruit list is a list of objects which varies. Fruit list is { apple, pear }.</div>
 <div class="codeline">Glove list is a list of objects which varies. Glove list is { right glove, left glove }.</div>
 <div class="codeline">Arcane list is a list of objects which varies. Arcane list is { left glove, twig, pear }.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">To describe (L - a list of objects):</div>
-<div class="codeline">&ensp;&ensp;sort L;</div>
-<div class="codeline">&ensp;&ensp;if L is fruit list:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;Just a couple of fruits.&quot;;</div>
-<div class="codeline">&ensp;&ensp;otherwise if L is glove list:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;It&#39;s a matched pair of fuzzy blue gloves.&quot;;</div>
-<div class="codeline">&ensp;&ensp;otherwise if L is arcane list:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;To anyone else it might look like a random collection of objects, but these three things -- [L with definite articles] -- constitute a mystic key known as the Left Hand of Autumn. They practically hum with power.&quot;;</div>
-<div class="codeline">&ensp;&ensp;otherwise:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;You see [L with indefinite articles].&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;sort L;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if L is fruit list:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;Just a couple of fruits.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise if L is glove list:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;It&#39;s a matched pair of fuzzy blue gloves.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise if L is arcane list:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;To anyone else it might look like a random collection of objects, but these three things -- [L with definite articles] -- constitute a mystic key known as the Left Hand of Autumn. They practically hum with power.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;You see [L with indefinite articles].&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">When play begins:</div>
-<div class="codeline">&ensp;&ensp;sort fruit list;</div>
-<div class="codeline">&ensp;&ensp;sort glove list;</div>
-<div class="codeline">&ensp;&ensp;sort the arcane list.</div>
+<div class="codeline">&ensp;&ensp;&ensp;sort fruit list;</div>
+<div class="codeline">&ensp;&ensp;&ensp;sort glove list;</div>
+<div class="codeline">&ensp;&ensp;&ensp;sort the arcane list.</div>
 </div><p>We sort the lists so that regardless of how we change the rest of the code (and the order in which objects are coded), the resulting list will always be in sorted order and ready to compare with the list of items the player wants to look at. And thanks to the &quot;Reading a command&quot; code we wrote earlier, we can also teach the game to understand the player&#39;s references to &quot;the left hand of autumn&quot; as a specific collection of items.</p>
 <div class="codeblock"><div class="codeline tablename">Table of Collective Names</div><table>
 <tr><td>name-text</td><td>relevant list</td></tr><tr><td>&quot;left hand of autumn&quot;</td><td>&quot;[arcane list]&quot;</td></tr><tr><td>&quot;gloves&quot;</td><td>&quot;[glove list]&quot;</td></tr><tr><td>&quot;pair of gloves&quot;</td><td>&quot;[glove list]&quot;</td></tr></table>

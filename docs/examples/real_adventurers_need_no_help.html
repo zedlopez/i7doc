@@ -18,27 +18,27 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex54">Play/modify Real Adventurers Need No Help in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="HintsOff/index.html">Play Real Adventurers Need No Help in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Real Adventurers Need No Help&quot;\n\nA permission is a kind of value. The permissions are allowed and denied.\n\nHint usage is a permission that varies. Hint usage is allowed.\n\n\nCheck asking for help for the first time:\n\tsay &quot;Sometimes the temptation to rely on hints becomes overwhelming, and you may prefer to turn off hints now. If you do so, your further requests for guidance will be unavailing. Turn off hints? >&quot;;\n\tif player consents:\n\t\tnow hint usage is denied;\n\t\tsay &quot;[line break]Truly, a real adventurer does not need hints.&quot; instead.\n\n\nCheck asking for help:\n\tif hint usage is denied, say &quot;You have chosen to eschew hints in this game. Be strong! Persevere!&quot; instead.\n\nAsking for help is an action out of world. Understand &quot;help&quot; or &quot;hint&quot; or &quot;hints&quot; as asking for help.\n\nThe Realm of Terribly Unjust Puzzles is a room.\n\nCarry out asking for help:\n\tsay &quot;Fine, since you&apos;re weak enough to ask: here is a complete walkthrough: GET EGG. PEEL EGG. SMELL EGG. DIVIDE YOLK INTO THREE PORTIONS. GIVE THE SMALLEST PORTION OF YOLK TO THE GOLDEN GOOSE. ASK THE GOOSE ABOUT WHETHER THE SWAN IS TO BE TRUSTED. GIVE THE LARGEST PORTION OF YOLK TO THE SWAN. DANCE CONGA. EAT MEDIUM PORTION. STAND ON HEAD. WEST.&quot;\n\nTest me with &quot;hint&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Real Adventurers Need No Help&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A permission is a kind of value. The permissions are allowed and denied.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Hint usage is a permission that varies. Hint usage is allowed.</div>
 </div><p>And under the right circumstances, we change hint usage to denied:</p>
 <div class="codeblock"><div class="codeline">Check asking for help for the first time:</div>
-<div class="codeline">&ensp;&ensp;say &quot;Sometimes the temptation to rely on hints becomes overwhelming, and you may prefer to turn off hints now. If you do so, your further requests for guidance will be unavailing. Turn off hints? &gt;&quot;;</div>
-<div class="codeline">&ensp;&ensp;if player consents:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;now hint usage is denied;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;[line break]Truly, a real adventurer does not need hints.&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Sometimes the temptation to rely on hints becomes overwhelming, and you may prefer to turn off hints now. If you do so, your further requests for guidance will be unavailing. Turn off hints? &gt;&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if player consents:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now hint usage is denied;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[line break]Truly, a real adventurer does not need hints.&quot; instead.</div>
 </div><p>Then we can refer back to this value later to decide whether we want to display the hint menu or not:</p>
 <div class="codeblock"><div class="codeline">Check asking for help:</div>
-<div class="codeline">&ensp;&ensp;if hint usage is denied, say &quot;You have chosen to eschew hints in this game. Be strong! Persevere!&quot; instead.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if hint usage is denied, say &quot;You have chosen to eschew hints in this game. Be strong! Persevere!&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Asking for help is an action out of world. Understand &quot;help&quot; or &quot;hint&quot; or &quot;hints&quot; as asking for help.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Realm of Terribly Unjust Puzzles is a room.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Carry out asking for help:</div>
-<div class="codeline">&ensp;&ensp;say &quot;Fine, since you&#39;re weak enough to ask: here is a complete walkthrough: GET EGG. PEEL EGG. SMELL EGG. DIVIDE YOLK INTO THREE PORTIONS. GIVE THE SMALLEST PORTION OF YOLK TO THE GOLDEN GOOSE. ASK THE GOOSE ABOUT WHETHER THE SWAN IS TO BE TRUSTED. GIVE THE LARGEST PORTION OF YOLK TO THE SWAN. DANCE CONGA. EAT MEDIUM PORTION. STAND ON HEAD. WEST.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Fine, since you&#39;re weak enough to ask: here is a complete walkthrough: GET EGG. PEEL EGG. SMELL EGG. DIVIDE YOLK INTO THREE PORTIONS. GIVE THE SMALLEST PORTION OF YOLK TO THE GOLDEN GOOSE. ASK THE GOOSE ABOUT WHETHER THE SWAN IS TO BE TRUSTED. GIVE THE LARGEST PORTION OF YOLK TO THE SWAN. DANCE CONGA. EAT MEDIUM PORTION. STAND ON HEAD. WEST.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;hint&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "hint".</summary><div class="testme-output">Realm of Terribly Unjust Puzzles<br><br>&gt;(Testing.)<br><br>&gt;[1] hint<br>Sometimes the temptation to rely on hints becomes overwhelming, and you may prefer to turn off hints now. If you do so, your further requests for guidance will be unavailing. Turn off hints? &gt;<br>Fine, since you&#39;re weak enough to ask: here is a complete walkthrough: GET EGG. PEEL EGG. SMELL EGG. DIVIDE YOLK INTO THREE PORTIONS. GIVE THE SMALLEST PORTION OF YOLK TO THE GOLDEN GOOSE. ASK THE GOOSE ABOUT WHETHER THE SWAN IS TO BE TRUSTED. GIVE THE LARGEST PORTION OF YOLK TO THE SWAN. DANCE CONGA. EAT MEDIUM PORTION. STAND ON HEAD. WEST.
 </div></details><p>Note that it would probably be kinder to offer the player some intermediate level of help, in the actual event.</p>

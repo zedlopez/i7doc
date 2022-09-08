@@ -18,40 +18,40 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex237">Play/modify A Humble Wayside Flower in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Blakeney/index.html">Play A Humble Wayside Flower in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;A Humble Wayside Flower&quot;\n\nMarriage relates one person to another (called the spouse). The verb to be married to means the marriage relation.\n\nFatherhood relates one person (called father) to various people. The verb to engender means the fatherhood relation.\n\n\nSiblinghood relates a person (called A) to a person (called B) when a person who engenders A engenders B. The verb to be sibling to means the siblinghood relation.\n\nFamily relates a person (called A) to a person (called B) when A is married to B or A engenders B or B engenders A or A is sibling to B. The verb to be related to means the family relation.\n\nA person can be known or unknown. After printing the name of an unknown person (called the alien):\n\tif a known person (called the contact) is related to the alien:\n\t\tsay &quot; ([relation between alien and contact] of [the contact])&quot;;\n\t\tnow the alien is known;\n\t\trule succeeds.\n\nTo say relation between (first party - a person) and (second party - a person):\n\tif the first party is married to the second party:\n\t\tif the first party is female, say &quot;wife&quot;;\n\t\totherwise say &quot;husband&quot;;\n\t\trule succeeds;\n\tif the first party is sibling to the second party:\n\t\tif the first party is female, say &quot;sister&quot;;\n\t\totherwise say &quot;brother&quot;;\n\t\trule succeeds;\n\tif the first party engenders the second party:\n\t\tsay &quot;father&quot;;\n\t\trule succeeds;\n\tif the second party is the father of the first party:\n\t\tif the first party is female, say &quot;daughter&quot;;\n\t\totherwise say &quot;son&quot;;\n\t\trule succeeds.\n\nPere Blanchard&apos;s Hut is a room. Percival Blakeney is a known man in the Hut. Marguerite is a woman in the Hut. Percival is married to Marguerite. Outside from the Hut is the Garden. Louise is a woman in the Garden. The Road to Paris is west of the Garden. Armand St Just is a man in the Road. Louise is married to Armand. Monsieur St Just is a man. He engenders Armand and Marguerite.\n\nTest me with &quot;out / west / east / west&quot;.`)">⧉</button><div class="codeline storytitle">&quot;A Humble Wayside Flower&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Marriage relates one person to another (called the spouse). The verb to be married to means the marriage relation.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Fatherhood relates one person (called father) to various people. The verb to engender means the fatherhood relation.</div>
 </div><p>For brevity, we will ignore the existence of mothers. It is a sad world.</p>
 <div class="codeblock"><div class="codeline">Siblinghood relates a person (called A) to a person (called B) when a person who engenders A engenders B. The verb to be sibling to means the siblinghood relation.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Family relates a person (called A) to a person (called B) when A is married to B or A engenders B or B engenders A or A is sibling to B. The verb to be related to means the family relation.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A person can be known or unknown. After printing the name of an unknown person (called the alien):</div>
-<div class="codeline">&ensp;&ensp;if a known person (called the contact) is related to the alien:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot; ([relation between alien and contact] of [the contact])&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;now the alien is known;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;rule succeeds.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if a known person (called the contact) is related to the alien:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot; ([relation between alien and contact] of [the contact])&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the alien is known;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;rule succeeds.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">To say relation between (first party - a person) and (second party - a person):</div>
-<div class="codeline">&ensp;&ensp;if the first party is married to the second party:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;if the first party is female, say &quot;wife&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;otherwise say &quot;husband&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;rule succeeds;</div>
-<div class="codeline">&ensp;&ensp;if the first party is sibling to the second party:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;if the first party is female, say &quot;sister&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;otherwise say &quot;brother&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;rule succeeds;</div>
-<div class="codeline">&ensp;&ensp;if the first party engenders the second party:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;father&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;rule succeeds;</div>
-<div class="codeline">&ensp;&ensp;if the second party is the father of the first party:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;if the first party is female, say &quot;daughter&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;otherwise say &quot;son&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;rule succeeds.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the first party is married to the second party:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the first party is female, say &quot;wife&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;otherwise say &quot;husband&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;rule succeeds;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the first party is sibling to the second party:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the first party is female, say &quot;sister&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;otherwise say &quot;brother&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;rule succeeds;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the first party engenders the second party:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;father&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;rule succeeds;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the second party is the father of the first party:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the first party is female, say &quot;daughter&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;otherwise say &quot;son&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;rule succeeds.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Pere Blanchard&#39;s Hut is a room. Percival Blakeney is a known man in the Hut. Marguerite is a woman in the Hut. Percival is married to Marguerite. Outside from the Hut is the Garden. Louise is a woman in the Garden. The Road to Paris is west of the Garden. Armand St Just is a man in the Road. Louise is married to Armand. Monsieur St Just is a man. He engenders Armand and Marguerite.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;out / west / east / west&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "out / west / east / west".</summary><div class="testme-output">Pere Blanchard&#39;s Hut<br>You can see Percival Blakeney and Marguerite (wife of Percival Blakeney) here.<br><br>&gt;(Testing.)<br><br>&gt;[1] out<br><br>Garden<br>You can see Louise here.<br><br>&gt;[2] west<br><br>Road to Paris<br>You can see Armand St Just (brother of Marguerite) here.<br><br>&gt;[3] east<br><br>Garden<br>You can see Louise (wife of Armand St Just) here.<br><br>&gt;[4] west<br><br>Road to Paris<br>You can see Armand St Just here.
 </div></details><p>Monsieur St Just never appears on the scene in this piece, but if we did put him somewhere the player could find him, he, too, would be properly introduced.</p>

@@ -18,28 +18,28 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex68">Play/modify Beekeeper's Apprentice in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Search/index.html">Play Beekeeper's Apprentice in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Beekeeper&apos;s Apprentice&quot;\n\nStudying the vicinity is an action applying to nothing.\n\nReport studying the vicinity:\n\tif the location does not contain something which is scenery:\n\t\tsay &quot;There&apos;s little of interest in the [location].&quot; instead;\n\trepeat with point of interest running through scenery in the location:\n\t\tsay &quot;[point of interest]: [run paragraph on]&quot;;\n\t\ttry examining the point of interest.\n\nUnderstand &quot;search&quot; as studying the vicinity.\n\nThe Yard is a room.\n\nThe hive and the honey are scenery things in the Yard. The description of the hive is &quot;The honeycombed hive is all around you, thrumming with life.&quot; The description of the honey is &quot;Wax-sealed honey has been cached in many of the hexagonal nurseries.&quot;\n\nTest me with &quot;search&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Beekeeper&#39;s Apprentice&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Studying the vicinity is an action applying to nothing.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Report studying the vicinity:</div>
-<div class="codeline">&ensp;&ensp;if the location does not contain something which is scenery:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;There&#39;s little of interest in the [location].&quot; instead;</div>
-<div class="codeline">&ensp;&ensp;repeat with point of interest running through scenery in the location:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;[point of interest]: [run paragraph on]&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;try examining the point of interest.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the location does not contain something which is scenery:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;There&#39;s little of interest in the [location].&quot; instead;</div>
+<div class="codeline">&ensp;&ensp;&ensp;repeat with point of interest running through scenery in the location:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[point of interest]: [run paragraph on]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;try examining the point of interest.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Understand &quot;search&quot; as studying the vicinity.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Yard is a room.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The hive and the honey are scenery things in the Yard. The description of the hive is &quot;The honeycombed hive is all around you, thrumming with life.&quot; The description of the honey is &quot;Wax-sealed honey has been cached in many of the hexagonal nurseries.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;search&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "search".</summary><div class="testme-output">Yard<br><br>&gt;(Testing.)<br><br>&gt;[1] search<br>hive: The honeycombed hive is all around you, thrumming with life.<br><br>honey: Wax-sealed honey has been cached in many of the hexagonal nurseries.
 </div></details><p>The reason for this example is to show the use of saying &quot;[run paragraph on]&quot;. It means we have output such as:</p>
 <div class="codeblock"><div class="codeline">&gt;search</div>
 <div class="codeline">hive: The honeycombed hive is all around you, thrumming with life.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">honey: Wax-sealed honey has been cached in many of the hexagonal nurseries.</div>
 </div><p>Without the running on, the prompts &quot;hive:&quot; and &quot;honey:&quot; would be separated from the descriptions following them, which would look a little odd.</p>
 <div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="camp_bethel.html" title="Creating characters who change their behavior from turn to turn, and a survey of other common uses for alternative texts."><div class="nav-arrow">←</div> <div class="doc-navbar-text">67. Camp Bethel</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="garibaldi2.html" title="Adding coloured text to the example of door-status readouts."><div class="doc-navbar-text">69. Garibaldi 2</div> <div class="nav-arrow">→</div></a></div></div>

@@ -18,21 +18,21 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex363a">Play/modify Peeled in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Grapes_1/index.html">Play Peeled in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Peeled&quot;\n\nA thing can be large or small.\n\nBefore touching a large thing when in darkness: say &quot;You grope for [the noun]...&quot;\n\nAfter deciding the scope of the player:\n\trepeat with item running through large things in the location:\n\t\tplace item in scope.\n\nSome generic surroundings are backdrop. They are everywhere. Understand &quot;walls&quot; or &quot;wall&quot; or &quot;ceiling&quot; or &quot;ground&quot; or &quot;floor&quot; or &quot;area&quot; or &quot;room&quot; or &quot;here&quot; as the generic surroundings. Instead of touching the generic surroundings: say &quot;You encounter nothing extraordinary.&quot; Instead of touching the generic surroundings when in darkness: say &quot;You try feeling your way around and reach [a list of large things in the location].&quot; After deciding the scope of the player when in darkness: place the surroundings in scope.\n\nThe Room of Mystery is a dark room. The bearskin rug is a large thing in the Room of Mystery. Instead of touching the rug: say &quot;It feels furry!&quot;\n\nThe peeled grape is a small thing in the Room of Mystery. Instead of touching the peeled grape: say &quot;Gosh, is that an eyeball?&quot;\n\nTest me with &quot;feel floor / feel rug / eat rug / examine rug / get grape&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Peeled&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A thing can be large or small.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Before touching a large thing when in darkness: say &quot;You grope for [the noun]...&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">After deciding the scope of the player:</div>
-<div class="codeline">&ensp;&ensp;repeat with item running through large things in the location:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;place item in scope.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;repeat with item running through large things in the location:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;place item in scope.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Some generic surroundings are backdrop. They are everywhere. Understand &quot;walls&quot; or &quot;wall&quot; or &quot;ceiling&quot; or &quot;ground&quot; or &quot;floor&quot; or &quot;area&quot; or &quot;room&quot; or &quot;here&quot; as the generic surroundings. Instead of touching the generic surroundings: say &quot;You encounter nothing extraordinary.&quot; Instead of touching the generic surroundings when in darkness: say &quot;You try feeling your way around and reach [a list of large things in the location].&quot; After deciding the scope of the player when in darkness: place the surroundings in scope.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Room of Mystery is a dark room. The bearskin rug is a large thing in the Room of Mystery. Instead of touching the rug: say &quot;It feels furry!&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The peeled grape is a small thing in the Room of Mystery. Instead of touching the peeled grape: say &quot;Gosh, is that an eyeball?&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;feel floor / feel rug / eat rug / examine rug / get grape&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "feel floor / feel rug / eat rug / examine rug / get grape".</summary><div class="testme-output">Darkness<br>It is pitch dark, and you can&#39;t see a thing.<br><br>&gt;(Testing.)<br><br>&gt;[1] feel floor<br>You try feeling your way around and reach a bearskin rug.<br><br>&gt;[2] feel rug<br>You grope for the bearskin rug...<br><br>It feels furry!<br><br>&gt;[3] eat rug<br>That&#39;s plainly inedible.<br><br>&gt;[4] examine rug<br>It is pitch dark, and you can&#39;t see a thing.<br><br>&gt;[5] get grape<br>You can&#39;t see any such thing.
 </div></details><p>Sadly, because the grape is small, the player will never encounter this horror.</p>
@@ -41,14 +41,14 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex363b">Play/modify Peeled in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Grapes_2/index.html">Play Peeled in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Peeled&quot;\n\nMr Steed&apos;s Flat is a room.\n\nUnderstand &quot;ask about [any subject]&quot; as inquiring about. A subject is a kind of thing. The skintight catsuit is a subject. Inquiring about is an action applying to one visible thing.\n\nCarry out inquiring about something:\n\tsay &quot;&apos;What can you tell me about [the noun]?&apos; you demand. Mr Steed raises his eyebrows, but does not reply.&quot;\n\nTest me with &quot;ask about catsuit / x catsuit&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Peeled&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Mr Steed&#39;s Flat is a room.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Understand &quot;ask about [any subject]&quot; as inquiring about. A subject is a kind of thing. The skintight catsuit is a subject. Inquiring about is an action applying to one visible thing.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Carry out inquiring about something:</div>
-<div class="codeline">&ensp;&ensp;say &quot;&#39;What can you tell me about [the noun]?&#39; you demand. Mr Steed raises his eyebrows, but does not reply.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;&#39;What can you tell me about [the noun]?&#39; you demand. Mr Steed raises his eyebrows, but does not reply.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;ask about catsuit / x catsuit&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "ask about catsuit / x catsuit".</summary><div class="testme-output">Mr Steed&#39;s Flat<br><br>&gt;(Testing.)<br><br>&gt;[1] ask about catsuit<br>&quot;What can you tell me about the skintight catsuit?&quot; you demand. Mr Steed raises his eyebrows, but does not reply.<br><br>&gt;[2] x catsuit<br>You can&#39;t see any such thing.
 </div></details><p>All this said, there do arise certain complex situations when we want an activity-specific scoping.</p>

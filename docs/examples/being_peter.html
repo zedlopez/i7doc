@@ -19,34 +19,34 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex404">Play/modify Being Peter in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Peter/index.html">Play Being Peter in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Being Peter&quot;\n\nThe Drawing Room is a room. &quot;The company is assembled here for champagne. Most of it, anyway: Mary is on the phone to her babysitter, Roger is keeping her anxious company, and Carol doesn&apos;t drink. But everyone else.&quot;\n\nMaggie is a woman in the Drawing Room.\n\nThe player wears a top hat.\n\nQuizzing it about is an action applying to one thing and one visible thing. Understand &quot;ask [someone] about [any thing]&quot; as quizzing it about.\n\nInstead of quizzing Maggie about something:\n\tfollow the attitude rules;\n\tsay &quot;Everyone waits to see what the reaction will be: [outcome of the rulebook].&quot;;\n\tif rule succeeded, say &quot;There is general relief.&quot;;\n\totherwise say &quot;Everyone is pointedly silent.&quot;\n\nThe attitude rules are a rulebook. The attitude rules have outcomes she stays calm (no outcome - default), she gets angry (failure), she has a stroke (failure), she is only mildly annoyed (success), and she is elated (success).\n\n\nA subject is a kind of thing. income, love life, and children are subjects.\n\nAn attitude rule for quizzing Maggie about love life:\n\tshe gets angry.\n\nAn attitude rule:\n\tif the player wears the top hat, she gets angry.\n\n\nThe last attitude rule:\n\tshe is only mildly annoyed.\n\nTest me with &quot;ask maggie about love / ask maggie about income / take off hat / ask maggie about income&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Being Peter&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Drawing Room is a room. &quot;The company is assembled here for champagne. Most of it, anyway: Mary is on the phone to her babysitter, Roger is keeping her anxious company, and Carol doesn&#39;t drink. But everyone else.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Maggie is a woman in the Drawing Room.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The player wears a top hat.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Quizzing it about is an action applying to one thing and one visible thing. Understand &quot;ask [someone] about [any thing]&quot; as quizzing it about.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of quizzing Maggie about something:</div>
-<div class="codeline">&ensp;&ensp;follow the attitude rules;</div>
-<div class="codeline">&ensp;&ensp;say &quot;Everyone waits to see what the reaction will be: [outcome of the rulebook].&quot;;</div>
-<div class="codeline">&ensp;&ensp;if rule succeeded, say &quot;There is general relief.&quot;;</div>
-<div class="codeline">&ensp;&ensp;otherwise say &quot;Everyone is pointedly silent.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;follow the attitude rules;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Everyone waits to see what the reaction will be: [outcome of the rulebook].&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if rule succeeded, say &quot;There is general relief.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise say &quot;Everyone is pointedly silent.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The attitude rules are a rulebook. The attitude rules have outcomes she stays calm (no outcome - default), she gets angry (failure), she has a stroke (failure), she is only mildly annoyed (success), and she is elated (success).</div>
 </div><p>Here we want Inform to consult every appropriate attitude rule until it gets to some answer; if an attitude rule does not provide a result, the default &#39;no outcome&#39; will mean that we go on to the next rule, and so on.</p>
 <div class="codeblock"><div class="codeline">A subject is a kind of thing. income, love life, and children are subjects.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">An attitude rule for quizzing Maggie about love life:</div>
-<div class="codeline">&ensp;&ensp;she gets angry.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;she gets angry.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">An attitude rule:</div>
-<div class="codeline">&ensp;&ensp;if the player wears the top hat, she gets angry.</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the player wears the top hat, she gets angry.</div>
 </div><p>Now, as we saw, the &#39;no outcome&#39; result will never be returned and printed as Maggie&#39;s reaction, precisely because it is &quot;no outcome&quot;. Therefore, we provide a final attitude rule which will give her a default response to all statements:</p>
 <div class="codeblock"><div class="codeline">The last attitude rule:</div>
-<div class="codeline">&ensp;&ensp;she is only mildly annoyed.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;she is only mildly annoyed.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;ask maggie about love / ask maggie about income / take off hat / ask maggie about income&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "ask maggie about love / ask maggie about income / take off hat / ask maggie about income".</summary><div class="testme-output">Drawing Room<br>The company is assembled here for champagne. Most of it, anyway: Mary is on the phone to her babysitter, Roger is keeping her anxious company, and Carol doesn&#39;t drink. But everyone else.<br><br>You can see Maggie here.<br><br>&gt;(Testing.)<br><br>&gt;[1] ask maggie about love<br>Everyone waits to see what the reaction will be: she gets angry.<br>Everyone is pointedly silent.<br><br>&gt;[2] ask maggie about income<br>Everyone waits to see what the reaction will be: she gets angry.<br>Everyone is pointedly silent.<br><br>&gt;[3] take off hat<br>You take off the top hat.<br><br>&gt;[4] ask maggie about income<br>Everyone waits to see what the reaction will be: she is only mildly annoyed.<br>There is general relief.
 </div></details><p>There are plenty of contexts where we might want named outcomes for clarity but not want to print the results literally afterward.</p>

@@ -21,46 +21,46 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex337">Play/modify Crusoe in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Crusoe/index.html">Play Crusoe in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Crusoe&quot;\n\nSection 1 - Creating our New Activity\n\nThe fancy examining rule is listed instead of the standard examining rule in the carry out examining rules.\n\n\nPrinting the description of something is an activity.\n\nThis is the fancy examining rule:\n\tcarry out the printing the description activity with the noun;\n\trule succeeds.\n\n\nRule for printing the description of something (called item):\n\tif the description of the item is not &quot;&quot;:\n\t\tsay &quot;[description of item] [run paragraph on]&quot;;\n\totherwise:\n\t\tsay &quot;You see nothing special about [the item]. [run paragraph on]&quot;.\n\n\nAfter printing the description of something charred:\n\tsay &quot;It is charred.&quot; instead.\n\n\nLast after printing the description of something:\n\tsay paragraph break.\n\nSection 2 - The Scenario\n\nThe Desert Isle is a room. &quot;A pale expanse of sand, here and there developing into hillocks of grass, and a small clump of palms. The water is shallow here, and there are other islands within swimming distance -- or even wading distance, perhaps -- but none of them is any larger than your island, so it doesn&apos;t seem worth the trouble of visiting.\n\nA few hundred feet out, the water turns darker blue, the sea floor drops away, and there is nothing to be seen all the way down to the horizon, except a couple of fluffy clouds, and an occasional bird.\n\nThe remains of your fire smolder in the stone-lined pit.&quot;\n\nA thing can be charred or whole. A thing is usually whole. Instead of burning something: say &quot;You hold [the noun] to the fire until it flares and chars.&quot;; now the noun is charred.\n\nThe player carries a stick. The description of the stick is &quot;A strip of palm from the woodiest part of the leaf, about a foot and a half long.&quot;\n\nThe player carries a glass bottle and a piece of paper. The description of the paper is &quot;A single blank sheet.&quot; In the glass bottle is a grain of sand. The glass bottle is openable and open. Instead of burning the glass bottle: say &quot;You hold the bottle to the flame, but it grows uncomfortably warm.&quot;\n\nInstead of burning the grain of sand: say &quot;You drop the grain into the fire pit, where it becomes indistinguishable from all the others.&quot;; now the grain of sand is nowhere. Instead of dropping the grain of sand: now the grain of sand is nowhere; say &quot;You return the grain of sand to its brethren.&quot;\n\n\nInstead of examining the player:\n\tsay &quot;You are sunburned and there is sand in cracks you didn&apos;t know existed.&quot;\n\nTest me with &quot;i / x stick / x bottle / x sand / x paper / x me / burn stick / x stick / burn paper / x paper&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Crusoe&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline i7header">Section 1 - Creating our New Activity</div><div class="codeline">The fancy examining rule is listed instead of the standard examining rule in the carry out examining rules.</div>
 </div><p>This instruction replaces a normal piece of the examine action, the standard examining rule, with another one of our own devising. (The replacement of the standard examining rule will be explained in more detail in the <a href="WI_19.html">chapter on rulebooks</a>.)</p>
 <div class="codeblock"><div class="codeline">Printing the description of something is an activity.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">This is the fancy examining rule:</div>
-<div class="codeline">&ensp;&ensp;carry out the printing the description activity with the noun;</div>
-<div class="codeline">&ensp;&ensp;rule succeeds.</div>
+<div class="codeline">&ensp;&ensp;&ensp;carry out the printing the description activity with the noun;</div>
+<div class="codeline">&ensp;&ensp;&ensp;rule succeeds.</div>
 </div><p>All we have done here is enclose what is usually just a rule inside an activity. This means that we can now write before and after rules for the activity, and also add special instructions like &quot;Rule for printing the name of something while printing the description of something&quot; -- this may not be likely to arise often, but Inform now has the concept of &quot;printing the description of something&quot; as a separate context of action. Next we add the modification that lets us append to the description without a new line:</p>
 <div class="codeblock"><div class="codeline">Rule for printing the description of something (called item):</div>
-<div class="codeline">&ensp;&ensp;if the description of the item is not &quot;&quot;:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;[description of item] [run paragraph on]&quot;;</div>
-<div class="codeline">&ensp;&ensp;otherwise:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;You see nothing special about [the item]. [run paragraph on]&quot;.</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the description of the item is not &quot;&quot;:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[description of item] [run paragraph on]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;You see nothing special about [the item]. [run paragraph on]&quot;.</div>
 </div><p>&quot;run paragraph on&quot; here will mean that we do not get a paragraph break following the description, even if it ends with a period. We also insert a space, so that our follow-on comments will be properly punctuated.</p>
 <div class="codeblock"><div class="codeline">After printing the description of something charred:</div>
-<div class="codeline">&ensp;&ensp;say &quot;It is charred.&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;It is charred.&quot; instead.</div>
 </div><p>The instead at the end of this line stops Inform for going on with any other &quot;after printing the description of&hellip;&quot; rules.</p>
 <p>The standard library also has rules for printing additional text about containers and supporters with visible contents, and devices that are switched on; with this current system, we could add those as &quot;after printing the description&quot; rules as well, building up a complete paragraph if we wanted. But for simplicity we won&#39;t exemplify all of that here. The effects would be much the same as with the &quot;charred&quot; line.</p>
 <p>Now, because we want to make sure that we always do get a paragraph break after our description, we add this rule last after all the other rules. &quot;Last&quot; and &quot;first&quot; rules are covered in more detail in the <a href="WI_19.html">chapter on rulebooks</a>.</p>
 <div class="codeblock"><div class="codeline">Last after printing the description of something:</div>
-<div class="codeline">&ensp;&ensp;say paragraph break.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say paragraph break.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline i7header">Section 2 - The Scenario</div><div class="codeline">The Desert Isle is a room. &quot;A pale expanse of sand, here and there developing into hillocks of grass, and a small clump of palms. The water is shallow here, and there are other islands within swimming distance -- or even wading distance, perhaps -- but none of them is any larger than your island, so it doesn&#39;t seem worth the trouble of visiting.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A few hundred feet out, the water turns darker blue, the sea floor drops away, and there is nothing to be seen all the way down to the horizon, except a couple of fluffy clouds, and an occasional bird.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The remains of your fire smolder in the stone-lined pit.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A thing can be charred or whole. A thing is usually whole. Instead of burning something: say &quot;You hold [the noun] to the fire until it flares and chars.&quot;; now the noun is charred.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The player carries a stick. The description of the stick is &quot;A strip of palm from the woodiest part of the leaf, about a foot and a half long.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The player carries a glass bottle and a piece of paper. The description of the paper is &quot;A single blank sheet.&quot; In the glass bottle is a grain of sand. The glass bottle is openable and open. Instead of burning the glass bottle: say &quot;You hold the bottle to the flame, but it grows uncomfortably warm.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of burning the grain of sand: say &quot;You drop the grain into the fire pit, where it becomes indistinguishable from all the others.&quot;; now the grain of sand is nowhere. Instead of dropping the grain of sand: now the grain of sand is nowhere; say &quot;You return the grain of sand to its brethren.&quot;</div>
 </div><p>The player&#39;s description is handled in an unusual way, and this will produce a space paragraph break there where it should not. Instead, therefore, we will add an instead for examining the player (probably a good idea anyway):</p>
 <div class="codeblock"><div class="codeline">Instead of examining the player:</div>
-<div class="codeline">&ensp;&ensp;say &quot;You are sunburned and there is sand in cracks you didn&#39;t know existed.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You are sunburned and there is sand in cracks you didn&#39;t know existed.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;i / x stick / x bottle / x sand / x paper / x me / burn stick / x stick / burn paper / x paper&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "i / x stick / x bottle / x sand / x paper / x me / burn stick / x stick / burn paper / x paper".</summary><div class="testme-output">Desert Isle<br>A pale expanse of sand, here and there developing into hillocks of grass, and a small clump of palms. The water is shallow here, and there are other islands within swimming distance -- or even wading distance, perhaps -- but none of them is any larger than your island, so it doesn&#39;t seem worth the trouble of visiting.<br><br>A few hundred feet out, the water turns darker blue, the sea floor drops away, and there is nothing to be seen all the way down to the horizon, except a couple of fluffy clouds, and an occasional bird.<br><br>The remains of your fire smolder in the stone-lined pit.<br><br>&gt;(Testing.)<br><br>&gt;[1] i<br>You are carrying:<br>  a stick<br>  a glass bottle (open)<br>    a grain of sand<br>  a piece of paper<br><br>&gt;[2] x stick<br>A strip of palm from the woodiest part of the leaf, about a foot and a half long.<br><br>&gt;[3] x bottle<br>You see nothing special about the glass bottle.<br><br>&gt;[4] x sand<br>You see nothing special about the grain of sand.<br><br>&gt;[5] x paper<br>A single blank sheet.<br><br>&gt;[6] x me<br>You are sunburned and there is sand in cracks you didn&#39;t know existed.<br><br>&gt;[7] burn stick<br>You hold the stick to the fire until it flares and chars.<br><br>&gt;[8] x stick<br>A strip of palm from the woodiest part of the leaf, about a foot and a half long. It is charred.<br><br>&gt;[9] burn paper<br>You hold the piece of paper to the fire until it flares and chars.<br><br>&gt;[10] x paper<br>A single blank sheet. It is charred.
 </div></details><p>The &quot;printing a description&quot; activity may be useful for other games, and can be imported just by lifting section 1.</p>

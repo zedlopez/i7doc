@@ -18,43 +18,43 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex279">Play/modify The Queen of Sheba in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Queen/index.html">Play The Queen of Sheba in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;The Queen of Sheba&quot;\n\nInterrogative is a kind of value. The interrogatives are who, what, when, where, how, and why.\n\nCurrent question is an interrogative that varies.\n\nAfter asking someone about something: respond to the question. After answering someone that something: respond to the question.\n\nAfter telling someone about something: say &quot;You&apos;re here to ask questions and test Solomon&apos;s wisdom, not to give him a sample of your own.&quot;\n\nTable of Wise Answers\ntopic\tquestion type\treply\n&quot;rain/weather/clouds/cloud/rains&quot;\twhat\t&quot;&apos;Clouds are a disturbance made by the paths of birds,&apos; Solomon replies. &apos;The air beaten by their wings becomes agitated, as when a river is stirred and the mud churns up.&apos;&quot;\n&quot;rain/weather/clouds/cloud/rains&quot;\twhere\t&quot;&apos;Weather is contained in a great silk bag which holds in the heavens,&apos; replies Solomon.&quot;\n&quot;hunger/food/eating&quot;\twhen\t&quot;&apos;Sorry, are you getting hungry?&apos; he says, and rings a bell to summon servants.&quot;\n&quot;hunger/food/eating&quot;\twhy\t&quot;&apos;Men were made to need food in order that they must farm and cook and dine together,&apos; Solomon replies. &apos;Otherwise, they might live apart, each sufficient in himself. But no man can feed himself alone all through his life.&apos;&quot;\n&quot;Solomon/he/himself&quot;\twho\t&quot;&apos;As you see,&apos; he says, holding out his arms to each side.&quot;\n&quot;Solomon/he/himself&quot;\twhat\t&quot;&apos;I am an ordinary man,&apos; he answers.&quot;\n\n\nTest me with &quot;ask solomon about himself / ask solomon what rain is / ask solomon about himself&quot;.\n\n\nThe Hall of Almug Tree Pillars is a room. &quot;The pillars of the room are made of almug tree, the ceiling made of silk and the floor of glass.&quot; Solomon is a man in the Hall of Almug Tree Pillars. Solomon has a number called wisdom. The wisdom of Solomon is 0.\n\nEvery turn:\n\tif the wisdom of Solomon is 3:\n\t\tsay &quot;Truly, Solomon has answered all your questions, and his wisdom is even as great as you had heard!&quot;;\n\t\tend the story saying &quot;Your heart beats strangely fast&quot;.\n\nWhen play begins, say &quot;&apos;Oh, you&apos;ve arrived,&apos; says Solomon.&quot;\n\n\nAfter reading a command:\n\tif the player&apos;s command includes &quot;[interrogative]&quot;, now the current question is the interrogative understood.\n\nTo respond to the question:\n\trepeat through the Table of Wise Answers:\n\t\tif the topic understood includes topic entry:\n\t\t\tif the current question is the question type entry:\n\t\t\t\tsay &quot;[reply entry][paragraph break]&quot;;\n\t\t\t\tincrement the wisdom of Solomon;\n\t\t\t\trule succeeds;\n\tsay &quot;Solomon looks blank, appalled by a question for which he was not prepared.&quot;;\n\tend the story saying &quot;You have befuddled Solomon!&quot;\n\nUnderstand &quot;ask [someone] [text]&quot; as asking it about.`)">⧉</button><div class="codeline storytitle">&quot;The Queen of Sheba&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Interrogative is a kind of value. The interrogatives are who, what, when, where, how, and why.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Current question is an interrogative that varies.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">After asking someone about something: respond to the question. After answering someone that something: respond to the question.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">After telling someone about something: say &quot;You&#39;re here to ask questions and test Solomon&#39;s wisdom, not to give him a sample of your own.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline tablename">Table of Wise Answers</div><table>
 <tr><td>topic</td><td>question type</td><td>reply</td></tr><tr><td>&quot;rain/weather/clouds/cloud/rains&quot;</td><td>what</td><td>&quot;&#39;Clouds are a disturbance made by the paths of birds,&#39; Solomon replies. &#39;The air beaten by their wings becomes agitated, as when a river is stirred and the mud churns up.&#39;&quot;</td></tr><tr><td>&quot;rain/weather/clouds/cloud/rains&quot;</td><td>where</td><td>&quot;&#39;Weather is contained in a great silk bag which holds in the heavens,&#39; replies Solomon.&quot;</td></tr><tr><td>&quot;hunger/food/eating&quot;</td><td>when</td><td>&quot;&#39;Sorry, are you getting hungry?&#39; he says, and rings a bell to summon servants.&quot;</td></tr><tr><td>&quot;hunger/food/eating&quot;</td><td>why</td><td>&quot;&#39;Men were made to need food in order that they must farm and cook and dine together,&#39; Solomon replies. &#39;Otherwise, they might live apart, each sufficient in himself. But no man can feed himself alone all through his life.&#39;&quot;</td></tr><tr><td>&quot;Solomon/he/himself&quot;</td><td>who</td><td>&quot;&#39;As you see,&#39; he says, holding out his arms to each side.&quot;</td></tr><tr><td>&quot;Solomon/he/himself&quot;</td><td>what</td><td>&quot;&#39;I am an ordinary man,&#39; he answers.&quot;</td></tr></table>
 </div><p>One of the nice things about this system is that it only resets the &quot;current question&quot; when we get a new question word. For instance, this test will produce different replies to the question about Solomon himself, because the second time he is still in the mode of answering &quot;what&quot; questions:</p>
 <div class="codeblock"><div class="codeline">Test me with &quot;ask solomon about himself / ask solomon what rain is / ask solomon about himself&quot;.</div>
 </div><p>If Solomon is to live up to his reputation at all, his wisdom table will have to be quite a bit longer &ndash; though one also would want to be careful, because forcing the game to cycle through a really immense table could be quite time-consuming. In fact, for the sake of this example, let&#39;s reward the player for managing to stay within the (narrow) range of Solomon&#39;s knowledge:</p>
 <div class="codeblock"><div class="codeline">The Hall of Almug Tree Pillars is a room. &quot;The pillars of the room are made of almug tree, the ceiling made of silk and the floor of glass.&quot; Solomon is a man in the Hall of Almug Tree Pillars. Solomon has a number called wisdom. The wisdom of Solomon is 0.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Every turn:</div>
-<div class="codeline">&ensp;&ensp;if the wisdom of Solomon is 3:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;Truly, Solomon has answered all your questions, and his wisdom is even as great as you had heard!&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;end the story saying &quot;Your heart beats strangely fast&quot;.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the wisdom of Solomon is 3:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;Truly, Solomon has answered all your questions, and his wisdom is even as great as you had heard!&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;end the story saying &quot;Your heart beats strangely fast&quot;.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">When play begins, say &quot;&#39;Oh, you&#39;ve arrived,&#39; says Solomon.&quot;</div>
 </div><p>In a real game we&#39;d need to be a great deal subtler. All the same, if we have a character of quite limited resources to present to the player, it&#39;s a good idea to give the player some incentive to stay on topic, ask questions the character can answer, and generally interact within the parameters we&#39;re prepared for.</p>
 <p>Now, this last bit requires some trickery from later chapters, particularly those on Understanding and Activities, to pull the question words out of the player&#39;s command:</p>
 <div class="codeblock"><div class="codeline">After reading a command:</div>
-<div class="codeline">&ensp;&ensp;if the player&#39;s command includes &quot;[interrogative]&quot;, now the current question is the interrogative understood.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the player&#39;s command includes &quot;[interrogative]&quot;, now the current question is the interrogative understood.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">To respond to the question:</div>
-<div class="codeline">&ensp;&ensp;repeat through the Table of Wise Answers:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;if the topic understood includes topic entry:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the current question is the question type entry:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[reply entry][paragraph break]&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;increment the wisdom of Solomon;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;rule succeeds;</div>
-<div class="codeline">&ensp;&ensp;say &quot;Solomon looks blank, appalled by a question for which he was not prepared.&quot;;</div>
-<div class="codeline">&ensp;&ensp;end the story saying &quot;You have befuddled Solomon!&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;repeat through the Table of Wise Answers:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the topic understood includes topic entry:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the current question is the question type entry:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[reply entry][paragraph break]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;increment the wisdom of Solomon;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;rule succeeds;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Solomon looks blank, appalled by a question for which he was not prepared.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;end the story saying &quot;You have befuddled Solomon!&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Understand &quot;ask [someone] [text]&quot; as asking it about.</div>
 </div><details class="testme-output"><summary>Test me with "ask solomon about himself / ask solomon what rain is / ask solomon about himself".</summary><div class="testme-output">Hall of Almug Tree Pillars<br>The pillars of the room are made of almug tree, the ceiling made of silk and the floor of glass.<br><br>You can see Solomon here.<br><br>&gt;(Testing.)<br><br>&gt;[1] ask solomon about himself<br>&quot;As you see,&quot; he says, holding out his arms to each side.<br><br>&gt;[2] ask solomon what rain is<br>&quot;Clouds are a disturbance made by the paths of birds,&quot; Solomon replies. &quot;The air beaten by their wings becomes agitated, as when a river is stirred and the mud churns up.&quot;<br><br>&gt;[3] ask solomon about himself<br>&quot;I am an ordinary man,&quot; he answers.<br><br>Truly, Solomon has answered all your questions, and his wisdom is even as great as you had heard!<br><br><br><br>    *** Your heart beats strangely fast ***
 </div></details><p>And now we have a game that will accept (though not always respond very sensibly to) questions of almost any form we might put to another character: ASK SOLOMON WHAT RAIN IS will be answered, but then again, it won&#39;t be distinguished from, say, ASK SOLOMON WHETHER THIS PERSISTENT RAIN IS A DIVINE PUNISHMENT OR WHAT.</p>

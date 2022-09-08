@@ -19,16 +19,16 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex422">Play/modify Northstar in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Northstar/index.html">Play Northstar in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Northstar&quot;\n\nThe Northstar Cafe is a room. &quot;The Northstar is crammed with its usual brunch crowd, and you were lucky to get a table at all. You are now awaiting the arrival of your ricotta pancakes.&quot;\n\nJosh is a man in The Northstar Cafe. &quot;Josh is on his way past your table.&quot; The description of Josh is &quot;He is a waiter here, but you also know him socially, so he tends to be more chatty than the other waiters.&quot; A persuasion rule: persuasion succeeds.\n\nAfter reading a command:\n\tlet N be &quot;[the player&apos;s command]&quot;;\n\treplace the regular expression &quot;\b(ask|tell|order) (.+?) to (.+)&quot; in N with &quot;\2, \3&quot;;\n\tchange the text of the player&apos;s command to N.\n\nTest me with &quot;ask Josh to take inventory / tell Josh to take inventory / order Josh to take inventory&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Northstar&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Northstar Cafe is a room. &quot;The Northstar is crammed with its usual brunch crowd, and you were lucky to get a table at all. You are now awaiting the arrival of your ricotta pancakes.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Josh is a man in The Northstar Cafe. &quot;Josh is on his way past your table.&quot; The description of Josh is &quot;He is a waiter here, but you also know him socially, so he tends to be more chatty than the other waiters.&quot; A persuasion rule: persuasion succeeds.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">After reading a command:</div>
-<div class="codeline">&ensp;&ensp;let N be &quot;[the player&#39;s command]&quot;;</div>
-<div class="codeline">&ensp;&ensp;replace the regular expression &quot;\b(ask|tell|order) (.+?) to (.+)&quot; in N with &quot;\2, \3&quot;;</div>
-<div class="codeline">&ensp;&ensp;change the text of the player&#39;s command to N.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let N be &quot;[the player&#39;s command]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;replace the regular expression &quot;\b(ask|tell|order) (.+?) to (.+)&quot; in N with &quot;\2, \3&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;change the text of the player&#39;s command to N.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;ask Josh to take inventory / tell Josh to take inventory / order Josh to take inventory&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "ask Josh to take inventory / tell Josh to take inventory / order Josh to take inventory".</summary><div class="testme-output">Northstar Cafe<br>The Northstar is crammed with its usual brunch crowd, and you were lucky to get a table at all. You are now awaiting the arrival of your ricotta pancakes.<br><br>Josh is on his way past your table.<br><br>&gt;(Testing.)<br><br>&gt;[1] ask josh to take inventory<br>Josh looks through his possessions.<br><br>&gt;[2] tell josh to take inventory<br>Josh looks through his possessions.<br><br>&gt;[3] order josh to take inventory<br>Josh looks through his possessions.
 </div></details><p>Note that we have to copy N back explicitly to replace the player&#39;s command.</p>

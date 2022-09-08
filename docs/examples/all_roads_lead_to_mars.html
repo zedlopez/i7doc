@@ -18,20 +18,20 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex78">Play/modify All Roads Lead to Mars in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Photomap/index.html">Play All Roads Lead to Mars in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;All Roads Lead to Mars&quot;\n\nBefore going a direction (called way) when a room (called next location) is not visited:\n\tlet further place be the room the way from the location;\n\tif further place is a room, continue the action;\n\tchange the way exit of the location to the next location;\n\tlet reverse be the opposite of the way;\n\tchange the reverse exit of the next location to the location.\n\nThe Open Plain is a room. &quot;A wide-open grassy expanse, from which you could really go any way at all.&quot;\n\nThe Hilly Place is a room. &quot;The grassland gives way to a somewhat more hilly area, though there is still very little to guide you any particular way.&quot;\n\nThe Stream is a room. &quot;This is the third place you&apos;ve been today, and so the stream is welcome. How refreshing!&quot;\n\nTest me with &quot;n / s / e / e&quot;.`)">⧉</button><div class="codeline storytitle">&quot;All Roads Lead to Mars&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Before going a direction (called way) when a room (called next location) is not visited:</div>
-<div class="codeline">&ensp;&ensp;let further place be the room the way from the location;</div>
-<div class="codeline">&ensp;&ensp;if further place is a room, continue the action;</div>
-<div class="codeline">&ensp;&ensp;change the way exit of the location to the next location;</div>
-<div class="codeline">&ensp;&ensp;let reverse be the opposite of the way;</div>
-<div class="codeline">&ensp;&ensp;change the reverse exit of the next location to the location.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let further place be the room the way from the location;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if further place is a room, continue the action;</div>
+<div class="codeline">&ensp;&ensp;&ensp;change the way exit of the location to the next location;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let reverse be the opposite of the way;</div>
+<div class="codeline">&ensp;&ensp;&ensp;change the reverse exit of the next location to the location.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Open Plain is a room. &quot;A wide-open grassy expanse, from which you could really go any way at all.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Hilly Place is a room. &quot;The grassland gives way to a somewhat more hilly area, though there is still very little to guide you any particular way.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Stream is a room. &quot;This is the third place you&#39;ve been today, and so the stream is welcome. How refreshing!&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;n / s / e / e&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "n / s / e / e".</summary><div class="testme-output">Open Plain<br>A wide-open grassy expanse, from which you could really go any way at all.<br><br>&gt;(Testing.)<br><br>&gt;[1] n<br><br>Hilly Place<br>The grassland gives way to a somewhat more hilly area, though there is still very little to guide you any particular way.<br><br>&gt;[2] s<br><br>Open Plain<br>A wide-open grassy expanse, from which you could really go any way at all.<br><br>&gt;[3] e<br><br>Stream<br>This is the third place you&#39;ve been today, and so the stream is welcome. How refreshing!<br><br>&gt;[4] e<br>You can&#39;t go that way.
 </div></details><p>If we wanted still to be able to find routes between places, we could define a relationship of connection between rooms, which we would add to as we went along.</p>

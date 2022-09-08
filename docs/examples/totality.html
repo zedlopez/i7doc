@@ -18,33 +18,33 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex144">Play/modify Totality in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Eclipse/index.html">Play Totality in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Totality&quot;\n\nAt the time when the penumbra appears:\n\tsay &quot;The sunlight dies away to an eerie, brownish penumbra.&quot;\n\nAt the time when the eclipse begins:\n\tsay &quot;The moon passes across the disc of the sun, plunging the world into darkness.&quot;;\n\tnow the Chamber is dark.\n\nAt the time when the eclipse ends:\n\tsay &quot;The moon passes away from the sun, and a gloomy penumbral light returns.&quot;;\n\tnow the Chamber is lighted.\n\nAt the time when normal sunlight returns:\n\tsay &quot;The sun shines once more bright in the sky, not to be eclipsed again on this spot for another thirty-seven years.&quot;\n\nTo schedule an eclipse for (totality - a time):\n\tthe penumbra appears at two minutes before totality;\n\tthe eclipse begins at totality;\n\tthe eclipse ends at three minutes after totality;\n\tnormal sunlight returns at five minutes after totality.\n\n\nWhen play begins, schedule an eclipse for 3:27 PM.\n\nThe Chamber is a room.\n\nThe time of day is 3:25 PM.\n\nTest me with &quot;z / z / z / z / z / z / z / z / z&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Totality&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">At the time when the penumbra appears:</div>
-<div class="codeline">&ensp;&ensp;say &quot;The sunlight dies away to an eerie, brownish penumbra.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;The sunlight dies away to an eerie, brownish penumbra.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">At the time when the eclipse begins:</div>
-<div class="codeline">&ensp;&ensp;say &quot;The moon passes across the disc of the sun, plunging the world into darkness.&quot;;</div>
-<div class="codeline">&ensp;&ensp;now the Chamber is dark.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;The moon passes across the disc of the sun, plunging the world into darkness.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the Chamber is dark.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">At the time when the eclipse ends:</div>
-<div class="codeline">&ensp;&ensp;say &quot;The moon passes away from the sun, and a gloomy penumbral light returns.&quot;;</div>
-<div class="codeline">&ensp;&ensp;now the Chamber is lighted.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;The moon passes away from the sun, and a gloomy penumbral light returns.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the Chamber is lighted.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">At the time when normal sunlight returns:</div>
-<div class="codeline">&ensp;&ensp;say &quot;The sun shines once more bright in the sky, not to be eclipsed again on this spot for another thirty-seven years.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;The sun shines once more bright in the sky, not to be eclipsed again on this spot for another thirty-seven years.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">To schedule an eclipse for (totality - a time):</div>
-<div class="codeline">&ensp;&ensp;the penumbra appears at two minutes before totality;</div>
-<div class="codeline">&ensp;&ensp;the eclipse begins at totality;</div>
-<div class="codeline">&ensp;&ensp;the eclipse ends at three minutes after totality;</div>
-<div class="codeline">&ensp;&ensp;normal sunlight returns at five minutes after totality.</div>
+<div class="codeline">&ensp;&ensp;&ensp;the penumbra appears at two minutes before totality;</div>
+<div class="codeline">&ensp;&ensp;&ensp;the eclipse begins at totality;</div>
+<div class="codeline">&ensp;&ensp;&ensp;the eclipse ends at three minutes after totality;</div>
+<div class="codeline">&ensp;&ensp;&ensp;normal sunlight returns at five minutes after totality.</div>
 </div><p>Now we make use of the new phrase:</p>
 <div class="codeblock"><div class="codeline">When play begins, schedule an eclipse for 3:27 PM.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Chamber is a room.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The time of day is 3:25 PM.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;z / z / z / z / z / z / z / z / z&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "z / z / z / z / z / z / z / z / z".</summary><div class="testme-output">Chamber<br><br>&gt;(Testing.)<br><br>&gt;[1] z<br>Time passes.<br><br>The sunlight dies away to an eerie, brownish penumbra.<br><br>&gt;[2] z<br>Time passes.<br><br>&gt;[3] z<br>Time passes.<br><br>The moon passes across the disc of the sun, plunging the world into darkness.<br><br>It is now pitch dark in here!<br><br>&gt;[4] z<br>Time passes.<br><br>&gt;[5] z<br>Time passes.<br><br>&gt;[6] z<br>Time passes.<br><br>The moon passes away from the sun, and a gloomy penumbral light returns.<br><br>Chamber<br><br>&gt;[7] z<br>Time passes.<br><br>&gt;[8] z<br>Time passes.<br><br>The sun shines once more bright in the sky, not to be eclipsed again on this spot for another thirty-seven years.<br><br>&gt;[9] z<br>Time passes.
 </div></details><p>We shall see much more about creating phrases later. Their advantage is that they enable a complicated sequence of operations to be given a meaningful name, and that they can be re-used many times as needed.</p>

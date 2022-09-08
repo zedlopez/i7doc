@@ -18,13 +18,13 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex65">Play/modify Persephone in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="DoubleInvent/index.html">Play Persephone in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Persephone&quot;\n\nInstead of taking inventory:\n\tsay &quot;[if the player carries something][We][&apos;re] carrying [a list of things carried by the player][otherwise][We][&apos;re] empty-handed&quot;;\n\tsay &quot;[if the player wears something]. [We][&apos;re] wearing [a list of things worn by the player][end if].&quot;\n\nThe Fancy Party is a room. The player carries a sword, a strawberry stem, and 20 credits worth of platinum. The player wears a sash indicating lordhood.\n\nTest me with &quot;i / take off sash / i / drop all / i&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Persephone&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of taking inventory:</div>
-<div class="codeline">&ensp;&ensp;say &quot;[if the player carries something][We][&#39;re] carrying [a list of things carried by the player][otherwise][We][&#39;re] empty-handed&quot;;</div>
-<div class="codeline">&ensp;&ensp;say &quot;[if the player wears something]. [We][&#39;re] wearing [a list of things worn by the player][end if].&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;[if the player carries something][We][&#39;re] carrying [a list of things carried by the player][otherwise][We][&#39;re] empty-handed&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;[if the player wears something]. [We][&#39;re] wearing [a list of things worn by the player][end if].&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Fancy Party is a room. The player carries a sword, a strawberry stem, and 20 credits worth of platinum. The player wears a sash indicating lordhood.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;i / take off sash / i / drop all / i&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "i / take off sash / i / drop all / i".</summary><div class="testme-output">Fancy Party<br><br>&gt;(Testing.)<br><br>&gt;[1] i<br>You&#39;re carrying a sword, a strawberry stem and 20 credits worth of platinum. You&#39;re wearing a sash indicating lordhood.<br><br>&gt;[2] take off sash<br>You take off the sash indicating lordhood.<br><br>&gt;[3] i<br>You&#39;re carrying a sword, a strawberry stem, 20 credits worth of platinum and a sash indicating lordhood.<br><br>&gt;[4] drop all<br>sword: Dropped.<br>strawberry stem: Dropped.<br>20 credits worth of platinum: Dropped.<br>sash indicating lordhood: Dropped.<br><br>&gt;[5] i<br>You&#39;re empty-handed.
 </div></details><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="whence.html" title="A kind of door that always automatically describes the direction it opens and what lies on the far side (if that other room has been visited)."><div class="nav-arrow">←</div> <div class="doc-navbar-text">64. Whence?</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="radio_daze.html" title="A radio that produces a cycle of output using varying text."><div class="doc-navbar-text">66. Radio Daze</div> <div class="nav-arrow">→</div></a></div></div>

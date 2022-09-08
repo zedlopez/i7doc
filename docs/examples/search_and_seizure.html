@@ -18,56 +18,56 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex38">Play/modify Search and Seizure in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Harrison/index.html">Play Search and Seizure in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Search and Seizure&quot;\n\nSize is a kind of value. The sizes are small, medium, and large. A thing has a size. A thing is usually small.\n\nA thing can be licit or contraband. A thing is usually licit.\n\nA thing can be discovered or secret. A thing is usually secret.\n\n\nRule for deciding the concealed possessions of someone (called the suspect):\n\tif the particular possession is discovered, no;\n\tif the suspect wears something and the particular possession is small, yes;\n\totherwise no.\n\n\nBefore printing the name of something (called discovery): now the discovery is discovered.\n\nThe Customs House is a room. The smuggler is a man in the Customs House. The smuggler wears a leather jacket. He carries a bottle of Altairan rum, some raspberries, and a laser pistol. The pistol is large. The jacket is large. The rum and the raspberries are contraband. The description of the smuggler is &quot;He has a bestubbled chin and a sinister eye.&quot;\n\nThe tourist is a woman in the customs house. The description is &quot;The type who walks off home with a dozen contraband items in her pocket not because she means to steal things but because she&apos;s too stupid to understand that the law applies to herself.&quot; She wears a tight-fitting dress. The dress is large. The tourist carries a grapevine and an archaeological artifact. The grapevine is large and contraband. The artifact is contraband.\n\nReport examining someone: say &quot;[The noun] is [if the noun is wearing something]wearing [a list of unconcealed things worn by the noun] and [end if]carrying [a list of unconcealed things carried by the noun].&quot;\n\nReport examining someone who is concealing something contraband:\n\tsay &quot;[The noun] looks nervous. You can just tell.&quot;\n\nReport examining someone who is carrying an unconcealed contraband thing:\n\tsay &quot;Your eye goes at once to [the list of unconcealed contraband things carried by the noun] which [the noun] is unable to hide&quot;;\n\tif an unconcealed licit thing is had by the noun, say &quot;, though [if the noun is female]s[end if]he also has [a list of unconcealed licit things had by the noun]&quot;;\n\tsay &quot;.&quot; instead.\n\n\nInstead of searching someone:\n\tsay &quot;[The noun] is revealed to be carrying [a list of things carried by the noun].&quot;\n\nInstead of confiscating the dress:\n\tsay &quot;You are not allowed to perform strip-searches in the public customs area.&quot;\n\nUnderstand &quot;confiscate [something]&quot; as confiscating.\n\nConfiscating is an action applying to one thing.\n\nCheck confiscating:\n\tunless the noun is had by someone who is not the player:\n\t\tsay &quot;You can only confiscate other people&apos;s possessions.&quot; instead.\n\nCarry out confiscating:\n\tnow the noun is carried by the player.\n\nReport confiscating:\n\tsay &quot;Through the authority vested in you by the power of the Sovereign of Centauri Proxima, you make [the noun] your own.&quot;\n\nTest me with &quot;x smuggler / search smuggler / x smuggler / confiscate jacket / x smuggler / confiscate rum / confiscate pistol / x smuggler / confiscate raspberries / x smuggler&quot;.\n\nTest more with &quot;x tourist / confiscate dress / confiscate grapevine / x tourist / search tourist / confiscate artifact / x tourist&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Search and Seizure&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Size is a kind of value. The sizes are small, medium, and large. A thing has a size. A thing is usually small.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A thing can be licit or contraband. A thing is usually licit.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A thing can be discovered or secret. A thing is usually secret.</div>
 </div><p>Now, we want the character to be able to hide small things if he has some sort of concealing garment on. We also want to be able to see anything that the player has already found once, perhaps by using the &gt;SEARCH PERSON command. So:</p>
 <div class="codeblock"><div class="codeline">Rule for deciding the concealed possessions of someone (called the suspect):</div>
-<div class="codeline">&ensp;&ensp;if the particular possession is discovered, no;</div>
-<div class="codeline">&ensp;&ensp;if the suspect wears something and the particular possession is small, yes;</div>
-<div class="codeline">&ensp;&ensp;otherwise no.</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the particular possession is discovered, no;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the suspect wears something and the particular possession is small, yes;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise no.</div>
 </div><p>The following rule, borrowed from a later chapter, assures that any items that are ever mentioned to the player will be treated as known from then on:</p>
 <div class="codeblock"><div class="codeline">Before printing the name of something (called discovery): now the discovery is discovered.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Customs House is a room. The smuggler is a man in the Customs House. The smuggler wears a leather jacket. He carries a bottle of Altairan rum, some raspberries, and a laser pistol. The pistol is large. The jacket is large. The rum and the raspberries are contraband. The description of the smuggler is &quot;He has a bestubbled chin and a sinister eye.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The tourist is a woman in the customs house. The description is &quot;The type who walks off home with a dozen contraband items in her pocket not because she means to steal things but because she&#39;s too stupid to understand that the law applies to herself.&quot; She wears a tight-fitting dress. The dress is large. The tourist carries a grapevine and an archaeological artifact. The grapevine is large and contraband. The artifact is contraband.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Report examining someone: say &quot;[The noun] is [if the noun is wearing something]wearing [a list of unconcealed things worn by the noun] and [end if]carrying [a list of unconcealed things carried by the noun].&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Report examining someone who is concealing something contraband:</div>
-<div class="codeline">&ensp;&ensp;say &quot;[The noun] looks nervous. You can just tell.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;[The noun] looks nervous. You can just tell.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Report examining someone who is carrying an unconcealed contraband thing:</div>
-<div class="codeline">&ensp;&ensp;say &quot;Your eye goes at once to [the list of unconcealed contraband things carried by the noun] which [the noun] is unable to hide&quot;;</div>
-<div class="codeline">&ensp;&ensp;if an unconcealed licit thing is had by the noun, say &quot;, though [if the noun is female]s[end if]he also has [a list of unconcealed licit things had by the noun]&quot;;</div>
-<div class="codeline">&ensp;&ensp;say &quot;.&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Your eye goes at once to [the list of unconcealed contraband things carried by the noun] which [the noun] is unable to hide&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if an unconcealed licit thing is had by the noun, say &quot;, though [if the noun is female]s[end if]he also has [a list of unconcealed licit things had by the noun]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;.&quot; instead.</div>
 </div><p>Notice that we can talk about what the smuggler wears, what he carries, and what he &quot;has&quot;: things the smuggler has can be either worn or carried, so the phrase is useful if we don&#39;t care to make that distinction.</p>
 <div class="codeblock"><div class="codeline">Instead of searching someone:</div>
-<div class="codeline">&ensp;&ensp;say &quot;[The noun] is revealed to be carrying [a list of things carried by the noun].&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;[The noun] is revealed to be carrying [a list of things carried by the noun].&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of confiscating the dress:</div>
-<div class="codeline">&ensp;&ensp;say &quot;You are not allowed to perform strip-searches in the public customs area.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You are not allowed to perform strip-searches in the public customs area.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Understand &quot;confiscate [something]&quot; as confiscating.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Confiscating is an action applying to one thing.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Check confiscating:</div>
-<div class="codeline">&ensp;&ensp;unless the noun is had by someone who is not the player:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;You can only confiscate other people&#39;s possessions.&quot; instead.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;unless the noun is had by someone who is not the player:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;You can only confiscate other people&#39;s possessions.&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Carry out confiscating:</div>
-<div class="codeline">&ensp;&ensp;now the noun is carried by the player.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the noun is carried by the player.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Report confiscating:</div>
-<div class="codeline">&ensp;&ensp;say &quot;Through the authority vested in you by the power of the Sovereign of Centauri Proxima, you make [the noun] your own.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Through the authority vested in you by the power of the Sovereign of Centauri Proxima, you make [the noun] your own.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;x smuggler / search smuggler / x smuggler / confiscate jacket / x smuggler / confiscate rum / confiscate pistol / x smuggler / confiscate raspberries / x smuggler&quot;.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test more with &quot;x tourist / confiscate dress / confiscate grapevine / x tourist / search tourist / confiscate artifact / x tourist&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "x smuggler / search smuggler / x smuggler / confiscate jacket / x smuggler / confiscate rum / confiscate pistol / x smuggler / confiscate raspberries / x smuggler".</summary><div class="testme-output">Customs House<br>You can see a smuggler and a tourist here.<br><br>&gt;(Testing.)<br><br>&gt;[1] x smuggler<br>He has a bestubbled chin and a sinister eye.<br><br>The smuggler looks nervous. You can just tell.<br><br>The smuggler is wearing a leather jacket and carrying a laser pistol.<br><br>&gt;[2] search smuggler<br>The smuggler is revealed to be carrying a bottle of Altairan rum, some raspberries and a laser pistol.<br><br>&gt;[3] x smuggler<br>He has a bestubbled chin and a sinister eye.<br><br>Your eye goes at once to the bottle of Altairan rum and the raspberries which the smuggler is unable to hide, though he also has a leather jacket and a laser pistol.<br><br>&gt;[4] confiscate jacket<br>Through the authority vested in you by the power of the Sovereign of Centauri Proxima, you make the leather jacket your own.<br><br>&gt;[5] x smuggler<br>He has a bestubbled chin and a sinister eye.<br><br>Your eye goes at once to the bottle of Altairan rum and the raspberries which the smuggler is unable to hide, though he also has a laser pistol.<br><br>&gt;[6] confiscate rum<br>Through the authority vested in you by the power of the Sovereign of Centauri Proxima, you make the bottle of Altairan rum your own.<br><br>&gt;[7] confiscate pistol<br>Through the authority vested in you by the power of the Sovereign of Centauri Proxima, you make the laser pistol your own.<br><br>&gt;[8] x smuggler<br>He has a bestubbled chin and a sinister eye.<br><br>Your eye goes at once to the raspberries which the smuggler is unable to hide.<br><br>&gt;[9] confiscate raspberries<br>Through the authority vested in you by the power of the Sovereign of Centauri Proxima, you make the raspberries your own.<br><br>&gt;[10] x smuggler<br>He has a bestubbled chin and a sinister eye.<br><br>The smuggler is carrying nothing.
 </div></details><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="disenchantment_bay12.html" title="A final trip to Disenchantment Bay: the scenario turned into a somewhat fuller scene, with various features that have not yet been explained."><div class="nav-arrow">←</div> <div class="doc-navbar-text">37. Disenchantment Bay 12</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="van_helsing.html" title="A character who approaches the player, then follows him from room to room."><div class="doc-navbar-text">39. Van Helsing</div> <div class="nav-arrow">→</div></a></div></div>

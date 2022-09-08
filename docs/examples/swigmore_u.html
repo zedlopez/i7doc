@@ -19,30 +19,30 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex397">Play/modify Swigmore U. in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="SwigmoreU/index.html">Play Swigmore U. in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Swigmore U.&quot;\n\nMoe&apos;s Tavern is a room. The bar is an enterable supporter in Moe&apos;s. A drink is a kind of thing. On the bar is a drink called a flaming Homer.\n\nA perch is a kind of supporter. A perch is always enterable. The stool is a perch in Moe&apos;s.\n\nThe player carries a dead field mouse and a tomacco fruit.\n\nThe sophisticated dropping rule is listed instead of the standard dropping rule in the carry out dropping rulebook.\n\nThis is the sophisticated dropping rule:\n\tif the player is on a perch (called the awkward position):\n\t\tlet place be the holder of the awkward position;\n\t\tmove the noun to the place;\n\totherwise:\n\t\tmove the noun to the holder of the player.\n\nTest me with &quot;sit on stool / drop mouse / look / get up / look&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Swigmore U.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Moe&#39;s Tavern is a room. The bar is an enterable supporter in Moe&#39;s. A drink is a kind of thing. On the bar is a drink called a flaming Homer.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A perch is a kind of supporter. A perch is always enterable. The stool is a perch in Moe&#39;s.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The player carries a dead field mouse and a tomacco fruit.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The sophisticated dropping rule is listed instead of the standard dropping rule in the carry out dropping rulebook.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">This is the sophisticated dropping rule:</div>
-<div class="codeline">&ensp;&ensp;if the player is on a perch (called the awkward position):</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;let place be the holder of the awkward position;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;move the noun to the place;</div>
-<div class="codeline">&ensp;&ensp;otherwise:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;move the noun to the holder of the player.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the player is on a perch (called the awkward position):</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;let place be the holder of the awkward position;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;move the noun to the place;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;move the noun to the holder of the player.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;sit on stool / drop mouse / look / get up / look&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "sit on stool / drop mouse / look / get up / look".</summary><div class="testme-output">Moe&#39;s Tavern<br>You can see a bar (on which is a flaming Homer) and a stool here.<br><br>&gt;(Testing.)<br><br>&gt;[1] sit on stool<br>You get onto the stool.<br><br>&gt;[2] drop mouse<br>Dropped.<br><br>&gt;[3] look<br>Moe&#39;s Tavern (on the stool)<br>You can see a dead field mouse and a bar (on which is a flaming Homer) here.<br><br>&gt;[4] get up<br>You get off the stool.<br><br>Moe&#39;s Tavern<br>You can see a dead field mouse, a bar (on which is a flaming Homer) and a stool here.<br><br>&gt;[5] look<br>Moe&#39;s Tavern<br>You can see a dead field mouse, a bar (on which is a flaming Homer) and a stool here.
 </div></details><p>Now the carry-out behavior of the dropping action has been changed, but we haven&#39;t had to interfere in the checks or reporting at all. The rest of the action works just as it always did.</p>
 <p>Of course, maybe we do want to change the way the action is reported, to make it clearer to the player where the dropped article wound up:</p>
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The sophisticated report dropping rule is listed instead of the standard report dropping rule in the report dropping rulebook.\n\nThis is the sophisticated report dropping rule:\n\tsay &quot;You drop [the noun] on [if the holder of the noun is a room]the ground[otherwise][the holder of the noun][end if].&quot;`)">⧉</button><div class="codeline">The sophisticated report dropping rule is listed instead of the standard report dropping rule in the report dropping rulebook.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">This is the sophisticated report dropping rule:</div>
-<div class="codeline">&ensp;&ensp;say &quot;You drop [the noun] on [if the holder of the noun is a room]the ground[otherwise][the holder of the noun][end if].&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You drop [the noun] on [if the holder of the noun is a room]the ground[otherwise][the holder of the noun][end if].&quot;</div>
 </div><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="slouching.html" title="A system of postures allowing the player and other characters to sit, stand, or lie down explicitly or implicitly on a variety of enterable supporters or containers, or in location."><div class="nav-arrow">←</div> <div class="doc-navbar-text">396. Slouching</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="access_all_areas.html" title="The Pointy Hat of Liminal Transgression allows its wearer to walk clean through closed doors."><div class="doc-navbar-text">398. Access All Areas</div> <div class="nav-arrow">→</div></a></div></div>
 <footer id="credits-footer"><nav><div class="nav-el"><a class="nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="nav-el" href="../search.html">Search</a></div></nav>
 <div class="footing"><p id="i7credit"><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p class="about"><a class="nav-about" href="../about.html">About this edition</a> &bull; <a class="nav-about" href="https://twitter.com/inform7tips">@inform7tips</a></p></div></footer>

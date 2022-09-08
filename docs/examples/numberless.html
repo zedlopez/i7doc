@@ -17,33 +17,33 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex174">Play/modify Numberless in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Switch/index.html">Play Numberless in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Numberless&quot;\n\nThe Rambling Warren is a room.\n\nWhen play begins:\n\tlet N be a random number between 1 and 5;\n\tif N is 1:\n\t\tsay &quot;N is one.&quot;;\n\totherwise if N is 2:\n\t\tsay &quot;N is two.&quot;;\n\totherwise if N is 3:\n\t\tsay &quot;N is three.&quot;;\n\totherwise:\n\t\tsay &quot;N is more than the number of your toes.&quot;\n\n\nWhen play begins:\n\tlet Y be a random number between 6 and 10;\n\tif Y is:\n\t\t-- 6: say &quot;Six is the magic number!&quot;;\n\t\t-- 7: say &quot;The number of the day is seven!&quot;;\n\t\t-- otherwise: say &quot;Today&apos;s magic number is boring.&quot;\n\n\n\nWhen play begins:\n\tlet X be a random number between 11 and 14;\n\tif X is a number listed in the Table of Switching, say &quot;[output entry][paragraph break]&quot;;\n\totherwise say &quot;X is greater than the number of your noses!&quot;\n\nTable of Switching\nnumber\toutput\n11\t&quot;X is eleven!&quot;\n12\t&quot;X is twelve!&quot;\n13\t&quot;X is thirteen!&quot;\n\nTest me with &quot;z&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Numberless&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Rambling Warren is a room.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">When play begins:</div>
-<div class="codeline">&ensp;&ensp;let N be a random number between 1 and 5;</div>
-<div class="codeline">&ensp;&ensp;if N is 1:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;N is one.&quot;;</div>
-<div class="codeline">&ensp;&ensp;otherwise if N is 2:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;N is two.&quot;;</div>
-<div class="codeline">&ensp;&ensp;otherwise if N is 3:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;N is three.&quot;;</div>
-<div class="codeline">&ensp;&ensp;otherwise:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;N is more than the number of your toes.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let N be a random number between 1 and 5;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if N is 1:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;N is one.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise if N is 2:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;N is two.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise if N is 3:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;N is three.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;N is more than the number of your toes.&quot;</div>
 </div><p>The final &quot;otherwise&quot; here will fire only if none of the earlier conditions applies; we could leave it out and print nothing in the case that N is 4 or 5.</p>
 <p>The more compact way to do this is to create a list of values that our number could match; in many programming languages this is called a switch statement. For example:</p>
 <div class="codeblock"><div class="codeline">When play begins:</div>
-<div class="codeline">&ensp;&ensp;let Y be a random number between 6 and 10;</div>
-<div class="codeline">&ensp;&ensp;if Y is:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;-- 6: say &quot;Six is the magic number!&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;-- 7: say &quot;The number of the day is seven!&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;-- otherwise: say &quot;Today&#39;s magic number is boring.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let Y be a random number between 6 and 10;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if Y is:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;-- 6: say &quot;Six is the magic number!&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;-- 7: say &quot;The number of the day is seven!&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;-- otherwise: say &quot;Today&#39;s magic number is boring.&quot;</div>
 </div><p>As a final option, we can use a construction we&#39;ve seen only briefly before now: a table. The use of tables will be explained more fully in their own chapter, but here we see in brief that we can assign a number of values to one column of a table and then use that table to look up output:</p>
 <div class="codeblock"><div class="codeline">When play begins:</div>
-<div class="codeline">&ensp;&ensp;let X be a random number between 11 and 14;</div>
-<div class="codeline">&ensp;&ensp;if X is a number listed in the Table of Switching, say &quot;[output entry][paragraph break]&quot;;</div>
-<div class="codeline">&ensp;&ensp;otherwise say &quot;X is greater than the number of your noses!&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let X be a random number between 11 and 14;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if X is a number listed in the Table of Switching, say &quot;[output entry][paragraph break]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise say &quot;X is greater than the number of your noses!&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline tablename">Table of Switching</div><table>
 <tr><td>number</td><td>output</td></tr><tr><td>11</td><td>&quot;X is eleven!&quot;</td></tr><tr><td>12</td><td>&quot;X is twelve!&quot;</td></tr><tr><td>13</td><td>&quot;X is thirteen!&quot;</td></tr></table>
 <div class="codeline">Test me with &quot;z&quot;.</div>

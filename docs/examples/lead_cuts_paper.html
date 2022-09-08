@@ -18,18 +18,18 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex259">Play/modify Lead Cuts Paper in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Strain/index.html">Play Lead Cuts Paper in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Lead Cuts Paper&quot;\n\nA weight is a kind of value. 10kg specifies a weight. Everything has a weight. A thing usually has weight 1kg.\n\nA container has a weight called breaking strain. The breaking strain of a container is usually 50kg. Definition: A container is bursting if the total weight of things in it is greater than its breaking strain.\n\nA lead pig, a feather, a silver coin and a paper bag are in a room called the Metallurgy Workshop. The paper bag is a container with breaking strain 2kg.  The lead pig has weight 50kg.\n\nEvery turn when a container (called the sack) held by someone visible (called the chump) is bursting:\n\tsay &quot;[The sack] splits and breaks under the weight! [if the player is the chump]You discard[otherwise][The chump] discards[end if] its ruined remains, looking miserably down at [the list of things in the sack] on the floor.&quot;;\n\tnow all of the things in the sack are in the location;\n\tnow the sack is nowhere.\n\nTest me with &quot;get bag / get feather / put feather in bag / get pig / put pig in bag / look&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Lead Cuts Paper&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A weight is a kind of value. 10kg specifies a weight. Everything has a weight. A thing usually has weight 1kg.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A container has a weight called breaking strain. The breaking strain of a container is usually 50kg. Definition: A container is bursting if the total weight of things in it is greater than its breaking strain.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A lead pig, a feather, a silver coin and a paper bag are in a room called the Metallurgy Workshop. The paper bag is a container with breaking strain 2kg.  The lead pig has weight 50kg.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Every turn when a container (called the sack) held by someone visible (called the chump) is bursting:</div>
-<div class="codeline">&ensp;&ensp;say &quot;[The sack] splits and breaks under the weight! [if the player is the chump]You discard[otherwise][The chump] discards[end if] its ruined remains, looking miserably down at [the list of things in the sack] on the floor.&quot;;</div>
-<div class="codeline">&ensp;&ensp;now all of the things in the sack are in the location;</div>
-<div class="codeline">&ensp;&ensp;now the sack is nowhere.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;[The sack] splits and breaks under the weight! [if the player is the chump]You discard[otherwise][The chump] discards[end if] its ruined remains, looking miserably down at [the list of things in the sack] on the floor.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now all of the things in the sack are in the location;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the sack is nowhere.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;get bag / get feather / put feather in bag / get pig / put pig in bag / look&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "get bag / get feather / put feather in bag / get pig / put pig in bag / look".</summary><div class="testme-output">Metallurgy Workshop<br>You can see a lead pig, a feather, a silver coin and a paper bag (empty) here.<br><br>&gt;(Testing.)<br><br>&gt;[1] get bag<br>Taken.<br><br>&gt;[2] get feather<br>Taken.<br><br>&gt;[3] put feather in bag<br>You put the feather into the paper bag.<br><br>&gt;[4] get pig<br>Taken.<br><br>&gt;[5] put pig in bag<br>You put the lead pig into the paper bag.<br><br>The paper bag splits and breaks under the weight! You discard its ruined remains, looking miserably down at the lead pig and the feather on the floor.<br><br>&gt;[6] look<br>Metallurgy Workshop<br>You can see a feather, a lead pig and a silver coin here.
 </div></details><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="dimensions.html" title="This example draws together the previous snippets into a working implementation of the weighbridge."><div class="nav-arrow">←</div> <div class="doc-navbar-text">258. Dimensions</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="zqlran_era8.html" title="Creating an alternative system of time for our game, using new units."><div class="doc-navbar-text">260. Zqlran Era 8</div> <div class="nav-arrow">→</div></a></div></div>

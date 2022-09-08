@@ -18,38 +18,38 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex219">Play/modify Bosch in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Bosch/index.html">Play Bosch in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Bosch&quot;\n\nUse scoring.\n\nThe Garden of Excess is a room. The gilded lily is an edible thing in the Garden of Excess.\n\nThe Pathway to Desire is west of the Garden of Excess. The emerald leaf is in the Pathway.\n\nTable of Valuable Actions\nrelevant action\tpoint value\tturn stamp\ntaking the emerald leaf\t15\t-1\neating the gilded lily\t5\t-1\n\n\nThe maximum score is 25.\n\nAfter doing something:\n\trepeat through Table of Valuable Actions:\n\t\tif the current action is the relevant action entry and turn stamp entry is less than 0:\n\t\t\tnow the turn stamp entry is the turn count;\n\t\t\tincrease the score by the point value entry;\n\tcontinue the action.\n\nUnderstand &quot;full score&quot; or &quot;full&quot; as requesting the complete score. Requesting the complete score is an action out of world.\n\nCheck requesting the complete score:\n\tif the score is 0, say &quot;You have not yet achieved anything of note.&quot; instead.\n\nCarry out requesting the complete score:\n\tsay &quot;So far you have received points for the following: [line break]&quot;;\n\tsort the Table of Valuable Actions in turn stamp order;\n\trepeat through the Table of Valuable Actions:\n\t\tif the turn stamp entry is greater than 0:\n\t\t\tsay &quot;[line break]  [relevant action entry]: [point value entry] points&quot;;\n\tsay line break.\n\nTest me with &quot;eat lily / w / full score / get leaf / full&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Bosch&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Use scoring.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Garden of Excess is a room. The gilded lily is an edible thing in the Garden of Excess.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Pathway to Desire is west of the Garden of Excess. The emerald leaf is in the Pathway.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline tablename">Table of Valuable Actions</div><table>
 <tr><td>relevant action</td><td>point value</td><td>turn stamp</td></tr><tr><td>taking the emerald leaf</td><td>15</td><td>-1</td></tr><tr><td>eating the gilded lily</td><td>5</td><td>-1</td></tr></table>
 </div><p>(And our list would presumably continue from there, in the full game.)</p>
 <div class="codeblock"><div class="codeline">The maximum score is 25.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">After doing something:</div>
-<div class="codeline">&ensp;&ensp;repeat through Table of Valuable Actions:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;if the current action is the relevant action entry and turn stamp entry is less than 0:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the turn stamp entry is the turn count;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;increase the score by the point value entry;</div>
-<div class="codeline">&ensp;&ensp;continue the action.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;repeat through Table of Valuable Actions:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the current action is the relevant action entry and turn stamp entry is less than 0:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the turn stamp entry is the turn count;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;increase the score by the point value entry;</div>
+<div class="codeline">&ensp;&ensp;&ensp;continue the action.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Understand &quot;full score&quot; or &quot;full&quot; as requesting the complete score. Requesting the complete score is an action out of world.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Check requesting the complete score:</div>
-<div class="codeline">&ensp;&ensp;if the score is 0, say &quot;You have not yet achieved anything of note.&quot; instead.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the score is 0, say &quot;You have not yet achieved anything of note.&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Carry out requesting the complete score:</div>
-<div class="codeline">&ensp;&ensp;say &quot;So far you have received points for the following: [line break]&quot;;</div>
-<div class="codeline">&ensp;&ensp;sort the Table of Valuable Actions in turn stamp order;</div>
-<div class="codeline">&ensp;&ensp;repeat through the Table of Valuable Actions:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;if the turn stamp entry is greater than 0:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[line break]  [relevant action entry]: [point value entry] points&quot;;</div>
-<div class="codeline">&ensp;&ensp;say line break.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;So far you have received points for the following: [line break]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;sort the Table of Valuable Actions in turn stamp order;</div>
+<div class="codeline">&ensp;&ensp;&ensp;repeat through the Table of Valuable Actions:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the turn stamp entry is greater than 0:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[line break]  [relevant action entry]: [point value entry] points&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say line break.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;eat lily / w / full score / get leaf / full&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "eat lily / w / full score / get leaf / full".</summary><div class="testme-output">Garden of Excess<br>You can see a gilded lily here.<br><br>&gt;(Testing.)<br><br>&gt;[1] eat lily<br>(first taking the gilded lily)<br>You eat the gilded lily. Not bad.<br><br>[Your score has just gone up by five points.]<br><br>&gt;[2] w<br><br>Pathway to Desire<br>You can see an emerald leaf here.<br><br>&gt;[3] full score<br>So far you have received points for the following:<br><br>  eating the gilded lily: 5 points<br><br>&gt;[4] get leaf<br>Taken.<br><br>[Your score has just gone up by fifteen points.]<br><br>&gt;[5] full<br>So far you have received points for the following:<br><br>  eating the gilded lily: 5 points<br>  taking the emerald leaf: 15 points
 </div></details><p>This system is tidy, but limited: we cannot give actions interesting names in the score list, like &quot;seducing the pirate&#39;s daughter&quot; or &quot;collecting a valuable artifact&quot;. So it will not be ideal in all situations, but it has the virtue of being easy to extend, and of listing all of the player&#39;s successes in the order in which they occurred in his play-through.</p>

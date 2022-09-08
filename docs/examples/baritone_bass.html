@@ -19,44 +19,44 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex309">Play/modify Baritone, Bass in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="BaritoneBass/index.html">Play Baritone, Bass in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Baritone, Bass&quot;\n\nGetting Started is a room.\n\nGender is a kind of value. The genders are masculine, feminine, and unknown. Understand &quot;male&quot; or &quot;man&quot; or &quot;M&quot; as masculine. Understand &quot;female&quot; or &quot;woman&quot; or &quot;F&quot; as feminine.\n\nA person has a gender. The gender of the player is unknown.\n\nWhen play begins:\n\tnow the command prompt is &quot;Please choose a gender for your character. >&quot;.\n\nAfter reading a command when the gender of the player is unknown:\n\tif the player&apos;s command includes &quot;[gender]&quot;:\n\t\tnow the gender of the player is the gender understood;\n\t\tif the gender of the player is unknown:\n\t\t\tsay &quot;This story requires a selection of male or female. [run paragraph on]&quot;;\n\t\t\treject the player&apos;s command;\n\t\tif the gender of the player is masculine, now the player is male;\n\t\tif the gender of the player is feminine, now the player is female;\n\t\tsay &quot;[line break]Thank you. We now begin...&quot;;\n\t\tnow the command prompt is &quot;>&quot;;\n\t\tmove the player to Sandy Beach;\n\t\treject the player&apos;s command;\n\totherwise:\n\t\tsay &quot;Sorry, we&apos;re not ready to go on yet. [run paragraph on]&quot;;\n\t\treject the player&apos;s command.\n\nSandy Beach is a room.\n\nInstead of examining the player when the player is female:\n\tsay &quot;Congratulations, you are a girl!&quot;\n\nInstead of examining the player when the player is male:\n\tsay &quot;Congratulations, you are a boy!&quot;`)">⧉</button><div class="codeline storytitle">&quot;Baritone, Bass&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Getting Started is a room.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Gender is a kind of value. The genders are masculine, feminine, and unknown. Understand &quot;male&quot; or &quot;man&quot; or &quot;M&quot; as masculine. Understand &quot;female&quot; or &quot;woman&quot; or &quot;F&quot; as feminine.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A person has a gender. The gender of the player is unknown.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">When play begins:</div>
-<div class="codeline">&ensp;&ensp;now the command prompt is &quot;Please choose a gender for your character. &gt;&quot;.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the command prompt is &quot;Please choose a gender for your character. &gt;&quot;.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">After reading a command when the gender of the player is unknown:</div>
-<div class="codeline">&ensp;&ensp;if the player&#39;s command includes &quot;[gender]&quot;:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;now the gender of the player is the gender understood;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;if the gender of the player is unknown:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;This story requires a selection of male or female. [run paragraph on]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the player&#39;s command includes &quot;[gender]&quot;:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the gender of the player is the gender understood;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the gender of the player is unknown:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;This story requires a selection of male or female. [run paragraph on]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;reject the player&#39;s command;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the gender of the player is masculine, now the player is male;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the gender of the player is feminine, now the player is female;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[line break]Thank you. We now begin...&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the command prompt is &quot;&gt;&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;move the player to Sandy Beach;</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;reject the player&#39;s command;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;if the gender of the player is masculine, now the player is male;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;if the gender of the player is feminine, now the player is female;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;[line break]Thank you. We now begin...&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;now the command prompt is &quot;&gt;&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;move the player to Sandy Beach;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;reject the player&#39;s command;</div>
-<div class="codeline">&ensp;&ensp;otherwise:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;Sorry, we&#39;re not ready to go on yet. [run paragraph on]&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;reject the player&#39;s command.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;Sorry, we&#39;re not ready to go on yet. [run paragraph on]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;reject the player&#39;s command.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Sandy Beach is a room.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of examining the player when the player is female:</div>
-<div class="codeline">&ensp;&ensp;say &quot;Congratulations, you are a girl!&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Congratulations, you are a girl!&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of examining the player when the player is male:</div>
-<div class="codeline">&ensp;&ensp;say &quot;Congratulations, you are a boy!&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Congratulations, you are a boy!&quot;</div>
 </div><p>If we had a whole series of things to ask the player about, we might define a whole series of kinds of value</p>
 <div class="codeblock"><div class="codeline">The vocal ranges are soprano, mezzosoprano, contralto...</div>
 </div><p>and use a &quot;construction stage&quot; variable to keep track of the current stage of character-construction, as in</p>
 <div class="codeblock"><div class="codeline">After reading a command when the current construction stage is choosing a vocal range:</div>
-<div class="codeline">&ensp;&ensp;...</div>
+<div class="codeline">&ensp;&ensp;&ensp;...</div>
 </div><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="palette.html" title="An artist&#39;s workshop in which the canvas can be painted in any colour, and where painterly names for pigments (&quot;cerulean&quot;) are accepted alongside everyday ones (&quot;blue&quot;)."><div class="nav-arrow">←</div> <div class="doc-navbar-text">308. Palette</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="lies.html" title="Commands to allow the player to lie down in three different ways."><div class="doc-navbar-text">310. Lies</div> <div class="nav-arrow">→</div></a></div></div>
 <footer id="credits-footer"><nav><div class="nav-el"><a class="nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="nav-el" href="../search.html">Search</a></div></nav>
 <div class="footing"><p id="i7credit"><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p class="about"><a class="nav-about" href="../about.html">About this edition</a> &bull; <a class="nav-about" href="https://twitter.com/inform7tips">@inform7tips</a></p></div></footer>

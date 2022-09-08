@@ -20,80 +20,80 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex251">Play/modify Relevant Relations in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="RelevantRelations/index.html">Play Relevant Relations in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Relevant Relations&quot;\n\nSection 1 - Procedure\n\nRule for writing a paragraph about something (called item):\n\tnow the current paragraph is { };\n\tsay &quot;[one of][regarding item]There [are] [an item] here[or][We] [can see] [an item] here[at random]. [run paragraph on]&quot;;\n\tfollow the descriptive rules for the item;\n\trepeat with new item running through the current paragraph:\n\t\tnow the prior named object is nothing;\n\t\tif new item is not the item:\n\t\t\tfollow the descriptive rules for the new item;\n\tsay paragraph break.\n\nRule for writing a paragraph about someone (called chosen person):\n\tnow the current paragraph is { };\n\tsay &quot;[one of][regarding chosen person][The chosen person] [are] here[or][We] [can see] [a chosen person] here[at random]. [run paragraph on]&quot;;\n\tfollow the descriptive rules for the chosen person;\n\trepeat with new item running through the current paragraph:\n\t\tnow the prior named object is nothing;\n\t\tif new item is not the chosen person:\n\t\t\tfollow the descriptive rules for the new item;\n\tsay paragraph break.\n\n\nThe descriptive rules are an object-based rulebook.\n\nDefinition: a container is see-through:\n\tif it is transparent:\n\t\tyes;\n\tif it is open:\n\t\tyes;\n\tno.\n\nA descriptive rule for a see-through container (called item) (this is the describe contents rule):\n\tdescribe the containment relation for item.\n\nA descriptive rule for a supporter (called item):\n\tdescribe the support relation for item.\n\nA descriptive rule for a person (called item):\n\tdescribe the wearing relation for the item.\n\nA descriptive rule for a person (called item):\n\tdescribe the carrying relation for the item.\n\nThe current paragraph is a list of things that varies.\n\nBefore printing the name of something (called mentioned target) while writing a paragraph about something:\n\tadd the mentioned target to the current paragraph, if absent.\n\nTo describe (R - a relation of objects) for (item - a thing):\n\tif a thing to which item relates by R is a thing:\n\t\tsay &quot;[The item with pronoun] [verb rendering applied to a random verb that means R] [the list of things to which item relates by R with indefinite articles]. [run paragraph on]&quot;\n\nTo decide which text is the rendering of (V - verb) (this is verb rendering):\n\tdecide on &quot;[adapt V]&quot;.\n\nTo say (T - a thing) with pronoun:\n\tif T is the prior named object:\n\t\tsay &quot;[regarding T][They]&quot;;\n\telse:\n\t\tsay &quot;[The T]&quot;\n\nSection 2 - Scenario\n\nThe Space Elevator is a room. &quot;Mercifully, there aren&apos;t any windows. The ability to see how far up you are would almost certainly make you ill.&quot;\n\nThe luggage rack is a supporter in the Space Elevator. The suitcase is a closed openable container on the luggage rack. The bouquet is on the luggage rack.\n\nClark is a man in the Space Elevator. Clark is carrying a box of cupcakes. Clark is wearing a t-shirt. The description of the box of cupcakes is &quot;They&apos;re the latest confection from Red Velvet Planet, the Martian bakery.&quot;\n\nPersuasion rule: persuasion succeeds.\n\n\nTo sport is a verb. The verb to sport means the wearing relation.\n\nTo hold up is a verb. The verb to hold up means the support relation.\n\nTest me with &quot;clark, drop the box / look / clark, take the suitcase / look / clark, get bouquet&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Relevant Relations&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline i7header">Section 1 - Procedure</div><div class="codeline">Rule for writing a paragraph about something (called item):</div>
-<div class="codeline">&ensp;&ensp;now the current paragraph is { };</div>
-<div class="codeline">&ensp;&ensp;say &quot;[one of][regarding item]There [are] [an item] here[or][We] [can see] [an item] here[at random]. [run paragraph on]&quot;;</div>
-<div class="codeline">&ensp;&ensp;follow the descriptive rules for the item;</div>
-<div class="codeline">&ensp;&ensp;repeat with new item running through the current paragraph:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;now the prior named object is nothing;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;if new item is not the item:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;follow the descriptive rules for the new item;</div>
-<div class="codeline">&ensp;&ensp;say paragraph break.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the current paragraph is { };</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;[one of][regarding item]There [are] [an item] here[or][We] [can see] [an item] here[at random]. [run paragraph on]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;follow the descriptive rules for the item;</div>
+<div class="codeline">&ensp;&ensp;&ensp;repeat with new item running through the current paragraph:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the prior named object is nothing;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if new item is not the item:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;follow the descriptive rules for the new item;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say paragraph break.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Rule for writing a paragraph about someone (called chosen person):</div>
-<div class="codeline">&ensp;&ensp;now the current paragraph is { };</div>
-<div class="codeline">&ensp;&ensp;say &quot;[one of][regarding chosen person][The chosen person] [are] here[or][We] [can see] [a chosen person] here[at random]. [run paragraph on]&quot;;</div>
-<div class="codeline">&ensp;&ensp;follow the descriptive rules for the chosen person;</div>
-<div class="codeline">&ensp;&ensp;repeat with new item running through the current paragraph:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;now the prior named object is nothing;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;if new item is not the chosen person:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;follow the descriptive rules for the new item;</div>
-<div class="codeline">&ensp;&ensp;say paragraph break.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the current paragraph is { };</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;[one of][regarding chosen person][The chosen person] [are] here[or][We] [can see] [a chosen person] here[at random]. [run paragraph on]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;follow the descriptive rules for the chosen person;</div>
+<div class="codeline">&ensp;&ensp;&ensp;repeat with new item running through the current paragraph:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the prior named object is nothing;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if new item is not the chosen person:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;follow the descriptive rules for the new item;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say paragraph break.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The descriptive rules are an object-based rulebook.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Definition: a container is see-through:</div>
-<div class="codeline">&ensp;&ensp;if it is transparent:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;yes;</div>
-<div class="codeline">&ensp;&ensp;if it is open:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;yes;</div>
-<div class="codeline">&ensp;&ensp;no.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if it is transparent:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;yes;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if it is open:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;yes;</div>
+<div class="codeline">&ensp;&ensp;&ensp;no.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A descriptive rule for a see-through container (called item) (this is the describe contents rule):</div>
-<div class="codeline">&ensp;&ensp;describe the containment relation for item.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;describe the containment relation for item.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A descriptive rule for a supporter (called item):</div>
-<div class="codeline">&ensp;&ensp;describe the support relation for item.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;describe the support relation for item.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A descriptive rule for a person (called item):</div>
-<div class="codeline">&ensp;&ensp;describe the wearing relation for the item.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;describe the wearing relation for the item.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A descriptive rule for a person (called item):</div>
-<div class="codeline">&ensp;&ensp;describe the carrying relation for the item.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;describe the carrying relation for the item.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The current paragraph is a list of things that varies.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Before printing the name of something (called mentioned target) while writing a paragraph about something:</div>
-<div class="codeline">&ensp;&ensp;add the mentioned target to the current paragraph, if absent.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;add the mentioned target to the current paragraph, if absent.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">To describe (R - a relation of objects) for (item - a thing):</div>
-<div class="codeline">&ensp;&ensp;if a thing to which item relates by R is a thing:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;[The item with pronoun] [verb rendering applied to a random verb that means R] [the list of things to which item relates by R with indefinite articles]. [run paragraph on]&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if a thing to which item relates by R is a thing:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[The item with pronoun] [verb rendering applied to a random verb that means R] [the list of things to which item relates by R with indefinite articles]. [run paragraph on]&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">To decide which text is the rendering of (V - verb) (this is verb rendering):</div>
-<div class="codeline">&ensp;&ensp;decide on &quot;[adapt V]&quot;.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;decide on &quot;[adapt V]&quot;.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">To say (T - a thing) with pronoun:</div>
-<div class="codeline">&ensp;&ensp;if T is the prior named object:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;[regarding T][They]&quot;;</div>
-<div class="codeline">&ensp;&ensp;else:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;[The T]&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if T is the prior named object:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[regarding T][They]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;else:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[The T]&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline i7header">Section 2 - Scenario</div><div class="codeline">The Space Elevator is a room. &quot;Mercifully, there aren&#39;t any windows. The ability to see how far up you are would almost certainly make you ill.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The luggage rack is a supporter in the Space Elevator. The suitcase is a closed openable container on the luggage rack. The bouquet is on the luggage rack.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Clark is a man in the Space Elevator. Clark is carrying a box of cupcakes. Clark is wearing a t-shirt. The description of the box of cupcakes is &quot;They&#39;re the latest confection from Red Velvet Planet, the Martian bakery.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Persuasion rule: persuasion succeeds.</div>
 </div><p>We can if we like then add alternate names for these relations that will be randomly swapped in some of the time. For instance:</p>
 <div class="codeblock"><div class="codeline">To sport is a verb. The verb to sport means the wearing relation.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">To hold up is a verb. The verb to hold up means the support relation.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;clark, drop the box / look / clark, take the suitcase / look / clark, get bouquet&quot;.</div>
-</div><details class="testme-output"><summary>Test me with "clark, drop the box / look / clark, take the suitcase / look / clark, get bouquet".</summary><div class="testme-output">Space Elevator<br>Mercifully, there aren&#39;t any windows. The ability to see how far up you are would almost certainly make you ill.<br><br>There is a luggage rack here. It supports a suitcase and a bouquet.<br><br>You can see Clark here. He wears a t-shirt. Clark carries a box of cupcakes.<br><br>&gt;(Testing.)<br><br>&gt;[1] clark, drop the box<br>Clark puts down the box of cupcakes.<br><br>&gt;[2] look<br>Space Elevator<br>Mercifully, there aren&#39;t any windows. The ability to see how far up you are would almost certainly make you ill.<br><br>You can see a box of cupcakes here.<br><br>There is a luggage rack here. It holds up a suitcase and a bouquet.<br><br>Clark is here. He sports a t-shirt.<br><br>&gt;[3] clark, take the suitcase<br>Clark picks up the suitcase.<br><br>&gt;[4] look<br>Space Elevator<br>Mercifully, there aren&#39;t any windows. The ability to see how far up you are would almost certainly make you ill.<br><br>You can see a box of cupcakes here.<br><br>There is a luggage rack here. It holds up a bouquet.<br><br>You can see Clark here. He wears a t-shirt. Clark carries a suitcase.<br><br>&gt;[5] clark, get bouquet<br>Clark picks up the bouquet.
+</div><details class="testme-output"><summary>Test me with "clark, drop the box / look / clark, take the suitcase / look / clark, get bouquet".</summary><div class="testme-output">Space Elevator<br>Mercifully, there aren&#39;t any windows. The ability to see how far up you are would almost certainly make you ill.<br><br>You can see a luggage rack here. It holds up a suitcase and a bouquet.<br><br>Clark is here. He sports a t-shirt. Clark carries a box of cupcakes.<br><br>&gt;(Testing.)<br><br>&gt;[1] clark, drop the box<br>Clark puts down the box of cupcakes.<br><br>&gt;[2] look<br>Space Elevator<br>Mercifully, there aren&#39;t any windows. The ability to see how far up you are would almost certainly make you ill.<br><br>There is a box of cupcakes here.<br><br>You can see a luggage rack here. It supports a suitcase and a bouquet.<br><br>You can see Clark here. He sports a t-shirt.<br><br>&gt;[3] clark, take the suitcase<br>Clark picks up the suitcase.<br><br>&gt;[4] look<br>Space Elevator<br>Mercifully, there aren&#39;t any windows. The ability to see how far up you are would almost certainly make you ill.<br><br>There is a box of cupcakes here.<br><br>You can see a luggage rack here. It supports a bouquet.<br><br>Clark is here. He wears a t-shirt. Clark carries a suitcase.<br><br>&gt;[5] clark, get bouquet<br>Clark picks up the bouquet.
 </div></details><p>One might, hypothetically, imagine going even further than this and simply designating relations as either &quot;important&quot; or &quot;unimportant&quot; -- perhaps changing the relation&#39;s designation at runtime. Relations are not themselves allowed to have properties, however.</p>
 <div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="history_lab.html" title="We create phrases such as &quot;the box we took&quot; and &quot;the newspaper Clark looked at&quot; based on what has already happened in the story."><div class="nav-arrow">←</div> <div class="doc-navbar-text">250. History Lab</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="responsive.html" title="Altering the standard inventory text for when the player is carrying nothing."><div class="doc-navbar-text">252. Responsive</div> <div class="nav-arrow">→</div></a></div></div>
 <footer id="credits-footer"><nav><div class="nav-el"><a class="nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="nav-el" href="../search.html">Search</a></div></nav>

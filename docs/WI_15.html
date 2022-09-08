@@ -72,7 +72,7 @@
 </div>
 </div>
 <h3 id="section_1">WI §15.1 How do we measure things?</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><div>&nbsp;</div></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_15"><div class="nav-arrow">↑</div><div class="doc-navbar-text">15. Numbers and Equations</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_2"><div class="doc-navbar-text">15.2 Numbers and real numbers</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="WI_14.html#section_12" title="The RESPONSES testing command"><div class="nav-arrow">←14.12 </div><div class="doc-navbar-text">The RESPONSES testing command</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_15"><div class="nav-arrow">↑15. </div><div class="doc-navbar-text">Numbers and Equations</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_2"><div class="doc-navbar-text">Numbers and real numbers</div><div class="nav-arrow">15.2→</div></a></div></div></div>
 <p>In a poem, or in a novel, exact scientific measurements are not the point. So a writer who wants to set up ways to describe the sky at different times might go for something like this:</p>
 <div class="codeblock"><div class="codeline">The sky can be cadmium, mackerel, overcast or cornflower.</div>
 </div><p>And nobody is interested in the sun angle, the percentage of cloud cover, or any of the other numbers behind all of this. Similarly, if we walk into a familiar office which has been disturbed, we might well say &quot;Look! The filing cabinet is in the middle of the floor.&quot; We are not likely to exclaim &quot;Look! The filing cabinet is 1.2m from the east wall and 2.1m from the north wall.&quot;</p>
@@ -82,7 +82,7 @@
 <div class="codeblock"><div class="codeline">A distance is a kind of value. 5 miles specifies a distance.</div>
 </div><p>That kind of definition, and the consequences, will be the subject of this chapter. But we will first look a little harder at the two numerical kinds of value we get for free: &quot;number&quot; and &quot;real number&quot;.</p>
 <h3 id="section_2">WI §15.2 Numbers and real numbers</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_1" title="How do we measure things?"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">15.1 How do we measure things?</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_15"><div class="nav-arrow">↑</div><div class="doc-navbar-text">15. Numbers and Equations</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_3"><div class="doc-navbar-text">15.3 Real number conversions</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_1" title="How do we measure things?"><div class="nav-arrow">←15.1 </div><div class="doc-navbar-text">How do we measure things?</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_15"><div class="nav-arrow">↑15. </div><div class="doc-navbar-text">Numbers and Equations</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_3"><div class="doc-navbar-text">Real number conversions</div><div class="nav-arrow">15.3→</div></a></div></div></div>
 <p>Inform uses two different kinds of numerical quantity: &quot;number&quot; and &quot;real number&quot;. Neither is better than the other: they&#39;re different approaches, each good for a different purpose.</p>
 <p>What Inform calls a &quot;number&quot; is a whole number, positive, negative or zero. The range of numbers we can hold is not unlimited &ndash; if the format Setting for a project is the Z-machine, then we have:</p>
 <div class="codeblock"><div class="codeline">-32768, -32767, ..., -3, -2, -1, 0, 1, 2, 3, ..., 32767</div>
@@ -117,7 +117,7 @@
 <div class="linkback"><a href="RB_9.html#section_10" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Telephones">RB §9.10 Telephones</a></div>
 </div>
 <h3 id="section_3">WI §15.3 Real number conversions</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_2" title="Numbers and real numbers"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">15.2 Numbers and real numbers</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_15"><div class="nav-arrow">↑</div><div class="doc-navbar-text">15. Numbers and Equations</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_4"><div class="doc-navbar-text">15.4 Printing real numbers</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_2" title="Numbers and real numbers"><div class="nav-arrow">←15.2 </div><div class="doc-navbar-text">Numbers and real numbers</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_15"><div class="nav-arrow">↑15. </div><div class="doc-navbar-text">Numbers and Equations</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_4"><div class="doc-navbar-text">Printing real numbers</div><div class="nav-arrow">15.4→</div></a></div></div></div>
 <p>This section notes down some technicalities about real numbers which need to be put down in writing somewhere, but won&#39;t affect most people most of the time.</p>
 <p>Inform allows us to use numbers whenever real numbers are expected, and converts them automatically. For example,</p>
 <div class="codeblock"><div class="codeline">cosine of 2</div>
@@ -152,7 +152,7 @@
 <div class="codeblock"><div class="codeline">logarithm of -10</div>
 </div><p>(The design of &quot;real number&quot; here follows well established trade-offs for scientific computing. Inform follows the IEEE-754 binary32 standard for floating-point arithmetic, so Inform&#39;s &quot;real number&quot; behaves very like the &quot;float&quot; type in C, C++, Java and similar programming languages. A &quot;nonexistent&quot; number is what&#39;s often called a NaN &ndash; a Not-a-Number.)</p>
 <h3 id="section_4">WI §15.4 Printing real numbers</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_3" title="Real number conversions"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">15.3 Real number conversions</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_15"><div class="nav-arrow">↑</div><div class="doc-navbar-text">15. Numbers and Equations</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_5"><div class="doc-navbar-text">15.5 Arithmetic</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_3" title="Real number conversions"><div class="nav-arrow">←15.3 </div><div class="doc-navbar-text">Real number conversions</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_15"><div class="nav-arrow">↑15. </div><div class="doc-navbar-text">Numbers and Equations</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_5"><div class="doc-navbar-text">Arithmetic</div><div class="nav-arrow">15.5→</div></a></div></div></div>
 <div class="defn" id="phs_realplaces"><div class="defnline"><span class="defn">say "[</span><span class="neutral">(real number)</span><span class="defn"> to </span><span class="neutral">(number)</span><span class="defn"> decimal places]"</span></div><p>This text substitution writes out the number to the given number of decimal places. Examples:</p>
 <div class="codeblock"><div class="codeline">&quot;The semicircle is roughly [pi to 3 decimal places] paces around.&quot;</div>
 </div><p>produces &quot;The semicircle is roughly 3.142 paces around.&quot; The number of places can only usefully be from 1 to 8. Note that, for example, &quot;[1.235 x 10^-7 to 3 decimal places]&quot; produces 0.0; &quot;[1.235678 x 10^8 to 3 decimal places]&quot; produces &quot;1.236 x 10^8&quot;.</p>
@@ -165,7 +165,7 @@
 </div><p>produces 7.29927 x 10^-3 rather than 0.0073. This can look odd: for example, &quot;[pi in scientific notation]&quot; comes out as 3.14159 x 10^0 rather than 3.14159.</p>
 </div><div class="defn" id="phs_scientificplaces"><div class="defnline"><span class="defn">say "[</span><span class="neutral">(real number)</span><span class="defn"> to </span><span class="neutral">(number)</span><span class="defn"> decimal places in scientific notation]"</span></div><p>This text substitution writes out the number in scientific form, but rounding to the accuracy given.</p>
 </div><h3 id="section_5">WI §15.5 Arithmetic</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_4" title="Printing real numbers"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">15.4 Printing real numbers</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_15"><div class="nav-arrow">↑</div><div class="doc-navbar-text">15. Numbers and Equations</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_6"><div class="doc-navbar-text">15.6 Powers and logarithms</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_4" title="Printing real numbers"><div class="nav-arrow">←15.4 </div><div class="doc-navbar-text">Printing real numbers</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_15"><div class="nav-arrow">↑15. </div><div class="doc-navbar-text">Numbers and Equations</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_6"><div class="doc-navbar-text">Powers and logarithms</div><div class="nav-arrow">15.6→</div></a></div></div></div>
 <p>We are allowed to perform about the same operations on numbers as are provided by a simple office calculator, starting with addition, subtraction, multiplication and division. We can use the traditional typewriter symbols for these, +, -, * and /, or can spell them out in words as &quot;plus&quot;, &quot;minus&quot;, &quot;times&quot; (or &quot;multiplied by&quot;), and &quot;divided by&quot;. Definitively:</p>
 <div class="defn" id="ph_plus"><div class="defnline"><span class="neutral">(arithmetic value)</span><span class="defn"> + </span><span class="neutral">(arithmetic value)</span> &rArr; <em>value</em></div><div class="defn-or">or&hellip;</div><div class="defnline"><span class="neutral">(arithmetic value)</span><span class="defn"> plus </span><span class="neutral">(arithmetic value)</span> &rArr; <em>value</em></div><p>This phrase performs signed addition on the given values, whose kinds must agree, and produces the result. Examples:</p>
 <div class="codeblock"><div class="codeline">200 + 1 = 201</div>
@@ -214,7 +214,7 @@
 </div><p>and similarly for &quot;greater than&quot;, &quot;at least&quot; and &quot;at most&quot;, with the symbols &quot;&gt;&quot;, &quot;&gt;=&quot; and &quot;&lt;=&quot;. But we are not allowed the equals sign: for that we need only use &quot;is&quot; -</p>
 <div class="codeblock"><div class="codeline">if the score is 10</div>
 </div><h3 id="section_6">WI §15.6 Powers and logarithms</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_5" title="Arithmetic"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">15.5 Arithmetic</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_15"><div class="nav-arrow">↑</div><div class="doc-navbar-text">15. Numbers and Equations</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_7"><div class="doc-navbar-text">15.7 Trigonometry</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_5" title="Arithmetic"><div class="nav-arrow">←15.5 </div><div class="doc-navbar-text">Arithmetic</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_15"><div class="nav-arrow">↑15. </div><div class="doc-navbar-text">Numbers and Equations</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_7"><div class="doc-navbar-text">Trigonometry</div><div class="nav-arrow">15.7→</div></a></div></div></div>
 <p>If the last section provided a basic office calculator, this section and the next provide the more exotic rows of buttons found on a scientific calculator. All of these are done using real number arithmetic. To start with some dull ones, here are two ways to round off numbers:</p>
 <div class="defn" id="ph_ceiling"><div class="defnline"><span class="defn">ceiling of </span><span class="neutral">(real number)</span> &rArr; <em>real number</em></div><p>Produces the smallest integer value greater than or equal to the one given. Examples:</p>
 <div class="codeblock"><div class="codeline">ceiling of pi = 4.0</div>
@@ -265,7 +265,7 @@
 <div class="codeline">logarithm of exponential of 7.12 = 7.12</div>
 </div><p>Logarithms of zero or negative numbers are nonexistent. This is the function which most calculators label as &quot;ln&quot;, for &quot;log natural&quot;, but in mathematical and scientific papers it&#39;s more often written &quot;log&quot;, and Inform follows that convention.</p>
 </div><h3 id="section_7">WI §15.7 Trigonometry</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_6" title="Powers and logarithms"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">15.6 Powers and logarithms</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_15"><div class="nav-arrow">↑</div><div class="doc-navbar-text">15. Numbers and Equations</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_8"><div class="doc-navbar-text">15.8 Units</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_6" title="Powers and logarithms"><div class="nav-arrow">←15.6 </div><div class="doc-navbar-text">Powers and logarithms</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_15"><div class="nav-arrow">↑15. </div><div class="doc-navbar-text">Numbers and Equations</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_8"><div class="doc-navbar-text">Units</div><div class="nav-arrow">15.8→</div></a></div></div></div>
 <p>We have twelve functions left to cover, though they are all closely related.</p>
 <div class="defn" id="ph_degrees"><div class="defnline"><span class="neutral">(real number)</span><span class="defn"> degrees</span> &rArr; <em>real number</em></div><p>Inform measures angles in radians, a convention in which the angle for a half circle is pi, and a right angle is pi divided by 2. This is better from a mathematical point of view, but in practice most people think about angles using degrees, where 180 degrees is a half-circle and a right angle is 90 degrees. This phrase helps with that by converting from degrees to radians: in other words, it multiplies by 0.0174532925, since that&#39;s roughly 1/180th of pi. Examples:</p>
 <div class="codeblock"><div class="codeline">sine of 90 degrees = 0.0</div>
@@ -297,7 +297,7 @@
 </div><div class="defn" id="ph_hyperbolicarccosine"><div class="defnline"><span class="defn">hyperbolic arccosine of </span><span class="neutral">(real number)</span> &rArr; <em>real number</em></div><p>The inverse of the hyperbolic cosine function.</p>
 </div><div class="defn" id="ph_hyperbolicarctangent"><div class="defnline"><span class="defn">hyperbolic arctangent of </span><span class="neutral">(real number)</span> &rArr; <em>real number</em></div><p>The inverse of the hyperbolic tangent function.</p>
 </div><h3 id="section_8">WI §15.8 Units</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_7" title="Trigonometry"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">15.7 Trigonometry</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_15"><div class="nav-arrow">↑</div><div class="doc-navbar-text">15. Numbers and Equations</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_9"><div class="doc-navbar-text">15.9 Multiple notations</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_7" title="Trigonometry"><div class="nav-arrow">←15.7 </div><div class="doc-navbar-text">Trigonometry</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_15"><div class="nav-arrow">↑15. </div><div class="doc-navbar-text">Numbers and Equations</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_9"><div class="doc-navbar-text">Multiple notations</div><div class="nav-arrow">15.9→</div></a></div></div></div>
 <p>Suppose we want to talk about how tall people are. We could just create a &quot;number&quot; property, like this:</p>
 <div class="codeblock"><div class="codeline">A person has a number called height.</div>
 </div><p>But then we would have to write lines like &quot;Isabella has height 68&quot;, which nobody would naturally say. What we want is to be able to write &quot;Isabella is 5 foot 8.&quot; Perhaps the computer will need to store that measurement as the number 68 in some register or other, but we don&#39;t want to know about that.</p>
@@ -308,7 +308,7 @@
 </div><p>We can&#39;t mix the two styles: a new kind of value will either be numerical at heart (&quot;10kg&quot;) or verbal at heart (&quot;blue&quot;).</p>
 <p>The effect of &quot;10kg specifies a weight&quot; is to tell Inform that this is the notation for writing a constant &quot;weight&quot;. So, for instance,</p>
 <div class="codeblock"><div class="codeline">The maximum load is a weight that varies. The maximum load is 8000kg.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">if the maximum load is greater than 8000kg, ...</div>
 </div><p>Inform is then careful not to allow weights to be mixed up with other numerical values. For instance, it won&#39;t allow &quot;if the maximum load is 400&quot;, because 400 is a number, not a weight.</p>
 <p>More or less anything we can do with numbers, we can now do with weights. For instance, we can write:</p>
@@ -336,7 +336,7 @@
 <div class="linkback"><a href="RB_10.html#section_1" title="Physics: Substances, Ropes, Energy and Weight &gt; Gases">RB §10.1 Gases</a></div>
 </div>
 <h3 id="section_9">WI §15.9 Multiple notations</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_8" title="Units"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">15.8 Units</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_15"><div class="nav-arrow">↑</div><div class="doc-navbar-text">15. Numbers and Equations</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_10"><div class="doc-navbar-text">15.10 Scaling and equivalents</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_8" title="Units"><div class="nav-arrow">←15.8 </div><div class="doc-navbar-text">Units</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_15"><div class="nav-arrow">↑15. </div><div class="doc-navbar-text">Numbers and Equations</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_10"><div class="doc-navbar-text">Scaling and equivalents</div><div class="nav-arrow">15.10→</div></a></div></div></div>
 <p>Going back to our weight example:</p>
 <div class="codeblock"><div class="codeline">A weight is a kind of value. 10kg specifies a weight.</div>
 </div><p>The notation here is a single word, even if it contains digits as well as letters &ndash; &quot;10kg&quot;. But it doesn&#39;t have to be one word. These would have worked, too:</p>
@@ -352,7 +352,7 @@
 <div class="codeline">2 tonnes (plural) specifies a weight scaled up by 1000.</div>
 </div><p>Now Inform will not only recognise both forms, but also use the right one when printing back.</p>
 <h3 id="section_10">WI §15.10 Scaling and equivalents</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_9" title="Multiple notations"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">15.9 Multiple notations</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_15"><div class="nav-arrow">↑</div><div class="doc-navbar-text">15. Numbers and Equations</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_11"><div class="doc-navbar-text">15.11 Named notations</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_9" title="Multiple notations"><div class="nav-arrow">←15.9 </div><div class="doc-navbar-text">Multiple notations</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_15"><div class="nav-arrow">↑15. </div><div class="doc-navbar-text">Numbers and Equations</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_11"><div class="doc-navbar-text">Named notations</div><div class="nav-arrow">15.11→</div></a></div></div></div>
 <p>As we&#39;ve seen, there are two ways to store values like lengths or weights: as whole numbers, or as real numbers. If we prefer to use whole numbers, or if real numbers aren&#39;t available (for example if we&#39;re using the Z-machine setting), then we might run into an awkward problem: when we write</p>
 <div class="codeblock"><div class="codeline">1 kg specifies a weight.</div>
 </div><p>we make this correspond to the whole number &quot;1&quot;, and that means Inform can never handle weights smaller than 1 kg.</p>
@@ -375,7 +375,7 @@
 <div class="codeblock"><div class="codeline">1 mile specifies a length equivalent to 1609m.</div>
 </div><p>Equivalent notations are never normally used in printing values back (but see the next section) &ndash; we wouldn&#39;t want Inform to print a sequence of values such as &quot;1.6km&quot;, &quot;1.65km&quot;, &quot;1.056 miles&quot;, &hellip; in an effort to be helpful.</p>
 <h3 id="section_11">WI §15.11 Named notations</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_10" title="Scaling and equivalents"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">15.10 Scaling and equivalents</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_15"><div class="nav-arrow">↑</div><div class="doc-navbar-text">15. Numbers and Equations</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_12"><div class="doc-navbar-text">15.12 Making the verb "to weigh"</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_10" title="Scaling and equivalents"><div class="nav-arrow">←15.10 </div><div class="doc-navbar-text">Scaling and equivalents</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_15"><div class="nav-arrow">↑15. </div><div class="doc-navbar-text">Numbers and Equations</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_12"><div class="doc-navbar-text">Making the verb "to weigh"</div><div class="nav-arrow">15.12→</div></a></div></div></div>
 <p>When it has a variety of notations to choose from, Inform will normally use the neatest one given the size of the value it is printing. Suppose we&#39;ve set up &quot;weight&quot;, with three notations:</p>
 <div class="codeblock"><div class="codeline">A weight is a kind of value. 10kg specifies a weight.</div>
 <div class="codeline">1 tonne (singular) specifies a weight scaled up by 1000.</div>
@@ -393,7 +393,7 @@
 <div class="codeblock"><div class="codeline">&quot;The weighbridge warns you not to exceed [the maximum load in tonnes].&quot;</div>
 </div><p>And the figure will always use tonnes now, even if Inform would normally think it odd: &quot;The weighbridge warns you not to exceed 0.001 tonnes.&quot; But it will still correctly use &quot;tonne&quot; or &quot;tonnes&quot; as appropriate &ndash; what has changed is that instead of choosing from all of the weight notations, Inform now chooses from the notations labelled as &quot;in tonnes&quot;.</p>
 <h3 id="section_12">WI §15.12 Making the verb "to weigh"</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_11" title="Named notations"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">15.11 Named notations</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_15"><div class="nav-arrow">↑</div><div class="doc-navbar-text">15. Numbers and Equations</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_13"><div class="doc-navbar-text">15.13 The Metric Units extension</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_11" title="Named notations"><div class="nav-arrow">←15.11 </div><div class="doc-navbar-text">Named notations</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_15"><div class="nav-arrow">↑15. </div><div class="doc-navbar-text">Numbers and Equations</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_13"><div class="doc-navbar-text">The Metric Units extension</div><div class="nav-arrow">15.13→</div></a></div></div></div>
 <p>So now we can invent notations for weight. We could, for instance, write:</p>
 <div class="codeblock"><div class="codeline">Weight is a kind of value. 1kg specifies a weight. Every thing has a weight.</div>
 </div><p>And that allows us to write:</p>
@@ -416,7 +416,7 @@
 <div class="linkback"><a href="RB_10.html#section_5" title="Physics: Substances, Ropes, Energy and Weight &gt; Volume, Height, Weight">RB §10.5 Volume, Height, Weight</a></div>
 </div>
 <h3 id="section_13">WI §15.13 The Metric Units extension</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_12" title="Making the verb &quot;to weigh&quot;"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">15.12 Making the verb "to weigh"</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_15"><div class="nav-arrow">↑</div><div class="doc-navbar-text">15. Numbers and Equations</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_14"><div class="doc-navbar-text">15.14 Notations including more than one number</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_12" title="Making the verb &quot;to weigh&quot;"><div class="nav-arrow">←15.12 </div><div class="doc-navbar-text">Making the verb &quot;to weigh&quot;</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_15"><div class="nav-arrow">↑15. </div><div class="doc-navbar-text">Numbers and Equations</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_14"><div class="doc-navbar-text">Notations including more than one number</div><div class="nav-arrow">15.14→</div></a></div></div></div>
 <p>To sum all of this up, what started out as a simple business of setting a notation for lengths becomes something quite elaborate when we try to match the actual notations used by scientists and engineers. It&#39;s all optional, of course, but as we want more and more of this, we might find ourselves with a spread of notations like this:</p>
 <div class="codeblock"><div class="codeline">1mm ... 1cm ... 1m ... 1km</div>
 </div><p>In addition we might want equivalents for the inch, the yard and the mile; and verbal forms like the meter and the millimeter, and then alternate spellings like the kilometre; and then both singular and plural forms. And that&#39;s just length &ndash; what about density, area, pressure, velocity and a dozen other physical quantities? After a while these declarations start to look as vastly fussy as a box of presentation cutlery.</p>
@@ -424,7 +424,7 @@
 <p>(a) The built-in extension &quot;Metric Units by Graham Nelson&quot; sets up a whole range of scientific units, with all the notations we are likely to want. Real numbers are used throughout, so large and small-scale calculations can be carried out quite accurately. Like the other built-in extensions, it has its own documentation and examples.</p>
 <p>(b) The built-in extension &quot;Approximate Metric Units by Graham Nelson&quot; does the same but using whole numbers, scaled about right for human situations. This won&#39;t be much use for extensive calculations, and won&#39;t be as accurate, but it will work reasonably well if real arithmetic isn&#39;t available.</p>
 <h3 id="section_14">WI §15.14 Notations including more than one number</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_13" title="The Metric Units extension"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">15.13 The Metric Units extension</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_15"><div class="nav-arrow">↑</div><div class="doc-navbar-text">15. Numbers and Equations</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_15"><div class="doc-navbar-text">15.15 The parts of a number specification</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_13" title="The Metric Units extension"><div class="nav-arrow">←15.13 </div><div class="doc-navbar-text">The Metric Units extension</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_15"><div class="nav-arrow">↑15. </div><div class="doc-navbar-text">Numbers and Equations</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_15"><div class="doc-navbar-text">The parts of a number specification</div><div class="nav-arrow">15.15→</div></a></div></div></div>
 <p>We&#39;ve seen quite enough scientific notation for the time being. There are plenty of other notations used in natural language, for everyday concepts, where people don&#39;t use a tidy spread of powers of 10. Instead they use mixtures, with some sort of punctuation or text to divide them. For instance, the running time of a piece of music is easier to follow in minutes and seconds than in seconds alone: old-fashioned LP sleeves used to quote running times in the form 4&#39;33.</p>
 <div class="codeblock"><div class="codeline">A running time is a kind of value. 3&#39;59 specifies a running time.</div>
 </div><p>The choice of &quot;3&quot; here makes no difference, much as the choice of &quot;10&quot; in the weight examples was arbitrary. But the &quot;59&quot; is significant. Numbers after the first one are expected to range from 0 up to the value we quote &ndash; so in this case, the number of seconds can be anything from 0 to 59. Or, for instance:</p>
@@ -438,7 +438,7 @@
 </div><p>the full stop between the 1 and the 99 is not interpreted as a division of two sentences; and similarly for colons in examples such as</p>
 <div class="codeblock"><div class="codeline">An aspect ratio is a kind of value. 16:9 specifies an aspect ratio.</div>
 </div><h3 id="section_15">WI §15.15 The parts of a number specification</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_14" title="Notations including more than one number"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">15.14 Notations including more than one number</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_15"><div class="nav-arrow">↑</div><div class="doc-navbar-text">15. Numbers and Equations</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_16"><div class="doc-navbar-text">15.16 Understanding specified numbers</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_14" title="Notations including more than one number"><div class="nav-arrow">←15.14 </div><div class="doc-navbar-text">Notations including more than one number</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_15"><div class="nav-arrow">↑15. </div><div class="doc-navbar-text">Numbers and Equations</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_16"><div class="doc-navbar-text">Understanding specified numbers</div><div class="nav-arrow">15.16→</div></a></div></div></div>
 <p>We often need to break up a number specification into its pieces. For instance, suppose we want to know the dollars part of $1.99? We can do this by naming the parts:</p>
 <div class="codeblock"><div class="codeline">A monetary value is a kind of value. $1.99 specifies a monetary value with parts dollars and cents.</div>
 </div><p>We can now find the relevant parts like so. Suppose that &quot;sum&quot; is a monetary value. Then:</p>
@@ -450,12 +450,12 @@
 <div class="codeblock"><div class="codeline">monetary value with dollars part 4 cents part 72</div>
 </div><p>produces the monetary value $4.72. (Note the lack of commas or &quot;and&quot;s, and that the parts have to be given in the right order.) This is really intended to be useful when we manipulate such values in unusual ways:</p>
 <div class="codeblock"><div class="codeline">An aspect ratio is a kind of value. 16:20 specifies an aspect ratio with parts width and height.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">To decide which aspect ratio is the wider version of (AR - an aspect ratio):</div>
-<div class="codeline">&ensp;&ensp;let W be the width part of AR multiplied by 2;</div>
-<div class="codeline">&ensp;&ensp;let H be the height part of AR;</div>
-<div class="codeline">&ensp;&ensp;let the wider ratio be the aspect ratio with width part W height part H;</div>
-<div class="codeline">&ensp;&ensp;decide on the wider ratio.</div>
+<div class="codeline">&ensp;&ensp;&ensp;let W be the width part of AR multiplied by 2;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let H be the height part of AR;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let the wider ratio be the aspect ratio with width part W height part H;</div>
+<div class="codeline">&ensp;&ensp;&ensp;decide on the wider ratio.</div>
 </div><p>Declaring the parts of a number specification individually also enables us to tack one or more options onto any of the parts:</p>
 <div class="codeblock"><div class="codeline">A monetary value is a kind of value. $1.99 specifies a monetary value with parts dollars and cents (optional, preamble optional).</div>
 </div><p>This declares that the &quot;cents&quot; part is optional &ndash; it will be 0 if not specified &ndash; and that if omitted, the non-numeric &quot;preamble&quot; before it should also be omitted. Thus &quot;$3&quot; is now valid and equivalent to &quot;$3.00&quot;: indeed it will be the preferred form when Inform prints out a monetary value which is an exact number of dollars. If we had said that &quot;cents&quot; was optional, but not said that the preamble was optional, then &quot;$3.&quot; would have been the form &ndash; which is less satisfactory.</p>
@@ -468,16 +468,16 @@
 <div class="linkback"><a href="RB_4.html#section_1" title="Time and Plot &gt; The Passage Of Time">RB §4.1 The Passage Of Time</a></div>
 </div>
 <h3 id="section_16">WI §15.16 Understanding specified numbers</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_15" title="The parts of a number specification"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">15.15 The parts of a number specification</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_15"><div class="nav-arrow">↑</div><div class="doc-navbar-text">15. Numbers and Equations</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_17"><div class="doc-navbar-text">15.17 Totals</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_15" title="The parts of a number specification"><div class="nav-arrow">←15.15 </div><div class="doc-navbar-text">The parts of a number specification</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_15"><div class="nav-arrow">↑15. </div><div class="doc-navbar-text">Numbers and Equations</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_17"><div class="doc-navbar-text">Totals</div><div class="nav-arrow">15.17→</div></a></div></div></div>
 <p>It may be worth noting in passing that number specifications, like all other kinds of value, can be understood in typed commands. (See the <a href="WI_17.html">chapter on Understanding</a> for more on what can go in such square brackets.) For instance:</p>
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;America Stands Tall&quot;\n\nThe Oval Office is a room. Josh and Toby are men in the Oval. A height is a kind of value. 5 foot 11 specifies a height. A person has a height. Josh is 5 foot 8. Toby is 5 foot 10.\n\nHeight guessing is an action applying to one thing and one height. Understand &quot;guess [someone] is [height]&quot; as height guessing.\n\nCheck height guessing: if the noun is not a person, say &quot;You can only guess the height of people.&quot; instead. Carry out height guessing: if the height of the noun is the height understood, say &quot;Spot on!&quot;; if the height of the noun is greater than the height understood, say &quot;No, [the noun] is taller than that.&quot;; if the height of the noun is less than the height understood, say &quot;No, [the noun] is shorter than that.&quot;\n\nTest me with &quot;guess josh is 6 foot 3 / guess josh is 5 foot 9 / guess josh is 5 foot 3 / guess josh is 5 foot 8&quot;.`)">⧉</button><div class="codeline storytitle">&quot;America Stands Tall&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Oval Office is a room. Josh and Toby are men in the Oval. A height is a kind of value. 5 foot 11 specifies a height. A person has a height. Josh is 5 foot 8. Toby is 5 foot 10.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Height guessing is an action applying to one thing and one height. Understand &quot;guess [someone] is [height]&quot; as height guessing.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Check height guessing: if the noun is not a person, say &quot;You can only guess the height of people.&quot; instead. Carry out height guessing: if the height of the noun is the height understood, say &quot;Spot on!&quot;; if the height of the noun is greater than the height understood, say &quot;No, [the noun] is taller than that.&quot;; if the height of the noun is less than the height understood, say &quot;No, [the noun] is shorter than that.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;guess josh is 6 foot 3 / guess josh is 5 foot 9 / guess josh is 5 foot 3 / guess josh is 5 foot 8&quot;.</div>
 </div><div class="examples">
 <h4>Example</h4>
@@ -485,11 +485,11 @@
 <div class="linkback"><a href="RB_10.html#section_6" title="Physics: Substances, Ropes, Energy and Weight &gt; Ropes">RB §10.6 Ropes</a></div>
 </div>
 <h3 id="section_17">WI §15.17 Totals</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_16" title="Understanding specified numbers"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">15.16 Understanding specified numbers</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_15"><div class="nav-arrow">↑</div><div class="doc-navbar-text">15. Numbers and Equations</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_18"><div class="doc-navbar-text">15.18 Equations</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_16" title="Understanding specified numbers"><div class="nav-arrow">←15.16 </div><div class="doc-navbar-text">Understanding specified numbers</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_15"><div class="nav-arrow">↑15. </div><div class="doc-navbar-text">Numbers and Equations</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_18"><div class="doc-navbar-text">Equations</div><div class="nav-arrow">15.18→</div></a></div></div></div>
 <p>This chapter began by mentioning arithmetic, and then went on a long diversion to create scientific units, everyday weights and measures, and other notational conveniences. Putting all of that together, it&#39;s time now to calculate something with all of these numerical quantities.</p>
 <p>Suppose we invent the idea of weight, and give everything a weight of its own. Most items will have a nominal weight of 1kg, but people will be heavier. Going on actuarial tables, we might say:</p>
 <div class="codeblock"><div class="codeline">A weight is a kind of value. 10kg specifies a weight. Everything has a weight. A thing usually has weight 1kg. A man usually has weight 80kg. A woman usually has weight 67kg.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Definition: A thing is light if its weight is 3kg or less.</div>
 <div class="codeline">Definition: A thing is heavy if its weight is 10kg or more.</div>
 </div><p>and this provides us with &quot;lighter&quot;, &quot;lightest&quot;, &quot;heavier&quot; and &quot;heaviest&quot; as before. Now we could say &quot;if Peter is heavier than Paul&quot;, or even &quot;if Peter is heavier than 75kg&quot;, and so forth. We need one more tool:</p>
@@ -513,7 +513,7 @@
 <div class="linkback"><a href="RB_9.html#section_4" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Money">RB §9.4 Money</a></div>
 </div>
 <h3 id="section_18">WI §15.18 Equations</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_17" title="Totals"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">15.17 Totals</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_15"><div class="nav-arrow">↑</div><div class="doc-navbar-text">15. Numbers and Equations</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_19"><div class="doc-navbar-text">15.19 Arithmetic with units</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_17" title="Totals"><div class="nav-arrow">←15.17 </div><div class="doc-navbar-text">Totals</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_15"><div class="nav-arrow">↑15. </div><div class="doc-navbar-text">Numbers and Equations</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_19"><div class="doc-navbar-text">Arithmetic with units</div><div class="nav-arrow">15.19→</div></a></div></div></div>
 <p>Forming totals is all very interesting in its way, but it&#39;s book-keeping rather than physics. As a glance at any school science textbook shows, the way to apply physics is to work out an unknown quantity &ndash; say, the time taken for a dropped ball to hit the ground &ndash; by combining known quantities into an equation &ndash; the height it is dropped from, and the strength of gravity.</p>
 <p>It&#39;s a convention centuries old now that textbooks and research papers never describe these equations in running text. Even for simple formulae, we like to write &quot;F=ma&quot;, not &quot;let the force be the mass times the acceleration&quot;. And the standard way to print this is to break off and display an equation, not to squeeze it into the text as if it were ordinary verbiage. Just as Inform&#39;s Tables imitate those in printed books (see the next chapter), so its Equations do.</p>
 <p>In this section, we&#39;ll use a combination of three equations to work out how soon and how hard an object pushed off a table will hit the floor. First, we&#39;ll include Metric Units, to define all of the kinds of value and notations we need.</p>
@@ -524,29 +524,29 @@
 <div class="codeblock"><div class="codeline">Laboratory is a room. The cannon ball is in the Laboratory. &quot;A cannon ball perches delicately on a lab bench.&quot; The mass of the cannon ball is 2kg.</div>
 </div><p>And now we&#39;re ready for the three equations. These will all have names, but we could just as easily have numbered them, calling them (say) &quot;Equation 1&quot;, &quot;Equation 2&quot; and &quot;Equation 3&quot;.</p>
 <div class="codeblock"><div class="codeline">Equation - Newton&#39;s Second Law</div>
-<div class="codeline">&ensp;&ensp;F=ma</div>
+<div class="codeline">&ensp;&ensp;&ensp;F=ma</div>
 <div class="codeline">where F is a force, m is a mass, a is an acceleration.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Equation - Principle of Conservation of Energy</div>
-<div class="codeline">&ensp;&ensp;mgh = mv^2/2</div>
+<div class="codeline">&ensp;&ensp;&ensp;mgh = mv^2/2</div>
 <div class="codeline">where m is a mass, h is a length, v is a velocity, and g is the acceleration due to gravity.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Equation - Galilean Equation for a Falling Body</div>
-<div class="codeline">&ensp;&ensp;v = gt</div>
+<div class="codeline">&ensp;&ensp;&ensp;v = gt</div>
 <div class="codeline">where g is the acceleration due to gravity, v is a velocity, and t is an elapsed time.</div>
 </div><p>An equation has to take the form of one formula equals another, where each formula is made up from symbols defined afterwards. The symbols can be defined as definite values (as &quot;g&quot; is defined in the Galilean Equation), or just by telling Inform their kinds of value (as &quot;v&quot; and &quot;t&quot; are defined).</p>
 <p>Equations are read using standard mathematical conventions. So &quot;x + yz&quot; means that we multiply y and z, then add that to x; &quot;ab/cd&quot; divides the product of a and b by the product of c and d. Multiplication signs can be omitted, just as science books normally do (though we can always write them if we want to, using the asterisk *, as usual in computing). The need for brackets is minimised, with any luck, but we can use them if we need to: &quot;x(y+ab)&quot; is legal, for instance.</p>
 <p>One difference between Inform&#39;s conventions and mathematical ones, though, is that Inform generally ignores upper-versus-lower-case when reading variable names, so it wouldn&#39;t be a good idea to write &quot;F = gMm/r^2&quot; and expect &quot;M&quot; and &quot;m&quot; to be different from each other.</p>
 <p>Here is the calculation:</p>
 <div class="codeblock"><div class="codeline">Instead of pushing the cannon ball:</div>
-<div class="codeline">&ensp;&ensp;let the falling body be the cannon ball;</div>
-<div class="codeline">&ensp;&ensp;let m be the mass of the falling body;</div>
-<div class="codeline">&ensp;&ensp;let h be 1.2m;</div>
-<div class="codeline">&ensp;&ensp;let F be given by Newton&#39;s Second Law where a is the acceleration due to gravity;</div>
-<div class="codeline">&ensp;&ensp;let v be given by the Principle of Conservation of Energy;</div>
-<div class="codeline">&ensp;&ensp;let t be given by the Galilean Equation for a Falling Body;</div>
-<div class="codeline">&ensp;&ensp;say &quot;You push [the falling body] off the bench, at a height of [h], and, subject to a downward force of [F], it falls. [t to the nearest 0.01s] later, this mass of [m] hits the floor at [v].&quot;;</div>
-<div class="codeline">&ensp;&ensp;now the falling body is in the location.</div>
+<div class="codeline">&ensp;&ensp;&ensp;let the falling body be the cannon ball;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let m be the mass of the falling body;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let h be 1.2m;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let F be given by Newton&#39;s Second Law where a is the acceleration due to gravity;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let v be given by the Principle of Conservation of Energy;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let t be given by the Galilean Equation for a Falling Body;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You push [the falling body] off the bench, at a height of [h], and, subject to a downward force of [F], it falls. [t to the nearest 0.01s] later, this mass of [m] hits the floor at [v].&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the falling body is in the location.</div>
 </div><p>And the result is:</p>
 <div class="codeblock"><div class="codeline">You push the cannon ball off the bench, at a height of 1.2m, and, subject to a downward force of 19.614N, it falls. 0.49s later, this mass of 2.0kg hits the floor at 4.85147 m/s.</div>
 </div><p>Not all that fast-moving &ndash; it&#39;s only about 10 mph, ten times slower than one fired by a Renaissance cannon &ndash; but half a second wouldn&#39;t give you long to get your foot out of the way.</p>
@@ -570,8 +570,8 @@
 <div class="codeblock"><div class="codeline">abs, root, ceiling, floor, int, log, exp, sin, cos, tan, arcsin, arccos, arctan, sinh, cosh, tanh, arcsinh, arccosh, arctanh</div>
 </div><p>As an example, here&#39;s the definition of arcsinh given in the Standard Rules:</p>
 <div class="codeblock"><div class="codeline">To decide which real number is the hyperbolic arcsine of (R - a real number):</div>
-<div class="codeline">&ensp;&ensp;let x be given by x = log(R + root(R^2 + 1)) where x is a real number;</div>
-<div class="codeline">&ensp;&ensp;decide on x.</div>
+<div class="codeline">&ensp;&ensp;&ensp;let x be given by x = log(R + root(R^2 + 1)) where x is a real number;</div>
+<div class="codeline">&ensp;&ensp;&ensp;decide on x.</div>
 </div><p>Something to be a little cautious of: brackets are used in equations to group terms together, and do not mean function application, as they would in a C-like programming language. For example, &quot;sin(1+x)/2&quot; takes the sine of &quot;(1+x)/2&quot;: if we want to halve the sine of &quot;1+x&quot;, we have to write &quot;(sin(1+x))/2&quot;.</p>
 <div class="examples">
 <h4>Example</h4>
@@ -579,11 +579,11 @@
 <div class="linkback"><a href="RB_9.html#section_4" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Money">RB §9.4 Money</a></div>
 </div>
 <h3 id="section_19">WI §15.19 Arithmetic with units</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_18" title="Equations"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">15.18 Equations</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_15"><div class="nav-arrow">↑</div><div class="doc-navbar-text">15. Numbers and Equations</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_20"><div class="doc-navbar-text">15.20 Multiplication of units</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_18" title="Equations"><div class="nav-arrow">←15.18 </div><div class="doc-navbar-text">Equations</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_15"><div class="nav-arrow">↑15. </div><div class="doc-navbar-text">Numbers and Equations</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_20"><div class="doc-navbar-text">Multiplication of units</div><div class="nav-arrow">15.20→</div></a></div></div></div>
 <p>The example equations in the previous section carried out quite a lot of arithmetic, but they may have given the impression that Inform always allows arithmetic &ndash; which is not true.</p>
 <p>This is actually a good thing, because it keeps us from error. For instance, Inform will not allow:</p>
 <div class="codeblock"><div class="codeline">Equation - Newton&#39;s Totally Bogus Law</div>
-<div class="codeline">&ensp;&ensp;F = m^2</div>
+<div class="codeline">&ensp;&ensp;&ensp;F = m^2</div>
 <div class="codeline">where F is a force, m is a mass.</div>
 </div><p>because whatever you get when you square a mass, you don&#39;t get a force &ndash; in the same way that a length times another length makes an area, not another length. Physicists call this &quot;dimensional analysis&quot;, and it often provides clues about which equations are right. Just after the Second World War, someone correctly worked out the explosive power of an atomic bomb without any classified information simply by guessing what values would appear in the formula, and then finding the simplest equation they could appear in.</p>
 <p>In general, Inform will not allow numerical kinds of value to be multiplied or divided by each other (or square or cube rooted) unless we give it instructions that this would make sense.</p>
@@ -606,12 +606,12 @@
 <div class="linkback"><a href="RB_10.html#section_2" title="Physics: Substances, Ropes, Energy and Weight &gt; Liquids">RB §10.2 Liquids</a></div>
 </div>
 <h3 id="section_20">WI §15.20 Multiplication of units</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_19" title="Arithmetic with units"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">15.19 Arithmetic with units</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_15"><div class="nav-arrow">↑</div><div class="doc-navbar-text">15. Numbers and Equations</div></a></div><div class="doc-navbar-right"><div>&nbsp;</div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_19" title="Arithmetic with units"><div class="nav-arrow">←15.19 </div><div class="doc-navbar-text">Arithmetic with units</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_15"><div class="nav-arrow">↑15. </div><div class="doc-navbar-text">Numbers and Equations</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="WI_16.html" title="Tables"><div class="doc-navbar-text">Tables</div><div class="nav-arrow">16.→</div></a></div></div></div>
 <p>To recap, then, it is forbidden to multiply 122kg and 10kg, not because it could never make sense (a scientist might occasionally multiply two weights) but because the result is &ndash; what? Not a number, and not a weight any more. But we are allowed to tell Inform what the result ought to be, and once we have done so, the multiplication will be allowed:</p>
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`A length is a kind of value. 10m specifies a length. An area is a kind of value. 10 sq m specifies an area.\n\nA length times a length specifies an area.\n\nThe balance platform is in the Weighbridge. &quot;The balance platform is 10m by 8m, giving it an area of [10m multiplied by 8m].&quot;`)">⧉</button><div class="codeline">A length is a kind of value. 10m specifies a length. An area is a kind of value. 10 sq m specifies an area.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A length times a length specifies an area.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The balance platform is in the Weighbridge. &quot;The balance platform is 10m by 8m, giving it an area of [10m multiplied by 8m].&quot;</div>
 </div><p>which will turn up as:</p>
 <div class="codeblock"><div class="codeline">The balance platform is 10m by 8m, giving it an area of 80 sq m.</div>

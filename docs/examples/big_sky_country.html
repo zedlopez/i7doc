@@ -18,56 +18,56 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex138">Play/modify Big Sky Country in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Jesse/index.html">Play Big Sky Country in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Big Sky Country&quot;\n\nUse scoring.\n\nWhen play begins: say &quot;There&apos;s a bit of a drive over from Anaconda, Montana, and then through a couple or three ghost towns, but finally you find what you&apos;re looking for, and strike out on foot...&quot;\n\nEntrance to Devil&apos;s Canyon is a room. &quot;You are at the top of a steep road, which proceeds down into the canyon proper.&quot; A sign is in Devil&apos;s Canyon. It is fixed in place. &quot;An ominous sign has been put up by the local sheriff&apos;s office.&quot; The description is &quot;PROCEED AT OWN RISK - NO RESCUES!&quot;\n\nInstead of going down when a random chance of 1 in 3 succeeds:\n\tsay &quot;Whoooops, your footing is not as secure as you thought...&quot;;\n\tend the story.\n\nDusty Path is below Entrance. &quot;A dusty path, with grey-brown thorny bushes on either side. Immediately to your right is a sheer drop; far below you can see the rusting remains of a Model T that some fool tried to drive by here.&quot;\n\nHairpin is below Dusty Path. &quot;A sharp bend in the road, doubling back down towards the bottom of the canyon. Just north of here there is also a small cavern of some kind[if the stick pin is in the cavern], which attracts your eye with some glittery thing[end if].&quot;\n\nThe Cavern is north of Hairpin. &quot;Really not much more than a little hollow in the side of the canyon.&quot; In the cavern are a snake and a diamond stick pin. The snake is an animal. The description of the snake is &quot;You&apos;re no expert, but it looks like a rattler.&quot;\n\nInstead of taking the diamond stick pin in the presence of the snake: say &quot;Turns out the snake is partial to that there pin, and takes exception to your intending to make off with it.&quot;; end the story.\n\n\nCrooked Path is below Hairpin. &quot;You&apos;re about two thirds of the way down to the bottom of the cavern at this point.&quot;\n\nAt the Spot is below Crooked Path. &quot;This&apos;ll be it: a bare patch of ground that might as well have an X painted right on it.&quot;\n\nRule for supplying a missing noun while digging:\n\tnow noun is the location.\n\nUnderstand &quot;dig&quot; or &quot;dig hole/here&quot; or &quot;dig in ground/dirt/earth&quot; as digging. Digging is an action applying to one thing.\n\nInstead of digging at the spot:\n\tsay &quot;You dig and dig, and after a half hour or so, sure enough, you do turn up a big box of gold! You&apos;re going to be richer than God and Bill Gates put together.&quot;;\n\tincrease the score by 5;\n\tend the story finally.\n\nInstead of digging at the spot when the player does not carry the shovel:\n\tsay &quot;What, without your shovel? That won&apos;t work too well.&quot;\n\nThe player carries a walking stick. The player wears a hat, a whistle, and a daypack. The daypack contains a mylar blanket, a granola bar, a cellular phone, a water bottle, a folding shovel, and a photocopied map. The granola bar is edible. Instead of drinking the water, say &quot;You quench your thirst, for the time being.&quot; The description of the map is &quot;The map shows the winding path of Devil&apos;s Canyon, with a large X down by the south end. That would be where your uncle Jesse buried the gold from the train robbery.&quot;\n\nThe maximum score is 5.\n\nWhen play ends when the story has not ended finally:\n\tsay &quot;Oh dear, that ought to be fatal! However, if you like I can get you out of it...\n\n\tShall I? >&quot;;\n\tif the player consents:\n\t\trepeat with item running through things had by the player:\n\t\t\tmove the item to a random visited room;\n\t\tsay &quot;A strong wind picks you up and sets you back at [the location], though perhaps minus a few of your things.&quot;;\n\t\tresume the story;\n\t\ttry looking.`)">⧉</button><div class="codeline storytitle">&quot;Big Sky Country&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Use scoring.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">When play begins: say &quot;There&#39;s a bit of a drive over from Anaconda, Montana, and then through a couple or three ghost towns, but finally you find what you&#39;re looking for, and strike out on foot...&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Entrance to Devil&#39;s Canyon is a room. &quot;You are at the top of a steep road, which proceeds down into the canyon proper.&quot; A sign is in Devil&#39;s Canyon. It is fixed in place. &quot;An ominous sign has been put up by the local sheriff&#39;s office.&quot; The description is &quot;PROCEED AT OWN RISK - NO RESCUES!&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of going down when a random chance of 1 in 3 succeeds:</div>
-<div class="codeline">&ensp;&ensp;say &quot;Whoooops, your footing is not as secure as you thought...&quot;;</div>
-<div class="codeline">&ensp;&ensp;end the story.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Whoooops, your footing is not as secure as you thought...&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;end the story.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Dusty Path is below Entrance. &quot;A dusty path, with grey-brown thorny bushes on either side. Immediately to your right is a sheer drop; far below you can see the rusting remains of a Model T that some fool tried to drive by here.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Hairpin is below Dusty Path. &quot;A sharp bend in the road, doubling back down towards the bottom of the canyon. Just north of here there is also a small cavern of some kind[if the stick pin is in the cavern], which attracts your eye with some glittery thing[end if].&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Cavern is north of Hairpin. &quot;Really not much more than a little hollow in the side of the canyon.&quot; In the cavern are a snake and a diamond stick pin. The snake is an animal. The description of the snake is &quot;You&#39;re no expert, but it looks like a rattler.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of taking the diamond stick pin in the presence of the snake: say &quot;Turns out the snake is partial to that there pin, and takes exception to your intending to make off with it.&quot;; end the story.</div>
 </div><p>In a fuller implementation of this game, we might make it possible to get by the snake, but in this version, it&#39;s just going to remain troublesome.</p>
 <div class="codeblock"><div class="codeline">Crooked Path is below Hairpin. &quot;You&#39;re about two thirds of the way down to the bottom of the cavern at this point.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">At the Spot is below Crooked Path. &quot;This&#39;ll be it: a bare patch of ground that might as well have an X painted right on it.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Rule for supplying a missing noun while digging:</div>
-<div class="codeline">&ensp;&ensp;now noun is the location.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now noun is the location.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Understand &quot;dig&quot; or &quot;dig hole/here&quot; or &quot;dig in ground/dirt/earth&quot; as digging. Digging is an action applying to one thing.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of digging at the spot:</div>
-<div class="codeline">&ensp;&ensp;say &quot;You dig and dig, and after a half hour or so, sure enough, you do turn up a big box of gold! You&#39;re going to be richer than God and Bill Gates put together.&quot;;</div>
-<div class="codeline">&ensp;&ensp;increase the score by 5;</div>
-<div class="codeline">&ensp;&ensp;end the story finally.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You dig and dig, and after a half hour or so, sure enough, you do turn up a big box of gold! You&#39;re going to be richer than God and Bill Gates put together.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;increase the score by 5;</div>
+<div class="codeline">&ensp;&ensp;&ensp;end the story finally.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of digging at the spot when the player does not carry the shovel:</div>
-<div class="codeline">&ensp;&ensp;say &quot;What, without your shovel? That won&#39;t work too well.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;What, without your shovel? That won&#39;t work too well.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The player carries a walking stick. The player wears a hat, a whistle, and a daypack. The daypack contains a mylar blanket, a granola bar, a cellular phone, a water bottle, a folding shovel, and a photocopied map. The granola bar is edible. Instead of drinking the water, say &quot;You quench your thirst, for the time being.&quot; The description of the map is &quot;The map shows the winding path of Devil&#39;s Canyon, with a large X down by the south end. That would be where your uncle Jesse buried the gold from the train robbery.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The maximum score is 5.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">When play ends when the story has not ended finally:</div>
-<div class="codeline">&ensp;&ensp;say &quot;Oh dear, that ought to be fatal! However, if you like I can get you out of it...</div>
-<div class="codeline">&ensp;&ensp;</div>
-<div class="codeline">&ensp;&ensp;Shall I? &gt;&quot;;</div>
-<div class="codeline">&ensp;&ensp;if the player consents:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;repeat with item running through things had by the player:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;move the item to a random visited room;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;A strong wind picks you up and sets you back at [the location], though perhaps minus a few of your things.&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;resume the story;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;try looking.</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Oh dear, that ought to be fatal! However, if you like I can get you out of it...</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;Shall I? &gt;&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the player consents:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;repeat with item running through things had by the player:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;move the item to a random visited room;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;A strong wind picks you up and sets you back at [the location], though perhaps minus a few of your things.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;resume the story;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;try looking.</div>
 </div><p>&quot;If the player consents&quot; is just a convenient way to ask a yes/no question that the player must answer before going on with the game.</p>
 <div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="no_place_like_home.html" title="Recording a whole table of scores for specific treasures."><div class="nav-arrow">←</div> <div class="doc-navbar-text">137. No Place Like Home</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="witnessed.html" title="A kind of battery which can be put into different devices, and which will lose power after extended use."><div class="doc-navbar-text">139. Witnessed 1</div> <div class="nav-arrow">→</div></a></div></div>
 <footer id="credits-footer"><nav><div class="nav-el"><a class="nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="nav-el" href="../search.html">Search</a></div></nav>

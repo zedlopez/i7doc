@@ -20,36 +20,36 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex81">Play/modify Unblinking in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Unblinking/index.html">Play Unblinking in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Unblinking&quot;\n\nSection 1 - Procedure\n\nThe light-meter is a privately-named scenery thing.\n\nDefinition: a room (called the target room) is light-filled:\n\tif the target room is lighted:\n\t\tyes;\n\tmove the light-meter to the target room;\n\tlet the answer be false;\n\tif the light-meter can see a lit thing:\n\t\tnow the answer is true;\n\tnow the light-meter is nowhere;\n\tdecide on the answer.\n\n\nSection 2 - Scenario\n\nThe Tomb of Angels is a room. &quot;This ancient underground tomb is lightless but for a few shafts from the surface. Everywhere in the shadows are carved angels, their faces worn away by water and pollution, their wings little more than nubs.&quot;\n\nThe Upward Path is above the Tomb of Angels. It is dark. &quot;The staircase switches back on itself many times as it ascends towards the Crash Site.&quot;\n\nA container called the sarcophagus is in the Upward Path. It is closed and openable. &quot;A sarcophagus rests in the niche here, [if open]the lid pushed aside[otherwise]the lid firmly in place[end if].&quot;\n\nThe Crash Site is above the Upward Path. &quot;The ceiling has wholly caved in here, and the belly of the spaceship above you is visible -- including the escape hatch.&quot;\n\nA candle is a kind of thing. A candle is usually lit. The player carries four candles.\n\nAfter looking when the location is not the Crash Site:\n\tif the best route from the location to the Crash Site through light-filled rooms is a direction (called next way):\n\t\tsay &quot;It looks like there&apos;s a safe, lit path [if the number of moves from the location to the Crash Site through light-filled rooms is 1]straight[otherwise]if you go[end if] [next way].&quot;;\n\totherwise:\n\t\tsay &quot;It looks like there is no fully lit path from here to the Crash Site.&quot;\n\nTest me with &quot;up / drop candle / down / up / take the candle / open sarcophagus / put candle in sarcophagus / down / up / close sarcophagus / d&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Unblinking&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline i7header">Section 1 - Procedure</div><div class="codeline">The light-meter is a privately-named scenery thing.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Definition: a room (called the target room) is light-filled:</div>
-<div class="codeline">&ensp;&ensp;if the target room is lighted:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;yes;</div>
-<div class="codeline">&ensp;&ensp;move the light-meter to the target room;</div>
-<div class="codeline">&ensp;&ensp;let the answer be false;</div>
-<div class="codeline">&ensp;&ensp;if the light-meter can see a lit thing:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;now the answer is true;</div>
-<div class="codeline">&ensp;&ensp;now the light-meter is nowhere;</div>
-<div class="codeline">&ensp;&ensp;decide on the answer.</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the target room is lighted:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;yes;</div>
+<div class="codeline">&ensp;&ensp;&ensp;move the light-meter to the target room;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let the answer be false;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the light-meter can see a lit thing:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the answer is true;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the light-meter is nowhere;</div>
+<div class="codeline">&ensp;&ensp;&ensp;decide on the answer.</div>
 </div><p>That done, we&#39;re free to use our best-route phrases to choose a particular route.</p>
-<div class="codeblock"><div class="codeline i7header">Section 2 - Scenario</div><div class="codeline">&ensp;&ensp;</div>
+<div class="codeblock"><div class="codeline i7header">Section 2 - Scenario</div><div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Tomb of Angels is a room. &quot;This ancient underground tomb is lightless but for a few shafts from the surface. Everywhere in the shadows are carved angels, their faces worn away by water and pollution, their wings little more than nubs.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Upward Path is above the Tomb of Angels. It is dark. &quot;The staircase switches back on itself many times as it ascends towards the Crash Site.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A container called the sarcophagus is in the Upward Path. It is closed and openable. &quot;A sarcophagus rests in the niche here, [if open]the lid pushed aside[otherwise]the lid firmly in place[end if].&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Crash Site is above the Upward Path. &quot;The ceiling has wholly caved in here, and the belly of the spaceship above you is visible -- including the escape hatch.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A candle is a kind of thing. A candle is usually lit. The player carries four candles.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">After looking when the location is not the Crash Site:</div>
-<div class="codeline">&ensp;&ensp;if the best route from the location to the Crash Site through light-filled rooms is a direction (called next way):</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;It looks like there&#39;s a safe, lit path [if the number of moves from the location to the Crash Site through light-filled rooms is 1]straight[otherwise]if you go[end if] [next way].&quot;;</div>
-<div class="codeline">&ensp;&ensp;otherwise:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;It looks like there is no fully lit path from here to the Crash Site.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the best route from the location to the Crash Site through light-filled rooms is a direction (called next way):</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;It looks like there&#39;s a safe, lit path [if the number of moves from the location to the Crash Site through light-filled rooms is 1]straight[otherwise]if you go[end if] [next way].&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;It looks like there is no fully lit path from here to the Crash Site.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;up / drop candle / down / up / take the candle / open sarcophagus / put candle in sarcophagus / down / up / close sarcophagus / d&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "up / drop candle / down / up / take the candle / open sarcophagus / put candle in sarcophagus / down / up / close sarcophagus / d".</summary><div class="testme-output">Tomb of Angels<br>This ancient underground tomb is lightless but for a few shafts from the surface. Everywhere in the shadows are carved angels, their faces worn away by water and pollution, their wings little more than nubs.<br><br>It looks like there is no fully lit path from here to the Crash Site.<br><br>&gt;(Testing.)<br><br>&gt;[1] up<br><br>Upward Path<br>The staircase switches back on itself many times as it ascends towards the Crash Site.<br><br>A sarcophagus rests in the niche here, the lid firmly in place.<br><br>It looks like there&#39;s a safe, lit path straight up.<br><br>&gt;[2] drop candle<br>Dropped.<br><br>&gt;[3] down<br><br>Tomb of Angels<br>This ancient underground tomb is lightless but for a few shafts from the surface. Everywhere in the shadows are carved angels, their faces worn away by water and pollution, their wings little more than nubs.<br><br>It looks like there&#39;s a safe, lit path if you go up.<br><br>&gt;[4] up<br><br>Upward Path<br>The staircase switches back on itself many times as it ascends towards the Crash Site.<br><br>A sarcophagus rests in the niche here, the lid firmly in place.<br><br>You can also see a candle (providing light) here.<br><br>It looks like there&#39;s a safe, lit path straight up.<br><br>&gt;[5] take the candle<br>Taken.<br><br>&gt;[6] open sarcophagus<br>You open the sarcophagus.<br><br>&gt;[7] put candle in sarcophagus<br>You put the candle into the sarcophagus.<br><br>&gt;[8] down<br><br>Tomb of Angels<br>This ancient underground tomb is lightless but for a few shafts from the surface. Everywhere in the shadows are carved angels, their faces worn away by water and pollution, their wings little more than nubs.<br><br>It looks like there&#39;s a safe, lit path if you go up.<br><br>&gt;[9] up<br><br>Upward Path<br>The staircase switches back on itself many times as it ascends towards the Crash Site.<br><br>A sarcophagus rests in the niche here, the lid pushed aside.<br><br>It looks like there&#39;s a safe, lit path straight up.<br><br>&gt;[10] close sarcophagus<br>You close the sarcophagus.<br><br>&gt;[11] d<br><br>Tomb of Angels<br>This ancient underground tomb is lightless but for a few shafts from the surface. Everywhere in the shadows are carved angels, their faces worn away by water and pollution, their wings little more than nubs.<br><br>It looks like there is no fully lit path from here to the Crash Site.
 </div></details><p>An important word of caution: this method would give false negatives if there were a backdrop lightsource, such as the moon, providing light to the Upward Path. This is because backdrops are actually moved around the map by Inform during play, following the player around. So if the moon backdrop is in the Crash Site with the player, it will not be in the Upward Path as well -- even if it&#39;s scheduled to move there as soon as the player does.</p>

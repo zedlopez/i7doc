@@ -18,24 +18,24 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex321">Play/modify Whither? in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Whither/index.html">Play Whither? in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Whither?&quot;\n\nThe temporal vortex is an open door. It is west of Yesterday and east of Today.\n\nThe initial appearance of a door is usually &quot;Nearby [an item described] leads [if the other side of the item described is visited][direction of the item described from the location] to [other side of the item described][otherwise][direction of the item described from the location][end if].&quot;\n\nDirection-relevance relates a door (called X) to a direction (called Y) when the direction of X from the location is Y. The verb to be directionally-relevant to means the direction-relevance relation.\n\nUnderstand &quot;[something related by direction-relevance] door&quot; as a door.\n\n\nRule for printing a parser error when the player&apos;s command includes &quot;[non-door direction] door&quot;:\n\tsay &quot;There is no door in that direction.&quot; instead.\n\nDefinition: a direction (called direction D) is non-door:\n\tlet the target be the room-or-door direction D from the location;\n\tif the target is a door:\n\t\tno;\n\tyes;\n\nTest me with &quot;examine west door / x east door / w / x w door / x e door / tie me to the west door / tie the west door to me / push the west door east / push the east door west&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Whither?&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The temporal vortex is an open door. It is west of Yesterday and east of Today.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The initial appearance of a door is usually &quot;Nearby [an item described] leads [if the other side of the item described is visited][direction of the item described from the location] to [other side of the item described][otherwise][direction of the item described from the location][end if].&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Direction-relevance relates a door (called X) to a direction (called Y) when the direction of X from the location is Y. The verb to be directionally-relevant to means the direction-relevance relation.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Understand &quot;[something related by direction-relevance] door&quot; as a door.</div>
 </div><p>As an added touch, we respond also to the case where the player postulates a door in some direction when there is no such thing at the moment:</p>
 <div class="codeblock"><div class="codeline">Rule for printing a parser error when the player&#39;s command includes &quot;[non-door direction] door&quot;:</div>
-<div class="codeline">&ensp;&ensp;say &quot;There is no door in that direction.&quot; instead.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;There is no door in that direction.&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Definition: a direction (called direction D) is non-door:</div>
-<div class="codeline">&ensp;&ensp;let the target be the room-or-door direction D from the location;</div>
-<div class="codeline">&ensp;&ensp;if the target is a door:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;no;</div>
-<div class="codeline">&ensp;&ensp;yes;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let the target be the room-or-door direction D from the location;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the target is a door:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;no;</div>
+<div class="codeline">&ensp;&ensp;&ensp;yes;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;examine west door / x east door / w / x w door / x e door / tie me to the west door / tie the west door to me / push the west door east / push the east door west&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "examine west door / x east door / w / x w door / x e door / tie me to the west door / tie the west door to me / push the west door east / push the east door west".</summary><div class="testme-output">Yesterday<br>Nearby a temporal vortex leads west.<br><br>&gt;(Testing.)<br><br>&gt;[1] examine west door<br>You see nothing special about the temporal vortex.<br><br>&gt;[2] x east door<br>There is no door in that direction.<br><br>&gt;[3] w<br><br>Today<br>Nearby a temporal vortex leads east to Yesterday.<br><br>&gt;[4] x w door<br>There is no door in that direction.<br><br>&gt;[5] x e door<br>You see nothing special about the temporal vortex.<br><br>&gt;[6] tie me to the west door<br>There is no door in that direction.<br><br>&gt;[7] tie the west door to me<br>There is no door in that direction.<br><br>&gt;[8] push the west door east<br>There is no door in that direction.<br><br>&gt;[9] push the east door west<br>The temporal vortex cannot be pushed from place to place.
 </div></details><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="puncak_jaya.html" title="When a character is not visible, responding to such commands as EXAMINE PETER and PETER, HELLO with a short note that the person in question is no longer visible."><div class="nav-arrow">←</div> <div class="doc-navbar-text">320. Puncak Jaya</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="claims_adjustment.html" title="An instant camera that spits out photographs of anything the player chooses to take a picture of."><div class="doc-navbar-text">322. Claims Adjustment</div> <div class="nav-arrow">→</div></a></div></div>

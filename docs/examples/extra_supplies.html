@@ -19,24 +19,24 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex124">Play/modify Extra Supplies in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="ExtraSupplies/index.html">Play Extra Supplies in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Extra Supplies&quot;\n\nThe Supply Closet is a room. A supply of red pens is in the Supply Closet. Understand &quot;pen&quot; as the supply of red pens when the red pen is not visible.\n\nThere is a red pen.\n\nInstead of taking the supply of red pens:\n\tif the red pen is off-stage:\n\t\tmove the red pen to the player;\n\t\tsay &quot;You help yourself to a fresh red pen.&quot;;\n\totherwise:\n\t\tsay &quot;You&apos;re only allowed one pen at a time. The department secretary is very strict.&quot;\n\nSouth of the Supply Closet is the Furnace Room. The incinerator is a thing in the Furnace Room. It is a container. &quot;The incinerator is here, working full blast.&quot;\n\nAfter inserting something into the incinerator:\n\tnow the noun is nowhere;\n\tsay &quot;A fiery blast consumes [the noun]!&quot;\n\nTest me with &quot;get pen / i / get pen / get supply / s / put pen in incinerator / n / get pen&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Extra Supplies&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Supply Closet is a room. A supply of red pens is in the Supply Closet. Understand &quot;pen&quot; as the supply of red pens when the red pen is not visible.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">There is a red pen.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of taking the supply of red pens:</div>
-<div class="codeline">&ensp;&ensp;if the red pen is off-stage:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;move the red pen to the player;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;You help yourself to a fresh red pen.&quot;;</div>
-<div class="codeline">&ensp;&ensp;otherwise:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;You&#39;re only allowed one pen at a time. The department secretary is very strict.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the red pen is off-stage:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;move the red pen to the player;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;You help yourself to a fresh red pen.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;You&#39;re only allowed one pen at a time. The department secretary is very strict.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">South of the Supply Closet is the Furnace Room. The incinerator is a thing in the Furnace Room. It is a container. &quot;The incinerator is here, working full blast.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">After inserting something into the incinerator:</div>
-<div class="codeline">&ensp;&ensp;now the noun is nowhere;</div>
-<div class="codeline">&ensp;&ensp;say &quot;A fiery blast consumes [the noun]!&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the noun is nowhere;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;A fiery blast consumes [the noun]!&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;get pen / i / get pen / get supply / s / put pen in incinerator / n / get pen&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "get pen / i / get pen / get supply / s / put pen in incinerator / n / get pen".</summary><div class="testme-output">Supply Closet<br>You can see a supply of red pens here.<br><br>&gt;(Testing.)<br><br>&gt;[1] get pen<br>You help yourself to a fresh red pen.<br><br>&gt;[2] i<br>You are carrying:<br>  a red pen<br><br>&gt;[3] get pen<br>You already have that.<br><br>&gt;[4] get supply<br>You&#39;re only allowed one pen at a time. The department secretary is very strict.<br><br>&gt;[5] s<br><br>Furnace Room<br>The incinerator is here, working full blast.<br><br>&gt;[6] put pen in incinerator<br>A fiery blast consumes the red pen!<br><br>&gt;[7] n<br><br>Supply Closet<br>You can see a supply of red pens here.<br><br>&gt;[8] get pen<br>You help yourself to a fresh red pen.
 </div></details><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="spring_cleaning.html" title="A character who sulks over objects that the player has broken (and which are now off-stage)."><div class="nav-arrow">←</div> <div class="doc-navbar-text">123. Spring Cleaning</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="bee_chambers.html" title="A maze with directions between rooms randomized at the start of play."><div class="doc-navbar-text">125. Bee Chambers</div> <div class="nav-arrow">→</div></a></div></div>

@@ -18,40 +18,40 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex253">Play/modify Alias in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Alias-G/index.html">Play Alias in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Alias&quot;\n\nA telephone is a kind of thing. Understand &quot;phone&quot; or &quot;telephone&quot; as a telephone.\n\nA phone number is a kind of value. 999-9999 specifies a phone number.\n\n\nUnderstand &quot;dial [phone number] on [telephone]&quot; as dialing it on. Understand &quot;dial [phone number] on [something]&quot; as dialing it on.\n\nUnderstand the commands &quot;phone&quot; or &quot;telephone&quot; or &quot;call&quot; as &quot;dial&quot;.\n\nUnderstand &quot;call [text]&quot; or &quot;phone [text]&quot; or &quot;dial [text]&quot; or &quot;telephone [text]&quot; as a mistake (&quot;That&apos;s not a number you know.&quot;).\n\nDialing it on is an action applying to one phone number and one thing.\n\nReport dialing it on:\n\tsay &quot;You dial [the phone number understood].&quot;\n\n\nThe Senator&apos;s Junior Suite is a room. &quot;The Senator appears, unfortunately, to have very precise habits: little in the room has been moved from its usual place; the trash can is empty; the bed has been remade[if the blue paper is unexamined]. There may in fact be nothing to find here[end if].&quot;\n\nThe bed is an enterable scenery supporter in the Junior Suite.\n\nThe player is wearing a housekeeping uniform and a brunette wig. The player carries a telephone called a Nokia.\n\n\nUnderstand &quot;home&quot; as 555-9200.\n\n\nA thing can be examined or unexamined. Carry out examining something: now the noun is examined.\n\nUnderstand &quot;Stephen&quot; as 555-2513 when the blue paper is examined.\n\n\nThe blue paper is in the drawer. The description of the blue paper is &quot;It reads: &apos;Call Stephen - 555-2513&apos;.&quot;\n\nThe drawer is part of the dresser. It is closed and openable. The dresser is in The Senator&apos;s Junior Suite. The lamp is on the dresser. The description of the dresser is &quot;The single drawer is [if the drawer is open]open[otherwise]shut[end if].&quot;\n\nTest me with &quot;dial 555-9999 / call home on the telephone / phone the president / call stephen / open drawer / read paper / call stephen / put phone in drawer / close drawer / call stephen&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Alias&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A telephone is a kind of thing. Understand &quot;phone&quot; or &quot;telephone&quot; as a telephone.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A phone number is a kind of value. 999-9999 specifies a phone number.</div>
 </div><p>Now we borrow some techniques from the <a href="WI_17.html">Understanding chapter</a> to set up dialing actions:</p>
 <div class="codeblock"><div class="codeline">Understand &quot;dial [phone number] on [telephone]&quot; as dialing it on. Understand &quot;dial [phone number] on [something]&quot; as dialing it on.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Understand the commands &quot;phone&quot; or &quot;telephone&quot; or &quot;call&quot; as &quot;dial&quot;.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Understand &quot;call [text]&quot; or &quot;phone [text]&quot; or &quot;dial [text]&quot; or &quot;telephone [text]&quot; as a mistake (&quot;That&#39;s not a number you know.&quot;).</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Dialing it on is an action applying to one phone number and one thing.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Report dialing it on:</div>
-<div class="codeline">&ensp;&ensp;say &quot;You dial [the phone number understood].&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You dial [the phone number understood].&quot;</div>
 </div><p>This much is enough to let us dial telephone numbers and have Inform report that we&#39;ve done so; it doesn&#39;t actually provide a telephone system such that we could reach and converse with other characters (but see the other telephone examples in the recipe book for more on how one might do that).</p>
 <p>We&#39;ll set up a little political espionage scenario from which our player can make calls:</p>
 <div class="codeblock"><div class="codeline">The Senator&#39;s Junior Suite is a room. &quot;The Senator appears, unfortunately, to have very precise habits: little in the room has been moved from its usual place; the trash can is empty; the bed has been remade[if the blue paper is unexamined]. There may in fact be nothing to find here[end if].&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The bed is an enterable scenery supporter in the Junior Suite.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The player is wearing a housekeeping uniform and a brunette wig. The player carries a telephone called a Nokia.</div>
 </div><p>Borrowing again from the <a href="WI_17.html">chapter on Understanding</a>, we might arrange things so that the player knows and can call a few standard numbers with such syntax as CALL HOME:</p>
 <div class="codeblock"><div class="codeline">Understand &quot;home&quot; as 555-9200.</div>
 </div><p>And what if we&#39;d like to have the player learn some phone numbers during the game?</p>
 <div class="codeblock"><div class="codeline">A thing can be examined or unexamined. Carry out examining something: now the noun is examined.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Understand &quot;Stephen&quot; as 555-2513 when the blue paper is examined.</div>
 </div><p>This will understand CALL STEPHEN once the paper is examined; before that, the player will just get the &quot;That&#39;s not a number you know&quot; response that Inform uses for all attempts to call unknown names.</p>
 <p>We&#39;d better plant this paper for the player to find:</p>
 <div class="codeblock"><div class="codeline">The blue paper is in the drawer. The description of the blue paper is &quot;It reads: &#39;Call Stephen - 555-2513&#39;.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The drawer is part of the dresser. It is closed and openable. The dresser is in The Senator&#39;s Junior Suite. The lamp is on the dresser. The description of the dresser is &quot;The single drawer is [if the drawer is open]open[otherwise]shut[end if].&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;dial 555-9999 / call home on the telephone / phone the president / call stephen / open drawer / read paper / call stephen / put phone in drawer / close drawer / call stephen&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "dial 555-9999 / call home on the telephone / phone the president / call stephen / open drawer / read paper / call stephen / put phone in drawer / close drawer / call stephen".</summary><div class="testme-output">Senator&#39;s Junior Suite<br>The Senator appears, unfortunately, to have very precise habits: little in the room has been moved from its usual place; the trash can is empty; the bed has been remade. There may in fact be nothing to find here.<br><br>You can see a dresser (on which is a lamp) here.<br><br>&gt;(Testing.)<br><br>&gt;[1] dial 555-9999<br>(on the Nokia)<br>You dial 555-9999.<br><br>&gt;[2] call home on the telephone<br>You dial 555-9200.<br><br>&gt;[3] phone the president<br>That&#39;s not a number you know.<br><br>&gt;[4] call stephen<br>That&#39;s not a number you know.<br><br>&gt;[5] open drawer<br>You open the drawer, revealing a blue paper.<br><br>&gt;[6] read paper<br>It reads: &quot;Call Stephen - 555-2513&quot;.<br><br>&gt;[7] call stephen<br>(on the Nokia)<br>You dial 555-2513.<br><br>&gt;[8] put phone in drawer<br>You put the Nokia into the drawer.<br><br>&gt;[9] close drawer<br>You close the drawer.<br><br>&gt;[10] call stephen<br>What do you want to call that on?
 </div></details><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="responsive.html" title="Altering the standard inventory text for when the player is carrying nothing."><div class="nav-arrow">←</div> <div class="doc-navbar-text">252. Responsive</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="rbgh.html" title="The player character&#39;s height is selected randomly at the start of play."><div class="doc-navbar-text">254. rBGH</div> <div class="nav-arrow">→</div></a></div></div>

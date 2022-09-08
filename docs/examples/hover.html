@@ -18,30 +18,30 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex29">Play/modify Hover in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Hover/index.html">Play Hover in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Hover&quot;\n\nUse full-length room descriptions.\n\nEmerald City is a room. &quot;All the buildings are spires and none of them have doors.&quot; The Vast Desert is west of Emerald City. &quot;[if the player is in a vehicle]Outside, a[otherwise]A[end if] trackless waste stretches as far as the eye can see in every direction.&quot;\n\nThe hover-bubble is a vehicle in the Emerald City. &quot;Your hover-bubble awaits.&quot; The description is &quot;The hover-bubble is a clear globe-shaped vehicle capable of transporting you anywhere you could walk, but faster.&quot;  Understand &quot;bubble&quot; as the hover-bubble. The hover-bubble contains a chocolate wrapper and a parking ticket.\n\n\nThe container interior rule is listed before the room description body text rule in the carry out looking rules.\n\nThis is the container interior rule:\n\tif the actor is the player and the player is in an enterable thing (called current cage), carry out the describing the interior activity with the current cage.\n\nDescribing the interior of something is an activity.\n\n\nRule for describing the interior of the hover-bubble:\n\tsay &quot;The hover-bubble is transparent, but tints everything outside very faintly lavender.&quot;\n\n\nRule for describing the interior of the hover-bubble when the hover-bubble contains more than one thing:\n\tsay &quot;The hover-bubble is transparent, but tints everything outside very faintly lavender. Beside you you can see [a list of other things in the hover-bubble].&quot;\n\nDefinition: a thing is other if it is not the player.\n\nRule for listing nondescript items of the hover-bubble when the player is in the hover-bubble: do nothing.\n\nTest me with &quot;get in bubble / look / west / take all / look / get out / east&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Hover&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Use full-length room descriptions.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Emerald City is a room. &quot;All the buildings are spires and none of them have doors.&quot; The Vast Desert is west of Emerald City. &quot;[if the player is in a vehicle]Outside, a[otherwise]A[end if] trackless waste stretches as far as the eye can see in every direction.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The hover-bubble is a vehicle in the Emerald City. &quot;Your hover-bubble awaits.&quot; The description is &quot;The hover-bubble is a clear globe-shaped vehicle capable of transporting you anywhere you could walk, but faster.&quot;  Understand &quot;bubble&quot; as the hover-bubble. The hover-bubble contains a chocolate wrapper and a parking ticket.</div>
 </div><p>Here&#39;s the tricky part, which relies on material from the chapters on Activities and Rulebooks:</p>
 <div class="codeblock"><div class="codeline">The container interior rule is listed before the room description body text rule in the carry out looking rules.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">This is the container interior rule:</div>
-<div class="codeline">&ensp;&ensp;if the actor is the player and the player is in an enterable thing (called current cage), carry out the describing the interior activity with the current cage.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the actor is the player and the player is in an enterable thing (called current cage), carry out the describing the interior activity with the current cage.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Describing the interior of something is an activity.</div>
 </div><p>Now we&#39;ve done that, we can write a &quot;rule for describing the interior&quot; of something, which will print whatever we like:</p>
 <div class="codeblock"><div class="codeline">Rule for describing the interior of the hover-bubble:</div>
-<div class="codeline">&ensp;&ensp;say &quot;The hover-bubble is transparent, but tints everything outside very faintly lavender.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;The hover-bubble is transparent, but tints everything outside very faintly lavender.&quot;</div>
 </div><p>In fact, as a special refinement, we could even say:</p>
 <div class="codeblock"><div class="codeline">Rule for describing the interior of the hover-bubble when the hover-bubble contains more than one thing:</div>
-<div class="codeline">&ensp;&ensp;say &quot;The hover-bubble is transparent, but tints everything outside very faintly lavender. Beside you you can see [a list of other things in the hover-bubble].&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;The hover-bubble is transparent, but tints everything outside very faintly lavender. Beside you you can see [a list of other things in the hover-bubble].&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Definition: a thing is other if it is not the player.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Rule for listing nondescript items of the hover-bubble when the player is in the hover-bubble: do nothing.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;get in bubble / look / west / take all / look / get out / east&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "get in bubble / look / west / take all / look / get out / east".</summary><div class="testme-output">Emerald City<br>All the buildings are spires and none of them have doors.<br><br>Your hover-bubble awaits.<br><br>&gt;(Testing.)<br><br>&gt;[1] get in bubble<br>You get into the hover-bubble.<br><br>&gt;[2] look<br>Emerald City (in the hover-bubble)<br>The hover-bubble is transparent, but tints everything outside very faintly lavender. Beside you you can see a chocolate wrapper and a parking ticket.<br><br>All the buildings are spires and none of them have doors.<br><br>&gt;[3] west<br><br>Vast Desert (in the hover-bubble)<br>The hover-bubble is transparent, but tints everything outside very faintly lavender. Beside you you can see a chocolate wrapper and a parking ticket.<br><br>Outside, a trackless waste stretches as far as the eye can see in every direction.<br><br>&gt;[4] take all<br>chocolate wrapper: Taken.<br>parking ticket: Taken.<br><br>&gt;[5] look<br>Vast Desert (in the hover-bubble)<br>The hover-bubble is transparent, but tints everything outside very faintly lavender.<br><br>Outside, a trackless waste stretches as far as the eye can see in every direction.<br><br>&gt;[6] get out<br>You get out of the hover-bubble.<br><br>Vast Desert<br>A trackless waste stretches as far as the eye can see in every direction.<br><br>Your hover-bubble awaits.<br><br>&gt;[7] east<br><br>Emerald City<br>All the buildings are spires and none of them have doors.
 </div></details><p>And now anything that&#39;s beside us in the vehicle will be described during that first paragraph, rather than later on.</p>

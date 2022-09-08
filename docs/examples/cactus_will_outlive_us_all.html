@@ -17,21 +17,21 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex220">Play/modify Cactus Will Outlive Us All in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="CactusWillOutlive/index.html">Play Cactus Will Outlive Us All in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Cactus Will Outlive Us All&quot;\n\nDeath Valley is a room. Luckless Luke and Dead-Eye Pete are men in the Valley. A cactus is in the Valley. Persuasion rule: persuasion succeeds.\n\nA person has an action called death knell. The death knell of Luckless Luke is pulling the cactus. The death knell of Dead-Eye Pete is Luke trying dropping the cactus.\n\nBefore an actor doing something:\n\trepeat with the victim running through people in the location:\n\t\tlet the DK be the death knell of the victim;\n\t\tif the DK is not waiting and the current action is the DK:\n\t\t\tsay &quot;It looks as if [the DK] was the death knell for [the victim], who looks startled, then nonexistent.&quot;;\n\t\t\tnow the victim is nowhere.\n\n\nAfter pulling the cactus when Luckless Luke was in the location:\n\tsay &quot;That&apos;s a real shame.&quot;\n\nTest me with &quot;get cactus / drop cactus / luke, get cactus / luke, drop cactus / pull cactus / look&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Cactus Will Outlive Us All&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Death Valley is a room. Luckless Luke and Dead-Eye Pete are men in the Valley. A cactus is in the Valley. Persuasion rule: persuasion succeeds.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A person has an action called death knell. The death knell of Luckless Luke is pulling the cactus. The death knell of Dead-Eye Pete is Luke trying dropping the cactus.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Before an actor doing something:</div>
-<div class="codeline">&ensp;&ensp;repeat with the victim running through people in the location:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;let the DK be the death knell of the victim;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;if the DK is not waiting and the current action is the DK:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;It looks as if [the DK] was the death knell for [the victim], who looks startled, then nonexistent.&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the victim is nowhere.</div>
+<div class="codeline">&ensp;&ensp;&ensp;repeat with the victim running through people in the location:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;let the DK be the death knell of the victim;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the DK is not waiting and the current action is the DK:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;It looks as if [the DK] was the death knell for [the victim], who looks startled, then nonexistent.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the victim is nowhere.</div>
 </div><p>If we leave it at that, then pulling the cactus will kill Luckless Luke but then say &quot;Nothing obvious happens.&quot;, which seems like a bit of an anti-climax. So we add a special case response for that one:</p>
 <div class="codeblock"><div class="codeline">After pulling the cactus when Luckless Luke was in the location:</div>
-<div class="codeline">&ensp;&ensp;say &quot;That&#39;s a real shame.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;That&#39;s a real shame.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;get cactus / drop cactus / luke, get cactus / luke, drop cactus / pull cactus / look&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "get cactus / drop cactus / luke, get cactus / luke, drop cactus / pull cactus / look".</summary><div class="testme-output">Death Valley<br>You can see Luckless Luke, Dead-Eye Pete and a cactus here.<br><br>&gt;(Testing.)<br><br>&gt;[1] get cactus<br>Taken.<br><br>&gt;[2] drop cactus<br>Dropped.<br><br>&gt;[3] luke, get cactus<br>Luckless Luke picks up the cactus.<br><br>&gt;[4] luke, drop cactus<br>It looks as if Luckless Luke dropping the cactus was the death knell for Dead-Eye Pete, who looks startled, then nonexistent.<br><br>Luckless Luke puts down the cactus.<br><br>&gt;[5] pull cactus<br>It looks as if pulling the cactus was the death knell for Luckless Luke, who looks startled, then nonexistent.<br><br>That&#39;s a real shame.<br><br>&gt;[6] look<br>Death Valley<br>You can see a cactus here.
 </div></details><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="bosch.html" title="Creating a list of actions that will earn the player points, and using this both to change the score and to give FULL SCORE reports."><div class="nav-arrow">←</div> <div class="doc-navbar-text">219. Bosch</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="actors_studio.html" title="A video camera that records actions performed in its presence, and plays them back with time-stamps."><div class="doc-navbar-text">221. Actor's Studio</div> <div class="nav-arrow">→</div></a></div></div>

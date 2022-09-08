@@ -18,20 +18,20 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex418">Play/modify Blackout in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Blackout/index.html">Play Blackout in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Blackout&quot;\n\nTiny Room is a dark room. Absurdly Long-Named Room is a dark room. It is west of Tiny Room.\n\nThe Candle Factory is north of Tiny Room. It contains a beeswax candle. The beeswax candle is lit.\n\nRule for printing the name of a dark room:\n\tlet N be &quot;[location]&quot;;\n\treplace the regular expression &quot;\w&quot; in N with &quot;*&quot;;\n\tsay &quot;[N]&quot;.\n\nTest me with &quot;w / look / e / n / get candle / s / w&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Blackout&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Tiny Room is a dark room. Absurdly Long-Named Room is a dark room. It is west of Tiny Room.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Candle Factory is north of Tiny Room. It contains a beeswax candle. The beeswax candle is lit.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Rule for printing the name of a dark room:</div>
-<div class="codeline">&ensp;&ensp;let N be &quot;[location]&quot;;</div>
-<div class="codeline">&ensp;&ensp;replace the regular expression &quot;\w&quot; in N with &quot;*&quot;;</div>
-<div class="codeline">&ensp;&ensp;say &quot;[N]&quot;.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let N be &quot;[location]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;replace the regular expression &quot;\w&quot; in N with &quot;*&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;[N]&quot;.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;w / look / e / n / get candle / s / w&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "w / look / e / n / get candle / s / w".</summary><div class="testme-output">**** ****<br>It is pitch dark, and you can&#39;t see a thing.<br><br>&gt;(Testing.)<br><br>&gt;[1] w<br><br>******** ****-***** ****<br>It is pitch dark, and you can&#39;t see a thing.<br><br>&gt;[2] look<br>******** ****-***** ****<br>It is pitch dark, and you can&#39;t see a thing.<br><br>&gt;[3] e<br><br>**** ****<br>It is pitch dark, and you can&#39;t see a thing.<br><br>&gt;[4] n<br><br>Candle Factory<br>You can see a beeswax candle here.<br><br>&gt;[5] get candle<br>Taken.<br><br>&gt;[6] s<br><br>Tiny Room<br><br>&gt;[7] w<br><br>Absurdly Long-Named Room
 </div></details><p>Notice that the hyphen in the Absurdly Long-Named Room does not get replaced. We could replace even that, if we liked, with</p>
-<div class="codeblock"><div class="codeline">&ensp;&ensp;replace the regular expression &quot;\S&quot; in N with &quot;*&quot;;</div>
+<div class="codeblock"><div class="codeline">&ensp;&ensp;&ensp;replace the regular expression &quot;\S&quot; in N with &quot;*&quot;;</div>
 </div><p>which would catch every character that is not a space.</p>
 <div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="cow_exonerated.html" title="Creating a class of matches that burn for a time and then go out, with elegant reporting when several matches go out at once."><div class="nav-arrow">←</div> <div class="doc-navbar-text">417. The Cow Exonerated</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="fido.html" title="A dog the player can name and un-name at will."><div class="doc-navbar-text">419. Fido</div> <div class="nav-arrow">→</div></a></div></div>
 <footer id="credits-footer"><nav><div class="nav-el"><a class="nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="nav-el" href="../search.html">Search</a></div></nav>

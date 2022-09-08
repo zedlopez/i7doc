@@ -18,26 +18,26 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex299">Play/modify Tom's Midnight Garden in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Timekeeper/index.html">Play Tom's Midnight Garden in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Tom&apos;s Midnight Garden&quot;\n\nA clock is a kind of device. A clock has a time called the current time. A clock can be analog or digital. The current time of a clock is usually 9:01 AM. The description of a clock is &quot;It shows the time to be [if analog]about [the current time to the nearest five minutes in words][otherwise][the current time][end if].&quot;\n\nUnderstand &quot;set [clock] to [time]&quot; as setting it by time. Setting it by time is an action applying to one thing and one time.\n\nInstead of setting a clock to something:\n\tsay &quot;[The noun] can be set only to a time of day, such as 8:00 AM, or midnight.&quot;\n\nCarry out setting a clock by time:\n\tnow the current time of the noun is the time understood.\n\nReport setting a clock by time:\n\tsay &quot;You set [the noun] to [time understood].&quot;\n\nEvery turn:\n\trepeat with item running through switched on clocks:\n\t\tnow the current time of the item is one minute after the current time of the item.\n\nThe Hall is a room. The grandfather clock is a fixed in place analog clock in the Hall. The travel clock is a switched on digital clock in the Hall.  When play begins: now the right hand status line is &quot;[time of day]&quot;.\n\nTest me with &quot;examine grandfather clock / set it to midnight / switch it on / wait / wait / wait / examine it / set travel clock to 4:12 / examine it&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Tom&#39;s Midnight Garden&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A clock is a kind of device. A clock has a time called the current time. A clock can be analog or digital. The current time of a clock is usually 9:01 AM. The description of a clock is &quot;It shows the time to be [if analog]about [the current time to the nearest five minutes in words][otherwise][the current time][end if].&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Understand &quot;set [clock] to [time]&quot; as setting it by time. Setting it by time is an action applying to one thing and one time.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of setting a clock to something:</div>
-<div class="codeline">&ensp;&ensp;say &quot;[The noun] can be set only to a time of day, such as 8:00 AM, or midnight.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;[The noun] can be set only to a time of day, such as 8:00 AM, or midnight.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Carry out setting a clock by time:</div>
-<div class="codeline">&ensp;&ensp;now the current time of the noun is the time understood.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the current time of the noun is the time understood.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Report setting a clock by time:</div>
-<div class="codeline">&ensp;&ensp;say &quot;You set [the noun] to [time understood].&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You set [the noun] to [time understood].&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Every turn:</div>
-<div class="codeline">&ensp;&ensp;repeat with item running through switched on clocks:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;now the current time of the item is one minute after the current time of the item.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;repeat with item running through switched on clocks:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the current time of the item is one minute after the current time of the item.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Hall is a room. The grandfather clock is a fixed in place analog clock in the Hall. The travel clock is a switched on digital clock in the Hall.  When play begins: now the right hand status line is &quot;[time of day]&quot;.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;examine grandfather clock / set it to midnight / switch it on / wait / wait / wait / examine it / set travel clock to 4:12 / examine it&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "examine grandfather clock / set it to midnight / switch it on / wait / wait / wait / examine it / set travel clock to 4:12 / examine it".</summary><div class="testme-output">Hall<br>You can see a grandfather clock and a travel clock here.<br><br>&gt;(Testing.)<br><br>&gt;[1] examine grandfather clock<br>It shows the time to be about nine o&#39;clock.<br><br>The grandfather clock is currently switched off.<br><br>&gt;[2] set it to midnight<br>You set the grandfather clock to 12:00 am.<br><br>&gt;[3] switch it on<br>You switch the grandfather clock on.<br><br>&gt;[4] wait<br>Time passes.<br><br>&gt;[5] wait<br>Time passes.<br><br>&gt;[6] wait<br>Time passes.<br><br>&gt;[7] examine it<br>It shows the time to be about five past twelve.<br><br>The grandfather clock is currently switched on.<br><br>&gt;[8] set travel clock to 4:12<br>You set the travel clock to 4:12 am.<br><br>&gt;[9] examine it<br>It shows the time to be 4:13 am.<br><br>The travel clock is currently switched on.
 </div></details><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="safety.html" title="A safe whose dial can be turned with SPIN SAFE TO 1131, and which will open only with the correct combination."><div class="nav-arrow">←</div> <div class="doc-navbar-text">298. Safety</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="ibid.html" title="A system which allows the author to assign footnotes to descriptions, and permits the player to retrieve them again by number, using &quot;the number understood&quot;. Footnotes will automatically number themselves, according to the order in which the player discovers them."><div class="doc-navbar-text">300. Ibid.</div> <div class="nav-arrow">→</div></a></div></div>

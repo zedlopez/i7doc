@@ -18,54 +18,54 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex356">Play/modify Happy Hour in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="HappyHell/index.html">Play Happy Hour in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Happy Hour&quot;\n\nBefore listing nondescript items:\n\tsay &quot;You can see [a list of people who are marked for listing] here. &quot;;\n\trepeat with named party running through people:\n\t\tnow the named party is not marked for listing;\n\tlet count be the number of visible other people who are carrying something;\n\tif count is 0:\n\t\tsay paragraph break;\n\t\tcontinue the action;\n\tlet index be count;\n\trepeat with holder running through visible other people who are carrying something:\n\t\tif index is count, say &quot;[The holder]&quot;;\n\t\totherwise say &quot;[the holder]&quot;;\n\t\tsay &quot; has [a list of things carried by the holder]&quot;;\n\t\tdecrement index;\n\t\tmake delimiter index of count.\n\n\nTo make delimiter (index - a number) of (count - a number), continuing or halting:\n\tif index is 0:\n\t\tif continuing, say &quot;. [run paragraph on]&quot;;\n\t\totherwise say &quot;.&quot;;\n\totherwise if index is 1:\n\t\tif count is 2, say &quot; and &quot;;\n\t\totherwise say &quot;[optional comma] and &quot;;\n\totherwise:\n\t\tsay &quot;, &quot;.\n\nTo say optional comma:\n\tif the serial comma option is active:\n\t\tsay &quot;,&quot;.\n\n\nThe Banquet Hall is a room. &quot;A large cheery banner over the door (which, incidentally, vanishes when you approach it) reads: HELLO NEW INDUCTEES! WELCOME TO THE AFTERLIFE!&quot;\n\nFred, George, and Larry are men in the Banquet Hall. Fred carries a dry martini. Larry carries a cream puff. Matilda and Louise are women in the Banquet Hall.\n\nDefinition: a person is other if it is not the player.\n\nEvery turn:\n\tlet wanderer be a random other person;\n\tlet place be the holder of the wanderer;\n\tlet next place be a random room adjacent to the place;\n\tlet the way be the best route from the place to the next place;\n\ttry the wanderer going the way.\n\nThe Kitchen is west of the Banquet Hall. &quot;Dominated by a pile of dirty plates which you imagine it will be someone&apos;s privilege to wash, later.&quot; Vanessa is a woman in the Kitchen. Vanessa carries a tray. On the tray is a salmon roll. The roll is edible.\n\nTest me with &quot;z / look / g / g / g &quot;.`)">⧉</button><div class="codeline storytitle">&quot;Happy Hour&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Before listing nondescript items:</div>
-<div class="codeline">&ensp;&ensp;say &quot;You can see [a list of people who are marked for listing] here. &quot;;</div>
-<div class="codeline">&ensp;&ensp;repeat with named party running through people:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;now the named party is not marked for listing;</div>
-<div class="codeline">&ensp;&ensp;let count be the number of visible other people who are carrying something;</div>
-<div class="codeline">&ensp;&ensp;if count is 0:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say paragraph break;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;continue the action;</div>
-<div class="codeline">&ensp;&ensp;let index be count;</div>
-<div class="codeline">&ensp;&ensp;repeat with holder running through visible other people who are carrying something:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;if index is count, say &quot;[The holder]&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;otherwise say &quot;[the holder]&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot; has [a list of things carried by the holder]&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;decrement index;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;make delimiter index of count.</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You can see [a list of people who are marked for listing] here. &quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;repeat with named party running through people:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the named party is not marked for listing;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let count be the number of visible other people who are carrying something;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if count is 0:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say paragraph break;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;continue the action;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let index be count;</div>
+<div class="codeline">&ensp;&ensp;&ensp;repeat with holder running through visible other people who are carrying something:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if index is count, say &quot;[The holder]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;otherwise say &quot;[the holder]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot; has [a list of things carried by the holder]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;decrement index;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;make delimiter index of count.</div>
 </div><p>The next part could be simpler, but for rigor we will write it in such a way that it will work whether or not the serial comma is in use. This requires some extra work.</p>
 <div class="codeblock"><div class="codeline">To make delimiter (index - a number) of (count - a number), continuing or halting:</div>
-<div class="codeline">&ensp;&ensp;if index is 0:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;if continuing, say &quot;. [run paragraph on]&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;otherwise say &quot;.&quot;;</div>
-<div class="codeline">&ensp;&ensp;otherwise if index is 1:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;if count is 2, say &quot; and &quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;otherwise say &quot;[optional comma] and &quot;;</div>
-<div class="codeline">&ensp;&ensp;otherwise:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;, &quot;.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if index is 0:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if continuing, say &quot;. [run paragraph on]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;otherwise say &quot;.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise if index is 1:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if count is 2, say &quot; and &quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;otherwise say &quot;[optional comma] and &quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;, &quot;.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">To say optional comma:</div>
-<div class="codeline">&ensp;&ensp;if the serial comma option is active:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;,&quot;.</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the serial comma option is active:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;,&quot;.</div>
 </div><p>And now the scene:</p>
 <div class="codeblock"><div class="codeline">The Banquet Hall is a room. &quot;A large cheery banner over the door (which, incidentally, vanishes when you approach it) reads: HELLO NEW INDUCTEES! WELCOME TO THE AFTERLIFE!&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Fred, George, and Larry are men in the Banquet Hall. Fred carries a dry martini. Larry carries a cream puff. Matilda and Louise are women in the Banquet Hall.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Definition: a person is other if it is not the player.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Every turn:</div>
-<div class="codeline">&ensp;&ensp;let wanderer be a random other person;</div>
-<div class="codeline">&ensp;&ensp;let place be the holder of the wanderer;</div>
-<div class="codeline">&ensp;&ensp;let next place be a random room adjacent to the place;</div>
-<div class="codeline">&ensp;&ensp;let the way be the best route from the place to the next place;</div>
-<div class="codeline">&ensp;&ensp;try the wanderer going the way.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let wanderer be a random other person;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let place be the holder of the wanderer;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let next place be a random room adjacent to the place;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let the way be the best route from the place to the next place;</div>
+<div class="codeline">&ensp;&ensp;&ensp;try the wanderer going the way.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Kitchen is west of the Banquet Hall. &quot;Dominated by a pile of dirty plates which you imagine it will be someone&#39;s privilege to wash, later.&quot; Vanessa is a woman in the Kitchen. Vanessa carries a tray. On the tray is a salmon roll. The roll is edible.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;z / look / g / g / g &quot;.</div>
-</div><details class="testme-output"><summary>Test me with "z / look / g / g / g ".</summary><div class="testme-output">Banquet Hall<br>A large cheery banner over the door (which, incidentally, vanishes when you approach it) reads: HELLO NEW INDUCTEES! WELCOME TO THE AFTERLIFE!<br><br>You can see Fred, George, Larry, Matilda and Louise here. Fred has a dry martini and Larry has a cream puff.<br><br>&gt;(Testing.)<br><br>&gt;[1] z<br>Time passes.<br><br>Matilda goes west.<br><br>&gt;[2] look<br>Banquet Hall<br>A large cheery banner over the door (which, incidentally, vanishes when you approach it) reads: HELLO NEW INDUCTEES! WELCOME TO THE AFTERLIFE!<br><br>You can see Fred, George, Larry and Louise here. Fred has a dry martini and Larry has a cream puff.<br><br>Larry goes west.<br><br>&gt;[3] g<br>Banquet Hall<br>A large cheery banner over the door (which, incidentally, vanishes when you approach it) reads: HELLO NEW INDUCTEES! WELCOME TO THE AFTERLIFE!<br><br>You can see Fred, George and Louise here. Fred has a dry martini.<br><br>Vanessa arrives from the west.<br><br>&gt;[4] g<br>Banquet Hall<br>A large cheery banner over the door (which, incidentally, vanishes when you approach it) reads: HELLO NEW INDUCTEES! WELCOME TO THE AFTERLIFE!<br><br>You can see Vanessa, Fred, George and Louise here. Fred has a dry martini and Vanessa has a tray.<br><br>Matilda arrives from the west.<br><br>&gt;[5] g<br>Banquet Hall<br>A large cheery banner over the door (which, incidentally, vanishes when you approach it) reads: HELLO NEW INDUCTEES! WELCOME TO THE AFTERLIFE!<br><br>You can see Matilda, Vanessa, Fred, George and Louise here. Fred has a dry martini and Vanessa has a tray.<br><br>Larry arrives from the west.
+</div><details class="testme-output"><summary>Test me with "z / look / g / g / g ".</summary><div class="testme-output">Banquet Hall<br>A large cheery banner over the door (which, incidentally, vanishes when you approach it) reads: HELLO NEW INDUCTEES! WELCOME TO THE AFTERLIFE!<br><br>You can see Fred, George, Larry, Matilda and Louise here. Fred has a dry martini and Larry has a cream puff.<br><br>&gt;(Testing.)<br><br>&gt;[1] z<br>Time passes.<br><br>George goes west.<br><br>&gt;[2] look<br>Banquet Hall<br>A large cheery banner over the door (which, incidentally, vanishes when you approach it) reads: HELLO NEW INDUCTEES! WELCOME TO THE AFTERLIFE!<br><br>You can see Fred, Larry, Matilda and Louise here. Fred has a dry martini and Larry has a cream puff.<br><br>Matilda goes west.<br><br>&gt;[3] g<br>Banquet Hall<br>A large cheery banner over the door (which, incidentally, vanishes when you approach it) reads: HELLO NEW INDUCTEES! WELCOME TO THE AFTERLIFE!<br><br>You can see Fred, Larry and Louise here. Fred has a dry martini and Larry has a cream puff.<br><br>Vanessa arrives from the west.<br><br>&gt;[4] g<br>Banquet Hall<br>A large cheery banner over the door (which, incidentally, vanishes when you approach it) reads: HELLO NEW INDUCTEES! WELCOME TO THE AFTERLIFE!<br><br>You can see Vanessa, Fred, Larry and Louise here. Fred has a dry martini, Larry has a cream puff and Vanessa has a tray.<br><br>Fred goes west.<br><br>&gt;[5] g<br>Banquet Hall<br>A large cheery banner over the door (which, incidentally, vanishes when you approach it) reads: HELLO NEW INDUCTEES! WELCOME TO THE AFTERLIFE!<br><br>You can see Vanessa, Larry and Louise here. Larry has a cream puff and Vanessa has a tray.<br><br>Vanessa goes west.
 </div></details><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="rip_van_winkle.html" title="A simple way to allow objects in certain places to be described in the room description body text rather than in paragraphs following the room description."><div class="nav-arrow">←</div> <div class="doc-navbar-text">355. Rip Van Winkle</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="eye_of_the_idol.html" title="A systematic way to allow objects in certain places to be described in the room description body text rather than in paragraphs following the room description, and to control whether supporters list their contents or not."><div class="doc-navbar-text">357. The Eye of the Idol</div> <div class="nav-arrow">→</div></a></div></div>
 <footer id="credits-footer"><nav><div class="nav-el"><a class="nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="nav-el" href="../search.html">Search</a></div></nav>
 <div class="footing"><p id="i7credit"><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p class="about"><a class="nav-about" href="../about.html">About this edition</a> &bull; <a class="nav-about" href="https://twitter.com/inform7tips">@inform7tips</a></p></div></footer>

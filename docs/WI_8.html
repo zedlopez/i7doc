@@ -69,30 +69,30 @@
 </div>
 </div>
 <h3 id="section_1">WI §8.1 Change of values that vary</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><div>&nbsp;</div></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_8"><div class="nav-arrow">↑</div><div class="doc-navbar-text">8. Change</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_2"><div class="doc-navbar-text">8.2 Changing the command prompt</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="WI_7.html#section_18" title="Postscript on actions"><div class="nav-arrow">←7.18 </div><div class="doc-navbar-text">Postscript on actions</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_8"><div class="nav-arrow">↑8. </div><div class="doc-navbar-text">Change</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_2"><div class="doc-navbar-text">Changing the command prompt</div><div class="nav-arrow">8.2→</div></a></div></div></div>
 <p>So far, what we have done in response to the player&#39;s commands amounts to little more than a few ripostes. The simulated world does change during play, as the player moves from room to room or picks up things, but all of this is happening automatically, not at our direct instruction. How then can we make the world change?</p>
 <p>Recall that the world consists of rooms, in which are things, and that all of these have properties appropriate to their kinds. Some properties are either/or (&quot;open&quot; or &quot;closed&quot; but not both and not neither), while others have values (the &quot;matching key&quot; of a lockable door, for instance). Finally, we may also have created some free-standing values or &quot;variables&quot;.</p>
 <p>We take the last example first, as it is the simplest. Suppose we have:</p>
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Winds of Change&quot;\n\nThe prevailing wind is a direction that varies. The prevailing wind is northwest.\n\nThe Blasted Heath is a room. &quot;Merely an arena for the play of witches and kings, my dear, where the [prevailing wind] wind blows.&quot;\n\nInstead of waiting when the prevailing wind is northwest:\n\tsay &quot;A fresh gust of wind bowls you over.&quot;;\n\tnow the prevailing wind is east.`)">⧉</button><div class="codeline storytitle">&quot;Winds of Change&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The prevailing wind is a direction that varies. The prevailing wind is northwest.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Blasted Heath is a room. &quot;Merely an arena for the play of witches and kings, my dear, where the [prevailing wind] wind blows.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of waiting when the prevailing wind is northwest:</div>
-<div class="codeline">&ensp;&ensp;say &quot;A fresh gust of wind bowls you over.&quot;;</div>
-<div class="codeline">&ensp;&ensp;now the prevailing wind is east.</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;A fresh gust of wind bowls you over.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the prevailing wind is east.</div>
 </div><p>The new phrase here is &quot;now&quot;. This automatically checks that the new value is one which makes sense in the given context, so for instance it would not allow either of these:</p>
 <div class="codeblock"><div class="codeline">now the prevailing wind is 25;</div>
 <div class="codeline">now the prevailing wind is the Heath;</div>
 </div><p>the former being a number, and the latter a room, so that neither is a direction. Similarly, &quot;now&quot; will not allow constant values to be changed. So</p>
 <div class="codeblock"><div class="codeline">Colour is a kind of value. The colours are blue, red and mauve.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">After pulling the psychedelic lever:</div>
-<div class="codeline">&ensp;&ensp;now blue is mauve.</div>
+<div class="codeline">&ensp;&ensp;&ensp;now blue is mauve.</div>
 </div><p>&hellip;will result in a problem message; it&#39;s like writing &quot;now 1 is 2&quot;. The difference between &quot;the prevailing wind&quot; and &quot;blue&quot; is that the wind was declared to be a &quot;direction that varies&quot;, whereas blue wasn&#39;t.</p>
 <h3 id="section_2">WI §8.2 Changing the command prompt</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_1" title="Change of values that vary"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">8.1 Change of values that vary</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_8"><div class="nav-arrow">↑</div><div class="doc-navbar-text">8. Change</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_3"><div class="doc-navbar-text">8.3 Changing the status line</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_1" title="Change of values that vary"><div class="nav-arrow">←8.1 </div><div class="doc-navbar-text">Change of values that vary</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_8"><div class="nav-arrow">↑8. </div><div class="doc-navbar-text">Change</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_3"><div class="doc-navbar-text">Changing the status line</div><div class="nav-arrow">8.3→</div></a></div></div></div>
 <p>The command prompt is the text printed by Inform to ask the player for another command. Ordinarily this is simply a greater-than-sign, &quot;&gt;&quot;, so we tend not to notice it as text at all. Internally, though, it is a variable value called &quot;command prompt&quot;, which means we can change it.</p>
 <p>For example, this will be a more conversational sort of prompt:</p>
 <div class="codeblock"><div class="codeline">When play begins: now the command prompt is &quot;What now? &quot;.</div>
@@ -105,16 +105,16 @@
 <div class="linkback"><a href="RB_7.html#section_5" title="Other Characters &gt; Combat and Death">RB §7.5 Combat and Death</a></div>
 </div>
 <h3 id="section_3">WI §8.3 Changing the status line</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_2" title="Changing the command prompt"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">8.2 Changing the command prompt</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_8"><div class="nav-arrow">↑</div><div class="doc-navbar-text">8. Change</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_4"><div class="doc-navbar-text">8.4 Change of either/or properties</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_2" title="Changing the command prompt"><div class="nav-arrow">←8.2 </div><div class="doc-navbar-text">Changing the command prompt</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_8"><div class="nav-arrow">↑8. </div><div class="doc-navbar-text">Change</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_4"><div class="doc-navbar-text">Change of either/or properties</div><div class="nav-arrow">8.4→</div></a></div></div></div>
 <p>The status line is the black bar along the top of a story being played, which ordinarily displays the current position; in a story with scoring, it also usually shows the score and number of moves taken. Like the command prompt, it is not fixed but results from values which can be changed: the &quot;left hand status line&quot; and &quot;right hand status line&quot;.</p>
 <p>The default values are &quot;[the player&#39;s surroundings]&quot; for the left hand status line and &quot;[score]/[turn count]&quot; for the right hand status line (if there&#39;s scoring; it&#39;s blank otherwise). Score and turn count are numbers which vary in play (more about scoring later); &quot;[the player&#39;s surroundings]&quot; is a text substitution really intended for just this purpose:</p>
 <div class="defn" id="phs_surroundings"><div class="defnline"><span class="defn">say "[the/-- player's surroundings]"</span></div><p>This text substitution produces a succinct description of where the player is, be this in darkness, in a lighted room or inside an opaque container such as a large packing case. Example:</p>
 <div class="codeblock"><div class="codeline">now the left hand status line is &quot;You: [the player&#39;s surroundings]&quot;;</div>
 </div></div><p>These make useful elements to juggle in redesigning the status line, as in the following example:</p>
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`When play begins:\n\tnow the left hand status line is\n\t\t&quot;[the player&apos;s surroundings] / [turn count] / [score]&quot;;\n\tnow the right hand status line is &quot;Time: [time of day]&quot;.`)">⧉</button><div class="codeline">When play begins:</div>
-<div class="codeline">&ensp;&ensp;now the left hand status line is</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&quot;[the player&#39;s surroundings] / [turn count] / [score]&quot;;</div>
-<div class="codeline">&ensp;&ensp;now the right hand status line is &quot;Time: [time of day]&quot;.</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the left hand status line is</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&quot;[the player&#39;s surroundings] / [turn count] / [score]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the right hand status line is &quot;Time: [time of day]&quot;.</div>
 </div><p>The text in the right hand status line should be kept no more than 14 letters long, including any spaces. The left hand status line has more leeway, but should still be kept brief.</p>
 <div class="see-also">
 <h4>See Also</h4>
@@ -126,11 +126,11 @@
 <div class="linkback"><a href="RB_12.html#section_2" title="Typography, Layout, and Multimedia Effects &gt; The Status Line">RB §12.2 The Status Line</a></div>
 </div>
 <h3 id="section_4">WI §8.4 Change of either/or properties</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_3" title="Changing the status line"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">8.3 Changing the status line</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_8"><div class="nav-arrow">↑</div><div class="doc-navbar-text">8. Change</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_5"><div class="doc-navbar-text">8.5 Change of properties with values</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_3" title="Changing the status line"><div class="nav-arrow">←8.3 </div><div class="doc-navbar-text">Changing the status line</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_8"><div class="nav-arrow">↑8. </div><div class="doc-navbar-text">Change</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_5"><div class="doc-navbar-text">Change of properties with values</div><div class="nav-arrow">8.5→</div></a></div></div></div>
 <p>When we have an either/or property, we can set it like so:</p>
 <div class="codeblock"><div class="codeline">Instead of waiting when the oaken door is closed:</div>
-<div class="codeline">&ensp;&ensp;say &quot;There is a slow, creaky click! sort of noise as the door swings open, apparently all by itself.&quot;;</div>
-<div class="codeline">&ensp;&ensp;now the oaken door is open.</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;There is a slow, creaky click! sort of noise as the door swings open, apparently all by itself.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the oaken door is open.</div>
 </div><p>If it is open already, nothing changes: in any case nothing is said to the player unless we give explicit instructions to that effect, as we&#39;ve done here.</p>
 <p>Inform protects its model world from accidental damage in several ways, one of which is to ensure that things are not given properties which they are not allowed to have. So this, for instance, will not be accepted:</p>
 <div class="codeblock"><div class="codeline">now the oaken door is unvisited</div>
@@ -141,7 +141,7 @@
 <div class="linkback"><a href="RB_3.html#section_6" title="Place &gt; Windows">RB §3.6 Windows</a></div>
 </div>
 <h3 id="section_5">WI §8.5 Change of properties with values</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_4" title="Change of either/or properties"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">8.4 Change of either/or properties</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_8"><div class="nav-arrow">↑</div><div class="doc-navbar-text">8. Change</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_6"><div class="doc-navbar-text">8.6 Whose property?</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_4" title="Change of either/or properties"><div class="nav-arrow">←8.4 </div><div class="doc-navbar-text">Change of either/or properties</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_8"><div class="nav-arrow">↑8. </div><div class="doc-navbar-text">Change</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_6"><div class="doc-navbar-text">Whose property?</div><div class="nav-arrow">8.6→</div></a></div></div></div>
 <p>Changing properties with values is very similar:</p>
 <div class="codeblock"><div class="codeline">now the printed name of the Closet is &quot;Suddenly Spooky Closet&quot;</div>
 </div><p>Inform checks three different things to ensure that this change is safe to perform. Firstly, the value must be the right kind for the property in question, so this for instance would be rejected:</p>
@@ -167,7 +167,7 @@
 <div class="linkback"><a href="RB_10.html#section_8" title="Physics: Substances, Ropes, Energy and Weight &gt; Fire">RB §10.8 Fire</a></div>
 </div>
 <h3 id="section_6">WI §8.6 Whose property?</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_5" title="Change of properties with values"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">8.5 Change of properties with values</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_8"><div class="nav-arrow">↑</div><div class="doc-navbar-text">8. Change</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_7"><div class="doc-navbar-text">8.7 Moving things</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_5" title="Change of properties with values"><div class="nav-arrow">←8.5 </div><div class="doc-navbar-text">Change of properties with values</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_8"><div class="nav-arrow">↑8. </div><div class="doc-navbar-text">Change</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_7"><div class="doc-navbar-text">Moving things</div><div class="nav-arrow">8.7→</div></a></div></div></div>
 <p>This seems a useful point to clarify something already seen. We normally call a property with a value something like:</p>
 <div class="codeblock"><div class="codeline">the printed name of the West Ballroom</div>
 </div><p>We are sometimes allowed to omit the &quot;of the &hellip;&quot; part, and simply call it &quot;the printed name&quot;, for the sake of brevity. For instance, the following room description:</p>
@@ -176,7 +176,7 @@
 <div class="codeblock"><div class="codeline">Instead of examining something, say &quot;Hmm, let me see: [printed name]...&quot;</div>
 </div><p>Here the owner of the &quot;printed name&quot; is assumed to be the noun referred to in the action &ndash; in other words, the &quot;something&quot; alluded to in the rule.</p>
 <h3 id="section_7">WI §8.7 Moving things</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_6" title="Whose property?"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">8.6 Whose property?</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_8"><div class="nav-arrow">↑</div><div class="doc-navbar-text">8. Change</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_8"><div class="doc-navbar-text">8.8 Moving backdrops</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_6" title="Whose property?"><div class="nav-arrow">←8.6 </div><div class="doc-navbar-text">Whose property?</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_8"><div class="nav-arrow">↑8. </div><div class="doc-navbar-text">Change</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_8"><div class="doc-navbar-text">Moving backdrops</div><div class="nav-arrow">8.8→</div></a></div></div></div>
 <p>We have now seen how to change the properties of rooms and things, and also any freestanding values which may have a bearing on the model world. We are not allowed to change the kind of anything during play. Our remaining freedom is to move things around. It would make no sense to move rooms around, because rooms are the fixed reference points in our geography, but anything else is mobile. This even includes things which are supposedly &quot;fixed in place&quot;, for unlike the player, we have god-like powers. (There are minor restrictions: backdrops are trickier to move, since they are present in several rooms at once &ndash; see the next section. And doors, at the junction between two rooms, cannot be moved.)</p>
 <p>Here is how to move something:</p>
 <div class="defn" id="ph_move"><div class="defnline"><span class="defn">move </span><span class="neutral">(object)</span><span class="defn"> to </span><span class="neutral">(object)</span></div><p>This phrase moves the first-named object to the second. Example:</p>
@@ -198,10 +198,10 @@
 <div class="linkback"><a href="RB_4.html#section_4" title="Time and Plot &gt; Scene Changes">RB §4.4 Scene Changes</a></div>
 </div>
 <h3 id="section_8">WI §8.8 Moving backdrops</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_7" title="Moving things"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">8.7 Moving things</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_8"><div class="nav-arrow">↑</div><div class="doc-navbar-text">8. Change</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_9"><div class="doc-navbar-text">8.9 Moving the player</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_7" title="Moving things"><div class="nav-arrow">←8.7 </div><div class="doc-navbar-text">Moving things</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_8"><div class="nav-arrow">↑8. </div><div class="doc-navbar-text">Change</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_9"><div class="doc-navbar-text">Moving the player</div><div class="nav-arrow">8.9→</div></a></div></div></div>
 <p>A backdrop can be in several rooms at once. When created, its position can be given as any specific collection of rooms, or as a region, or even as &quot;everywhere&quot;. For instance:</p>
 <div class="codeblock"><div class="codeline">The Upper Cave is above the Rock Pool. The Ledge is east of the Pool.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The stream is a backdrop. It is in the Upper Cave and the Ledge.</div>
 </div><p>Moving backdrops is not like moving other things, because there&#39;s no single destination. There are several possibilities:</p>
 <p>(a) A backdrop can be moved to a region. If we define:</p>
@@ -219,40 +219,40 @@
 </div><p>What then happens is that the stream is present in whichever rooms are currently wet. But the stream&#39;s position is ordinarily checked only after movements, for efficiency&#39;s sake. So if the player is in a room which suddenly changes from being dry to being wet, the stream will not magically appear (though it will be there if the player goes out and comes in again). If this is not good enough, the phrase &quot;update backdrop positions&quot; can be used to ensure the accuracy of all backdrop locations after a dramatic change:</p>
 <div class="defn" id="ph_updatebackdrop"><div class="defnline"><span class="defn">update backdrop positions</span></div><p>This phrase runs through all backdrops in the model world and makes sure they are correctly in, or not in, the current location, so that everything appears right from the player&#39;s point of view. Example:</p>
 <div class="codeblock"><div class="codeline">The Upper Cave is above the Rock Pool. The Ledge is east of the Pool. The stream is a backdrop.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">When play begins:</div>
-<div class="codeline">&ensp;&ensp;move the stream backdrop to all wet rooms.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;move the stream backdrop to all wet rooms.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A lever is in the Cave. The lever is fixed in place.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of pulling the lever when the Cave is dry:</div>
-<div class="codeline">&ensp;&ensp;now the Cave is wet;</div>
-<div class="codeline">&ensp;&ensp;now the lever is in the Rock Pool;</div>
-<div class="codeline">&ensp;&ensp;now the lever is portable;</div>
-<div class="codeline">&ensp;&ensp;update backdrop positions;</div>
-<div class="codeline">&ensp;&ensp;say &quot;The old rusty lever pulls away, and the thin cave wall goes with it, so that a stream bursts into the cave, falling to the pool below.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the Cave is wet;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the lever is in the Rock Pool;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the lever is portable;</div>
+<div class="codeline">&ensp;&ensp;&ensp;update backdrop positions;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;The old rusty lever pulls away, and the thin cave wall goes with it, so that a stream bursts into the cave, falling to the pool below.&quot;</div>
 </div></div><p>(c) A backdrop can be moved to be either everywhere or nowhere:</p>
 <div class="codeblock"><div class="codeline">After sleeping:</div>
-<div class="codeline">&ensp;&ensp;say &quot;It&#39;s a bright new day!&quot;;</div>
-<div class="codeline">&ensp;&ensp;now the stars are nowhere.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;It&#39;s a bright new day!&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the stars are nowhere.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">After waiting:</div>
-<div class="codeline">&ensp;&ensp;say &quot;Darkness falls rapidly here.&quot;;</div>
-<div class="codeline">&ensp;&ensp;now the stars are everywhere.</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Darkness falls rapidly here.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the stars are everywhere.</div>
 </div><div class="examples">
 <h4>Example</h4>
 <div class="example-short"><div class="example-short-num"><span class="hidden"></span>120.</div><div class="example-short-name"><span class="example-short-name"><a href="examples/orange_cones.html">Orange Cones</a></span> <span class="stars">★★★</span></div></div><div class="example-short"><div class="example-short-num"><span class="hidden">000.</span></div><div class="example-short-name">Creating a traffic backdrop that appears in all road rooms except the one in which the player has laid down orange cones.</div></div>
 <div class="linkback"><a href="RB_3.html#section_9" title="Place &gt; Passers-By, Weather and Astronomical Events">RB §3.9 Passers-By, Weather and Astronomical Events</a></div>
 </div>
 <h3 id="section_9">WI §8.9 Moving the player</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_8" title="Moving backdrops"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">8.8 Moving backdrops</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_8"><div class="nav-arrow">↑</div><div class="doc-navbar-text">8. Change</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_10"><div class="doc-navbar-text">8.10 Removing things from play</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_8" title="Moving backdrops"><div class="nav-arrow">←8.8 </div><div class="doc-navbar-text">Moving backdrops</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_8"><div class="nav-arrow">↑8. </div><div class="doc-navbar-text">Change</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_10"><div class="doc-navbar-text">Removing things from play</div><div class="nav-arrow">8.10→</div></a></div></div></div>
 <p>The player is a thing, too, and can also be moved, which has the effect of instantaneous transportation, without the need for a suitable map connection to the new location. For instance, these are equivalent:</p>
 <div class="codeblock"><div class="codeline">move the player to the Bodleian Library;</div>
 <div class="codeline">now the player is in the Bodleian Library;</div>
 </div><p>This will ordinarily result in a room description of the Bodleian Library being printed up, but that might not always be desirable. For instance:</p>
 <div class="codeblock"><div class="codeline">Instead of waiting in the Schola Maleficorum:</div>
-<div class="codeline">&ensp;&ensp;say &quot;A bored demon catches your eye (they really do have very inquisitive fingers) and throws you back out into the Antechamber.&quot;;</div>
-<div class="codeline">&ensp;&ensp;move the player to the Antechamber, without printing a room description.</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;A bored demon catches your eye (they really do have very inquisitive fingers) and throws you back out into the Antechamber.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;move the player to the Antechamber, without printing a room description.</div>
 </div><p>Thus tacking on the option &quot;without printing a room description&quot;, remembering to add the comma, omits the description which would otherwise be produced. A compromise is to use the option &quot;printing an abbreviated room description&quot;: this gives a full description if the player has never been here before, but only a brief one if it is a familiar scene.</p>
 <p>The player&#39;s point of view can also be moved by shifting to another character. Suppose the story features two people, Alice and Bob, and the player at the keyboard is giving commands to Alice, and seeing everything from her point of view. The phrase:</p>
 <div class="codeblock"><div class="codeline">now the player is Bob</div>
@@ -264,7 +264,7 @@
 <div class="linkback"><a href="RB_5.html#section_6" title="The Viewpoint Character &gt; Viewpoint">RB §5.6 Viewpoint</a></div>
 </div>
 <h3 id="section_10">WI §8.10 Removing things from play</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_9" title="Moving the player"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">8.9 Moving the player</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_8"><div class="nav-arrow">↑</div><div class="doc-navbar-text">8. Change</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_11"><div class="doc-navbar-text">8.11 Now...</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_9" title="Moving the player"><div class="nav-arrow">←8.9 </div><div class="doc-navbar-text">Moving the player</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_8"><div class="nav-arrow">↑8. </div><div class="doc-navbar-text">Change</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_11"><div class="doc-navbar-text">Now...</div><div class="nav-arrow">8.11→</div></a></div></div></div>
 <p>Some things will occasionally be in a limbo state called being &quot;off-stage&quot;: like actors or props not needed in Act II, but perhaps to be brought back on-stage later, they wait on the sidelines. Anything created with no apparent location will start the story off-stage, as in the case of the lamp here:</p>
 <div class="codeblock"><div class="codeline">Aladdin&#39;s Cave is a room. The genie&#39;s lamp is a container.</div>
 </div><p>(Such things are easy to see in the World index because they are listed after all of the rooms and their contents, not belonging inside any room.) If we wanted to make this clearer to a human reader, we could add:</p>
@@ -297,7 +297,7 @@
 <div class="linkback"><a href="RB_10.html#section_3" title="Physics: Substances, Ropes, Energy and Weight &gt; Dispensers and Supplies of Small Objects">RB §10.3 Dispensers and Supplies of Small Objects</a></div>
 </div>
 <h3 id="section_11">WI §8.11 Now...</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_10" title="Removing things from play"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">8.10 Removing things from play</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_8"><div class="nav-arrow">↑</div><div class="doc-navbar-text">8. Change</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_12"><div class="doc-navbar-text">8.12 Increasing and decreasing</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_10" title="Removing things from play"><div class="nav-arrow">←8.10 </div><div class="doc-navbar-text">Removing things from play</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_8"><div class="nav-arrow">↑8. </div><div class="doc-navbar-text">Change</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_12"><div class="doc-navbar-text">Increasing and decreasing</div><div class="nav-arrow">8.12→</div></a></div></div></div>
 <p>&quot;Now&quot; has already appeared several times in this chapter, being used like a Swiss army knife to change values of all kinds:</p>
 <div class="codeblock"><div class="codeline">now the score is 100;</div>
 </div><p>In fact, &quot;now&quot; is by far the most flexible phrase known to Inform.</p>
@@ -327,7 +327,7 @@
 <div class="linkback"><a href="RB_7.html#section_5" title="Other Characters &gt; Combat and Death">RB §7.5 Combat and Death</a></div>
 </div>
 <h3 id="section_12">WI §8.12 Increasing and decreasing</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_11" title="Now&hellip;"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">8.11 Now...</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_8"><div class="nav-arrow">↑</div><div class="doc-navbar-text">8. Change</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_13"><div class="doc-navbar-text">8.13 Checking on whereabouts</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_11" title="Now&hellip;"><div class="nav-arrow">←8.11 </div><div class="doc-navbar-text">Now&hellip;</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_8"><div class="nav-arrow">↑8. </div><div class="doc-navbar-text">Change</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_13"><div class="doc-navbar-text">Checking on whereabouts</div><div class="nav-arrow">8.13→</div></a></div></div></div>
 <p>Once we begin to deal with named values (or table entries, list entries or other ways to describe places where values are kept), we find that we often want to change them. We could if we wanted always use &quot;now&quot; for this, but it can be a little clumsily worded if we want to increase or decrease something:</p>
 <div class="codeblock"><div class="codeline">now the score is the score plus six;</div>
 </div><p>Because of that, we have some convenient abbreviations which have the advantage that the value being changed only has to be named once:</p>
@@ -344,7 +344,7 @@
 <div class="codeblock"><div class="codeline">decrement the score;</div>
 </div></div><p>&quot;Increment&quot; and &quot;decrement&quot; are traditional computing terms, though they have been used in engineering for at least a century and in finance for longer still.</p>
 <h3 id="section_13">WI §8.13 Checking on whereabouts</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_12" title="Increasing and decreasing"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">8.12 Increasing and decreasing</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_8"><div class="nav-arrow">↑</div><div class="doc-navbar-text">8. Change</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_14"><div class="doc-navbar-text">8.14 More flexible descriptions of whereabouts</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_12" title="Increasing and decreasing"><div class="nav-arrow">←8.12 </div><div class="doc-navbar-text">Increasing and decreasing</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_8"><div class="nav-arrow">↑8. </div><div class="doc-navbar-text">Change</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_14"><div class="doc-navbar-text">More flexible descriptions of whereabouts</div><div class="nav-arrow">8.14→</div></a></div></div></div>
 <p>We have seen that while rooms are fixed, their contents move around, so we will need ways to examine the current whereabouts of things. The following examples show the kind of conditions allowed:</p>
 <div class="codeblock"><div class="codeline">if the genie&#39;s lamp <strong>is in</strong> Aladdin&#39;s Cave ...</div>
 <div class="codeline">if Aladdin <strong>is not in</strong> Aladdin&#39;s Cave ...</div>
@@ -368,7 +368,7 @@
 <div class="codeline">if the genie&#39;s lamp is carried ...</div>
 </div><p>And similarly for &quot;not carried&quot;, &quot;worn&quot; and &quot;not worn&quot;. To be precise, if a form of <em>to be carried</em> or <em>to be worn</em> is not followed by any other description, then &quot;the player&quot; is assumed to be doing the carrying or wearing.</p>
 <h3 id="section_14">WI §8.14 More flexible descriptions of whereabouts</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_13" title="Checking on whereabouts"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">8.13 Checking on whereabouts</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_8"><div class="nav-arrow">↑</div><div class="doc-navbar-text">8. Change</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_15"><div class="doc-navbar-text">8.15 Calling names</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_13" title="Checking on whereabouts"><div class="nav-arrow">←8.13 </div><div class="doc-navbar-text">Checking on whereabouts</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_8"><div class="nav-arrow">↑8. </div><div class="doc-navbar-text">Change</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_15"><div class="doc-navbar-text">Calling names</div><div class="nav-arrow">8.15→</div></a></div></div></div>
 <p>The examples just given were all basically of the form &quot;X <em>relation</em> Y&quot; where X and Y were specific names of things. For example,</p>
 <div class="codeblock"><div class="codeline">if the genie&#39;s lamp is carried by Cinderella ...</div>
 <div class="codeline">if the genie&#39;s lamp is inside the cupboard ...</div>
@@ -382,7 +382,7 @@
 <div class="codeblock"><div class="codeline">if a woman is holding an animal ...</div>
 </div><p>a condition which will be true if, anywhere in the story&#39;s world, any woman is holding any animal.</p>
 <h3 id="section_15">WI §8.15 Calling names</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_14" title="More flexible descriptions of whereabouts"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">8.14 More flexible descriptions of whereabouts</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_8"><div class="nav-arrow">↑</div><div class="doc-navbar-text">8. Change</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_16"><div class="doc-navbar-text">8.16 Counting the number of things</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_14" title="More flexible descriptions of whereabouts"><div class="nav-arrow">←8.14 </div><div class="doc-navbar-text">More flexible descriptions of whereabouts</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_8"><div class="nav-arrow">↑8. </div><div class="doc-navbar-text">Change</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_16"><div class="doc-navbar-text">Counting the number of things</div><div class="nav-arrow">8.16→</div></a></div></div></div>
 <p>Conditions like &quot;if somebody is in an adjacent room&quot; allow complicated tests to be performed with a minimum of fuss, but it&#39;s rare that we want to know only whether they are true: more likely we also want to know <em>which</em> person, and <em>which</em> room.</p>
 <p>For this purpose, we are allowed to supply a name for any such vaguely-described object which comes up, and then to use that name thereafter.</p>
 <div class="codeblock"><div class="codeline">if somebody is in an adjacent room (called the Hiding Place), say &quot;You hear distant breathing from [the Hiding Place].&quot;</div>
@@ -404,7 +404,7 @@
 <div class="linkback"><a href="RB_3.html#section_5" title="Place &gt; Doors, Staircases, and Bridges">RB §3.5 Doors, Staircases, and Bridges</a></div>
 </div>
 <h3 id="section_16">WI §8.16 Counting the number of things</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_15" title="Calling names"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">8.15 Calling names</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_8"><div class="nav-arrow">↑</div><div class="doc-navbar-text">8. Change</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_17"><div class="doc-navbar-text">8.17 Looking at containment by hand</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_15" title="Calling names"><div class="nav-arrow">←8.15 </div><div class="doc-navbar-text">Calling names</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_8"><div class="nav-arrow">↑8. </div><div class="doc-navbar-text">Change</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_17"><div class="doc-navbar-text">Looking at containment by hand</div><div class="nav-arrow">8.17→</div></a></div></div></div>
 <p>It is very often useful to know how many things are in a given situation, and for this purpose we have the &quot;number of &hellip;&quot; construction. For instance:</p>
 <div class="codeblock"><div class="codeline">the number of edible things carried</div>
 <div class="codeline">the number of things on the table</div>
@@ -418,14 +418,14 @@
 <div class="codeline">the number of closed doors</div>
 </div><p>For instance:</p>
 <div class="codeblock"><div class="codeline">When play begins:</div>
-<div class="codeline">&ensp;&ensp;now the right hand status line is &quot;Explored: [number of visited rooms]/[number of rooms]&quot;.</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the right hand status line is &quot;Explored: [number of visited rooms]/[number of rooms]&quot;.</div>
 </div><p>Provided that the possible range is finite, we can also use &quot;number of&quot; to count values which match a description. For instance:</p>
 <div class="codeblock"><div class="codeline">the number of non-recurring scenes</div>
 </div><p>or if we were to define</p>
 <div class="codeblock"><div class="codeline">Colour is a kind of value. The colours are red, orange, yellow, green, blue, indigo and violet.</div>
 </div><p>then &quot;the number of colours&quot; would evaluate to 7. As with other ways of talking about whole ranges of values, this only works if the range is manageable. &quot;The number of numbers&quot; cannot sensibly be worked out: there are infinitely many, for all practical purposes, and similarly for &quot;the number of texts&quot;.</p>
 <h3 id="section_17">WI §8.17 Looking at containment by hand</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_16" title="Counting the number of things"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">8.16 Counting the number of things</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_8"><div class="nav-arrow">↑</div><div class="doc-navbar-text">8. Change</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_18"><div class="doc-navbar-text">8.18 Randomness</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_16" title="Counting the number of things"><div class="nav-arrow">←8.16 </div><div class="doc-navbar-text">Counting the number of things</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_8"><div class="nav-arrow">↑8. </div><div class="doc-navbar-text">Change</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_18"><div class="doc-navbar-text">Randomness</div><div class="nav-arrow">8.18→</div></a></div></div></div>
 <p>The descriptions outlined in the last few sections are intended to deal with almost all of the routine questions we might have about what currently resides where. It should be a last resort to use the following more primitive way to inspect the world.</p>
 <div class="defn" id="ph_holder"><div class="defnline"><span class="defn">holder of </span><span class="neutral">(object)</span> &rArr; <em>object</em></div><p>This phrase produces the container, supporter, carrier, wearer or room in which the object resides.</p>
 </div><p>It&#39;s sometimes useful to go the other way. When something has possessions, we can find them out one at a time by running through a list.</p>
@@ -435,7 +435,7 @@
 <div class="codeblock"><div class="codeline">next thing held after the lapdog</div>
 </div><p>is then the string of pearls.</p>
 </div><h3 id="section_18">WI §8.18 Randomness</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_17" title="Looking at containment by hand"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">8.17 Looking at containment by hand</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_8"><div class="nav-arrow">↑</div><div class="doc-navbar-text">8. Change</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_19"><div class="doc-navbar-text">8.19 Random choices of things</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_17" title="Looking at containment by hand"><div class="nav-arrow">←8.17 </div><div class="doc-navbar-text">Looking at containment by hand</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_8"><div class="nav-arrow">↑8. </div><div class="doc-navbar-text">Change</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_19"><div class="doc-navbar-text">Random choices of things</div><div class="nav-arrow">8.19→</div></a></div></div></div>
 <p>Sometimes we want to introduce random behaviour into play. We usually do this by generating random values, and then acting differently depending on what they are. The following:</p>
 <div class="codeblock"><div class="codeline">a random number from 2 to 5</div>
 </div><p>produces, as it suggests, a random number drawn from the choices 2, 3, 4 or 5, each of which is equally likely to come up. In fact, this isn&#39;t limited to numbers:</p>
@@ -469,7 +469,7 @@
 <div class="linkback"><a href="RB_3.html#section_9" title="Place &gt; Passers-By, Weather and Astronomical Events">RB §3.9 Passers-By, Weather and Astronomical Events</a></div>
 </div>
 <h3 id="section_19">WI §8.19 Random choices of things</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_18" title="Randomness"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">8.18 Randomness</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_8"><div class="nav-arrow">↑</div><div class="doc-navbar-text">8. Change</div></a></div><div class="doc-navbar-right"><div>&nbsp;</div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_18" title="Randomness"><div class="nav-arrow">←8.18 </div><div class="doc-navbar-text">Randomness</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_8"><div class="nav-arrow">↑8. </div><div class="doc-navbar-text">Change</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="WI_9.html" title="Time"><div class="doc-navbar-text">Time</div><div class="nav-arrow">9.→</div></a></div></div></div>
 <p>Writing &quot;a random number&quot; is not allowed, because the possible range is too large, but that was the only reason why not.</p>
 <div class="defn" id="ph_randomdesc"><div class="defnline"><span class="defn">a/-- random </span><span class="neutral">(description of values)</span> &rArr; <em>value</em></div><p>This phrase makes a uniformly random choice from values satisfying the description given. Example:</p>
 <div class="codeblock"><div class="codeline">a random visited room</div>

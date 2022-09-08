@@ -19,44 +19,44 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex239">Play/modify For Demonstration Purposes in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="ForDemonstrationPurposes/index.html">Play For Demonstration Purposes in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;For Demonstration Purposes&quot;\n\nSection 1 - Procedure\n\nCapability relates various people to various stored actions. The verb to be capable of means the capability relation.\n\nPersuasion rule:\n\tlet CA be the current action with no specific actor;\n\tif the person asked is capable of CA:\n\t\tpersuasion succeeds;\n\totherwise:\n\t\tsay &quot;[The person asked] look[s] confused. Maybe a demonstration would help.&quot;;\n\t\tpersuasion fails.\n\nThe action requester is an object that varies. The action requester variable translates into I6 as &quot;act_requester&quot;.\n\nTo decide which action is the current action with no specific actor:\n\tlet old actor be the person asked;\n\tlet old requester be the action requester;\n\tnow the person asked is the player;\n\tnow the action requester is nothing;\n\tlet CA be the current action;\n\tnow the person asked is the old actor;\n\tnow the action requester is the old requester;\n\tdecide on CA.\n\nThe learning by observation rule is listed after the report stage rule in the specific action-processing rules.\n\nDefinition: a person is other if he is not the player.\n\nThis is the learning by observation rule:\n\trepeat with the viewer running through other people who can see the player:\n\t\tif the player is the actor and viewer is not capable of the current action:\n\t\t\tsay &quot;[The viewer] watches your behavior with interest. Seems like [they] [are] learning.&quot;;\n\t\t\tnow the viewer is capable of the current action.\n\nSection 2 - Scenario\n\nThe Daily Planet is a room. Clark is here. He is a man.\n\nWhen play begins:\n\tnow Clark is capable of taking inventory.\n\nTest me with &quot;Clark, inventory / Clark, x me / x me / Clark, x me&quot;.`)">⧉</button><div class="codeline storytitle">&quot;For Demonstration Purposes&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline i7header">Section 1 - Procedure</div><div class="codeline">Capability relates various people to various stored actions. The verb to be capable of means the capability relation.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Persuasion rule:</div>
-<div class="codeline">&ensp;&ensp;let CA be the current action with no specific actor;</div>
-<div class="codeline">&ensp;&ensp;if the person asked is capable of CA:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;persuasion succeeds;</div>
-<div class="codeline">&ensp;&ensp;otherwise:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;[The person asked] look[s] confused. Maybe a demonstration would help.&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;persuasion fails.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let CA be the current action with no specific actor;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the person asked is capable of CA:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;persuasion succeeds;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[The person asked] look[s] confused. Maybe a demonstration would help.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;persuasion fails.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The action requester is an object that varies. The action requester variable translates into I6 as &quot;act_requester&quot;.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">To decide which action is the current action with no specific actor:</div>
-<div class="codeline">&ensp;&ensp;let old actor be the person asked;</div>
-<div class="codeline">&ensp;&ensp;let old requester be the action requester;</div>
-<div class="codeline">&ensp;&ensp;now the person asked is the player;</div>
-<div class="codeline">&ensp;&ensp;now the action requester is nothing;</div>
-<div class="codeline">&ensp;&ensp;let CA be the current action;</div>
-<div class="codeline">&ensp;&ensp;now the person asked is the old actor;</div>
-<div class="codeline">&ensp;&ensp;now the action requester is the old requester;</div>
-<div class="codeline">&ensp;&ensp;decide on CA.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let old actor be the person asked;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let old requester be the action requester;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the person asked is the player;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the action requester is nothing;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let CA be the current action;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the person asked is the old actor;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the action requester is the old requester;</div>
+<div class="codeline">&ensp;&ensp;&ensp;decide on CA.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The learning by observation rule is listed after the report stage rule in the specific action-processing rules.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Definition: a person is other if he is not the player.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">This is the learning by observation rule:</div>
-<div class="codeline">&ensp;&ensp;repeat with the viewer running through other people who can see the player:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;if the player is the actor and viewer is not capable of the current action:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[The viewer] watches your behavior with interest. Seems like [they] [are] learning.&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the viewer is capable of the current action.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;repeat with the viewer running through other people who can see the player:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the player is the actor and viewer is not capable of the current action:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[The viewer] watches your behavior with interest. Seems like [they] [are] learning.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the viewer is capable of the current action.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline i7header">Section 2 - Scenario</div><div class="codeline">The Daily Planet is a room. Clark is here. He is a man.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">When play begins:</div>
-<div class="codeline">&ensp;&ensp;now Clark is capable of taking inventory.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now Clark is capable of taking inventory.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;Clark, inventory / Clark, x me / x me / Clark, x me&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "Clark, inventory / Clark, x me / x me / Clark, x me".</summary><div class="testme-output">Daily Planet<br>You can see Clark here.<br><br>Clark watches your behavior with interest. Seems like he is learning.<br><br>&gt;(Testing.)<br><br>&gt;[1] clark, inventory<br>Clark looks through his possessions.<br><br>&gt;[2] clark, x me<br>Clark looks confused. Maybe a demonstration would help.<br><br>&gt;[3] x me<br>As good-looking as ever.<br><br>Clark watches your behavior with interest. Seems like he is learning.<br><br>&gt;[4] clark, x me<br>Clark looks closely at yourself.
 </div></details><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="meet_market.html" title="A case in which relations give characters multiple values of the same kind."><div class="nav-arrow">←</div> <div class="doc-navbar-text">238. Meet Market</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="number_study.html" title="The parity and joint magnitude relations explored."><div class="doc-navbar-text">240. Number Study</div> <div class="nav-arrow">→</div></a></div></div>

@@ -19,31 +19,31 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex35">Play/modify Fallout Enclosure in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="FalloutEnclosure/index.html">Play Fallout Enclosure in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Fallout Enclosure&quot;\n\nSection 1 - Procedure\n\nAn enclosure is a kind of thing. A container is a kind of enclosure. A supporter is a kind of enclosure.\n\nUnderstand &quot;zap [something]&quot; as zapping. Zapping is an action applying to one thing. The Zapping action has a list of things called the remnants.\n\nCarry out zapping an enclosure:\n\tif the noun holds something:\n\t\tnow the remnants is the list of things held by the noun;\n\t\trepeat with N running through the remnants:\n\t\t\tmove N to the holder of the noun.\n\nCarry out zapping:\n\tnow the noun is nowhere.\n\nReport zapping:\n\tsay &quot;You zap [the noun], destroying [them][if the remnants is not empty] and leaving [the remnants with indefinite articles] behind[end if].&quot;\n\nSection 2 - Scenario\n\nSuperDuperMart is a room. SuperDuperMart contains some shelves and a cash register.\n\nThe shelves support a bottle of Buffout and a container of Jet.\n\nThe cash register contains some prewar money, a coin purse, and a bottle cap.  The coin purse contains a prewar nickel. It is closed.\n\nThe cash register is closed and locked.\n\n\nTest me with &quot;zap shelves / zap buffout / zap register / zap purse&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Fallout Enclosure&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline i7header">Section 1 - Procedure</div><div class="codeline">An enclosure is a kind of thing. A container is a kind of enclosure. A supporter is a kind of enclosure.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Understand &quot;zap [something]&quot; as zapping. Zapping is an action applying to one thing. The Zapping action has a list of things called the remnants.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Carry out zapping an enclosure:</div>
-<div class="codeline">&ensp;&ensp;if the noun holds something:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;now the remnants is the list of things held by the noun;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;repeat with N running through the remnants:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;move N to the holder of the noun.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the noun holds something:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the remnants is the list of things held by the noun;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;repeat with N running through the remnants:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;move N to the holder of the noun.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Carry out zapping:</div>
-<div class="codeline">&ensp;&ensp;now the noun is nowhere.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the noun is nowhere.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Report zapping:</div>
-<div class="codeline">&ensp;&ensp;say &quot;You zap [the noun], destroying [them][if the remnants is not empty] and leaving [the remnants with indefinite articles] behind[end if].&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You zap [the noun], destroying [them][if the remnants is not empty] and leaving [the remnants with indefinite articles] behind[end if].&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline i7header">Section 2 - Scenario</div><div class="codeline">SuperDuperMart is a room. SuperDuperMart contains some shelves and a cash register.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The shelves support a bottle of Buffout and a container of Jet.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The cash register contains some prewar money, a coin purse, and a bottle cap.  The coin purse contains a prewar nickel. It is closed.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The cash register is closed and locked.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;zap shelves / zap buffout / zap register / zap purse&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "zap shelves / zap buffout / zap register / zap purse".</summary><div class="testme-output">SuperDuperMart<br>You can see some shelves (on which are a bottle of Buffout and a container of Jet) and a cash register (closed) here.<br><br>&gt;(Testing.)<br><br>&gt;[1] zap shelves<br>You zap the shelves, destroying them and leaving a bottle of Buffout and a container of Jet behind.<br><br>&gt;[2] zap buffout<br>You zap the bottle of Buffout, destroying it.<br><br>&gt;[3] zap register<br>You zap the cash register, destroying it and leaving some prewar money, a coin purse and a bottle cap behind.<br><br>&gt;[4] zap purse<br>You zap the coin purse, destroying it and leaving a prewar nickel behind.
 </div></details><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="disenchantment_bay11.html" title="Disenchantment Bay: making a holdall of the backpack."><div class="nav-arrow">←</div> <div class="doc-navbar-text">34. Disenchantment Bay 11</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="brown.html" title="A red sticky label which can be attached to anything in the game, or removed again."><div class="doc-navbar-text">36. Brown</div> <div class="nav-arrow">→</div></a></div></div>

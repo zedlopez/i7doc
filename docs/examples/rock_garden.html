@@ -18,33 +18,33 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex366">Play/modify Rock Garden in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="RockGarden/index.html">Play Rock Garden in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Rock Garden&quot;\n\nSection 1 - General Rules\n\nIntervisibility relates rooms to each other in groups. The verb to be connected with means the intervisibility relation.\n\nDefinition: a room is inter-visible if it is connected with more than one room.\n\nAfter deciding the scope of the player when the location is an inter-visible room:\n\trepeat with other place running through rooms which are connected with the location:\n\t\tunless the other place is the location, place the other place in scope.\n\nRule for reaching inside a room (called target) which is connected with the location:\n\tlet way be the best route from the location to the target;\n\tif the way is not a direction:\n\t\tsay &quot;You can&apos;t get over to [the target] from here.&quot;;\n\t\tdeny access;\n\tsay &quot;(first heading [way])[command clarification break]&quot;;\n\ttry going way;\n\tif the player is in the target, allow access;\n\totherwise deny access.\n\nAfter looking when the location is an inter-visible room:\n\trepeat with other place running through rooms which are connected with the location:\n\t\tif the other place is not the location, describe locale for other place.\n\nSection 2 - The Scenario\n\nRock Garden West is west of Rock Garden East. Rock Garden East contains a rake. Rock Garden West contains a bench and a maple leaf. The bench is an enterable supporter.\n\nRock Garden West is connected with Rock Garden East.\n\nTest me with &quot;get rake / drop rake / sit on bench / get rake&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Rock Garden&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline i7header">Section 1 - General Rules</div><div class="codeline">Intervisibility relates rooms to each other in groups. The verb to be connected with means the intervisibility relation.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Definition: a room is inter-visible if it is connected with more than one room.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">After deciding the scope of the player when the location is an inter-visible room:</div>
-<div class="codeline">&ensp;&ensp;repeat with other place running through rooms which are connected with the location:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;unless the other place is the location, place the other place in scope.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;repeat with other place running through rooms which are connected with the location:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;unless the other place is the location, place the other place in scope.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Rule for reaching inside a room (called target) which is connected with the location:</div>
-<div class="codeline">&ensp;&ensp;let way be the best route from the location to the target;</div>
-<div class="codeline">&ensp;&ensp;if the way is not a direction:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;You can&#39;t get over to [the target] from here.&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;deny access;</div>
-<div class="codeline">&ensp;&ensp;say &quot;(first heading [way])[command clarification break]&quot;;</div>
-<div class="codeline">&ensp;&ensp;try going way;</div>
-<div class="codeline">&ensp;&ensp;if the player is in the target, allow access;</div>
-<div class="codeline">&ensp;&ensp;otherwise deny access.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let way be the best route from the location to the target;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the way is not a direction:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;You can&#39;t get over to [the target] from here.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;deny access;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;(first heading [way])[command clarification break]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;try going way;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the player is in the target, allow access;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise deny access.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">After looking when the location is an inter-visible room:</div>
-<div class="codeline">&ensp;&ensp;repeat with other place running through rooms which are connected with the location:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;if the other place is not the location, describe locale for other place.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;repeat with other place running through rooms which are connected with the location:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the other place is not the location, describe locale for other place.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline i7header">Section 2 - The Scenario</div><div class="codeline">Rock Garden West is west of Rock Garden East. Rock Garden East contains a rake. Rock Garden West contains a bench and a maple leaf. The bench is an enterable supporter.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Rock Garden West is connected with Rock Garden East.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;get rake / drop rake / sit on bench / get rake&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "get rake / drop rake / sit on bench / get rake".</summary><div class="testme-output">Rock Garden West<br>You can see a bench and a maple leaf here.<br><br>In Rock Garden East you can see a rake.<br><br>&gt;(Testing.)<br><br>&gt;[1] get rake<br>(first heading east)<br><br>Rock Garden East<br>You can see a rake here.<br><br>In Rock Garden West you can see a bench and a maple leaf.<br><br>Taken.<br><br>&gt;[2] drop rake<br>Dropped.<br><br>&gt;[3] sit on bench<br>(first heading west)<br><br>Rock Garden West<br>You can see a bench and a maple leaf here.<br><br>In Rock Garden East you can see a rake.<br><br>You get onto the bench.<br><br>&gt;[4] get rake<br>(first heading east)<br>(first getting off the bench)<br><br>Rock Garden East<br>You can see a rake here.<br><br>In Rock Garden West you can see a bench and a maple leaf.<br><br>Taken.
 </div></details><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="ginger_beer.html" title="A portable magic telescope which allows the player to view items in another room of his choice."><div class="nav-arrow">←</div> <div class="doc-navbar-text">365. Ginger Beer</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="stately_gardens.html" title="An open landscape where the player can see landmarks in nearby areas, with somewhat more complex room descriptions than the previous example, and in which we also account for size differences between things seen at a distance."><div class="doc-navbar-text">367. Stately Gardens</div> <div class="nav-arrow">→</div></a></div></div>

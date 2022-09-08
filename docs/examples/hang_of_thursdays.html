@@ -17,22 +17,22 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex183">Play/modify The Hang of Thursdays in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="QuarterDay/index.html">Play The Hang of Thursdays in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;The Hang of Thursdays&quot;\n\nThe Stage is a room. Rule for printing the name of the stage: say &quot;[current weekday] [current time period]&quot; instead.\n\nA weekday is a kind of value. The weekdays are Saturday, Sunday, Monday, Tuesday, Wednesday, Thursday, Friday. The current weekday is a weekday that varies. The current weekday is Saturday.\n\nA time period is a kind of value. The time periods are morning, afternoon, evening, night. The current time period is a time period that varies. The current time period is afternoon.\n\nThis is the new advance time rule:\n\tif the current time period is less than night:\n\t\tnow the current time period is the time period after the current time period;\n\totherwise:\n\t\tnow the current time period is morning;\n\t\tnow the current weekday is the weekday after the current weekday.\n\n\nThe new advance time rule is listed instead of the advance time rule in the turn sequence rules.\n\nTest me with &quot;z / z / z / z / z&quot;.`)">⧉</button><div class="codeline storytitle">&quot;The Hang of Thursdays&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The Stage is a room. Rule for printing the name of the stage: say &quot;[current weekday] [current time period]&quot; instead.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A weekday is a kind of value. The weekdays are Saturday, Sunday, Monday, Tuesday, Wednesday, Thursday, Friday. The current weekday is a weekday that varies. The current weekday is Saturday.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A time period is a kind of value. The time periods are morning, afternoon, evening, night. The current time period is a time period that varies. The current time period is afternoon.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">This is the new advance time rule:</div>
-<div class="codeline">&ensp;&ensp;if the current time period is less than night:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;now the current time period is the time period after the current time period;</div>
-<div class="codeline">&ensp;&ensp;otherwise:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;now the current time period is morning;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;now the current weekday is the weekday after the current weekday.</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the current time period is less than night:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the current time period is the time period after the current time period;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the current time period is morning;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the current weekday is the weekday after the current weekday.</div>
 </div><p>Now we need to borrow from a later chapter to make these instructions apply to the passage of time:</p>
 <div class="codeblock"><div class="codeline">The new advance time rule is listed instead of the advance time rule in the turn sequence rules.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;z / z / z / z / z&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "z / z / z / z / z".</summary><div class="testme-output">Saturday afternoon<br><br>&gt;(Testing.)<br><br>&gt;[1] z<br>Time passes.<br><br>&gt;[2] z<br>Time passes.<br><br>&gt;[3] z<br>Time passes.<br><br>&gt;[4] z<br>Time passes.<br><br>&gt;[5] z<br>Time passes.
 </div></details><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="entropy.html" title="All objects in the game have a heat, but if not kept insulated they will tend toward room temperature (and at a somewhat exaggerated rate)."><div class="nav-arrow">←</div> <div class="doc-navbar-text">182. Entropy</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="virtue.html" title="Defining certain kinds of behavior as inappropriate, so that other characters will refuse indignantly to do any such thing."><div class="doc-navbar-text">184. Virtue</div> <div class="nav-arrow">→</div></a></div></div>

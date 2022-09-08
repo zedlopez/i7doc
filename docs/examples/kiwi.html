@@ -19,51 +19,51 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex361">Play/modify Kiwi in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Kiwi/index.html">Play Kiwi in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Kiwi&quot;\n\nSection 1 - Procedure\n\nA raised supporter is a kind of supporter.\n\nFor printing a locale paragraph about a raised supporter (called the high place):\n\tif the player is on a supporter (called the riser):\n\t\tsay &quot;Up on [the high place] (and only visible because you&apos;re on [the riser]) [is-are a list of things on the high place].&quot;;\n\totherwise:\n\t\tsay &quot;The [high place] is above you.&quot;\n\n\nDefinition: a thing (called target item) is out of reach:\n\tif the player is on a supporter, no;\n\tif the target item is on a raised supporter, yes;\n\tno.\n\n\nBefore doing something:\n\tif the noun is out of reach or the second noun is out of reach:\n\t\tsay &quot;You can&apos;t reach from down here.&quot; instead.\n\n\nInstead of putting something on a raised supporter when the player is not on a supporter:\n\tsay &quot;You can&apos;t reach from down here.&quot;\n\n\nInstead of searching or examining a raised supporter when the player is not on a supporter:\n\tsay &quot;You can&apos;t see from down here.&quot;\n\n\nDisallowed-all is a truth state that varies. Disallowed-all is false.\n\nRule for deciding whether all includes an out of reach thing:\n\tnow disallowed-all is true;\n\tit does not.\n\nRule for printing a parser error when the latest parser error is the nothing to do error and the player is not on a supporter:\n\tif disallowed-all is true:\n\t\tsay &quot;Whatever might be up there, you can&apos;t see or reach from down here.&quot;;\n\totherwise:\n\t\tmake no decision.\n\nA first action-processing rule:\n\tnow disallowed-all is false.\n\nSection 2 - Scenario\n\nThe Bottom of the Nursery is a room. &quot;Ever since you ate that mysterious cake, you&apos;ve been even shorter than usual.&quot;\n\nThe high shelf is a raised supporter in the Nursery. It is scenery. On the high shelf are a kiwi-green ball and a stuffed dodo.\n\nThe step-ladder is an enterable supporter in the Nursery. Understand &quot;ladder&quot; as the step-ladder.\n\nTest me with &quot;x shelf / search shelf / get dodo / get all from shelf / stand on ladder / get all from shelf / search shelf / get off / put all on shelf / get all from shelf / stand on ladder / put all on shelf&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Kiwi&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline i7header">Section 1 - Procedure</div><div class="codeline">A raised supporter is a kind of supporter.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">For printing a locale paragraph about a raised supporter (called the high place):</div>
-<div class="codeline">&ensp;&ensp;if the player is on a supporter (called the riser):</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;Up on [the high place] (and only visible because you&#39;re on [the riser]) [is-are a list of things on the high place].&quot;;</div>
-<div class="codeline">&ensp;&ensp;otherwise:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;The [high place] is above you.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the player is on a supporter (called the riser):</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;Up on [the high place] (and only visible because you&#39;re on [the riser]) [is-are a list of things on the high place].&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;The [high place] is above you.&quot;</div>
 </div><p>Note that here we don&#39;t continue the activity because we want to completely replace the normal behavior of describing what is on supporters.</p>
 <div class="codeblock"><div class="codeline">Definition: a thing (called target item) is out of reach:</div>
-<div class="codeline">&ensp;&ensp;if the player is on a supporter, no;</div>
-<div class="codeline">&ensp;&ensp;if the target item is on a raised supporter, yes;</div>
-<div class="codeline">&ensp;&ensp;no.</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the player is on a supporter, no;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the target item is on a raised supporter, yes;</div>
+<div class="codeline">&ensp;&ensp;&ensp;no.</div>
 </div><p>Now we also need to prevent the player from interacting with things that are out of reach:</p>
 <div class="codeblock"><div class="codeline">Before doing something:</div>
-<div class="codeline">&ensp;&ensp;if the noun is out of reach or the second noun is out of reach:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;You can&#39;t reach from down here.&quot; instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the noun is out of reach or the second noun is out of reach:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;You can&#39;t reach from down here.&quot; instead.</div>
 </div><p>&hellip;or restoring things to the shelves while the player is in the wrong position&hellip;</p>
 <div class="codeblock"><div class="codeline">Instead of putting something on a raised supporter when the player is not on a supporter:</div>
-<div class="codeline">&ensp;&ensp;say &quot;You can&#39;t reach from down here.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You can&#39;t reach from down here.&quot;</div>
 </div><p>And raised supporters shouldn&#39;t be searchable from the ground either:</p>
 <div class="codeblock"><div class="codeline">Instead of searching or examining a raised supporter when the player is not on a supporter:</div>
-<div class="codeline">&ensp;&ensp;say &quot;You can&#39;t see from down here.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You can&#39;t see from down here.&quot;</div>
 </div><p>Finally, we need to tackle the case where the player types GET ALL FROM SHELF, because we don&#39;t want to list the objects up there if the player can&#39;t even see them. We use a rule for deciding whether all includes in order to tell Inform not to consider items that can&#39;t be reached, and then we adjust the parser error so that it&#39;s a little more instructive than &quot;There are none at all available!&quot;, which is what the response would otherwise be:</p>
 <div class="codeblock"><div class="codeline">Disallowed-all is a truth state that varies. Disallowed-all is false.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Rule for deciding whether all includes an out of reach thing:</div>
-<div class="codeline">&ensp;&ensp;now disallowed-all is true;</div>
-<div class="codeline">&ensp;&ensp;it does not.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now disallowed-all is true;</div>
+<div class="codeline">&ensp;&ensp;&ensp;it does not.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Rule for printing a parser error when the latest parser error is the nothing to do error and the player is not on a supporter:</div>
-<div class="codeline">&ensp;&ensp;if disallowed-all is true:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;Whatever might be up there, you can&#39;t see or reach from down here.&quot;;</div>
-<div class="codeline">&ensp;&ensp;otherwise:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;make no decision.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if disallowed-all is true:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;Whatever might be up there, you can&#39;t see or reach from down here.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;make no decision.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A first action-processing rule:</div>
-<div class="codeline">&ensp;&ensp;now disallowed-all is false.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now disallowed-all is false.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline i7header">Section 2 - Scenario</div><div class="codeline">The Bottom of the Nursery is a room. &quot;Ever since you ate that mysterious cake, you&#39;ve been even shorter than usual.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The high shelf is a raised supporter in the Nursery. It is scenery. On the high shelf are a kiwi-green ball and a stuffed dodo.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The step-ladder is an enterable supporter in the Nursery. Understand &quot;ladder&quot; as the step-ladder.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;x shelf / search shelf / get dodo / get all from shelf / stand on ladder / get all from shelf / search shelf / get off / put all on shelf / get all from shelf / stand on ladder / put all on shelf&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "x shelf / search shelf / get dodo / get all from shelf / stand on ladder / get all from shelf / search shelf / get off / put all on shelf / get all from shelf / stand on ladder / put all on shelf".</summary><div class="testme-output">Bottom of the Nursery<br>Ever since you ate that mysterious cake, you&#39;ve been even shorter than usual.<br><br>The high shelf is above you.<br><br>You can see a step-ladder here.<br><br>&gt;(Testing.)<br><br>&gt;[1] x shelf<br>You can&#39;t see from down here.<br><br>&gt;[2] search shelf<br>You can&#39;t see from down here.<br><br>&gt;[3] get dodo<br>You can&#39;t reach from down here.<br><br>&gt;[4] get all from shelf<br>Whatever might be up there, you can&#39;t see or reach from down here.<br><br>&gt;[5] stand on ladder<br>You get onto the step-ladder.<br><br>&gt;[6] get all from shelf<br>kiwi-green ball: Taken.<br>stuffed dodo: Taken.<br><br>&gt;[7] search shelf<br>There is nothing on the high shelf.<br><br>&gt;[8] get off<br>You get off the step-ladder.<br><br>Bottom of the Nursery<br>Ever since you ate that mysterious cake, you&#39;ve been even shorter than usual.<br><br>The high shelf is above you.<br><br>You can see a step-ladder here.<br><br>&gt;[9] put all on shelf<br>stuffed dodo: You can&#39;t reach from down here.<br>kiwi-green ball: You can&#39;t reach from down here.<br><br>&gt;[10] get all from shelf<br>The high shelf is empty.<br><br>&gt;[11] stand on ladder<br>You get onto the step-ladder.<br><br>&gt;[12] put all on shelf<br>stuffed dodo: Done.<br>kiwi-green ball: Done.
 </div></details><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="casino_banale.html" title="Creating room descriptions and object descriptions that change as the player learns new facts and pieces things together."><div class="nav-arrow">←</div> <div class="doc-navbar-text">360. Casino Banale</div></a></div><div class="doc-navbar-center">&thinsp;</div><div class="doc-navbar-right"><a class="nav-el" href="copper_river.html" title="Manipulating room descriptions so that only interesting items are mentioned, while objects that are present but not currently useful to the player are ignored."><div class="doc-navbar-text">362. Copper River</div> <div class="nav-arrow">→</div></a></div></div>

@@ -57,7 +57,7 @@
 </div>
 </div>
 <h3 id="section_1">WI §9.1 When play begins</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><div>&nbsp;</div></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_9"><div class="nav-arrow">↑</div><div class="doc-navbar-text">9. Time</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_2"><div class="doc-navbar-text">9.2 Awarding points</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="WI_8.html#section_19" title="Random choices of things"><div class="nav-arrow">←8.19 </div><div class="doc-navbar-text">Random choices of things</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_9"><div class="nav-arrow">↑9. </div><div class="doc-navbar-text">Time</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_2"><div class="doc-navbar-text">Awarding points</div><div class="nav-arrow">9.2→</div></a></div></div></div>
 <p>With the material from previous chapters, we are now able to set up a simulated world, to respond to the player&#39;s actions within it, and to make it change in perhaps unexpected ways.</p>
 <p>The resulting experience can be as lively as we want to make it, but so far we have no very good ways to give it any structure: a beginning and an end, for instance, or a sense of plot. This next chapter is all about the passage of time, and it begins at the beginning.</p>
 <p>We have already seen an example of how to write a rule which applies just once, at the start of the story:</p>
@@ -69,7 +69,7 @@
 <div class="linkback"><a href="RB_7.html#section_1" title="Other Characters &gt; Getting Acquainted">RB §7.1 Getting Acquainted</a></div>
 </div>
 <h3 id="section_2">WI §9.2 Awarding points</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_1" title="When play begins"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">9.1 When play begins</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_9"><div class="nav-arrow">↑</div><div class="doc-navbar-text">9. Time</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_3"><div class="doc-navbar-text">9.3 Introducing tables: rankings</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_1" title="When play begins"><div class="nav-arrow">←9.1 </div><div class="doc-navbar-text">When play begins</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_9"><div class="nav-arrow">↑9. </div><div class="doc-navbar-text">Time</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_3"><div class="doc-navbar-text">Introducing tables: rankings</div><div class="nav-arrow">9.3→</div></a></div></div></div>
 <p>Traditionally-written stories award points throughout play, as an indication of progress. If we want to be traditional, we must first write:</p>
 <div class="codeblock"><div class="codeline">Use scoring.</div>
 </div><p>Without this, the SCORE, NOTIFY ON and NOTIFY OFF commands do not work; the final score is not shown at the end of a story; and the status line above the player&#39;s text area shows only the turn count, not (as is more usual) both the score and the turn count. Changing the &quot;score&quot; (see below) has no visible effect, though it is not actually illegal.</p>
@@ -77,17 +77,17 @@
 <div class="codeblock"><div class="codeline">increase the score by 5;</div>
 </div><p>substituting whatever number we feel is appropriate. We should be careful not to give out the same points over and over, that is, not to reward the same basic achievement many times over if the player simply repeats the same action. This, for instance, is open to abuse:</p>
 <div class="codeblock"><div class="codeline">After taking the trophy:</div>
-<div class="codeline">&ensp;&ensp;increase the score by 5;</div>
-<div class="codeline">&ensp;&ensp;say &quot;Well done!&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;increase the score by 5;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Well done!&quot;</div>
 </div><p>The player may simply take the trophy, drop it again, take it again, &hellip; and win five points every time around. We can prevent this by phrasing the rule more carefully:</p>
 <div class="codeblock"><div class="codeline">After taking the trophy when the trophy was not handled:</div>
-<div class="codeline">&ensp;&ensp;increase the score by 5;</div>
-<div class="codeline">&ensp;&ensp;say &quot;Well done!&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;increase the score by 5;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Well done!&quot;</div>
 </div><p>(&quot;Was handled&quot;, not &quot;is handled&quot;, because this rule happens after the trophy has been taken &ndash; so by the time this rule has been considered, the trophy is always handled.) Rather than being an open-ended scoring system, IF normally has a maximum possible score, which can be specified with a sentence like so:</p>
 <div class="codeblock"><div class="codeline">The maximum score is 10.</div>
 </div><p>The score and maximum score are just numbers that vary, so we can freely change them:</p>
 <div class="codeblock"><div class="codeline">After eating the poisoned mushroom:</div>
-<div class="codeline">&ensp;&ensp;now the score is -100.</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the score is -100.</div>
 </div><div class="examples">
 <h4>Examples</h4>
 <div class="example-short"><div class="example-short-num"><span class="hidden"></span>136.</div><div class="example-short-name"><span class="example-short-name"><a href="examples/mutts_adventure.html">Mutt's Adventure</a></span> <span class="stars">★★</span></div></div><div class="example-short"><div class="example-short-num"><span class="hidden">000.</span></div><div class="example-short-name">Awarding points for visiting a room for the first time.</div></div>
@@ -96,14 +96,14 @@
 <div class="linkback"><a href="RB_11.html#section_4" title="Out Of World Actions and Effects &gt; Scoring">RB §11.4 Scoring</a></div>
 </div>
 <h3 id="section_3">WI §9.3 Introducing tables: rankings</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_2" title="Awarding points"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">9.2 Awarding points</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_9"><div class="nav-arrow">↑</div><div class="doc-navbar-text">9. Time</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_4"><div class="doc-navbar-text">9.4 When play ends</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_2" title="Awarding points"><div class="nav-arrow">←9.2 </div><div class="doc-navbar-text">Awarding points</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_9"><div class="nav-arrow">↑9. </div><div class="doc-navbar-text">Time</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_4"><div class="doc-navbar-text">When play ends</div><div class="nav-arrow">9.4→</div></a></div></div></div>
 <p>Another tradition of interactive fiction is that the player has a current &#39;rank&#39; according to how far his or her score has got. We can (but need not) choose to provide such rankings, and should do so by specifying a table like this:</p>
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Table 1 - Rankings\nScore\tRank\n0\t\t&quot;Beginner&quot;\n25\t\t&quot;Amateur Adventurer&quot;\n50\t\t&quot;Novice Adventurer&quot;\n100\t\t&quot;Junior Adventurer&quot;\n200\t\t&quot;Adventurer&quot;\n300\t\t&quot;Master&quot;\n330\t\t&quot;Wizard&quot;\n350\t\t&quot;Master Adventurer&quot;`)">⧉</button><div class="codeline tablename">Table 1 - Rankings</div><table>
 <tr><td>Score</td><td>Rank</td></tr><tr><td>0</td><td>&quot;Beginner&quot;</td></tr><tr><td>25</td><td>&quot;Amateur Adventurer&quot;</td></tr><tr><td>50</td><td>&quot;Novice Adventurer&quot;</td></tr><tr><td>100</td><td>&quot;Junior Adventurer&quot;</td></tr><tr><td>200</td><td>&quot;Adventurer&quot;</td></tr><tr><td>300</td><td>&quot;Master&quot;</td></tr><tr><td>330</td><td>&quot;Wizard&quot;</td></tr><tr><td>350</td><td>&quot;Master Adventurer&quot;</td></tr></table>
 </div><p>Typographically, tables in Inform look as much as possible like those found in non-fiction books: they can have many columns, so this is only a simple example (drawn from the actual rankings used by Infocom&#39;s <em>Zork I</em>, 1979). Each line in the source represents one row in the table, and the entries on a line must be separated by at least one tab character. (An entry might of course have several words with spaces in between, so a space is not enough to separate entries: this is the only context when Inform distinguishes between spaces and tabs.) The table must occupy a single whole paragraph, with no skipped lines or missing entries. We are free to use extra tabs to indent it if we like.</p>
 <p>Ordinarily we must explicitly ask to use the information presented in a table, but the table of rankings is a special case: Inform uses it automatically, if it is provided at all. To be recognised it must have the name &quot;Rankings&quot; and must have two columns named and arranged as shown. The scores should be given in ascending order. Customarily, the score in the final row should be the maximum possible achieved in the story &ndash; so that only a player with maximum possible score can be awarded the final ranking &ndash; and the value of &quot;maximum score&quot; is automatically set to this bottom-row value if it has not been explicitly set anywhere else in the source text.</p>
 <h3 id="section_4">WI §9.4 When play ends</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_3" title="Introducing tables: rankings"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">9.3 Introducing tables: rankings</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_9"><div class="nav-arrow">↑</div><div class="doc-navbar-text">9. Time</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_5"><div class="doc-navbar-text">9.5 Every turn</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_3" title="Introducing tables: rankings"><div class="nav-arrow">←9.3 </div><div class="doc-navbar-text">Introducing tables: rankings</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_9"><div class="nav-arrow">↑9. </div><div class="doc-navbar-text">Time</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_5"><div class="doc-navbar-text">Every turn</div><div class="nav-arrow">9.5→</div></a></div></div></div>
 <p>Short of something like a power cut, the story can only end when one of the two participants chooses to end it: either the player, by deciding that enough is enough, or us.</p>
 <p>In story-telling, there are many kinds of ending: happy, sad, decisive, bittersweet, surprise. Inform doesn&#39;t try to interfere in that kind of artistic choice, but it does need to know one thing about the ending: is it final, or not? Many authors like to make additional menu items available if the player has completed the story right through, but not if she has reached an early or wrong ending. (See the activity &quot;amusing a victorious player&quot;, for example.)</p>
 <div class="defn" id="ph_end"><div class="defnline"><span class="defn">end the story</span></div><p>This phrase ends the story at the next opportunity (typically as soon as the current rule ends), with the closing message &quot;The End.&quot; The end is not considered final.</p>
@@ -127,9 +127,9 @@
 </div><p>Surprisingly, the end is not always the end:</p>
 <div class="defn" id="ph_resume"><div class="defnline"><span class="defn">resume the story</span></div><p>This phrase causes an ended story to resume exactly as if no &quot;end the story&hellip;&quot; phrase had been used. Example:</p>
 <div class="codeblock"><div class="codeline">When play ends:</div>
-<div class="codeline">&ensp;&ensp;if the story has not ended finally:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;Oh dear. Still, here&#39;s another chance.&quot;;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;resume the story.</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the story has not ended finally:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;Oh dear. Still, here&#39;s another chance.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;resume the story.</div>
 </div><p>The phrase is likely to be sensible only as part of a &quot;when play ends&quot; rule. Other traditional uses include giving the player three lives, as in an old-school arcade machine.</p>
 </div><div class="examples">
 <h4>Example</h4>
@@ -137,7 +137,7 @@
 <div class="linkback"><a href="RB_11.html#section_6" title="Out Of World Actions and Effects &gt; Ending The Story">RB §11.6 Ending The Story</a></div>
 </div>
 <h3 id="section_5">WI §9.5 Every turn</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_4" title="When play ends"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">9.4 When play ends</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_9"><div class="nav-arrow">↑</div><div class="doc-navbar-text">9. Time</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_6"><div class="doc-navbar-text">9.6 The time of day</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_4" title="When play ends"><div class="nav-arrow">←9.4 </div><div class="doc-navbar-text">When play ends</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_9"><div class="nav-arrow">↑9. </div><div class="doc-navbar-text">Time</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_6"><div class="doc-navbar-text">The time of day</div><div class="nav-arrow">9.6→</div></a></div></div></div>
 <p>The passage of time in interactive fiction is broken up into a succession of turns, in each of which the player types a request and is given a response. Usually each such request triggers one action, but sometimes a whole sequence are fired off, as when the player types &quot;get all&quot; in a cluttered room.</p>
 <p>As we&#39;ve seen, the variable &quot;turn count&quot; holds the number of turns of play so far. By convention turn number 0 is the time when Inform prints up the banner and any initial text; it becomes turn number 1 when the player&#39;s first command is typed.</p>
 <p>One of the last things to happen in each turn is that Inform will apply any rules which have been set to occur &quot;every turn&quot;, like so:</p>
@@ -147,7 +147,7 @@
 </div><p>Note that the text about blossom, which will quickly become tiresome, is said at the end of every turn, not at the beginning, and in particular not before the player&#39;s first opportunity to type a command.</p>
 <p>As usual when defining rules, we can add stipulations: any condition can be attached using &quot;when&quot;.</p>
 <div class="codeblock"><div class="codeline">Every turn when the location is the Orchard, say &quot;The summer breeze shakes the apple-blossom.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Every turn when the player can see the rotting fish, say &quot;Your nose twitches involuntarily.&quot;</div>
 </div><div class="examples">
 <h4>Examples</h4>
@@ -157,7 +157,7 @@
 <div class="linkback"><a href="RB_7.html#section_2" title="Other Characters &gt; Liveliness">RB §7.2 Liveliness</a></div>
 </div>
 <h3 id="section_6">WI §9.6 The time of day</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_5" title="Every turn"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">9.5 Every turn</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_9"><div class="nav-arrow">↑</div><div class="doc-navbar-text">9. Time</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_7"><div class="doc-navbar-text">9.7 Telling the time</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_5" title="Every turn"><div class="nav-arrow">←9.5 </div><div class="doc-navbar-text">Every turn</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_9"><div class="nav-arrow">↑9. </div><div class="doc-navbar-text">Time</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_7"><div class="doc-navbar-text">Telling the time</div><div class="nav-arrow">9.7→</div></a></div></div></div>
 <p>Inform keeps track of the time of day automatically: play ordinarily begins at 9 AM and each turn takes one minute. In some works of interactive fiction, time of day is crucial: in others, it is irrelevant or even, by a sort of tacit convention, non-existent. So Inform does nothing to act upon the time, or to reveal it to the player, without instruction. Nevertheless it is there.</p>
 <p>A sentence like the following allows the initial time to be set up as something other than 9 AM:</p>
 <div class="codeblock"><div class="codeline">The time of day is 3:13 PM.</div>
@@ -166,15 +166,15 @@
 <div class="codeblock"><div class="codeline">When play begins: now the time of day is 3:13 PM.</div>
 </div><p>We more often change &quot;time of day&quot; to take care of drastic events:</p>
 <div class="codeblock"><div class="codeline">At the time when the player loses consciousness:</div>
-<div class="codeline">&ensp;&ensp;now the time of day is 10:12 AM;</div>
-<div class="codeline">&ensp;&ensp;say &quot;A mist comes over your vision, and when you come to, it is morning and you are in bed.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the time of day is 10:12 AM;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;A mist comes over your vision, and when you come to, it is morning and you are in bed.&quot;</div>
 </div><div class="examples">
 <h4>Example</h4>
 <div class="example-short"><div class="example-short-num"><span class="hidden"></span>141.</div><div class="example-short-name"><span class="example-short-name"><a href="examples/ipa.html">IPA</a></span> <span class="stars">★★</span></div></div><div class="example-short"><div class="example-short-num"><span class="hidden">000.</span></div><div class="example-short-name">Shops which each have opening and closing hours, so that it is impossible to go in at the wrong times, and the player is kicked out if he overstays his welcome.</div></div>
 <div class="linkback"><a href="RB_4.html#section_3" title="Time and Plot &gt; Event Scheduling">RB §4.3 Event Scheduling</a></div>
 </div>
 <h3 id="section_7">WI §9.7 Telling the time</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_6" title="The time of day"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">9.6 The time of day</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_9"><div class="nav-arrow">↑</div><div class="doc-navbar-text">9. Time</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_8"><div class="doc-navbar-text">9.8 Approximate times, lengths of time</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_6" title="The time of day"><div class="nav-arrow">←9.6 </div><div class="doc-navbar-text">The time of day</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_9"><div class="nav-arrow">↑9. </div><div class="doc-navbar-text">Time</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_8"><div class="doc-navbar-text">Approximate times, lengths of time</div><div class="nav-arrow">9.8→</div></a></div></div></div>
 <p>Now that we have the time of day, we can of course use this value in room descriptions and the like:</p>
 <div class="codeblock"><div class="codeline">The Clock Chamber is a room. &quot;The dark chamber behind the clock face, a mill-room of gears which grind down the seconds. Through the glass you can see the reversed hands reading [the time of day].&quot;</div>
 </div><p>It seems odd, though, to read a precise numerical description of the time here: after all, it isn&#39;t a digital clock. A friendlier version would use:</p>
@@ -190,7 +190,7 @@
 <div class="linkback"><a href="RB_4.html#section_1" title="Time and Plot &gt; The Passage Of Time">RB §4.1 The Passage Of Time</a></div>
 </div>
 <h3 id="section_8">WI §9.8 Approximate times, lengths of time</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_7" title="Telling the time"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">9.7 Telling the time</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_9"><div class="nav-arrow">↑</div><div class="doc-navbar-text">9. Time</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_9"><div class="doc-navbar-text">9.9 Comparing and shifting times</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_7" title="Telling the time"><div class="nav-arrow">←9.7 </div><div class="doc-navbar-text">Telling the time</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_9"><div class="nav-arrow">↑9. </div><div class="doc-navbar-text">Time</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_9"><div class="doc-navbar-text">Comparing and shifting times</div><div class="nav-arrow">9.9→</div></a></div></div></div>
 <p>Clocks and watches vary considerably in how much detail they show, and we tend not to report the time over-precisely: half-past ten is an elastic concept. The following room description for the Clock Chamber comes across much more naturally:</p>
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Clock Chamber is a room. &quot;The dark chamber behind the clock face, a mill-room of gears which grind down the seconds. Through the glass you can see the reversed hands reading [the time of day to the nearest five minutes in words].&quot;`)">⧉</button><div class="codeline">The Clock Chamber is a room. &quot;The dark chamber behind the clock face, a mill-room of gears which grind down the seconds. Through the glass you can see the reversed hands reading [the time of day to the nearest five minutes in words].&quot;</div>
 </div><p>The phrase &quot;&hellip; to the nearest &hellip;&quot; rounds off the given time, just as it sounds; as we&#39;ll see later, it can actually round off any arithmetic values, not just times. For instance, &quot;9:58 PM to the nearest ten minutes&quot; is 10:00 PM.</p>
@@ -206,7 +206,7 @@
 <div class="codeblock"><div class="codeline">10 hours</div>
 </div><p>Note that lengths of time can&#39;t exceed 24 hours.</p>
 </div><h3 id="section_9">WI §9.9 Comparing and shifting times</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_8" title="Approximate times, lengths of time"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">9.8 Approximate times, lengths of time</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_9"><div class="nav-arrow">↑</div><div class="doc-navbar-text">9. Time</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_10"><div class="doc-navbar-text">9.10 Calculating times</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_8" title="Approximate times, lengths of time"><div class="nav-arrow">←9.8 </div><div class="doc-navbar-text">Approximate times, lengths of time</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_9"><div class="nav-arrow">↑9. </div><div class="doc-navbar-text">Time</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_10"><div class="doc-navbar-text">Calculating times</div><div class="nav-arrow">9.10→</div></a></div></div></div>
 <p>Carrying out easy calculations with times is straightforward:</p>
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The chronometer is in the Clock Chamber. &quot;On one wall is a terribly self-important chronometer showing the time in major world cities. London: [time of day]. Paris: [one hour after the time of day]. Tokyo: [9 hours after the time of day]. Cupertino, California: [7 hours before the time of day].&quot;`)">⧉</button><div class="codeline">The chronometer is in the Clock Chamber. &quot;On one wall is a terribly self-important chronometer showing the time in major world cities. London: [time of day]. Paris: [one hour after the time of day]. Tokyo: [9 hours after the time of day]. Cupertino, California: [7 hours before the time of day].&quot;</div>
 </div><p>Here we are using two phrases:</p>
@@ -220,7 +220,7 @@
 <div class="defn" id="ph_timebefore"><div class="defnline"><span class="defn">if </span><span class="neutral">(time)</span><span class="defn"> is before </span><span class="neutral">(time)</span><span class="defn">:</span></div><p>This condition is true if the first time occurs earlier in the day than the second. In recognition of the fact that very few stories begin before 4 AM, whereas many run on past midnight, the start of the day is taken to be 4 AM: thus 3:59 AM is after 11:10 PM, but 4:04 AM is before it.</p>
 </div><div class="defn" id="ph_timeafter"><div class="defnline"><span class="defn">if </span><span class="neutral">(time)</span><span class="defn"> is after </span><span class="neutral">(time)</span><span class="defn">:</span></div><p>This condition is true if the first time occurs later in the day than the second. In recognition of the fact that very few stories begin before 4 AM, whereas many run on past midnight, the start of the day is taken to be 4 AM: thus 3:59 AM is after 11:10 PM, but 4:04 AM is before it.</p>
 </div><h3 id="section_10">WI §9.10 Calculating times</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_9" title="Comparing and shifting times"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">9.9 Comparing and shifting times</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_9"><div class="nav-arrow">↑</div><div class="doc-navbar-text">9. Time</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_11"><div class="doc-navbar-text">9.11 Future events</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_9" title="Comparing and shifting times"><div class="nav-arrow">←9.9 </div><div class="doc-navbar-text">Comparing and shifting times</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_9"><div class="nav-arrow">↑9. </div><div class="doc-navbar-text">Time</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_11"><div class="doc-navbar-text">Future events</div><div class="nav-arrow">9.11→</div></a></div></div></div>
 <p>We will occasionally need to perform more complex calculations with time, and in order to do that, we have a way to convert the time of day to numbers. Thus the phrase &quot;the minutes part of &hellip;&quot; takes a time and produces a number from 0 to 59; similarly &quot;the hours part of &hellip;&quot; extracts a number from 0 to 23, using the twenty-four hour clock.</p>
 <div class="defn" id="ph_minspart"><div class="defnline"><span class="defn">minutes part of </span><span class="neutral">(time)</span> &rArr; <em>number</em></div><p>This phrase converts a time to a number, then takes the result mod 60, which in effect produces the number of minutes after the hours are thrown away. Example:</p>
 <div class="codeblock"><div class="codeline">minutes part of 12:41 PM</div>
@@ -230,22 +230,22 @@
 </div><p>produces 8.</p>
 </div><p>To go the other way, we can convert any number to a duration by writing &quot;minutes&quot; or &quot;hours&quot; after it. For instance:</p>
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The clock error is a number that varies. To thump the mechanism: now the clock error is a random number from -10 to 10.\n\nThe broken grandfather clock is in the Chamber. &quot;An erratic grandfather clock seems to say it is [clock error minutes after the time of day].&quot;\n\nWhen play begins, thump the mechanism. Instead of attacking the broken clock: thump the mechanism; say &quot;You thump the clock, which now reads [clock error minutes after the time of day].&quot;.`)">⧉</button><div class="codeline">The clock error is a number that varies. To thump the mechanism: now the clock error is a random number from -10 to 10.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The broken grandfather clock is in the Chamber. &quot;An erratic grandfather clock seems to say it is [clock error minutes after the time of day].&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">When play begins, thump the mechanism. Instead of attacking the broken clock: thump the mechanism; say &quot;You thump the clock, which now reads [clock error minutes after the time of day].&quot;.</div>
 </div><p>Note that &quot;clock error&quot; is a number, but &quot;clock error minutes&quot; is a time.</p>
 <h3 id="section_11">WI §9.11 Future events</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_10" title="Calculating times"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">9.10 Calculating times</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_9"><div class="nav-arrow">↑</div><div class="doc-navbar-text">9. Time</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_12"><div class="doc-navbar-text">9.12 Actions as conditions</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_10" title="Calculating times"><div class="nav-arrow">←9.10 </div><div class="doc-navbar-text">Calculating times</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_9"><div class="nav-arrow">↑9. </div><div class="doc-navbar-text">Time</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_12"><div class="doc-navbar-text">Actions as conditions</div><div class="nav-arrow">9.12→</div></a></div></div></div>
 <p>We often want to arrange for something to happen at some point in the future. Here is yet another timepiece:</p>
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`An egg-timer is in the Chamber. &quot;A plastic egg timer in the shape of a chicken can be pressed to set it going.&quot;\n\nInstead of pushing the egg-timer:\n\tsay &quot;It begins to mark time.&quot;;\n\tthe egg-timer clucks in four turns from now.\n\nAt the time when the egg-timer clucks:\n\tsay &quot;Cluck! Cluck! Cluck! says the egg-timer.&quot;`)">⧉</button><div class="codeline">An egg-timer is in the Chamber. &quot;A plastic egg timer in the shape of a chicken can be pressed to set it going.&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of pushing the egg-timer:</div>
-<div class="codeline">&ensp;&ensp;say &quot;It begins to mark time.&quot;;</div>
-<div class="codeline">&ensp;&ensp;the egg-timer clucks in four turns from now.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;It begins to mark time.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;the egg-timer clucks in four turns from now.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">At the time when the egg-timer clucks:</div>
-<div class="codeline">&ensp;&ensp;say &quot;Cluck! Cluck! Cluck! says the egg-timer.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Cluck! Cluck! Cluck! says the egg-timer.&quot;</div>
 </div><p>The event here is called &quot;the egg-timer clucks&quot;. It only happens if we instruct so, using one of the following phrases:</p>
 <div class="defn" id="ph_timefromnow"><div class="defnline"><span class="neutral">(rule)</span><span class="defn"> in </span><span class="neutral">(time)</span><span class="defn"> from now</span></div><p>This phrase causes the given rule to be run at a given time offset from the current time of day. Example:</p>
 <div class="codeblock"><div class="codeline">the egg-timer clucks in 18 minutes from now;</div>
@@ -270,7 +270,7 @@
 <div class="linkback"><a href="RB_4.html#section_3" title="Time and Plot &gt; Event Scheduling">RB §4.3 Event Scheduling</a></div>
 </div>
 <h3 id="section_12">WI §9.12 Actions as conditions</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_11" title="Future events"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">9.11 Future events</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_9"><div class="nav-arrow">↑</div><div class="doc-navbar-text">9. Time</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_13"><div class="doc-navbar-text">9.13 The past and perfect tenses</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_11" title="Future events"><div class="nav-arrow">←9.11 </div><div class="doc-navbar-text">Future events</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_9"><div class="nav-arrow">↑9. </div><div class="doc-navbar-text">Time</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_13"><div class="doc-navbar-text">The past and perfect tenses</div><div class="nav-arrow">9.13→</div></a></div></div></div>
 <p>There are two ways that descriptions of actions can be used as conditions. First, we can simply describe an action, and then the condition will be true if that is what the player is trying to do, and not otherwise:</p>
 <div class="codeblock"><div class="codeline">if taking a container, ...</div>
 </div><p>This is actually an abbreviation for the longer, some would say preferable form:</p>
@@ -286,7 +286,7 @@
 <div class="linkback"><a href="RB_5.html#section_5" title="The Viewpoint Character &gt; Memory and Knowledge">RB §5.5 Memory and Knowledge</a></div>
 </div>
 <h3 id="section_13">WI §9.13 The past and perfect tenses</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_12" title="Actions as conditions"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">9.12 Actions as conditions</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_9"><div class="nav-arrow">↑</div><div class="doc-navbar-text">9. Time</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_14"><div class="doc-navbar-text">9.14 How many times?</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_12" title="Actions as conditions"><div class="nav-arrow">←9.12 </div><div class="doc-navbar-text">Actions as conditions</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_9"><div class="nav-arrow">↑9. </div><div class="doc-navbar-text">Time</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_14"><div class="doc-navbar-text">How many times?</div><div class="nav-arrow">9.14→</div></a></div></div></div>
 <p>The remaining sections of this chapter go into more technical ways to think about the progress of the story through time, and can be skipped at a first reading.</p>
 <p>Conditions are clauses which require Inform to make a decision: is such-and-such true, or not true? We have already seen conditions attached to rules using &quot;when&quot;:</p>
 <div class="codeblock"><div class="codeline">Instead of waiting when the Sorting Hat is in the Hall: ...</div>
@@ -319,7 +319,7 @@
 <div class="linkback"><a href="RB_3.html#section_5" title="Place &gt; Doors, Staircases, and Bridges">RB §3.5 Doors, Staircases, and Bridges</a></div>
 </div>
 <h3 id="section_14">WI §9.14 How many times?</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_13" title="The past and perfect tenses"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">9.13 The past and perfect tenses</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_9"><div class="nav-arrow">↑</div><div class="doc-navbar-text">9. Time</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_15"><div class="doc-navbar-text">9.15 How many turns?</div>&thinsp;<div class="nav-arrow">→</div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_13" title="The past and perfect tenses"><div class="nav-arrow">←9.13 </div><div class="doc-navbar-text">The past and perfect tenses</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_9"><div class="nav-arrow">↑9. </div><div class="doc-navbar-text">Time</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="#section_15"><div class="doc-navbar-text">How many turns?</div><div class="nav-arrow">9.15→</div></a></div></div></div>
 <p>There are two further ways to examine the historical record. Given any condition, we can say</p>
 <div class="codeblock"><div class="codeline">if (...condition...) for the second time ...</div>
 <div class="codeline">if (...condition...) twice ...</div>
@@ -342,7 +342,7 @@
 <div class="linkback"><a href="RB_3.html#section_1" title="Place &gt; Room Descriptions">RB §3.1 Room Descriptions</a></div>
 </div>
 <h3 id="section_15">WI §9.15 How many turns?</h3>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_14" title="How many times?"><div class="nav-arrow">←</div>&thinsp;<div class="doc-navbar-text">9.14 How many times?</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_9"><div class="nav-arrow">↑</div><div class="doc-navbar-text">9. Time</div></a></div><div class="doc-navbar-right"><div>&nbsp;</div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="#section_14" title="How many times?"><div class="nav-arrow">←9.14 </div><div class="doc-navbar-text">How many times?</div></a></div><div class="doc-navbar-center"><a class="nav-el" href="#chapter_9"><div class="nav-arrow">↑9. </div><div class="doc-navbar-text">Time</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="WI_10.html" title="Scenes"><div class="doc-navbar-text">Scenes</div><div class="nav-arrow">10.→</div></a></div></div></div>
 <p>So much for &quot;times&quot; &ndash; spells in which a condition is true. We can also test the length of time, in turns of play, that something has been true. Thus:</p>
 <div class="codeblock"><div class="codeline">if ... for three turns;</div>
 </div><p>means that the condition holds now, and held at the start of this turn, at the start of last turn, and at the start of the turn before that. In particular:</p>

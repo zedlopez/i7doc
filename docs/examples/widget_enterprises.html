@@ -20,42 +20,42 @@
 <p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex263">Play/modify Widget Enterprises in Borogove</a></span>
  &bull; <span class="quixe-link"><a href="Widget/index.html">Play Widget Enterprises in Quixe</a></span>
 </p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Widget Enterprises&quot;\n\nWidget Stand is a room.\n\nA monetary value is a kind of value. $1.99 specifies a monetary value with parts dollars and cents.\n\nEquation - Profit Equation\n\tP = nV - (F + nC)\nwhere P is a monetary value, F is the fixed cost, C is the unit cost, V is a monetary value, and n is a number.\n\nThe fixed cost is a monetary value that varies. The fixed cost is $5.00.\nThe unit cost is a monetary value that varies. The unit cost is $10.66.\n\nTable of Customers\nbase\tmaximum value\n2\t$26.00\n5\t$20.00\n8 \t$15.00\n2\t$13.50\n1\t$9.00\n\nTo decide what number is the units sold at (V - a monetary value):\n\tlet total units be 0;\n\trepeat through the Table of Customers:\n\t\tif V is less than the maximum value entry:\n\t\t\tincrease total units by the base entry;\n\tdecide on total units.\n\nUnderstand &quot;set price to [monetary value]&quot; as setting price to. Setting price to is an action applying to one monetary value.\n\nCarry out setting price to:\n\tlet V be the monetary value understood;\n\tlet n be the units sold at the monetary value understood;\n\tlet P be given by the Profit Equation;\n\tsay &quot;You set the price of your widgets to [V], resulting in sales of [n] unit[s] and &quot;;\n\tif P is less than $0.00:\n\t\tlet L be $0.00 - P;\n\t\tsay &quot;a loss of [L].&quot;;\n\totherwise if P is $0.00:\n\t\tsay &quot;break even.&quot;;\n\totherwise:\n\t\tsay &quot;a profit of [P].&quot;.\n\nTest me with &quot;set price to $0.00 / set price to $100.00 / set price to $15.00 / set price to $8.00 / set price to $25.00 / set price to $14.99&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Widget Enterprises&quot;</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Widget Stand is a room.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">A monetary value is a kind of value. $1.99 specifies a monetary value with parts dollars and cents.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Equation - Profit Equation</div>
-<div class="codeline">&ensp;&ensp;P = nV - (F + nC)</div>
+<div class="codeline">&ensp;&ensp;&ensp;P = nV - (F + nC)</div>
 <div class="codeline">where P is a monetary value, F is the fixed cost, C is the unit cost, V is a monetary value, and n is a number.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">The fixed cost is a monetary value that varies. The fixed cost is $5.00.</div>
 <div class="codeline">The unit cost is a monetary value that varies. The unit cost is $10.66.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline tablename">Table of Customers</div><table>
-<tr><td>base</td><td>maximum value</td></tr><tr><td>2</td><td>$26.00</td></tr><tr><td>5</td><td>$20.00</td></tr><tr><td>8 </td><td>$15.00</td></tr><tr><td>2</td><td>$13.50</td></tr><tr><td>1</td><td>$9.00</td></tr></table>
+<tr><td>base</td><td>maximum value</td></tr><tr><td>2</td><td>$26.00</td></tr><tr><td>5</td><td>$20.00</td></tr><tr><td>8</td><td>$15.00</td></tr><tr><td>2</td><td>$13.50</td></tr><tr><td>1</td><td>$9.00</td></tr></table>
 <div class="codeline">To decide what number is the units sold at (V - a monetary value):</div>
-<div class="codeline">&ensp;&ensp;let total units be 0;</div>
-<div class="codeline">&ensp;&ensp;repeat through the Table of Customers:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;if V is less than the maximum value entry:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;increase total units by the base entry;</div>
-<div class="codeline">&ensp;&ensp;decide on total units.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let total units be 0;</div>
+<div class="codeline">&ensp;&ensp;&ensp;repeat through the Table of Customers:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if V is less than the maximum value entry:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;increase total units by the base entry;</div>
+<div class="codeline">&ensp;&ensp;&ensp;decide on total units.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Understand &quot;set price to [monetary value]&quot; as setting price to. Setting price to is an action applying to one monetary value.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Carry out setting price to:</div>
-<div class="codeline">&ensp;&ensp;let V be the monetary value understood;</div>
-<div class="codeline">&ensp;&ensp;let n be the units sold at the monetary value understood;</div>
-<div class="codeline">&ensp;&ensp;let P be given by the Profit Equation;</div>
-<div class="codeline">&ensp;&ensp;say &quot;You set the price of your widgets to [V], resulting in sales of [n] unit[s] and &quot;;</div>
-<div class="codeline">&ensp;&ensp;if P is less than $0.00:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;let L be $0.00 - P;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;a loss of [L].&quot;;</div>
-<div class="codeline">&ensp;&ensp;otherwise if P is $0.00:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;break even.&quot;;</div>
-<div class="codeline">&ensp;&ensp;otherwise:</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;say &quot;a profit of [P].&quot;.</div>
-<div class="codeline">&ensp;&ensp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let V be the monetary value understood;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let n be the units sold at the monetary value understood;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let P be given by the Profit Equation;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You set the price of your widgets to [V], resulting in sales of [n] unit[s] and &quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if P is less than $0.00:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;let L be $0.00 - P;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;a loss of [L].&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise if P is $0.00:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;break even.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;a profit of [P].&quot;.</div>
+<div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Test me with &quot;set price to $0.00 / set price to $100.00 / set price to $15.00 / set price to $8.00 / set price to $25.00 / set price to $14.99&quot;.</div>
 </div><details class="testme-output"><summary>Test me with "set price to $0.00 / set price to $100.00 / set price to $15.00 / set price to $8.00 / set price to $25.00 / set price to $14.99".</summary><div class="testme-output">Widget Stand<br><br>&gt;(Testing.)<br><br>&gt;[1] set price to $0.00<br>You set the price of your widgets to $0.00, resulting in sales of 18 units and a loss of $196.88.<br><br>&gt;[2] set price to $100.00<br>You set the price of your widgets to $100.00, resulting in sales of 0 units and a loss of $5.00.<br><br>&gt;[3] set price to $15.00<br>You set the price of your widgets to $15.00, resulting in sales of 7 units and a profit of $25.38.<br><br>&gt;[4] set price to $8.00<br>You set the price of your widgets to $8.00, resulting in sales of 18 units and a loss of $52.88.<br><br>&gt;[5] set price to $25.00<br>You set the price of your widgets to $25.00, resulting in sales of 2 units and a profit of $23.68.<br><br>&gt;[6] set price to $14.99<br>You set the price of your widgets to $14.99, resulting in sales of 15 units and a profit of $59.95.
 </div></details><p>As written this will be a rather dull guessing game for the player; more interesting would be to enhance it into a fuller economic simulator with more control over fixed costs and customer price points.</p>
