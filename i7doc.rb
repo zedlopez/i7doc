@@ -1254,7 +1254,7 @@ def output_examples(monolithic = false)
           navbar << %Q{<a class="nav-el" href="#{prev[:cname]}.html" title="#{htmlify(prev[:desc])}"><div class="nav-arrow">←#{prev[:example_num]}.</div><div class="doc-navbar-text">#{prev[:name]}</div></a>}
         end
         navbar << %Q{</div>}
-        navbar << %Q{<div class="doc-navbar-center">&thinsp;</div>}
+#        navbar << %Q{<div class="doc-navbar-center">&thinsp;</div>}
         if Conf.subnames[example[:subname]][example[:subnum]+1]
           navbar << '<div class="doc-navbar-right">'
           following = Conf.subnames[example[:subname]][example[:subnum]+1]
@@ -1271,7 +1271,7 @@ def output_examples(monolithic = false)
         navbar << %Q{<a class="nav-el" href="#{prev[:cname]}.html" title="#{htmlify(prev[:desc])}"><div class="nav-arrow">←#{prev[:example_num]}. </div><div class="doc-navbar-text">#{prev[:name]}</div></a>} unless have_linked_to[prev[:example_num]]
       end
       navbar << '</div>'
-      navbar << %Q{<div class="doc-navbar-center">&thinsp;</div>}
+#      navbar << %Q{<div class="doc-navbar-center">&thinsp;</div>}
 
       if Conf.examples_by_num.key?(example[:example_num] + 1)
         following = Conf.examples_by_num[example[:example_num]+1]
@@ -1404,7 +1404,7 @@ def output_chapter(f, vol, chapter_num, monolithic = false, search: false)
       navbar << %Q{<span class="hidden">0</span>}
     end
     navbar << '</div>'
-    navbar << %Q{<div class="doc-navbar-center"><div class="nav-el"><span class="hidden">0</span></div></div>}
+#    navbar << %Q{<div class="doc-navbar-center"><div class="nav-el"><span class="hidden">0</span></div></div>}
     navbar << %Q{<div class="doc-navbar-right">}
     if book[:chapters].key?(chapter_num+1) 
         navbar << %Q{<a class="nav-el" href="#{book[:abbrev]}_#{chapter_num+1}.html"><div class="doc-navbar-text">#{book[:chapters][chapter_num+1][:name]}</div> <div class="nav-arrow">#{chapter_num+1}.→</div></a>}
