@@ -193,7 +193,7 @@ div.indexentry span.indexphrasebracketed { color: purple; font-style: italic; }
 .doc-navbar-left { justify-content: flex-start; }
 .doc-navbar-center { justify-content: center; }
 .doc-navbar-right { justify-content: flex-end; text-align: right; }
-.doc-navbar .nav-arrow { padding-right: .25rem; }
+.doc-navbar .nav-arrow { padding-right: .5rem; }
 .doc-navbar-right  .nav-arrow {padding-left: .5rem; }
 /*.doc-navbar-right > * {  }*/
 .finit { font-style: italic; font-weight: bold; }
