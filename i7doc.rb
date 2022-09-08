@@ -1192,7 +1192,7 @@ def output_section(f, vol, chapter_num, section_num, monolithic = false, search:
     if (:rb == vol) and search
       f.puts %Q{<h4>Example#{(section[:examples].count > 1) ? 's' : ''}</h4>}
       section[:examples].sort_by {|x|  [x[:stars], x[:example_num] ]}.each do |example|
-        f.print %Q{<p><span class="example-name">#{ example[:example_num] }. #{'★'  * example[:stars]} <a href="examples/#{example[:cname]}.html" class="example-name">#{CGI.escapeHTML(example[:name])}</a></span></p>}
+        f.print %Q{<p><span class="example-name">#{ example[:example_num] }. <a href="examples/#{example[:cname]}.html" class="example-name">#{CGI.escapeHTML(example[:name])}</a></span> #{'★'  * example[:stars]}</p>}
         print_blocks(f, example[:body][:blocks], nil, nil, nil, nil, true)
         f.puts '<div class="linkback">'
         f.puts (%i{ wi rb }.map do |vol|
