@@ -1149,13 +1149,13 @@ def output_section(f, vol, chapter_num, section_num, monolithic = false, search:
     abbr = Conf.books[prev[:vol]][:abbrev]
     prefix = ((prev[:vol] == vol) ? '' : "#{Conf.books[Conf.books.keys.find {|x| x != vol}][:abbrev]} ")
     dest = ((prev[:chapter_num] == chapter_num) ? "#section_#{prev[:section_num]}" : "#{abbr}_#{prev[:chapter_num]}.html#section_#{prev[:section_num]}")
-    navbar << %Q{<a class="nav-el" href="#{dest}" title="#{htmlify(prev[:name])}"><div class="nav-arrow">←#{prefix}#{prev[:chapter_num]}.#{prev[:section_num]} </div><div class="doc-navbar-text">#{htmlify(prev[:name])}</div></a>}
+    navbar << %Q{<a class="nav-el" href="#{dest}" title="#{htmlify(prev[:name])}"><div class="nav-arrow">←#{prefix}#{prev[:chapter_num]}.#{prev[:section_num]}</div><div class="doc-navbar-text">#{htmlify(prev[:name])}</div></a>}
   else
     navbar << %Q{<div>&thinsp;</div>}
   end
   navbar << '</div>'
   dest = search ? "#{Conf.books[vol][:abbrev]}_#{chapter_num}.html" : "#chapter_#{chapter_num}"
-  navbar << %Q{<div class="doc-navbar-center"><a class="nav-el" href="#{dest}"><div class="nav-arrow">↑#{chapter_num}. </div><div class="doc-navbar-text">#{book[:chapters][chapter_num][:name]}</div></a></div>}
+  navbar << %Q{<div class="doc-navbar-center"><a class="nav-el" href="#{dest}"><div class="nav-arrow">↑#{chapter_num}.</div><div class="doc-navbar-text">#{book[:chapters][chapter_num][:name]}</div></a></div>}
   navbar << %Q{<div class="doc-navbar-right">}
   if book[:chapters][chapter_num][:sections].key?(section_num+1)
     dest = search ? "#{Conf.books[vol][:abbrev]}_#{chapter_num}.html#section_#{section_num+1}" : "#section_#{section_num+1}"
@@ -1192,7 +1192,7 @@ def output_section(f, vol, chapter_num, section_num, monolithic = false, search:
     if (:rb == vol) and search
       f.puts %Q{<h4>Example#{(section[:examples].count > 1) ? 's' : ''}</h4>}
       section[:examples].sort_by {|x|  [x[:stars], x[:example_num] ]}.each do |example|
-        f.print %Q{<span class="example-name">#{ example[:example_num] }. #{'★'  * example[:stars]} <a href="examples/#{example[:cname]}.html" class="example-name">#{CGI.escapeHTML(example[:name])}</a></span>}
+        f.print %Q{<p><span class="example-name">#{ example[:example_num] }. #{'★'  * example[:stars]} <a href="examples/#{example[:cname]}.html" class="example-name">#{CGI.escapeHTML(example[:name])}</a></span></p>}
         print_blocks(f, example[:body][:blocks], nil, nil, nil, nil, true)
         f.puts '<div class="linkback">'
         f.puts (%i{ wi rb }.map do |vol|
@@ -1251,14 +1251,14 @@ def output_examples(monolithic = false)
         if example[:subnum] > 1
           prev = Conf.subnames[example[:subname]][example[:subnum]-1]
           have_linked_to[prev[:example_num]] = true
-          navbar << %Q{<a class="nav-el" href="#{prev[:cname]}.html" title="#{htmlify(prev[:desc])}"><div class="nav-arrow">←</div> <div class="doc-navbar-text">#{prev[:example_num]}. #{prev[:name]}</div></a>}
+          navbar << %Q{<a class="nav-el" href="#{prev[:cname]}.html" title="#{htmlify(prev[:desc])}"><div class="nav-arrow">←#{prev[:example_num]}.</div><div class="doc-navbar-text">#{prev[:name]}</div></a>}
         end
         navbar << %Q{</div>}
         navbar << %Q{<div class="doc-navbar-center">&thinsp;</div>}
         if Conf.subnames[example[:subname]][example[:subnum]+1]
           navbar << '<div class="doc-navbar-right">'
           following = Conf.subnames[example[:subname]][example[:subnum]+1]
-          navbar << %Q{<a class="nav-el" href="#{following[:cname]}.html" title="#{htmlify(following[:desc])}"><div class="doc-navbar-text">#{following[:example_num]}. #{following[:name]}</div> <div class="nav-arrow">→</div></a></div>}
+          navbar << %Q{<a class="nav-el" href="#{following[:cname]}.html" title="#{htmlify(following[:desc])}"><div class="doc-navbar-text">#{following[:name]}</div><div class="nav-arrow">#{following[:example_num]}.→</div></a></div>}
           have_linked_to[following[:example_num]] = true
           navbar << '</div>'
         end
@@ -1268,14 +1268,14 @@ def output_examples(monolithic = false)
       navbar << %Q{<div class="doc-navbar"><div class="doc-navbar-left">}
       if example[:example_num] > 1
         prev = Conf.examples_by_num[example[:example_num]-1]
-        navbar << %Q{<a class="nav-el" href="#{prev[:cname]}.html" title="#{htmlify(prev[:desc])}"><div class="nav-arrow">←</div> <div class="doc-navbar-text">#{prev[:example_num]}. #{prev[:name]}</div></a>} unless have_linked_to[prev[:example_num]]
+        navbar << %Q{<a class="nav-el" href="#{prev[:cname]}.html" title="#{htmlify(prev[:desc])}"><div class="nav-arrow">←#{prev[:example_num]}. </div><div class="doc-navbar-text">#{prev[:name]}</div></a>} unless have_linked_to[prev[:example_num]]
       end
       navbar << '</div>'
       navbar << %Q{<div class="doc-navbar-center">&thinsp;</div>}
 
       if Conf.examples_by_num.key?(example[:example_num] + 1)
         following = Conf.examples_by_num[example[:example_num]+1]
-        navbar << %Q{<div class="doc-navbar-right"><a class="nav-el" href="#{following[:cname]}.html" title="#{htmlify(following[:desc])}"><div class="doc-navbar-text">#{following[:example_num]}. #{following[:name]}</div> <div class="nav-arrow">→</div></a></div>} unless have_linked_to[following[:example_num]]
+        navbar << %Q{<div class="doc-navbar-right"><a class="nav-el" href="#{following[:cname]}.html" title="#{htmlify(following[:desc])}"><div class="doc-navbar-text">#{following[:name]}</div><div class="nav-arrow">#{following[:example_num]}.→</div></a></div>} unless have_linked_to[following[:example_num]]
       else
         navbar << %Q{<div class="doc-navbar-right finit">Finit</div>}
       end
@@ -1394,7 +1394,7 @@ def output_chapter(f, vol, chapter_num, monolithic = false, search: false)
     navbar = []
     navbar << %Q{<div class="doc-navbar"><div class="doc-navbar-left">}
     if chapter_num > 1
-      navbar << %Q{<a class="nav-el" href="#{book[:abbrev]}_#{chapter_num-1}.html"><div class="nav-arrow">←</div> <div class="doc-navbar-text">#{chapter_num-1}. #{book[:chapters][chapter_num-1][:name]}</div></a>}
+      navbar << %Q{<a class="nav-el" href="#{book[:abbrev]}_#{chapter_num-1}.html"><div class="nav-arrow">←#{chapter_num-1}.</div><div class="doc-navbar-text">#{book[:chapters][chapter_num-1][:name]}</div></a>}
     elsif :rb == vol
       last_ch = Conf.books[:wi][:chapters][Conf.books[:wi][:chapters].keys.max]
       dest = "#{Conf.books[:wi][:abbrev]}_#{last_ch[:chapter_num]}.html"
@@ -1407,7 +1407,7 @@ def output_chapter(f, vol, chapter_num, monolithic = false, search: false)
     navbar << %Q{<div class="doc-navbar-center"><div class="nav-el"><span class="hidden">0</span></div></div>}
     navbar << %Q{<div class="doc-navbar-right">}
     if book[:chapters].key?(chapter_num+1) 
-        navbar << %Q{<a class="nav-el" href="#{book[:abbrev]}_#{chapter_num+1}.html"><div class="doc-navbar-text">#{chapter_num+1}. #{book[:chapters][chapter_num+1][:name]}</div> <div class="nav-arrow">→</div></a>}
+        navbar << %Q{<a class="nav-el" href="#{book[:abbrev]}_#{chapter_num+1}.html"><div class="doc-navbar-text">#{book[:chapters][chapter_num+1][:name]}</div> <div class="nav-arrow">#{chapter_num+1}.→</div></a>}
     elsif :wi == vol
       dest = "#{Conf.books[:rb][:abbrev]}_1.html"
       ch_name = htmlify(Conf.books[:rb][:chapters][1][:name])
