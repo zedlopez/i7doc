@@ -617,7 +617,7 @@
 <div class="codeline">To say end once only -- ending say_once_only:</div>
 <div class="codeline">&ensp;&ensp;&ensp;(- {-close-brace} -).</div>
 </div><p>To complete the tools available for defining a segmented substitution, we need a way for the definition of the head to know about the middle segments and the tail:</p>
-<p>When invoking either the head or the tail, {-segment-count} expands to the literal decimal number of pieces of text in between the two, which is always one more than the number of middle segments, since the text comes in between the segments. When invoking any middle segment, {-segment-count} expands to the number of pieces of text so far -- thus it expands to 1 on the first middle segment invoked, 2 on the next, and so on.</p>
+<p>When invoking either the head or the tail, {-segment-count} expands to the literal decimal number of pieces of text in between the two, which is always one more than the number of middle segments, since the text comes in between the segments. When invoking any middle segment, {-segment-count} expands to the number of pieces of text so far &ndash; thus it expands to 1 on the first middle segment invoked, 2 on the next, and so on.</p>
 <p>Lastly {-final-segment-marker} expands to the I6 identifier which marks the end segment, or to I6_NULL if the end segment has no marker. The idea of markers is to enable the head&#39;s definition to know which of a number of choices has been used for the tail, supposing that this is a construction with a variety of legal endings. For example:</p>
 <div class="codeblock"><div class="codeline">To say emphasise -- beginning say_emphasise:</div>
 <div class="codeline">&ensp;&ensp;&ensp;(- style {-final-segment-marker}; -).</div>

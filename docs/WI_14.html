@@ -112,7 +112,7 @@
 </div><p>might produce &quot;The V-ray will not be able to touch the ionizer terminal.&quot;, for example.</p>
 <p>As these examples hint, the verb adapts itself to the most recently printed object name. All of this only works if the previous object&#39;s name is printed from a substitution. So:</p>
 <div class="codeblock"><div class="codeline">&quot;[The condensers] [are] working.&quot;</div>
-</div><p>will work -- correctly forming &quot;The condensers are working.&quot;, &quot;The condensers will be working.&quot; or &quot;The condensers were working.&quot;, according to the story tense -- but</p>
+</div><p>will work &ndash; correctly forming &quot;The condensers are working.&quot;, &quot;The condensers will be working.&quot; or &quot;The condensers were working.&quot;, according to the story tense &ndash; but</p>
 <div class="codeblock"><div class="codeline">&quot;The condensers [are] working.&quot;</div>
 </div><p>probably won&#39;t work. Inform doesn&#39;t have any way to understand the raw text outside of the text substitution marks &quot;[&quot; and &quot;]&quot;, and it doesn&#39;t recognise &quot;The condensers&quot; as being something&#39;s name.</p>
 <p>Something else to be careful with is the use of lists. If we write this:</p>
@@ -262,7 +262,7 @@
 <div class="codeblock"><div class="codeline">&quot;You can&#39;t go that way.&quot;</div>
 </div><p>To make this message adaptive, we write:</p>
 <div class="codeblock"><div class="codeline">&quot;[We] [can&#39;t go] that way.&quot;</div>
-</div><p>which can adapt in surprising ways -- &quot;They won&#39;t be able to go that way.&quot;, for example.</p>
+</div><p>which can adapt in surprising ways &ndash; &quot;They won&#39;t be able to go that way.&quot;, for example.</p>
 <p>Note that the verb V has to be one that Inform knows. But that&#39;s easy:</p>
 <div class="codeblock"><div class="codeline">To discombobulate is a verb.</div>
 </div><p>and then</p>

@@ -1,3 +1,13 @@
+:root {
+--sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Oxygen, Cantarell, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
+--narrow: Go, "Liberation Sans", "Nimbus Sans L", "FreeSans", sans-serif;
+--mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro","Fira Mono", "Droid Sans Mono", "Courier New", "Liberation Mono", "Nimbus Mono L", "FreeMono", monospace;
+--testme-border: .1rem solid #F7D5D7;
+--testme-color: #FFEAEA;
+}
+
+*:focus { outline: .1rem dotted black; }
+
 .i7header,.tablename { font-weight: bold; }
 
 .codeline { margin-left: .75rem; padding-left: .25rem;
@@ -17,15 +27,12 @@ body {
 line-height: 1.5;
   width: 42rem;
 margin: auto;
-font-family: sans-serif;
+font-family: var(--sans);
 background-color: #FAFAEF; 
 }
 .example-short, p { margin-left: 1rem; margin-right: 1rem; }
 
-div.codeblock { background-color: #dfe7ff; color: #000;  font-family: "Go", sans-serif; margin-left: 0; margin-top: 1.5rem; margin-bottom: 1rem;  width: 100%; border: .05rem solid #d5daff;
-padding-top: .33rem; padding-bottom: .5rem;
-border-radius: .33rem;
-              }
+div.codeblock { background-color: #dfe7ff; color: #000;  font-family: var(--narrow); margin-left: 0; margin-top: 1.5rem; margin-bottom: 1rem;  width: 100%; border: .05rem solid #d5daff; padding-top: .33rem; padding-bottom: .5rem; border-radius: .33rem; }
 button.copycode {background-color: #dfe7ff; }
 .copycode { border: none; float: right; font-weight: bold; font-size: 1rem; padding: .1rem; }
 .copycode:hover { background-color: #c5caef; border-radius: .25rem; }
@@ -50,7 +57,7 @@ div.defn + div.defn { margin-top: 1rem; }
 
 /*span.defnbracketed { font-style: italic; }*/
 span.defn { font-weight: bold; }
-span.neutral { font-weight: normal; font-style: normal; font-family: sans-serif; }
+span.neutral { font-weight: normal; font-style: normal; font-family: var(--sans); }
 
 .codeline + .codeline { margin-top: 0; padding-top: 0; }
 
@@ -59,7 +66,7 @@ table + div.blankrows { margin-top: 0; }
 
 /* .i7header { margin-top: 1rem; margin-bottom: 1rem; } */
 .toc h1 { text-align: center; }
-.toc { font-family: sans-serif; }
+/*.toc { font-family: var(--sans); }*/
 .title { text-align: center; }
 .prev-subname { float: inline-start; display: inline-block; }
 .next-subname { float: inline-end; display: inline-block; }
@@ -138,6 +145,7 @@ div.linkback { margin-bottom: 1.5rem; text-align: right; }
 
 div.section-block { display: table; }
 div.section-row { display: table-row; }
+.section-row + .section-row { margin-top: 1rem; }
 div.section-chapter-num { display: table-cell; text-align: right; width: 4rem; font-weight: bold; font-size: 1.2rem; } /* padding-right: 0; padding-left: 3rem; */
 div.section-section-num { display: table-cell; width: 2rem; font-weight: bold; font-size: 1.2rem; } /* padding-left: 0; margin-right: 1.5rem;  */
 div.section-name { display: table-cell; font-size: 1.2rem; font-weight: bold;} /* margin-left: 1rem;  */
@@ -186,7 +194,7 @@ div.indexentry span.indexgloss { color: green; font-style: italic; }
 div.indexentry span.indexsayphrase { color: blue; }
 div.indexentry a.indexlinkalt { color: gray;  font-style: italic; }
 div.indexentry span.indexphrasebracketed { color: purple; font-style: italic; }
-.doc-navbar { font-family: sans-serif; font-weight: bold; display: flex; justify-content: space-between; gap: 1rem; margin-left: 0; margin-right: 0; margin-top: 1.5rem; margin-bottom: 1rem; } 
+.doc-navbar { /*font-family: var(--sans);*/ font-weight: bold; display: flex; justify-content: space-between; gap: 1rem; margin-left: 0; margin-right: 0; margin-top: 1.5rem; margin-bottom: 1rem; }
 .doc-navbar + .doc-navbar { margin-top: -.5rem; }
 
 .doc-navbar-left, .doc-navbar-center, .doc-navbar-right { display: flex; flex: 1; }
@@ -222,26 +230,35 @@ div.rb { grid-column: 2; }
 header.toc-er > .superheading { margin-bottom: 0; }
 nav { font-size: 1.33rem; font-weight: bold; width: 42rem; padding-top: 1.5rem; padding-bottom: 1rem; display: flex; justify-content: space-between; }
 
-.index-link { font-family: sans-serif; }
-.indexphrasebracketed, .indexifphrasebracketed, .indexsayphrasebracketed, .indexoutphrasebracketed, .indexassertbracketed, .indexrbbracketed, .indexpropbracketed, .indexpropcatbracketed, .indexadjbracketed, .indexrelbracketed, .indexrelcatbracketed, .indexglobbracketed, .indexactvarbracketed, .indexconstbracketed, .indexactionbracketed, .indexsourceargbracketed, .indextokenbracketed { font-family: sans-serif; font-style: italic; }
+.index-link { font-family: var(--sans); }
+.indexphrasebracketed, .indexifphrasebracketed, .indexsayphrasebracketed, .indexoutphrasebracketed, .indexassertbracketed, .indexrbbracketed, .indexpropbracketed, .indexpropcatbracketed, .indexadjbracketed, .indexrelbracketed, .indexrelcatbracketed, .indexglobbracketed, .indexactvarbracketed, .indexconstbracketed, .indexactionbracketed, .indexsourceargbracketed, .indextokenbracketed { font-family: var(--sans); font-style: italic; }
 
-div.indexentry { font-family: sans-serif; padding-top: .3rem; }
+div.indexentry { font-family: var(--sans); padding-top: .3rem; }
 
-.indexsource, .indexsourcearg, .indexsourcepartbracketed, indexphrase, .indexifphrase, .indexsayphrase, .indexoutphrase, .indexassert, .indexrb, .indexprop, .indexpropcat, .indexadj, .indexrelverb, .indexglob, .indexactvar, .indexconst, .indexaction, .indexactivity, .indexactivitycat, .indexdescactivity, .indexofsourcebracketed, .indexuseopt, .indextoken, .indexphrase, .indexsayphrase { font-family: monospace;  }
+.indexsource, .indexsourcearg, .indexsourcepartbracketed, indexphrase, .indexifphrase, .indexsayphrase, .indexoutphrase, .indexassert, .indexrb, .indexprop, .indexpropcat, .indexadj, .indexrelverb, .indexglob, .indexactvar, .indexconst, .indexaction, .indexactivity, .indexactivitycat, .indexdescactivity, .indexofsourcebracketed, .indexuseopt, .indextoken, .indexphrase, .indexsayphrase { font-family: var(--mono);  }
 
 .indexcommand, .indextestcmd, .indexcommandpartbracketed { font-family: small-caps, serif; }
 .indent0 { font-size: 1.3rem; margin-left: 0rem; margin-top: 1rem; }
 .indent1 { font-size: 1.1rem; margin-left: 2rem; padding-bottom: 0rem;}
 .indent2 { margin-left: 4rem; padding-bottom: 0rem; margin-bottom: 0;}
 .indent3 { margin-left: 6rem; padding-bottom: 0rem; margin-bottom: 0;}
-.index-label { font-family: sans-serif; background-color: #E6E6E6; padding-left: .33rem; padding-right: .33rem; border-radius: .33rem; }
-.indexbar { display: flex; justify-content: space-between; background-color: #E6E6E6; margin-top: 1rem; font-size: 1.33rem; font-weight: bold; font-family: monospace; border-bottom: .1rem solid black; }
+.index-label { font-family: var(--sans); background-color: #E6E6E6; padding-left: .33rem; padding-right: .33rem; border-radius: .33rem; }
+.indexbar { display: flex; justify-content: space-between; background-color: #E6E6E6; margin-top: 1rem; font-size: 1.33rem; font-weight: bold; font-family: var(--mono); border-bottom: .1rem solid black; }
 .indexletter { display: inline-block; padding: .25rem; }
 .indexcurrentletter { display: inline-block; border-top: .1rem solid black; border-right: .1rem solid black; border-left: .1rem solid black; padding: .25rem; }
 .borogove-link, .quixe-link { display: inline-block; }
-details.testme-output { margin-bottom: 1rem; border: .1rem solid #FAFAEF; }
-details.testme-output > summary { padding-left: 1rem; }
-div.testme-output { padding-left: 2rem; padding-right: 1rem; }
-details.testme-output[open] { background-color: #E6E6E6; border: .1rem dotted black; border-radius: 1rem; padding-bottom: 1rem; }
-details.testme-output[open] > summary { padding-bottom: .5rem; border-bottom: .1rem solid black; }
-.section-row + .section-row { margin-top: 1rem; }
+
+details.testme-output { border: .1rem solid #FAFAEF; padding-top: 1rem; border-radius: 1rem; }
+details.testme-output > summary { margin: 0; }
+.summation { display: inline-block; margin-top: -1.5rem; }
+.codeblock + details.testme-output { margin-top: -.5rem; }
+.codeblock + details.testme-output[open] { margin-top: 0; }
+.codeblock + details.testme-output[open] > summary { margin-top: -.5rem; }
+
+.consummation { padding-left: 1rem; font-family: var(--mono); font-weight: bold; }
+div.testme-output { padding: 1rem; margin-top: 1rem; }
+span.mono { font-family: var(--mono); font-weight: bold; }
+details.testme-output[open] { background-color: var(--testme-color); }
+div.testme-output { border-top: .1rem solid #420000;  padding-top:.5rem;}
+
+

@@ -3,6 +3,8 @@
 # Save your sanity and don't look at this ugly, ugly code.
 # It's too late for me; it doesn't have to be too late for you.
 
+# css vars for colors
+
 # "the (next|previous) chapter"
 
 # build both -rnd and non-rnd versions of the examples. Use the rnd versions for the testme_output and
@@ -17,6 +19,43 @@ require 'ostruct'
 require 'open3'
 require 'i7/template'
 require 'json'
+require 'charlock_holmes'
+require 'i18n'
+I18n.config.available_locales = :en
+
+# maybe a scheme at end of htmlify to detect orphans and surround with a nowrap span
+
+
+class UTF8 < File
+
+  def self.convert(x)
+    if x.respond_to?(:to_a)
+      return x.to_a.map {|y| UTF8.convert(y) }
+    elsif x.respond_to?(:to_s)
+      return x.to_s.to_utf8
+    end
+    nil
+  end
+
+  def self.readlines(*x)
+    UTF8.convert(super.join).split(%r{#{$/}})
+  end
+
+  def self.read(*x)
+    UTF8.convert(super)
+  end
+
+end
+
+class String
+  def to_utf8
+    x = self.dup
+    detection = CharlockHolmes::EncodingDetector.detect(x)
+    CharlockHolmes::Converter.convert(x, detection[:encoding], 'UTF-8')
+  end
+end
+    
+
 
 class Conf
   def self.[](x)
@@ -117,7 +156,7 @@ end
 def scan_recipes
   rb_chapter_num = 0
   rb_section_num = 0
-  File.readlines(File.join(Conf.example_dir,"(Recipes).txt")).each do |line|
+  UTF8.readlines(File.join(Conf.example_dir,"(Recipes).txt")).each do |line|
     line.strip!
     case line
     when ''
@@ -328,7 +367,7 @@ def htmlify(line, type: :text, level: 0)
   line.gsub!(/-&gt;/,'&rarr;') if type == :defn
   if type == :text
     line.gsub!(/\.\.\./,'&hellip;')
-    line.gsub!(/(\s+)-(\s+)/) {|m| "#{$1}&ndash;#{$2}" }
+    line.gsub!(/(\s+)--?(\s+)/) {|m| "#{$1}&ndash;#{$2}" }
   end
   line
 end
@@ -370,7 +409,9 @@ end
 
 
 def read_rawtext(lines = [], filename = nil, vol = nil)
-  lines = File.readlines(filename) if lines.empty? and filename
+  #  lines = File.readlines(filename) if lines.empty? and filename
+#  puts "filename: #{filename}"
+  lines = UTF8.readlines(filename) if lines.blank? and filename
   lines = lines.map(&:rstrip)
   chapter_num = 0
   section_num = 0
@@ -407,6 +448,7 @@ def read_rawtext(lines = [], filename = nil, vol = nil)
           Conf.documented_at[m.first] = [vol, chapter_num, section_num] 
         end
       end
+#      puts "Ch #{chapter_num} name #{chapters[chapter_num][:name]}  Sec #{section_num} name #{name}"
       section_names[name.downcase] = [ chapter_num, section_num ]
     # tags
     when /\A\{([^:]+):\}\s*(.*)/
@@ -595,7 +637,7 @@ def print_index(f, monolithic = false)
 end
 
 def canonical_example_name(str)
-    canonized_name = str.downcase.sub(/\A(?:an?|the)\s+/,'').gsub(/[-'!\.,\?]*/,'').sub(/:?\s+1\Z/,'').sub(/:?\s+(\d+)\Z/) {|m| $1 }.gsub(/\s+/,' ').gsub(/ /,'_')
+    canonized_name = I18n.transliterate(str.downcase.sub(/\A(?:an?|the)\s+/,'').gsub(/[-'!\.,\?]*/,'').sub(/:?\s+1\Z/,'').sub(/:?\s+(\d+)\Z/) {|m| $1 }.gsub(/\s+/,' ').gsub(/ /,'_'))
     case canonized_name
     when 'swigmore'
       'swigmore_u'
@@ -616,7 +658,7 @@ def read_examples
   Dir[File.join(Conf.example_dir, '*.txt')].each do |pathname|
     basename = File.basename(pathname, '.txt')
     next if basename.start_with?('(')
-    lines = File.readlines(pathname).map(&:rstrip)
+    lines = UTF8.readlines(pathname).map(&:rstrip)
     stars, wi_section_title = lines.shift.strip.match(/\A([\*]+)\s+(.*)/).captures
     rubric = lines.shift.strip.sub(/\A\(/,'').sub(/\)\Z/,'')
     rubric_parts = rubric.split(/\s*--\s*/)
@@ -742,20 +784,21 @@ def run_examples
         FileUtils.rm_f(fname.i6)
       end
         end
-  if File.exist?(fname.ulx) and !File.size(fname.ulx).zero?
+        if File.exist?(fname.ulx) and !File.size(fname.ulx).zero?
         if result[:testme]
           testme_input = ((Conf.testme_cmds[basename] or [ "test me", "quit", "y" ]) + ['']).join("\n")
           stdout, stderr, status = Open3.capture3("cheap-git #{fname.ulx}", stdin_data: testme_input)
+          detection = CharlockHolmes::EncodingDetector.detect(stdout)
           begin
-            result[:testme_output] = stdout.split(/\n/)
+            result[:testme_output] = process_testme(CharlockHolmes::Converter.convert(stdout, detection[:encoding], 'UTF-8').split(/\n/))
+            File.open(fname.out, 'w') {|f| result[:testme_output] } unless result[:testme_output].blank?
           rescue StandardError => e
             puts e.message
           end
-          File.open(fname.out, 'w') {|f| f.puts stdout; f.puts stderr } if stdout and stderr
           puts stderr unless stderr.blank?
         end
-  end
-        result[:testme_output] = process_testme(File.readlines(fname.out)) if File.exist?(fname.out)
+        end
+#        result[:testme_output] = process_testme(File.readlines(fname.out)) if File.exist?(fname.out)
 
 # PUT BACK IN when you strip if false
 #        I7::Template.write(:quixe, result[:quixe], title: result[:title], interpreter_levels_up: 1, ulxjs: Base64.strict_encode64(File.read(fname.ulx)), ahref: "../#{example[:cname]}.html", link_label: example[:name])
@@ -978,9 +1021,8 @@ def print_blocks(f, blocks, vol = nil, chapter_num = nil, section_num = nil, mon
       quotes = 0
       f.print '</div>'
       if (block == target_block) and testme_output and !search
-        f.print %Q{<details class="testme-output"><summary>#{testme_block[:result][:testme]}</summary><div class="testme-output">}
-        
-          f.puts testme_output.map {|x| CGI.escapeHTML(x)}.join("<br>")
+        f.print %Q{<details class="testme-output"><summary><div class="summation"><div class="consummation">#{testme_block[:result][:testme]}</div></div></summary><div class="testme-output">}
+          f.puts testme_output.map {|x| CGI.escapeHTML(x)}.map {|x| x.match(/\A&gt;/) ? %Q{<span class="mono">#{x}</span>} : x }.join("<br>")
           f.print '</div></details>'
       end
     when :defn
@@ -1486,7 +1528,7 @@ def write_borogove
     #    next unless example.key?(:i7) and !example[:i7].empty?
     Conf.examples[cname][title].each do |i7|
       i7.each do |h|
-        result[h[:borogove]]['code'] = File.read(File.join(Conf.xdir,"#{h[:filename]}.i7"))
+        result[h[:borogove]]['code'] = UTF8.read(File.join(Conf.xdir,"#{h[:filename]}.i7"))
       end
     end
   end
@@ -1494,7 +1536,7 @@ def write_borogove
 end
 
 def read_indoc
-  File.read(File.join(Conf.doc_dir, "indoc-instructions.txt")).each_line do |line|
+  UTF8.read(File.join(Conf.doc_dir, "indoc-instructions.txt")).each_line do |line|
     line.strip!
     case line
     when /volume:\s+([^\(]+)\s*(?:\(([^\)]+)\)\s+=\s+(.*))?/
