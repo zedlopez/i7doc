@@ -36,7 +36,7 @@ div.codeblock { background-color: #dfe7ff; color: #000;  font-family: var(--narr
 button.copycode {background-color: #dfe7ff; }
 .copycode { border: none; float: right; font-weight: bold; font-size: 1rem; padding: .1rem; }
 .copycode:hover { background-color: #c5caef; border-radius: .25rem; }
-
+.copycode:focus { border-radius: .25rem; }
 .alpha-index-entry { margin-top: .25rem; }
 /* offset for td's padding */
 .codeblock > table::last-child { padding-bottom: .75rem; }
@@ -249,12 +249,13 @@ div.indexentry { font-family: var(--sans); padding-top: .3rem; }
 .borogove-link, .quixe-link { display: inline-block; }
 
 details.testme-output { border: .1rem solid #FAFAEF; padding-top: 1rem; border-radius: 1rem; }
-details.testme-output > summary { margin: 0; }
+details.testme-output > summary { margin: 0; border-radius: 1rem; }
 .summation { display: inline-block; margin-top: -1.5rem; }
 .codeblock + details.testme-output { margin-top: -.5rem; }
 .codeblock + details.testme-output[open] { margin-top: 0; }
 .codeblock + details.testme-output[open] > summary { margin-top: -.5rem; }
 
+details.testme-output[open] > summary:focus { margin-top: -1rem; padding-top: .5rem; }
 .consummation { padding-left: 1rem; font-family: var(--mono); font-weight: bold; }
 div.testme-output { padding: 1rem; margin-top: 1rem; }
 span.mono { font-family: var(--mono); font-weight: bold; }
