@@ -6,7 +6,7 @@
 --testme-color: #FFEAEA;
 }
 
-*:focus { outline: .1rem dotted black; }
+*:focus { outline: .1rem dotted black; border-radius: .5rem; }
 
 .i7header,.tablename { font-weight: bold; }
 
