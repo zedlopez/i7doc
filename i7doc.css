@@ -85,8 +85,6 @@ padding: 1rem 1rem 0rem 1rem;
 .defn-or { font-style: italic; text-align: center; padding: .25rem; }
 div.defn + div.defn { margin-top: 1rem; }
 
-.m1 > 
-
 span.defn { font-weight: bold; }
 span.neutral { font-weight: normal; font-style: normal; font-family: var(--sans); }
 
