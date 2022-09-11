@@ -3,8 +3,6 @@
 # Save your sanity and don't look at this ugly, ugly code.
 # It's too late for me; it doesn't have to be too late for you.
 
-# css vars for colors
-
 # "the (next|previous) chapter"
 
 # build both -rnd and non-rnd versions of the examples. Use the rnd versions for the testme_output and
@@ -100,7 +98,8 @@ def configure
     "Proposal" => ["yes", "test me", "quit", "y"],
     "SP" => ["test me", ' ', "  test ad", ' ', "  test ending", "quit", "y"],
     "Solitude" => ["y", "test me", "quit", "y"],
-    "Wight" => ["hint about wight", "y", "north", "get bar", "south", "open tomb", "get dagger", "south", "hint about wight", "y", "read inscription", "hint about wight", "y", "attack wight", "throw dagger at wight", "south", "quit", "y"]
+    "Wight" => ["hint about wight", "y", "north", "get bar", "south", "open tomb", "get dagger", "south", "hint about wight", "y", "read inscription", "hint about wight", "y", "attack wight", "throw dagger at wight", "south", "quit", "y"],
+    "Rubies" => [ 'Exemplar', 'test me' ]
   }
   Conf[:text_subs] = 
     { %r{ Click the heading of the example, or the example number, to reveal the text\.} => '',
@@ -139,6 +138,7 @@ def configure
              search: {name: "Search", dest: 'search.html' },
                     }
   Conf[:documented_at] = {}
+  Conf[:arrows] = { left: '←', right: '→', up: '↑' }
 end
 
 def prepare_output_dir
@@ -580,14 +580,14 @@ def print_index_entry(f, k, h, level, monolithic = false)
     print_bar(f, alpha) if Conf.index_bar[alpha] == h[:tag]
   end
   cat = 'sayphrase' if ((cat == 'phrase') and (text.start_with?('say')))
-  f.print %Q{<div class="index#{cat} indent#{level}" id="index_#{h[:tag]}">}
+  f.print %Q{<div class="indent#{level}" id="index_#{h[:tag]}">}
   text = text.dup
   text = text.gsub(/\\\(/,'«').gsub(/\\\)/,'»').gsub(/\(/,'').gsub(/\)/,'').gsub(/«/,'(').gsub(/»/,')') unless h[:id]
   text = phrase_defn(text, "index#{cat}", "index#{cat}bracketed")
   if h[:id]
     defn = Conf.defns[h[:id]]
     dvol, dchap = *(defn[:entry])
-    f.print %Q{<a href="#{target_chapter(dvol, dchap, monolithic)}##{h[:id]}">#{text}</a>}
+    f.print %Q{<span class="index#{cat}><a href="#{target_chapter(dvol, dchap, monolithic)}##{h[:id]}">#{text}</a></span>}
   else
     f.print text
   end
@@ -710,6 +710,7 @@ def read_examples
 end
 
 def run_examples
+  FileUtils.rm("leaderboard.glkdata") if File.exist?("leaderboard.glkdata") # Rubies example
   suffix_syms = %i{ i7 i6 ulx out}
     Conf.examples.values.each do |example|
       codeblocks = example[:body][:blocks].select {|x| x[:type] == :code and !x[:pastie].empty? and x[:pastie][0].strip.start_with?('"') }
@@ -717,6 +718,7 @@ def run_examples
       results = []
       basename = example[:filename]
       next if Conf.skip_examples.member?(basename)
+      result = nil
       codeblocks.each.with_index do |codeblock, i|
         pastie = codeblock[:pastie]
         filename = (codeblocks.count > 1) ? "#{basename}_#{i+1}" : basename
@@ -785,18 +787,24 @@ def run_examples
       end
         end
         if File.exist?(fname.ulx) and !File.size(fname.ulx).zero?
-        if result[:testme]
-          testme_input = ((Conf.testme_cmds[basename] or [ "test me", "quit", "y" ]) + ['']).join("\n")
-          stdout, stderr, status = Open3.capture3("cheap-git #{fname.ulx}", stdin_data: testme_input)
-          detection = CharlockHolmes::EncodingDetector.detect(stdout)
-          begin
-            result[:testme_output] = process_testme(CharlockHolmes::Converter.convert(stdout, detection[:encoding], 'UTF-8').split(/\n/))
-            File.open(fname.out, 'w') {|f| result[:testme_output] } unless result[:testme_output].blank?
-          rescue StandardError => e
-            puts e.message
+          if result[:testme]
+            if File.exist?(fname.out) and !File.size(fname.out).zero?
+              result[:testme_output] = UTF8.readlines(fname.out)
+            else
+              testme_input = ((Conf.testme_cmds[basename] or [ "test me", "quit", "y" ]) + ['']).join("\n")
+              pp testme_input
+              stdout, stderr, status = Open3.capture3("cheap-git #{fname.ulx}", stdin_data: testme_input)
+              detection = CharlockHolmes::EncodingDetector.detect(stdout)
+              begin
+                result[:testme_output] = process_testme(CharlockHolmes::Converter.convert(stdout, detection[:encoding], 'UTF-8').split(/\n/))
+                FileUtils.rm(fname.out) if File.exist?(fname.out)
+                File.open(fname.out, 'w') {|f| f.puts(result[:testme_output]) } unless result[:testme_output].blank?
+              rescue StandardError => e
+                puts e.message
+              end
+              puts stderr unless stderr.blank?
+            end
           end
-          puts stderr unless stderr.blank?
-        end
         end
 #        result[:testme_output] = process_testme(File.readlines(fname.out)) if File.exist?(fname.out)
 
@@ -895,9 +903,9 @@ def process_testme(lines)
     lines.shift until (lines.empty? or lines.first.match(/\ARelease \d/))
     lines.shift if !lines.empty? and lines.first.match(/\ARelease \d/)
     lines.shift while !lines.empty? and lines.first.strip.blank?
-    lines.pop while !lines.empty? and (lines.last.strip.blank? or lines.last == '>')
-    lines.pop if !lines.empty? and lines.last.match(/(?:you want to quit|undo the last command)\?\s*\Z/i)
-    lines.pop while !lines.empty? and (lines.last.strip.blank? or lines.last == '>')
+    lines.pop while !lines.empty? and (lines.last.strip.blank? or lines.last == '>' or lines.last.match(/(?:you want to quit|undo the last command|<end of input>)\?\s*\Z/i))
+#    lines.pop if !lines.empty? and 
+#    lines.pop while !lines.empty? and (lines.last.strip.blank? or lines.last == '>')
     return lines
   rescue StandardError => e
     pp block[:result]
@@ -1263,7 +1271,6 @@ def output_examples(monolithic = false)
     f.puts '<h2>Numeric Index of Examples</h2>'
     numeric_examples(f)
     nominal_examples(f)
-#    nav(f, :examples, level: 1)
     footer(f, level: 1, page: :examples)
     f.puts %Q{</body></html>}
   end
@@ -1273,58 +1280,58 @@ def output_examples(monolithic = false)
       f.puts %Q{<body>}
       f.puts %Q{<header class="example-header">}
       nav(f, level: 1)
-      f.puts %Q{<div class="superheading"><div class="heading"><h1>#{example[:name]}</h1><div class="subheading">#{example[:subtitle] ? (example[:subtitle]+': ') : ''}Example #{example[:example_num]} #{'★'  * example[:stars]}</div></div></div>}
-
-      f.puts '<div class="linkback">'
-      f.puts (%i{ wi rb }.map do |vol|
-                lb_vol, lb_chapter, lb_section = *example[:refs][vol]
-                target = target_anchor(lb_vol, lb_chapter, lb_section, monolithic)
-                target = "##{target}" if monolithic
-                %Q{<a href="../#{target}" title="#{CGI.escapeHTML(Conf.books[vol][:chapters][lb_chapter][:name])} &gt; #{CGI.escapeHTML(Conf.books[vol][:chapters][lb_chapter][:sections][lb_section][:name])}">#{Conf.books[vol][:abbrev]} §#{[lb_chapter, lb_section].join('.')} #{Conf.books[vol][:chapters][lb_chapter][:sections][lb_section][:name]}</a>}
-              end).join('<br>')
-      f.puts '</div>'
-      f.puts %Q{<p class="example-desc">#{htmlify(example[:desc])}</p>}
-      navbar = []
-      have_linked_to = {}
-      
-      if example[:subname]
-        navbar << '<div class="doc-navbar">'
-        navbar << '<div class="doc-navbar-left">'
-        if example[:subnum] > 1
-          prev = Conf.subnames[example[:subname]][example[:subnum]-1]
-          have_linked_to[prev[:example_num]] = true
-          navbar << %Q{<a class="nav-el" href="#{prev[:cname]}.html" title="#{htmlify(prev[:desc])}"><div class="nav-arrow">←#{prev[:example_num]}.</div><div class="doc-navbar-text">#{prev[:name]}</div></a>}
+      f.puts %Q{<div class="superheading"><div class="heading"><h1>#{example[:name]}</h1><div class="subheading">#{example[:subtitle] ? (example[:subtitle]+'<br>') : ''}<wbr><div class="ex-no">Example #{example[:example_num]}</div> #{'★'  * example[:stars]}</div></div>}
+      linkbacks = {}
+      %i{ wi rb }.each do |vol|
+        lb_vol, lb_chapter, lb_section = *example[:refs][vol]
+        target = target_anchor(lb_vol, lb_chapter, lb_section, monolithic)
+        target = "##{target}" if monolithic
+        if vol == :wi
+          guts = %Q{<div class="nav-arrow">#{Conf.arrows[:up]}#{Conf.books[vol][:abbrev]} §#{[lb_chapter, lb_section].join('.')}</div><div class="doc-navbar-text">#{Conf.books[vol][:chapters][lb_chapter][:sections][lb_section][:name]}</div>}
+        else
+          guts = %Q{<div class="doc-navbar-text">#{Conf.books[vol][:chapters][lb_chapter][:sections][lb_section][:name]}</div><div class="nav-arrow">#{Conf.books[vol][:abbrev]} §#{[lb_chapter, lb_section].join('.')}#{Conf.arrows[:up]}</div>}
         end
-        navbar << %Q{</div>}
-#        navbar << %Q{<div class="doc-navbar-center">&thinsp;</div>}
-        if Conf.subnames[example[:subname]][example[:subnum]+1]
-          navbar << '<div class="doc-navbar-right">'
-          following = Conf.subnames[example[:subname]][example[:subnum]+1]
-          navbar << %Q{<a class="nav-el" href="#{following[:cname]}.html" title="#{htmlify(following[:desc])}"><div class="doc-navbar-text">#{following[:name]}</div><div class="nav-arrow">#{following[:example_num]}.→</div></a></div>}
-          have_linked_to[following[:example_num]] = true
-          navbar << '</div>'
+        linkbacks[vol] = %Q{<a class="nav-el" href="../#{target}" title="#{CGI.escapeHTML(Conf.books[vol][:chapters][lb_chapter][:name])} &gt; #{CGI.escapeHTML(Conf.books[vol][:chapters][lb_chapter][:sections][lb_section][:name])}">#{guts}</a>}
+      end
+      f.puts %Q{<div class="doc-navbar example-linkback"><div class="doc-navbar-left">#{linkbacks[:wi]}</div><div class="doc-navbar-right">#{linkbacks[:rb]}</div></div>}
+
+      f.puts %Q{</div>}
+      f.puts %Q{<div class="example-meta-desc"><p>#{htmlify(example[:desc])}</p></div>}
+                                                                           
+      example_link_rows = Hash.new {|h,k| h[k] = {} }
+      if example[:subname]
+        example_link_rows[0][:left] = Conf.subnames[example[:subname]][example[:subnum]-1] if example[:subnum] > 1
+        example_link_rows[0][:right] = Conf.subnames[example[:subname]][example[:subnum]+1] if Conf.subnames[example[:subname]][example[:subnum]+1]
+      end
+      example_link_rows[1][:left] = Conf.examples_by_num[example[:example_num]-1] if example[:example_num] > 1
+      example_link_rows[1][:right] = Conf.examples_by_num[example[:example_num]+1] if Conf.examples_by_num.key?(example[:example_num] + 1)
+      finit = !(Conf.examples_by_num.key?(example[:example_num] + 1))
+      navbar = []
+      if !example_link_rows[0].blank? and !example_link_rows[1].blank?
+        [:left,:right].each {|i| example_link_rows[0].delete(i) if example_link_rows[0].key?(i) and example_link_rows[1].key?(i) and (example_link_rows[1][i] == example_link_rows[0][i]) }
+      end
+
+      example_link_rows.values.each.with_index(1) do |row,i|
+        next unless row.key?(:left) or row.key?(:right)
+        navbar << %Q{<div class="doc-navbar">}
+        [:left,:right].each do |side|
+          navbar << %Q{<div class="doc-navbar-#{side}">}
+          if row.key?(side)
+            navbar << %Q{<a class="nav-el" href="#{row[side][:cname]}.html" title="#{htmlify(row[side][:desc])}">}
+            navbar << ((:left == side) ? %Q{<div class="nav-arrow">←#{row[side][:example_num]}. </div><div class="doc-navbar-text">#{row[side][:name]}</div>} : %Q{<div class="doc-navbar-text">#{row[side][:name]}</div><div class="nav-arrow">#{row[side][:example_num]}.→</div>})
+            navbar << '</a>'
+          end
+          navbar << '<span class="finit">Finit</span>' if finit and (:right == side) and (i == (example_link_rows.count-1))
+          navbar << '</div>' 
         end
         navbar << '</div>'
       end
-
-      navbar << %Q{<div class="doc-navbar"><div class="doc-navbar-left">}
-      if example[:example_num] > 1
-        prev = Conf.examples_by_num[example[:example_num]-1]
-        navbar << %Q{<a class="nav-el" href="#{prev[:cname]}.html" title="#{htmlify(prev[:desc])}"><div class="nav-arrow">←#{prev[:example_num]}. </div><div class="doc-navbar-text">#{prev[:name]}</div></a>} unless have_linked_to[prev[:example_num]]
-      end
-      navbar << '</div>'
-#      navbar << %Q{<div class="doc-navbar-center">&thinsp;</div>}
-
-      if Conf.examples_by_num.key?(example[:example_num] + 1)
-        following = Conf.examples_by_num[example[:example_num]+1]
-        navbar << %Q{<div class="doc-navbar-right"><a class="nav-el" href="#{following[:cname]}.html" title="#{htmlify(following[:desc])}"><div class="doc-navbar-text">#{following[:name]}</div><div class="nav-arrow">#{following[:example_num]}.→</div></a></div>} unless have_linked_to[following[:example_num]]
-      else
-        navbar << %Q{<div class="doc-navbar-right finit">Finit</div>}
-      end
-      navbar << '</div>'
       f.puts navbar.join('')
+      
       f.puts '</header>'
+      f.print '<div class="example-body">'
       print_blocks(f, example[:body][:blocks], level: 1)
+      f.print '</div>'
       f.puts navbar.join('')
       footer(f, level: 1)
       f.puts '</body></html>'
@@ -1344,6 +1351,10 @@ def output_chapter_toc(f, vol, chapter)
   f.puts "</div>"
 end
 
+#<h1 class="title">I<span style="letter-spacing: -.3rem;">nf</span>orm</h1>
+#<div class="subtitle">A <span style="letter-spacing: -.1rem;">De</span>sign <span style="letter-spacing: -.1rem;">Sy</span><span style="letter-spacing: -.05rem;"></span>stem <span style="letter-spacing: -.075rem;">f</span>or Inte<span style="letter-spacing: -.05rem;">rac</span>tive <span style="letter-spacing: -.15rem;">F</span>iction</div></div>}
+
+
 def output_toc(monolithic = false)
   title = "Inform 7 v10 documentation"
   filename = File.join(Conf.output_dir, "index.html")
@@ -1351,8 +1362,10 @@ def output_toc(monolithic = false)
     html_head(f, title)
     f.puts %Q{<body class="toc"><header class="toc-er">}
     nav(f, :toc)
-    f.puts %Q{<div class="superheading"><div class="heading"><h1 class="title">Inform 7</h1>
-<div class="subheading">A Design System for Interactive Fiction</div></div></div>}
+    f.puts %Q{<div class="superheading" id="toc-superheading">}
+    f.puts %Q{<div class="heading" id="toc-heading">}
+    f.puts %Q{<h1 class="title">In<span style="letter-spacing: -.15rem;">f</span>orm</h1><div class="subtitle">A <span style="letter-spacing: -.075rem;">D</span>esign <span style="letter-spacing: -.04rem;">S</span><span style="letter-spacing: -.1rem;">y</span>stem <span style="letter-spacing: -.075rem;">f</span>or I<span style="letter-spacing: -.1rem;">n</span>teractive <span style="letter-spacing: -.09rem;">F</span>iction</div>}
+f.puts %Q{</div></div>}
     f.puts %Q{</header><main class="toc"><div class="toc">}
     Conf.books.each_pair do |vol,book|
       f.puts %Q{<div class="#{vol}">}
@@ -1395,7 +1408,7 @@ def output_search
     f.puts %Q{<body><header>#{nav(f, :search)}</header>}
     f.puts %Q{<p class="search">The whole text of the documentation to be searched within your browser. The links jump back to the pages per chapter/example.</p>}
     Conf.books.each_pair do |vol,book|
-      f.puts %Q{<div class="superheading"><div class="heading"><h1 class="title">#{book[:title]}</h1></div></div>}
+      f.puts %Q{<div class="superheading"><div class="heading"><h1>#{book[:title]}</h1></div></div>}
       book[:chapters].keys.sort_by(&:to_i).each do |chapter_num|
         chapter = book[:chapters][chapter_num]
         output_chapter(f, vol, chapter_num, search: true)
@@ -1483,6 +1496,9 @@ def output_about
     f.puts %Q{<p>A few examples lack Borogove/Quixe links because they're Z-machine only or their purpose is to write an EPS file to the project's materials dir and there's no suitable way to demonstrate them.</p>}
     f.puts %Q{<p>Sections 1.3-1.7 of Writing with Inform as presented here omit some details particular to individual platforms. You should check them within the Inform app itself to see the appropriate platform-specific content.</p>}
     f.puts %Q{<p>This edition was reformatted by <a href="http://zedlopez.org">Zed Lopez</a>; it has been modestly adapted to suit the format changes, with my apologies for any errors I may have introduced.</p>}
+    f.puts '<h2 class="colophon">Colophon</h2>'
+    f.puts %Q{<p>The title on the <a href="./index.html">table of contents</a> page uses the <a href="https://www.1001fonts.com/railway-font.html">Railway typeface</a> by Greg Fleming, shared under the <a href="sil.txt">SIL Open Font License</a>. It is styled after the typeface designed for the London Underground by Edward Johnston in 1916.</p>}
+    
     f.puts '</main>'
     footer(f, false, page: :about)
     f.puts"</body></html>"
@@ -1495,7 +1511,7 @@ def output_general_index(monolithic = false)
     html_head(f, title)
     f.puts %Q{<body><header>}
     nav(f, :general_index)
-    f.puts %Q{<div class="superheading"><div class="heading"><h1 class="title">#{title}</h1></div></div>}
+    f.puts %Q{<div class="superheading"><div class="heading"><h1>#{title}</h1></div></div>}
     f.puts %Q{</header><main>}
     print_index(f, monolithic)
     f.puts '</main>'
@@ -1592,6 +1608,7 @@ def read_indoc
                                                               
                                                               end
                                                               end
+                                                              $cat_hash['command'][:label] = 'command'
                                                               end
 
                                                               configure
@@ -1751,5 +1768,3 @@ def print_example_indices(f)
   f.puts '</details>'
   
 end
-
-
