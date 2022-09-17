@@ -2,79 +2,82 @@
 <html lang="en"><head><meta charset="utf-8">
 <title>Ex. 394. Uptempo</title>
 <script src="../i7doc.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,375;0,400;0,500;0,700;1,375;1,400;1,500;1,700&family=Source+Sans+Pro:ital,wght@0,350;0,400;0,550;0,700;1,350;1,400;1,550;1,700&display=swap" rel="stylesheet"> 
 <link rel="stylesheet" href="../i7doc.css">
 </head>
 <body>
 <header class="example-header">
-<nav><div class="nav-el"><a class="nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="nav-el" href="../search.html">Search</a></div></nav>
+<nav><div class="nav-el"><a class="raw nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="raw nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="raw nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="raw nav-el" href="../search.html">Search</a></div></nav>
 <div class="superheading"><div class="heading"><h1>Uptempo</h1><div class="subheading"><wbr><div class="ex-no">Example 394</div> ★</div></div>
-<div class="doc-navbar example-linkback"><div class="doc-navbar-left"><a class="nav-el" href="../WI_19.html#section_4" title="Rulebooks &gt; Listing rules explicitly"><div class="nav-arrow">↑WI §19.4</div><div class="doc-navbar-text">Listing rules explicitly</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="../RB_4.html#section_1" title="Time and Plot &gt; The Passage Of Time"><div class="doc-navbar-text">The Passage Of Time</div><div class="nav-arrow">RB §4.1↑</div></a></div></div>
+<div class="doc-navbar example-linkback"><div class="doc-navbar-left"><a class="raw nav-el" href="../WI_19.html#section_4" title="Rulebooks &gt; Listing rules explicitly"><div class="nav-arrow"><span class="sc">wi</span> 19.4</div><div class="doc-navbar-text">Listing rules explicitly</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="../RB_4.html#section_1" title="Time and Plot &gt; The Passage Of Time"><div class="doc-navbar-text">The Passage Of Time</div><div class="nav-arrow"><span class="sc">rb</span> 4.1</div></a></div></div>
 </div>
 <div class="example-meta-desc"><p>Adjust time advancement so the game clock moves fifteen minutes each turn.</p></div>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="saint_eligius.html" title="Adding a first look rule that comments on locations when we visit them for the first time, inserting text after objects are listed but before any &quot;every turn&quot; rules might occur."><div class="nav-arrow">←393. </div><div class="doc-navbar-text">Saint Eligius</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="verbosity2.html" title="Making rooms give full descriptions each time we enter, even if we have visited before, and disallowing player use of BRIEF and SUPERBRIEF."><div class="doc-navbar-text">Verbosity 2</div><div class="nav-arrow">395.→</div></a></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="saint_eligius.html" title="Adding a first look rule that comments on locations when we visit them for the first time, inserting text after objects are listed but before any &quot;every turn&quot; rules might occur."><div class="nav-arrow">⬅393. </div><div class="doc-navbar-text">Saint Eligius</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="verbosity2.html" title="Making rooms give full descriptions each time we enter, even if we have visited before, and disallowing player use of BRIEF and SUPERBRIEF."><div class="doc-navbar-text">Verbosity 2</div><div class="nav-arrow">395.⮕</div></a></div></div>
 </header>
 <div class="example-body"><p>Suppose a game in which all actions take a very long time. Here&#39;s a simple implementation:</p>
-<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex394a">Play/modify Uptempo in Borogove</a></span>
- &bull; <span class="quixe-link"><a href="Uptempo_1/index.html">Play Uptempo in Quixe</a></span>
-</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Uptempo&quot;\n\nThe fast time rule is listed instead of the advance time rule in the turn sequence rules.\n\nThis is the fast time rule:\n\tincrement the turn count;\n\tincrease the time of day by 15 minutes.\n\nWhen play begins: now the right hand status line is &quot;[time of day]&quot;.\n\nThe Temporal Hot Spot is a room.\n\nTest me with &quot;z / z&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Uptempo&quot;</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="play-example borogove"><a class="raw" href="https://snippets.borogove.app/inform7/v10ex394a">Play/modify in Borogove</a></div>
+<div class="play-example quixe"><a class="raw" href="Uptempo_1/index.html">Play in Quixe</a></div>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Uptempo&quot;\n\nThe fast time rule is listed instead of the advance time rule in the turn sequence rules.\n\nThis is the fast time rule:\n\tincrement the turn count;\n\tincrease the time of day by 15 minutes.\n\nWhen play begins: now the right hand status line is &quot;[time of day]&quot;.\n\nThe Temporal Hot Spot is a room.\n\nTest me with &quot;z / z&quot;.`)"><span class="sym">⧉</span></button><div class="codeline storytitle">&quot;Uptempo&quot;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">The fast time rule is listed instead of the advance time rule in the turn sequence rules.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">This is the fast time rule:</div>
 <div class="codeline">&ensp;&ensp;&ensp;increment the turn count;</div>
 <div class="codeline">&ensp;&ensp;&ensp;increase the time of day by 15 minutes.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">When play begins: now the right hand status line is &quot;[time of day]&quot;.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">The Temporal Hot Spot is a room.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Test me with &quot;z / z&quot;.</div>
-</div><details class="testme-output"><summary><div class="summation"><div class="consummation">Test me with "z / z".</div></div></summary><div class="testme-output">Temporal Hot Spot<br><br><span class="mono">&gt;(Testing.)</span><br><br><span class="mono">&gt;[1] z</span><br>Time passes.<br><br><span class="mono">&gt;[2] z</span><br>Time passes.
+</div><details class="testme-output"><summary><div class="summation">Test me with "z / z".</div></summary><div class="testme-output">Temporal Hot Spot<br><br><span class="mono">&gt;(Testing.)</span><br><br><span class="mono">&gt;[1] z</span><br>Time passes.<br><br><span class="mono">&gt;[2] z</span><br>Time passes.
 </div></details><p>This works fine as it stands, but we may run into some difficulty with it if we add scheduled events:</p>
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`At 9:30 AM:\n\tsay &quot;Two turtles run by, almost too fast to see.&quot;\n\nAt 9:37 AM:\n\tsay &quot;A snail blitzes past.&quot;\n\nAt 9:42 AM:\n\tsay &quot;The grass grows.&quot;\n\nAt 9:50 AM:\n\tsay &quot;Several flowers burst open.&quot;`)">⧉</button><div class="codeline">At 9:30 AM:</div>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`At 9:30 AM:\n\tsay &quot;Two turtles run by, almost too fast to see.&quot;\n\nAt 9:37 AM:\n\tsay &quot;A snail blitzes past.&quot;\n\nAt 9:42 AM:\n\tsay &quot;The grass grows.&quot;\n\nAt 9:50 AM:\n\tsay &quot;Several flowers burst open.&quot;`)"><span class="sym">⧉</span></button><div class="codeline">At 9:30 AM:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say &quot;Two turtles run by, almost too fast to see.&quot;</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">At 9:37 AM:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say &quot;A snail blitzes past.&quot;</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">At 9:42 AM:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say &quot;The grass grows.&quot;</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">At 9:50 AM:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say &quot;Several flowers burst open.&quot;</div>
 </div><p>Time is counted forward after the schedule has already been consulted, so that only the 9:30 AM event happens between 9:30 and 9:45; the next two appear to occur between 9:45 and 10:00 AM, and the 9:50 AM event is not reported until the 10:00 AM to 10:15 wait. To get around this, we might schedule events only on the fifteen-minute mark when we want them to occur. Alternatively, we might try instead</p>
-<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex394b">Play/modify Uptempo in Borogove</a></span>
- &bull; <span class="quixe-link"><a href="Uptempo_2/index.html">Play Uptempo in Quixe</a></span>
-</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Uptempo&quot;\n\nThe fast time rule is listed before the timed events rule in the turn sequence rules.\n\nThe advance time rule is not listed in the turn sequence rules.\n\nThis is the fast time rule:\n\tincrement the turn count;\n\tincrease the time of day by 15 minutes.\n\nWhen play begins: now the right hand status line is &quot;[time of day]&quot;.\n\nThe Temporal Hot Spot is a room.\n\nAt 9:30 AM:\n\tsay &quot;Two turtles run by, almost too fast to see.&quot;\n\nAt 9:37 AM:\n\tsay &quot;A snail blitzes past.&quot;\n\nAt 9:42 AM:\n\tsay &quot;The grass grows.&quot;\n\nAt 9:50 AM:\n\tsay &quot;Several flowers burst open.&quot;\n\nTest me with &quot;z / z / z / z&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Uptempo&quot;</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="play-example borogove"><a class="raw" href="https://snippets.borogove.app/inform7/v10ex394b">Play/modify in Borogove</a></div>
+<div class="play-example quixe"><a class="raw" href="Uptempo_2/index.html">Play in Quixe</a></div>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Uptempo&quot;\n\nThe fast time rule is listed before the timed events rule in the turn sequence rules.\n\nThe advance time rule is not listed in the turn sequence rules.\n\nThis is the fast time rule:\n\tincrement the turn count;\n\tincrease the time of day by 15 minutes.\n\nWhen play begins: now the right hand status line is &quot;[time of day]&quot;.\n\nThe Temporal Hot Spot is a room.\n\nAt 9:30 AM:\n\tsay &quot;Two turtles run by, almost too fast to see.&quot;\n\nAt 9:37 AM:\n\tsay &quot;A snail blitzes past.&quot;\n\nAt 9:42 AM:\n\tsay &quot;The grass grows.&quot;\n\nAt 9:50 AM:\n\tsay &quot;Several flowers burst open.&quot;\n\nTest me with &quot;z / z / z / z&quot;.`)"><span class="sym">⧉</span></button><div class="codeline storytitle">&quot;Uptempo&quot;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">The fast time rule is listed before the timed events rule in the turn sequence rules.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">The advance time rule is not listed in the turn sequence rules.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">This is the fast time rule:</div>
 <div class="codeline">&ensp;&ensp;&ensp;increment the turn count;</div>
 <div class="codeline">&ensp;&ensp;&ensp;increase the time of day by 15 minutes.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">When play begins: now the right hand status line is &quot;[time of day]&quot;.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">The Temporal Hot Spot is a room.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">At 9:30 AM:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say &quot;Two turtles run by, almost too fast to see.&quot;</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">At 9:37 AM:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say &quot;A snail blitzes past.&quot;</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">At 9:42 AM:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say &quot;The grass grows.&quot;</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">At 9:50 AM:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say &quot;Several flowers burst open.&quot;</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Test me with &quot;z / z / z / z&quot;.</div>
-</div><details class="testme-output"><summary><div class="summation"><div class="consummation">Test me with "z / z / z / z".</div></div></summary><div class="testme-output">Temporal Hot Spot<br><br><span class="mono">&gt;(Testing.)</span><br><br><span class="mono">&gt;[1] z</span><br>Time passes.<br><br><span class="mono">&gt;[2] z</span><br>Time passes.<br><br>Two turtles run by, almost too fast to see.<br><br><span class="mono">&gt;[3] z</span><br>Time passes.<br><br>A snail blitzes past.<br><br>The grass grows.<br><br><span class="mono">&gt;[4] z</span><br>Time passes.<br><br>Several flowers burst open.
+</div><details class="testme-output"><summary><div class="summation">Test me with "z / z / z / z".</div></summary><div class="testme-output">Temporal Hot Spot<br><br><span class="mono">&gt;(Testing.)</span><br><br><span class="mono">&gt;[1] z</span><br>Time passes.<br><br><span class="mono">&gt;[2] z</span><br>Time passes.<br><br>Two turtles run by, almost too fast to see.<br><br><span class="mono">&gt;[3] z</span><br>Time passes.<br><br>A snail blitzes past.<br><br>The grass grows.<br><br><span class="mono">&gt;[4] z</span><br>Time passes.<br><br>Several flowers burst open.
 </div></details><p>This time our revised time-advancing rule is listed just before the event scheduler, not just afterwards.</p>
-</div><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="saint_eligius.html" title="Adding a first look rule that comments on locations when we visit them for the first time, inserting text after objects are listed but before any &quot;every turn&quot; rules might occur."><div class="nav-arrow">←393. </div><div class="doc-navbar-text">Saint Eligius</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="verbosity2.html" title="Making rooms give full descriptions each time we enter, even if we have visited before, and disallowing player use of BRIEF and SUPERBRIEF."><div class="doc-navbar-text">Verbosity 2</div><div class="nav-arrow">395.→</div></a></div></div>
-<footer id="credits-footer"><nav><div class="nav-el"><a class="nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="nav-el" href="../search.html">Search</a></div></nav>
-<div class="footing"><p id="i7credit"><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p class="about"><a class="nav-about" href="../about.html">About this edition</a> &bull; <a class="nav-about" href="https://twitter.com/inform7tips">@inform7tips</a></p></div></footer>
+</div><div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="saint_eligius.html" title="Adding a first look rule that comments on locations when we visit them for the first time, inserting text after objects are listed but before any &quot;every turn&quot; rules might occur."><div class="nav-arrow">⬅393. </div><div class="doc-navbar-text">Saint Eligius</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="verbosity2.html" title="Making rooms give full descriptions each time we enter, even if we have visited before, and disallowing player use of BRIEF and SUPERBRIEF."><div class="doc-navbar-text">Verbosity 2</div><div class="nav-arrow">395.⮕</div></a></div></div>
+<footer id="credits-footer"><nav><div class="nav-el"><a class="raw nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="raw nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="raw nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="raw nav-el" href="../search.html">Search</a></div></nav>
+<div class="footing"><p id="i7credit"><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p class="about"><a class="raw" href="../about.html">About this edition</a>&ensp;&bull;&ensp;<a class="raw" href="https://twitter.com/inform7tips">@inform7tips</a></p></div></footer>
 </body></html>

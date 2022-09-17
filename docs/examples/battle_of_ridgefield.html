@@ -2,29 +2,32 @@
 <html lang="en"><head><meta charset="utf-8">
 <title>Ex. 383. Battle of Ridgefield</title>
 <script src="../i7doc.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,375;0,400;0,500;0,700;1,375;1,400;1,500;1,700&family=Source+Sans+Pro:ital,wght@0,350;0,400;0,550;0,700;1,350;1,400;1,550;1,700&display=swap" rel="stylesheet"> 
 <link rel="stylesheet" href="../i7doc.css">
 </head>
 <body>
 <header class="example-header">
-<nav><div class="nav-el"><a class="nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="nav-el" href="../search.html">Search</a></div></nav>
+<nav><div class="nav-el"><a class="raw nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="raw nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="raw nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="raw nav-el" href="../search.html">Search</a></div></nav>
 <div class="superheading"><div class="heading"><h1>Battle of Ridgefield</h1><div class="subheading"><wbr><div class="ex-no">Example 383</div> ★</div></div>
-<div class="doc-navbar example-linkback"><div class="doc-navbar-left"><a class="nav-el" href="../WI_18.html#section_38" title="Activities &gt; Printing the player&#39;s obituary"><div class="nav-arrow">↑WI §18.38</div><div class="doc-navbar-text">Printing the player's obituary</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="../RB_11.html#section_6" title="Out Of World Actions and Effects &gt; Ending The Story"><div class="doc-navbar-text">Ending The Story</div><div class="nav-arrow">RB §11.6↑</div></a></div></div>
+<div class="doc-navbar example-linkback"><div class="doc-navbar-left"><a class="raw nav-el" href="../WI_18.html#section_38" title="Activities &gt; Printing the player&#39;s obituary"><div class="nav-arrow"><span class="sc">wi</span> 18.38</div><div class="doc-navbar-text">Printing the player's obituary</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="../RB_11.html#section_6" title="Out Of World Actions and Effects &gt; Ending The Story"><div class="doc-navbar-text">Ending The Story</div><div class="nav-arrow"><span class="sc">rb</span> 11.6</div></a></div></div>
 </div>
 <div class="example-meta-desc"><p>Completely replacing the endgame text and stopping the game without giving the player a chance to restart or restore.</p></div>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="bikini_atoll.html" title="Delaying the banner for later."><div class="nav-arrow">←382. </div><div class="doc-navbar-text">Bikini Atoll</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="finality.html" title="Not mentioning UNDO in the final set of options."><div class="doc-navbar-text">Finality</div><div class="nav-arrow">384.→</div></a></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="bikini_atoll.html" title="Delaying the banner for later."><div class="nav-arrow">⬅382. </div><div class="doc-navbar-text">Bikini Atoll</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="finality.html" title="Not mentioning UNDO in the final set of options."><div class="doc-navbar-text">Finality</div><div class="nav-arrow">384.⮕</div></a></div></div>
 </header>
 <div class="example-body"><p>Occasionally, a piece of IF is sufficiently serious that it feels bathetic to offer the player the usual restore-restart-undo-quit options at the end. The following would replace &quot;*** You have died ***&quot; with a centered epitaph, then quit the game when the player hits a key.</p>
 <p>This example relies on a standard extension to avoid any fancy programming:</p>
-<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex383">Play/modify Battle of Ridgefield in Borogove</a></span>
- &bull; <span class="quixe-link"><a href="Epitaph/index.html">Play Battle of Ridgefield in Quixe</a></span>
-</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Battle of Ridgefield&quot;\n\nInclude Basic Screen Effects by Emily Short.\n\nRidgefield is a room.\n\nInstead of doing something when the turn count is greater than 1: say &quot;Alas, you no longer have the strength.&quot;; end the story.\n\nRule for printing the player&apos;s obituary:\n\tsay paragraph break;\n\tcenter &quot;In defense of American Independence&quot;;\n\tcenter &quot;at the Battle of Ridgefield, April 27, 1777,&quot;;\n\tcenter &quot;died Eight Patriots who were laid in this ground,&quot;;\n\tcenter &quot;Companioned by Sixteen British Soldiers,&quot;;\n\tcenter &quot;Living, their enemies,&quot;;\n\tcenter &quot;Dying, their guests&quot;;\n\tsay paragraph break;\n\twait for any key;\n\tstop game abruptly;\n\trule succeeds.`)">⧉</button><div class="codeline storytitle">&quot;Battle of Ridgefield&quot;</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="play-example borogove"><a class="raw" href="https://snippets.borogove.app/inform7/v10ex383">Play/modify in Borogove</a></div>
+<div class="play-example quixe"><a class="raw" href="Epitaph/index.html">Play in Quixe</a></div>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Battle of Ridgefield&quot;\n\nInclude Basic Screen Effects by Emily Short.\n\nRidgefield is a room.\n\nInstead of doing something when the turn count is greater than 1: say &quot;Alas, you no longer have the strength.&quot;; end the story.\n\nRule for printing the player&apos;s obituary:\n\tsay paragraph break;\n\tcenter &quot;In defense of American Independence&quot;;\n\tcenter &quot;at the Battle of Ridgefield, April 27, 1777,&quot;;\n\tcenter &quot;died Eight Patriots who were laid in this ground,&quot;;\n\tcenter &quot;Companioned by Sixteen British Soldiers,&quot;;\n\tcenter &quot;Living, their enemies,&quot;;\n\tcenter &quot;Dying, their guests&quot;;\n\tsay paragraph break;\n\twait for any key;\n\tstop game abruptly;\n\trule succeeds.`)"><span class="sym">⧉</span></button><div class="codeline storytitle">&quot;Battle of Ridgefield&quot;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Include Basic Screen Effects by Emily Short.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Ridgefield is a room.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Instead of doing something when the turn count is greater than 1: say &quot;Alas, you no longer have the strength.&quot;; end the story.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Rule for printing the player&#39;s obituary:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say paragraph break;</div>
 <div class="codeline">&ensp;&ensp;&ensp;center &quot;In defense of American Independence&quot;;</div>
@@ -37,7 +40,7 @@
 <div class="codeline">&ensp;&ensp;&ensp;wait for any key;</div>
 <div class="codeline">&ensp;&ensp;&ensp;stop game abruptly;</div>
 <div class="codeline">&ensp;&ensp;&ensp;rule succeeds.</div>
-</div></div><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="bikini_atoll.html" title="Delaying the banner for later."><div class="nav-arrow">←382. </div><div class="doc-navbar-text">Bikini Atoll</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="finality.html" title="Not mentioning UNDO in the final set of options."><div class="doc-navbar-text">Finality</div><div class="nav-arrow">384.→</div></a></div></div>
-<footer id="credits-footer"><nav><div class="nav-el"><a class="nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="nav-el" href="../search.html">Search</a></div></nav>
-<div class="footing"><p id="i7credit"><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p class="about"><a class="nav-about" href="../about.html">About this edition</a> &bull; <a class="nav-about" href="https://twitter.com/inform7tips">@inform7tips</a></p></div></footer>
+</div></div><div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="bikini_atoll.html" title="Delaying the banner for later."><div class="nav-arrow">⬅382. </div><div class="doc-navbar-text">Bikini Atoll</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="finality.html" title="Not mentioning UNDO in the final set of options."><div class="doc-navbar-text">Finality</div><div class="nav-arrow">384.⮕</div></a></div></div>
+<footer id="credits-footer"><nav><div class="nav-el"><a class="raw nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="raw nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="raw nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="raw nav-el" href="../search.html">Search</a></div></nav>
+<div class="footing"><p id="i7credit"><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p class="about"><a class="raw" href="../about.html">About this edition</a>&ensp;&bull;&ensp;<a class="raw" href="https://twitter.com/inform7tips">@inform7tips</a></p></div></footer>
 </body></html>

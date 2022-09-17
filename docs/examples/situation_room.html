@@ -2,36 +2,39 @@
 <html lang="en"><head><meta charset="utf-8">
 <title>Ex. 142. Situation Room</title>
 <script src="../i7doc.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,375;0,400;0,500;0,700;1,375;1,400;1,500;1,700&family=Source+Sans+Pro:ital,wght@0,350;0,400;0,550;0,700;1,350;1,400;1,550;1,700&display=swap" rel="stylesheet"> 
 <link rel="stylesheet" href="../i7doc.css">
 </head>
 <body>
 <header class="example-header">
-<nav><div class="nav-el"><a class="nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="nav-el" href="../search.html">Search</a></div></nav>
+<nav><div class="nav-el"><a class="raw nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="raw nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="raw nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="raw nav-el" href="../search.html">Search</a></div></nav>
 <div class="superheading"><div class="heading"><h1>Situation Room</h1><div class="subheading"><wbr><div class="ex-no">Example 142</div> ★</div></div>
-<div class="doc-navbar example-linkback"><div class="doc-navbar-left"><a class="nav-el" href="../WI_9.html#section_7" title="Time &gt; Telling the time"><div class="nav-arrow">↑WI §9.7</div><div class="doc-navbar-text">Telling the time</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="../RB_4.html#section_1" title="Time and Plot &gt; The Passage Of Time"><div class="doc-navbar-text">The Passage Of Time</div><div class="nav-arrow">RB §4.1↑</div></a></div></div>
+<div class="doc-navbar example-linkback"><div class="doc-navbar-left"><a class="raw nav-el" href="../WI_9.html#section_7" title="Time &gt; Telling the time"><div class="nav-arrow"><span class="sc">wi</span> 9.7</div><div class="doc-navbar-text">Telling the time</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="../RB_4.html#section_1" title="Time and Plot &gt; The Passage Of Time"><div class="doc-navbar-text">The Passage Of Time</div><div class="nav-arrow"><span class="sc">rb</span> 4.1</div></a></div></div>
 </div>
 <div class="example-meta-desc"><p>Printing the time of day in 24-hour time, as in military situations.</p></div>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="ipa.html" title="Shops which each have opening and closing hours, so that it is impossible to go in at the wrong times, and the player is kicked out if he overstays his welcome."><div class="nav-arrow">←141. </div><div class="doc-navbar-text">IPA</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="mre.html" title="Hunger that eventually kills the player, and foodstuffs that can delay the inevitable by different amounts of time."><div class="doc-navbar-text">MRE</div><div class="nav-arrow">143.→</div></a></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="ipa.html" title="Shops which each have opening and closing hours, so that it is impossible to go in at the wrong times, and the player is kicked out if he overstays his welcome."><div class="nav-arrow">⬅141. </div><div class="doc-navbar-text">IPA</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="mre.html" title="Hunger that eventually kills the player, and foodstuffs that can delay the inevitable by different amounts of time."><div class="doc-navbar-text">MRE</div><div class="nav-arrow">143.⮕</div></a></div></div>
 </header>
 <div class="example-body"><p>Though Inform normally prints times in AM/PM terms, it stores the hours and minutes as 24-hour time; so, if we like, we can easily extract that information again thus:</p>
-<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex142">Play/modify Situation Room in Borogove</a></span>
- &bull; <span class="quixe-link"><a href="SituationRoom/index.html">Play Situation Room in Quixe</a></span>
-</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Situation Room&quot;\n\nThe Situation Room is a room.\n\nTo say (relevant time - a time) as 24h time:\n\tlet H be the hours part of relevant time;\n\tlet M be the minutes part of relevant time;\n\tsay &quot;[if H is less than 10]0[end if][H][if M is less than 10]0[end if][M]&quot;.\n\nWhen play begins:\n\tnow the time of day is 6:09 PM;\n\tnow the right hand status line is &quot;[time of day as 24h time]&quot;.\n\nTest me with &quot;z&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Situation Room&quot;</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="play-example borogove"><a class="raw" href="https://snippets.borogove.app/inform7/v10ex142">Play/modify in Borogove</a></div>
+<div class="play-example quixe"><a class="raw" href="SituationRoom/index.html">Play in Quixe</a></div>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Situation Room&quot;\n\nThe Situation Room is a room.\n\nTo say (relevant time - a time) as 24h time:\n\tlet H be the hours part of relevant time;\n\tlet M be the minutes part of relevant time;\n\tsay &quot;[if H is less than 10]0[end if][H][if M is less than 10]0[end if][M]&quot;.\n\nWhen play begins:\n\tnow the time of day is 6:09 PM;\n\tnow the right hand status line is &quot;[time of day as 24h time]&quot;.\n\nTest me with &quot;z&quot;.`)"><span class="sym">⧉</span></button><div class="codeline storytitle">&quot;Situation Room&quot;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">The Situation Room is a room.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">To say (relevant time - a time) as 24h time:</div>
 <div class="codeline">&ensp;&ensp;&ensp;let H be the hours part of relevant time;</div>
 <div class="codeline">&ensp;&ensp;&ensp;let M be the minutes part of relevant time;</div>
 <div class="codeline">&ensp;&ensp;&ensp;say &quot;[if H is less than 10]0[end if][H][if M is less than 10]0[end if][M]&quot;.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">When play begins:</div>
 <div class="codeline">&ensp;&ensp;&ensp;now the time of day is 6:09 PM;</div>
 <div class="codeline">&ensp;&ensp;&ensp;now the right hand status line is &quot;[time of day as 24h time]&quot;.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Test me with &quot;z&quot;.</div>
-</div><details class="testme-output"><summary><div class="summation"><div class="consummation">Test me with "z".</div></div></summary><div class="testme-output">Situation Room<br><br><span class="mono">&gt;(Testing.)</span><br><br><span class="mono">&gt;[1] z</span><br>Time passes.
-</div></details></div><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="ipa.html" title="Shops which each have opening and closing hours, so that it is impossible to go in at the wrong times, and the player is kicked out if he overstays his welcome."><div class="nav-arrow">←141. </div><div class="doc-navbar-text">IPA</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="mre.html" title="Hunger that eventually kills the player, and foodstuffs that can delay the inevitable by different amounts of time."><div class="doc-navbar-text">MRE</div><div class="nav-arrow">143.→</div></a></div></div>
-<footer id="credits-footer"><nav><div class="nav-el"><a class="nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="nav-el" href="../search.html">Search</a></div></nav>
-<div class="footing"><p id="i7credit"><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p class="about"><a class="nav-about" href="../about.html">About this edition</a> &bull; <a class="nav-about" href="https://twitter.com/inform7tips">@inform7tips</a></p></div></footer>
+</div><details class="testme-output"><summary><div class="summation">Test me with "z".</div></summary><div class="testme-output">Situation Room<br><br><span class="mono">&gt;(Testing.)</span><br><br><span class="mono">&gt;[1] z</span><br>Time passes.
+</div></details></div><div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="ipa.html" title="Shops which each have opening and closing hours, so that it is impossible to go in at the wrong times, and the player is kicked out if he overstays his welcome."><div class="nav-arrow">⬅141. </div><div class="doc-navbar-text">IPA</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="mre.html" title="Hunger that eventually kills the player, and foodstuffs that can delay the inevitable by different amounts of time."><div class="doc-navbar-text">MRE</div><div class="nav-arrow">143.⮕</div></a></div></div>
+<footer id="credits-footer"><nav><div class="nav-el"><a class="raw nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="raw nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="raw nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="raw nav-el" href="../search.html">Search</a></div></nav>
+<div class="footing"><p id="i7credit"><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p class="about"><a class="raw" href="../about.html">About this edition</a>&ensp;&bull;&ensp;<a class="raw" href="https://twitter.com/inform7tips">@inform7tips</a></p></div></footer>
 </body></html>

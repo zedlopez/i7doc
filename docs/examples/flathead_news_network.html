@@ -2,41 +2,44 @@
 <html lang="en"><head><meta charset="utf-8">
 <title>Ex. 444. Flathead News Network</title>
 <script src="../i7doc.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,375;0,400;0,500;0,700;1,375;1,400;1,500;1,700&family=Source+Sans+Pro:ital,wght@0,350;0,400;0,550;0,700;1,350;1,400;1,550;1,700&display=swap" rel="stylesheet"> 
 <link rel="stylesheet" href="../i7doc.css">
 </head>
 <body>
 <header class="example-header">
-<nav><div class="nav-el"><a class="nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="nav-el" href="../search.html">Search</a></div></nav>
+<nav><div class="nav-el"><a class="raw nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="raw nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="raw nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="raw nav-el" href="../search.html">Search</a></div></nav>
 <div class="superheading"><div class="heading"><h1>Flathead News Network</h1><div class="subheading"><wbr><div class="ex-no">Example 444</div> ★★★</div></div>
-<div class="doc-navbar example-linkback"><div class="doc-navbar-left"><a class="nav-el" href="../WI_23.html#section_15" title="Figures, Sounds and Files &gt; Exchanging files with other programs"><div class="nav-arrow">↑WI §23.15</div><div class="doc-navbar-text">Exchanging files with other programs</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="../RB_12.html#section_5" title="Typography, Layout, and Multimedia Effects &gt; Glulx Multimedia Effects"><div class="doc-navbar-text">Glulx Multimedia Effects</div><div class="nav-arrow">RB §12.5↑</div></a></div></div>
+<div class="doc-navbar example-linkback"><div class="doc-navbar-left"><a class="raw nav-el" href="../WI_23.html#section_15" title="Figures, Sounds and Files &gt; Exchanging files with other programs"><div class="nav-arrow"><span class="sc">wi</span> 23.15</div><div class="doc-navbar-text">Exchanging files with other programs</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="../RB_12.html#section_5" title="Typography, Layout, and Multimedia Effects &gt; Glulx Multimedia Effects"><div class="doc-navbar-text">Glulx Multimedia Effects</div><div class="nav-arrow"><span class="sc">rb</span> 12.5</div></a></div></div>
 </div>
 <div class="example-meta-desc"><p>Using external files, together with a simple Unix script running in the background, to provide live news headlines inside a story file.</p></div>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="fifth_body.html" title="An expansion on the notebook, allowing the player somewhat more room in which to type his recorded remark."><div class="nav-arrow">←443. </div><div class="doc-navbar-text">The Fifth Body</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="baedeker.html" title="Creating a floorplan of the cathedral using the locations from previous examples."><div class="doc-navbar-text">Baedeker</div><div class="nav-arrow">445.→</div></a></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="fifth_body.html" title="An expansion on the notebook, allowing the player somewhat more room in which to type his recorded remark."><div class="nav-arrow">⬅443. </div><div class="doc-navbar-text">The Fifth Body</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="baedeker.html" title="Creating a floorplan of the cathedral using the locations from previous examples."><div class="doc-navbar-text">Baedeker</div><div class="nav-arrow">445.⮕</div></a></div></div>
 </header>
 <div class="example-body"><p>This example can only work if we have a separate program running in the background while the story file is being played, and as such it will only work if we set things up in a special way. Exactly how to do this will vary from platform to platform.</p>
 <p>First, the source text for the Inform end of the communication line:</p>
-<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex444">Play/modify Flathead News Network in Borogove</a></span>
- &bull; <span class="quixe-link"><a href="RSS-G/index.html">Play Flathead News Network in Quixe</a></span>
-</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Flathead News Network&quot;\n\nThe file of RSS Requests is called &quot;rssrequest&quot;.\n\nThe file of RSS Responses (owned by project &quot;RSS-SCRIPT&quot;) is called &quot;rssreply&quot;.\n\nTo request (RSS feed address - text):\n\tmark the file of RSS Responses as not ready to read;\n\twrite the RSS feed address to the file of RSS Requests.\n\nNewsroom is a room. &quot;This is the secret nerve-centre of FNN, the Flathead News Network.&quot;\n\nThe BBC button is in the Newsroom. Instead of pushing the BBC button: say &quot;Bong!&quot;; request &quot;newsrss.bbc.co.uk/rss/newsonline_uk_edition/front_page/rss.xml&quot;.\n\nThe NASA button is in the Newsroom. Instead of pushing the NASA button: say &quot;Bang!&quot;; request &quot;www.nasa.gov/rss/breaking_news.rss&quot;.\n\nThe WHO button is in the Newsroom. Instead of pushing the WHO button: say &quot;Bing!&quot;; request &quot;http://www.doctorwhonews.net&quot;.\n\nA screen is in the Newsroom.\n\nInstead of examining the screen:\n\tif ready to read the file of RSS Responses, say &quot;From the screen you read:[line break][text of the file of RSS Responses]&quot;;\n\totherwise say &quot;The screen remains blank for now.&quot;`)">⧉</button><div class="codeline storytitle">&quot;Flathead News Network&quot;</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="play-example borogove"><a class="raw" href="https://snippets.borogove.app/inform7/v10ex444">Play/modify in Borogove</a></div>
+<div class="play-example quixe"><a class="raw" href="RSS-G/index.html">Play in Quixe</a></div>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Flathead News Network&quot;\n\nThe file of RSS Requests is called &quot;rssrequest&quot;.\n\nThe file of RSS Responses (owned by project &quot;RSS-SCRIPT&quot;) is called &quot;rssreply&quot;.\n\nTo request (RSS feed address - text):\n\tmark the file of RSS Responses as not ready to read;\n\twrite the RSS feed address to the file of RSS Requests.\n\nNewsroom is a room. &quot;This is the secret nerve-centre of FNN, the Flathead News Network.&quot;\n\nThe BBC button is in the Newsroom. Instead of pushing the BBC button: say &quot;Bong!&quot;; request &quot;newsrss.bbc.co.uk/rss/newsonline_uk_edition/front_page/rss.xml&quot;.\n\nThe NASA button is in the Newsroom. Instead of pushing the NASA button: say &quot;Bang!&quot;; request &quot;www.nasa.gov/rss/breaking_news.rss&quot;.\n\nThe WHO button is in the Newsroom. Instead of pushing the WHO button: say &quot;Bing!&quot;; request &quot;http://www.doctorwhonews.net&quot;.\n\nA screen is in the Newsroom.\n\nInstead of examining the screen:\n\tif ready to read the file of RSS Responses, say &quot;From the screen you read:[line break][text of the file of RSS Responses]&quot;;\n\totherwise say &quot;The screen remains blank for now.&quot;`)"><span class="sym">⧉</span></button><div class="codeline storytitle">&quot;Flathead News Network&quot;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">The file of RSS Requests is called &quot;rssrequest&quot;.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">The file of RSS Responses (owned by project &quot;RSS-SCRIPT&quot;) is called &quot;rssreply&quot;.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">To request (RSS feed address - text):</div>
 <div class="codeline">&ensp;&ensp;&ensp;mark the file of RSS Responses as not ready to read;</div>
 <div class="codeline">&ensp;&ensp;&ensp;write the RSS feed address to the file of RSS Requests.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Newsroom is a room. &quot;This is the secret nerve-centre of FNN, the Flathead News Network.&quot;</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">The BBC button is in the Newsroom. Instead of pushing the BBC button: say &quot;Bong!&quot;; request &quot;newsrss.bbc.co.uk/rss/newsonline_uk_edition/front_page/rss.xml&quot;.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">The NASA button is in the Newsroom. Instead of pushing the NASA button: say &quot;Bang!&quot;; request &quot;www.nasa.gov/rss/breaking_news.rss&quot;.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">The WHO button is in the Newsroom. Instead of pushing the WHO button: say &quot;Bing!&quot;; request &quot;http://www.doctorwhonews.net&quot;.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">A screen is in the Newsroom.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Instead of examining the screen:</div>
 <div class="codeline">&ensp;&ensp;&ensp;if ready to read the file of RSS Responses, say &quot;From the screen you read:[line break][text of the file of RSS Responses]&quot;;</div>
 <div class="codeline">&ensp;&ensp;&ensp;otherwise say &quot;The screen remains blank for now.&quot;</div>
@@ -69,7 +72,7 @@
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;}</div>
 <div class="codeline">&ensp;&ensp;&ensp;}</div>
 <div class="codeline">}</div>
-</div></div><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="fifth_body.html" title="An expansion on the notebook, allowing the player somewhat more room in which to type his recorded remark."><div class="nav-arrow">←443. </div><div class="doc-navbar-text">The Fifth Body</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="baedeker.html" title="Creating a floorplan of the cathedral using the locations from previous examples."><div class="doc-navbar-text">Baedeker</div><div class="nav-arrow">445.→</div></a></div></div>
-<footer id="credits-footer"><nav><div class="nav-el"><a class="nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="nav-el" href="../search.html">Search</a></div></nav>
-<div class="footing"><p id="i7credit"><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p class="about"><a class="nav-about" href="../about.html">About this edition</a> &bull; <a class="nav-about" href="https://twitter.com/inform7tips">@inform7tips</a></p></div></footer>
+</div></div><div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="fifth_body.html" title="An expansion on the notebook, allowing the player somewhat more room in which to type his recorded remark."><div class="nav-arrow">⬅443. </div><div class="doc-navbar-text">The Fifth Body</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="baedeker.html" title="Creating a floorplan of the cathedral using the locations from previous examples."><div class="doc-navbar-text">Baedeker</div><div class="nav-arrow">445.⮕</div></a></div></div>
+<footer id="credits-footer"><nav><div class="nav-el"><a class="raw nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="raw nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="raw nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="raw nav-el" href="../search.html">Search</a></div></nav>
+<div class="footing"><p id="i7credit"><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p class="about"><a class="raw" href="../about.html">About this edition</a>&ensp;&bull;&ensp;<a class="raw" href="https://twitter.com/inform7tips">@inform7tips</a></p></div></footer>
 </body></html>

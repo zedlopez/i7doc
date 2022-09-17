@@ -3,10 +3,17 @@
 # Save your sanity and don't look at this ugly, ugly code.
 # It's too late for me; it doesn't have to be too late for you.
 
+# remglk and status line updates
+
+# file:///home/zed/mine/i7doc/docs/examples/tilt3.html
+# copycode has no focus
+
 # "the (next|previous) chapter"
 
 # build both -rnd and non-rnd versions of the examples. Use the rnd versions for the testme_output and
 # the non-rnd versions for Quixe.
+
+# maybe a scheme at end of htmlify to detect orphans and surround with a nowrap span
 
 require 'pp'
 require 'cgi'
@@ -21,7 +28,7 @@ require 'charlock_holmes'
 require 'i18n'
 I18n.config.available_locales = :en
 
-# maybe a scheme at end of htmlify to detect orphans and surround with a nowrap span
+
 
 
 class UTF8 < File
@@ -123,6 +130,9 @@ def configure
       %r{<strong>XYZZY Awards</strong>} => %Q{<a href="https://xyzzyawards.org">XYZZY Awards</a>},
       %r{Interactive Fiction Technology Foundation} => %Q{<a href="https://iftechfoundation.org/">Interactive Fiction Technology Foundation</a>},
       %r{\s+If you are reading this within the Inform application, you will see that the (Recipe Book|Writing with Inform) pages are on &quot;(yellow|white) paper&quot;, while the (Recipe Book|manual) is on &quot;(yellow|white) paper&quot;\.} => '',
+      %r{\bi6\b}i => %Q{<span class="sc">i</span>6},
+      %r{\bi7\b}i => %Q{<span class="sc">i</span>7},
+
     }
   Conf[:append] = { after: { rb: { }, wi: { }, ex: {} },
                     fore: { rb: { }, wi: { }, ex: {} },
@@ -138,7 +148,8 @@ def configure
              search: {name: "Search", dest: 'search.html' },
                     }
   Conf[:documented_at] = {}
-  Conf[:arrows] = { left: '←', right: '→', up: '↑' }
+#  ← → ↑ ⭱⬆ ⬅ ⮕ ⬆ ↓ ↴
+  Conf[:syms] = { left: '⬅', right: '⮕', up: '⬆', star: '★', downright: '↴', heavyright: '➜' }
 end
 
 def prepare_output_dir
@@ -188,7 +199,7 @@ def print_target(*target)
   vol, ch, sect, monolith = *target
   target = target_anchor(vol, ch, sect, monolith)
   target = "##{target}" if monolith
-  %Q{<a href="#{target}">#{vol.to_s.upcase} #{ch}.#{sect}</a>}
+  %Q{<a href="#{target}"><span class="sc">#{vol.to_s.upcase}</span> #{ch}.#{sect}</a>}
 end
 
 # ^^{kinds: default values of kinds <-- default properties of kinds}
@@ -230,7 +241,7 @@ end
 def target_pair(target, monolithic = false, label = nil)
   vol, ch, sect = *target
   dest = monolithic ? "##{vol}#{ch}.#{sect}" : "#{Conf.books[vol][:abbrev]}_#{ch}.html#section_#{sect}"
-  label ||= "#{vol.to_s.upcase} #{ch}.#{sect}"
+  label ||= %Q{<span class="sc">#{vol.to_s}</span> #{ch}.#{sect}}
   title = "#{Conf.books[vol][:chapters][ch][:name]} &gt; #{Conf.books[vol][:chapters][ch][:sections][sect][:name]}"
   [ dest, label, title ]
 end
@@ -238,7 +249,7 @@ end
 def target_pair_link(target, monolithic = false, label = nil, level: 0)
   dest, label, title = *(target_pair(target, monolithic, label))
   dest = ((['..']*level) + [dest]).join('/')
-  %Q{<a href="#{dest}" title="#{title}" class="index-link">#{label}</a>}
+  %Q{<a href="#{dest}" title="#{title}" class="index-link raw">#{label}</a>}
 end
 
 def manage(m, target, caret_count, payload)
@@ -309,6 +320,10 @@ def index_see
   end
 end
 
+def sym(sym, i)
+  %Q{<span class="sym">#{Conf.syms[:star] * i.to_i}</span>}
+end
+
 
 def replace_example(line, vol, monolithic = false, level: 0)
   result = []
@@ -327,7 +342,7 @@ def replace_example(line, vol, monolithic = false, level: 0)
       if Conf.examples.key?(cname)
         example = Conf.examples[cname]
         target = (monolithic ? "#example_#{cname}" : "examples/#{cname}.html")
-        result << %Q{<span class="example-name"><a href="#{target}" title="#{CGI.escapeHTML(example[:desc])}">#{htmlify(word, level: level)}</a></span> #{'★' * example[:stars]}}
+        result << %Q{<span class="example-name"><a href="#{target}" title="#{CGI.escapeHTML(example[:desc])}">#{htmlify(word, level: level)}</a></span> #{sym(:star, example[:stars])}}
       elsif orig.match(/(Writing with Inform|The Inform Recipe Book)/)
         target = ($1 == 'Writing with Inform') ? "wi" : "rb"
         result << %Q{<a href="##{target}"><strong>#{htmlify(orig, level: level)}</strong></a>}
@@ -347,9 +362,39 @@ def mung(line, vol, chapter, section, type: :text)
   line.gsub(/<b>/,'«b»').gsub(/<\/b>/,'«/b»').gsub(/<i>/,'«i»').gsub(/<\/i>/,'«/i»')
 end
 
+$hyph = {}
+File.open("local") do |f|
+  f.each_line do |l|
+    l.chomp!
+    p = l.split(/\|/);
+    $hyph[p[0]] = p[1].gsub(/-/,'­');
+  end
+end
+
+# shy: ­
+
+
 def htmlify(line, type: :text, level: 0)
   orig = line
   line = line.gsub(%r{///asterisk.png///\s*}, '★').gsub(/★-/,'★ -')
+  # newline = []
+  # chs = []
+  # if type == :text
+  #   line.chars.each do |char|
+  #     if char.match(/[A-Za-z]/)
+  #       chs << char
+  #     else
+  #       unless chs.empty?
+  #         word = chs.join
+  #         puts word if $hyph.key?(word.downcase)
+  #         newline << ($hyph.key?(word.downcase) ? $hyph[word.downcase] : word)
+  #         chs = []
+  #       end
+  #       newline << char
+  #     end
+  #   end
+  #   line = newline.join
+  # end
   line = CGI::escapeHTML(line)
   line.gsub!(%r{///(?:([^:]+):)?(.+?)///}) do |m|
     result= %Q{«img src="#{level.zero? ? ['doc_images',$2].join('/') : [(['..']*level),'doc_images',$2].join("/")}"}
@@ -409,8 +454,6 @@ end
 
 
 def read_rawtext(lines = [], filename = nil, vol = nil)
-  #  lines = File.readlines(filename) if lines.empty? and filename
-#  puts "filename: #{filename}"
   lines = UTF8.readlines(filename) if lines.blank? and filename
   lines = lines.map(&:rstrip)
   chapter_num = 0
@@ -424,7 +467,7 @@ def read_rawtext(lines = [], filename = nil, vol = nil)
   defns = {}
   container = { refs: [], blocks: [], example_keys: [], see: [] }
   lines.each.with_index(1) do |line,index|
-    line.gsub!(/\t*\Z/,'')
+    line.gsub!(/\t*\Z/,'') # strip any trailing tabs
     case line
     when /\A\(-?See\s+(.*?)\s+(for\s+[^\)]+)\)\Z/
       chapters[chapter_num][:sections][section_num][:see] << [ $1, $2 ]
@@ -448,7 +491,6 @@ def read_rawtext(lines = [], filename = nil, vol = nil)
           Conf.documented_at[m.first] = [vol, chapter_num, section_num] 
         end
       end
-#      puts "Ch #{chapter_num} name #{chapters[chapter_num][:name]}  Sec #{section_num} name #{name}"
       section_names[name.downcase] = [ chapter_num, section_num ]
     # tags
     when /\A\{([^:]+):\}\s*(.*)/
@@ -561,15 +603,15 @@ end
 
 def print_bar(f, alpha)
     alpha ||= ('a'.ord-1).chr
-    f.print %Q{<div class="indexbar" id="indexbar_#{alpha}">}
+    f.print %Q{<div class="indexbar-holder"><div class="indexbar" id="indexbar_#{alpha}">}
     'a'.upto('z') do |letter|
       if letter == alpha
-        f.print %Q{<div class="indexcurrentletter">#{letter.upcase}</div>}
+        f.print %Q{<div class="indexletter indexcurrentletter">#{letter.upcase}</div>}
       else
         f.print Conf.index_bar.key?(letter) ? %Q{<div class="indexletter"><a href="#indexbar_#{letter}">#{letter.upcase}</a></div>} : letter.upcase
       end
     end
-    f.print '</div>'
+    f.print '</div></div>'
 end
 
 def print_index_entry(f, k, h, level, monolithic = false)
@@ -583,11 +625,13 @@ def print_index_entry(f, k, h, level, monolithic = false)
   f.print %Q{<div class="indent#{level}" id="index_#{h[:tag]}">}
   text = text.dup
   text = text.gsub(/\\\(/,'«').gsub(/\\\)/,'»').gsub(/\(/,'').gsub(/\)/,'').gsub(/«/,'(').gsub(/»/,')') unless h[:id]
+#  text.gsub!(/->/,Conf.syms[:heavyright])
   text = phrase_defn(text, "index#{cat}", "index#{cat}bracketed")
+#  text.gsub!(%r{#{Conf.syms[:heavyright]}},%Q{<span class="sym">#{Conf.syms[:heavyright]}</span>})
   if h[:id]
     defn = Conf.defns[h[:id]]
     dvol, dchap = *(defn[:entry])
-    f.print %Q{<span class="index#{cat}><a href="#{target_chapter(dvol, dchap, monolithic)}##{h[:id]}">#{text}</a></span>}
+    f.print %Q{<a href="#{target_chapter(dvol, dchap, monolithic)}##{h[:id]}">#{text}</a>}
   else
     f.print text
   end
@@ -600,7 +644,7 @@ def print_index_entry(f, k, h, level, monolithic = false)
     targets = Hash[ h[:targets].map {|x| [x,x]}].keys.map do |target|
       target_pair_link(target, monolithic)
     end
-    f.print targets.join(', ')
+    f.print %Q{<span class="index-ref-list">#{targets.join('&ensp;')}</span>}
   end
   if !h[:see].blank?
     f.print '; ' if !h[:targets].blank?
@@ -609,7 +653,7 @@ def print_index_entry(f, k, h, level, monolithic = false)
     f.print '</span> '
     f.print (h[:see].map do |x|
                anchor = "#index_#{x[:tag]}"
-               %Q{<a class="index-link" href="#{anchor}">#{x[:fullname]}</a>}
+               %Q{<a class="index-link raw" href="#{anchor}">#{x[:fullname]}</a>}
              end).join(', ')
   end
   f.puts "</div>"
@@ -873,7 +917,7 @@ def place_examples
   end
 end
 
-def print_table(f)
+def print_table(f, codelines)
   return if Conf.table.empty?
   table = []
   Conf.table.each do |row|
@@ -893,6 +937,7 @@ def print_table(f)
     f.print '</td></tr>'
   end
   f.puts '</table>'
+  f.puts %Q{<div class="codeline blankline">&thinsp;</div>} unless codelines.empty?
   Conf[:table] = []
 end
 
@@ -904,8 +949,6 @@ def process_testme(lines)
     lines.shift if !lines.empty? and lines.first.match(/\ARelease \d/)
     lines.shift while !lines.empty? and lines.first.strip.blank?
     lines.pop while !lines.empty? and (lines.last.strip.blank? or lines.last == '>' or lines.last.match(/(?:you want to quit|undo the last command|<end of input>)\?\s*\Z/i))
-#    lines.pop if !lines.empty? and 
-#    lines.pop while !lines.empty? and (lines.last.strip.blank? or lines.last == '>')
     return lines
   rescue StandardError => e
     pp block[:result]
@@ -927,17 +970,13 @@ def print_blocks(f, blocks, vol = nil, chapter_num = nil, section_num = nil, mon
         f.puts "<p>#{content}</p>"
       end
     when :code
-      printed_borogove = nil
       if block[:result] and !search
-        f.print '<p>'
         if block[:result][:borogove]
-          f.puts %Q{<span class="borogove-link"><a href="https://snippets.borogove.app/inform7/#{block[:result][:borogove]}">Play/modify #{block[:result][:title]} in Borogove</a></span>}
-          printed_borogove = true
+          f.puts %Q{<div class="play-example borogove"><a class="raw" href="https://snippets.borogove.app/inform7/#{block[:result][:borogove]}">Play/modify in Borogove</a></div>}
         end
         if block[:result][:quixe]
           if File.exist?(block[:result][:quixe])
-            f.print ' &bull; ' if printed_borogove
-            f.puts %Q{<span class="quixe-link"><a href="#{block[:result][:filename]}/index.html">Play #{block[:result][:title]} in Quixe</a></span>}
+            f.puts %Q{<div class="play-example quixe"><a class="raw" href="#{block[:result][:filename]}/index.html">Play in Quixe</a></div>}
           end
         end
         f.print '</p>'
@@ -949,13 +988,16 @@ def print_blocks(f, blocks, vol = nil, chapter_num = nil, section_num = nil, mon
       f.print ' id="#{block[:id]"' if block.key?(:id)
       f.print '>'
       if !block[:pastie].empty?
-        f.print %Q{<button class="copycode" title="Copy to clipboard" onclick="copyCode(`#{block[:pastie].map {|c| c.gsub(/"/,'&quot;').gsub(/'/,'&apos;').gsub(/\t/,'\\t') }.join('\\n')}`)">⧉</button>}
+        f.print %Q{<button class="copycode" title="Copy to clipboard" onclick="copyCode(`#{block[:pastie].map {|c| c.gsub(/"/,'&quot;').gsub(/'/,'&apos;').gsub(/\t/,'\\t') }.join('\\n')}`)"><span class="sym">⧉</span></button>}
       end
-      really_in_table = false
+
+      # in_table means we have content with internal tabs but not necessarily headed with a "Table of", like in WI 16.11 or in Kyoto example (Throwing.txt)
+      # encountered_table_header means we've encountered a "Table of" header
+      encountered_table_header = false
       in_table = false
       quotes = 0
       prev_quotes = 0
-      prev_blank = nil
+#      prev_blank = nil
       codelines = block[:code].clone
       idx = -1
       # while loop / shifting instead of looping with 'each' so that we can eat additional lines within the loop in case of still-open quoted texts
@@ -968,7 +1010,9 @@ def print_blocks(f, blocks, vol = nil, chapter_num = nil, section_num = nil, mon
         payload = $2
         prev_quotes = quotes
         quotes += payload.scan(/"/).count
-        if really_in_table
+        # to catch single-column table case while excluding the repeated table header lines in code block in WI 16.1 
+        in_table = true if encountered_table_header and !payload.start_with?('Table')
+        if in_table # encountered_table_header
           if prev_quotes.odd?
             q = prev_quotes
             Conf.table[-1][-1] += "\n"
@@ -985,14 +1029,11 @@ def print_blocks(f, blocks, vol = nil, chapter_num = nil, section_num = nil, mon
             next
           end
           if !payload.match(/\S/) or payload.match(/\A\s*with\s+\d+\s+blank\s+rows/i)
-            print_table(f)
-            really_in_table = false
+            print_table(f, codelines)
+            encountered_table_header = false
             in_table = false
             prev_quotes = quotes = 0
-            if payload.match(/\A\s*with\s+\d+\s+blank\s+rows/i)
-              f.puts %Q{<div class="codeline blankrows">#{payload}</div>}
-              f.puts %Q{<div class="codeline">&thinsp;</div>} unless idx == (block[:code].count - 1)
-            end
+            f.puts %Q{<div class="codeline blankrows">#{payload}</div>} if payload.match(/\A\s*with\s+\d+\s+blank\s+rows/i)
           else
             parts = codeline.split(/\t+/)
             Conf.table << parts
@@ -1005,31 +1046,28 @@ def print_blocks(f, blocks, vol = nil, chapter_num = nil, section_num = nil, mon
           Conf.table << codeline.split(/\t+/)
           next
         end
-        if payload.match(/\A(?:Volume|Book|Part|Chapter|Section)/)
+        case payload
+        when /\A\s*\Z/
+          f.puts %Q{<div class="codeline blankline">&thinsp;</div>}
+        when /\A(?:Volume|Book|Part|Chapter|Section)/
           f.print %Q{<div class="codeline i7header">#{htmlify(payload, type: :code)}</div>}
-        elsif payload.match(/\ATable\s+(?:(\d+(?:\.\d+)?)|of\s+(.*))/)
+        when /\ATable\s+(?:(\d+(?:\.\d+)?)|of\s+(.*))/
           f.print %Q{<div class="codeline tablename">#{htmlify(payload, type: :code)}</div>}
-          in_table = true
-          really_in_table = true
+          encountered_table_header = true
           Conf.table = []
           prev_quotes = quotes = 0
         else
-          if payload.empty?
-            next if prev_blank
-            indent = 1
-            prev_blank = true
-          else
-            prev_blank = false
-          end
           f.puts %Q{<div class="codeline#{((idx.zero? and !block[:pastie].empty? and indent.zero? and payload.start_with?('"')) ? ' storytitle': '')}">}+('&ensp;'*(indent*3))+htmlify(payload, type: :code)+'</div>'
         end
       end
-      print_table(f)
+      print_table(f, codelines)
       in_table = false
       quotes = 0
       f.print '</div>'
       if (block == target_block) and testme_output and !search
-        f.print %Q{<details class="testme-output"><summary><div class="summation"><div class="consummation">#{testme_block[:result][:testme]}</div></div></summary><div class="testme-output">}
+        f.print %Q{<details class="testme-output"><summary><div class="summation">}
+        f.print %Q{#{testme_block[:result][:testme]}}
+          f.print %Q{</div></summary><div class="testme-output">}
           f.puts testme_output.map {|x| CGI.escapeHTML(x)}.map {|x| x.match(/\A&gt;/) ? %Q{<span class="mono">#{x}</span>} : x }.join("<br>")
           f.print '</div></details>'
       end
@@ -1050,7 +1088,7 @@ def print_blocks(f, blocks, vol = nil, chapter_num = nil, section_num = nil, mon
       pp block
       f.print "-->"
     end
-    print_table(f)
+    print_table(f, codelines)
   end
 end
 
@@ -1058,45 +1096,43 @@ def example_refs(example, vol, monolithic = false, level: 1)
   lb_vol, lb_chapter, lb_section = *example[:refs][vol]
   target = target_anchor(lb_vol, lb_chapter, lb_section, monolithic)
   target = "##{target}" if monolithic
-  %Q{<a href="#{(['..']*level + [target]).join('/')}" title="#{CGI.escapeHTML(Conf.books[vol][:chapters][lb_chapter][:name])} &gt; #{CGI.escapeHTML(Conf.books[vol][:chapters][lb_chapter][:sections][lb_section][:name])}">#{Conf.books[vol][:abbrev]} #{[lb_chapter,lb_section].join('.')}</a>}
+  return %Q{<a class="raw example-ref" href="#{(['..']*level + [target]).join('/')}" title="#{CGI.escapeHTML(Conf.books[vol][:chapters][lb_chapter][:name])} &gt; #{CGI.escapeHTML(Conf.books[vol][:chapters][lb_chapter][:sections][lb_section][:name])}"><span class="sc">#{Conf.books[vol][:abbrev].downcase}</span> #{[lb_chapter,lb_section].join('.')}</a>}, target, lb_vol, lb_chapter, lb_section
 end
 
 def numeric_examples(f, monolithic = false)
   have_printed_chapter = {}
-  f.puts '<div class="numeric-index">'
+  f.puts '<div class="example-index-table" id="numeric-examples">'
   Conf.books[:wi][:chapters].keys.sort.each do |chapter_num|
     chapter = Conf.books[:wi][:chapters][chapter_num]
     Conf.books[:wi][:chapters][chapter_num][:sections].keys.sort.each do |section_num|
       section = Conf.books[:wi][:chapters][chapter_num][:sections][section_num]
       next if section[:examples].blank?
       unless have_printed_chapter[chapter_num]
-        f.puts %Q{<div class="numeric-index-row numeric-index-chapter-row"><div class="numeric-index-chapter">WI #{chapter_num}.</div><div class="numeric-index-rest"><span class="hidden numeric-index-chapter-row">000</span><a href="#{target_chapter(:wi, chapter_num, level: 1)}">#{chapter[:name]}</a></div></div>}
+        f.puts %Q{<div class="example-index-row"><div class="example-index-cell right"><span class="numeric-index-large">WI #{chapter_num}.</span></div><div class="example-index-cell left">&thinsp;</div><div class="example-index-cell"><a href="#{target_chapter(:wi, chapter_num, level: 1)}"><span class="numeric-index-large">#{chapter[:name]}</span></a></div></div>}
         have_printed_chapter[chapter_num] = true
       end
       ex = section[:examples].sort_by {|x| x[:example_num]}
       dest, label, title = *(target_pair([:wi, chapter_num, section_num], monolithic, "§#{chapter_num}.#{section_num} #{htmlify(section[:name])}"))
-      zeroes = "0"* (3 - section_num.to_s.length)
-      f.puts %Q{<div class="numeric-index-row numeric-index-section-row"><div class="numeric-index-chapter">§#{chapter_num}.</div><div class="numeric-index-rest">#{section_num}<span class="hidden numeric-index-chapter-row">#{zeroes}</span>#{target_pair_link([:wi, chapter_num, section_num], monolithic, htmlify(section[:name]), level: 1)}</div></div>}
-      f.puts %Q{<div class="numeric-index-row"><div class="numeric-index-chapter"></div><div class="numeric-index-rest">}
+#      zeroes = "0"* (3 - section_num.to_s.length)
+      f.puts %Q{<div class="example-index-row"><div class="example-index-cell right"><span class="sect">§</span>#{chapter_num}.</div><div class="example-index-cell left">#{section_num}</div><div class="example-index-cell">#{target_pair_link([:wi, chapter_num, section_num], monolithic, htmlify(section[:name]), level: 1)}</div></div>}
+      f.puts %Q{<div class="example-index-row"><div class="example-index-cell"></div><div class="example-index-cell"></div><div class="example-index-cell">}
       f.puts %Q{<div class="numeric-example-list">}
       ex.each do |example|
         target = monolithic ? "#example_#{example[:cname]}" : "#{example[:cname]}.html"
-        subzeroes = ("0" * (6 - example[:example_num].to_s.length))
-        f.puts %Q{<div class="numeric-example-line"><span class="hidden numeric-index-chapter-row">#{subzeroes}</span><span class="numeric-example">#{example[:example_num]}. <a href="#{target}" title="#{CGI.escapeHTML(example[:desc])}">#{htmlify(example[:name])}</a></span> #{'★' * example[:stars]} #{example_refs(example, :rb, level: 1)}</div>}
+        subzeroes = ("0" * (4 - example[:example_num].to_s.length))
+        f.puts %Q{<div class="numeric-example-line"><span class="hidden numeric-example">#{subzeroes}</span><span class="numeric-example">#{example[:example_num]}. <a href="#{target}" title="#{CGI.escapeHTML(example[:desc])}">#{htmlify(example[:name])}</a></span> #{sym(:star, example[:stars])} #{example_refs(example, :rb, level: 1).first}</div>}
       end
       f.puts %Q{</div></div></div>}
     end
   end
-  f.puts '</div>'
+  f.puts '</div></div>'
 end
-
-
 
 # to behave as indoc, we should also be looking for '{*}"Example Name"' in the *body* of Writing with Inform and including those
 # in the alphabetical index of examples unless it's marked OMIT in (Recipes).txt. That would result in adding "Cave Entrance" and
 # "The Undertomb", the latter of which is already there as "The Undertomb 1".
 def nominal_examples(f)
-  f.puts %Q{<h2 id="nominal_examples">Examples by Name</h2><div class="example-block">}
+  f.puts %Q{<h2>Examples by Name</h2>}# <div class="example-block">}
   alpha_index = {}
   Conf.examples.each do |cname,example|
     alpha_index[example[:name]] = {id: uid, example: example, real: true}
@@ -1108,25 +1144,30 @@ def nominal_examples(f)
     char = fl[0]
     letter_index[char] = k if fl < keysort(letter_index[char])
   end
-  f.print '<div class="indexbar">'
+
+  f.print '<div id="nominal-examples-indexbar" class="indexbar-holder"><div class="indexbar">'
   'a'.upto('z') do |letter|
-    f.print letter_index.key?(letter) ? %Q{<div class="indexletter"><a href="#example-alpha-index-entry-#{alpha_index[letter_index[letter]][:id]}">#{letter.upcase}</a></div>} : letter.upcase
+    f.print letter_index.key?(letter) ? %Q{<div class="indexletter"><a href="#alpha-index-entry-#{alpha_index[letter_index[letter]][:id]}">#{letter.upcase}</a></div>} : letter.upcase
   end
-  f.print '</div>'
+  f.print '</div></div><div class="example-index-table" id="nominal-examples-table">'
 
   alpha_index.keys.sort_by {|x| x.match(/\A(.*?)(\d+)\Z/) ? [ keysort($1), $2.to_i ] : [keysort(x), 0 ]  }.each do |key|
     example = alpha_index[key][:example]
-    f.print %Q{<div class="alpha-index-entry">}
-    if (alpha_index[key][:real])
-      f.puts %Q{<a id="example-alpha-index-entry-#{alpha_index[key][:id]}" href="#{example[:cname]}.html" title="#{CGI.escapeHTML(example[:desc])}"><strong>#{htmlify(key)}</strong>#{example[:subtitle] ? (': '+example[:subtitle]) : ''}</a> #{'★' * example[:stars]} #{[:wi,:rb].map{|x| example_refs(example,x)}.join(', ')}}
-    else
-      f.puts %Q{<a id="example-alpha-index-entry-#{alpha_index[key][:id]}" href="#{example[:cname]}.html" title="#{CGI.escapeHTML(example[:desc])}">#{htmlify(key)}</a> #{[:wi,:rb].map{|x| example_refs(example,x)}.join(', ')}}
+    f.print %Q{<div class="example-index-row">}
+    [:wi, :rb].each do |vol|
+      devnull, target, vl, ch, sect = example_refs(example, vol)
+#      ch = %Q{<span class="hidden">0</span>#{ch}} if ch.to_s.length < 2
+#      sect = %Q{#{sect}<span class="hidden">0</span>} if sect.to_s.length < 2
+      #    if (alpha_index[key][:real])
+      secretc0= ((ch.to_s.length < 2) ? %Q{<span class="hidden">0</span>} : '')
+#      secrets0= ((sect.to_s.length < 2) ? %Q{<span class="hidden">0</span>} : '')
+      f.print %Q{<div class="example-index-cell"><div class="example-index-ref"><a class="raw" href="../#{target}"><div class="example-index-cell-part right">#{Conf.books[vol][:abbrev]} #{secretc0}#{ch}.</div><div class="example-index-cell-part left">#{sect}</div></a></div></div>}
     end
-    f.print '</div>'
+    f.print %Q{<div class="example-index-cell"><span class="#{alpha_index[key][:real] ? 'example-index-name' : ''}"><a id="example-example-index-entry-#{alpha_index[key][:id]}" title="#{CGI.escapeHTML(example[:desc])}" href="#{example[:cname]}.html">#{htmlify(key)}#{example[:subtitle].blank? ? '' : ': <span class="example-index-subtitle">'+ example[:subtitle] + '</span>'}</a></span> <span class="sym">#{'★' * example[:stars]}</span></div></div>}
   end
   f.puts '</div>'
-  
 end
+
 
 
 def html_head(f, title, level: 0)
@@ -1134,6 +1175,9 @@ def html_head(f, title, level: 0)
   f.puts %Q{<html lang="en"><head><meta charset="utf-8">
 <title>#{title}</title>
 <script src="#{((['..']*level)+['i7doc.js']).join('/')}"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,375;0,400;0,500;0,700;1,375;1,400;1,500;1,700&family=Source+Sans+Pro:ital,wght@0,350;0,400;0,550;0,700;1,350;1,400;1,550;1,700&display=swap" rel="stylesheet"> 
 <link rel="stylesheet" href="#{((['..']*level)+['i7doc.css']).join('/')}">
 </head>}
 end
@@ -1143,7 +1187,7 @@ def nav(f, page = nil, level: 0)
   f.print '<nav>'
   el = []
   Conf.navpages.each_pair do |k,v|
-    el << ((k == page) ? "<strong>#{v[:name]}</strong>" : %Q{<a class="nav-el" href="#{((['..']*level)+[v[:dest]]).join('/')}">#{v[:name]}</a>})
+    el << ((k == page) ? "<strong>#{v[:name]}</strong>" : %Q{<a class="raw nav-el" href="#{((['..']*level)+[v[:dest]]).join('/')}">#{v[:name]}</a>})
   end
   el.each.with_index do|x,i|   f.print %Q{<div class="nav-el}
     f.print %Q{">#{x}</div>}
@@ -1160,10 +1204,9 @@ end
 
 def example_linkback(f, vol, example)
   f.print '<div class="linkback">'
-            lb_vol, lb_chapter, lb_section = *example[:refs][vol]
-            target = target_anchor(lb_vol, lb_chapter, lb_section)#, monolithic)
-#            target = "##{target}" if monolithic
-f.print            %Q{<a href="#{target}" title="#{CGI.escapeHTML(Conf.books[vol][:chapters][lb_chapter][:name])} &gt; #{CGI.escapeHTML(Conf.books[vol][:chapters][lb_chapter][:sections][lb_section][:name])}">#{Conf.books[vol][:abbrev]} §#{[lb_chapter, lb_section].join('.')} #{Conf.books[vol][:chapters][lb_chapter][:sections][lb_section][:name]}</a>}
+  lb_vol, lb_chapter, lb_section = *example[:refs][vol]
+  target = target_anchor(lb_vol, lb_chapter, lb_section)
+  f.print %Q{<a href="#{target}" title="#{CGI.escapeHTML(Conf.books[vol][:chapters][lb_chapter][:name])} &gt; #{CGI.escapeHTML(Conf.books[vol][:chapters][lb_chapter][:sections][lb_section][:name])}">#{Conf.books[vol][:abbrev]} #{[lb_chapter, lb_section].join('.')} #{Conf.books[vol][:chapters][lb_chapter][:sections][lb_section][:name]}</a>}
   f.puts '</div>'
 end
 
@@ -1174,7 +1217,7 @@ def output_section_examples(f, vol, examples, monolithic = false)
   examples.each do |example|
     target = monolithic ? "#example_#{example[:cname]}" : "examples/#{example[:cname]}.html"
     zeroes = 3 - example[:example_num].to_s.length
-    f.print %Q{<div class="example-short"><div class="example-short-num"><span class="hidden">#{"0"*zeroes}</span>#{ example[:example_num] }.</div><div class="example-short-name"><span class="example-short-name"><a href="#{target}">#{example[:name]}</a></span> <span class="stars">#{'★' * example[:stars]}</span></div></div>}
+    f.print %Q{<div class="example-short"><div class="example-short-num"><span class="hidden">#{"0"*zeroes}</span>#{ example[:example_num] }.</div><div class="example-short-name"><span class="example-short-name"><a href="#{target}">#{example[:name]}</a></span> <span class="sym">#{'★' * example[:stars]}</span></div></div>}
     f.puts %Q{<div class="example-short"><div class="example-short-num"><span class="hidden">000.</span></div><div class="example-short-name">#{htmlify(example[:desc])}</div></div>}
     example_linkback(f, linkback_vol, example)
   end
@@ -1184,8 +1227,8 @@ end
 def output_section(f, vol, chapter_num, section_num, monolithic = false, search: true, level: 0)
   book = Conf.books[vol]
   section = book[:chapters][chapter_num][:sections][section_num]
-  f.print %Q{<h3 id="#{monolithic ? target_anchor(vol,chapter_num,section_num, monolithic) : "section_#{section_num}"}">}
-  label = "#{book[:abbrev]} §#{chapter_num}.#{section[:section_num]} #{section[:name]}"
+  f.print %Q{<article><h3 id="#{monolithic ? target_anchor(vol,chapter_num,section_num, monolithic) : "section_#{section_num}"}">}
+  label = %Q{#{book[:abbrev]} <span class="sect-mark">§</span>#{chapter_num}.#{section[:section_num]} #{section[:name]}}
   f.print search ? %Q{<a href="#{target_anchor(vol, chapter_num, section_num)}">#{label}</a>} : label
   f.puts '</h3>'
   navbar = []
@@ -1199,25 +1242,25 @@ def output_section(f, vol, chapter_num, section_num, monolithic = false, search:
     abbr = Conf.books[prev[:vol]][:abbrev]
     prefix = ((prev[:vol] == vol) ? '' : "#{Conf.books[Conf.books.keys.find {|x| x != vol}][:abbrev]} ")
     dest = ((prev[:chapter_num] == chapter_num) ? "#section_#{prev[:section_num]}" : "#{abbr}_#{prev[:chapter_num]}.html#section_#{prev[:section_num]}")
-    navbar << %Q{<a class="nav-el" href="#{dest}" title="#{htmlify(prev[:name])}"><div class="nav-arrow">←#{prefix}#{prev[:chapter_num]}.#{prev[:section_num]}</div><div class="doc-navbar-text">#{htmlify(prev[:name])}</div></a>}
+    navbar << %Q{<a class="raw nav-el" href="#{dest}" title="#{htmlify(prev[:name])}"><div class="nav-arrow"><span class="sym">#{Conf.syms[:left]}</span>#{prefix}#{prev[:chapter_num]}.#{prev[:section_num]}</div><div class="doc-navbar-text">#{htmlify(prev[:name])}</div></a>}
   else
     navbar << %Q{<div>&thinsp;</div>}
   end
   navbar << '</div>'
   dest = search ? "#{Conf.books[vol][:abbrev]}_#{chapter_num}.html" : "#chapter_#{chapter_num}"
-  navbar << %Q{<div class="doc-navbar-center"><a class="nav-el" href="#{dest}"><div class="nav-arrow">↑#{chapter_num}.</div><div class="doc-navbar-text">#{book[:chapters][chapter_num][:name]}</div></a></div>}
+  navbar << %Q{<div class="doc-navbar-center"><a class="raw nav-el" href="#{dest}"><div class="nav-arrow"><span class="sym">#{Conf.syms[:up]}</span>#{chapter_num}.</div><div class="doc-navbar-text">#{book[:chapters][chapter_num][:name]}</div></a></div>}
   navbar << %Q{<div class="doc-navbar-right">}
   if book[:chapters][chapter_num][:sections].key?(section_num+1)
     dest = search ? "#{Conf.books[vol][:abbrev]}_#{chapter_num}.html#section_#{section_num+1}" : "#section_#{section_num+1}"
-    navbar << %Q{<a class="nav-el" href="#{dest}"><div class="doc-navbar-text">#{book[:chapters][chapter_num][:sections][section_num+1][:name]}</div><div class="nav-arrow">#{chapter_num}.#{section_num+1}→</div></a></div>}
+    navbar << %Q{<a class="raw nav-el" href="#{dest}"><div class="doc-navbar-text">#{book[:chapters][chapter_num][:sections][section_num+1][:name]}</div><div class="nav-arrow">#{chapter_num}.#{section_num+1}<span class="sym">#{Conf.syms[:right]}</span></div></a></div>}
   elsif book[:chapters].key?(chapter_num+1)
     dest = "#{Conf.books[vol][:abbrev]}_#{chapter_num+1}.html"
     ch_name = htmlify(book[:chapters][chapter_num+1][:name])
-    navbar << %Q{<a class="nav-el" href="#{dest}" title="#{ch_name}"><div class="doc-navbar-text">#{ch_name}</div><div class="nav-arrow">#{chapter_num+1}.→</div></a></div>}
+    navbar << %Q{<a class="raw nav-el" href="#{dest}" title="#{ch_name}"><div class="doc-navbar-text">#{ch_name}</div><div class="nav-arrow">#{chapter_num+1}.<span class="sym">#{Conf.syms[:right]}</span></div></a></div>}
   elsif vol == :wi
     dest = "#{Conf.books[:rb][:abbrev]}_1.html"
     ch_name = htmlify(Conf.books[:rb][:chapters][1][:name])
-    navbar << %Q{<a class="nav-el" href="#{dest}" title="#{ch_name}"><div class="doc-navbar-text">#{ch_name}</div><div class="nav-arrow">RB 1.→</div></a></div>}
+    navbar << %Q{<a class="raw nav-el" href="#{dest}" title="#{ch_name}"><div class="doc-navbar-text">#{ch_name}</div><div class="nav-arrow">RB 1.<span class="sym">#{Conf.syms[:right]}</span></div></a></div>}
   else
     navbar << %Q{<div class="doc-navbar-text finit">Finit</div>}
   end
@@ -1249,7 +1292,7 @@ def output_section(f, vol, chapter_num, section_num, monolithic = false, search:
                   lb_vol, lb_chapter, lb_section = *example[:refs][vol]
                   target = target_anchor(lb_vol, lb_chapter, lb_section, monolithic)
                   target = "##{target}" if monolithic
-                  %Q{<a href="#{target}" title="#{CGI.escapeHTML(Conf.books[vol][:chapters][lb_chapter][:name])} &gt; #{CGI.escapeHTML(Conf.books[vol][:chapters][lb_chapter][:sections][lb_section][:name])}">#{Conf.books[vol][:abbrev]} §#{[lb_chapter, lb_section].join('.')} #{Conf.books[vol][:chapters][lb_chapter][:sections][lb_section][:name]}</a>}
+                  %Q{<a href="#{target}" title="#{CGI.escapeHTML(Conf.books[vol][:chapters][lb_chapter][:name])} &gt; #{CGI.escapeHTML(Conf.books[vol][:chapters][lb_chapter][:sections][lb_section][:name])}"><span class="sc">#{Conf.books[vol][:abbrev].downcase}</span> #{[lb_chapter, lb_section].join('.')} #{Conf.books[vol][:chapters][lb_chapter][:sections][lb_section][:name]}</a>}
                 end).join('<br>')
         f.puts '</div>'
       end
@@ -1257,17 +1300,18 @@ def output_section(f, vol, chapter_num, section_num, monolithic = false, search:
       output_section_examples(f, vol, ((vol == :rb) ? section[:examples].sort_by {|x|  [x[:stars], x[:example_num] ]} : section[:examples]))
     end
   end
+  f.puts '</article>'
 end
 
 def output_examples(monolithic = false)
   FileUtils.mkdir_p(Conf.example_output_dir)
   File.open(File.join(Conf.example_output_dir, 'index.html'), 'w') do |f|
     html_head(f, "Examples", level: 1)
-    f.puts %Q{<body>}
+    f.puts %Q{<body id="example-index">}
     f.puts '<header>'
     nav(f, :examples, level: 1)
     f.puts '<div class="superheading"><div class="heading"><h1>Examples</h1></div></div></header>'
-    f.puts '<div><a href="#nominal_examples">Examples by Name</a></div></div>'
+    f.puts '<div id="nominal-example-jump"><a href="#nominal-examples-indexbar">Examples by Name</a></div></div>'
     f.puts '<h2>Numeric Index of Examples</h2>'
     numeric_examples(f)
     nominal_examples(f)
@@ -1287,11 +1331,11 @@ def output_examples(monolithic = false)
         target = target_anchor(lb_vol, lb_chapter, lb_section, monolithic)
         target = "##{target}" if monolithic
         if vol == :wi
-          guts = %Q{<div class="nav-arrow">#{Conf.arrows[:up]}#{Conf.books[vol][:abbrev]} §#{[lb_chapter, lb_section].join('.')}</div><div class="doc-navbar-text">#{Conf.books[vol][:chapters][lb_chapter][:sections][lb_section][:name]}</div>}
-        else
-          guts = %Q{<div class="doc-navbar-text">#{Conf.books[vol][:chapters][lb_chapter][:sections][lb_section][:name]}</div><div class="nav-arrow">#{Conf.books[vol][:abbrev]} §#{[lb_chapter, lb_section].join('.')}#{Conf.arrows[:up]}</div>}
+          guts = %Q{<div class="nav-arrow"><span class="sc">#{Conf.books[vol][:abbrev].downcase}</span> #{[lb_chapter, lb_section].join('.')}</div><div class="doc-navbar-text">#{Conf.books[vol][:chapters][lb_chapter][:sections][lb_section][:name]}</div>}
+        else # vol == :rb
+          guts = %Q{<div class="doc-navbar-text">#{Conf.books[vol][:chapters][lb_chapter][:sections][lb_section][:name]}</div><div class="nav-arrow"><span class="sc">#{Conf.books[vol][:abbrev].downcase}</span> #{[lb_chapter, lb_section].join('.')}</div>}
         end
-        linkbacks[vol] = %Q{<a class="nav-el" href="../#{target}" title="#{CGI.escapeHTML(Conf.books[vol][:chapters][lb_chapter][:name])} &gt; #{CGI.escapeHTML(Conf.books[vol][:chapters][lb_chapter][:sections][lb_section][:name])}">#{guts}</a>}
+        linkbacks[vol] = %Q{<a class="raw nav-el" href="../#{target}" title="#{CGI.escapeHTML(Conf.books[vol][:chapters][lb_chapter][:name])} &gt; #{CGI.escapeHTML(Conf.books[vol][:chapters][lb_chapter][:sections][lb_section][:name])}">#{guts}</a>}
       end
       f.puts %Q{<div class="doc-navbar example-linkback"><div class="doc-navbar-left">#{linkbacks[:wi]}</div><div class="doc-navbar-right">#{linkbacks[:rb]}</div></div>}
 
@@ -1317,8 +1361,8 @@ def output_examples(monolithic = false)
         [:left,:right].each do |side|
           navbar << %Q{<div class="doc-navbar-#{side}">}
           if row.key?(side)
-            navbar << %Q{<a class="nav-el" href="#{row[side][:cname]}.html" title="#{htmlify(row[side][:desc])}">}
-            navbar << ((:left == side) ? %Q{<div class="nav-arrow">←#{row[side][:example_num]}. </div><div class="doc-navbar-text">#{row[side][:name]}</div>} : %Q{<div class="doc-navbar-text">#{row[side][:name]}</div><div class="nav-arrow">#{row[side][:example_num]}.→</div>})
+            navbar << %Q{<a class="raw nav-el" href="#{row[side][:cname]}.html" title="#{htmlify(row[side][:desc])}">}
+            navbar << ((:left == side) ? %Q{<div class="nav-arrow">#{Conf.syms[:left]}#{row[side][:example_num]}. </div><div class="doc-navbar-text">#{row[side][:name]}</div>} : %Q{<div class="doc-navbar-text">#{row[side][:name]}</div><div class="nav-arrow">#{row[side][:example_num]}.#{Conf.syms[:right]}</div>})
             navbar << '</a>'
           end
           navbar << '<span class="finit">Finit</span>' if finit and (:right == side) and (i == (example_link_rows.count-1))
@@ -1345,7 +1389,7 @@ def output_chapter_toc(f, vol, chapter)
   chapter[:sections].keys.sort_by(&:to_i).each do |section_num|
     f.puts %Q{<div class="section-row">}
     section = chapter[:sections][section_num]
-    f.puts %Q{<div class="section-chapter-num">§#{chapter_num}.</div><div class="section-section-num">#{section_num}</div><div class="section-name"><a href="#{target_anchor(vol, chapter_num, section_num)}">#{section[:name]}</a></div>}
+    f.puts %Q{<div class="section-chapter-num"><span class="sect-mark">§</span>#{chapter_num}.</div><div class="section-section-num">#{section_num}</div><div class="section-name-holder"><div class="section-name"><a href="#{target_anchor(vol, chapter_num, section_num)}">#{section[:name]}</a></div></div>}
     f.puts '</div>'
   end
   f.puts "</div>"
@@ -1366,34 +1410,34 @@ def output_toc(monolithic = false)
     f.puts %Q{<div class="heading" id="toc-heading">}
     f.puts %Q{<h1 class="title">In<span style="letter-spacing: -.15rem;">f</span>orm</h1><div class="subtitle">A <span style="letter-spacing: -.075rem;">D</span>esign <span style="letter-spacing: -.04rem;">S</span><span style="letter-spacing: -.1rem;">y</span>stem <span style="letter-spacing: -.075rem;">f</span>or I<span style="letter-spacing: -.1rem;">n</span>teractive <span style="letter-spacing: -.09rem;">F</span>iction</div>}
 f.puts %Q{</div></div>}
-    f.puts %Q{</header><main class="toc"><div class="toc">}
+    f.puts %Q{</header><main class="toc"><div class="toc">} # <div class="toc-row">}
     Conf.books.each_pair do |vol,book|
-      f.puts %Q{<div class="#{vol}">}
+      f.puts %Q{<div class="toc-vol" id="#{vol}"><div class="vol-contents">}
       f.puts "<h2>#{book[:title]}</h2>"
       book[:chapters].keys.sort_by(&:to_i).each do |chapter_num|
         chapter = book[:chapters][chapter_num]
-        f.puts %Q{<details class="chapter-details"><summary class="toc-chapter"><span class="chapter-num">#{chapter_num}.</span> #{chapter[:name]}</summary>}
+        f.puts %Q{<details class="chapter-details"><summary class="toc-chapter"><span class="chapter-num">#{chapter_num}.</span> <span class="chapter-name">#{chapter[:name]}</span></summary>}
         f.puts %Q{<div class="section-block">}
         chapter[:sections].keys.sort_by(&:to_i).each do |section_num|
           f.puts %Q{<div class="section-row">}
           section = chapter[:sections][section_num]
-          f.puts %Q{<div class="section-chapter-num">§#{chapter_num}.</div><div class="section-section-num">#{section_num}</div><div class="section-name"><a href="#{target_anchor(vol, chapter_num, section_num)}">#{section[:name]}</a></div>}
+          f.puts %Q{<div class="section-chapter-num"><span class="sect-mark">§</span>#{chapter_num}.</div><div class="section-section-num">#{section_num}</div><div class="section-name-holder"><div class="section-name"><a href="#{target_anchor(vol, chapter_num, section_num)}">#{section[:name]}</a></div></div>}
           f.puts '</div>'
           if (:rb == vol)
             if !section[:examples].empty?
-              f.print %Q{<div class="section-row"><div class="section-chapter-num">&nbsp;</div><div class="section-section-num">&nbsp;</div><div class="section-name section-example-name">}
-              f.puts '<p><span class="section-example-name">'+(section[:examples].map do |example|
+              f.print %Q{<div class="section-row"><div class="section-chapter-num">&nbsp;</div><div class="section-section-num">&nbsp;</div><div class="section-name-holder"><div class="section-name section-example-name">}
+              f.puts '<div class="thematic-examples"><span class="section-example-name">'+(section[:examples].map do |example|
                                                                  cname = example[:cname]
                                                                  target = (monolithic ? "#example_#{cname}" : "examples/#{cname}.html")
                                                                  %Q{<a href="#{target}" onClick="(function() { document.getElementById('example_#{example[:cname]}').setAttribute('open','open'); return true; })();" title="#{CGI.escapeHTML(example[:desc])}">#{example[:name]}</a>}
-                                                               end.join(' &bull; '))+'</span></p>'
-              f.puts '</div></div>'
+                                                               end.join(' &bull; '))+'</span></div>'
+              f.puts '</div></div></div>'
             end
           end
         end
         f.puts '</div></details>'
       end
-      f.puts '</div>'
+      f.puts '</div></div></div>'
     end
     f.puts '</div></main>'
     footer(f, css: "toc-er", page: :toc)
@@ -1446,27 +1490,28 @@ def output_chapter(f, vol, chapter_num, monolithic = false, search: false)
 <h1 id="chapter_#{chapter_num}">#{title}</h1>
 <div class="subheading">#{book[:title]}</div></div></div></header>}
     end
+    f.puts %Q{<main><section>}
     navbar = []
     navbar << %Q{<div class="doc-navbar"><div class="doc-navbar-left">}
     if chapter_num > 1
-      navbar << %Q{<a class="nav-el" href="#{book[:abbrev]}_#{chapter_num-1}.html"><div class="nav-arrow">←#{chapter_num-1}.</div><div class="doc-navbar-text">#{book[:chapters][chapter_num-1][:name]}</div></a>}
+      navbar << %Q{<a class="raw nav-el" href="#{book[:abbrev]}_#{chapter_num-1}.html"><div class="nav-arrow">#{Conf.syms[:left]}#{chapter_num-1}.</div><div class="doc-navbar-text">#{book[:chapters][chapter_num-1][:name]}</div></a>}
     elsif :rb == vol
       last_ch = Conf.books[:wi][:chapters][Conf.books[:wi][:chapters].keys.max]
       dest = "#{Conf.books[:wi][:abbrev]}_#{last_ch[:chapter_num]}.html"
       ch_name = htmlify(last_ch[:name])
-      navbar << %Q{<a class="nav-el" href="#{dest}" title="#{ch_name}"><div class="nav-arrow">←WI #{last_ch[:chapter_num]}.</div><div class="doc-navbar-text">#{ch_name}</div></a>}
+      navbar << %Q{<a class="raw nav-el" href="#{dest}" title="#{ch_name}"><div class="nav-arrow">#{Conf.syms[:left]}WI #{last_ch[:chapter_num]}.</div><div class="doc-navbar-text">#{ch_name}</div></a>}
     else
       navbar << %Q{<span class="hidden">0</span>}
     end
     navbar << '</div>'
-#    navbar << %Q{<div class="doc-navbar-center"><div class="nav-el"><span class="hidden">0</span></div></div>}
+#    navbar << %Q{<div class="doc-navbar-center"><div class="raw nav-el"><span class="hidden">0</span></div></div>}
     navbar << %Q{<div class="doc-navbar-right">}
     if book[:chapters].key?(chapter_num+1) 
-        navbar << %Q{<a class="nav-el" href="#{book[:abbrev]}_#{chapter_num+1}.html"><div class="doc-navbar-text">#{book[:chapters][chapter_num+1][:name]}</div> <div class="nav-arrow">#{chapter_num+1}.→</div></a>}
+        navbar << %Q{<a class="raw nav-el" href="#{book[:abbrev]}_#{chapter_num+1}.html"><div class="doc-navbar-text">#{book[:chapters][chapter_num+1][:name]}</div> <div class="nav-arrow">#{chapter_num+1}.#{Conf.syms[:right]}</div></a>}
     elsif :wi == vol
       dest = "#{Conf.books[:rb][:abbrev]}_1.html"
       ch_name = htmlify(Conf.books[:rb][:chapters][1][:name])
-      navbar << %Q{<a class="nav-el" href="#{dest}" title="#{ch_name}"><div class="doc-navbar-text">#{ch_name}</div><div class="nav-arrow">RB 1.→</div></a></div>}
+      navbar << %Q{<a class="raw nav-el" href="#{dest}" title="#{ch_name}"><div class="doc-navbar-text">#{ch_name}</div><div class="nav-arrow">RB 1.#{Conf.syms[:right]}</div></a></div>}
     else
       navbar << %Q{<div class="finit">Finit</div>}
     end
@@ -1476,7 +1521,9 @@ def output_chapter(f, vol, chapter_num, monolithic = false, search: false)
     chapter[:sections].keys.sort_by(&:to_i).each do |section_num|
       output_section(f, vol, chapter_num, section_num, monolithic, search: search, level: 0)
     end
+    f.puts '</section></main>'
     f.puts navbar.join('')
+    
 end
 
 def output_about
@@ -1487,24 +1534,24 @@ def output_about
     nav(f)
     f.puts %Q{<div class="superheading"><div class="heading"><h1 id="about-edition">#{title}</h1></div></div></header>}
     f.puts %Q{<main>}
-    f.puts %Q{<p>Code examples can be copied to the clipboard by selecting the ⧉ icon in the upper-right hand corner of most code blocks. (Sometimes the code copied will include some of the subsequent code blocks, following the source material's behavior.)</p>}
+    f.puts %Q{<p>Code examples can be copied to the clipboard by selecting the <span class="sym">⧉</span> icon in the upper-right hand corner of most code blocks. (Sometimes the code copied will include some of the subsequent code blocks, following the source material's behavior.)</p>}
     f.puts %Q{<div class="codeblock" id="about_example_copycode">}
-    f.puts %Q{<button class="copycode" title="Copy to clipboard" onclick="copyCode('Copy me');">⧉</button>}
+    f.puts %Q{<button class="copycode" title="Copy to clipboard" onclick="copyCode('Copy me');"><span class="sym">⧉</span></button>}
     f.puts %Q{<div class="codeline">Copy me</div></div>}
-    f.puts %Q{<p><em>Writing with Inform</em>, <em>The Inform Recipe Book</em>, and the documentation examples are a part of the distribution of <a href="http://inform7.com">Inform 7</a> by Graham Nelson. For descriptions of them, see <a href="WI_1.html#section_1">Writing with Inform's Preface</a>, <a href="RB_1.html#section_1">The Recipe Book's Preface</a>, and <a href="about_the_examples.html">About the Examples</a>. For more detailed credits, see <a href="WI_1.html#section_2">Writing with Inform's Acknowledgements</a> and <a href="RB_1.html#section_2">the Recipe Book's Acknowledgements</a>.}
+    f.puts %Q{<p>Most code samples will <em>not</em> work if you select text and copy-paste: it will be missing tab characters that are significant to Inform. Use the copy button.</p>}
+    f.puts %Q{<p><em>Writing with Inform</em>, <em>The Inform Recipe Book</em>, and the documentation examples are a part of the distribution of <a href="http://inform7.com">Inform 7</a> by Graham Nelson. For descriptions of them, see <a href="WI_1.html#section_1">Writing with Inform's Preface</a>, <a href="RB_1.html#section_1">The Recipe Book's Preface</a>, and <a href="about_the_examples.html">About the Examples</a>. For more detailed credits, see <a href="WI_1.html#section_2">Writing with Inform's Acknowledgements</a> and <a href="RB_1.html#section_2">the Recipe Book's Acknowledgements</a>.</p>}
     f.print %Q{<p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="mit.html">MIT License.</a> The Quixe pages are offered in case one's off-line with a local copy of this edition; there isn't otherwise any reason to prefer them to the Borogove links. (Borogove itself uses Quixe).</p>}
     f.puts %Q{<p>A few examples lack Borogove/Quixe links because they're Z-machine only or their purpose is to write an EPS file to the project's materials dir and there's no suitable way to demonstrate them.</p>}
     f.puts %Q{<p>Sections 1.3-1.7 of Writing with Inform as presented here omit some details particular to individual platforms. You should check them within the Inform app itself to see the appropriate platform-specific content.</p>}
     f.puts %Q{<p>This edition was reformatted by <a href="http://zedlopez.org">Zed Lopez</a>; it has been modestly adapted to suit the format changes, with my apologies for any errors I may have introduced.</p>}
-    f.puts '<h2 class="colophon">Colophon</h2>'
-    f.puts %Q{<p>The title on the <a href="./index.html">table of contents</a> page uses the <a href="https://www.1001fonts.com/railway-font.html">Railway typeface</a> by Greg Fleming, shared under the <a href="sil.txt">SIL Open Font License</a>. It is styled after the typeface designed for the London Underground by Edward Johnston in 1916.</p>}
-    
     f.puts '</main>'
     footer(f, false, page: :about)
     f.puts"</body></html>"
   end
 end
 
+#    f.puts '<h2 class="colophon">Colophon</h2>'
+    
 def output_general_index(monolithic = false)
   File.open(File.join(Conf.output_dir, 'general_index.html'), 'w') do |f|
     title = 'General Index'
@@ -1527,8 +1574,8 @@ def footer(f, about = true, css: nil, level: 0, page: nil)
   nav(f, page, level: level)
   f.print %Q{<div class="footing"><p id="i7credit"><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="#{((['..']*level)+['license.html']).join('/')}">Artistic License 2.0</a>.</p>}
   f.print %Q{<p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="#{((['..']*level)+['mit.html']).join('/')}">MIT License.</a></p>} if page == :example
-  about_html = (about ? %Q{<a class="nav-about" href="#{((['..']*level)+['about.html']).join('/')}">About this edition</a> &bull; } : '')
-    f.print %Q{<p class="about">#{about_html}<a class="nav-about" href="https://twitter.com/inform7tips">@inform7tips</a></p></div>}
+  about_html = (about ? %Q{<a class="raw" href="#{((['..']*level)+['about.html']).join('/')}">About this edition</a>&ensp;&bull;&ensp;} : '')
+    f.print %Q{<p class="about">#{about_html}<a class="raw" href="https://twitter.com/inform7tips">@inform7tips</a></p></div>}
   f.puts "</footer>"
 end
 
@@ -1541,7 +1588,6 @@ def write_borogove
                                    "revision": 1,
                                    "template": "inform7" } }
   Conf.examples.each do |cname, title|
-    #    next unless example.key?(:i7) and !example[:i7].empty?
     Conf.examples[cname][title].each do |i7|
       i7.each do |h|
         result[h[:borogove]]['code'] = UTF8.read(File.join(Conf.xdir,"#{h[:filename]}.i7"))
@@ -1631,140 +1677,3 @@ def read_indoc
                                                               output_search
 
 __END__
-
-                                                              def output_books(f, monolithic = false)
-  html_head(f, "Inform 7 v10 documentation")
-  f.puts %Q{<body>
-<header><h1 class="title">Inform</h1>
-<div class="subheading">A Design System for Interactive Fiction</div>
-<div><a id="toggle" href="javascript:toggle_details()">Open all examples</a></div>
-</header>
-<main>
-<h2 class="title">Table of Contents</h2>
-}
-  Conf.books.each_pair do |vol,book|
-    f.puts %Q{<details class="volume-details"><summary class="toc-volume">#{book[:title]}</summary>}
-    book[:chapters].keys.sort_by(&:to_i).each do |chapter_num|
-      chapter = book[:chapters][chapter_num]
-      f.puts %Q{<details class="chapter-details"><summary class="toc-chapter"><span class="chapter-num">#{chapter_num}.</span> #{chapter[:name]}</summary>}
-      f.puts %Q{<div class="section-block">}
-      chapter[:sections].keys.sort_by(&:to_i).each do |section_num|
-        f.puts %Q{<div class="section-row">}
-        section = chapter[:sections][section_num]
-        f.puts %Q{<div class="section-chapter-num">§#{chapter_num}.</div><div class="section-section-num">#{section_num}</div><div class="section-name"><a href="##{target_anchor(vol, chapter_num, section_num)}">#{section[:name]}</a></div>}
-        f.puts '</div>'
-        if (:rb == vol)
-          if !section[:examples].empty?
-            
-            f.print %Q{<div class="section-row"><div class="section-chapter-num">&nbsp;</div><div class="section-section-num">&nbsp;</div><div class="section-name section-example-name">}
-            f.puts '<p><span class="section-example-name">'+(section[:examples].map do |example|
-                                                               %Q{<a href="#example_#{example[:cname]}" onClick="(function() { document.getElementById('example_#{example[:cname]}').setAttribute('open','open'); return true; })();" title="#{CGI.escapeHTML(example[:desc])}">#{example[:name]}</a>}
-                                                             end.join(' &bull; '))+'</span></p>'
-            f.puts '</div></div>'
-          end
-        end
-      end
-      f.puts '</div>'
-      f.puts '</details>'
-    end
-    f.puts '</details>'
-  end
-  f.puts %Q{<p><a href="#example_indices">Example Indices</a></p>}
-  f.puts %Q{<p><a href="#general_index">General Index</a></p>}
-  Conf.books.each_pair do |vol,book|
-    f.puts %Q{<h1 id="#{vol}">#{book[:title]}</h1>}
-    book[:chapters].keys.compact.sort.each do |chapter_num|
-      chapter = book[:chapters][chapter_num]
-      f.puts %Q{<h2 id="#{vol}#{chapter_num}">Chapter #{chapter_num}. #{chapter[:name]}</h2>}
-      chapter[:sections].keys.sort.each do |section_num|
-        section = chapter[:sections][section_num]
-        f.puts %Q{<h3 id="#{target_anchor(vol,chapter_num,section_num)}">#{book[:abbrev]} §#{chapter_num}.#{section_num} #{section[:name]}</h3>}
-        print_blocks(f, section[:blocks], vol, chapter_num, section_num)
-        if !section[:see].empty?
-          f.puts '<div class="see-also">'
-          f.puts '<h4>See Also</h4>'
-          f.print '<p>'
-          section[:see].each do |see|
-            ch, sect = *Conf.section_names[vol][see[0].downcase]
-            target = target_anchor(vol, ch, sect, monolithic)
-            target = "##{target}" if monolithic
-            f.print %Q{<a href="#{target}">#{see[0]}</a> #{see[1]}<br>}
-          end
-          f.print '</p>'
-          f.print '</div>'
-        end
-
-        if section[:examples] and !section[:examples].empty?
-          f.puts '<div class="examples">'
-          f.puts %Q{<h4>Example#{(section[:examples].count > 1) ? 's' : ''}</h4>}
-          section[:examples].each do |example|
-            if (vol == :wi)
-              f.print %Q{<div class="example-short">#{ example[:example_num] }. #{'★' * example[:stars]} <a href="#example_#{example[:cname]}" onClick="(function() { document.getElementById('example_#{example[:cname]}').setAttribute('open','open'); return true; })();">#{example[:name]}</a><br>#{CGI.escapeHTML(example[:desc])}</p></div>}
-            else
-              f.print %Q{<details class="example" id="example_#{example[:cname]}">}
-              f.print %Q{<summary title="#{CGI.escapeHTML(example[:desc])}" class="example-name">#{ example[:example_num] }. #{'★'  * example[:stars]} #{CGI.escapeHTML(example[:name])}</summary>}
-              print_blocks(f, example[:body][:blocks])
-              f.puts '<div class="linkback">'
-              f.puts (%i{ wi rb }.map do |vol|
-                        lb_vol, lb_chapter, lb_section = *example[:refs][vol]
-                        target = target_anchor(lb_vol, lb_chapter, lb_section, monolithic)
-                        target = "##{target}" if monolithic
-                        %Q{<a href="#{target}" title="#{CGI.escapeHTML(Conf.books[vol][:chapters][lb_chapter][:name])} &gt; #{CGI.escapeHTML(Conf.books[vol][:chapters][lb_chapter][:sections][lb_section][:name])}">#{Conf.books[vol][:abbrev]} §#{[lb_chapter, lb_section].join('.')} #{Conf.books[vol][:chapters][lb_chapter][:sections][lb_section][:name]}</a>}
-                      end).join('<br>')
-              f.puts '</div>'
-              f.puts '</details>'
-            end
-          end
-          f.puts '</div>'
-        end
-      end
-    end
-  end
-  print_example_indices(f)
-  print_index(f)
-  f.puts "</main>"
-  footer(f)
-  f.puts"</body></html>"
-end
-
-def print_example_indices(f)
-  
-  f.puts %Q{<h2 id="example_indices">Example Indices</h2>}
-  
-  f.puts %Q{<details id="numeric_examples_index"><summary>Examples by Number</summary><div class="example-block">}
-  numeric_examples(f)
-  f.puts '</details>'
-
-  f.puts %Q{<details id="nominal_examples_index"><summary>Examples by Name</summary><div class="example-block">}
-  alpha_index = {}
-  Conf.examples.each do |cname,example|
-    alpha_index[example[:name]] = {id: uid, example: example, real: true}
-    example[:index_entries].each {|entry| alpha_index[entry] = {id: uid, example: example}}
-  end
-  letter_index = Hash.new {|h,k| h[k] = '|'}
-  alpha_index.keys.each do |k|
-    fl = keysort(k)
-    char = fl[0]
-    letter_index[char] = k if fl < keysort(letter_index[char])
-  end
-  letter_index.keys.sort.each do |k|
-    puts "#{k} #{letter_index[k]} #{alpha_index[letter_index[k]][:example_num]}"
-  end
-  f.print '<div class="indexbar">'
-  'a'.upto('z') do |letter|
-    f.print letter_index.key?(letter) ? %Q{<div class="indexletter"><a href="#example-alpha-index-entry-#{alpha_index[letter_index[letter]][:id]}">#{letter.upcase}</a></div>} : letter.upcase
-  end
-  f.print '</div>'
-
-  alpha_index.keys.sort_by {|x| x.match(/\A(.*?)(\d+)\Z/) ? [ keysort($1), $2.to_i ] : [keysort(x), 0 ]  }.each do |key|
-    example = alpha_index[key][:example]
-    if (alpha_index[key][:real])
-      f.puts %Q{<a id="example-alpha-index-entry-#{alpha_index[key][:id]}" href="#example_#{example[:cname]}" onClick="(function() { document.getElementById('example_#{example[:cname]}').setAttribute('open','open'); return true; })();" title="#{CGI.escapeHTML(example[:desc])}"><strong>#{htmlify(key)}</strong>#{example[:subtitle] ? (': '+example[:subtitle]) : ''}</a> #{'★' * example[:stars]} #{example_refs(example,:rb)}<br>}
-    else
-      f.puts %Q{<a id="example-alpha-index-entry-#{alpha_index[key][:id]}" href="#example_#{example[:cname]}" onClick="(function() { document.getElementById('example_#{example[:cname]}').setAttribute('open','open'); return true; })();" title="#{CGI.escapeHTML(example[:desc])}">#{htmlify(key)}</a> #{[:wi,:rb].map{|x| example_refs(example,x)}.join(', ')}<br>}
-    end
-  end
-  f.puts '</div>'
-  f.puts '</details>'
-  
-end

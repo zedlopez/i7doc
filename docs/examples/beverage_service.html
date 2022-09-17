@@ -2,33 +2,36 @@
 <html lang="en"><head><meta charset="utf-8">
 <title>Ex. 122. Beverage Service</title>
 <script src="../i7doc.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,375;0,400;0,500;0,700;1,375;1,400;1,500;1,700&family=Source+Sans+Pro:ital,wght@0,350;0,400;0,550;0,700;1,350;1,400;1,550;1,700&display=swap" rel="stylesheet"> 
 <link rel="stylesheet" href="../i7doc.css">
 </head>
 <body>
 <header class="example-header">
-<nav><div class="nav-el"><a class="nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="nav-el" href="../search.html">Search</a></div></nav>
+<nav><div class="nav-el"><a class="raw nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="raw nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="raw nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="raw nav-el" href="../search.html">Search</a></div></nav>
 <div class="superheading"><div class="heading"><h1>Beverage Service</h1><div class="subheading"><wbr><div class="ex-no">Example 122</div> ★</div></div>
-<div class="doc-navbar example-linkback"><div class="doc-navbar-left"><a class="nav-el" href="../WI_8.html#section_10" title="Change &gt; Removing things from play"><div class="nav-arrow">↑WI §8.10</div><div class="doc-navbar-text">Removing things from play</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="../RB_10.html#section_2" title="Physics: Substances, Ropes, Energy and Weight &gt; Liquids"><div class="doc-navbar-text">Liquids</div><div class="nav-arrow">RB §10.2↑</div></a></div></div>
+<div class="doc-navbar example-linkback"><div class="doc-navbar-left"><a class="raw nav-el" href="../WI_8.html#section_10" title="Change &gt; Removing things from play"><div class="nav-arrow"><span class="sc">wi</span> 8.10</div><div class="doc-navbar-text">Removing things from play</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="../RB_10.html#section_2" title="Physics: Substances, Ropes, Energy and Weight &gt; Liquids"><div class="doc-navbar-text">Liquids</div><div class="nav-arrow"><span class="sc">rb</span> 10.2</div></a></div></div>
 </div>
 <div class="example-meta-desc"><p>A potion that the player can drink.</p></div>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="terror_of_the_sierra_madre.html" title="Multiple player characters who take turns controlling the action."><div class="nav-arrow">←121. </div><div class="doc-navbar-text">Terror of the Sierra Madre</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="spring_cleaning.html" title="A character who sulks over objects that the player has broken (and which are now off-stage)."><div class="doc-navbar-text">Spring Cleaning</div><div class="nav-arrow">123.→</div></a></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="terror_of_the_sierra_madre.html" title="Multiple player characters who take turns controlling the action."><div class="nav-arrow">⬅121. </div><div class="doc-navbar-text">Terror of the Sierra Madre</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="spring_cleaning.html" title="A character who sulks over objects that the player has broken (and which are now off-stage)."><div class="doc-navbar-text">Spring Cleaning</div><div class="nav-arrow">123.⮕</div></a></div></div>
 </header>
 <div class="example-body"><p>Some kinds of game objects &ndash; food, for instance &ndash; can only sensibly be used once, and should then be destroyed. The EAT command already implements this, but suppose we also had a category of drinkable potions:</p>
-<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex122">Play/modify Beverage Service in Borogove</a></span>
- &bull; <span class="quixe-link"><a href="Beverage/index.html">Play Beverage Service in Quixe</a></span>
-</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Beverage Service&quot;\n\nA potion is a kind of thing. The sparkly blue potion is a potion carried by the player.\n\nLevel 3 is a room.\n\nInstead of drinking a potion (called the drink):\n\tnow the drink is nowhere;\n\tsay &quot;You quaff [the drink]. It goes down beautifully.&quot;\n\nTest me with &quot;drink sparkly / i&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Beverage Service&quot;</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="play-example borogove"><a class="raw" href="https://snippets.borogove.app/inform7/v10ex122">Play/modify in Borogove</a></div>
+<div class="play-example quixe"><a class="raw" href="Beverage/index.html">Play in Quixe</a></div>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Beverage Service&quot;\n\nA potion is a kind of thing. The sparkly blue potion is a potion carried by the player.\n\nLevel 3 is a room.\n\nInstead of drinking a potion (called the drink):\n\tnow the drink is nowhere;\n\tsay &quot;You quaff [the drink]. It goes down beautifully.&quot;\n\nTest me with &quot;drink sparkly / i&quot;.`)"><span class="sym">⧉</span></button><div class="codeline storytitle">&quot;Beverage Service&quot;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">A potion is a kind of thing. The sparkly blue potion is a potion carried by the player.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Level 3 is a room.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Instead of drinking a potion (called the drink):</div>
 <div class="codeline">&ensp;&ensp;&ensp;now the drink is nowhere;</div>
 <div class="codeline">&ensp;&ensp;&ensp;say &quot;You quaff [the drink]. It goes down beautifully.&quot;</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Test me with &quot;drink sparkly / i&quot;.</div>
-</div><details class="testme-output"><summary><div class="summation"><div class="consummation">Test me with "drink sparkly / i".</div></div></summary><div class="testme-output">Level 3<br><br><span class="mono">&gt;(Testing.)</span><br><br><span class="mono">&gt;[1] drink sparkly</span><br>You quaff the sparkly blue potion. It goes down beautifully.<br><br><span class="mono">&gt;[2] i</span><br>You are carrying nothing.
-</div></details></div><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="terror_of_the_sierra_madre.html" title="Multiple player characters who take turns controlling the action."><div class="nav-arrow">←121. </div><div class="doc-navbar-text">Terror of the Sierra Madre</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="spring_cleaning.html" title="A character who sulks over objects that the player has broken (and which are now off-stage)."><div class="doc-navbar-text">Spring Cleaning</div><div class="nav-arrow">123.→</div></a></div></div>
-<footer id="credits-footer"><nav><div class="nav-el"><a class="nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="nav-el" href="../search.html">Search</a></div></nav>
-<div class="footing"><p id="i7credit"><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p class="about"><a class="nav-about" href="../about.html">About this edition</a> &bull; <a class="nav-about" href="https://twitter.com/inform7tips">@inform7tips</a></p></div></footer>
+</div><details class="testme-output"><summary><div class="summation">Test me with "drink sparkly / i".</div></summary><div class="testme-output">Level 3<br><br><span class="mono">&gt;(Testing.)</span><br><br><span class="mono">&gt;[1] drink sparkly</span><br>You quaff the sparkly blue potion. It goes down beautifully.<br><br><span class="mono">&gt;[2] i</span><br>You are carrying nothing.
+</div></details></div><div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="terror_of_the_sierra_madre.html" title="Multiple player characters who take turns controlling the action."><div class="nav-arrow">⬅121. </div><div class="doc-navbar-text">Terror of the Sierra Madre</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="spring_cleaning.html" title="A character who sulks over objects that the player has broken (and which are now off-stage)."><div class="doc-navbar-text">Spring Cleaning</div><div class="nav-arrow">123.⮕</div></a></div></div>
+<footer id="credits-footer"><nav><div class="nav-el"><a class="raw nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="raw nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="raw nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="raw nav-el" href="../search.html">Search</a></div></nav>
+<div class="footing"><p id="i7credit"><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p class="about"><a class="raw" href="../about.html">About this edition</a>&ensp;&bull;&ensp;<a class="raw" href="https://twitter.com/inform7tips">@inform7tips</a></p></div></footer>
 </body></html>

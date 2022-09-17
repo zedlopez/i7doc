@@ -2,36 +2,39 @@
 <html lang="en"><head><meta charset="utf-8">
 <title>Ex. 144. Totality</title>
 <script src="../i7doc.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,375;0,400;0,500;0,700;1,375;1,400;1,500;1,700&family=Source+Sans+Pro:ital,wght@0,350;0,400;0,550;0,700;1,350;1,400;1,550;1,700&display=swap" rel="stylesheet"> 
 <link rel="stylesheet" href="../i7doc.css">
 </head>
 <body>
 <header class="example-header">
-<nav><div class="nav-el"><a class="nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="nav-el" href="../search.html">Search</a></div></nav>
+<nav><div class="nav-el"><a class="raw nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="raw nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="raw nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="raw nav-el" href="../search.html">Search</a></div></nav>
 <div class="superheading"><div class="heading"><h1>Totality</h1><div class="subheading"><wbr><div class="ex-no">Example 144</div> ★★</div></div>
-<div class="doc-navbar example-linkback"><div class="doc-navbar-left"><a class="nav-el" href="../WI_9.html#section_11" title="Time &gt; Future events"><div class="nav-arrow">↑WI §9.11</div><div class="doc-navbar-text">Future events</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="../RB_3.html#section_9" title="Place &gt; Passers-By, Weather and Astronomical Events"><div class="doc-navbar-text">Passers-By, Weather and Astronomical Events</div><div class="nav-arrow">RB §3.9↑</div></a></div></div>
+<div class="doc-navbar example-linkback"><div class="doc-navbar-left"><a class="raw nav-el" href="../WI_9.html#section_11" title="Time &gt; Future events"><div class="nav-arrow"><span class="sc">wi</span> 9.11</div><div class="doc-navbar-text">Future events</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="../RB_3.html#section_9" title="Place &gt; Passers-By, Weather and Astronomical Events"><div class="doc-navbar-text">Passers-By, Weather and Astronomical Events</div><div class="nav-arrow"><span class="sc">rb</span> 3.9</div></a></div></div>
 </div>
 <div class="example-meta-desc"><p>To schedule an eclipse of the sun, which involves a number of related events.</p></div>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="mre.html" title="Hunger that eventually kills the player, and foodstuffs that can delay the inevitable by different amounts of time."><div class="nav-arrow">←143. </div><div class="doc-navbar-text">MRE</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="empire.html" title="A train which follows a schedule, stopping at a number of different locations."><div class="doc-navbar-text">Empire</div><div class="nav-arrow">145.→</div></a></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="mre.html" title="Hunger that eventually kills the player, and foodstuffs that can delay the inevitable by different amounts of time."><div class="nav-arrow">⬅143. </div><div class="doc-navbar-text">MRE</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="empire.html" title="A train which follows a schedule, stopping at a number of different locations."><div class="doc-navbar-text">Empire</div><div class="nav-arrow">145.⮕</div></a></div></div>
 </header>
 <div class="example-body"><p>First we define the events, and then we create a phrase to schedule them:</p>
-<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex144">Play/modify Totality in Borogove</a></span>
- &bull; <span class="quixe-link"><a href="Eclipse/index.html">Play Totality in Quixe</a></span>
-</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Totality&quot;\n\nAt the time when the penumbra appears:\n\tsay &quot;The sunlight dies away to an eerie, brownish penumbra.&quot;\n\nAt the time when the eclipse begins:\n\tsay &quot;The moon passes across the disc of the sun, plunging the world into darkness.&quot;;\n\tnow the Chamber is dark.\n\nAt the time when the eclipse ends:\n\tsay &quot;The moon passes away from the sun, and a gloomy penumbral light returns.&quot;;\n\tnow the Chamber is lighted.\n\nAt the time when normal sunlight returns:\n\tsay &quot;The sun shines once more bright in the sky, not to be eclipsed again on this spot for another thirty-seven years.&quot;\n\nTo schedule an eclipse for (totality - a time):\n\tthe penumbra appears at two minutes before totality;\n\tthe eclipse begins at totality;\n\tthe eclipse ends at three minutes after totality;\n\tnormal sunlight returns at five minutes after totality.\n\n\nWhen play begins, schedule an eclipse for 3:27 PM.\n\nThe Chamber is a room.\n\nThe time of day is 3:25 PM.\n\nTest me with &quot;z / z / z / z / z / z / z / z / z&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Totality&quot;</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="play-example borogove"><a class="raw" href="https://snippets.borogove.app/inform7/v10ex144">Play/modify in Borogove</a></div>
+<div class="play-example quixe"><a class="raw" href="Eclipse/index.html">Play in Quixe</a></div>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Totality&quot;\n\nAt the time when the penumbra appears:\n\tsay &quot;The sunlight dies away to an eerie, brownish penumbra.&quot;\n\nAt the time when the eclipse begins:\n\tsay &quot;The moon passes across the disc of the sun, plunging the world into darkness.&quot;;\n\tnow the Chamber is dark.\n\nAt the time when the eclipse ends:\n\tsay &quot;The moon passes away from the sun, and a gloomy penumbral light returns.&quot;;\n\tnow the Chamber is lighted.\n\nAt the time when normal sunlight returns:\n\tsay &quot;The sun shines once more bright in the sky, not to be eclipsed again on this spot for another thirty-seven years.&quot;\n\nTo schedule an eclipse for (totality - a time):\n\tthe penumbra appears at two minutes before totality;\n\tthe eclipse begins at totality;\n\tthe eclipse ends at three minutes after totality;\n\tnormal sunlight returns at five minutes after totality.\n\n\nWhen play begins, schedule an eclipse for 3:27 PM.\n\nThe Chamber is a room.\n\nThe time of day is 3:25 PM.\n\nTest me with &quot;z / z / z / z / z / z / z / z / z&quot;.`)"><span class="sym">⧉</span></button><div class="codeline storytitle">&quot;Totality&quot;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">At the time when the penumbra appears:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say &quot;The sunlight dies away to an eerie, brownish penumbra.&quot;</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">At the time when the eclipse begins:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say &quot;The moon passes across the disc of the sun, plunging the world into darkness.&quot;;</div>
 <div class="codeline">&ensp;&ensp;&ensp;now the Chamber is dark.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">At the time when the eclipse ends:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say &quot;The moon passes away from the sun, and a gloomy penumbral light returns.&quot;;</div>
 <div class="codeline">&ensp;&ensp;&ensp;now the Chamber is lighted.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">At the time when normal sunlight returns:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say &quot;The sun shines once more bright in the sky, not to be eclipsed again on this spot for another thirty-seven years.&quot;</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">To schedule an eclipse for (totality - a time):</div>
 <div class="codeline">&ensp;&ensp;&ensp;the penumbra appears at two minutes before totality;</div>
 <div class="codeline">&ensp;&ensp;&ensp;the eclipse begins at totality;</div>
@@ -39,15 +42,15 @@
 <div class="codeline">&ensp;&ensp;&ensp;normal sunlight returns at five minutes after totality.</div>
 </div><p>Now we make use of the new phrase:</p>
 <div class="codeblock"><div class="codeline">When play begins, schedule an eclipse for 3:27 PM.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">The Chamber is a room.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">The time of day is 3:25 PM.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Test me with &quot;z / z / z / z / z / z / z / z / z&quot;.</div>
-</div><details class="testme-output"><summary><div class="summation"><div class="consummation">Test me with "z / z / z / z / z / z / z / z / z".</div></div></summary><div class="testme-output">Chamber<br><br><span class="mono">&gt;(Testing.)</span><br><br><span class="mono">&gt;[1] z</span><br>Time passes.<br><br>The sunlight dies away to an eerie, brownish penumbra.<br><br><span class="mono">&gt;[2] z</span><br>Time passes.<br><br><span class="mono">&gt;[3] z</span><br>Time passes.<br><br>The moon passes across the disc of the sun, plunging the world into darkness.<br><br>It is now pitch dark in here!<br><br><span class="mono">&gt;[4] z</span><br>Time passes.<br><br><span class="mono">&gt;[5] z</span><br>Time passes.<br><br><span class="mono">&gt;[6] z</span><br>Time passes.<br><br>The moon passes away from the sun, and a gloomy penumbral light returns.<br><br>Chamber<br><br><span class="mono">&gt;[7] z</span><br>Time passes.<br><br><span class="mono">&gt;[8] z</span><br>Time passes.<br><br>The sun shines once more bright in the sky, not to be eclipsed again on this spot for another thirty-seven years.<br><br><span class="mono">&gt;[9] z</span><br>Time passes.
+</div><details class="testme-output"><summary><div class="summation">Test me with "z / z / z / z / z / z / z / z / z".</div></summary><div class="testme-output">Chamber<br><br><span class="mono">&gt;(Testing.)</span><br><br><span class="mono">&gt;[1] z</span><br>Time passes.<br><br>The sunlight dies away to an eerie, brownish penumbra.<br><br><span class="mono">&gt;[2] z</span><br>Time passes.<br><br><span class="mono">&gt;[3] z</span><br>Time passes.<br><br>The moon passes across the disc of the sun, plunging the world into darkness.<br><br>It is now pitch dark in here!<br><br><span class="mono">&gt;[4] z</span><br>Time passes.<br><br><span class="mono">&gt;[5] z</span><br>Time passes.<br><br><span class="mono">&gt;[6] z</span><br>Time passes.<br><br>The moon passes away from the sun, and a gloomy penumbral light returns.<br><br>Chamber<br><br><span class="mono">&gt;[7] z</span><br>Time passes.<br><br><span class="mono">&gt;[8] z</span><br>Time passes.<br><br>The sun shines once more bright in the sky, not to be eclipsed again on this spot for another thirty-seven years.<br><br><span class="mono">&gt;[9] z</span><br>Time passes.
 </div></details><p>We shall see much more about creating phrases later. Their advantage is that they enable a complicated sequence of operations to be given a meaningful name, and that they can be re-used many times as needed.</p>
-</div><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="mre.html" title="Hunger that eventually kills the player, and foodstuffs that can delay the inevitable by different amounts of time."><div class="nav-arrow">←143. </div><div class="doc-navbar-text">MRE</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="empire.html" title="A train which follows a schedule, stopping at a number of different locations."><div class="doc-navbar-text">Empire</div><div class="nav-arrow">145.→</div></a></div></div>
-<footer id="credits-footer"><nav><div class="nav-el"><a class="nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="nav-el" href="../search.html">Search</a></div></nav>
-<div class="footing"><p id="i7credit"><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p class="about"><a class="nav-about" href="../about.html">About this edition</a> &bull; <a class="nav-about" href="https://twitter.com/inform7tips">@inform7tips</a></p></div></footer>
+</div><div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="mre.html" title="Hunger that eventually kills the player, and foodstuffs that can delay the inevitable by different amounts of time."><div class="nav-arrow">⬅143. </div><div class="doc-navbar-text">MRE</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="empire.html" title="A train which follows a schedule, stopping at a number of different locations."><div class="doc-navbar-text">Empire</div><div class="nav-arrow">145.⮕</div></a></div></div>
+<footer id="credits-footer"><nav><div class="nav-el"><a class="raw nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="raw nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="raw nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="raw nav-el" href="../search.html">Search</a></div></nav>
+<div class="footing"><p id="i7credit"><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p class="about"><a class="raw" href="../about.html">About this edition</a>&ensp;&bull;&ensp;<a class="raw" href="https://twitter.com/inform7tips">@inform7tips</a></p></div></footer>
 </body></html>

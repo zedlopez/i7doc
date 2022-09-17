@@ -2,34 +2,38 @@
 <html lang="en"><head><meta charset="utf-8">
 <title>Ex. 441. Rubies</title>
 <script src="../i7doc.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,375;0,400;0,500;0,700;1,375;1,400;1,500;1,700&family=Source+Sans+Pro:ital,wght@0,350;0,400;0,550;0,700;1,350;1,400;1,550;1,700&display=swap" rel="stylesheet"> 
 <link rel="stylesheet" href="../i7doc.css">
 </head>
 <body>
 <header class="example-header">
-<nav><div class="nav-el"><a class="nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="nav-el" href="../search.html">Search</a></div></nav>
+<nav><div class="nav-el"><a class="raw nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="raw nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="raw nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="raw nav-el" href="../search.html">Search</a></div></nav>
 <div class="superheading"><div class="heading"><h1>Rubies</h1><div class="subheading"><wbr><div class="ex-no">Example 441</div> ★★★</div></div>
-<div class="doc-navbar example-linkback"><div class="doc-navbar-left"><a class="nav-el" href="../WI_23.html#section_13" title="Figures, Sounds and Files &gt; Writing and reading tables to external files"><div class="nav-arrow">↑WI §23.13</div><div class="doc-navbar-text">Writing and reading tables to external files</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="../RB_11.html#section_4" title="Out Of World Actions and Effects &gt; Scoring"><div class="doc-navbar-text">Scoring</div><div class="nav-arrow">RB §11.4↑</div></a></div></div>
+<div class="doc-navbar example-linkback"><div class="doc-navbar-left"><a class="raw nav-el" href="../WI_23.html#section_13" title="Figures, Sounds and Files &gt; Writing and reading tables to external files"><div class="nav-arrow"><span class="sc">wi</span> 23.13</div><div class="doc-navbar-text">Writing and reading tables to external files</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="../RB_11.html#section_4" title="Out Of World Actions and Effects &gt; Scoring"><div class="doc-navbar-text">Scoring</div><div class="nav-arrow"><span class="sc">rb</span> 11.4</div></a></div></div>
 </div>
 <div class="example-meta-desc"><p>A scoreboard that keeps track of the ten highest-scoring players from one playthrough to the next, adding the player&#39;s name if he has done well enough.</p></div>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="labyrinth_of_ghosts.html" title="Remembering the fates of all previous explorers of the labyrinth."><div class="nav-arrow">←440. </div><div class="doc-navbar-text">Labyrinth of Ghosts</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="fourth_body.html" title="Notebooks in which the player can record assorted notes throughout play."><div class="doc-navbar-text">The Fourth Body</div><div class="nav-arrow">442.→</div></a></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="labyrinth_of_ghosts.html" title="Remembering the fates of all previous explorers of the labyrinth."><div class="nav-arrow">⬅440. </div><div class="doc-navbar-text">Labyrinth of Ghosts</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="fourth_body.html" title="Notebooks in which the player can record assorted notes throughout play."><div class="doc-navbar-text">The Fourth Body</div><div class="nav-arrow">442.⮕</div></a></div></div>
 </header>
 <div class="example-body"><p>The trick here is that we need a table with text in order to keep track of the players&#39; names.</p>
 <p>Part 1 largely replicates the source from &quot;Identity Theft&quot;; new material starts at Part 2.</p>
-<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex441">Play/modify Rubies in Borogove</a></span>
- &bull; <span class="quixe-link"><a href="Rubies/index.html">Play Rubies in Quixe</a></span>
-</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Rubies&quot;\n\nUse scoring.\n\nPart 1 - Collecting Names\n\nThe player&apos;s forename is a text that varies. The player&apos;s full name is a text that varies.\n\nWhen play begins:\n\tnow the command prompt is &quot;What is your name? > &quot;.\n\nTo decide whether collecting names:\n\tif the command prompt is &quot;What is your name? > &quot;, yes;\n\tno.\n\nAfter reading a command when collecting names:\n\tif the number of words in the player&apos;s command is greater than 5:\n\t\tsay &quot;[paragraph break]Who are you, a member of the British royal family? No one has that many names. Let&apos;s try this again.&quot;;\n\t\treject the player&apos;s command;\n\tnow the player&apos;s full name is the player&apos;s command;\n\tnow the player&apos;s forename is word number 1 in the player&apos;s command;\n\tnow the command prompt is &quot;>&quot;;\n\tsay &quot;Hi, [player&apos;s forename]!&quot;;\n\tsay &quot;[banner text]&quot;;\n\tmove the player to the location;\n\treject the player&apos;s command.\n\nInstead of looking when collecting names: do nothing.\n\nRule for printing the banner text when collecting names: do nothing.\n\nRule for constructing the status line when collecting names: do nothing.\n\nPart 2 - Adding the Leaderboard\n\nFile of Leaderboard is called &quot;leaderboard&quot;.\n\nWhen play begins:\n\tif the File of Leaderboard exists:\n\t\tread File of Leaderboard into the Table of Leaders;\n\t\tsort the Table of Leaders in reverse scored amount order.\n\nWhen play ends:\n\tchoose row 10 in the Table of Leaders; [we&apos;ve sorted the table, so the lowest score will be the one at the bottom]\n\tif the score is greater than scored amount entry:\n\t\tnow name entry is the player&apos;s forename;\n\t\tnow the scored amount entry is the score;\n\tshow leaderboard;\n\twrite the File of Leaderboard from the Table of Leaders.\n\nTo show leaderboard:\n\tsort the Table of Leaders in reverse scored amount order;\n\tsay &quot;Current leading scores: [paragraph break]&quot;;\n\tsay fixed letter spacing;\n\trepeat through Table of Leaders:\n\t\tif scored amount entry is greater than 0:\n\t\t\tsay &quot;  [name entry]&quot;;\n\t\t\tlet N be 25 minus the number of characters in name entry; [here we want to space out the scores so they make a neat column]\n\t\t\tif N is less than 1, now N is 1;\n\t\t\tsay N spaces;\n\t\t\tsay &quot;[scored amount entry][line break]&quot;;\n\tsay variable letter spacing.\n\nTo say (N - a number) spaces:\n\trepeat with index running from 1 to N:\n\t\tsay &quot; &quot;.\n\nTable of Leaders\nscored amount\tname\n0\t&quot;Smithee&quot;\n0\t&quot;Smithee&quot;\n0\t&quot;Smithee&quot;\n0\t&quot;Smithee&quot;\n0\t&quot;Smithee&quot;\n0\t&quot;Smithee&quot;\n0\t&quot;Smithee&quot;\n0\t&quot;Smithee&quot;\n0\t&quot;Smithee&quot;\n0\t&quot;Smithee&quot;\n\n\nPart 3 - Scenario\n\nCarry out taking something which is not handled:\n\tincrement score.\n\nThe Big Treasure Chamber is a room. It contains a ruby, an emerald, a gold tooth, an antique katana, and a silver coin.\n\nInstead of waiting, end the story finally.\n\nTest me with &quot;get ruby / z&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Rubies&quot;</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="play-example borogove"><a class="raw" href="https://snippets.borogove.app/inform7/v10ex441">Play/modify in Borogove</a></div>
+<div class="play-example quixe"><a class="raw" href="Rubies/index.html">Play in Quixe</a></div>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Rubies&quot;\n\nUse scoring.\n\nPart 1 - Collecting Names\n\nThe player&apos;s forename is a text that varies. The player&apos;s full name is a text that varies.\n\nWhen play begins:\n\tnow the command prompt is &quot;What is your name? > &quot;.\n\nTo decide whether collecting names:\n\tif the command prompt is &quot;What is your name? > &quot;, yes;\n\tno.\n\nAfter reading a command when collecting names:\n\tif the number of words in the player&apos;s command is greater than 5:\n\t\tsay &quot;[paragraph break]Who are you, a member of the British royal family? No one has that many names. Let&apos;s try this again.&quot;;\n\t\treject the player&apos;s command;\n\tnow the player&apos;s full name is the player&apos;s command;\n\tnow the player&apos;s forename is word number 1 in the player&apos;s command;\n\tnow the command prompt is &quot;>&quot;;\n\tsay &quot;Hi, [player&apos;s forename]!&quot;;\n\tsay &quot;[banner text]&quot;;\n\tmove the player to the location;\n\treject the player&apos;s command.\n\nInstead of looking when collecting names: do nothing.\n\nRule for printing the banner text when collecting names: do nothing.\n\nRule for constructing the status line when collecting names: do nothing.\n\nPart 2 - Adding the Leaderboard\n\nFile of Leaderboard is called &quot;leaderboard&quot;.\n\nWhen play begins:\n\tif the File of Leaderboard exists:\n\t\tread File of Leaderboard into the Table of Leaders;\n\t\tsort the Table of Leaders in reverse scored amount order.\n\nWhen play ends:\n\tchoose row 10 in the Table of Leaders; [we&apos;ve sorted the table, so the lowest score will be the one at the bottom]\n\tif the score is greater than scored amount entry:\n\t\tnow name entry is the player&apos;s forename;\n\t\tnow the scored amount entry is the score;\n\tshow leaderboard;\n\twrite the File of Leaderboard from the Table of Leaders.\n\nTo show leaderboard:\n\tsort the Table of Leaders in reverse scored amount order;\n\tsay &quot;Current leading scores: [paragraph break]&quot;;\n\tsay fixed letter spacing;\n\trepeat through Table of Leaders:\n\t\tif scored amount entry is greater than 0:\n\t\t\tsay &quot;  [name entry]&quot;;\n\t\t\tlet N be 25 minus the number of characters in name entry; [here we want to space out the scores so they make a neat column]\n\t\t\tif N is less than 1, now N is 1;\n\t\t\tsay N spaces;\n\t\t\tsay &quot;[scored amount entry][line break]&quot;;\n\tsay variable letter spacing.\n\nTo say (N - a number) spaces:\n\trepeat with index running from 1 to N:\n\t\tsay &quot; &quot;.\n\nTable of Leaders\nscored amount\tname\n0\t&quot;Smithee&quot;\n0\t&quot;Smithee&quot;\n0\t&quot;Smithee&quot;\n0\t&quot;Smithee&quot;\n0\t&quot;Smithee&quot;\n0\t&quot;Smithee&quot;\n0\t&quot;Smithee&quot;\n0\t&quot;Smithee&quot;\n0\t&quot;Smithee&quot;\n0\t&quot;Smithee&quot;\n\n\nPart 3 - Scenario\n\nCarry out taking something which is not handled:\n\tincrement score.\n\nThe Big Treasure Chamber is a room. It contains a ruby, an emerald, a gold tooth, an antique katana, and a silver coin.\n\nInstead of waiting, end the story finally.\n\nTest me with &quot;get ruby / z&quot;.`)"><span class="sym">⧉</span></button><div class="codeline storytitle">&quot;Rubies&quot;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Use scoring.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
-<div class="codeline i7header">Part 1 - Collecting Names</div><div class="codeline">The player&#39;s forename is a text that varies. The player&#39;s full name is a text that varies.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
+<div class="codeline i7header">Part 1 - Collecting Names</div><div class="codeline blankline">&thinsp;</div>
+<div class="codeline">The player&#39;s forename is a text that varies. The player&#39;s full name is a text that varies.</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">When play begins:</div>
 <div class="codeline">&ensp;&ensp;&ensp;now the command prompt is &quot;What is your name? &gt; &quot;.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">To decide whether collecting names:</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the command prompt is &quot;What is your name? &gt; &quot;, yes;</div>
 <div class="codeline">&ensp;&ensp;&ensp;no.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">After reading a command when collecting names:</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the number of words in the player&#39;s command is greater than 5:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[paragraph break]Who are you, a member of the British royal family? No one has that many names. Let&#39;s try this again.&quot;;</div>
@@ -41,20 +45,21 @@
 <div class="codeline">&ensp;&ensp;&ensp;say &quot;[banner text]&quot;;</div>
 <div class="codeline">&ensp;&ensp;&ensp;move the player to the location;</div>
 <div class="codeline">&ensp;&ensp;&ensp;reject the player&#39;s command.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Instead of looking when collecting names: do nothing.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Rule for printing the banner text when collecting names: do nothing.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Rule for constructing the status line when collecting names: do nothing.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
-<div class="codeline i7header">Part 2 - Adding the Leaderboard</div><div class="codeline">File of Leaderboard is called &quot;leaderboard&quot;.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
+<div class="codeline i7header">Part 2 - Adding the Leaderboard</div><div class="codeline blankline">&thinsp;</div>
+<div class="codeline">File of Leaderboard is called &quot;leaderboard&quot;.</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">When play begins:</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the File of Leaderboard exists:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;read File of Leaderboard into the Table of Leaders;</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;sort the Table of Leaders in reverse scored amount order.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">When play ends:</div>
 <div class="codeline">&ensp;&ensp;&ensp;choose row 10 in the Table of Leaders; [we&#39;ve sorted the table, so the lowest score will be the one at the bottom]</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the score is greater than scored amount entry:</div>
@@ -62,7 +67,7 @@
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the scored amount entry is the score;</div>
 <div class="codeline">&ensp;&ensp;&ensp;show leaderboard;</div>
 <div class="codeline">&ensp;&ensp;&ensp;write the File of Leaderboard from the Table of Leaders.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">To show leaderboard:</div>
 <div class="codeline">&ensp;&ensp;&ensp;sort the Table of Leaders in reverse scored amount order;</div>
 <div class="codeline">&ensp;&ensp;&ensp;say &quot;Current leading scores: [paragraph break]&quot;;</div>
@@ -75,25 +80,25 @@
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say N spaces;</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[scored amount entry][line break]&quot;;</div>
 <div class="codeline">&ensp;&ensp;&ensp;say variable letter spacing.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">To say (N - a number) spaces:</div>
 <div class="codeline">&ensp;&ensp;&ensp;repeat with index running from 1 to N:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot; &quot;.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline tablename">Table of Leaders</div><table>
 <tr><td>scored amount</td><td>name</td></tr><tr><td>0</td><td>&quot;Smithee&quot;</td></tr><tr><td>0</td><td>&quot;Smithee&quot;</td></tr><tr><td>0</td><td>&quot;Smithee&quot;</td></tr><tr><td>0</td><td>&quot;Smithee&quot;</td></tr><tr><td>0</td><td>&quot;Smithee&quot;</td></tr><tr><td>0</td><td>&quot;Smithee&quot;</td></tr><tr><td>0</td><td>&quot;Smithee&quot;</td></tr><tr><td>0</td><td>&quot;Smithee&quot;</td></tr><tr><td>0</td><td>&quot;Smithee&quot;</td></tr><tr><td>0</td><td>&quot;Smithee&quot;</td></tr></table>
 </div><p>And now we introduce a scenario that allows different players to come up with different scores &ndash; admittedly not a very interesting scenario, but it will do for now:</p>
-<div class="codeblock"><div class="codeline i7header">Part 3 - Scenario</div><div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeblock"><div class="codeline i7header">Part 3 - Scenario</div><div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Carry out taking something which is not handled:</div>
 <div class="codeline">&ensp;&ensp;&ensp;increment score.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">The Big Treasure Chamber is a room. It contains a ruby, an emerald, a gold tooth, an antique katana, and a silver coin.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Instead of waiting, end the story finally.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Test me with &quot;get ruby / z&quot;.</div>
-</div><details class="testme-output"><summary><div class="summation"><div class="consummation">Test me with "get ruby / z".</div></div></summary><div class="testme-output">Big Treasure Chamber<br>You can see a ruby, an emerald, a gold tooth, an antique katana and a silver coin here.<br><br><span class="mono">&gt;(Testing.)</span><br><br><span class="mono">&gt;[1] get ruby</span><br>Taken.<br><br>[Your score has just gone up by one point.]<br><br><span class="mono">&gt;[2] z</span><br>Current leading scores:<br><br>  Exemplar                 1<br><br><br><br>    *** The End ***<br><br><br>In that game you scored 1 out of a possible 0, in 2 turns.<br><br><br>Would you like to RESTART, RESTORE a saved game, QUIT or UNDO the last command?<br><span class="mono">&gt;</span><br>&lt;end of input&gt;
-</div></details></div><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="labyrinth_of_ghosts.html" title="Remembering the fates of all previous explorers of the labyrinth."><div class="nav-arrow">←440. </div><div class="doc-navbar-text">Labyrinth of Ghosts</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="fourth_body.html" title="Notebooks in which the player can record assorted notes throughout play."><div class="doc-navbar-text">The Fourth Body</div><div class="nav-arrow">442.→</div></a></div></div>
-<footer id="credits-footer"><nav><div class="nav-el"><a class="nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="nav-el" href="../search.html">Search</a></div></nav>
-<div class="footing"><p id="i7credit"><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p class="about"><a class="nav-about" href="../about.html">About this edition</a> &bull; <a class="nav-about" href="https://twitter.com/inform7tips">@inform7tips</a></p></div></footer>
+</div><details class="testme-output"><summary><div class="summation">Test me with "get ruby / z".</div></summary><div class="testme-output">Big Treasure Chamber<br>You can see a ruby, an emerald, a gold tooth, an antique katana and a silver coin here.<br><br><span class="mono">&gt;(Testing.)</span><br><br><span class="mono">&gt;[1] get ruby</span><br>Taken.<br><br>[Your score has just gone up by one point.]<br><br><span class="mono">&gt;[2] z</span><br>Current leading scores:<br><br>  Exemplar                 1<br><br><br><br>    *** The End ***<br><br><br>In that game you scored 1 out of a possible 0, in 2 turns.<br><br><br>Would you like to RESTART, RESTORE a saved game, QUIT or UNDO the last command?<br><span class="mono">&gt;</span><br>&lt;end of input&gt;
+</div></details></div><div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="labyrinth_of_ghosts.html" title="Remembering the fates of all previous explorers of the labyrinth."><div class="nav-arrow">⬅440. </div><div class="doc-navbar-text">Labyrinth of Ghosts</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="fourth_body.html" title="Notebooks in which the player can record assorted notes throughout play."><div class="doc-navbar-text">The Fourth Body</div><div class="nav-arrow">442.⮕</div></a></div></div>
+<footer id="credits-footer"><nav><div class="nav-el"><a class="raw nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="raw nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="raw nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="raw nav-el" href="../search.html">Search</a></div></nav>
+<div class="footing"><p id="i7credit"><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p class="about"><a class="raw" href="../about.html">About this edition</a>&ensp;&bull;&ensp;<a class="raw" href="https://twitter.com/inform7tips">@inform7tips</a></p></div></footer>
 </body></html>

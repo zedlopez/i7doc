@@ -2,72 +2,75 @@
 <html lang="en"><head><meta charset="utf-8">
 <title>Ex. 443. The Fifth Body</title>
 <script src="../i7doc.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,375;0,400;0,500;0,700;1,375;1,400;1,500;1,700&family=Source+Sans+Pro:ital,wght@0,350;0,400;0,550;0,700;1,350;1,400;1,550;1,700&display=swap" rel="stylesheet"> 
 <link rel="stylesheet" href="../i7doc.css">
 </head>
 <body>
 <header class="example-header">
-<nav><div class="nav-el"><a class="nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="nav-el" href="../search.html">Search</a></div></nav>
+<nav><div class="nav-el"><a class="raw nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="raw nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="raw nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="raw nav-el" href="../search.html">Search</a></div></nav>
 <div class="superheading"><div class="heading"><h1>The Fifth Body</h1><div class="subheading"><wbr><div class="ex-no">Example 443</div> ★★</div></div>
-<div class="doc-navbar example-linkback"><div class="doc-navbar-left"><a class="nav-el" href="../WI_23.html#section_14" title="Figures, Sounds and Files &gt; Writing, reading and appending text to files"><div class="nav-arrow">↑WI §23.14</div><div class="doc-navbar-text">Writing, reading and appending text to files</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="../RB_9.html#section_6" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Reading Matter"><div class="doc-navbar-text">Reading Matter</div><div class="nav-arrow">RB §9.6↑</div></a></div></div>
+<div class="doc-navbar example-linkback"><div class="doc-navbar-left"><a class="raw nav-el" href="../WI_23.html#section_14" title="Figures, Sounds and Files &gt; Writing, reading and appending text to files"><div class="nav-arrow"><span class="sc">wi</span> 23.14</div><div class="doc-navbar-text">Writing, reading and appending text to files</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="../RB_9.html#section_6" title="Props: Food, Clothing, Money, Toys, Books, Electronics &gt; Reading Matter"><div class="doc-navbar-text">Reading Matter</div><div class="nav-arrow"><span class="sc">rb</span> 9.6</div></a></div></div>
 </div>
 <div class="example-meta-desc"><p>An expansion on the notebook, allowing the player somewhat more room in which to type his recorded remark.</p></div>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="fourth_body.html" title="Notebooks in which the player can record assorted notes throughout play."><div class="nav-arrow">←442. </div><div class="doc-navbar-text">The Fourth Body</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="flathead_news_network.html" title="Using external files, together with a simple Unix script running in the background, to provide live news headlines inside a story file."><div class="doc-navbar-text">Flathead News Network</div><div class="nav-arrow">444.→</div></a></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="fourth_body.html" title="Notebooks in which the player can record assorted notes throughout play."><div class="nav-arrow">⬅442. </div><div class="doc-navbar-text">The Fourth Body</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="flathead_news_network.html" title="Using external files, together with a simple Unix script running in the background, to provide live news headlines inside a story file."><div class="doc-navbar-text">Flathead News Network</div><div class="nav-arrow">444.⮕</div></a></div></div>
 </header>
 <div class="example-body"><p>The implementation here is much like that of the previous example, except that we allow the player to write his notebook input as a separate command, leading to an exchange such as</p>
 <div class="codeblock"><div class="codeline">&gt;write in my notebook</div>
 <div class="codeline">You open your notebook and prepare to write in it.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">&gt;&gt;Am beginning to think that HT and BGG are in this together.</div>
 <div class="codeline">You finish writing and fold your notebook away.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">&gt;read my notebook</div>
 <div class="codeline">You read:</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Wednesday morning</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Am beginning to think that HT and BGG are in this together.</div>
 </div><p>The opening is much as before:</p>
-<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex443">Play/modify The Fifth Body in Borogove</a></span>
- &bull; <span class="quixe-link"><a href="FifthBody-G/index.html">Play The Fifth Body in Quixe</a></span>
-</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;The Fifth Body&quot;\n\nA jotter is a kind of thing. A jotter has an external file called the text file. A jotter can be fresh or used. A jotter is usually fresh. A jotter has a text called the heading.\n\nThe currently erased jotter is an object that varies.\n\nTo erase (pad - a jotter):\n\tnow the currently erased jotter is the pad;\n\twrite &quot;[heading of the currently erased jotter][paragraph break]&quot; to the text file of the pad;\n\tnow the pad is fresh.\n\nTo write in (pad - a jotter):\n\tappend &quot;[the time of day]: [player&apos;s command][line break]&quot; to the text file of the pad;\n\tnow the pad is used.\n\nTo read (pad - a jotter):\n\tsay &quot;You read: [paragraph break][text of the text file of the pad]&quot;.\n\nWhen play begins:\n\trepeat with pad running through jotters:\n\t\terase the pad.\n\nInstead of examining a used jotter (called the pad):\n\tread the pad.\n\nInstead of examining a fresh jotter (called the pad):\n\tsay &quot;There is nothing of note in [the pad].&quot;\n\nTarget jotter is an object that varies. The target jotter is usually nothing.\n\nUnderstand &quot;write in [something preferably held]&quot; as writing in. Writing in is an action applying to one thing.\n\nCheck writing in:\n\tif the noun is not a jotter, say &quot;It would be better to write in a notebook.&quot; instead.\n\nCarry out writing in:\n\tnow the command prompt is &quot;>>&quot;;\n\tnow the target jotter is the noun.\n\nReport writing in:\n\tsay &quot;You open [the noun] and prepare to write in it.&quot;\n\n\nAfter reading a command when target jotter is a jotter:\n\tnow the command prompt is &quot;>&quot;;\n\twrite in target jotter;\n\tnow target jotter is used;\n\tsay &quot;You finish writing and fold your notebook away.&quot;;\n\tnow the target jotter is nothing;\n\treject the player&apos;s command.\n\nUnderstand &quot;erase [something preferably held]&quot; as erasing. Erasing is an action applying to one carried thing.\n\nCheck erasing:\n\tif the noun is not a jotter, say &quot;It&apos;s hard to see how.&quot; instead.\n\nCarry out erasing:\n\terase the noun.\n\nReport erasing:\n\tsay &quot;You scrub out all the entries in [the noun].&quot;\n\nThe player carries a jotter called your notebook. The file of Player&apos;s Observations is called &quot;notebook&quot;. The text file of your notebook is the file of Player&apos;s Observations. The heading of your notebook is &quot;Sunday Morning&quot;.\n\nThe Vestry is a room. &quot;[Havers] hangs back by the door: the forensics expert is not finished with a preliminary examination of the body. From here you can&apos;t see much, except that the expert has peeled back and laid to one side a liturgical vestment that someone at the church used to cover the corpse until the police came. What was once a cream silk with festive Easter embroidery is now stained with blood-colored handprints.&quot;\n\nDetective Havers is a woman in the Vestry. The description is &quot;She looks glumly back. There&apos;s still a purple-ish bruise on her cheekbone from the disaster Thursday afternoon.&quot; Havers is scenery.\n\nHavers is carrying a jotter called Barbara&apos;s notebook. The file of Barbara&apos;s Observations is called &quot;barbara&quot;. The text file of Barbara&apos;s notebook is the file of Barbara&apos;s Observations. The heading of Barbara&apos;s notebook is &quot;Sun. AM&quot;.\n\nThe time of day is 9:11 AM.`)">⧉</button><div class="codeline storytitle">&quot;The Fifth Body&quot;</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="play-example borogove"><a class="raw" href="https://snippets.borogove.app/inform7/v10ex443">Play/modify in Borogove</a></div>
+<div class="play-example quixe"><a class="raw" href="FifthBody-G/index.html">Play in Quixe</a></div>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;The Fifth Body&quot;\n\nA jotter is a kind of thing. A jotter has an external file called the text file. A jotter can be fresh or used. A jotter is usually fresh. A jotter has a text called the heading.\n\nThe currently erased jotter is an object that varies.\n\nTo erase (pad - a jotter):\n\tnow the currently erased jotter is the pad;\n\twrite &quot;[heading of the currently erased jotter][paragraph break]&quot; to the text file of the pad;\n\tnow the pad is fresh.\n\nTo write in (pad - a jotter):\n\tappend &quot;[the time of day]: [player&apos;s command][line break]&quot; to the text file of the pad;\n\tnow the pad is used.\n\nTo read (pad - a jotter):\n\tsay &quot;You read: [paragraph break][text of the text file of the pad]&quot;.\n\nWhen play begins:\n\trepeat with pad running through jotters:\n\t\terase the pad.\n\nInstead of examining a used jotter (called the pad):\n\tread the pad.\n\nInstead of examining a fresh jotter (called the pad):\n\tsay &quot;There is nothing of note in [the pad].&quot;\n\nTarget jotter is an object that varies. The target jotter is usually nothing.\n\nUnderstand &quot;write in [something preferably held]&quot; as writing in. Writing in is an action applying to one thing.\n\nCheck writing in:\n\tif the noun is not a jotter, say &quot;It would be better to write in a notebook.&quot; instead.\n\nCarry out writing in:\n\tnow the command prompt is &quot;>>&quot;;\n\tnow the target jotter is the noun.\n\nReport writing in:\n\tsay &quot;You open [the noun] and prepare to write in it.&quot;\n\n\nAfter reading a command when target jotter is a jotter:\n\tnow the command prompt is &quot;>&quot;;\n\twrite in target jotter;\n\tnow target jotter is used;\n\tsay &quot;You finish writing and fold your notebook away.&quot;;\n\tnow the target jotter is nothing;\n\treject the player&apos;s command.\n\nUnderstand &quot;erase [something preferably held]&quot; as erasing. Erasing is an action applying to one carried thing.\n\nCheck erasing:\n\tif the noun is not a jotter, say &quot;It&apos;s hard to see how.&quot; instead.\n\nCarry out erasing:\n\terase the noun.\n\nReport erasing:\n\tsay &quot;You scrub out all the entries in [the noun].&quot;\n\nThe player carries a jotter called your notebook. The file of Player&apos;s Observations is called &quot;notebook&quot;. The text file of your notebook is the file of Player&apos;s Observations. The heading of your notebook is &quot;Sunday Morning&quot;.\n\nThe Vestry is a room. &quot;[Havers] hangs back by the door: the forensics expert is not finished with a preliminary examination of the body. From here you can&apos;t see much, except that the expert has peeled back and laid to one side a liturgical vestment that someone at the church used to cover the corpse until the police came. What was once a cream silk with festive Easter embroidery is now stained with blood-colored handprints.&quot;\n\nDetective Havers is a woman in the Vestry. The description is &quot;She looks glumly back. There&apos;s still a purple-ish bruise on her cheekbone from the disaster Thursday afternoon.&quot; Havers is scenery.\n\nHavers is carrying a jotter called Barbara&apos;s notebook. The file of Barbara&apos;s Observations is called &quot;barbara&quot;. The text file of Barbara&apos;s notebook is the file of Barbara&apos;s Observations. The heading of Barbara&apos;s notebook is &quot;Sun. AM&quot;.\n\nThe time of day is 9:11 AM.`)"><span class="sym">⧉</span></button><div class="codeline storytitle">&quot;The Fifth Body&quot;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">A jotter is a kind of thing. A jotter has an external file called the text file. A jotter can be fresh or used. A jotter is usually fresh. A jotter has a text called the heading.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">The currently erased jotter is an object that varies.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">To erase (pad - a jotter):</div>
 <div class="codeline">&ensp;&ensp;&ensp;now the currently erased jotter is the pad;</div>
 <div class="codeline">&ensp;&ensp;&ensp;write &quot;[heading of the currently erased jotter][paragraph break]&quot; to the text file of the pad;</div>
 <div class="codeline">&ensp;&ensp;&ensp;now the pad is fresh.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">To write in (pad - a jotter):</div>
 <div class="codeline">&ensp;&ensp;&ensp;append &quot;[the time of day]: [player&#39;s command][line break]&quot; to the text file of the pad;</div>
 <div class="codeline">&ensp;&ensp;&ensp;now the pad is used.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">To read (pad - a jotter):</div>
 <div class="codeline">&ensp;&ensp;&ensp;say &quot;You read: [paragraph break][text of the text file of the pad]&quot;.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">When play begins:</div>
 <div class="codeline">&ensp;&ensp;&ensp;repeat with pad running through jotters:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;erase the pad.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Instead of examining a used jotter (called the pad):</div>
 <div class="codeline">&ensp;&ensp;&ensp;read the pad.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Instead of examining a fresh jotter (called the pad):</div>
 <div class="codeline">&ensp;&ensp;&ensp;say &quot;There is nothing of note in [the pad].&quot;</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Target jotter is an object that varies. The target jotter is usually nothing.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Understand &quot;write in [something preferably held]&quot; as writing in. Writing in is an action applying to one thing.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Check writing in:</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the noun is not a jotter, say &quot;It would be better to write in a notebook.&quot; instead.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Carry out writing in:</div>
 <div class="codeline">&ensp;&ensp;&ensp;now the command prompt is &quot;&gt;&gt;&quot;;</div>
 <div class="codeline">&ensp;&ensp;&ensp;now the target jotter is the noun.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Report writing in:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say &quot;You open [the noun] and prepare to write in it.&quot;</div>
 </div><p>Now what happens is that the player, having typed WRITE IN NOTEBOOK, will be faced with a &quot;&gt;&gt;&quot; prompt instead of the usual &quot;&gt;&quot;: a sign that the input mode has changed.</p>
@@ -79,28 +82,28 @@
 <div class="codeline">&ensp;&ensp;&ensp;say &quot;You finish writing and fold your notebook away.&quot;;</div>
 <div class="codeline">&ensp;&ensp;&ensp;now the target jotter is nothing;</div>
 <div class="codeline">&ensp;&ensp;&ensp;reject the player&#39;s command.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Understand &quot;erase [something preferably held]&quot; as erasing. Erasing is an action applying to one carried thing.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Check erasing:</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the noun is not a jotter, say &quot;It&#39;s hard to see how.&quot; instead.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Carry out erasing:</div>
 <div class="codeline">&ensp;&ensp;&ensp;erase the noun.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Report erasing:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say &quot;You scrub out all the entries in [the noun].&quot;</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">The player carries a jotter called your notebook. The file of Player&#39;s Observations is called &quot;notebook&quot;. The text file of your notebook is the file of Player&#39;s Observations. The heading of your notebook is &quot;Sunday Morning&quot;.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">The Vestry is a room. &quot;[Havers] hangs back by the door: the forensics expert is not finished with a preliminary examination of the body. From here you can&#39;t see much, except that the expert has peeled back and laid to one side a liturgical vestment that someone at the church used to cover the corpse until the police came. What was once a cream silk with festive Easter embroidery is now stained with blood-colored handprints.&quot;</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Detective Havers is a woman in the Vestry. The description is &quot;She looks glumly back. There&#39;s still a purple-ish bruise on her cheekbone from the disaster Thursday afternoon.&quot; Havers is scenery.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Havers is carrying a jotter called Barbara&#39;s notebook. The file of Barbara&#39;s Observations is called &quot;barbara&quot;. The text file of Barbara&#39;s notebook is the file of Barbara&#39;s Observations. The heading of Barbara&#39;s notebook is &quot;Sun. AM&quot;.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">The time of day is 9:11 AM.</div>
-</div></div><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="fourth_body.html" title="Notebooks in which the player can record assorted notes throughout play."><div class="nav-arrow">←442. </div><div class="doc-navbar-text">The Fourth Body</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="flathead_news_network.html" title="Using external files, together with a simple Unix script running in the background, to provide live news headlines inside a story file."><div class="doc-navbar-text">Flathead News Network</div><div class="nav-arrow">444.→</div></a></div></div>
-<footer id="credits-footer"><nav><div class="nav-el"><a class="nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="nav-el" href="../search.html">Search</a></div></nav>
-<div class="footing"><p id="i7credit"><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p class="about"><a class="nav-about" href="../about.html">About this edition</a> &bull; <a class="nav-about" href="https://twitter.com/inform7tips">@inform7tips</a></p></div></footer>
+</div></div><div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="fourth_body.html" title="Notebooks in which the player can record assorted notes throughout play."><div class="nav-arrow">⬅442. </div><div class="doc-navbar-text">The Fourth Body</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="flathead_news_network.html" title="Using external files, together with a simple Unix script running in the background, to provide live news headlines inside a story file."><div class="doc-navbar-text">Flathead News Network</div><div class="nav-arrow">444.⮕</div></a></div></div>
+<footer id="credits-footer"><nav><div class="nav-el"><a class="raw nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="raw nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="raw nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="raw nav-el" href="../search.html">Search</a></div></nav>
+<div class="footing"><p id="i7credit"><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p class="about"><a class="raw" href="../about.html">About this edition</a>&ensp;&bull;&ensp;<a class="raw" href="https://twitter.com/inform7tips">@inform7tips</a></p></div></footer>
 </body></html>

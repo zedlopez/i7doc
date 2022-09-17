@@ -2,76 +2,81 @@
 <html lang="en"><head><meta charset="utf-8">
 <title>Ex. 396. Slouching</title>
 <script src="../i7doc.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,375;0,400;0,500;0,700;1,375;1,400;1,500;1,700&family=Source+Sans+Pro:ital,wght@0,350;0,400;0,550;0,700;1,350;1,400;1,550;1,700&display=swap" rel="stylesheet"> 
 <link rel="stylesheet" href="../i7doc.css">
 </head>
 <body>
 <header class="example-header">
-<nav><div class="nav-el"><a class="nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="nav-el" href="../search.html">Search</a></div></nav>
+<nav><div class="nav-el"><a class="raw nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="raw nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="raw nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="raw nav-el" href="../search.html">Search</a></div></nav>
 <div class="superheading"><div class="heading"><h1>Slouching</h1><div class="subheading"><wbr><div class="ex-no">Example 396</div> ★★</div></div>
-<div class="doc-navbar example-linkback"><div class="doc-navbar-left"><a class="nav-el" href="../WI_19.html#section_4" title="Rulebooks &gt; Listing rules explicitly"><div class="nav-arrow">↑WI §19.4</div><div class="doc-navbar-text">Listing rules explicitly</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="../RB_5.html#section_1" title="The Viewpoint Character &gt; The Human Body"><div class="doc-navbar-text">The Human Body</div><div class="nav-arrow">RB §5.1↑</div></a></div></div>
+<div class="doc-navbar example-linkback"><div class="doc-navbar-left"><a class="raw nav-el" href="../WI_19.html#section_4" title="Rulebooks &gt; Listing rules explicitly"><div class="nav-arrow"><span class="sc">wi</span> 19.4</div><div class="doc-navbar-text">Listing rules explicitly</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="../RB_5.html#section_1" title="The Viewpoint Character &gt; The Human Body"><div class="doc-navbar-text">The Human Body</div><div class="nav-arrow"><span class="sc">rb</span> 5.1</div></a></div></div>
 </div>
 <div class="example-meta-desc"><p>A system of postures allowing the player and other characters to sit, stand, or lie down explicitly or implicitly on a variety of enterable supporters or containers, or in location.</p></div>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="verbosity2.html" title="Making rooms give full descriptions each time we enter, even if we have visited before, and disallowing player use of BRIEF and SUPERBRIEF."><div class="nav-arrow">←395. </div><div class="doc-navbar-text">Verbosity 2</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="swigmore_u.html" title="Adding a new kind of supporter called a perch, where everything dropped lands on the floor."><div class="doc-navbar-text">Swigmore U.</div><div class="nav-arrow">397.→</div></a></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="verbosity2.html" title="Making rooms give full descriptions each time we enter, even if we have visited before, and disallowing player use of BRIEF and SUPERBRIEF."><div class="nav-arrow">⬅395. </div><div class="doc-navbar-text">Verbosity 2</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="swigmore_u.html" title="Adding a new kind of supporter called a perch, where everything dropped lands on the floor."><div class="doc-navbar-text">Swigmore U.</div><div class="nav-arrow">397.⮕</div></a></div></div>
 </header>
 <div class="example-body"><p>Suppose we want to let the player explicitly sit, stand, or lie down on different enterable objects. (Normally Inform treats all these actions as entering, but there may be cases where we want to distinguish between the player sitting on a chair and the player standing on it.)</p>
 <p>Our implementation gives each kind of enterable a range of allowed postures, and one preferred posture. If the player enters the supporter or container without specifying a posture (as in ENTER CHAIR), he will be put in the preferred posture. If he explicitly says, e.g., STAND ON CHAIR, he will be put in the standing position as long as standing is a posture that suits the chair.</p>
-<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex396">Play/modify Slouching in Borogove</a></span>
- &bull; <span class="quixe-link"><a href="Slouching/index.html">Play Slouching in Quixe</a></span>
-</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Slouching&quot;\n\nSection 1 - Posture Rules\n\nA posture is a kind of value. The postures are seated, standing, and reclining.\n\nA person has a posture. The posture of a person is usually standing.\n\nA supporter has a posture. A container has a posture.\n\nPosture-permission relates various things to various postures. The verb to allow means the posture-permission relation.\n\nUnderstand the commands &quot;stand&quot; and &quot;sit&quot; and &quot;lie&quot; as something new.\n\nUnderstand &quot;sit on/in [something]&quot; as sitting on.\nUnderstand &quot;lie on/in [something]&quot; as lying on.\nUnderstand &quot;stand on/in [something]&quot; as standing up on.\n\nSitting on is an action applying to one thing.\nLying on is an action applying to one thing.\nStanding up on is an action applying to one thing.\n\nCarry out an actor sitting on:\n\tif the holder of the actor is not the noun, silently try the actor entering the noun;\n\tif the holder of the actor is the noun:\n\t\tif the actor is not seated, try the actor taking position seated;\n\t\totherwise follow the report taking position rules.\n\nCarry out an actor lying on:\n\tif the holder of the actor is not the noun, silently try the actor entering the noun;\n\tif the holder of the actor is the noun:\n\t\tif the actor is not reclining, try the actor taking position reclining;\n\t\totherwise follow the report taking position rules.\n\nCarry out an actor standing up on:\n\tif the holder of the actor is not the noun, silently try the actor entering the noun;\n\tif the holder of the actor is the noun:\n\t\tif the actor is not standing, try the actor taking position standing;\n\t\totherwise follow the report taking position rules.\n\n\nUnderstand &quot;lie down&quot; as lying down.\nUnderstand &quot;sit down&quot; or &quot;sit&quot; or &quot;sit up&quot; as sitting down.\nUnderstand &quot;stand&quot; or &quot;stand up&quot; as standing up.\n\nLying down is an action applying to nothing.\nSitting down is an action applying to nothing.\nStanding up is an action applying to nothing.\n\nTaking position is an action applying to one posture.\n\nInstead of an actor lying down:\n\ttry the actor taking position reclining; rule succeeds.\nInstead of an actor sitting down:\n\ttry the actor taking position seated; rule succeeds.\nInstead of an actor standing up:\n\ttry the actor taking position standing; rule succeeds.\n\nCheck an actor taking position:\n\tif the holder of the actor is not a room and the holder of the actor does not allow the posture understood:\n\t\tif the actor is the player:\n\t\t\tsay &quot;You can&apos;t take that position [in-on the holder of the actor].&quot;;\n\t\totherwise if the actor is visible:\n\t\t\tsay &quot;[The actor] can&apos;t take that position.&quot;;\n\t\tstop the action.\n\nCheck an actor taking position:\n\tif the posture understood is the posture of the actor:\n\t\tif the actor is the player:\n\t\t\tsay &quot;You are already [the posture understood].&quot;;\n\t\totherwise:\n\t\t\tif the actor is visible, say &quot;[The actor] is already [the posture understood].&quot;;\n\t\tstop the action.\n\nCarry out an actor taking position:\n\tnow the posture of the actor is the posture understood.\n\nReport someone taking position (this is the position-report rule):\n\tsay &quot;[The actor] is now [the posture of the actor][if the holder of the actor is not the location of the actor] [in-on the holder of the actor][end if].&quot;\n\nReport taking position:\n\tsay &quot;You are now [the posture of the player][if the holder of the player is not the location] [in-on the holder of the player][end if].&quot;\n\nTo say in-on (item - a thing):\n\tif the item is a container, say &quot;in [the item]&quot;;\n\totherwise say &quot;on [the item]&quot;.\n\nCarry out an actor exiting (this is the departure-posture rule):\n\tlet N be the holder of the actor;\n\tif N is a container or N is a supporter,\n\t\tnow the posture of the actor is the posture of N;\n\totherwise now the posture of the actor is standing.\n\nThe departure-posture rule is listed after the standard exiting rule in the carry out exiting rulebook.\nThe departure-posture rule is listed after the standard getting off rule in the carry out getting off rulebook.\n\nCarry out an actor entering something (this is the arrival-posture rule):\n\tif the noun is a container or the noun is a supporter,\n\t\tnow the posture of the actor is the posture of the noun.\n\nThe arrival-posture rule is listed after the standard entering rule in the carry out entering rulebook.\n\nCheck an actor going somewhere:\n\tif the actor is in a room and the actor is not standing:\n\t\tsay &quot;([if the actor is not the player][the actor] [end if]first standing up)[command clarification break]&quot;;\n\t\tsilently try the actor taking position standing;\n\t\tif the actor is not standing, stop the action.\n\nSection 2 - Some Generic Kinds\n\nA chair is a kind of supporter. A chair is always enterable. Every chair allows seated and standing. A chair is usually seated.\nA sofa is a kind of supporter. A sofa is always enterable. Every sofa allows seated, standing and reclining. A sofa is usually seated.\nA hammock is a kind of container. A hammock is always enterable. Every hammock allows seated and reclining. A hammock is usually reclining.\n\nSection 3 - The Scenario\n\nThe Resort is a room.\n\nThe banana hammock is a hammock in the Resort. The stone bench is a sofa in the resort.\n\nClark is a man in the Resort. A persuasion rule: persuasion succeeds.\n\nRule for writing a paragraph about someone (called target):\n\tsay &quot;[The target] is [posture] [if the holder of the target is the location]nearby[otherwise][in-on the holder of the target][end if].&quot;\n\nRule for writing a paragraph about something which encloses an unmentioned person (called target):\n\tcarry out the writing a paragraph about activity with the target instead.\n\nTest me with &quot;sit on bench / stand on bench / get up / lie on hammock / sit up / g / clark, sit on bench / look / clark, lie down / g / look / clark, get up / look / clark, lie down / look / enter bench&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Slouching&quot;</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
-<div class="codeline i7header">Section 1 - Posture Rules</div><div class="codeline">A posture is a kind of value. The postures are seated, standing, and reclining.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="play-example borogove"><a class="raw" href="https://snippets.borogove.app/inform7/v10ex396">Play/modify in Borogove</a></div>
+<div class="play-example quixe"><a class="raw" href="Slouching/index.html">Play in Quixe</a></div>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Slouching&quot;\n\nSection 1 - Posture Rules\n\nA posture is a kind of value. The postures are seated, standing, and reclining.\n\nA person has a posture. The posture of a person is usually standing.\n\nA supporter has a posture. A container has a posture.\n\nPosture-permission relates various things to various postures. The verb to allow means the posture-permission relation.\n\nUnderstand the commands &quot;stand&quot; and &quot;sit&quot; and &quot;lie&quot; as something new.\n\nUnderstand &quot;sit on/in [something]&quot; as sitting on.\nUnderstand &quot;lie on/in [something]&quot; as lying on.\nUnderstand &quot;stand on/in [something]&quot; as standing up on.\n\nSitting on is an action applying to one thing.\nLying on is an action applying to one thing.\nStanding up on is an action applying to one thing.\n\nCarry out an actor sitting on:\n\tif the holder of the actor is not the noun, silently try the actor entering the noun;\n\tif the holder of the actor is the noun:\n\t\tif the actor is not seated, try the actor taking position seated;\n\t\totherwise follow the report taking position rules.\n\nCarry out an actor lying on:\n\tif the holder of the actor is not the noun, silently try the actor entering the noun;\n\tif the holder of the actor is the noun:\n\t\tif the actor is not reclining, try the actor taking position reclining;\n\t\totherwise follow the report taking position rules.\n\nCarry out an actor standing up on:\n\tif the holder of the actor is not the noun, silently try the actor entering the noun;\n\tif the holder of the actor is the noun:\n\t\tif the actor is not standing, try the actor taking position standing;\n\t\totherwise follow the report taking position rules.\n\n\nUnderstand &quot;lie down&quot; as lying down.\nUnderstand &quot;sit down&quot; or &quot;sit&quot; or &quot;sit up&quot; as sitting down.\nUnderstand &quot;stand&quot; or &quot;stand up&quot; as standing up.\n\nLying down is an action applying to nothing.\nSitting down is an action applying to nothing.\nStanding up is an action applying to nothing.\n\nTaking position is an action applying to one posture.\n\nInstead of an actor lying down:\n\ttry the actor taking position reclining; rule succeeds.\nInstead of an actor sitting down:\n\ttry the actor taking position seated; rule succeeds.\nInstead of an actor standing up:\n\ttry the actor taking position standing; rule succeeds.\n\nCheck an actor taking position:\n\tif the holder of the actor is not a room and the holder of the actor does not allow the posture understood:\n\t\tif the actor is the player:\n\t\t\tsay &quot;You can&apos;t take that position [in-on the holder of the actor].&quot;;\n\t\totherwise if the actor is visible:\n\t\t\tsay &quot;[The actor] can&apos;t take that position.&quot;;\n\t\tstop the action.\n\nCheck an actor taking position:\n\tif the posture understood is the posture of the actor:\n\t\tif the actor is the player:\n\t\t\tsay &quot;You are already [the posture understood].&quot;;\n\t\totherwise:\n\t\t\tif the actor is visible, say &quot;[The actor] is already [the posture understood].&quot;;\n\t\tstop the action.\n\nCarry out an actor taking position:\n\tnow the posture of the actor is the posture understood.\n\nReport someone taking position (this is the position-report rule):\n\tsay &quot;[The actor] is now [the posture of the actor][if the holder of the actor is not the location of the actor] [in-on the holder of the actor][end if].&quot;\n\nReport taking position:\n\tsay &quot;You are now [the posture of the player][if the holder of the player is not the location] [in-on the holder of the player][end if].&quot;\n\nTo say in-on (item - a thing):\n\tif the item is a container, say &quot;in [the item]&quot;;\n\totherwise say &quot;on [the item]&quot;.\n\nCarry out an actor exiting (this is the departure-posture rule):\n\tlet N be the holder of the actor;\n\tif N is a container or N is a supporter,\n\t\tnow the posture of the actor is the posture of N;\n\totherwise now the posture of the actor is standing.\n\nThe departure-posture rule is listed after the standard exiting rule in the carry out exiting rulebook.\nThe departure-posture rule is listed after the standard getting off rule in the carry out getting off rulebook.\n\nCarry out an actor entering something (this is the arrival-posture rule):\n\tif the noun is a container or the noun is a supporter,\n\t\tnow the posture of the actor is the posture of the noun.\n\nThe arrival-posture rule is listed after the standard entering rule in the carry out entering rulebook.\n\nCheck an actor going somewhere:\n\tif the actor is in a room and the actor is not standing:\n\t\tsay &quot;([if the actor is not the player][the actor] [end if]first standing up)[command clarification break]&quot;;\n\t\tsilently try the actor taking position standing;\n\t\tif the actor is not standing, stop the action.\n\nSection 2 - Some Generic Kinds\n\nA chair is a kind of supporter. A chair is always enterable. Every chair allows seated and standing. A chair is usually seated.\nA sofa is a kind of supporter. A sofa is always enterable. Every sofa allows seated, standing and reclining. A sofa is usually seated.\nA hammock is a kind of container. A hammock is always enterable. Every hammock allows seated and reclining. A hammock is usually reclining.\n\nSection 3 - The Scenario\n\nThe Resort is a room.\n\nThe banana hammock is a hammock in the Resort. The stone bench is a sofa in the resort.\n\nClark is a man in the Resort. A persuasion rule: persuasion succeeds.\n\nRule for writing a paragraph about someone (called target):\n\tsay &quot;[The target] is [posture] [if the holder of the target is the location]nearby[otherwise][in-on the holder of the target][end if].&quot;\n\nRule for writing a paragraph about something which encloses an unmentioned person (called target):\n\tcarry out the writing a paragraph about activity with the target instead.\n\nTest me with &quot;sit on bench / stand on bench / get up / lie on hammock / sit up / g / clark, sit on bench / look / clark, lie down / g / look / clark, get up / look / clark, lie down / look / enter bench&quot;.`)"><span class="sym">⧉</span></button><div class="codeline storytitle">&quot;Slouching&quot;</div>
+<div class="codeline blankline">&thinsp;</div>
+<div class="codeline i7header">Section 1 - Posture Rules</div><div class="codeline blankline">&thinsp;</div>
+<div class="codeline">A posture is a kind of value. The postures are seated, standing, and reclining.</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">A person has a posture. The posture of a person is usually standing.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">A supporter has a posture. A container has a posture.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Posture-permission relates various things to various postures. The verb to allow means the posture-permission relation.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Understand the commands &quot;stand&quot; and &quot;sit&quot; and &quot;lie&quot; as something new.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Understand &quot;sit on/in [something]&quot; as sitting on.</div>
 <div class="codeline">Understand &quot;lie on/in [something]&quot; as lying on.</div>
 <div class="codeline">Understand &quot;stand on/in [something]&quot; as standing up on.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Sitting on is an action applying to one thing.</div>
 <div class="codeline">Lying on is an action applying to one thing.</div>
 <div class="codeline">Standing up on is an action applying to one thing.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Carry out an actor sitting on:</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the holder of the actor is not the noun, silently try the actor entering the noun;</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the holder of the actor is the noun:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the actor is not seated, try the actor taking position seated;</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;otherwise follow the report taking position rules.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Carry out an actor lying on:</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the holder of the actor is not the noun, silently try the actor entering the noun;</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the holder of the actor is the noun:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the actor is not reclining, try the actor taking position reclining;</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;otherwise follow the report taking position rules.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Carry out an actor standing up on:</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the holder of the actor is not the noun, silently try the actor entering the noun;</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the holder of the actor is the noun:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the actor is not standing, try the actor taking position standing;</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;otherwise follow the report taking position rules.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Understand &quot;lie down&quot; as lying down.</div>
 <div class="codeline">Understand &quot;sit down&quot; or &quot;sit&quot; or &quot;sit up&quot; as sitting down.</div>
 <div class="codeline">Understand &quot;stand&quot; or &quot;stand up&quot; as standing up.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Lying down is an action applying to nothing.</div>
 <div class="codeline">Sitting down is an action applying to nothing.</div>
 <div class="codeline">Standing up is an action applying to nothing.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Taking position is an action applying to one posture.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Instead of an actor lying down:</div>
 <div class="codeline">&ensp;&ensp;&ensp;try the actor taking position reclining; rule succeeds.</div>
 <div class="codeline">Instead of an actor sitting down:</div>
 <div class="codeline">&ensp;&ensp;&ensp;try the actor taking position seated; rule succeeds.</div>
 <div class="codeline">Instead of an actor standing up:</div>
 <div class="codeline">&ensp;&ensp;&ensp;try the actor taking position standing; rule succeeds.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Check an actor taking position:</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the holder of the actor is not a room and the holder of the actor does not allow the posture understood:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the actor is the player:</div>
@@ -79,7 +84,7 @@
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;otherwise if the actor is visible:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[The actor] can&#39;t take that position.&quot;;</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;stop the action.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Check an actor taking position:</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the posture understood is the posture of the actor:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the actor is the player:</div>
@@ -87,60 +92,62 @@
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;otherwise:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the actor is visible, say &quot;[The actor] is already [the posture understood].&quot;;</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;stop the action.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Carry out an actor taking position:</div>
 <div class="codeline">&ensp;&ensp;&ensp;now the posture of the actor is the posture understood.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Report someone taking position (this is the position-report rule):</div>
 <div class="codeline">&ensp;&ensp;&ensp;say &quot;[The actor] is now [the posture of the actor][if the holder of the actor is not the location of the actor] [in-on the holder of the actor][end if].&quot;</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Report taking position:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say &quot;You are now [the posture of the player][if the holder of the player is not the location] [in-on the holder of the player][end if].&quot;</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">To say in-on (item - a thing):</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the item is a container, say &quot;in [the item]&quot;;</div>
 <div class="codeline">&ensp;&ensp;&ensp;otherwise say &quot;on [the item]&quot;.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Carry out an actor exiting (this is the departure-posture rule):</div>
 <div class="codeline">&ensp;&ensp;&ensp;let N be the holder of the actor;</div>
 <div class="codeline">&ensp;&ensp;&ensp;if N is a container or N is a supporter,</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the posture of the actor is the posture of N;</div>
 <div class="codeline">&ensp;&ensp;&ensp;otherwise now the posture of the actor is standing.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">The departure-posture rule is listed after the standard exiting rule in the carry out exiting rulebook.</div>
 <div class="codeline">The departure-posture rule is listed after the standard getting off rule in the carry out getting off rulebook.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Carry out an actor entering something (this is the arrival-posture rule):</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the noun is a container or the noun is a supporter,</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the posture of the actor is the posture of the noun.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">The arrival-posture rule is listed after the standard entering rule in the carry out entering rulebook.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Check an actor going somewhere:</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the actor is in a room and the actor is not standing:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;([if the actor is not the player][the actor] [end if]first standing up)[command clarification break]&quot;;</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;silently try the actor taking position standing;</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the actor is not standing, stop the action.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
-<div class="codeline i7header">Section 2 - Some Generic Kinds</div><div class="codeline">A chair is a kind of supporter. A chair is always enterable. Every chair allows seated and standing. A chair is usually seated.</div>
+<div class="codeline blankline">&thinsp;</div>
+<div class="codeline i7header">Section 2 - Some Generic Kinds</div><div class="codeline blankline">&thinsp;</div>
+<div class="codeline">A chair is a kind of supporter. A chair is always enterable. Every chair allows seated and standing. A chair is usually seated.</div>
 <div class="codeline">A sofa is a kind of supporter. A sofa is always enterable. Every sofa allows seated, standing and reclining. A sofa is usually seated.</div>
 <div class="codeline">A hammock is a kind of container. A hammock is always enterable. Every hammock allows seated and reclining. A hammock is usually reclining.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
-<div class="codeline i7header">Section 3 - The Scenario</div><div class="codeline">The Resort is a room.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
+<div class="codeline i7header">Section 3 - The Scenario</div><div class="codeline blankline">&thinsp;</div>
+<div class="codeline">The Resort is a room.</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">The banana hammock is a hammock in the Resort. The stone bench is a sofa in the resort.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Clark is a man in the Resort. A persuasion rule: persuasion succeeds.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Rule for writing a paragraph about someone (called target):</div>
 <div class="codeline">&ensp;&ensp;&ensp;say &quot;[The target] is [posture] [if the holder of the target is the location]nearby[otherwise][in-on the holder of the target][end if].&quot;</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Rule for writing a paragraph about something which encloses an unmentioned person (called target):</div>
 <div class="codeline">&ensp;&ensp;&ensp;carry out the writing a paragraph about activity with the target instead.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Test me with &quot;sit on bench / stand on bench / get up / lie on hammock / sit up / g / clark, sit on bench / look / clark, lie down / g / look / clark, get up / look / clark, lie down / look / enter bench&quot;.</div>
-</div><details class="testme-output"><summary><div class="summation"><div class="consummation">Test me with "sit on bench / stand on bench / get up / lie on hammock / sit up / g / clark, sit on bench / look / clark, lie down / g / look / clark, get up / look / clark, lie down / look / enter bench".</div></div></summary><div class="testme-output">Resort<br>Clark is standing nearby.<br><br>You can also see a banana hammock (empty) and a stone bench here.<br><br><span class="mono">&gt;(Testing.)</span><br><br><span class="mono">&gt;[1] sit on bench</span><br>You are now seated on the stone bench.<br><br><span class="mono">&gt;[2] stand on bench</span><br>You are now standing on the stone bench.<br><br><span class="mono">&gt;[3] get up</span><br>You get off the stone bench.<br><br>Resort<br>Clark is standing nearby.<br><br>You can also see a banana hammock (empty) and a stone bench here.<br><br><span class="mono">&gt;[4] lie on hammock</span><br>You are now reclining in the banana hammock.<br><br><span class="mono">&gt;[5] sit up</span><br>You are now seated in the banana hammock.<br><br><span class="mono">&gt;[6] g</span><br>You are already seated.<br><br><span class="mono">&gt;[7] clark, sit on bench</span><br>Clark is now seated on the stone bench.<br><br><span class="mono">&gt;[8] look</span><br>Resort (in the banana hammock)<br>Clark is seated on the stone bench.<br><br><span class="mono">&gt;[9] clark, lie down</span><br>Clark is now reclining on the stone bench.<br><br><span class="mono">&gt;[10] g</span><br>Clark is already reclining.<br><br><span class="mono">&gt;[11] look</span><br>Resort (in the banana hammock)<br>Clark is reclining on the stone bench.<br><br><span class="mono">&gt;[12] clark, get up</span><br>Clark gets off the stone bench.<br><br><span class="mono">&gt;[13] look</span><br>Resort (in the banana hammock)<br>Clark is standing nearby.<br><br>You can also see a stone bench here.<br><br><span class="mono">&gt;[14] clark, lie down</span><br>Clark is now reclining.<br><br><span class="mono">&gt;[15] look</span><br>Resort (in the banana hammock)<br>Clark is reclining nearby.<br><br>You can also see a stone bench here.<br><br><span class="mono">&gt;[16] enter bench</span><br>(getting out of the banana hammock)<br>You get onto the stone bench.
-</div></details></div><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="verbosity2.html" title="Making rooms give full descriptions each time we enter, even if we have visited before, and disallowing player use of BRIEF and SUPERBRIEF."><div class="nav-arrow">←395. </div><div class="doc-navbar-text">Verbosity 2</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="swigmore_u.html" title="Adding a new kind of supporter called a perch, where everything dropped lands on the floor."><div class="doc-navbar-text">Swigmore U.</div><div class="nav-arrow">397.→</div></a></div></div>
-<footer id="credits-footer"><nav><div class="nav-el"><a class="nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="nav-el" href="../search.html">Search</a></div></nav>
-<div class="footing"><p id="i7credit"><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p class="about"><a class="nav-about" href="../about.html">About this edition</a> &bull; <a class="nav-about" href="https://twitter.com/inform7tips">@inform7tips</a></p></div></footer>
+</div><details class="testme-output"><summary><div class="summation">Test me with "sit on bench / stand on bench / get up / lie on hammock / sit up / g / clark, sit on bench / look / clark, lie down / g / look / clark, get up / look / clark, lie down / look / enter bench".</div></summary><div class="testme-output">Resort<br>Clark is standing nearby.<br><br>You can also see a banana hammock (empty) and a stone bench here.<br><br><span class="mono">&gt;(Testing.)</span><br><br><span class="mono">&gt;[1] sit on bench</span><br>You are now seated on the stone bench.<br><br><span class="mono">&gt;[2] stand on bench</span><br>You are now standing on the stone bench.<br><br><span class="mono">&gt;[3] get up</span><br>You get off the stone bench.<br><br>Resort<br>Clark is standing nearby.<br><br>You can also see a banana hammock (empty) and a stone bench here.<br><br><span class="mono">&gt;[4] lie on hammock</span><br>You are now reclining in the banana hammock.<br><br><span class="mono">&gt;[5] sit up</span><br>You are now seated in the banana hammock.<br><br><span class="mono">&gt;[6] g</span><br>You are already seated.<br><br><span class="mono">&gt;[7] clark, sit on bench</span><br>Clark is now seated on the stone bench.<br><br><span class="mono">&gt;[8] look</span><br>Resort (in the banana hammock)<br>Clark is seated on the stone bench.<br><br><span class="mono">&gt;[9] clark, lie down</span><br>Clark is now reclining on the stone bench.<br><br><span class="mono">&gt;[10] g</span><br>Clark is already reclining.<br><br><span class="mono">&gt;[11] look</span><br>Resort (in the banana hammock)<br>Clark is reclining on the stone bench.<br><br><span class="mono">&gt;[12] clark, get up</span><br>Clark gets off the stone bench.<br><br><span class="mono">&gt;[13] look</span><br>Resort (in the banana hammock)<br>Clark is standing nearby.<br><br>You can also see a stone bench here.<br><br><span class="mono">&gt;[14] clark, lie down</span><br>Clark is now reclining.<br><br><span class="mono">&gt;[15] look</span><br>Resort (in the banana hammock)<br>Clark is reclining nearby.<br><br>You can also see a stone bench here.<br><br><span class="mono">&gt;[16] enter bench</span><br>(getting out of the banana hammock)<br>You get onto the stone bench.
+</div></details></div><div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="verbosity2.html" title="Making rooms give full descriptions each time we enter, even if we have visited before, and disallowing player use of BRIEF and SUPERBRIEF."><div class="nav-arrow">⬅395. </div><div class="doc-navbar-text">Verbosity 2</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="swigmore_u.html" title="Adding a new kind of supporter called a perch, where everything dropped lands on the floor."><div class="doc-navbar-text">Swigmore U.</div><div class="nav-arrow">397.⮕</div></a></div></div>
+<footer id="credits-footer"><nav><div class="nav-el"><a class="raw nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="raw nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="raw nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="raw nav-el" href="../search.html">Search</a></div></nav>
+<div class="footing"><p id="i7credit"><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p class="about"><a class="raw" href="../about.html">About this edition</a>&ensp;&bull;&ensp;<a class="raw" href="https://twitter.com/inform7tips">@inform7tips</a></p></div></footer>
 </body></html>

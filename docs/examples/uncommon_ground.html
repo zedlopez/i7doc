@@ -2,66 +2,69 @@
 <html lang="en"><head><meta charset="utf-8">
 <title>Ex. 454. Uncommon Ground</title>
 <script src="../i7doc.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,375;0,400;0,500;0,700;1,375;1,400;1,500;1,700&family=Source+Sans+Pro:ital,wght@0,350;0,400;0,550;0,700;1,350;1,400;1,550;1,700&display=swap" rel="stylesheet"> 
 <link rel="stylesheet" href="../i7doc.css">
 </head>
 <body>
 <header class="example-header">
-<nav><div class="nav-el"><a class="nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="nav-el" href="../search.html">Search</a></div></nav>
+<nav><div class="nav-el"><a class="raw nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="raw nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="raw nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="raw nav-el" href="../search.html">Search</a></div></nav>
 <div class="superheading"><div class="heading"><h1>Uncommon Ground</h1><div class="subheading"><wbr><div class="ex-no">Example 454</div> ★★</div></div>
-<div class="doc-navbar example-linkback"><div class="doc-navbar-left"><a class="nav-el" href="../WI_27.html#section_30" title="Extensions &gt; To say one of"><div class="nav-arrow">↑WI §27.30</div><div class="doc-navbar-text">To say one of</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="../RB_5.html#section_6" title="The Viewpoint Character &gt; Viewpoint"><div class="doc-navbar-text">Viewpoint</div><div class="nav-arrow">RB §5.6↑</div></a></div></div>
+<div class="doc-navbar example-linkback"><div class="doc-navbar-left"><a class="raw nav-el" href="../WI_27.html#section_30" title="Extensions &gt; To say one of"><div class="nav-arrow"><span class="sc">wi</span> 27.30</div><div class="doc-navbar-text">To say one of</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="../RB_5.html#section_6" title="The Viewpoint Character &gt; Viewpoint"><div class="doc-navbar-text">Viewpoint</div><div class="nav-arrow"><span class="sc">rb</span> 5.6</div></a></div></div>
 </div>
 <div class="example-meta-desc"><p>Making a &quot;by viewpoint&quot; token, allowing us to design our own text variations such as &quot;[show to yourself]quaint[to Lolita]thrilling[to everyone else]squalid[end show]&quot; depending on the identity of the player at the moment.</p></div>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="blink.html" title="Making a &quot;by atmosphere&quot; token, allowing us to design our own text variations such as &quot;[one of]normal[or]gloomy[or]scary[by atmosphere]&quot;."><div class="nav-arrow">←453. </div><div class="doc-navbar-text">Blink</div></a></div><div class="doc-navbar-right"><span class="finit">Finit</span></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="blink.html" title="Making a &quot;by atmosphere&quot; token, allowing us to design our own text variations such as &quot;[one of]normal[or]gloomy[or]scary[by atmosphere]&quot;."><div class="nav-arrow">⬅453. </div><div class="doc-navbar-text">Blink</div></a></div><div class="doc-navbar-right"><span class="finit">Finit</span></div></div>
 </header>
 <div class="example-body"><p>A slightly more challenging case than the &quot;by atmosphere&quot; example is one in which we want to create text variations depending on the identity of our player character.</p>
-<p>What we want to do is build a switch statement in I6, one that looks something like</p>
+<p>What we want to do is build a switch statement in <span class="sc">i</span>6, one that looks something like</p>
 <div class="codeblock"><div class="codeline">switch(player)</div>
 <div class="codeline">{</div>
 <div class="codeline">&ensp;&ensp;&ensp;yourself: print &quot;quaint&quot;;</div>
 <div class="codeline">&ensp;&ensp;&ensp;Lolita: print &quot;thrilling&quot;;</div>
 <div class="codeline">&ensp;&ensp;&ensp;default: print &quot;squalid&quot;;</div>
 <div class="codeline">}</div>
-</div><p>out of I7 that looks like this:</p>
-<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex454">Play/modify Uncommon Ground in Borogove</a></span>
- &bull; <span class="quixe-link"><a href="UncommonGround/index.html">Play Uncommon Ground in Quixe</a></span>
-</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Uncommon Ground&quot;\n\nThe Mud Village is a room. &quot;You stand at the center of a [show to yourself]quaint[to Lolita]thrilling[to everyone else]squalid[end show] mud village.&quot;\n\nLeforge is a man in the Mud Village. Lolita is a woman in the Mud Village.\n\nInstead of waiting:\n\tif the player is Lolita, now the player is Leforge;\n\tif the player is yourself, now the player is Lolita;\n\tsay &quot;You jump bodies. Whoops!&quot;\n\nTo say show to (N - a person) -- beginning say_seen_by:\n\t(-\n\t\tswitch(player)\n\t\t{-open-brace}\n\t\t{N}:\n\t-).\n\nTo say to (N - a person) -- continuing say_seen_by:\n\t(-\n\t\t{N}:\n\t-).\n\nTo say to everyone else -- continuing say_seen_by:\n\t(-\n\t\tdefault:\n\t-)\n\nTo say end show -- ending say_seen_by:\n\t(-\n\t\t{-close-brace}\n\t-)\n\nTest me with &quot;look / z / look / z / look&quot;.`)">⧉</button><div class="codeline">say &quot;[show to yourself]quaint[to Lolita]thrilling[to everyone else]squalid[end show]&quot;.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+</div><p>out of <span class="sc">i</span>7 that looks like this:</p>
+<div class="play-example borogove"><a class="raw" href="https://snippets.borogove.app/inform7/v10ex454">Play/modify in Borogove</a></div>
+<div class="play-example quixe"><a class="raw" href="UncommonGround/index.html">Play in Quixe</a></div>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Uncommon Ground&quot;\n\nThe Mud Village is a room. &quot;You stand at the center of a [show to yourself]quaint[to Lolita]thrilling[to everyone else]squalid[end show] mud village.&quot;\n\nLeforge is a man in the Mud Village. Lolita is a woman in the Mud Village.\n\nInstead of waiting:\n\tif the player is Lolita, now the player is Leforge;\n\tif the player is yourself, now the player is Lolita;\n\tsay &quot;You jump bodies. Whoops!&quot;\n\nTo say show to (N - a person) -- beginning say_seen_by:\n\t(-\n\t\tswitch(player)\n\t\t{-open-brace}\n\t\t{N}:\n\t-).\n\nTo say to (N - a person) -- continuing say_seen_by:\n\t(-\n\t\t{N}:\n\t-).\n\nTo say to everyone else -- continuing say_seen_by:\n\t(-\n\t\tdefault:\n\t-)\n\nTo say end show -- ending say_seen_by:\n\t(-\n\t\t{-close-brace}\n\t-)\n\nTest me with &quot;look / z / look / z / look&quot;.`)"><span class="sym">⧉</span></button><div class="codeline">say &quot;[show to yourself]quaint[to Lolita]thrilling[to everyone else]squalid[end show]&quot;.</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">&quot;Uncommon Ground&quot;</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">The Mud Village is a room. &quot;You stand at the center of a [show to yourself]quaint[to Lolita]thrilling[to everyone else]squalid[end show] mud village.&quot;</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Leforge is a man in the Mud Village. Lolita is a woman in the Mud Village.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Instead of waiting:</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the player is Lolita, now the player is Leforge;</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the player is yourself, now the player is Lolita;</div>
 <div class="codeline">&ensp;&ensp;&ensp;say &quot;You jump bodies. Whoops!&quot;</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">To say show to (N - a person) -- beginning say_seen_by:</div>
 <div class="codeline">&ensp;&ensp;&ensp;(-</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;switch(player)</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;{-open-brace}</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;{N}:</div>
 <div class="codeline">&ensp;&ensp;&ensp;-).</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">To say to (N - a person) -- continuing say_seen_by:</div>
 <div class="codeline">&ensp;&ensp;&ensp;(-</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;{N}:</div>
 <div class="codeline">&ensp;&ensp;&ensp;-).</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">To say to everyone else -- continuing say_seen_by:</div>
 <div class="codeline">&ensp;&ensp;&ensp;(-</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;default:</div>
 <div class="codeline">&ensp;&ensp;&ensp;-)</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">To say end show -- ending say_seen_by:</div>
 <div class="codeline">&ensp;&ensp;&ensp;(-</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;{-close-brace}</div>
 <div class="codeline">&ensp;&ensp;&ensp;-)</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Test me with &quot;look / z / look / z / look&quot;.</div>
-</div><details class="testme-output"><summary><div class="summation"><div class="consummation">Test me with "look / z / look / z / look".</div></div></summary><div class="testme-output">Mud Village<br>You stand at the center of a quaint mud village.<br><br>You can see Leforge and Lolita here.<br><br><span class="mono">&gt;(Testing.)</span><br><br><span class="mono">&gt;[1] look</span><br>Mud Village<br>You stand at the center of a quaint mud village.<br><br>You can see Leforge and Lolita here.<br><br><span class="mono">&gt;[2] z</span><br>You jump bodies. Whoops!<br><br><span class="mono">&gt;[3] look</span><br>Mud Village<br>You stand at the center of a thrilling mud village.<br><br>You can see your former self and Leforge here.<br><br><span class="mono">&gt;[4] z</span><br>You jump bodies. Whoops!<br><br><span class="mono">&gt;[5] look</span><br>Mud Village<br>You stand at the center of a squalid mud village.<br><br>You can see your former self and Lolita here.
-</div></details></div><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="blink.html" title="Making a &quot;by atmosphere&quot; token, allowing us to design our own text variations such as &quot;[one of]normal[or]gloomy[or]scary[by atmosphere]&quot;."><div class="nav-arrow">←453. </div><div class="doc-navbar-text">Blink</div></a></div><div class="doc-navbar-right"><span class="finit">Finit</span></div></div>
-<footer id="credits-footer"><nav><div class="nav-el"><a class="nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="nav-el" href="../search.html">Search</a></div></nav>
-<div class="footing"><p id="i7credit"><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p class="about"><a class="nav-about" href="../about.html">About this edition</a> &bull; <a class="nav-about" href="https://twitter.com/inform7tips">@inform7tips</a></p></div></footer>
+</div><details class="testme-output"><summary><div class="summation">Test me with "look / z / look / z / look".</div></summary><div class="testme-output">Mud Village<br>You stand at the center of a quaint mud village.<br><br>You can see Leforge and Lolita here.<br><br><span class="mono">&gt;(Testing.)</span><br><br><span class="mono">&gt;[1] look</span><br>Mud Village<br>You stand at the center of a quaint mud village.<br><br>You can see Leforge and Lolita here.<br><br><span class="mono">&gt;[2] z</span><br>You jump bodies. Whoops!<br><br><span class="mono">&gt;[3] look</span><br>Mud Village<br>You stand at the center of a thrilling mud village.<br><br>You can see your former self and Leforge here.<br><br><span class="mono">&gt;[4] z</span><br>You jump bodies. Whoops!<br><br><span class="mono">&gt;[5] look</span><br>Mud Village<br>You stand at the center of a squalid mud village.<br><br>You can see your former self and Lolita here.
+</div></details></div><div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="blink.html" title="Making a &quot;by atmosphere&quot; token, allowing us to design our own text variations such as &quot;[one of]normal[or]gloomy[or]scary[by atmosphere]&quot;."><div class="nav-arrow">⬅453. </div><div class="doc-navbar-text">Blink</div></a></div><div class="doc-navbar-right"><span class="finit">Finit</span></div></div>
+<footer id="credits-footer"><nav><div class="nav-el"><a class="raw nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="raw nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="raw nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="raw nav-el" href="../search.html">Search</a></div></nav>
+<div class="footing"><p id="i7credit"><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p class="about"><a class="raw" href="../about.html">About this edition</a>&ensp;&bull;&ensp;<a class="raw" href="https://twitter.com/inform7tips">@inform7tips</a></p></div></footer>
 </body></html>

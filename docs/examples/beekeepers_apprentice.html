@@ -2,46 +2,49 @@
 <html lang="en"><head><meta charset="utf-8">
 <title>Ex. 68. Beekeeper's Apprentice</title>
 <script src="../i7doc.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,375;0,400;0,500;0,700;1,375;1,400;1,500;1,700&family=Source+Sans+Pro:ital,wght@0,350;0,400;0,550;0,700;1,350;1,400;1,550;1,700&display=swap" rel="stylesheet"> 
 <link rel="stylesheet" href="../i7doc.css">
 </head>
 <body>
 <header class="example-header">
-<nav><div class="nav-el"><a class="nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="nav-el" href="../search.html">Search</a></div></nav>
+<nav><div class="nav-el"><a class="raw nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="raw nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="raw nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="raw nav-el" href="../search.html">Search</a></div></nav>
 <div class="superheading"><div class="heading"><h1>Beekeeper's Apprentice</h1><div class="subheading"><wbr><div class="ex-no">Example 68</div> ★★</div></div>
-<div class="doc-navbar example-linkback"><div class="doc-navbar-left"><a class="nav-el" href="../WI_5.html#section_8" title="Text &gt; Line breaks and paragraph breaks"><div class="nav-arrow">↑WI §5.8</div><div class="doc-navbar-text">Line breaks and paragraph breaks</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="../RB_6.html#section_5" title="Commands &gt; Examining"><div class="doc-navbar-text">Examining</div><div class="nav-arrow">RB §6.5↑</div></a></div></div>
+<div class="doc-navbar example-linkback"><div class="doc-navbar-left"><a class="raw nav-el" href="../WI_5.html#section_8" title="Text &gt; Line breaks and paragraph breaks"><div class="nav-arrow"><span class="sc">wi</span> 5.8</div><div class="doc-navbar-text">Line breaks and paragraph breaks</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="../RB_6.html#section_5" title="Commands &gt; Examining"><div class="doc-navbar-text">Examining</div><div class="nav-arrow"><span class="sc">rb</span> 6.5</div></a></div></div>
 </div>
 <div class="example-meta-desc"><p>Making the SEARCH command examine all the scenery in the current location.</p></div>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="camp_bethel.html" title="Creating characters who change their behavior from turn to turn, and a survey of other common uses for alternative texts."><div class="nav-arrow">←67. </div><div class="doc-navbar-text">Camp Bethel</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="garibaldi2.html" title="Adding coloured text to the example of door-status readouts."><div class="doc-navbar-text">Garibaldi 2</div><div class="nav-arrow">69.→</div></a></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="camp_bethel.html" title="Creating characters who change their behavior from turn to turn, and a survey of other common uses for alternative texts."><div class="nav-arrow">⬅67. </div><div class="doc-navbar-text">Camp Bethel</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="garibaldi2.html" title="Adding coloured text to the example of door-status readouts."><div class="doc-navbar-text">Garibaldi 2</div><div class="nav-arrow">69.⮕</div></a></div></div>
 </header>
 <div class="example-body"><p>We have to create a suitable action and say what it does, and to repeat what we do through all the scenery items. That needs material from subsequent chapters, but is quite ordinary Inform all the same:</p>
-<p><span class="borogove-link"><a href="https://snippets.borogove.app/inform7/v10ex68">Play/modify Beekeeper's Apprentice in Borogove</a></span>
- &bull; <span class="quixe-link"><a href="Search/index.html">Play Beekeeper's Apprentice in Quixe</a></span>
-</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Beekeeper&apos;s Apprentice&quot;\n\nStudying the vicinity is an action applying to nothing.\n\nReport studying the vicinity:\n\tif the location does not contain something which is scenery:\n\t\tsay &quot;There&apos;s little of interest in the [location].&quot; instead;\n\trepeat with point of interest running through scenery in the location:\n\t\tsay &quot;[point of interest]: [run paragraph on]&quot;;\n\t\ttry examining the point of interest.\n\nUnderstand &quot;search&quot; as studying the vicinity.\n\nThe Yard is a room.\n\nThe hive and the honey are scenery things in the Yard. The description of the hive is &quot;The honeycombed hive is all around you, thrumming with life.&quot; The description of the honey is &quot;Wax-sealed honey has been cached in many of the hexagonal nurseries.&quot;\n\nTest me with &quot;search&quot;.`)">⧉</button><div class="codeline storytitle">&quot;Beekeeper&#39;s Apprentice&quot;</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="play-example borogove"><a class="raw" href="https://snippets.borogove.app/inform7/v10ex68">Play/modify in Borogove</a></div>
+<div class="play-example quixe"><a class="raw" href="Search/index.html">Play in Quixe</a></div>
+</p><div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Beekeeper&apos;s Apprentice&quot;\n\nStudying the vicinity is an action applying to nothing.\n\nReport studying the vicinity:\n\tif the location does not contain something which is scenery:\n\t\tsay &quot;There&apos;s little of interest in the [location].&quot; instead;\n\trepeat with point of interest running through scenery in the location:\n\t\tsay &quot;[point of interest]: [run paragraph on]&quot;;\n\t\ttry examining the point of interest.\n\nUnderstand &quot;search&quot; as studying the vicinity.\n\nThe Yard is a room.\n\nThe hive and the honey are scenery things in the Yard. The description of the hive is &quot;The honeycombed hive is all around you, thrumming with life.&quot; The description of the honey is &quot;Wax-sealed honey has been cached in many of the hexagonal nurseries.&quot;\n\nTest me with &quot;search&quot;.`)"><span class="sym">⧉</span></button><div class="codeline storytitle">&quot;Beekeeper&#39;s Apprentice&quot;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Studying the vicinity is an action applying to nothing.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Report studying the vicinity:</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the location does not contain something which is scenery:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;There&#39;s little of interest in the [location].&quot; instead;</div>
 <div class="codeline">&ensp;&ensp;&ensp;repeat with point of interest running through scenery in the location:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[point of interest]: [run paragraph on]&quot;;</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;try examining the point of interest.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Understand &quot;search&quot; as studying the vicinity.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">The Yard is a room.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">The hive and the honey are scenery things in the Yard. The description of the hive is &quot;The honeycombed hive is all around you, thrumming with life.&quot; The description of the honey is &quot;Wax-sealed honey has been cached in many of the hexagonal nurseries.&quot;</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Test me with &quot;search&quot;.</div>
-</div><details class="testme-output"><summary><div class="summation"><div class="consummation">Test me with "search".</div></div></summary><div class="testme-output">Yard<br><br><span class="mono">&gt;(Testing.)</span><br><br><span class="mono">&gt;[1] search</span><br>hive: The honeycombed hive is all around you, thrumming with life.<br><br>honey: Wax-sealed honey has been cached in many of the hexagonal nurseries.
+</div><details class="testme-output"><summary><div class="summation">Test me with "search".</div></summary><div class="testme-output">Yard<br><br><span class="mono">&gt;(Testing.)</span><br><br><span class="mono">&gt;[1] search</span><br>hive: The honeycombed hive is all around you, thrumming with life.<br><br>honey: Wax-sealed honey has been cached in many of the hexagonal nurseries.
 </div></details><p>The reason for this example is to show the use of saying &quot;[run paragraph on]&quot;. It means we have output such as:</p>
 <div class="codeblock"><div class="codeline">&gt;search</div>
 <div class="codeline">hive: The honeycombed hive is all around you, thrumming with life.</div>
-<div class="codeline">&ensp;&ensp;&ensp;</div>
+<div class="codeline blankline">&thinsp;</div>
 <div class="codeline">honey: Wax-sealed honey has been cached in many of the hexagonal nurseries.</div>
 </div><p>Without the running on, the prompts &quot;hive:&quot; and &quot;honey:&quot; would be separated from the descriptions following them, which would look a little odd.</p>
-</div><div class="doc-navbar"><div class="doc-navbar-left"><a class="nav-el" href="camp_bethel.html" title="Creating characters who change their behavior from turn to turn, and a survey of other common uses for alternative texts."><div class="nav-arrow">←67. </div><div class="doc-navbar-text">Camp Bethel</div></a></div><div class="doc-navbar-right"><a class="nav-el" href="garibaldi2.html" title="Adding coloured text to the example of door-status readouts."><div class="doc-navbar-text">Garibaldi 2</div><div class="nav-arrow">69.→</div></a></div></div>
-<footer id="credits-footer"><nav><div class="nav-el"><a class="nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="nav-el" href="../search.html">Search</a></div></nav>
-<div class="footing"><p id="i7credit"><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p class="about"><a class="nav-about" href="../about.html">About this edition</a> &bull; <a class="nav-about" href="https://twitter.com/inform7tips">@inform7tips</a></p></div></footer>
+</div><div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="camp_bethel.html" title="Creating characters who change their behavior from turn to turn, and a survey of other common uses for alternative texts."><div class="nav-arrow">⬅67. </div><div class="doc-navbar-text">Camp Bethel</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="garibaldi2.html" title="Adding coloured text to the example of door-status readouts."><div class="doc-navbar-text">Garibaldi 2</div><div class="nav-arrow">69.⮕</div></a></div></div>
+<footer id="credits-footer"><nav><div class="nav-el"><a class="raw nav-el" href="../index.html">Contents</a></div><div class="nav-el"><a class="raw nav-el" href="../examples/index.html">Examples</a></div><div class="nav-el"><a class="raw nav-el" href="../general_index.html">Index</a></div><div class="nav-el"><a class="raw nav-el" href="../search.html">Search</a></div></nav>
+<div class="footing"><p id="i7credit"><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p><p class="about"><a class="raw" href="../about.html">About this edition</a>&ensp;&bull;&ensp;<a class="raw" href="https://twitter.com/inform7tips">@inform7tips</a></p></div></footer>
 </body></html>
