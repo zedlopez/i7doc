@@ -1426,12 +1426,13 @@ f.puts %Q{</div></div>}
           if (:rb == vol)
             if !section[:examples].empty?
               f.print %Q{<div class="section-row"><div class="section-chapter-num">&nbsp;</div><div class="section-section-num">&nbsp;</div><div class="section-name-holder"><div class="section-name section-example-name">}
-              f.puts '<div class="thematic-examples"><span class="section-example-name">'+(section[:examples].map do |example|
-                                                                 cname = example[:cname]
-                                                                 target = (monolithic ? "#example_#{cname}" : "examples/#{cname}.html")
-                                                                 %Q{<a href="#{target}" onClick="(function() { document.getElementById('example_#{example[:cname]}').setAttribute('open','open'); return true; })();" title="#{CGI.escapeHTML(example[:desc])}">#{example[:name]}</a>}
-                                                               end.join(' &bull; '))+'</span></div>'
-              f.puts '</div></div></div>'
+              f.puts '<div class="thematic-examples">'
+              section[:examples].each do |example|
+                cname = example[:cname]
+                target = (monolithic ? "#example_#{cname}" : "examples/#{cname}.html")
+                f.puts %Q{<span class="section-example-name"><a href="#{target}" onClick="(function() { document.getElementById('example_#{example[:cname]}').setAttribute('open','open'); return true; })();" title="#{CGI.escapeHTML(example[:desc])}">#{example[:name]}</a></span>}
+              end
+              f.puts '</div></div></div></div>'
             end
           end
         end
