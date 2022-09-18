@@ -430,7 +430,7 @@ div.example-block { display: table; }
 div.example-row { display: table-row; }
 div.example-number-cell { display: table-cell; text-align: right; width: 3em; }
 div.example-name-cell { display: table-cell; padding-left: .75em; }
-.section-example-name { font-weight: normal; }
+.section-example-name { font-weight: normal; margin-top: .5rem; margin-bottom: .5rem; }
 .section-example-name::after { content: ' ❧ '; font-family: var(--sym); }
 .section-example-name:last-child::after { content: ''; }
 div.example-short { display: flex; }
