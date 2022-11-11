@@ -500,7 +500,7 @@ header.toc-er > .superheading { margin-top: aem; margin-bottom: 0; }
 .example-meta-desc p { margin-top: 1em; margin-bottom: 0; }
 header.example-header { margin-bottom: 0; }
 header.example-header .superheading { margin-bottom: 0; }
-footer { width: var(--width); }
+footer.toc-er { width: var(--width); }
 .example-body { border-top: var(--example-body-border-width) solid currentColor; }
 div.example-linkback { margin-top: 0; }
 main { margin-bottom: 1em; }
@@ -509,7 +509,7 @@ main { margin-bottom: 1em; }
 .doc-navbar { font-weight: var(--bold-weight); display: flex; justify-content: space-between; gap: 1em; margin-top: 1em; margin-bottom: 1em; font-size: .9em; }
 
 .doc-navbar * { margin-top: 0; margin-bottom: 0; }
-
+header, footer { width: var(--width); margin: auto; }
 .example-index-subtitle { font-weight: var(--normal-weight); }
 
 .example-header .heading  { padding-bottom: .5em; }
@@ -606,3 +606,5 @@ summary > * { display: inline; }
 .play-example { text-align: right; align: right; font-weight: var(--bold-weight); font-size: .9375em; }
 
 .i7prog { text-align: center; margin-top: 1rem; margin-bottom: 1rem; }
+
+

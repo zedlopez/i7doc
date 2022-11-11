@@ -405,14 +405,14 @@ def htmlify(line, type: :text, level: 0)
   end
   line = line.gsub(/«/,'<').gsub(/»/,'>').gsub(/<b>/,'<strong>').gsub(/<\/b>/,'</strong>').gsub('<i>','<em>').gsub(/<\/i>/,'</em>')
   Conf.text_subs.each_pair { |regexp, subst| line.gsub!(regexp, subst.to_s) }
-  if false
+  #if false
   Conf.books.each_pair do |vol,book|
     book[:chapters].keys.sort.each do |chapter_num|
       chapter = book[:chapters][chapter_num]
       line.gsub!(%r{(#{chapter[:name]}\s+chapter|chapter\s+on\s+"?#{chapter[:name]}"?)}i) {|m| %Q{<a href="#{target_chapter(vol, chapter[:chapter_num])}">#{$1}</a>} }
     end
   end
-  end
+  #end
   line.gsub!(/-&gt;/,'&rarr;') if type == :defn
   if type == :text
     line.gsub!(/\.\.\./,'&hellip;')
@@ -811,7 +811,7 @@ def run_examples
 # #      js_filename = File.join(Conf.xdir, "#{filename}.js")
 #       File.open(fname.i7, 'w') {|f| f.write(pastie.join("\n")) }
       #      puts "inform7 --transient /tmp -o #{fname.i6} --source #{fname.i7}"
-        if false
+       if false
        stdout, stderr, status = Open3.capture3("inform7 --transient /tmp -o #{fname.i6} --source #{fname.i7}")
       if status.exitstatus.zero?
         if File.exist?(fname.i6) and !File.size(fname.i6).zero?
@@ -1382,8 +1382,8 @@ def output_examples(monolithic = false)
       f.print '<div class="example-body">'
       print_blocks(f, example[:body][:blocks], level: 1)
       f.print '</div>'
-      f.print '</main>'
       f.puts navbar.join('')
+      f.print '</main>'
       footer(f, level: 1)
       f.puts '</body></html>'
     end
@@ -1458,10 +1458,11 @@ end
 def output_search
   File.open(File.join(Conf.output_dir, Conf.navpages[:search][:dest]), 'w') do |f|
     html_head(f, "Inform 7 v10 Docs Search") 
-    f.puts %Q{<body><header>#{nav(f, :search)}</header>}
+    f.puts %Q{<body><header>#{nav(f, :search)}}
     f.puts %Q{<p class="search">The whole text of the documentation to be searched within your browser. The links jump back to the pages per chapter/example.</p>}
     Conf.books.each_pair do |vol,book|
       f.puts %Q{<div class="superheading"><div class="heading"><h1>#{book[:title]}</h1></div></div>}
+      f.puts '</header>'
       book[:chapters].keys.sort_by(&:to_i).each do |chapter_num|
         chapter = book[:chapters][chapter_num]
         output_chapter(f, vol, chapter_num, search: true)
@@ -1492,7 +1493,7 @@ def output_chapter(f, vol, chapter_num, monolithic = false, search: false)
     chapter = book[:chapters][chapter_num]
     title = "#{chapter_num}. #{chapter[:name]}"
     if search
-      f.print %Q{<h2><a href="#{book[:abbrev]}_#{chapter_num}.html">#{title}</a></h2>}
+      f.print %Q{<header><h2><a href="#{book[:abbrev]}_#{chapter_num}.html">#{title}</a></h2></header>}
     else
       html_head(f, "#{book[:abbrev]} #{title}") 
       f.puts %Q{<body><header>#{nav(f)}<div class="superheading"><div class="heading">
@@ -1530,9 +1531,9 @@ def output_chapter(f, vol, chapter_num, monolithic = false, search: false)
     chapter[:sections].keys.sort_by(&:to_i).each do |section_num|
       output_section(f, vol, chapter_num, section_num, monolithic, search: search, level: 0)
     end
-    f.puts '</section></main>'
+    f.puts '</section>'
     f.puts navbar.join('')
-    
+    f.puts '</main>'
 end
 
 def output_about

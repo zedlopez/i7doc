@@ -207,7 +207,7 @@
 <p>In general, a rule looks like this:</p>
 <div class="codeblock"><div class="codeline">preamble : list of one or more phrases divided by semicolons</div>
 </div><p>though in a few common cases (where the preamble begins with Before, After, Instead of, Every turn, or When, and there is only one phrase in the list) the colon can be replaced with a comma. Three kinds of declaration are special, and these we can tell apart by the first word:</p>
-<div class="codeblock"><div class="codeline">To ... - a new phrase: see the chapter on Phrases</div>
+<div class="codeblock"><div class="codeline">To ... - a new phrase: see the <a href="WI_11.html">chapter on Phrases</a></div>
 <div class="codeline">At ... - something due to happen at a given time: see Time</div>
 <div class="codeline">Definition: ... - a new adjective: see Descriptions</div>
 </div><p>All other declarations (that is, starting with any other word) create rules fit for going into rulebooks. The preamble can either just be a name, which is required to end with the word &quot;rule&quot;, or it can give circumstances and have no name, or it can do both:</p>
@@ -275,7 +275,7 @@
 </div><p>&quot;Reaching inside&quot; is an object based rulebook, and here we&#39;re giving it a rule which applies if the object is the flask. Inform would reject something like:</p>
 <div class="codeblock"><div class="codeline">Rule for reaching inside 100: ...</div>
 </div><p>because 100 has the wrong kind to fit &ndash; it&#39;s a number, not an object. There are many object based rulebooks, because most activities built-in to Inform act on objects. For example, the &quot;printing the name of&quot; activity has three rulebooks attached to it: before printing the name of, for printing the name of, after printing the name of. All of these are object based rulebooks.</p>
-<p>Finally, we&#39;ve also seen scene based rulebooks (which is how rules like &quot;when a recurring scene ends&quot; worked, in the Scenes chapter).</p>
+<p>Finally, we&#39;ve also seen scene based rulebooks (which is how rules like &quot;when a recurring scene ends&quot; worked, in the <a href="WI_10.html">Scenes chapter</a>).</p>
 <p>If a rulebook is declared like so:</p>
 <div class="codeblock"><div class="codeline">Marvellous reasoning is a rulebook.</div>
 </div><p>then it is an action based rulebook. If we want something different, we must write something like this:</p>
@@ -470,7 +470,7 @@
 </div><p>Had we used &quot;follow&quot; instead of &quot;abide by&quot;, then in the event of the player typing &quot;drop angel&quot; the text &quot;The glass angel is too fragile for such rough handling&quot; would be printed, which is correct &ndash; but then the action would continue as though no difficulty had occurred, which is definitely not correct.</p>
 <p>Finally, we can &quot;anonymously abide&quot;:</p>
 <div class="defn" id="ph_abideanon"><div class="defnline"><span class="defn">anonymously abide by </span><span class="neutral">(rule)</span></div><div class="defn-or">or&hellip;</div><div class="defnline"><span class="defn">anonymously abide by </span><span class="neutral">(values based rule producing values)</span><span class="defn"> for </span><span class="neutral">(value)</span></div><p>This phrase applies the given rule, and makes its result the result of the present rule. If the rule being abided by succeeds or fails then the original rule also stops, at once and without going on to any further instructions. However, the rule deemed to have decided the outcome is the one abided by, not the one doing the abiding.</p>
-</div><p>This is only useful in complicated situations where one rulebook uses another which&hellip; and so on. Its effect is exactly the same as &quot;abide&quot;, except that the rule deemed to have decided the outcome is the one abided by, not the one doing the abiding. It thus allows a rule or rulebook to act purely as a middle-man, never getting the blame or the credit for what happens. The rule which made the decision is often not very relevant anyway, but it&#39;s used as the source of the value &quot;reason the action failed&quot; (see the Advanced Actions chapter).</p>
+</div><p>This is only useful in complicated situations where one rulebook uses another which&hellip; and so on. Its effect is exactly the same as &quot;abide&quot;, except that the rule deemed to have decided the outcome is the one abided by, not the one doing the abiding. It thus allows a rule or rulebook to act purely as a middle-man, never getting the blame or the credit for what happens. The rule which made the decision is often not very relevant anyway, but it&#39;s used as the source of the value &quot;reason the action failed&quot; (see the <a href="WI_12.html">Advanced Actions chapter</a>).</p>
 </article>
 <article><h3 id="section_15">WI <span class="sect-mark">§</span>19.15 Two rulebooks used internally</h3>
 <div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="#section_14" title="Abide by"><div class="nav-arrow"><span class="sym">⬅</span>19.14</div><div class="doc-navbar-text">Abide by</div></a></div><div class="doc-navbar-center"><a class="raw nav-el" href="#chapter_19"><div class="nav-arrow"><span class="sym">⬆</span>19.</div><div class="doc-navbar-text">Rulebooks</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="#section_16"><div class="doc-navbar-text">The Laws for Sorting Rulebooks</div><div class="nav-arrow">19.16<span class="sym">⮕</span></div></a></div></div></div>
@@ -528,8 +528,9 @@
 <p><strong>Law III.5.2 &ndash; Action/When/Circumstances</strong>. A more specific condition under &quot;&hellip;when&hellip;&quot; beats a less specific one. These conditions could potentially be complex: Inform judges how specific they are by counting the clauses found in them. The more clauses, the more specific the condition, it is assumed.</p>
 <p><strong>Law III.6.1 &ndash; Action/Name/Is This Named</strong>. A rule with a name (&quot;the apple blossom rule&quot;, say) beats a rule without.</p>
 </article>
-</section></main>
+</section>
 <div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="WI_18.html"><div class="nav-arrow">⬅18.</div><div class="doc-navbar-text">Activities</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="WI_20.html"><div class="doc-navbar-text">Advanced Text</div> <div class="nav-arrow">20.⮕</div></a></div></div>
+</main>
 <footer id="credits-footer"><nav><div class="nav-el"><a class="raw nav-el" href="index.html">Contents</a></div><div class="nav-el"><a class="raw nav-el" href="examples/index.html">Examples</a></div><div class="nav-el"><a class="raw nav-el" href="general_index.html">Index</a></div><div class="nav-el"><a class="raw nav-el" href="search.html">Search</a></div></nav>
 <div class="footing"><p id="i7credit"><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="license.html">Artistic License 2.0</a>.</p><p class="about"><a class="raw" href="about.html">About this edition</a>&ensp;&bull;&ensp;<a class="raw" href="https://mastodon.gamedev.place/web/@inform7tips">@inform7tips@mastodon.gamedev.place</a></p></div></footer>
 </body></html>
