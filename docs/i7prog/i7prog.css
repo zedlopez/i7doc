@@ -1,0 +1,36 @@
+/*ul.bullet {
+    list-style-type: disc;
+    list-style-position: inside;
+}
+*/
+
+ol.num { list-style-type: revert;
+         list-style-position: inside;
+         margin-inline-start: 1rem;
+         text-indent: 1rem;
+    margin-left: 1rem;
+       }
+
+ol.num li {         padding-left: 1rem; }
+
+h2 { margin-top: 2rem; margin-bottom: 2rem; }
+
+ul {
+    list-style-position: inside;
+    margin-left: 3em;
+    text-indent: -1.5em;
+    list-style-type: disc;
+}
+
+li.npc {  list-style-type: "🎭"; }
+
+span.list-entry { padding-left: .5em; }
+
+li.rule {  list-style-type: "📏"; }
+li.activity {  list-style-type: "🛠"; }
+
+footer { margin-top: 2rem; }
+
+h1.title { text-align: center; }
+
+heading div.subtitle { margin-top: 1rem; text-align: center; }

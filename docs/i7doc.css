@@ -43,7 +43,7 @@
         --mono-normal-weight: 400;
         --mono-bold-weight: 600;
         --bg-color: #FAFAEF;
-        --link-color: #00e;
+        --link-color: #00E;
         --visited-link-color: #551a8b;
         --fg-color: black;
         --link-underline-height: .14rem;
@@ -68,8 +68,8 @@
 @supports (color-scheme: dark light) {
 @media screen and (prefers-color-scheme: dark) {
     :root {
-        --normal-weight: 350;
-        --bold-weight: 550;
+        --normal-weight: 300;
+        --bold-weight: 600;
         --mono-normal-weight: 325;
         --mono-bold-weight: 500;
         --bg-color: #131415;
@@ -117,7 +117,6 @@ body {
   background-color: var(--bg-color);
   color: var(--fg-color); 
   line-height: 1.5;
-  width: var(--width);
   margin: auto;
   text-indent: 0;
 }
@@ -469,9 +468,12 @@ header { margin-bottom: 1.5em; }
     margin-bottom: 0;
 }
 
+
+main { width: var(--width); margin: auto; }
+
 .toc { margin-top: 0; margin-bottom: 0;  }
 .subtitle { font-size: 1.75em; text-align: left; margin-top: -1.75rem; margin-bottom: 0; }
-main.toc { margin-left: 2rem; margin-right: 2rem; }
+main.toc { margin-left: 2rem; margin-right: 2rem; width: 100%; }
 
 main.toc::after {
   content: "";
@@ -498,7 +500,7 @@ header.toc-er > .superheading { margin-top: aem; margin-bottom: 0; }
 .example-meta-desc p { margin-top: 1em; margin-bottom: 0; }
 header.example-header { margin-bottom: 0; }
 header.example-header .superheading { margin-bottom: 0; }
-
+footer { width: var(--width); }
 .example-body { border-top: var(--example-body-border-width) solid currentColor; }
 div.example-linkback { margin-top: 0; }
 main { margin-bottom: 1em; }
@@ -537,11 +539,16 @@ body.toc { width: 100%; }
 
 .indexphrasebracketed, .indexifphrasebracketed, .indexsayphrasebracketed, .indexoutphrasebracketed, .indexassertbracketed, .indexrbbracketed, .indexpropbracketed, .indexpropcatbracketed, .indexadjbracketed, .indexrelbracketed, .indexrelcatbracketed, .indexglobbracketed, .indexactvarbracketed, .indexconstbracketed, .indexactionbracketed, .indexsourceargbracketed, .indextokenbracketed { font-family: var(--sans); font-style: italic; font-size: 105%; }
 
-div.indexentry { font-family: var(--sans); padding-top: .3em; }
+/*div.indexentry { font-family: var(--sans); padding-top: .3em; }*/
 
-.indexsource, .indexsourcearg, .indexsourcepartbracketed, indexphrase, .indexifphrase, .indexsayphrase, .indexoutphrase, .indexassert, .indexrb, .indexprop, .indexpropcat, .indexadj, .indexrelverb, .indexglob, .indexactvar, .indexconst, .indexaction, .indexactivity, .indexactivitycat, .indexdescactivity, .indexofsourcebracketed, .indexuseopt, .indextoken, .indexphrase, .indexsayphrase { font-family: var(--mono); font-size: .9em; }
+/*.index-entry { display: inline-block; }*/
+#general-index .indexbar-holder { width: var(--width); }
+/*#general-index-page, #general-index, .index-entry { width: 100%; margin: auto; }*/
 
-.indexcommand, .indextestcmd, .indexcommandpartbracketed { text-transform: uppercase; font-size: .9em; --r-casl: 0; --r-mono: 0.85 }
+
+.indexsource, .indexsourcearg, .indexsourcepartbracketed, indexphrase, .indexifphrase, .indexsayphrase, .indexoutphrase, .indexassert, .indexrb, .indexprop, .indexpropcat, .indexadj, .indexrelverb, .indexglob, .indexactvar, .indexconst, .indexaction, .indexactivity, .indexactivitycat, .indexdescactivity, .indexofsourcebracketed, .indexuseopt, .indextoken, .indexphrase, .indexsayphrase { font-family: var(--mono); }
+
+.indexcommand, .indextestcmd, .indexcommandpartbracketed { text-transform: uppercase; font-size: .9em; }
 .indent0 { font-size: 1.1em; margin-left: 0em; margin-top: .5rem; margin-bottom: 0; }
 
 .indent1 { font-size: 1.05em; margin-left: 2em; padding-bottom: 0em; margin-top: .5em;  margin-bottom: 0; }
@@ -553,8 +560,7 @@ div.indexentry { font-family: var(--sans); padding-top: .3em; }
 
 
 
-.index-label { font-size: .9375em; font-family: var(--sans); background-color: var(--indexbar-bg-color);
-               padding-left: .33em; padding-right: .33em; border-radius: .66em; margin-left: .33em; margin-right: .33em; }
+.index-label { font-size: .9375em; font-family: var(--sans); background-color: var(--indexbar-bg-color); white-space: nowrap; padding-left: .33em; padding-right: .33em; border-radius: .66em; margin-left: .33em; margin-right: .33em; }
 
 div.indexbar-holder { margin-top: 1em; display: table; width: 100%; font-weight: var(--bold-weight); font-size: 1.25em; margin-bottom: 1.5em; } 
 
@@ -581,7 +587,7 @@ div.indexbar-holder { margin-top: 1em; display: table; width: 100%; font-weight:
 .indexcurrentletter:last-child { text-align: center; }
 
 .borogove-link, .quixe-link { display: inline-block; }
-span.mono { font-family: var(--mono); font-weight: var(--mono-weight); }
+span.mono { font-family: var(--mono); font-weight: var(--mono-weight); font-style: normal; }
 
 
 details.testme-output { background-color: var(--testme-bg-color); border: var(--testme-border-width) solid transparent; border-radius: 1em; margin-top: 1.5em; margin-bottom: 1rem; }
@@ -598,3 +604,5 @@ span.index-ref-list { font-size: .9375em; }
 summary > * { display: inline; }
 
 .play-example { text-align: right; align: right; font-weight: var(--bold-weight); font-size: .9375em; }
+
+.i7prog { text-align: center; margin-top: 1rem; margin-bottom: 1rem; }

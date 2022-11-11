@@ -131,9 +131,11 @@
 <div class="codeblock"><div class="codeline">The coin is on the table.</div>
 <div class="codeline">The coin is part of the table.</div>
 </div><p>simultaneously, and it is a rare exception to the general rule that having one relation does not affect having another.</p>
-<p>But there is also a sixth relation used in Inform for these meanings: the possession relation, which is the meaning of the verb &quot;to have&quot;. At first sight this looks the same as the carrying relation, but in fact it is a convenient shorthand for &quot;carrying or wearing&quot;, provided for conditions rather than assertions:</p>
+<p>We have discussed how the holding relation applies if any one of those relations does. Another relation, similarly, is the union of two of them.</p>
+<p>The possession relation is the meaning of the verb &quot;to have&quot;. At first sight this seems the same as the carrying relation, but in fact it is a convenient shorthand for carrying <em>or</em> wearing, provided for conditions rather than assertions:</p>
 <div class="codeblock"><div class="codeline">if Mr Darcy has a wet shirt ...</div>
 </div><p>will be true during play if he is either carrying or wearing the shirt.</p>
+<p>&quot;to have&quot; *can* be used in now phrase sentences, but in now phrases it always means carrying, only.</p>
 <p>Still another relation exists which can be tested, but not declared to be true or false: the concealment relation, which is the meaning of the verb &quot;to conceal&quot;. So we can ask:</p>
 <div class="codeblock"><div class="codeline">if Mr Darcy conceals a fob watch ...</div>
 </div><div class="examples">
@@ -153,13 +155,13 @@
 </div><p>makes the &quot;adept sensitivity relation&quot;. (The limit is 32 words.)</p>
 <p>In such a definition, we have to say what kind of thing appears on the left and right of any relation, and also whether &quot;one&quot; or &quot;various&quot; possibilities can exist. In the example</p>
 <div class="codeblock"><div class="codeline">Loving relates various people to one person.</div>
-</div><p>what we are saying is that only people love; that they only love people; and that each person loves only one other person (at any given moment).</p>
-<p>The &quot;various&quot; part comes in because, for instance, we might have:</p>
-<div class="codeblock"><div class="codeline">Verenka <em>loving relation</em> Stankevich</div>
-<div class="codeline">Liubov <em>loving relation</em> Stankevich</div>
-</div><p>so that various people (Verenka and Liubov, to name but two) love one person (Stankevich). But we are forbidding anyone to love two other people at the same time: Stankevich must decide which of them to love, or pick someone else, or no-one at all. Similarly, we would not allow</p>
-<div class="codeblock"><div class="codeline">Liubov <em>loving relation</em> Belinsky</div>
-</div><p>It is sometimes convenient to give a name to the other side of a relationship, so to speak. We might imagine:</p>
+</div><p>what we are saying is that only people love, that they only love people, and that each person loves only one other person (at any given moment).</p>
+<p>The &quot;various&quot; part comes in because, for instance, it might be the case that Verenka loves Stankevich *and* Liubov loves Stankevich. So, various people (Verenka and Liubov, to name but two) love one person (Stankevich). But we are forbidding anyone to love two other people at the same time: Stankevich must decide which of them to love, or pick someone else, or no-one at all.</p>
+<p>Similarly, because loving relates various people to *one person*, if it had been asserted that Liubov loves Stankevich, a further assertion that Liubov loved Belinsky would result in a compiler error. Note the important difference between assertions and now phrases here. Assertions are what Inform uses to build the initial state of the game world, so it insists on consistency. All the compiler wants is to create the world you intended and any contradiction leaves it unsure what that is.</p>
+<p>But relations are subject to change. The assertion that Liubov loves Stankevich only establishes what&#39;s true of the game world initially. Assuming we&#39;ve established that the verb &quot;to love&quot; means the loving relation (more on which soon), any of your rules or phrases could include:</p>
+<div class="codeblock"><div class="codeline">now Liubov loves Belinsky;</div>
+</div><p>If Liubov already loved someone else, this would automatically cause Liubov to *cease* loving that person. With a one-to-one relation, a single now phrase creating a relation between two values could potentially break *two* other previously existing relations.</p>
+<p>It is sometimes convenient to give a name to the other side of a relationship, so to speak. We might imagine:</p>
 <div class="codeblock"><div class="codeline">Pet-ownership relates various animals to one person (called the owner).</div>
 </div><p>It would then make sense to talk about &quot;the owner of Loulou&quot;, and we could have phrases like &quot;now Flaubert is the owner of Loulou&quot; or &quot;if the owner of Loulou is a woman&hellip;&quot; and so forth. This, however, would not be allowed:</p>
 <div class="codeblock"><div class="codeline">Pet-ownership relates various animals (called the pet) to one person.</div>
@@ -212,7 +214,8 @@
 </article>
 <article><h3 id="section_8">WI <span class="sect-mark">§</span>13.8 The built-in verbs and their meanings</h3>
 <div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="#section_7" title="Relations in groups"><div class="nav-arrow"><span class="sym">⬅</span>13.7</div><div class="doc-navbar-text">Relations in groups</div></a></div><div class="doc-navbar-center"><a class="raw nav-el" href="#chapter_13"><div class="nav-arrow"><span class="sym">⬆</span>13.</div><div class="doc-navbar-text">Relations</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="#section_9"><div class="doc-navbar-text">Defining new assertion verbs</div><div class="nav-arrow">13.9<span class="sym">⮕</span></div></a></div></div></div>
-<p>It is all very well to define new relations, but this does nothing if there is no way to assert that they are true, or to ask whether they are true or false. That requires a verb: in fact, a relation is nothing more than what Inform uses as the &quot;meaning&quot; of a verb. The assertion verbs built in to Inform have the following built-in relations as their meanings:</p>
+<p>It is all very well to define new relations, but a verb makes it useful. In fact, a relation is nothing more than what Inform uses as the &quot;meaning&quot; of a verb. The assertion verbs built in to Inform have the following built-in relations as their meanings:</p>
+<p>[TODO &ndash; more verbs, more discussion of exceptions ]</p>
 <div class="codeblock"><div class="codeline"><strong>Verb - Relation</strong></div>
 <div class="codeline">to be - equality relation</div>
 <div class="codeline">to have - possession relation</div>
@@ -221,14 +224,16 @@
 <div class="codeline">to carry - carrying relation</div>
 <div class="codeline">to wear - wearing relation</div>
 <div class="codeline">to incorporate - incorporation relation</div>
-</div><p>Two of Inform&#39;s built-in relations are expressed using prepositions instead:</p>
+</div><p>Some of Inform&#39;s built-in relations are expressed using prepositions:</p>
 <div class="codeblock"><div class="codeline"><strong>Preposition - Relation</strong></div>
 <div class="codeline">to be part of - (reversed) incorporation relation</div>
 <div class="codeline">to be adjacent to - adjacency relation</div>
-</div><p>It would be easy to make verbs for these if we wanted (&quot;to adjoin&quot;, say) using the techniques of the next section.</p>
+</div><p>        to be in &ndash; (reversed) containment relation</p>
+<p>        to be on &ndash; (reversed) support relation</p>
+<p>It would be easy to make verbs for these if we wanted (&quot;to adjoin&quot;, say) using the techniques of the next section.</p>
 <p>The verb <em>to be</em> is grammatically different from any other, and its meaning is too complicated to be fully expressed by any one relation. A great deal of the Inform program is given over to its &quot;meaning&quot;, which we are not allowed to change or imitate. The &quot;equality relation&quot; is simple enough, and is the one implied by conditions like</p>
 <div class="codeblock"><div class="codeline">if the score is 20, ...</div>
-</div><p>but <em>to be</em> can have more complicated implications &ndash; &quot;if Mr Wickham is hungry&quot; clearly doesn&#39;t test whether two quantities are equal. Fortunately the other verbs are much simpler.</p>
+</div><p>but <em>to be</em> can have more complicated implications &ndash; &quot;if Mr Wickham is hungry&quot; clearly doesn&#39;t test whether two quantities are equal. Likewise, to have, to hold, and to contain/to be in have different meanings in different contexts.</p>
 <p>There are a few other built-in verbs, as can be seen in the Index, but these are mostly for experts only. For example:</p>
 <div class="codeblock"><div class="codeline"><strong>Verb - Relation</strong></div>
 <div class="codeline">to mean - meaning relation</div>
@@ -244,7 +249,10 @@
 </div><p>which will do the the same thing as</p>
 <div class="codeblock"><div class="codeline">Mr Wickham wears a Tory rosette.</div>
 </div><p>because both verbs have the same relation as their meaning.</p>
-<p>Earlier versions of Inform needed to be told how to make other parts of the verb, but that&#39;s rarely true now. Just writing:</p>
+<p>[ TODO contradicts the description in 3.20 of these being participles ]</p>
+<p>One can also use the present progressive (but not with &quot;to be&quot; or other verbs beginning &quot;to be&quot;):</p>
+<div class="codeblock"><div class="codeline">Mr Wickham is sporting a Tory rosette.</div>
+</div><p>Earlier versions of Inform needed to be told how to make other parts of the verb, but that&#39;s rarely true now. Just writing:</p>
 <div class="codeblock"><div class="codeline">The verb to sport means the wearing relation.</div>
 </div><p>is enough for Inform to understand &quot;he sports&quot;, &quot;they sport&quot;, &quot;he sported&quot;, &quot;it is sported&quot;, &quot;he is sporting&quot;, &quot;he had sported&quot; and so on. It works with irregular verbs, too; it has a very comprehensive dictionary. But it&#39;s legal to spell out the conjugation if need be:</p>
 <div class="codeblock"><div class="codeline">The verb to sport (he sports, they sport, he sported, it is sported) implies the knowledge relation.</div>
@@ -254,8 +262,21 @@
 <div class="codeblock"><div class="codeline">Mr Wickham sports a Tory rosette.</div>
 <div class="codeline">A Tory rosette graces Mr Wickham.</div>
 </div><p>Reversed in this sense means that the things related &ndash; the subject and object of the verb &ndash; are the other way round.</p>
+<p>This is so convenient that when you define a verb meaning a relation, Inform automatically creates a &quot;to be (verbed) by&quot; verb that means that relation reversed. So the following are *also* equivalent to the above:</p>
+<p>     A Tory rosette is sported by Mr Wickham.</p>
+<p>     Mr Wickham is graced by a Tory rosette.</p>
+<p>Possible conditionals include:</p>
+<div class="codeblock"><div class="codeline">if Mr Wickham is sporting a Tory rosette:</div>
+<div class="codeline">if a Tory rosette graces Mr Wickham:</div>
+<div class="codeline">if a Tory rosette is gracing Mr Wickham:</div>
+</div><p>Or, in the negative:</p>
+<div class="codeblock"><div class="codeline">if Mr Wickham does not sport a Tory rosette:</div>
+<div class="codeline">if a Tory rosette does not grace Mr Wickham:</div>
+<div class="codeline">if a Mr Wickham is not graced by a Tory rosette:</div>
+</div><p>While &quot;does *not*&quot; can be used in negatives, &quot;does&quot; or &quot;do&quot; cannot be used in a positive: one cannot say &quot;if Mr Wickham does sport a Tory rosette&quot;.</p>
+<p>[TODO &ndash; not in 10.1 it doesn&#39;t. ]</p>
 <p>The Phrasebook index contains all the verbs associated with assertions, in the Verbs section. When we add new verbs to our source, those will appear in the Phrasebook as well.</p>
-<p>The verbs above (&quot;to grace&quot;, &quot;to sport&quot;) are short ones, but we&#39;re free to make them longer than that. For example:</p>
+<p>The verbs above are short ones, but we&#39;re free to make them longer than that. For example:</p>
 <div class="codeblock"><div class="codeline">The verb to cover oneself with means the wearing relation.</div>
 <div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Peter is covering himself with a tent-like raincoat.</div>
@@ -289,6 +310,7 @@
 <p>We can also define verbs as auxiliaries, like so:</p>
 <div class="codeblock"><div class="codeline">The verb to be able to approach means the approachability relation.</div>
 </div><p>Now we can ask if Poirot &quot;can approach&quot; Hotchkiss, and so on.</p>
+<p>[TODO] not all verbs are created equal.</p>
 <div class="examples">
 <h4>Examples</h4>
 <div class="example-short"><div class="example-short-num"><span class="hidden"></span>231.</div><div class="example-short-name"><span class="example-short-name"><a href="examples/abolition_of_love.html">The Abolition of Love</a></span> <span class="sym">★</span></div></div><div class="example-short"><div class="example-short-num"><span class="hidden">000.</span></div><div class="example-short-name">A thorough exploration of all the kinds of relations established so far, with the syntax to set and unset them.</div></div>
@@ -303,7 +325,7 @@
 </article>
 <article><h3 id="section_11">WI <span class="sect-mark">§</span>13.11 Indirect relations</h3>
 <div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="#section_10" title="Defining new prepositions"><div class="nav-arrow"><span class="sym">⬅</span>13.10</div><div class="doc-navbar-text">Defining new prepositions</div></a></div><div class="doc-navbar-center"><a class="raw nav-el" href="#chapter_13"><div class="nav-arrow"><span class="sym">⬆</span>13.</div><div class="doc-navbar-text">Relations</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="#section_12"><div class="doc-navbar-text">Relations which express conditions</div><div class="nav-arrow">13.12<span class="sym">⮕</span></div></a></div></div></div>
-<p>We have already seen, in the <a href="WI_6.html">chapter on Descriptions</a> which is a forerunner of this one, that Inform provides not only &quot;adjacent&quot; as a way of seeing if one room is directly connected to another, but also &quot;the best route from A to B&quot;, which allows us to see if any sequence of moves connects them.</p>
+<p>We have already seen, in the chapter on Descriptions which is a forerunner of this one, that Inform provides not only &quot;adjacent&quot; as a way of seeing if one room is directly connected to another, but also &quot;the best route from A to B&quot;, which allows us to see if any sequence of moves connects them.</p>
 <p>Something similar &ndash; in fact, simpler &ndash; is allowed for any relation between objects. Suppose we would like to go sledging: we can go downhill, but not up. Some quite distant places may be reachable, while others close by may not be, even if lower than us, because they would involve climbing again at some point. The following would implement this:</p>
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Overlooking relates various rooms to various rooms.\n\nThe verb to overlook means the overlooking relation.\n\nThe Garden overlooks the Shrubbery. The Folly overlooks the Garden. The Shrubbery overlooks the Sundial Plot. The Old Ice House overlooks the Garden.\n\nAfter looking:\n\tsay &quot;This wintry vantage point overlooks [the list of rooms overlooked by the location].&quot;;\n\tlet the way be the next step via the overlooking relation from the location to the Sundial Plot;\n\tif the way is a room, say &quot;To sledge downhill to the Sundial, aim for [the way].&quot;;\n\totherwise say &quot;It is not possible to sledge downhill to the Sundial.&quot;`)"><span class="sym">⧉</span></button><div class="codeline">Overlooking relates various rooms to various rooms.</div>
 <div class="codeline blankline">&thinsp;</div>
@@ -373,6 +395,7 @@
 </article>
 <article><h3 id="section_13">WI <span class="sect-mark">§</span>13.13 Relations involving values</h3>
 <div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="#section_12" title="Relations which express conditions"><div class="nav-arrow"><span class="sym">⬅</span>13.12</div><div class="doc-navbar-text">Relations which express conditions</div></a></div><div class="doc-navbar-center"><a class="raw nav-el" href="#chapter_13"><div class="nav-arrow"><span class="sym">⬆</span>13.</div><div class="doc-navbar-text">Relations</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="#section_14"><div class="doc-navbar-text">Relations as values in their own right</div><div class="nav-arrow">13.14<span class="sym">⮕</span></div></a></div></div></div>
+<p>[ TODO verb equivalents ]</p>
 <p>Although most of the examples in this chapter have involved objects, relations can connect almost any values together. We can create relations in groups, one to various relations, various to one relations, one to one relations, and various to various relations for any combination of kinds. For example:</p>
 <div class="codeblock"><div class="codeline i7header">Partnership relates various texts to various texts.</div><div class="codeline blankline">&thinsp;</div>
 <div class="codeline">The verb to belong with means the</div>
@@ -472,7 +495,10 @@
 <p>It is easy to say what verbs are for: they are to express relations. But what are relations for?</p>
 <p>Inform 7&#39;s focus on relations between objects is unusual as an approach to interactive fiction; the concept does not exist in most design systems, or rather, it does but is submerged. Traditional design systems do, after all, have the spatial relations of being inside, on top of, and so on. It could well be said that these are the only relationships that inanimate objects ever have. A stone can be on top of a table, and if so then that expresses their entire association.</p>
 <p>This is because the stone, and the table, have no opinions, emotions, knowledge or memory. If the stone is taken away and then put back, nothing has changed. People, on the other hand, tend to remember having met each other before; they like being in some places, but not others; their behaviour depends on who, or what, is nearby. Being conscious, they have internal states, unlike the stone. Relations are a simple but powerful way to express and talk about such connections, and although they have numerous uses in physical contexts too, they are at their most powerful when helping to make the characters of interactive fiction come alive.</p>
-<div class="examples">
+<p>A note of caution: perfectly innocent conditionals involving relations can prove to be woefully inefficient in practice: testing a relationship among things may end up comparing a thing to every other thing. If that&#39;s occurring in multiple Every Turn rules and your things number in the hundreds, you may find your game slowing to a crawl. There can be dramatic differences that are impossible to anticipate. &quot;If the first thing held by the box is nothing&quot; is fast; &quot;if there is nothing in the box&quot; isn&#39;t terrible; &quot;if nothing is in the box&quot;, however, can be very slow if there are a lot of objects in the game. In an ideal world, this would be beneath an author&#39;s concerns. In this world, it&#39;s a problem you could encounter in a large game. [TODO some statement of what to do about it? ]</p>
+<div class="see-also">
+<h4>See Also</h4>
+<p><a href="WI_6.html#section_9" title="Descriptions &gt; Which and who">Which and who</a> for a review of things that can be done with relations, along with the remainder of the chapter on Descriptions.<br></p></div><div class="examples">
 <h4>Examples</h4>
 <div class="example-short"><div class="example-short-num"><span class="hidden"></span>241.</div><div class="example-short-name"><span class="example-short-name"><a href="examples/murder_on_the_orient_express.html">Murder on the Orient Express</a></span> <span class="sym">★★</span></div></div><div class="example-short"><div class="example-short-num"><span class="hidden">000.</span></div><div class="example-short-name">A number of sleuths (the player among them) find themselves aboard the Orient Express, where a murder has taken place, and one of them is apparently the culprit. Naturally they do not agree on whom, but there is physical evidence which may change their minds&hellip;</div></div>
 <div class="linkback"><a href="RB_7.html#section_11" title="Other Characters &gt; Character Knowledge and Reasoning">RB 7.11 Character Knowledge and Reasoning</a></div>
@@ -487,5 +513,5 @@
 </section></main>
 <div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="WI_12.html"><div class="nav-arrow">⬅12.</div><div class="doc-navbar-text">Advanced Actions</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="WI_14.html"><div class="doc-navbar-text">Adaptive Text and Responses</div> <div class="nav-arrow">14.⮕</div></a></div></div>
 <footer id="credits-footer"><nav><div class="nav-el"><a class="raw nav-el" href="index.html">Contents</a></div><div class="nav-el"><a class="raw nav-el" href="examples/index.html">Examples</a></div><div class="nav-el"><a class="raw nav-el" href="general_index.html">Index</a></div><div class="nav-el"><a class="raw nav-el" href="search.html">Search</a></div></nav>
-<div class="footing"><p id="i7credit"><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="license.html">Artistic License 2.0</a>.</p><p class="about"><a class="raw" href="about.html">About this edition</a>&ensp;&bull;&ensp;<a class="raw" href="https://twitter.com/inform7tips">@inform7tips</a></p></div></footer>
+<div class="footing"><p id="i7credit"><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="license.html">Artistic License 2.0</a>.</p><p class="about"><a class="raw" href="about.html">About this edition</a>&ensp;&bull;&ensp;<a class="raw" href="https://mastodon.gamedev.place/web/@inform7tips">@inform7tips@mastodon.gamedev.place</a></p></div></footer>
 </body></html>

@@ -1,9 +1,16 @@
 #!/usr/bin/env ruby
 
+# ruby -Ilib i7doc.rb
+
 # Save your sanity and don't look at this ugly, ugly code.
 # It's too late for me; it doesn't have to be too late for you.
 
 # remglk and status line updates
+
+# add link to plain text version (the generated .i7)
+# include comment in plain text with original filename
+
+# ostruct for Conf
 
 # file:///home/zed/mine/i7doc/docs/examples/tilt3.html
 # copycode has no focus
@@ -27,9 +34,6 @@ require 'json'
 require 'charlock_holmes'
 require 'i18n'
 I18n.config.available_locales = :en
-
-
-
 
 class UTF8 < File
 
@@ -59,8 +63,6 @@ class String
     CharlockHolmes::Converter.convert(x, detection[:encoding], 'UTF-8')
   end
 end
-    
-
 
 class Conf
   def self.[](x)
@@ -134,9 +136,9 @@ def configure
       %r{\bi7\b}i => %Q{<span class="sc">i</span>7},
 
     }
-  Conf[:append] = { after: { rb: { }, wi: { }, ex: {} },
-                    fore: { rb: { }, wi: { }, ex: {} },
-                  }
+#  Conf[:append] = { after: { rb: { }, wi: { }, ex: {} },
+#                    fore: { rb: { }, wi: { }, ex: {} },
+#                  }
   Conf[:xdir] = '/home/zed/inf7/y'
   Conf[:table] = []
   Conf[:tmpl] = 'i7/tmpl'
@@ -403,11 +405,13 @@ def htmlify(line, type: :text, level: 0)
   end
   line = line.gsub(/«/,'<').gsub(/»/,'>').gsub(/<b>/,'<strong>').gsub(/<\/b>/,'</strong>').gsub('<i>','<em>').gsub(/<\/i>/,'</em>')
   Conf.text_subs.each_pair { |regexp, subst| line.gsub!(regexp, subst.to_s) }
+  if false
   Conf.books.each_pair do |vol,book|
     book[:chapters].keys.sort.each do |chapter_num|
       chapter = book[:chapters][chapter_num]
       line.gsub!(%r{(#{chapter[:name]}\s+chapter|chapter\s+on\s+"?#{chapter[:name]}"?)}i) {|m| %Q{<a href="#{target_chapter(vol, chapter[:chapter_num])}">#{$1}</a>} }
     end
+  end
   end
   line.gsub!(/-&gt;/,'&rarr;') if type == :defn
   if type == :text
@@ -444,7 +448,7 @@ def phrase_defn(phrase, unbracketed = "neutral", bracketed = "neutral", omit: fa
     end
   end
   result << close unless phrase.end_with?(')') or omit
-  result.join.strip.gsub(/\s+/,' ')
+  result.join.strip.gsub(/->/,'<span class="mono">-&gt;</span>').gsub(/\s+/,' ')
 end
 
 $i = 0
@@ -622,12 +626,14 @@ def print_index_entry(f, k, h, level, monolithic = false)
     print_bar(f, alpha) if Conf.index_bar[alpha] == h[:tag]
   end
   cat = 'sayphrase' if ((cat == 'phrase') and (text.start_with?('say')))
-  f.print %Q{<div class="indent#{level}" id="index_#{h[:tag]}">}
+  f.print %Q{<div class="index-entry indent#{level}" id="index_#{h[:tag]}">}
   text = text.dup
-  text = text.gsub(/\\\(/,'«').gsub(/\\\)/,'»').gsub(/\(/,'').gsub(/\)/,'').gsub(/«/,'(').gsub(/»/,')') unless h[:id]
-#  text.gsub!(/->/,Conf.syms[:heavyright])
+  unless h[:id]
+    text = text.gsub(/\\\(/,'«').gsub(/\\\)/,'»').gsub(/\(/,'').gsub(/\)/,'').gsub(/«/,'(').gsub(/»/,')') 
+    text = text.gsub(/([[:punct:]]+?)(,?)/) {|m| %Q{<span class="mono">#{$1}</span>#{$2}} }
+  end
+  #  text.gsub!(/->/,Conf.syms[:heavyright])
   text = phrase_defn(text, "index#{cat}", "index#{cat}bracketed")
-#  text.gsub!(%r{#{Conf.syms[:heavyright]}},%Q{<span class="sym">#{Conf.syms[:heavyright]}</span>})
   if h[:id]
     defn = Conf.defns[h[:id]]
     dvol, dchap = *(defn[:entry])
@@ -647,7 +653,7 @@ def print_index_entry(f, k, h, level, monolithic = false)
     f.print %Q{<span class="index-ref-list">#{targets.join('&ensp;')}</span>}
   end
   if !h[:see].blank?
-    f.print '; ' if !h[:targets].blank?
+    f.print ' ; ' if !h[:targets].blank?
     f.print %Q{ <span class="see">see}
     f.print ' also' if !h[:targets].blank?
     f.print '</span> '
@@ -664,7 +670,7 @@ def print_index_entry(f, k, h, level, monolithic = false)
 end
 
 def print_index(f, monolithic = false)
-  f.puts '<div id="general_index">'
+  f.puts '<div id="general-index">'
   Conf.gi.keys.sort_by {|k| Conf.gi[k][:sortby] }.each do |k|
     primary = Conf.gi[k][:sortby][0][0]
     Conf.index_bar[primary] ||= Conf.gi[k][:tag] if primary.match(/\A[a-z]/)
@@ -1311,17 +1317,17 @@ def output_examples(monolithic = false)
     f.puts '<header>'
     nav(f, :examples, level: 1)
     f.puts '<div class="superheading"><div class="heading"><h1>Examples</h1></div></div></header>'
-    f.puts '<div id="nominal-example-jump"><a href="#nominal-examples-indexbar">Examples by Name</a></div></div>'
+    f.puts '<main><div id="nominal-example-jump"><a href="#nominal-examples-indexbar">Examples by Name</a></div></div>'
     f.puts '<h2>Numeric Index of Examples</h2>'
     numeric_examples(f)
     nominal_examples(f)
     footer(f, level: 1, page: :examples)
-    f.puts %Q{</body></html>}
+    f.puts %Q{</main></body></html>}
   end
   Conf.examples.each do |cname, example|
     File.open(File.join(Conf.example_output_dir, "#{cname}.html"), 'w') do |f|
       html_head(f, "Ex. #{example[:example_num]}. #{example[:name]}", level: 1)
-      f.puts %Q{<body>}
+      f.puts %Q{<body><main>}
       f.puts %Q{<header class="example-header">}
       nav(f, level: 1)
       f.puts %Q{<div class="superheading"><div class="heading"><h1>#{example[:name]}</h1><div class="subheading">#{example[:subtitle] ? (example[:subtitle]+'<br>') : ''}<wbr><div class="ex-no">Example #{example[:example_num]}</div> #{'★'  * example[:stars]}</div></div>}
@@ -1376,6 +1382,7 @@ def output_examples(monolithic = false)
       f.print '<div class="example-body">'
       print_blocks(f, example[:body][:blocks], level: 1)
       f.print '</div>'
+      f.print '</main>'
       f.puts navbar.join('')
       footer(f, level: 1)
       f.puts '</body></html>'
@@ -1441,6 +1448,7 @@ f.puts %Q{</div></div>}
       f.puts '</div></div></div>'
     end
     f.puts '</div></main>'
+    f.puts '<div class="i7prog"><h2><a class="raw" href="i7prog/index.html">Inform 7 for Programmers (for 8.5/6G60) by Ron Newcomb</a></h2></div>'
     footer(f, css: "toc-er", page: :toc)
     f.puts '</body></html>'
   end
@@ -1560,7 +1568,7 @@ def output_general_index(monolithic = false)
     f.puts %Q{<body><header>}
     nav(f, :general_index)
     f.puts %Q{<div class="superheading"><div class="heading"><h1>#{title}</h1></div></div>}
-    f.puts %Q{</header><main>}
+    f.puts %Q{</header><main id="general-index-page">}
     print_index(f, monolithic)
     f.puts '</main>'
     footer(f, page: :general_index)
@@ -1576,7 +1584,7 @@ def footer(f, about = true, css: nil, level: 0, page: nil)
   f.print %Q{<div class="footing"><p id="i7credit"><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="#{((['..']*level)+['license.html']).join('/')}">Artistic License 2.0</a>.</p>}
   f.print %Q{<p>Thanks go to <a href="http://nitku.net/blog/">Juhana Leinonen</a> for <a href="https://borogove.app">Borogove</a>. The playable examples use <a href="https://eblong.com">Andrew Plotkin</a>'s <a href="https://eblong.com/zarf/glk/glkote.html">GlkOte</a> and <a href="https://eblong.com/zarf/glulx/quixe/index.html">Quixe</a>, distributed under an <a href="#{((['..']*level)+['mit.html']).join('/')}">MIT License.</a></p>} if page == :example
   about_html = (about ? %Q{<a class="raw" href="#{((['..']*level)+['about.html']).join('/')}">About this edition</a>&ensp;&bull;&ensp;} : '')
-    f.print %Q{<p class="about">#{about_html}<a class="raw" href="https://twitter.com/inform7tips">@inform7tips</a></p></div>}
+    f.print %Q{<p class="about">#{about_html}<a class="raw" href="https://mastodon.gamedev.place/web/@inform7tips">@inform7tips@mastodon.gamedev.place</a></p></div>}
   f.puts "</footer>"
 end
 
