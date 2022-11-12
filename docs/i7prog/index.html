@@ -83,7 +83,7 @@ rulebook is a container for rules, but these are not the production
 rules from Prolog. Rather, they are unnamed imperative functions that
 self-invoke based on global variables, game-state, and most importantly,
 on whether the containing rulebook is executing. From the outside, a
-rulebook acts -- and is invoked -- like a function: give it a task and
+rulebook acts &ndash; and is invoked &ndash; like a function: give it a task and
 it will solve it. The difference is how it solves it. It may execute
 every applicable rule within itself, or may only execute the most
 specific applicable rule, your choice. The entirety of the Inform 7
@@ -213,9 +213,9 @@ this is a single rule from a particular game.</p>
 </ul></p>
 
 <p>Rule preamble constructs like <em>someone hungry eating something
-edible</em> are not action invocations -- that would be <em>try Mario
-eating a mushroom</em> -- and not action definitions -- multiple
-rulebooks do that -- but rather, they are very much like a regex,
+edible</em> are not action invocations &ndash; that would be <em>try Mario
+eating a mushroom</em> &ndash; and not action definitions &ndash; multiple
+rulebooks do that &ndash; but rather, they are very much like a regex,
 applied to the state of the whole work rather than to a piece of
 text.</p>
 
@@ -288,8 +288,8 @@ Examine event, our player's command EXAMINE ME, which typically prints
 "As good looking as ever."</p>
 
 <p>The source accomplishes a lot with little writing. One sentence
-instantiated three Things -- the three pieces of clothing "are ...
-things" -- and set a boolean property on them at the same time -- all
+instantiated three Things &ndash; the three pieces of clothing "are &hellip;
+things" &ndash; and set a boolean property on them at the same time &ndash; all
 three pieces are "wearable things". The next sentence simultaneously set
 three relations, between Bob and each article of clothing. Object names
 can be abbreviated (<em>Bob</em>, <em>shoes</em>).</p>
@@ -391,7 +391,7 @@ a verb). Rulebooks which don't typically hinge on an action, such as
 They do nothing except improve the flow of reading. Here we used both
 <em>rule</em> and <em>for</em> only for the sake of an example.
 <em>Instead</em> almost always uses <em>of</em>, but normally, we would
-have begun <em>Check an actor...</em></p>
+have begun <em>Check an actor&hellip;</em></p>
 
 <p>Anyway, after the rulebook name is, optionally, the performer. Here
 we used <em>an actor</em> so the rule applies to all characters, not
@@ -424,8 +424,8 @@ used, such as <em>the topic understood</em>, <em>the time
 understood</em>, <em>the number understood</em>, etc.</p>
 
 <p>For actions with two parameters, a preposition follows. While the
-player doesn't always need to enter a preposition -- consider GIVE BOB
-THE TOY -- the programmer does. Since the action is named <em>inserting
+player doesn't always need to enter a preposition &ndash; consider GIVE BOB
+THE TOY &ndash; the programmer does. Since the action is named <em>inserting
 it into</em>, our preposition is <em>into</em>. (The <em>it</em> in the
 action name is a placeholder.)</p>
 
@@ -440,8 +440,8 @@ any valid condition can follow it. <em>The time of day</em> is a time
 variable in the library, automatically advanced one minute per
 understood player command. The "is before" means "is less than".</p>
 
-<p>Finally, the colon marks the end of the rule preamble -- the
-regex-like part of the rule -- and the start of the imperative code
+<p>Finally, the colon marks the end of the rule preamble &ndash; the
+regex-like part of the rule &ndash; and the start of the imperative code
 block. (One piece of syntactic sugar: a comma can be substituted for the
 colon if the imperative code block is a single line, and the rulebook
 begins with <em>before, after, instead of, when</em>, or <em>every
@@ -458,7 +458,7 @@ are simpler. Every rule ends in one of the statements <em>rule
 succeeds</em>, <em>rule fails</em>, or <em>make no decision</em>. If we
 don't specifically use one of those three statements at the end of the
 rule, the rulebook's default is automatically appended. <em>Rule
-fails</em> and <em>rule succeeds</em> both end the rulebook as well --
+fails</em> and <em>rule succeeds</em> both end the rulebook as well &ndash;
 whatever task was given to the rulebook has completed. <em>Make no
 decision</em> tells the rulebook to try the next applicable rule, and is
 the default for any rulebook that runs all its rules. <em>Make no
@@ -607,9 +607,9 @@ or class, but anything from a specific value to a full-on
 set-description. As with rules, Inform chooses the most specific
 applicable phrase, and in the case of a phrase calling itself, prefers
 not to recurse if possible. (This is mainly a safety feature for the lay
-target audience.) So for the following procedures -- functions which
+target audience.) So for the following procedures &ndash; functions which
 return no value, and sometimes called to-phrases in Inform because
-<em>to</em> is the only keyword they have in common -- if Jenny doesn't
+<em>to</em> is the only keyword they have in common &ndash; if Jenny doesn't
 love the player, then invoking her name causes execution to ping-pong
 between both applicable phrases.</p>
 
@@ -828,7 +828,7 @@ other horizontal surface Bob can place things on top of. The player's
 holdall is usually a singleton, as it's a container without load limits.
 A instance of Door can explicitly connect Rooms, and can be open &amp;
 closed if not also locked &amp; unlocked. Direction does NOT connect
-rooms -- relations do that -- but is used in code to reference the
+rooms &ndash; relations do that &ndash; but is used in code to reference the
 same.</p>
 
 <p>Backdrop always has the boolean property <em>scenery</em> set, and is
@@ -1487,7 +1487,7 @@ of infinite size in the common generator-consumer pattern.</p>
 <p>In lieu of numerical relationships, qualitative either/or
 relationships frequent interactive fiction. Relations disguise 2D
 boolean arrays behind some of the best syntactic sugar in the language
--- namely, behind verbs. Relations are written with the infix form of
+&ndash; namely, behind verbs. Relations are written with the infix form of
 English verbs. Asymmetric (<em>X to Y</em>) and symmetric (<em>X to
 [one] another</em> or <em>X to each other</em>) relations are possible,
 with one-to-one, one-to-various, various-to-one, and various-to-various
@@ -1551,7 +1551,7 @@ has only the past participle (-en) form, and is required.</p>
 <div class="codeline">Bob <strong>can remember</strong> the time he spent in jail.</div>
 </div>
 
-<p>The <em>to be able to...</em> relations (only) can be stated in the
+<p>The <em>to be able to&hellip;</em> relations (only) can be stated in the
 passive voice as well. So <em>Bob can remember jailtime</em> may be
 stated <em>jailtime can be remembered by Bob</em>. Effectively, the
 <em>reversed</em> version is provided automatically. The phrasebook part
@@ -1576,7 +1576,7 @@ calculation rather than storage.</p>
 the same regardless the implementation, so swapping between them only
 requires fixing up wherever the relation was explicitly set between
 things. It is worth nothing that the relativistic relations of math are
-implemented this way ("The verb to be greater than implies the...") as
+implemented this way ("The verb to be greater than implies the&hellip;") as
 well as almost all spatial relations (under, on, in, northeast of,
 etc.)</p>
 
@@ -1590,7 +1590,7 @@ etc.)</p>
 <p><em>Asymmetric</em> is assumed, so only <em>symmetric</em> is
 defined. The <em>one-to-various</em> and flavors obviously cannot be
 used with <em>equivalence</em>. Finally, <em>empty</em> describes the
-default condition. The phrase <em>relates...to...</em> can be used in
+default condition. The phrase <em>relates&hellip;kto&hellip;</em> can be used in
 <em>if</em> and <em>now</em> statements. In an <em>if</em>, types and
 negation can be used: <em>if Bob <strong>does not relate to</strong>
 someone <strong>by</strong> the love relation.</em></p>
@@ -1637,8 +1637,8 @@ the secret sauce which COBOL and Applescript lack.</p>
 </div>
 
 <p>In the above description, each subordinate phrase applies to the main
-noun -- person, in this case -- not to the nouns listed in other
-subordinate phrases -- such as player, thing, or the second person.
+noun &ndash; person, in this case &ndash; not to the nouns listed in other
+subordinate phrases &ndash; such as player, thing, or the second person.
 (Asking "who is friends with a person" is a way of asking who has
 friends.) We cannot insert commas or conjunctions ("and").</p>
 
@@ -1691,7 +1691,7 @@ what situation that the player will be annoyed by someone.</p>
 prankster annoys the player if-and-only-if the action is the inserting
 it into action, and the actor is a person, and the actor is playful, and
 the actor is friends with the player, and the noun is a thing, and the
-noun is a favorite, and...</em> and so on, in its verbose, obtuse,
+noun is a favorite, and&hellip;</em> and so on, in its verbose, obtuse,
 punctuation-filled way. Neither COBOL nor Applescript are even that
 sophisticated. Indeed, one of the better analogs for Inform's rules are
 the rules of Perl 6, even though Perl's rules are intended primarily for
@@ -1764,7 +1764,7 @@ place can use the preamble.</p>
 
 <p>Strictly speaking, a rule accepts only one parameter, as defined by
 its rulebook, while all else in the rule's preamble comes from global
-variables -- the world-state. (Even more strictly: at the Inform 6
+variables &ndash; the world-state. (Even more strictly: at the Inform 6
 level, the parameter itself is actually in the global variable
 <em>parameter_object</em> and rules become functions taking zero
 parameters.) However, the default type of a rulebook is <em>a
@@ -1816,7 +1816,7 @@ of a return statement, rules use one of the <em>rule succeeds [with
 result X]</em>, <em>rule fails</em>, or <em>make no decision</em>
 imperatives, the last of which tells the 'book to try the next rule for
 a result. If a rule ends without one of these three imperatives, the
-default imperative -- usually <em>make no decision</em> -- is invisibly
+default imperative &ndash; usually <em>make no decision</em> &ndash; is invisibly
 added at the end of every rule. That default is set by the rulebook.</p>
 
 <div class="codeblock">
@@ -1842,10 +1842,11 @@ added at the end of every rule. That default is set by the rulebook.</p>
 <p>A rulebook can take up to one parameter (including one whole
 action-description) and <em>produce</em> one return value. A rulebook is
 invoked in one of several ways, mainly depending on whether it takes a
-parameter and whether it produces a value. These phrases are 1)
-<em>follow (rulebook);</em> 2) <em>follow (rulebook) for (value);</em>
-3) <em>the (value) produced by (rulebook);</em> and 4) <em>the (value)
-produced by (rulebook) for (value).</em></p>
+parameter and whether it produces a value. These phrases are</p> 
+  <p><ol class="num"><li><em>follow (rulebook)</em></li>
+    <li><em>follow (rulebook) for (value)</em></li>
+    <li><em>the (value) produced by (rulebook)</em></li>
+    <li><em>the (value) produced by (rulebook) for (value)</em></li></ol></p>
 
 <div class="codeblock">
 <div class="codeline">A snarky one-liner is <strong>a <em>rule</em> based rulebook producing <em>text</strong></em>. [<em>rulebook</em> by itself is <em>action based producing nothing</em>]</div>
@@ -1868,8 +1869,8 @@ succeeded</em> and <em>rule failed</em>, the past tense versions of
 <em>rule succeeds</em> and <em>rule fails</em>, are used in <em>if</em>
 statements to see if their present tense counterparts ended the recently
 called rulebook. This information is stored just above the current stack
-pointer, so calling any functions -- including things which become
-functions in Inform 6, such as set-descriptions -- will clobber
+pointer, so calling any functions &ndash; including things which become
+functions in Inform 6, such as set-descriptions &ndash; will clobber
 them.</p>
 
 <div class="codeblock">
@@ -1896,7 +1897,7 @@ languages, especially C when talking to an operating system's API, use
 what are called callbacks to "insert" user-written code into an
 operating system or library. Typically, callbacks are a bit arcane. C is
 notorious for tangling pointers like spaghetti, so pointers-to-functions
--- which is what callbacks are -- can be a recipe for cyanide. But
+&ndash; which is what callbacks are &ndash; can be a recipe for cyanide. But
 Inform's problem domain of iconoclastic games, which thrive at least in
 part on novelty, places heavy demands on the flexibility of any standard
 library. Callbacks are the norm, not the exception. Whence comes
@@ -1912,7 +1913,7 @@ So instead of code resembling this:</p>
 <div class="codeline">&nbsp;&nbsp;&nbsp;&nbsp;mull over bar.</div>
 </div>
 
-<p>... the pattern becomes this:</p>
+<p>&hellip; the pattern becomes this:</p>
 
 <div class="codeblock">
 <div class="codeline">The foobar rules are a rulebook.</div>
@@ -2041,7 +2042,7 @@ arity of three and a minimum arity of one. The subject, called <em>the
 actor</em> (or, as a global, <em>the person asked</em>), is required so
 no mention is made. In the implementation, the direct and indirect
 objects of a sentence are called <em>the noun</em> and then <em>the
-second noun</em> -- but only if they are objects. Otherwise, the
+second noun</em> &ndash; but only if they are objects. Otherwise, the
 variable is <em>the number understood</em>, <em>the time
 understood</em>, <em>the topic understood</em>, etc.</p>
 
@@ -2050,7 +2051,7 @@ understood</em>, <em>the topic understood</em>, etc.</p>
 adjective <em>visible</em> places every object (such as intangible ideas
 and rumors) in scope, and is completely unrelated to <em>requiring
 light.</em> The word <em>thing</em> (or <em>things</em>) actually means
-any objects -- we can't be more specific with <em>person</em>, for
+any objects &ndash; we can't be more specific with <em>person</em>, for
 example. (However, it does accept <em>object</em> as a synonym, oddly
 enough.) The phrase <em>out of world</em> is for system-level actions,
 which skips a great deal of the worldsim's calculations. <em>With past
@@ -2295,8 +2296,8 @@ set-description elsewhere, as in <em>examining something</em> or
 <p>
 <ol class="num">
 <li>When using <em>doing something</em>, we must remember that
-<em>looking</em> is what primarily prints text when we enter a place --
-or re-prints it when we load the game, etc. -- so we frequently will
+<em>looking</em> is what primarily prints text when we enter a place &ndash;
+or re-prints it when we load the game, etc. &ndash; so we frequently will
 want to allow it.</li>
 <li>When using <em>doing something to/with/-- something</em>, actions of
 low arity like <em>sleeping</em> and <em>waiting</em> won't be caught by
@@ -2362,12 +2363,12 @@ by the larger topic. The called topics start their parsing where the
 calling topic left off, trying to decide if the words that follow match
 itself.</p>
 
-<p>The topic <em>any thing</em> -- as opposed to <em>thing</em> or <em>a
-thing</em> or <em>something</em> -- ignores the limitations of scope and
+<p>The topic <em>any thing</em> &ndash; as opposed to <em>thing</em> or <em>a
+thing</em> or <em>something</em> &ndash; ignores the limitations of scope and
 will match any valid object found in the whole game. The word
 <em>any</em> in general works like this, and must be echoed in the
 action definition by the word <em>visible</em>. Other topics are
-intended for a particular type -- <em>time, number,</em> a particular
+intended for a particular type &ndash; <em>time, number,</em> a particular
 <em>unit</em>, named values like <em>limb</em>, undigested <em>text</em>
 which actions reference by <em>applying to one topic</em>, etc. We may
 also use set-descriptions here: <em>an open container</em>, <em>any
@@ -2460,7 +2461,7 @@ what could 9:38 pm plus 4:47 am possibly be?</p>
 <h2 id="arrays-have-been-tabled">Arrays Have Been Tabled</h2>
 <p>Inform is not a language of computation. It is a language designed to
 hold secrets for the player to discover. So its two-dimensional arrays
--- tables -- are primarily intended for a single, occasional lookup.
+&ndash; tables &ndash; are primarily intended for a single, occasional lookup.
 Tables are statically-allocated like everything else, and the words
 "row" and "column" are used in lieu of (x,y) coordinates.</p>
 
@@ -2542,11 +2543,11 @@ Tables are statically-allocated like everything else, and the words
 At least one tab character is required to end a column and start the
 next. Multiple tabs and spaces are OK. The first tab character Inform
 comes across melds together all whitespace surrounding it. Type
-information can either be left off -- Inform will deduce it mostly
-correctly -- or can be given in the two styles shown. Both styles have
+information can either be left off &ndash; Inform will deduce it mostly
+correctly &ndash; or can be given in the two styles shown. Both styles have
 problems. The first, "inline" style only allows <em>object</em> for
 objects, not a particular class. The in-row style allows specific class
-names, but introduces a bug -- row #1 will be a blank row that doesn't
+names, but introduces a bug &ndash; row #1 will be a blank row that doesn't
 correctly flag itself as blank. This is because we can leave individual
 entries blank, which would need the type explicitly stated.</p>
 
@@ -2668,7 +2669,7 @@ then their order vis-a-vis each other will not change.</p>
 <p>A couple of features were added later to ease how tables and
 extensions interact. First is the <em>(continued)</em> parenthetical. If
 an extension creates a table, a game can append extra rows to it. Note
-that the order is important -- a table section with <em>(continued)</em>
+that the order is important &ndash; a table section with <em>(continued)</em>
 must follow the table section without.</p>
 
 <div class="codeblock">
@@ -2906,7 +2907,7 @@ An extra space nullifies this behavior. So, in order to print:</p>
 <p>Rene Descartes said, "I think not!" and promptly disappeared.<br> So
 don't ever say that, 'k?</p>
 
-<p>... we use:</p>
+<p>&hellip; we use:</p>
 
 <div class="codeblock">
 <div class="codeline">say "Rene Descartes said, 'I think not!' and promptly disappeared.<strong>[line break]</strong>So don't ever say that, <strong>[']</strong>k?";</div>
@@ -2999,7 +3000,7 @@ sugar that extends even to our player. Generally in programming, numbers
 are numbers: the programmer must remember one variable measures in
 pixels while another measures in picos, and to mix the two makes bad
 medicine. But Inform allows us to define unique ways of writing the
-numbers -- by wrapping identifiers and punctuation marks (the
+numbers &ndash; by wrapping identifiers and punctuation marks (the
 "preamble") around them. The individual numbers ("parts") in the
 construction can be given names for later referencing.</p>
 
@@ -3067,7 +3068,7 @@ it. But we could:</p>
 </div>
 
 <p>The built-in type <em>time</em> is not a unit, but pretends to be.
-Time's parts -- hours and minutes -- are calculated from a 4 AM
+Time's parts &ndash; hours and minutes &ndash; are calculated from a 4 AM
 minute-count, not stored as separate numbers as units are done.</p>
 
 <p>Inform also supports dimensional analysis on units when used in
@@ -3119,7 +3120,7 @@ the quadratic equation traditionally.</p>
 
 <p>Even with those constraints, there are many equations that Inform
 cannot rearrange. Polynomials are a fine example. And all math here is
-integer -- Inform does not currently support floating point. (Fixed
+integer &ndash; Inform does not currently support floating point. (Fixed
 point is supported, but only as part of a <em>scaled</em> unit.) The
 equations feature is not intended as a mathematical tool, but as a
 coding feature for convenience and correctness. If we need to solve for
@@ -3289,7 +3290,7 @@ will result: "You must supply a noun."</p>
 
 <p><em>Deciding whether all includes.</em> When the player enter TAKE
 ALL, it really shouldn't be every object. The drapes, the sun, the
-kitchen sink, Bob -- these should be excluded. By default, other people,
+kitchen sink, Bob &ndash; these should be excluded. By default, other people,
 <em>scenery</em>, and <em>fixed in place</em> (i.e., nailed down)
 objects are immune to ALL, but sometimes we wish to disallow other
 things. The imperatives <em>it does</em> and <em>it does not</em> may be
@@ -3478,13 +3479,13 @@ actually being so.</p>
 initializes each item's local priority to five. In an <em>after</em>
 rule, we can <em>set the locale priority of (object) to (number)</em> to
 enforce a particular ordering of the objects. One is high priority. The
-activity is called once per locale -- the parameter is the room (or
-whatever) -- so a <em>for</em> rule on a room should set priorities on
+activity is called once per locale &ndash; the parameter is the room (or
+whatever) &ndash; so a <em>for</em> rule on a room should set priorities on
 all objects in it. A priority of zero is not mentioned.</p>
 
 <p><em>Printing a locale paragraph about.</em> Finally, it's time to
 start printing prose to the screen. Well, not all objects deserve any
-mention whatsoever. The player is one of them -- it is
+mention whatsoever. The player is one of them &ndash; it is
 <em>undescribed</em>. This activity will 1) filter out objects with the
 <em>scenery</em> and/or <em>undescribed</em> properties, then 2) filter
 out the supporter the player is on (since it was mentioned in the room
@@ -3521,8 +3522,8 @@ supported it, and supports it still. The following five activities each
 only print a message, any of which could be replaced with extensions
 like Default Messages or Custom Library Messages. While these activities
 might be useful if we create a game involving heavy use of light and
-dark -- replacing the default message with a say phrase that calls a
-rulebook would give the same effect -- we can otherwise ignore their
+dark &ndash; replacing the default message with a say phrase that calls a
+rulebook would give the same effect &ndash; we can otherwise ignore their
 existence. They take no parameters. The truth state variable <em>the
 darkness witnessed</em> remembers if the player has ever been in the
 dark.</p>
@@ -3634,9 +3635,9 @@ arguments, whether the arguments are reversed for a particular line.</p>
 <p>TRACE a number: Shows very low-level parsing information. The number
 ranges from 1 (the default) to 6 (the most detailed).</p>
 
-<p>The IDE has the <em>skein</em> -- which is a tree of commands of
-every playthrough we've done in the IDE -- and the <em>transcript</em>
--- which is a detail view of one path in the skein. It has the output
+<p>The IDE has the <em>skein</em> &ndash; which is a tree of commands of
+every playthrough we've done in the IDE &ndash; and the <em>transcript</em>
+&ndash; which is a detail view of one path in the skein. It has the output
 text from those commands. The transcript also has the <em>bless</em>
 button, so automated re-testing of changes is possible.</p>
 
@@ -3791,9 +3792,9 @@ property holding the answers to <em>if we have</em> queries, so
 questions of the form <em>if we have taken the noun</em> work fine.
 Relations are case-by-case: an implicitly-created variable
 BobHasCarriedCandle holds this answer. So actions accept variables like
-<em>the noun</em> but no subject -- the <em>we are</em> is literal,
-required, and has no synonyms -- while relations accept a subject like
-<em>Bob</em> but no variables -- BobHasCarriedNoun just won't work
+<em>the noun</em> but no subject &ndash; the <em>we are</em> is literal,
+required, and has no synonyms &ndash; while relations accept a subject like
+<em>Bob</em> but no variables &ndash; BobHasCarriedNoun just won't work
 right.</p>
 
 <div class="codeblock">
@@ -4032,7 +4033,7 @@ ajar.</em></p>
 verbs declared as <em>to be able to</em>, such as our <em>can
 remember</em> example. Passive voice can be stated in the simple present
 or past tenses: <em>the time he spent in jail can be remembered by
-Bob</em> and <em>...could be remembered by</em>. Inform's relations do
+Bob</em> and <em>&hellip;could be remembered by</em>. Inform's relations do
 not support passive voice in the perfect tense, nor passive voice
 actions, nor any other passive voice combination. Crucially, this one
 instance of passive voice that Inform does implement still requires both
@@ -4075,9 +4076,9 @@ property and the action, there will still be no ambiguity in Inform.
 parameters surrounding a verb identifies relations (even for passive)
 except for when <em>trying</em> separates subject and verb (which is an
 NPC present action), and one parameter identifies the adjective. A word
-ending in <em>-ed</em> does not guarantee past tense -- it could be the
+ending in <em>-ed</em> does not guarantee past tense &ndash; it could be the
 present-perfect. And verb constructions of the form <em>be -en</em>
-don't always identify passive voice -- it could be a past participial
+don't always identify passive voice &ndash; it could be a past participial
 adjective in simple past.</p>
 
 <h2 id="swapping-headings">Swapping Headings</h2>
@@ -4201,9 +4202,9 @@ compiler errors.</p>
 <p>All of an Inform 7 project compiles to Inform 6 source code before
 compiling again to assembly. This means all of Inform 7's constructs are
 implemented in Inform 6 somehow. For example, a rule is a boolean
-function that takes no passed-in parameters -- action variables like
+function that takes no passed-in parameters &ndash; action variables like
 "the noun" and "the second noun" are global, while local variables are
-on the stack -- so a rulebook is an array of function pointers. Larger
+on the stack &ndash; so a rulebook is an array of function pointers. Larger
 structures such as actions and activities are composed of several
 rulebooks. Object instantiations are connected together by linked-list
 pointers, so a set-description may loop through them. Each

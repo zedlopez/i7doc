@@ -1,9 +1,8 @@
 ol.num { list-style-type: revert;
          list-style-position: inside;
-         margin-inline-start: 1rem;
-         text-indent: 1rem;
-    margin-left: 1rem;
-       }
+    margin-left: 1em;
+    text-indent: -1em;
+}
 
 ol.num li {         padding-left: 1rem; }
 
