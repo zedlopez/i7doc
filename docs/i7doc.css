@@ -199,7 +199,8 @@ table {
 }
 
 p:first-child { margin-top: 1.5em; }
-p + p { margin-top: 1em; }
+p + blockquote, blockquote + p, p + p { margin-top: 1em; }
+
 p:last-child { margin-bottom: 1.5em; }
 
 
@@ -298,9 +299,18 @@ td { border: var(--td-border-width) solid; padding: .25em; vertical-align: top; 
 .nonesuch { display: none; }
 .hidden { visibility: hidden; }
 img.bordered { display: block; margin-left: auto; margin-right: auto; margin-top: 2em; margin-bottom: 2em; }
+
+blockquote,div.codeblock { margin-left: 0;  width: 100%; padding-top: .33em; padding-bottom: .5em; border-radius: .33em; background-color: var(--codeblock-bg-color); line-height: 1.5; }
+
+div.codeblock { margin-top: 1.5em; margin-bottom: 1em;  }
+
 .example-short, p { margin-left: 1em; margin-right: 1em; }
 
-blockquote,div.codeblock { margin-left: 0; margin-top: 1.5em; margin-bottom: 1em;  width: 100%; padding-top: .33em; padding-bottom: .5em; border-radius: .33em; background-color: var(--codeblock-bg-color); line-height: 1.5; }
+blockquote > p { margin-left: 0em; margin-right: 0em; padding-left: 1em; padding-right: 1em; }
+blockquote > p:first-child { margin-top: 0; }
+blockquote > p:last-child { margin-bottom: 0; }
+
+
 
 .copycode { float: right; font-weight: var(--bold-weight); font-size: 1em; border-radius: .25em; border: var(--codeblock-border-width) solid transparent;  font-family: var(--sym); }
 
