@@ -39,7 +39,7 @@
 @media not (prefers-color-scheme: dark) {
     :root {
         --normal-weight: 400;
-        --bold-weight: 600;
+        --bold-weight: 625;
         --mono-normal-weight: 400;
         --mono-bold-weight: 600;
         --bg-color: #FAFAEF;
@@ -378,7 +378,8 @@ p.about { text-align: center; font-weight: var(--bold-weight); }
 p.search { margin-top: 2em; }
 
 h2 {
-  font-size: 2.3em;
+    font-size: 2.3em;
+    line-height: 1.2;
 }
 
 body#example-index h2 {
@@ -390,9 +391,10 @@ body#example-index h2 {
 
 
 h3, .toc-volume {
-  font-size: 1.76em;
+    font-size: 1.76em;
+    line-height: 1.2;
 }
-h3:first-child { margin-top: 2rem; }
+/*h3:first-child { margin-top: 2rem; }*/
 .toc-volume {
 font-weight: var(--bold-weight);
 }
@@ -482,7 +484,8 @@ header { margin-bottom: 1.5em; }
 main { width: var(--width); margin: auto; }
 
 .toc { margin-top: 0; margin-bottom: 0;  }
-.subtitle { font-size: 1.75em; text-align: left; margin-top: -1.75rem; margin-bottom: 0; }
+.subtitle { font-size: 1.75em; text-align: left; margin-bottom: 0; }
+.title + .subtitle { margin-top: -1rem; }
 main.toc { margin-left: 2rem; margin-right: 2rem; width: 100%; }
 
 main.toc::after {
@@ -496,7 +499,8 @@ main.toc::after {
 .toc-vol#rb { float: right; }
 
 h1, .h1 {
-  font-size: 2.5em;
+    font-size: 2.5em;
+    line-height: 1.25;
 }
 
 .heading > h2 { text-align: center; }
@@ -617,4 +621,9 @@ summary > * { display: inline; }
 
 .i7prog { text-align: center; margin-top: 1rem; margin-bottom: 1rem; }
 
-
+.section-title { margin-top: 2rem; margin-left: -1.75rem; display: table; }
+.section-title-row { display: table-row; }
+.section-title-link { display: table-cell; width: 1.75rem; vertical-align: middle; }
+a.permalink { visibility: hidden; }
+.section-title:hover a.permalink { font-size: 1.1em; visibility: visible; }
+h3.section-title-header { display: table-cell; }

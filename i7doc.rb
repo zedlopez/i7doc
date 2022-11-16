@@ -201,7 +201,7 @@ def print_target(*target)
   vol, ch, sect, monolith = *target
   target = target_anchor(vol, ch, sect, monolith)
   target = "##{target}" if monolith
-  %Q{<a href="#{target}"><span class="sc">#{vol.to_s.upcase}</span> #{ch}.#{sect}</a>}
+  %Q{<a href="#{target}"><span class="sc">#{vol.to_s.upcase}</span>&nbsp;#{ch}.#{sect}</a>}
 end
 
 # ^^{kinds: default values of kinds <-- default properties of kinds}
@@ -243,7 +243,7 @@ end
 def target_pair(target, monolithic = false, label = nil)
   vol, ch, sect = *target
   dest = monolithic ? "##{vol}#{ch}.#{sect}" : "#{Conf.books[vol][:abbrev]}_#{ch}.html#section_#{sect}"
-  label ||= %Q{<span class="sc">#{vol.to_s}</span> #{ch}.#{sect}}
+  label ||= %Q{<span class="sc">#{vol.to_s}</span>&nbsp;#{ch}.#{sect}}
   title = "#{Conf.books[vol][:chapters][ch][:name]} &gt; #{Conf.books[vol][:chapters][ch][:sections][sect][:name]}"
   [ dest, label, title ]
 end
@@ -405,14 +405,14 @@ def htmlify(line, type: :text, level: 0)
   end
   line = line.gsub(/«/,'<').gsub(/»/,'>').gsub(/<b>/,'<strong>').gsub(/<\/b>/,'</strong>').gsub('<i>','<em>').gsub(/<\/i>/,'</em>')
   Conf.text_subs.each_pair { |regexp, subst| line.gsub!(regexp, subst.to_s) }
-  #if false
+#  if false
   Conf.books.each_pair do |vol,book|
     book[:chapters].keys.sort.each do |chapter_num|
       chapter = book[:chapters][chapter_num]
       line.gsub!(%r{(#{chapter[:name]}\s+chapter|chapter\s+on\s+"?#{chapter[:name]}"?)}i) {|m| %Q{<a href="#{target_chapter(vol, chapter[:chapter_num])}">#{$1}</a>} }
     end
   end
-  #end
+#  end
   line.gsub!(/-&gt;/,'&rarr;') if type == :defn
   if type == :text
     line.gsub!(/\.\.\./,'&hellip;')
@@ -1102,7 +1102,7 @@ def example_refs(example, vol, monolithic = false, level: 1)
   lb_vol, lb_chapter, lb_section = *example[:refs][vol]
   target = target_anchor(lb_vol, lb_chapter, lb_section, monolithic)
   target = "##{target}" if monolithic
-  return %Q{<a class="raw example-ref" href="#{(['..']*level + [target]).join('/')}" title="#{CGI.escapeHTML(Conf.books[vol][:chapters][lb_chapter][:name])} &gt; #{CGI.escapeHTML(Conf.books[vol][:chapters][lb_chapter][:sections][lb_section][:name])}"><span class="sc">#{Conf.books[vol][:abbrev].downcase}</span> #{[lb_chapter,lb_section].join('.')}</a>}, target, lb_vol, lb_chapter, lb_section
+  return %Q{<a class="raw example-ref" href="#{(['..']*level + [target]).join('/')}" title="#{CGI.escapeHTML(Conf.books[vol][:chapters][lb_chapter][:name])} &gt; #{CGI.escapeHTML(Conf.books[vol][:chapters][lb_chapter][:sections][lb_section][:name])}"><span class="sc">#{Conf.books[vol][:abbrev].downcase}</span>&nbsp;#{[lb_chapter,lb_section].join('.')}</a>}, target, lb_vol, lb_chapter, lb_section
 end
 
 def numeric_examples(f, monolithic = false)
@@ -1233,10 +1233,10 @@ end
 def output_section(f, vol, chapter_num, section_num, monolithic = false, search: true, level: 0)
   book = Conf.books[vol]
   section = book[:chapters][chapter_num][:sections][section_num]
-  f.print %Q{<article><h3 id="#{monolithic ? target_anchor(vol,chapter_num,section_num, monolithic) : "section_#{section_num}"}">}
+  f.print %Q{<article><div class="section-title"><div class="section-title-row"><div class="section-title-link"><a class="permalink raw" href="#{target_anchor(vol, chapter_num, section_num)}">&#128279;&ensp;</a></div><h3 class="section-title-header" id="#{monolithic ? target_anchor(vol,chapter_num,section_num, monolithic) : "section_#{section_num}"}">}
   label = %Q{#{book[:abbrev]} <span class="sect-mark">§</span>#{chapter_num}.#{section[:section_num]} #{section[:name]}}
   f.print search ? %Q{<a href="#{target_anchor(vol, chapter_num, section_num)}">#{label}</a>} : label
-  f.puts '</h3>'
+  f.puts '</h3></div></div>'
   navbar = []
   navbar << %Q{<div class="doc-navbar"><div class="doc-navbar-left">}
   prev = nil
@@ -1298,7 +1298,7 @@ def output_section(f, vol, chapter_num, section_num, monolithic = false, search:
                   lb_vol, lb_chapter, lb_section = *example[:refs][vol]
                   target = target_anchor(lb_vol, lb_chapter, lb_section, monolithic)
                   target = "##{target}" if monolithic
-                  %Q{<a href="#{target}" title="#{CGI.escapeHTML(Conf.books[vol][:chapters][lb_chapter][:name])} &gt; #{CGI.escapeHTML(Conf.books[vol][:chapters][lb_chapter][:sections][lb_section][:name])}"><span class="sc">#{Conf.books[vol][:abbrev].downcase}</span> #{[lb_chapter, lb_section].join('.')} #{Conf.books[vol][:chapters][lb_chapter][:sections][lb_section][:name]}</a>}
+                  %Q{<a href="#{target}" title="#{CGI.escapeHTML(Conf.books[vol][:chapters][lb_chapter][:name])} &gt; #{CGI.escapeHTML(Conf.books[vol][:chapters][lb_chapter][:sections][lb_section][:name])}"><span class="sc">#{Conf.books[vol][:abbrev].downcase}</span>&nbsp;#{[lb_chapter, lb_section].join('.')} #{Conf.books[vol][:chapters][lb_chapter][:sections][lb_section][:name]}</a>}
                 end).join('<br>')
         f.puts '</div>'
       end
@@ -1337,9 +1337,9 @@ def output_examples(monolithic = false)
         target = target_anchor(lb_vol, lb_chapter, lb_section, monolithic)
         target = "##{target}" if monolithic
         if vol == :wi
-          guts = %Q{<div class="nav-arrow"><span class="sc">#{Conf.books[vol][:abbrev].downcase}</span> #{[lb_chapter, lb_section].join('.')}</div><div class="doc-navbar-text">#{Conf.books[vol][:chapters][lb_chapter][:sections][lb_section][:name]}</div>}
+          guts = %Q{<div class="nav-arrow"><span class="sc">#{Conf.books[vol][:abbrev].downcase}</span>&nbsp;#{[lb_chapter, lb_section].join('.')}</div><div class="doc-navbar-text">#{Conf.books[vol][:chapters][lb_chapter][:sections][lb_section][:name]}</div>}
         else # vol == :rb
-          guts = %Q{<div class="doc-navbar-text">#{Conf.books[vol][:chapters][lb_chapter][:sections][lb_section][:name]}</div><div class="nav-arrow"><span class="sc">#{Conf.books[vol][:abbrev].downcase}</span> #{[lb_chapter, lb_section].join('.')}</div>}
+          guts = %Q{<div class="doc-navbar-text">#{Conf.books[vol][:chapters][lb_chapter][:sections][lb_section][:name]}</div><div class="nav-arrow"><span class="sc">#{Conf.books[vol][:abbrev].downcase}</span>&nbsp;#{[lb_chapter, lb_section].join('.')}</div>}
         end
         linkbacks[vol] = %Q{<a class="raw nav-el" href="../#{target}" title="#{CGI.escapeHTML(Conf.books[vol][:chapters][lb_chapter][:name])} &gt; #{CGI.escapeHTML(Conf.books[vol][:chapters][lb_chapter][:sections][lb_section][:name])}">#{guts}</a>}
       end

@@ -63,7 +63,7 @@
 <div class="section-chapter-num"><span class="sect-mark">§</span>6.</div><div class="section-section-num">16</div><div class="section-name-holder"><div class="section-name"><a href="WI_6.html#section_16">Counting while comparing</a></div></div>
 </div>
 </div>
-<article><h3 id="section_1">WI <span class="sect-mark">§</span>6.1 What are descriptions?</h3>
+<article><div class="section-title"><div class="section-title-row"><div class="section-title-link"><a class="permalink raw" href="WI_6.html#section_1">&#128279;&ensp;</a></div><h3 class="section-title-header" id="section_1">WI <span class="sect-mark">§</span>6.1 What are descriptions?</h3></div></div>
 <div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="WI_5.html#section_13" title="Making new substitutions"><div class="nav-arrow"><span class="sym">⬅</span>5.13</div><div class="doc-navbar-text">Making new substitutions</div></a></div><div class="doc-navbar-center"><a class="raw nav-el" href="#chapter_6"><div class="nav-arrow"><span class="sym">⬆</span>6.</div><div class="doc-navbar-text">Descriptions</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="#section_2"><div class="doc-navbar-text">Adjectives and nouns</div><div class="nav-arrow">6.2<span class="sym">⮕</span></div></a></div></div></div>
 <p>It is in describing circumstances that Inform really capitalises on the concise, expressive power of natural language, and this chapter brings together the facts about &quot;descriptions&quot;.</p>
 <p>The simplest descriptions consist of a noun alone. Some refer to single things (&quot;lantern&quot;, or &quot;wine cask&quot;), others to kinds of thing (&quot;dead end&quot; or &quot;container&quot;). But we have also seen adjectives alone:</p>
@@ -81,7 +81,7 @@
 </div><p>produces the number of doors, anywhere in the model world, which are currently open. A Problem message is produced if the number is potentially infinite, or impractical to count: for instance, Inform rejects &quot;number of odd numbers&quot;.</p>
 </div><p>It is because descriptions are so widely useful that they deserve a chapter of their own, and this is it.</p>
 </article>
-<article><h3 id="section_2">WI <span class="sect-mark">§</span>6.2 Adjectives and nouns</h3>
+<article><div class="section-title"><div class="section-title-row"><div class="section-title-link"><a class="permalink raw" href="WI_6.html#section_2">&#128279;&ensp;</a></div><h3 class="section-title-header" id="section_2">WI <span class="sect-mark">§</span>6.2 Adjectives and nouns</h3></div></div>
 <div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="#section_1" title="What are descriptions?"><div class="nav-arrow"><span class="sym">⬅</span>6.1</div><div class="doc-navbar-text">What are descriptions?</div></a></div><div class="doc-navbar-center"><a class="raw nav-el" href="#chapter_6"><div class="nav-arrow"><span class="sym">⬆</span>6.</div><div class="doc-navbar-text">Descriptions</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="#section_3"><div class="doc-navbar-text">Sources of adjectives</div><div class="nav-arrow">6.3<span class="sym">⮕</span></div></a></div></div></div>
 <p>Descriptions can contain a noun, but need not, and can contain any number of adjectives:</p>
 <div class="codeblock"><div class="codeline">supporter = <em>the noun</em> supporter</div>
@@ -95,14 +95,14 @@
 <div class="codeline">somewhere = anywhere</div>
 </div><p>So for instance &quot;anybody male&quot; or &quot;somewhere dark&quot; are valid descriptions. These eight nouns are unusual in being allowed to come at the front of a description: nouns are usually expected to be at the end. (Inform also understands &quot;nothing&quot;, &quot;nowhere&quot;, &quot;nobody&quot;, &quot;no-one&quot; and even &quot;no one&quot;, which in a sense are opposites of &quot;something&quot; and the like, but for now we&#39;ll look at descriptions of things which do exist rather than don&#39;t.)</p>
 </article>
-<article><h3 id="section_3">WI <span class="sect-mark">§</span>6.3 Sources of adjectives</h3>
+<article><div class="section-title"><div class="section-title-row"><div class="section-title-link"><a class="permalink raw" href="WI_6.html#section_3">&#128279;&ensp;</a></div><h3 class="section-title-header" id="section_3">WI <span class="sect-mark">§</span>6.3 Sources of adjectives</h3></div></div>
 <div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="#section_2" title="Adjectives and nouns"><div class="nav-arrow"><span class="sym">⬅</span>6.2</div><div class="doc-navbar-text">Adjectives and nouns</div></a></div><div class="doc-navbar-center"><a class="raw nav-el" href="#chapter_6"><div class="nav-arrow"><span class="sym">⬆</span>6.</div><div class="doc-navbar-text">Descriptions</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="#section_4"><div class="doc-navbar-text">Defining new adjectives</div><div class="nav-arrow">6.4<span class="sym">⮕</span></div></a></div></div></div>
 <p>We have seen two sorts of adjectives so far: those which refer to either/or properties, like &quot;open&quot; and &quot;closed&quot;, and those which come out of new kinds of value. If we define</p>
 <div class="codeblock"><div class="codeline">Texture is a kind of value. The textures are rough, stubbly and smooth. Everything has a texture.</div>
 </div><p>&hellip;then &quot;rough&quot;, &quot;stubbly&quot; and &quot;smooth&quot; all become adjectives. (That last sentence &quot;Everything has a texture&quot; was essential, because without it Inform would not know that these words could meaningfully be applied to things.)</p>
 <p>In addition to these adjectives, we can create new ones (as we shall see), and a few special adjectives such as &quot;visible&quot;, &quot;touchable&quot; and &quot;adjacent&quot; are already defined for us by Inform.</p>
 </article>
-<article><h3 id="section_4">WI <span class="sect-mark">§</span>6.4 Defining new adjectives</h3>
+<article><div class="section-title"><div class="section-title-row"><div class="section-title-link"><a class="permalink raw" href="WI_6.html#section_4">&#128279;&ensp;</a></div><h3 class="section-title-header" id="section_4">WI <span class="sect-mark">§</span>6.4 Defining new adjectives</h3></div></div>
 <div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="#section_3" title="Sources of adjectives"><div class="nav-arrow"><span class="sym">⬅</span>6.3</div><div class="doc-navbar-text">Sources of adjectives</div></a></div><div class="doc-navbar-center"><a class="raw nav-el" href="#chapter_6"><div class="nav-arrow"><span class="sym">⬆</span>6.</div><div class="doc-navbar-text">Descriptions</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="#section_5"><div class="doc-navbar-text">Defining adjectives for values</div><div class="nav-arrow">6.5<span class="sym">⮕</span></div></a></div></div></div>
 <p>Suppose we want to coin a word for supporters currently supporting something. We can do so with the following sentence:</p>
 <div class="codeblock"><div class="codeline">Definition: A supporter is occupied if something is on it.</div>
@@ -128,7 +128,7 @@
 <div class="linkback"><a href="RB_5.html#section_3" title="The Viewpoint Character &gt; Characterization">RB 5.3 Characterization</a></div>
 </div>
 </article>
-<article><h3 id="section_5">WI <span class="sect-mark">§</span>6.5 Defining adjectives for values</h3>
+<article><div class="section-title"><div class="section-title-row"><div class="section-title-link"><a class="permalink raw" href="WI_6.html#section_5">&#128279;&ensp;</a></div><h3 class="section-title-header" id="section_5">WI <span class="sect-mark">§</span>6.5 Defining adjectives for values</h3></div></div>
 <div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="#section_4" title="Defining new adjectives"><div class="nav-arrow"><span class="sym">⬅</span>6.4</div><div class="doc-navbar-text">Defining new adjectives</div></a></div><div class="doc-navbar-center"><a class="raw nav-el" href="#chapter_6"><div class="nav-arrow"><span class="sym">⬆</span>6.</div><div class="doc-navbar-text">Descriptions</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="#section_6"><div class="doc-navbar-text">Whereabouts on a scale?</div><div class="nav-arrow">6.6<span class="sym">⮕</span></div></a></div></div></div>
 <p>In general, any noun can have adjectives applied to it, and this means that values can have adjectives just as objects can. We have already seen that they can (in some cases, at least) have either/or properties, and this gives them adjectives just as for objects. But we can also write out definitions which apply to values:</p>
 <div class="codeblock"><div class="codeline">Definition: A number is round if the remainder after dividing it by 10 is 0.</div>
@@ -158,7 +158,7 @@
 <div class="linkback"><a href="RB_10.html#section_1" title="Physics: Substances, Ropes, Energy and Weight &gt; Gases">RB 10.1 Gases</a></div>
 </div>
 </article>
-<article><h3 id="section_6">WI <span class="sect-mark">§</span>6.6 Whereabouts on a scale?</h3>
+<article><div class="section-title"><div class="section-title-row"><div class="section-title-link"><a class="permalink raw" href="WI_6.html#section_6">&#128279;&ensp;</a></div><h3 class="section-title-header" id="section_6">WI <span class="sect-mark">§</span>6.6 Whereabouts on a scale?</h3></div></div>
 <div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="#section_5" title="Defining adjectives for values"><div class="nav-arrow"><span class="sym">⬅</span>6.5</div><div class="doc-navbar-text">Defining adjectives for values</div></a></div><div class="doc-navbar-center"><a class="raw nav-el" href="#chapter_6"><div class="nav-arrow"><span class="sym">⬆</span>6.</div><div class="doc-navbar-text">Descriptions</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="#section_7"><div class="doc-navbar-text">Comparatives</div><div class="nav-arrow">6.7<span class="sym">⮕</span></div></a></div></div></div>
 <p>Adjectives are often used in English to give a sense of where something is on a sliding scale. We talk about &quot;a tall man&quot; and &quot;a short man&quot;, but without meaning that all men are either tall or short. If pushed, we might say that tall means about 6 feet and up, short means about 5 feet 6 and down, but we more often compare one person&#39;s height against another&#39;s.</p>
 <p>Inform allows us to use adjectives in the same way. For example, every container has a number called its &quot;carrying capacity&quot;. We can define:</p>
@@ -178,7 +178,7 @@
 <div class="codeblock"><div class="codeline">In the Shop are a tall man and a tall woman.</div>
 </div><p>creates a man 72 inches tall and a woman 68 inches tall.</p>
 </article>
-<article><h3 id="section_7">WI <span class="sect-mark">§</span>6.7 Comparatives</h3>
+<article><div class="section-title"><div class="section-title-row"><div class="section-title-link"><a class="permalink raw" href="WI_6.html#section_7">&#128279;&ensp;</a></div><h3 class="section-title-header" id="section_7">WI <span class="sect-mark">§</span>6.7 Comparatives</h3></div></div>
 <div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="#section_6" title="Whereabouts on a scale?"><div class="nav-arrow"><span class="sym">⬅</span>6.6</div><div class="doc-navbar-text">Whereabouts on a scale?</div></a></div><div class="doc-navbar-center"><a class="raw nav-el" href="#chapter_6"><div class="nav-arrow"><span class="sym">⬆</span>6.</div><div class="doc-navbar-text">Descriptions</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="#section_8"><div class="doc-navbar-text">Superlatives</div><div class="nav-arrow">6.8<span class="sym">⮕</span></div></a></div></div></div>
 <p>The special definitions in the previous section have a further effect. When we define:</p>
 <div class="codeblock"><div class="codeline">Definition: A container is large if its carrying capacity is 10 or more.</div>
@@ -193,7 +193,7 @@
 </div><p>Though it will not always seem natural wording, we can use the comparison &quot;the same P as&quot; for any property P which has a value. Do we think &quot;if the basket is the same carrying capacity as the thimble&quot; is good English? Maybe, maybe not. But we are always at liberty to spell things out in full:</p>
 <div class="codeblock"><div class="codeline">if the carrying capacity of the basket is the carrying capacity of the thimble ...</div>
 </div></article>
-<article><h3 id="section_8">WI <span class="sect-mark">§</span>6.8 Superlatives</h3>
+<article><div class="section-title"><div class="section-title-row"><div class="section-title-link"><a class="permalink raw" href="WI_6.html#section_8">&#128279;&ensp;</a></div><h3 class="section-title-header" id="section_8">WI <span class="sect-mark">§</span>6.8 Superlatives</h3></div></div>
 <div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="#section_7" title="Comparatives"><div class="nav-arrow"><span class="sym">⬅</span>6.7</div><div class="doc-navbar-text">Comparatives</div></a></div><div class="doc-navbar-center"><a class="raw nav-el" href="#chapter_6"><div class="nav-arrow"><span class="sym">⬆</span>6.</div><div class="doc-navbar-text">Descriptions</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="#section_9"><div class="doc-navbar-text">Which and who</div><div class="nav-arrow">6.9<span class="sym">⮕</span></div></a></div></div></div>
 <p>Lastly, if we define an adjective in this calibrating way, we also automatically benefit from the use of the superlative form. That is, if we define</p>
 <div class="codeblock"><div class="codeline">Definition: A container is large if its carrying capacity is 10 or more.</div>
@@ -204,7 +204,7 @@
 </div><p>Though we should be careful, in the second case, because we might get nothing: maybe all the containers are closed at the moment this is used. And in general there might be several equally large largest containers, in which case we should not rely on getting any particular one of those rather than another.</p>
 <p>Note that Inform constructs comparatives and superlatives by a pretty simplistic system. If we want to use these forms for an adjective expressing the relatively large size of a room, we had better go with &quot;roomy&quot; (roomier, roomiest) &ndash; not &quot;spacious&quot; (spaciouser, spaciousest).</p>
 </article>
-<article><h3 id="section_9">WI <span class="sect-mark">§</span>6.9 Which and who</h3>
+<article><div class="section-title"><div class="section-title-row"><div class="section-title-link"><a class="permalink raw" href="WI_6.html#section_9">&#128279;&ensp;</a></div><h3 class="section-title-header" id="section_9">WI <span class="sect-mark">§</span>6.9 Which and who</h3></div></div>
 <div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="#section_8" title="Superlatives"><div class="nav-arrow"><span class="sym">⬅</span>6.8</div><div class="doc-navbar-text">Superlatives</div></a></div><div class="doc-navbar-center"><a class="raw nav-el" href="#chapter_6"><div class="nav-arrow"><span class="sym">⬆</span>6.</div><div class="doc-navbar-text">Descriptions</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="#section_10"><div class="doc-navbar-text">Existence and there</div><div class="nav-arrow">6.10<span class="sym">⮕</span></div></a></div></div></div>
 <p>A description can not only talk about things in terms of themselves, but also in terms of their relationships to the rest of the world. For instance,</p>
 <div class="codeblock"><div class="codeline">an open container on the table</div>
@@ -232,7 +232,7 @@
 <div class="linkback"><a href="RB_8.html#section_5" title="Vehicles, Animals and Furniture &gt; Kitchen and Bathroom">RB 8.5 Kitchen and Bathroom</a></div>
 </div>
 </article>
-<article><h3 id="section_10">WI <span class="sect-mark">§</span>6.10 Existence and there</h3>
+<article><div class="section-title"><div class="section-title-row"><div class="section-title-link"><a class="permalink raw" href="WI_6.html#section_10">&#128279;&ensp;</a></div><h3 class="section-title-header" id="section_10">WI <span class="sect-mark">§</span>6.10 Existence and there</h3></div></div>
 <div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="#section_9" title="Which and who"><div class="nav-arrow"><span class="sym">⬅</span>6.9</div><div class="doc-navbar-text">Which and who</div></a></div><div class="doc-navbar-center"><a class="raw nav-el" href="#chapter_6"><div class="nav-arrow"><span class="sym">⬆</span>6.</div><div class="doc-navbar-text">Descriptions</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="#section_11"><div class="doc-navbar-text">A word about in</div><div class="nav-arrow">6.11<span class="sym">⮕</span></div></a></div></div></div>
 <p>&quot;There&quot; is a curious word in English, which mostly refers to some place which is being talked about &ndash; but which can sometimes mean the whole world. In Ian Fleming&#39;s novel &quot;From Russia With Love&quot;, a chapter narrating a committee meeting of SMERSH officers in Istanbul ends with one of the Russians saying:</p>
 <div class="codeblock"><div class="codeline">There is a man called Bond.</div>
@@ -256,7 +256,7 @@
 <div class="codeblock"><div class="codeline">if there is nobody in the Summerhouse, ...</div>
 <div class="codeline">if there is nothing on the mantelpiece, ...</div>
 </div></article>
-<article><h3 id="section_11">WI <span class="sect-mark">§</span>6.11 A word about in</h3>
+<article><div class="section-title"><div class="section-title-row"><div class="section-title-link"><a class="permalink raw" href="WI_6.html#section_11">&#128279;&ensp;</a></div><h3 class="section-title-header" id="section_11">WI <span class="sect-mark">§</span>6.11 A word about in</h3></div></div>
 <div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="#section_10" title="Existence and there"><div class="nav-arrow"><span class="sym">⬅</span>6.10</div><div class="doc-navbar-text">Existence and there</div></a></div><div class="doc-navbar-center"><a class="raw nav-el" href="#chapter_6"><div class="nav-arrow"><span class="sym">⬆</span>6.</div><div class="doc-navbar-text">Descriptions</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="#section_12"><div class="doc-navbar-text">A word about nothing</div><div class="nav-arrow">6.12<span class="sym">⮕</span></div></a></div></div></div>
 <p>What does &quot;in&quot; mean? It&#39;s worth just a brief diversion to cover this, because &quot;in&quot; has two subtly different meanings.</p>
 <p><strong>Meaning 1.</strong> Usually, if X is &quot;in&quot; Y then this is because of containment. A croquet ball is &quot;in&quot; a croquet box, which is &quot;in&quot; the Summerhouse. This is the standard meaning, and is the one which happens if we write something like:</p>
@@ -286,7 +286,7 @@
 <p>&quot;To be in&quot; is functionally the inverse of &quot;to contain&quot;, so all the different meanings &quot;is in&quot; might have also apply to &quot;contains&quot;, but in the other direction. This will be explored further in the <a href="WI_13.html">chapter on Relations</a>.</p>
 <p>([TODO See&hellip;]</p>
 </article>
-<article><h3 id="section_12">WI <span class="sect-mark">§</span>6.12 A word about nothing</h3>
+<article><div class="section-title"><div class="section-title-row"><div class="section-title-link"><a class="permalink raw" href="WI_6.html#section_12">&#128279;&ensp;</a></div><h3 class="section-title-header" id="section_12">WI <span class="sect-mark">§</span>6.12 A word about nothing</h3></div></div>
 <div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="#section_11" title="A word about in"><div class="nav-arrow"><span class="sym">⬅</span>6.11</div><div class="doc-navbar-text">A word about in</div></a></div><div class="doc-navbar-center"><a class="raw nav-el" href="#chapter_6"><div class="nav-arrow"><span class="sym">⬆</span>6.</div><div class="doc-navbar-text">Descriptions</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="#section_13"><div class="doc-navbar-text">To be able to see and touch</div><div class="nav-arrow">6.13<span class="sym">⮕</span></div></a></div></div></div>
 <p>Like &quot;in&quot;, &quot;nothing&quot; has two slightly different meanings, though here there&#39;s much less potential for confusion.</p>
 <p><strong>Meaning 1.</strong> &quot;Nothing&quot; as &quot;no thing&quot;. This is the meaning in sentences like:</p>
@@ -298,7 +298,7 @@
 </div><p>The &quot;matching key&quot; property of a container is always an object, but is allowed to be &quot;nothing&quot; when there isn&#39;t a matching key anywhere. (If such a container is locked, nobody will ever be able to unlock it.)</p>
 <p><strong>How Inform decides.</strong> So which meaning does Inform use, and when? The answer is that it depends on the relationship being talked about. When this is &quot;is&quot;, values are being compared and we are using meaning 2. But when it is any other relationship, like &quot;is in&quot; &ndash; which talks about containment &ndash; then we are using meaning 1.</p>
 </article>
-<article><h3 id="section_13">WI <span class="sect-mark">§</span>6.13 To be able to see and touch</h3>
+<article><div class="section-title"><div class="section-title-row"><div class="section-title-link"><a class="permalink raw" href="WI_6.html#section_13">&#128279;&ensp;</a></div><h3 class="section-title-header" id="section_13">WI <span class="sect-mark">§</span>6.13 To be able to see and touch</h3></div></div>
 <div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="#section_12" title="A word about nothing"><div class="nav-arrow"><span class="sym">⬅</span>6.12</div><div class="doc-navbar-text">A word about nothing</div></a></div><div class="doc-navbar-center"><a class="raw nav-el" href="#chapter_6"><div class="nav-arrow"><span class="sym">⬆</span>6.</div><div class="doc-navbar-text">Descriptions</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="#section_14"><div class="doc-navbar-text">Adjacent rooms and routes through the map</div><div class="nav-arrow">6.14<span class="sym">⮕</span></div></a></div></div></div>
 <p>Two of the adjectives built into Inform are:</p>
 <div class="codeblock"><div class="codeline">&quot;visible&quot; - the player can see this</div>
@@ -322,7 +322,7 @@
 <div class="linkback"><a href="RB_7.html#section_2" title="Other Characters &gt; Liveliness">RB 7.2 Liveliness</a></div>
 </div>
 </article>
-<article><h3 id="section_14">WI <span class="sect-mark">§</span>6.14 Adjacent rooms and routes through the map</h3>
+<article><div class="section-title"><div class="section-title-row"><div class="section-title-link"><a class="permalink raw" href="WI_6.html#section_14">&#128279;&ensp;</a></div><h3 class="section-title-header" id="section_14">WI <span class="sect-mark">§</span>6.14 Adjacent rooms and routes through the map</h3></div></div>
 <div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="#section_13" title="To be able to see and touch"><div class="nav-arrow"><span class="sym">⬅</span>6.13</div><div class="doc-navbar-text">To be able to see and touch</div></a></div><div class="doc-navbar-center"><a class="raw nav-el" href="#chapter_6"><div class="nav-arrow"><span class="sym">⬆</span>6.</div><div class="doc-navbar-text">Descriptions</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="#section_15"><div class="doc-navbar-text">All, each and every</div><div class="nav-arrow">6.15<span class="sym">⮕</span></div></a></div></div></div>
 <p>Another useful adjective built into Inform is &quot;adjacent&quot;. Two rooms are said to be adjacent if there is a map connection between them which does not pass through some barrier such as a door. This is easily tested:</p>
 <div class="codeblock"><div class="codeline">if the Hallway is adjacent to the Study ...</div>
@@ -372,7 +372,7 @@
 <div class="linkback"><a href="RB_3.html#section_7" title="Place &gt; Lighting">RB 3.7 Lighting</a></div>
 </div>
 </article>
-<article><h3 id="section_15">WI <span class="sect-mark">§</span>6.15 All, each and every</h3>
+<article><div class="section-title"><div class="section-title-row"><div class="section-title-link"><a class="permalink raw" href="WI_6.html#section_15">&#128279;&ensp;</a></div><h3 class="section-title-header" id="section_15">WI <span class="sect-mark">§</span>6.15 All, each and every</h3></div></div>
 <div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="#section_14" title="Adjacent rooms and routes through the map"><div class="nav-arrow"><span class="sym">⬅</span>6.14</div><div class="doc-navbar-text">Adjacent rooms and routes through the map</div></a></div><div class="doc-navbar-center"><a class="raw nav-el" href="#chapter_6"><div class="nav-arrow"><span class="sym">⬆</span>6.</div><div class="doc-navbar-text">Descriptions</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="#section_16"><div class="doc-navbar-text">Counting while comparing</div><div class="nav-arrow">6.16<span class="sym">⮕</span></div></a></div></div></div>
 <p>When testing conditions, we normally talk only about specific things, or else ask if a particular circumstance happens:</p>
 <div class="codeblock"><div class="codeline">if the oaken door is open</div>
@@ -408,7 +408,7 @@
 <div class="linkback"><a href="RB_7.html#section_3" title="Other Characters &gt; Reactive Characters">RB 7.3 Reactive Characters</a></div>
 </div>
 </article>
-<article><h3 id="section_16">WI <span class="sect-mark">§</span>6.16 Counting while comparing</h3>
+<article><div class="section-title"><div class="section-title-row"><div class="section-title-link"><a class="permalink raw" href="WI_6.html#section_16">&#128279;&ensp;</a></div><h3 class="section-title-header" id="section_16">WI <span class="sect-mark">§</span>6.16 Counting while comparing</h3></div></div>
 <div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="#section_15" title="All, each and every"><div class="nav-arrow"><span class="sym">⬅</span>6.15</div><div class="doc-navbar-text">All, each and every</div></a></div><div class="doc-navbar-center"><a class="raw nav-el" href="#chapter_6"><div class="nav-arrow"><span class="sym">⬆</span>6.</div><div class="doc-navbar-text">Descriptions</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="WI_7.html" title="Basic Actions"><div class="doc-navbar-text">Basic Actions</div><div class="nav-arrow">7.<span class="sym">⮕</span></div></a></div></div></div>
 <p>Lastly we can also ask for a more specific number of possibilities, like so:</p>
 <div class="codeblock"><div class="codeline">if two women are carrying animals</div>
