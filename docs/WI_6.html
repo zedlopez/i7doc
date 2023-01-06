@@ -283,16 +283,13 @@
 <p>That sometimes makes meaning 2 difficult to express. If we ever need it, and this is fairly rare, we can write it like so:</p>
 <div class="codeblock"><div class="codeline">if the croquet box is regionally in the mystery value, ...</div>
 </div><p>because &quot;regionally in&quot; is always meaning 2 of &quot;in&quot;.</p>
-<p>&quot;To be in&quot; is functionally the inverse of &quot;to contain&quot;, so all the different meanings &quot;is in&quot; might have also apply to &quot;contains&quot;, but in the other direction. This will be explored further in the <a href="WI_13.html">chapter on Relations</a>.</p>
-<p>([TODO See&hellip;]</p>
 </article>
 <article><div class="section-title"><div class="section-title-row"><div class="section-title-link"><a class="permalink raw" href="WI_6.html#section_12">&#128279;&ensp;</a></div><h3 class="section-title-header" id="section_12">WI <span class="sect-mark">§</span>6.12 A word about nothing</h3></div></div>
 <div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="#section_11" title="A word about in"><div class="nav-arrow"><span class="sym">⬅</span>6.11</div><div class="doc-navbar-text">A word about in</div></a></div><div class="doc-navbar-center"><a class="raw nav-el" href="#chapter_6"><div class="nav-arrow"><span class="sym">⬆</span>6.</div><div class="doc-navbar-text">Descriptions</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="#section_13"><div class="doc-navbar-text">To be able to see and touch</div><div class="nav-arrow">6.13<span class="sym">⮕</span></div></a></div></div></div>
 <p>Like &quot;in&quot;, &quot;nothing&quot; has two slightly different meanings, though here there&#39;s much less potential for confusion.</p>
 <p><strong>Meaning 1.</strong> &quot;Nothing&quot; as &quot;no thing&quot;. This is the meaning in sentences like:</p>
-<div class="codeblock"><div class="codeline">Definition: a container is bare if there is nothing in it.</div>
+<div class="codeblock"><div class="codeline">Definition: a container is bare if nothing is in it.</div>
 </div><p>And similar for conditions like &quot;if the box contains nothing&quot;. It&#39;s a word which describes the absence of things: it says that, though there might have been many possible items here, it turned out that there were none.</p>
-<p>That the thing that nothing is no of is a <em>thing</em> per se has results that may seem odd at first glimpse. If the player is held by a room, &quot;nothing holds the player&quot; is <em>true</em>. It&#39;s a room, so it&#39;s not the case that there is a thing that holds the player: a <em>room</em> but no <em>thing</em> holds the player. &quot;nowhere holds the player&quot; will be false, however. [TODO: not today] (Similarly, what nobody, no one, and no-one are <em>not</em> is a person.)</p>
 <p><strong>Meaning 2.</strong> &quot;Nothing&quot; as a value. This is much less commonly seen, but sometimes Inform stores a value such as a property (or a variable) which always has to be an object. In some circumstances, &quot;nothing&quot; is then a special value meaning that this is not set at present. For instance,</p>
 <div class="codeblock"><div class="codeline">Definition: a container is impossible if its matching key is nothing.</div>
 </div><p>The &quot;matching key&quot; property of a container is always an object, but is allowed to be &quot;nothing&quot; when there isn&#39;t a matching key anywhere. (If such a container is locked, nobody will ever be able to unlock it.)</p>
@@ -308,11 +305,10 @@
 </div><p>This tests whether the room is dark, of itself; Helen may in fact be able to see by means of a torch, but the room is still &quot;dark&quot;.</p>
 <p>We can also talk about what other people can see and touch:</p>
 <div class="codeblock"><div class="codeline">something which can be seen by Helen</div>
-</div><p>        something which can be touched by Paris</p>
-<p>And we can write such conditions as</p>
+</div><p>are synonymous. Similarly for touch; and we can write such conditions as</p>
 <div class="codeblock"><div class="codeline">if Helen cannot see Agamemnon, ...</div>
 <div class="codeline">if Cressida can see Troilus, ...</div>
-</div><p>Note that it is essential to establish who does the seeing and touching: so &quot;something which can be seen&quot; will not be allowed, whereas &quot;something which can be seen by Helen&quot; will. Note also that to test the negative we use &quot;cannot&quot;: either of &quot;can not&quot; or &quot;can&#39;t&quot; will result in a compiler error.</p>
+</div><p>Note that it is essential to establish who does the seeing and touching: so &quot;something which can be seen&quot; will not be allowed, whereas &quot;something which can be seen by Helen&quot; will.</p>
 <p>In fact, inside Inform the adjective &quot;invisible&quot; (for instance) has the following straightforward definition:</p>
 <div class="codeblock"><div class="codeline">Definition: Something is invisible if the player cannot see it.</div>
 </div><p>The exact definitions of visibility and touchability are complicated, because there are so many ways in which vision and touch can be obstructed, but the gist is that they behave as one would expect. Note that in darkness, nothing is visible, and that nobody can see from one room to another. In general anything invisible is also untouchable, but there are a few exceptions to do with being in the dark. Lastly, the player&#39;s own body (usually called &quot;yourself&quot; during play) is both visible (in light) and touchable.</p>
@@ -426,7 +422,6 @@
 <div class="codeline">if there are more than two non-recurring scenes</div>
 </div><p>are allowed because the built-in kind of value &quot;scene&quot; (of which much more later on) has only a small number of possible values.</p>
 <p>Lastly, note that the &quot;the&quot; in text like &quot;two of the doors&quot; matters: without it, the phrase will not be recognised as a requirement on the number. (This is to make sure that names of things like &quot;two of hearts&quot; are not misinterpreted.)</p>
-<p>With a proposition like &quot;if all doors are open&quot; or &quot;if no doors are open&quot;, or any specific number of doors, you can count on it being the case that if it&#39;s true, then its negation (&quot;if all doors are not open&quot;, &quot;unless no doors are open&quot;) is false, and vice versa. But beware of the logical error of expecting that to be true of &quot;some doors&quot; or &quot;a door&quot; or anything else that isn&#39;t specific as to quantity. That &quot;some doors are open&quot; and &quot;some doors are closed&quot; can both be true may sound too obvious to bother stating. Yet it can be a surprisingly easy trap to expect &quot;if a door is open&quot; and &quot;unless a door is closed&quot; to be opposites, though there&#39;s no guarantee of that if there are two or more doors.</p>
 <div class="examples">
 <h4>Example</h4>
 <div class="example-short"><div class="example-short-num"><span class="hidden">0</span>83.</div><div class="example-short-name"><span class="example-short-name"><a href="examples/yolk_of_gold.html">Yolk of Gold</a></span> <span class="sym">★★</span></div></div><div class="example-short"><div class="example-short-num"><span class="hidden">000.</span></div><div class="example-short-name">Set of drawers where the item the player seeks is always in the last drawer he opens, regardless of the order of opening.</div></div>

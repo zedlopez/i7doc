@@ -157,7 +157,7 @@ end
 def prepare_output_dir
   FileUtils.mkdir_p(Conf.output_dir)
   FileUtils.cp_r(File.join(Conf.resource_dir, 'Imagery', 'doc_images'), Conf.output_dir)
-  %w{ i7doc.js i7doc.css license.html mit.html}.each do |fname|
+  %w{ i7doc.js license.html mit.html}.each do |fname|
     path = File.join(Conf.output_dir, fname)
     FileUtils.rm(path) if File.exists?(path)
     FileUtils.cp(fname, Conf.output_dir)

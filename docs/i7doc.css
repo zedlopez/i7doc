@@ -193,6 +193,7 @@ table {
    display:revert; revert to element instead of attribute */
 :where([hidden]) {
     display: none;
+    counter-reset: revert;
 }
 
 :where(:root) {

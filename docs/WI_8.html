@@ -63,7 +63,7 @@
 <div class="section-chapter-num"><span class="sect-mark">§</span>8.</div><div class="section-section-num">16</div><div class="section-name-holder"><div class="section-name"><a href="WI_8.html#section_16">Counting the number of things</a></div></div>
 </div>
 <div class="section-row">
-<div class="section-chapter-num"><span class="sect-mark">§</span>8.</div><div class="section-section-num">17</div><div class="section-name-holder"><div class="section-name"><a href="WI_8.html#section_17">Looking at holding by hand</a></div></div>
+<div class="section-chapter-num"><span class="sect-mark">§</span>8.</div><div class="section-section-num">17</div><div class="section-name-holder"><div class="section-name"><a href="WI_8.html#section_17">Looking at containment by hand</a></div></div>
 </div>
 <div class="section-row">
 <div class="section-chapter-num"><span class="sect-mark">§</span>8.</div><div class="section-section-num">18</div><div class="section-name-holder"><div class="section-name"><a href="WI_8.html#section_18">Randomness</a></div></div>
@@ -423,7 +423,7 @@
 </div>
 </article>
 <article><div class="section-title"><div class="section-title-row"><div class="section-title-link"><a class="permalink raw" href="WI_8.html#section_16">&#128279;&ensp;</a></div><h3 class="section-title-header" id="section_16">WI <span class="sect-mark">§</span>8.16 Counting the number of things</h3></div></div>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="#section_15" title="Calling names"><div class="nav-arrow"><span class="sym">⬅</span>8.15</div><div class="doc-navbar-text">Calling names</div></a></div><div class="doc-navbar-center"><a class="raw nav-el" href="#chapter_8"><div class="nav-arrow"><span class="sym">⬆</span>8.</div><div class="doc-navbar-text">Change</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="#section_17"><div class="doc-navbar-text">Looking at holding by hand</div><div class="nav-arrow">8.17<span class="sym">⮕</span></div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="#section_15" title="Calling names"><div class="nav-arrow"><span class="sym">⬅</span>8.15</div><div class="doc-navbar-text">Calling names</div></a></div><div class="doc-navbar-center"><a class="raw nav-el" href="#chapter_8"><div class="nav-arrow"><span class="sym">⬆</span>8.</div><div class="doc-navbar-text">Change</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="#section_17"><div class="doc-navbar-text">Looking at containment by hand</div><div class="nav-arrow">8.17<span class="sym">⮕</span></div></a></div></div></div>
 <p>It is very often useful to know how many things are in a given situation, and for this purpose we have the &quot;number of &hellip;&quot; construction. For instance:</p>
 <div class="codeblock"><div class="codeline">the number of edible things carried</div>
 <div class="codeline">the number of things on the table</div>
@@ -444,33 +444,19 @@
 <div class="codeblock"><div class="codeline">Colour is a kind of value. The colours are red, orange, yellow, green, blue, indigo and violet.</div>
 </div><p>then &quot;the number of colours&quot; would evaluate to 7. As with other ways of talking about whole ranges of values, this only works if the range is manageable. &quot;The number of numbers&quot; cannot sensibly be worked out: there are infinitely many, for all practical purposes, and similarly for &quot;the number of texts&quot;.</p>
 </article>
-<article><div class="section-title"><div class="section-title-row"><div class="section-title-link"><a class="permalink raw" href="WI_8.html#section_17">&#128279;&ensp;</a></div><h3 class="section-title-header" id="section_17">WI <span class="sect-mark">§</span>8.17 Looking at holding by hand</h3></div></div>
+<article><div class="section-title"><div class="section-title-row"><div class="section-title-link"><a class="permalink raw" href="WI_8.html#section_17">&#128279;&ensp;</a></div><h3 class="section-title-header" id="section_17">WI <span class="sect-mark">§</span>8.17 Looking at containment by hand</h3></div></div>
 <div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="#section_16" title="Counting the number of things"><div class="nav-arrow"><span class="sym">⬅</span>8.16</div><div class="doc-navbar-text">Counting the number of things</div></a></div><div class="doc-navbar-center"><a class="raw nav-el" href="#chapter_8"><div class="nav-arrow"><span class="sym">⬆</span>8.</div><div class="doc-navbar-text">Change</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="#section_18"><div class="doc-navbar-text">Randomness</div><div class="nav-arrow">8.18<span class="sym">⮕</span></div></a></div></div></div>
-<p>The descriptions outlined in the last few sections are intended to deal with almost all of the routine questions we might have about what currently resides where.</p>
-<div class="defn" id="ph_holder"><div class="defnline"><span class="defn">holder of </span><span class="neutral">(object)</span> &rArr; <em>object</em></div><p>This phrase produces the object that holds an object, thus the person who carries or wears a thing, or the supporter that supports a thing, or the thing it&#39;s a part of, or the thing or room that contains it, or, for regions, the region that contains it. If nothing holds the object, holder of produces the special object value nothing.</p>
-</div><p>It&#39;s sometimes useful to go the other way. Given an object, what are its contents, or occupants, or possessions? But there is an important caveat to the following phrases: parts are not included.</p>
-<p>[ TODO discuss regions? ]</p>
-<div class="defn" id="ph_firstheld"><div class="defnline"><span class="defn">first thing held by </span><span class="neutral">(object)</span> &rArr; <em>object</em></div><p>This phrase produces the first of the list of things held by the object, excluding by incorporation. Example:</p>
+<p>The descriptions outlined in the last few sections are intended to deal with almost all of the routine questions we might have about what currently resides where. It should be a last resort to use the following more primitive way to inspect the world.</p>
+<div class="defn" id="ph_holder"><div class="defnline"><span class="defn">holder of </span><span class="neutral">(object)</span> &rArr; <em>object</em></div><p>This phrase produces the container, supporter, carrier, wearer or room in which the object resides.</p>
+</div><p>It&#39;s sometimes useful to go the other way. When something has possessions, we can find them out one at a time by running through a list.</p>
+<div class="defn" id="ph_firstheld"><div class="defnline"><span class="defn">first thing held by </span><span class="neutral">(object)</span> &rArr; <em>object</em></div><p>This phrase produces the first of the list of things held by the object. Example:</p>
 <div class="codeblock"><div class="codeline">first thing held by Baroness Orczy</div>
-</div></div><p>This provides an efficient way to tell whether a container, supporter, or room is empty, or whether a person neither wears nor carries anything:</p>
-<div class="codeblock"><div class="codeline">if the first thing held by Baroness Orczy is nothing</div>
-</div><p>If that&#39;s false for a person, you know they wear at least one thing or carry at least one thing, or both. It may or may not be the case that they wear nothing or carry nothing: you would have to check more closely.</p>
-<div class="defn" id="ph_nextheld"><div class="defnline"><span class="defn">next thing held after </span><span class="neutral">(object)</span> &rArr; <em>object</em></div><p>This phrase produces the next item of the list of things held by something, excluding by incorporation. Example: suppose Baroness Orczy is carrying a lapdog and a string of pearls.</p>
+</div></div><div class="defn" id="ph_nextheld"><div class="defnline"><span class="defn">next thing held after </span><span class="neutral">(object)</span> &rArr; <em>object</em></div><p>This phrase produces the next item of the list of things held by something. Example: suppose Baroness Orczy is carrying a lapdog and a string of pearls.</p>
 <div class="codeblock"><div class="codeline">next thing held after the lapdog</div>
 </div><p>is then the string of pearls.</p>
-</div><p>These phrases be used together to loop through things carried, worn, contained, or supported:</p>
-<div class="codeblock"><div class="codeline">let the item be the first thing held by Baroness Orczy</div>
-<div class="codeline">while the item is not nothing:</div>
-<div class="codeline">&ensp;&ensp;&ensp;[...]</div>
-<div class="codeline">&ensp;&ensp;&ensp;now the item is the next thing held after the item;</div>
-</div><p>As noted, the above would never yield any parts the Baroness may have. If she *did* incorporate something, you would encounter additional results if you were to loop with:</p>
-<div class="codeblock"><div class="codeline">repeat through the list of things held by Baroness Orczy:</div>
-<div class="codeline">&ensp;&ensp;&ensp;[...]</div>
-</div><p>to borrow a phrase we&#39;ll see later on in the <a href="WI_21.html">chapter on Lists</a>.</p>
-<p>Another caveat is that the verbs &quot;to be held in&quot; and &quot;to be held inside&quot; are associated with *containment*, not with holding. If an object is *held inside* another object, you know it is also *held by* that object, but the reverse is not necessarily true. (There is an exception here: a region contains the rooms that are directly within it, but does not hold them.)</p>
-</article>
+</div></article>
 <article><div class="section-title"><div class="section-title-row"><div class="section-title-link"><a class="permalink raw" href="WI_8.html#section_18">&#128279;&ensp;</a></div><h3 class="section-title-header" id="section_18">WI <span class="sect-mark">§</span>8.18 Randomness</h3></div></div>
-<div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="#section_17" title="Looking at holding by hand"><div class="nav-arrow"><span class="sym">⬅</span>8.17</div><div class="doc-navbar-text">Looking at holding by hand</div></a></div><div class="doc-navbar-center"><a class="raw nav-el" href="#chapter_8"><div class="nav-arrow"><span class="sym">⬆</span>8.</div><div class="doc-navbar-text">Change</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="#section_19"><div class="doc-navbar-text">Random choices of things</div><div class="nav-arrow">8.19<span class="sym">⮕</span></div></a></div></div></div>
+<div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="#section_17" title="Looking at containment by hand"><div class="nav-arrow"><span class="sym">⬅</span>8.17</div><div class="doc-navbar-text">Looking at containment by hand</div></a></div><div class="doc-navbar-center"><a class="raw nav-el" href="#chapter_8"><div class="nav-arrow"><span class="sym">⬆</span>8.</div><div class="doc-navbar-text">Change</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="#section_19"><div class="doc-navbar-text">Random choices of things</div><div class="nav-arrow">8.19<span class="sym">⮕</span></div></a></div></div></div>
 <p>Sometimes we want to introduce random behaviour into play. We usually do this by generating random values, and then acting differently depending on what they are. The following:</p>
 <div class="codeblock"><div class="codeline">a random number from 2 to 5</div>
 </div><p>produces, as it suggests, a random number drawn from the choices 2, 3, 4 or 5, each of which is equally likely to come up. In fact, this isn&#39;t limited to numbers:</p>

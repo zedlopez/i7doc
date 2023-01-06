@@ -151,7 +151,7 @@
 <div class="codeblock"><div class="codeline">showme 1.0 divided by 0.0;</div>
 </div><p>doesn&#39;t throw a run-time problem the way that</p>
 <div class="codeblock"><div class="codeline">showme 1 divided by 0;</div>
-</div><p>does. Instead, it produces &quot;plus infinity&quot;. Infinity behaves roughly the way we might expect &ndash; for example, &quot;2 divided by plus infinity&quot; produces 0.0 &ndash; but once it comes into a calculation the result probably lies on some extreme and won&#39;t be very useful. Amusingly, the following is correct Inform syntax:</p>
+</div><p>does. Instead, it produces &quot;plus infinity&quot;. Infinity behaves roughly the way we might expect &ndash; for example, &quot;2 divided by plus infinity&quot; produces 0 &ndash; but once it comes into a calculation the result probably lies on some extreme and won&#39;t be very useful. Amusingly, the following is correct Inform syntax:</p>
 <div class="codeblock"><div class="codeline">plus infinity to the nearest whole number</div>
 </div><p>and evaluates of course to 2147483647. We can use the adjectives &quot;infinite&quot; and &quot;finite&quot; to talk about these numbers: plus infinity and minus infinity are infinite, everything else is finite.</p>
 <p>The same problem occurs for calculations like square roots. It&#39;s impossible to take the square root of a negative number, but we don&#39;t want to throw a run-time problem, because approximation means we can&#39;t always guarantee to stay the right side of 0. So for a few calculations like this, Inform generates what&#39;s called a &quot;nonexistent&quot; real number. We can use the adjectives nonexistent or existent to talk about this. Every number mentioned on this page so far is &quot;existent&quot;, including the infinities. The only way to get a nonexistent number is to carry out an impossible mathematical operation such as</p>
@@ -208,14 +208,16 @@
 <div class="defn" id="ph_squareroot"><div class="defnline"><span class="defn">square root of </span><span class="neutral">(arithmetic value)</span> &rArr; <em>value</em></div><p>This phrase produces an approximate square root, to the nearest integer, of the given value, which must be of a kind which has square roots. Example:</p>
 <div class="codeblock"><div class="codeline">square root of 16 = 4</div>
 </div><p>Trying to take the square root of a negative number will cause a run-time problem, because then we can&#39;t even nearly solve it.</p>
-<p>(Warning: this is slow to compute if the Z-machine setting is used. For best performance, use Glulx.)</p>
+<p>(Warning: this is slow to compute if the Z-machine setting is used. For</p>
+<p>best performance, use Glulx.)</p>
 </div><div class="defn" id="ph_realsquareroot"><div class="defnline"><span class="defn">real square root of </span><span class="neutral">(arithmetic value)</span> &rArr; <em>value</em></div><p>This phrase produces a square root, as accurately as a real number can hold it, of the given value, which must be of a kind which has square roots. Example:</p>
 <div class="codeblock"><div class="codeline">real square root of 2 = 1.41421</div>
 </div><p>The real square root of a negative number is nonexistent.</p>
 </div><div class="defn" id="ph_cuberoot"><div class="defnline"><span class="defn">cube root of </span><span class="neutral">(arithmetic value)</span> &rArr; <em>value</em></div><p>This phrase produces an approximate cube root, to the nearest integer, of the given value, which must be of a kind which has cube roots. Example:</p>
 <div class="codeblock"><div class="codeline">cube root of 27 = 3</div>
 <div class="codeline">cube root of -27 = -3</div>
-</div><p>(Warning: this is not very accurate if the Z-machine setting is used. For best performance, use Glulx.)</p>
+</div><p>(Warning: this is not very accurate if the Z-machine setting is used. For</p>
+<p>best performance, use Glulx.)</p>
 </div><p>We can compare numbers using either the traditional computer-programming symbols, or using words:</p>
 <div class="codeblock"><div class="codeline">if the score is less than 10</div>
 <div class="codeline">if the score &lt; 10</div>
