@@ -7,92 +7,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,375;0,400;0,500;0,700;1,375;1,400;1,500;1,700&family=Source+Sans+Pro:ital,wght@0,350;0,400;0,550;0,700;1,350;1,400;1,550;1,700&display=swap" rel="stylesheet"> 
 <link rel="stylesheet" href="../i7doc.css">
 <link rel="stylesheet" href="i7handbook.css">
-<style>
-ul {
-    list-style-position: inside;
-    margin-left: 3em;
-    text-indent: -1.5em;
-    list-style-type: disc;
-    text-indent: 0;
-}
-.codeblock + .codeblock { margin-top: 1rem; }
-ol.num { list-style: decimal inside; }
-div { border-radius: 1.5rem; }
-.caps { text-transform: uppercase }
-
-.game-output { background-color: #88460b; }
-.sidebar { background-color: #232B32; padding-bottom: 1rem; margin-bottom: 1rem; }
-.game-output p + p { margin-top: 0; }
-
-.sidebar > h4 { margin-left: 1em; margin-right: 1em; }
-ol, ul, p { margin-left: 1em; margin-right: 1em; }
-ol, ul { margin-left: 2.5em; text-indent: -1.5em; }
-ol > li::before { content: '\2002'; }
-sidebar > p, blockquote > p { margin-left: 0em; margin-right: 0em; padding-left: 1em; padding-right: 1em; }
-sidebar > p, blockquote > p:first-child { margin-top: 0; }
-blockquote > p:last-child { margin-bottom: 0; }
-sidebar > p:last-child { margin-bottom: 0; }
-
-p:last-child: { margin-bottom: revert; }
-
-p + ol, ol + p { margin-top: 1em; }
-p + ul, ul + p { margin-top: 1em; }
-
-ol > li + li { margin-top: 1em; }
-
-td > p { width: revert; }
-
-h2 { margin-top: 1.5rem; margin-bottom: 1.5rem; }
-
-h3 { margin-top: 1rem; }
-h3 { margin-bottom: 1rem; }
-
-  </style>
   </head>
   <body>
     <heading>
-<h1 class="title" id="inform7-handbook">Inform 7 Handbook</h1>
+<h1 id="inform7-handbook">Inform 7 Handbook</h1>
 
 <div class="subtitle">Jim Aikin<br>May 2015<br>build 6L38</div>
     </heading>
     <main>
-<div data-custom-style="I7 Chapter Head">
-<p>Inform 7 Handbook</p>
 
-<p>by Jim Aikin</p>
-
-<p>version 2.0 (May 2015)</p>
-</div><div data-custom-style="I7 Chapter Head">
-<p>valid for 6L38</p>
-</div><div data-custom-style="Table Contents">
-<blockquote>
-<p><em>The Inform 7 Handbook</em> is copyright (c) 2015 by Jim Aikin.
-<em>The Inform 7 Handbook</em> has been released under and is subject to
-the terms of the Creative Commons Public License, the terms of which are
-hereby incorporated by reference. Please see Appendix C of this book and
-read it before using this material. Your use of this material signifies
-your agreement to the terms of the License.</p>
-<p>You are free to copy, distribute, and transmit this work, and you are
-free to excerpt and adapt it, in whole or in part, subject to the
-following conditions:</p>
-<p>1) You must attribute the work by prominently displaying the words
-“<em>Inform 7 Handbook</em>, by Jim Aikin.”</p>
-<p>2) You may not in any way suggest that Jim Aikin endorses you or your
-use of the <em>Inform 7 Handbook</em>.</p>
-<p>3) You may not receive any monetary or other compensation for your
-copying, distribution, or transmission of this work, nor for any
-derivative work that incorporates it, in whole or in part.</p>
-
-<p>4) If you alter, transform, or build upon this work, you may
-distribute the resulting work only under the same or similar license to
-this one.</p>
-<p>5) For any reuse or distribution, you must make clear to others the
-license terms of this work by incorporating the text of the license (see
-Appendix C), or by including a link to a Web page wherein the license
-resides.</p>
-</blockquote>
-</div>
-<div class="chapter">
+      <div class="chapter">
+        <h2>Table of Contents</h2>
   <a href="#foreword">Foreword</a>
   </div><ul>
 <li><a href="#acknowledgments">Acknowledgments</a></li>
@@ -101,7 +26,7 @@ resides.</p>
 <div class="chapter">
 <a href="#chapter-1-getting-started">Chapter 1: Getting Started</a></div>
 <ul>
-<li><a href="#downloading-installing">Downloading &amp; Installing</a></li>
+  <li><a href="#downloading-installing">Downloading &amp; Installing</a></li>
 <li><a href="#the-inform-7-program">The Inform 7 Program</a></li>
 <ul>
 <li><a href="#the-page-headers">The Page Headers</a></li>
@@ -393,11 +318,9 @@ finish, you’ll spot a few repetitions; I felt that some minor redundancy
 would be better than forcing readers to hunt for information.</p>
 
 <p>Inform 7 (“I7” for short) comes bundled with two long and detailed
-tutorial/reference books, <em>Writing with Inform</em> and <em>The
-Inform Recipe Book.</em> These books are found under the Documentation
-tab in the Inform application &ndash; and they can also be read online at
-www.inform7.com/learn/man/WI_1_1.html and
-www.inform7.com/learn/man/RB_1_1.html. The online versions are not much
+tutorial/reference books, <a href="../WI_1.html"><em>Writing with Inform</em></a> and <a href="../RB_1.html"><em>The
+Inform Recipe Book</em></a>, which can be found under the Documentation
+tab in the Inform application. The online versions are of limited
 use if you have the Inform application open, but they can be very handy
 if you find yourself wanting to brush up on your Inform by reading on
 your phone while riding on a train. Before getting too far along in the
@@ -616,7 +539,7 @@ I’ll give you a short list of mistakes that I’ve seen students make.</p>
 language (“I7” for short). There are several other languages in which
 you can write interactive fiction, as mentioned in the Foreword. If
 you’re using one of them, you’ll find a few general tips in this book
-that you can use. In particular, the discussion of puzzles in Chapter 6
+that you can use. In particular, the discussion of <a href="#chapter-6-puzzles">puzzles in Chapter 6</a>
 is largely platform-independent. Nonetheless, the book is mostly about
 how to use I7.</p>
 
@@ -709,8 +632,7 @@ tell Inform where you want to save it. (Use the Inform Projects folder
 in your Documents folder. If this folder doesn’t yet exist, it’s a good
 idea to create it.)</p>
 
-<p><img src="images/start_a_new_project.jpg"
-</p>
+<div class="image-frame"><img src="images/start_a_new_project.jpg"></div>
 
 <p>When you close this box, the Inform program will open, and you’ll see
 a main window with two pages &ndash; a left page and a right page. The left
@@ -725,9 +647,9 @@ program is called an Integrated Development Environment, or “IDE” for
 short. The Inform IDE has quite a lot of useful features. Before you
 start writing your first story, take a quick look around the Inform IDE.
 Its most important features are discussed in the next few sections of
-this chapter; others are mentioned in Chapter 10.</p>
+this chapter; others are mentioned in <a href="#chapter-10-advanced-topics">Chapter 10, Advanced Topics</a>.</p>
 
-<p><img src="images/ide_documentation_pane.jpg"></p>
+<div class="image-frame"><img src="images/ide_documentation_pane.jpg"></div>
   
 <p>Normally, you’ll want to keep the text of the story you’re writing
 (Inform calls this the “source text,” a term precisely equivalent to the
@@ -752,7 +674,7 @@ Each header opens a different panel<em>.</em></p>
 <p>Until you’ve written something in the Source panel and clicked the
 Go! button, some of the other panels will be empty. This is normal.</p>
 
-<p><img src="images/help.png"></p>
+<div class="image-frame"><img src="images/help.png"></div>
 
 <p>Feel free to click on the
 gray buttons beside the chapter headings in the Documentation. These
@@ -786,7 +708,7 @@ Documentation</a>.</p>
 
 <h4 id="the-page-headers">The Page Headers</h4>
 
-<img src="images/page_headers.jpg">
+<div class="image-frame"><img src="images/page_headers.jpg"></div>
 
 <p>Across the top of each page, if
 you’re using the Windows IDE, or vertically along the edge if you’re
@@ -795,7 +717,7 @@ Source, Results, Index, Skein, Transcript, Story, Documentation,
 Extensions, and Settings. Below these main headers a variety of subheads
 (such as Examples and General Index) may appear. Clicking on any of the
 headers opens up a new panel. We’ll save a discussion of the finer
-points of how to use the Skein, Transcript, and Index for Chapter 10. In
+points of how to use the Skein, Transcript, and Index for <a href="#chapter-10-advanced-topics">Chapter 10, Advanced Topics</a>. In
 this chapter we’ll just introduce the panels briefly.</p>
 
 <p>The <strong>Source</strong> panel is where you’ll write your game. At
@@ -810,7 +732,7 @@ you’re writing, in fact, both the text that will be displayed in your
 game when it’s played, and the instructions you give Inform that control
 how the game works.</p>
 
-<img src="images/story_headings.png">
+<div class="image-frame"><img src="images/story_headings.png"></div>
 
 <p>Once
 you’ve added some headings, the Contents sub-panel within the Source
@@ -858,11 +780,11 @@ pages of the Index, you can learn a lot about Inform, and also spot
 problems in your game, or just get an energy boost from seeing that your
 game is getting bigger as the automatically generated map grows.</p>
 
-<img src="images/project_index.jpg">
+<div class="image-frame"><img src="images/project_index.jpg"></div>
 
 <p>The Index panel is divided into seven pages: Actions, Contents,
 Kinds, Phrasebook, Rules, Scenes, and World. We’ll have more to say
-about these in Chapter 10. The Home button takes you to the overview
+about these in <a href="#chapter-10-advanced-topics">Chapter 10, Advanced Topics</a>. The Home button takes you to the overview
 display seen here. Clicking on any of the colored boxes will take you to
 a particular part of the Index of your game.</p>
 
@@ -875,9 +797,7 @@ making some changes is to open up the Skein, right-click (Mac:
 control-click) on one of the lozenge-shaped <em>nodes,</em> and choose
 “Play to Here” from the pop-up menu. This will repeat the commands you
 typed on that particular run-through. For more on the Skein, see <a href="#the-skein">The Skein</a> and
-consult <strong>pp. 1.7, 1.8,</strong> and <strong>1.9</strong> (“The
-Skein,” “A short Skein tutorial,” and “Summary of the Skein and
-Transcript”) in <em>Writing with Inform</em>.</p>
+consult <a href="../WI_1.html"><em>Writing with Inform</em> Chapter 1</a>.</p>
 
 <p>The <strong>Transcript</strong> panel is also a tool for advanced
 programming situations. To be honest, in writing my first large Inform 7
@@ -917,8 +837,8 @@ anything that your players will need to know to play the game should be
 presented as ordinary text. It’s possible to use Inform to create hybrid
 games that make considerable use of graphics, clickable links, and other
 resources, but the methods for doing this are beyond the scope of this
-<em>Handbook.</em> For more information, see <strong>Chapter 23</strong>
-of <em>Writing with Inform</em>, “Figures, Sounds and Files.”</p>
+<em>Handbook.</em> For more information, see <a href="../WI_23.html"><strong>Chapter 23</strong>
+of <em>Writing with Inform</em>, “Figures, Sounds and Files.”</a></p>
 
 <p>The <strong>Documentation</strong> panel provides access to two large
 tutorial/reference works: <em>Writing with Inform</em> and <em>The</em>
@@ -962,7 +882,9 @@ using this checkbox will let you test the game more easily.</p>
 
 <h4 id="the-go-button">The Go! Button</h4>
 
-<p><img src="images/go.png">In my kitchen I have a
+<div class="image-frame"><img src="images/go.png"></div>
+
+<p>In my kitchen I have a
 wonderful invention called a Zojirushi bread machine. It bakes home-made
 bread. All I have to do is measure the raw ingredients, pour them into
 the pan, close the lid, and press the Start button. Little paddles
@@ -994,7 +916,7 @@ up with a hard, teeth-breaking lump. The bread machine doesn’t look at
 what I put in the pan &ndash; it just runs through its own process, step by
 step, automatically.</p>
 
-<img src="images/error.png">
+<div class="image-frame"><img src="images/error.png"></div>
 
 <p>A compiler is a lot smarter than a bread machine. In order to do its
 work, the Inform compiler has to scrutinize every single line that
@@ -1044,7 +966,7 @@ because authors are so creative about inventing new errors.</p>
 
 <p>After a while you’ll start to get a feel for the types of errors you
 usually make, and the problem messages you’ll see as a result. For more
-details, see “All About Bugs,” later in this chapter. But if all goes
+details, see <a href="#all-about-bugs">All About Bugs</a>, later in this chapter. But if all goes
 well, your game will appear in the right-hand page, in the Story panel,
 ready for you to try it out.</p>
 
@@ -1058,7 +980,7 @@ of the game that you can experiment with, use the Save As... command in
 the File menu.</p>
 
 <div class="sidebar">
-<h4 id="Ref_common_coding_problems">Six Common Problems</h4>
+<h4 id="common-coding-problems">Six Common Problems</h4>
 
 <p>As I watch beginners start to learn Inform, I see certain kinds of
 problems showing up over and over. Here, in no particular order, are
@@ -1104,8 +1026,9 @@ more knowledgeable authors give you.</p>
 
 <h4 id="the-release-button">The Release Button</h4>
 
-<p><img src="images/release.png">
-When your game is finished &ndash;
+<div class="image-frame"><img src="images/release.png"></div>
+
+<p>When your game is finished &ndash;
 or maybe not quite finished, but far enough along that it’s ready to
 share with other people so they can test it, find problems, and offer
 suggestions &ndash; you can click the Release button. This will produce a game
@@ -1115,7 +1038,7 @@ to an email and send it to them. They’ll be able to load it into an
 interpreter and play your game.</p>
 
 <p>Some of the features that you can use while testing your game in the
-IDE (see “Using the Debugging Commands,” later in this chapter) will not
+IDE (see <a href="#using-the-debugging-commands">Using the Debugging Commands</a>, later in this chapter) will not
 be available in the release version. However, the extremely handy
 Release For Testing command in the Release menu gives you a way to
 create a game file for your testers that <em>does</em> include the
@@ -1130,8 +1053,8 @@ IDE. Instead, you invoke them by adding statements to your source. For
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Release along with cover art, a solution, and a website.\n`)"><span class="sym">⧉</span></button><div class="codeline">Release along with cover art, a solution, and a website.</div>
 </div>
 
-<p>The release options are explained in <strong>Chapter 25</strong> of
-<em>Writing with Inform</em>, “Releasing.”</p>
+<p>The release options are explained in <a href="../WI_25.html">Chapter 25 of
+<em>Writing with Inform</em>, “Releasing.”</a>.</p>
 
 <h4 id="other-features">Other Features</h4>
 
@@ -1186,7 +1109,7 @@ start with a blank Source when trying the Examples, because pasting the
 Example code into an existing game will most likely make a mess of a
 game that you’re already working on.</p>
 
-<p><img src="images/port_royal_3.jpg"></p>
+<div class="image-frame"><img src="images/port_royal_3.jpg"></div>
 
 <p>After navigating to the Documentation page that you’re interested in
 and possibly scrolling down to the bottom, open up an Example by
@@ -1204,7 +1127,7 @@ code and play it again. This is a great way to learn how Inform works.
 that a few of the older Examples won’t work correctly. If you encounter
 this type of problem, post a message asking for help on the <a href="http://www.intfiction.org/forum/">IntFiction forum</a>.)</p>
 
-<img src="images/port_royal_1.png">
+<div class="image-frame"><img src="images/port_royal_1.png"></div>
 
 <p>All of the Examples are used in both <em>Writing with Inform</em> and
 the <em>Recipe Book.</em> If you’ve opened the Example from within
@@ -1265,7 +1188,7 @@ computer) when you see the command prompt. The <span
 id="Ref_command_prompt" class="anchor"></span>command prompt generally
 looks like this:</p>
 <div class="game-output">
-<p>&gt;</p>
+<div class="command"><span class="prompt">&gt;</span></div>
 </div>
 <p>The words you type at the prompt are called the command line, and
 this method of interacting with the computer is called a <em>command
@@ -1301,11 +1224,11 @@ by the correct spelling. The result might look like this:</p>
 
 <p>You can see a tool chest (closed) here.</p>
 
-<p>&gt;open chet</p>
+<div class="command"><span class="prompt">&gt;</span>open chet</div>
 
 <p>You can't see any such thing.</p>
 
-<p>&gt;oops chest</p>
+<div class="command"><span class="prompt">&gt;</span>oops chest</div>
 
 <p>It's awkward, but you manage to open the tool chest while wearing the
 handcuffs.</p>
@@ -1526,6 +1449,9 @@ formats can be played in a Web browser using <a href="https://github.com/curious
 <p>Currently the best interpreter is called <a href="http://ccxvii.net/gargoyle/">Gargoyle</a>. It’s available for
 Windows, Mac OS, and Linux (as an AppImage). You can <a href="https://github.com/garglk/garglk/releases">download the latest Gargoyle release</a> Gargoyle can play all Z-code (Inform) and Glulx games, as
 well as TADS games and Hugo games.</p>
+
+<div class="addendum">Gargoyle is still popular. Most Mac users like Spatterlight; Lectrote is another popular cohice.</div>
+
 
 <h4 id="whats-this-.z8-stuff-all-about-anyway">What’s This .z8 Stuff All About, Anyway?</h4>
 
@@ -2095,9 +2021,10 @@ test it, and tell them how to do so.</p>
 <p>Traditionally, IF beta-testers include comments in their transcript
 by starting a command line with an asterisk. For instance, you might
 find a line in the transcript that reads like this:</p>
+
 <div class="game-output">
-<p>&gt;* The room description mentions the vase on the pedestal, but I
-already broke the vase.</p>
+<div class="command"><span class="prompt">&gt;</span>* The room description mentions the vase on the pedestal, but I
+already broke the vase.</div>
 </div>
 
 <p>By default, Inform will respond to a line like this by saying,
@@ -2188,8 +2115,7 @@ that can be poisonous or safe), you can use SHOWME GOBLET after dropping
 the tablets into the goblet to see if the goblet has switched to the
 state that it’s supposed to.</p>
 
-<p>As explained on <strong>p. 11.4</strong> of <em>Writing with
-Inform</em>, “The showme phrase,” the word showme can be used to add
+<p>As explained in <a href="../WI_11#section_4">WI 11.4, “The showme phrase”</a>, the word showme can be used to add
 debugging code to your game. When the game is running, if a line with a
 showme phrase is reached, you’ll see a message in the game window giving
 whatever information you’ve put in the phrase. I’m not convinced that
@@ -2301,6 +2227,9 @@ are important):</p>
 <div class="codeline">&ensp;&ensp;&ensp;say T;</div>
 <div class="codeline">&ensp;&ensp;&ensp;#end if.</div>
 </div>
+
+<div class="addendum">This technique cannot work in 10.1.</div>
+
 <p>Having done this, you can now write any debugging print statements
 that you add to your game’s code like this:</p>
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`\tdebug “--Now entering the dungeon-demolishing code. The player is currently carrying [a list of things carried by the player].]&quot;;\n`)"><span class="sym">⧉</span></button><div class="codeline">&ensp;&ensp;&ensp;debug “--Now entering the dungeon-demolishing code. The player is currently carrying [a list of things carried by the player].]";</div>
@@ -2381,7 +2310,7 @@ conversations between the player character (PC) and non-player
 characters (NPCs); for constructing menus of hints that your players can
 consult; and for many other purposes.</p>
 
-<img src="images/extensions.jpg">
+<div class="image-frame"><img src="images/extensions.jpg"></div>
 
 <p>Extensions are written using
 the Inform programming language &ndash; so technically, an extension can’t do
@@ -2393,11 +2322,18 @@ have it working in half an hour?</p>
 
 <p>Unfortunately, as of 2015 the situation with respect to extensions
 has become a bit disorganized and confusing. It was formerly the case
-that all extensions could be downloaded from a page on the
-Inform 7 website that is no longer there. But in versions 6L02 and 6L38, some basic things in the
+that all extensions could be downloaded from the Extensions page of the
+Inform 7 website. But most of the material on this page is now obsolete. It’s useful to
+have access to the older extensions if you’re running an older version
+of Inform for some reason, so there’s a reason to keep this material
+available. But in versions 6L02 and 6L38, some basic things in the
 Inform programming language have changed. As a result, many of the older
 extensions won’t run in the new versions of Inform. If you try to
-include one, the compiler will issue an error message.</p>
+include one, the compiler will issue an error message. Bottom line:
+Unless you know what you’re doing, do not attempt to download extensions
+  one at a time manually from the Inform website.</p>
+
+<div class="addendum">I wish I could tell you that as of 2022 it's no longer confusing.</div>
 
 <p>Some authors have updated their extensions to work with the new
 version, but others haven’t. If you want the features in an extension
@@ -2546,7 +2482,7 @@ Rather, it should fall to the forest floor far below.</p>
 limitations imposed by the sealed-room metaphor. If the player is at the
 north end of an open field, for instance, you may want him to be able to
 see (but not touch) the things that are at the south end of the field.
-Later in this chapter, in the section “The Great Outdoors,” we’ll
+Later in this chapter, in the section <a href="#the-great-outdoors">The Great Outdoors</a>, we’ll
 suggest some ways to do this. There are also some exceptions that come
 into play when you’re designing a conversation system to let the player
 talk to other characters: You can easily allow ASK BOB ABOUT THE JEWELS
@@ -2671,7 +2607,7 @@ very hard. Imagine this situation in a game:</p>
 <div class="game-output">
 <p><strong>Forest Path</strong></p>
 <p>Tall old trees surround you.</p>
-<p>&gt;x trees</p>
+<div class="command"><span class="prompt">&gt;</span>x trees</div>
 <p>You can’t see any such thing.</p>
 </div>
 
@@ -2725,6 +2661,7 @@ like this:</p>
 <p>Inform uses certain rules for deciding how (or whether) to mention
 these things. If you want to customize the way room descriptions are
 printed out, see “Room Descriptions” at the end of this chapter.</p>
+
 <div id="fn1" class="footnote">
 <p><span data-custom-style="Footnote Characters">1.</span> A phone booth
 could also be created as an enterable container within the main room &ndash;
@@ -2732,7 +2669,7 @@ see the section on “Enterable Containers &amp; Supporters” in Chapter 3
 of the <em>Handbook</em>.&ensp;<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p>
 </div>
 
-<div class="sidebar">
+<div class="sidebar" id="how-not-to-describe-a-room">
 <h4>How Not to Describe a Room</h4>
 
 <p>When writing room descriptions, there are two traps to watch out for.
@@ -2748,7 +2685,7 @@ will give the same impression no matter where the player arrived
 from.</p>
 </div>
 
-<div class="sidebar">
+<div class="sidebar" id="important-a-description-is-not-a-description">
 <h4>Important: A Description Is Not a Description!</h4>
 
 <p>Just to make matters a little more confusing, Inform’s Documentation
@@ -2756,8 +2693,8 @@ uses the word “description” in two entirely different ways. What we’re
 talking about in this chapter is the description <em>property</em> of an
 object in the world of the story. This type of description is the text
 that will be printed out in the game when the object is examined (or
-when the room is examined using the LOOK command). However, Chapter 6 of
-<em>Writing with Inform</em>, “Descriptions,” uses the word in another
+when the room is examined using the LOOK command). However, <a href="../WI_6.html">Chapter 6 of
+<em>Writing with Inform</em>, “Descriptions”</a>, uses the word in another
 sense &ndash; to refer to certain phrases you’ll use in your code &ndash; for
 instance, the text with which you specify the type of object you want to
 create. The phrase “openable container” is a description you would use
@@ -2774,7 +2711,7 @@ examining the cardboard box.</p>
 <p>Inform allows us to create many <strong>kinds</strong><span
 id="Ref_kind" class="anchor"></span> of objects. The standard library
 includes containers, mechanical devices, doors, people, and so on. (See
-<strong>Chapter 4</strong> of the Documentation, “Kinds,” to learn more
+<a href="../WI_4.html">Chapter 4 of the Documentation, “Kinds”</a>, to learn more
 about kinds.) The word “kind” is a technical term in Inform: It’s used
 to define new types of objects when the game will include several of
 them, and we want them to behave in similar ways. For instance, if a
@@ -2862,8 +2799,8 @@ games will need Understand rules of this type. Their main purpose is to
 add vocabulary &ndash; extra words that the player can use to refer to the
 objects. (The concept of rules is vital to Inform. You’ll write many
 rules in your own code, and you’ll see them used throughout this
-<em>Handbook</em>. For more details, consult Chapter 19 of <em>Writing
-with Inform.</em>)</p>
+<em>Handbook</em>. For more details, consult <a href="../WI_19.html">Chapter 19 of <em>Writing
+with Inform</em></a>.)</p>
 
 <p>To solve the second problem, we need to make sure the parser
 understands that the tall old trees object is
@@ -2935,7 +2872,7 @@ you can’t very well climb several trees at once). By default, this will
   be the output:</p>
 
 <div class="game-output">
-<p>&gt;climb tree</p>
+<div class="command"><span class="prompt">&gt;</span>climb tree</div>
 <p>I don’t think much is to be achieved by that.</p>
 </div>
 
@@ -2980,15 +2917,15 @@ this kind of output:</p>
 
 <p>A typical bathroom. The door is to the west.</p>
 
-<p>&gt;x tub</p>
+<div class="command"><span class="prompt">&gt;</span>x tub</div>
 
 <p>You can't see any such thing.</p>
 
-<p>&gt;x sink</p>
+<div class="command"><span class="prompt">&gt;</span>x sink</div>
 
 <p>You can't see any such thing.</p>
 
-<p>&gt;x toilet</p>
+<div class="command"><span class="prompt">&gt;</span>x toilet</div>
 
 <p>You can't see any such thing.</p>
 </div>
@@ -3034,15 +2971,15 @@ the distance, Inform doesn’t know that. The result, when the player
 tries doing things with the wall, is less than great:</p>
 
 <div class="game-output">
-<p>&gt;x wall</p>
+<div class="command"><span class="prompt">&gt;</span>x wall</div>
 
 <p>The wall is ancient and moss-covered.</p>
 
-<p>&gt;touch wall</p>
+<div class="command"><span class="prompt">&gt;</span>touch wall</div>
 
 <p>You feel nothing unexpected.</p>
 
-<p>&gt;take wall</p>
+<div class="command"><span class="prompt">&gt;</span>take wall</div>
 
 <p>That's hardly portable.</p>
 </div>
@@ -3070,7 +3007,7 @@ anything else) distant, just by saying that it is. Now the output will
 be a lot more sensible:</p>
 
 <div class="game-output">
-<p>&gt;touch wall</p>
+<div class="command"><span class="prompt">&gt;</span>touch wall</div>
 
 <p>The crumbling stone wall is too far away.</p>
 </div>
@@ -3114,7 +3051,7 @@ needed. If we just wrote, “[The second noun] is too far away”, distant
 things that were plural-named, such as geese winging across the sky,
 wouldn’t work quite right. We’d see this:</p>
 <div class="game-output">
-<p>&gt;touch geese</p>
+<div class="command"><span class="prompt">&gt;</span>touch geese</div>
 
 <p>The geese is too far away.</p>
 </div>
@@ -3145,7 +3082,7 @@ you won’t need to write your own Instead rules to produce “too far away”
 messages. You may want to do so for particular literary reasons. For
 example:</p>
 <div class="game-output">
-<p>&gt;touch moon</p>
+<div class="command"><span class="prompt">&gt;</span>touch moon</div>
 
 <p>The moon is much, much too far away!</p>
 </div>
@@ -3299,7 +3236,7 @@ the Stone House), you’ll find that in Haunted Grove, the travel command
 IN takes you into the stone house, and OUT gets you back out into
 Haunted Grove.</p>
 
-<div class="sidebar">
+<div class="sidebar" id="where-did-it-go">
 <h4>Where Did It Go?</h4>
 
 <p>The numbering of the Examples in Inform’s Documentation may change in
@@ -3309,7 +3246,7 @@ page cross-referenced in this <em>Handbook,</em> consider the
 possibility that the numbering has changed.</p>
 </div>
 
-<div class="sidebar">
+<div class="sidebar" id="capital-offense">
 <h4>Capital Offense</h4>
 
 <p>In most situations, Inform is not fussy about whether you capitalize
@@ -3352,8 +3289,8 @@ them at all. Or rather, the player is free to refer to them, but the
 parser will pretend they don’t exist.</p>
 
 <p>If you want to write a realistic outdoor setting, spend some time
-studying Chapter 3.4, “Continuous Spaces and the Outdoors,” in the
-<em>Recipe Book</em>. The examples there illustrate some powerful
+studying <a href="../RB_3.html#section_4">Chapter 3.4, “Continuous Spaces and the Outdoors,” in the
+<em>Recipe Book</em></a>. The examples there illustrate some powerful
 techniques. Here we’ll take a quick look at a couple of them. First, a
 slight revision of the “Distant Scenery” example. We’re going to create
 a couple of distant scenery objects. We’ll give them names that start
@@ -3443,7 +3380,7 @@ take advantage of the scrutinizing function:</p>
 we’ll get this output:</p>
 
 <div class="game-output">
-<p>&gt;look east</p>
+<div class="command"><span class="prompt">&gt;</span>look east</div>
 
 <p>To the east, a path meanders from north to south among the trees.
 Lying on the path you can see a beach ball.</p>
@@ -3479,7 +3416,7 @@ more complete implementation, with which the player can throw things in
 a direction and have them sail away out of sight, see “Indoors &amp;
 Outdoors” in Appendix B.</p>
 
-<div class="sidebar">
+<div class="sidebar" id="the-the">
 <h4>The “The”</h4>
 
 <p>If you know a little about Inform programming, you might think that
@@ -3604,7 +3541,7 @@ will be automatically opened to allow the player to travel from place to
 place:</p>
 
 <div class="game-output">
-<p>&gt;s</p>
+<div class="command"><span class="prompt">&gt;</span>s</div>
 
 <p>(first opening the oak door)</p>
 
@@ -3782,26 +3719,26 @@ wall paneling, this would work:</p>
 <p>This produces exactly the type of interaction we’d expect of a secret
 door:</p></div>
 <div class="game-output">
-<p>&gt;n</p>
+<div class="command"><span class="prompt">&gt;</span>n</div>
 
 <p>You can't go that way.</p>
 
-<p>&gt;open door</p>
+<div class="command"><span class="prompt">&gt;</span>open door</div>
 
 <p>You can't see any such thing.</p>
 
-<p>&gt;x paneling</p>
+<div class="command"><span class="prompt">&gt;</span>x paneling</div>
 
 <p>Richly carved oak paneling covers the north wall.</p>
 
 <p>One of the panels has an unusually wide seam around it. On closer
 inspection, the panel proves to be a door!</p>
 
-<p>&gt;open door</p>
+<div class="command"><span class="prompt">&gt;</span>open door</div>
 
 <p>You open the oak door.</p>
 
-<p>&gt;n</p>
+<div class="command"><span class="prompt">&gt;</span>n</div>
 
 <p><strong>Small Windowless Room</strong></p>
 
@@ -4266,7 +4203,7 @@ Forest Path; it’s surrounded by a darker outline. The room called
 Low-Ceilinged Attic is shown in the upper level because it’s mapped
 upward from Inside the Stone House (abbreviated IS on the map).</p>
 
-<img src="images/map_of_the_world.png">
+<div class="image-frame"><img src="images/map_of_the_world.png"></div>
 
 <p>I’ve found that it’s safer to define a region <em>after</em> creating
 the rooms that will be in it &ndash; that is, the region definition should be
@@ -4495,10 +4432,7 @@ it.</p>
 involves using a special rule to add the light switch to scope. Also
 included are customized rules about how to announce darkness and &ndash; much
 more important for this example &ndash; how to print the description of a dark
-room. These methods are described in Chapter 17 of <em>Writing with
-Inform</em>, on <strong>pages 18.19</strong> (“Printing the announcement
-of darkness”) and <strong>18.22</strong> (“Printing the description of a
-dark room”). We need a special way to print the description of the room
+room. These methods are described in <a href="../WI_18.html#section_19">WI 18.19 Printing the announcement of darkness</a> and <a href="../WI_18.html#section_22">WI 18.22 Printing the description of a dark room</a>. We need a special way to print the description of the room
 we’re calling the Library when it’s dark, because otherwise the player
 will have no idea that there’s a light switch in the room. “Guess what
 you can do in a dark room” is a very unfair type of puzzle.</p>
@@ -4743,10 +4677,10 @@ called the carry out looking rules. They’re complex, and this
 Instead, we’ll mention a few of the things that you may want to do to
 customize the appearance of your game. You may often want to control how
 various objects are listed as part of the complete room description. A
-large chunk of Chapter 18 of <em>Writing with Inform</em>, “Activities,”
-is devoted to this complex and useful topic, from 18.9, “Deciding the
-concealed possessions of something,” to 18.28, “Printing a locale
-paragraph about.” Close study of these pages and the Examples that go
+large chunk of <a href="../WI_18.html">Chapter 18 of <em>Writing with Inform</em>, “Activities”</a>,
+is devoted to this complex and useful topic, from <a href="../WI_18.html#section_9">WI 18.9, “Deciding the
+concealed possessions of something”</a>, to <a href="../WI_18.html#section_9">WI 18.28, “Printing a locale
+paragraph about”</a>. Close study of these pages and the Examples that go
 with them will give you plenty of ideas to experiment with.</p>
 
 <p>Let’s look at a couple of ways to control the way objects are
@@ -5063,7 +4997,7 @@ this particular case it pays no attention whatever to the difference
 that native English speakers would see between “a phaser” and “the
 phaser”.</p>
 
-<div class="sidebar" id="Ref_noun">
+<div class="sidebar" id="noun-and-second-noun">
 <h4>Noun &amp; Second Noun</h4>
 
 <p>Notice the term “the noun” in the code above. The words “noun” and
@@ -5109,8 +5043,7 @@ potion their own names:</p>
 thing, the way this has been written, the player could pick up the
 potion, which would be silly because the potion is probably be a liquid.
 Inform doesn’t know that a thing is a liquid unless you do some extra
-work. If you’re curious about liquid handling, you can consult page
-<strong>10.2</strong> of the <em>Recipe Book.</em> Liquids, ropes, and
+work. If you’re curious about liquid handling, you can consult <a href="../RB_10.html#section_2">RB 10.2</a>. Liquids, ropes, and
 fire are among the more awkward concepts to implement in interactive
 fiction. For now, though, we’re just talking about giving things
 distinctive names.</p>
@@ -5126,11 +5059,11 @@ called simply “key”. This will cause a bug to appear in your game. The
 output will look like this:</p>
 
 <div class="game-output">
-<p>&gt;unlock door with key</p>
+<div class="command"><span class="prompt">&gt;</span>unlock door with key</div>
 
 <p>Which key do you mean, the rusty key, the silver key, or the key?</p>
 
-<p>&gt;key</p>
+<div class="command"><span class="prompt">&gt;</span>key</div>
 
 <p>Which key do you mean, the rusty key, the silver key, or the key?</p>
 </div>
@@ -5188,7 +5121,7 @@ following four objects:</p>
 <p>Here’s the result when the player tries to take inventory:</p>
 
 <div class="game-output">
-<p>&gt;<strong>i</strong></p>
+<div class="command"><span class="prompt">&gt;</span><strong>i</strong></div>
 
 <p>You are carrying:</p>
 
@@ -5592,15 +5525,15 @@ cupboard.</p>
 <p>You can also see a basket (in which is a plum) and a suitcase
 (closed) here.</p>
 
-<p>&gt;test me</p>
+<div class="command"><span class="prompt">&gt;</span>test me</div>
 
 <p>(Testing.)</p>
 
-<p>&gt;[1] <strong>open suitcase</strong></p>
+<div class="command"><span class="prompt">&gt;</span>[1] <strong>open suitcase</strong></div>
 
 <p>You open the suitcase, revealing a carrot.</p>
 
-<p>&gt;[2] <strong>look</strong></p>
+<div class="command"><span class="prompt">&gt;</span>[2] <strong>look</strong></div>
 
 <p><strong>Living Room</strong></p>
 
@@ -5612,11 +5545,11 @@ cupboard.</p>
 <p>You can also see a basket (in which is a plum) and a suitcase (in
 which is a carrot) here.</p>
 
-<p>&gt;[3] <strong>take carrot</strong></p>
+<div class="command"><span class="prompt">&gt;</span>[3] <strong>take carrot</strong></div>
 
 <p>Taken.</p>
 
-<p>&gt;[4] <strong>look</strong></p>
+<div class="command"><span class="prompt">&gt;</span>[4] <strong>look</strong></div>
 
 <p><strong>Living Room</strong></p>
 
@@ -5628,11 +5561,11 @@ cupboard.</p>
 <p>You can also see a basket (in which is a plum) and a suitcase (empty)
 here.</p>
 
-<p>&gt;[5] <strong>open cupboard</strong></p>
+<div class="command"><span class="prompt">&gt;</span>[5] <strong>open cupboard</strong></div>
 
 <p>You open the cupboard, revealing an apple.</p>
 
-<p>&gt;[6] <strong>look</strong></p>
+<div class="command"><span class="prompt">&gt;</span>[6] <strong>look</strong></div>
 
 <p><strong>Living Room</strong></p>
 
@@ -5644,11 +5577,11 @@ cupboard.</p>
 <p>You can also see a basket (in which is a plum) and a suitcase (empty)
 here.</p>
 
-<p>&gt;[7] <strong>take plum</strong></p>
+<div class="command"><span class="prompt">&gt;</span>[7] <strong>take plum</strong></div>
 
 <p>Taken.</p>
 
-<p>&gt;[8] <strong>look</strong></p>
+<div class="command"><span class="prompt">&gt;</span>[8] <strong>look</strong></div>
 
 <p><strong>Living Room</strong></p>
 
@@ -5659,11 +5592,11 @@ cupboard.</p>
 
 <p>You can also see a basket (empty) and a suitcase (empty) here.</p>
 
-<p>&gt;[9] <strong>take pear</strong></p>
+<div class="command"><span class="prompt">&gt;</span>[9] <strong>take pear</strong></div>
 
 <p>Taken.</p>
 
-<p>&gt;[10] <strong>look</strong></p>
+<div class="command"><span class="prompt">&gt;</span>[10] <strong>look</strong></div>
 
 <p><strong>Living Room</strong></p>
 
@@ -5804,7 +5737,7 @@ able to pick it up and move it to another location. While carrying it,
 the player might think to take inventory. Here’s the result:</p>
 
 <div class="game-output">
-<p>&gt;i</p>
+<div class="command"><span class="prompt">&gt;</span>i</div>
 
 <p>You are carrying:</p>
 
@@ -5889,7 +5822,7 @@ suitcase that will list its contents (and its state) when examined:</p>
 But if the suitcase is empty, we get the following output:</p>
 
 <div class="game-output">
-<p>&gt;x suitcase</p>
+<div class="command"><span class="prompt">&gt;</span>x suitcase</div>
 
 <p>A vintage item of brown leather luggage. In the suitcase you can see
 nothing.</p>
@@ -6020,7 +5953,7 @@ non-default response is easy:</p>
 <div class="codeline">&ensp;&ensp;&ensp;say "Nothing but dust bunnies."</div>
 </div>
 
-<p>On <strong>p. 6.6</strong> of the <em>Recipe Book</em> you’ll find
+<p>In <a href="../RB_6.html#section_6">RB 6.6</a>, you’ll find
 several ideas about how to hide things under other things. If we want
 to, we can have the player “find” something by moving it from off-stage
 into the room, or directly into the player’s inventory, like this:</p>
@@ -6044,7 +5977,7 @@ won’t be possible to put anything (including the sock) under the
 bed:</p>
 
 <div class="game-output">
-<p>&gt;put sock under bed</p>
+<div class="command"><span class="prompt">&gt;</span>put sock under bed</div>
 <p>I didn't understand that sentence.</p>
 </div>
 
@@ -6385,7 +6318,7 @@ holding the backpack and the flaming torch.</p>
 <p>You can see a banana, a peach, a kumquat, a pear, an apple, an orange
 and a bowling ball here.</p>
 
-<p>&gt;take all</p>
+<div class="command"><span class="prompt">&gt;</span>take all</div>
 
 <p>banana: Taken.</p>
 
@@ -6409,7 +6342,7 @@ and a bowling ball here.</p>
 
 <p>Taken.</p>
 
-<p>&gt;i</p>
+<div class="command"><span class="prompt">&gt;</span>i</div>
 
 <p>You are carrying:</p>
 
@@ -6472,7 +6405,7 @@ from picking up something bulky while carrying several things that are
 small, Bulk Limiter will just refuse the action; it won’t shuffle the
 small things into a holdall automatically.</p>
 
-<div class="sidebar">
+<div class="sidebar" id="things-to-think-about">
 <h4>Things to Think About</h4>
 
 <p>In the simplest interactive fiction games, every portable thing in
@@ -6746,7 +6679,7 @@ to be clever. You create temperature as a kind of value, like this:</p>
 with the command TAKE TOAD, you’ll get a run-time error:</p>
 
 <div class="game-output">
-<p>&gt;take toad</p>
+<div class="command"><span class="prompt">&gt;</span>take toad</div>
 <p>[** Programming error: tried to read (something) **]</p>
 <p>Taken.</p>
 </div>
@@ -6862,7 +6795,7 @@ the sentence. This looks correct, but it’s a bug:</p>
 plural-named, the output will be wrong:</p>
 
 <div class="game-output">
-<p>&gt;take boulders</p>
+<div class="command"><span class="prompt">&gt;</span>take boulders</div>
 <p>The boulders is too heavy for you to carry.</p>
 </div>
 
@@ -6948,7 +6881,7 @@ indistinguishable objects, you’ll quickly discover that the game’s
 output looks a bit clumsy:</p>
 
 <div class="game-output">
-<p>&gt;drop dollars</p>
+<div class="command"><span class="prompt">&gt;</span>drop dollars</div>
 
 <p>silver dollar: Dropped.</p>
 <p>silver dollar: Dropped.</p>
@@ -6969,7 +6902,7 @@ does require that the game be compiled to Glulx, so it can’t be used in
 player:</p>
 
 <div class="game-output">
-<p>&gt;drop dollars</p>
+<div class="command"><span class="prompt">&gt;</span>drop dollars</div>
 
 <p>You put down the five silver dollars.</p>
 </div>
@@ -7015,7 +6948,7 @@ shows how to do it:</p>
 <p>The output looks like this:</p>
 
 <div class="game-output">
-<p>&gt;smear glop on moe</p>
+<div class="command"><span class="prompt">&gt;</span>smear glop on moe</div>
 
 <p>You smear the jelly, the glue and the taco sauce on Moe.</p>
 </div>
@@ -7034,7 +6967,7 @@ only a nice extra. Even if we hadn’t done this, Consolidated Multiple
 Actions could handle a list of objects, like this:</p>
 
 <div class="game-output">
-<p>&gt;smear jelly and glue on moe</p>
+<div class="command"><span class="prompt">&gt;</span>smear jelly and glue on moe</div>
 
 <p>You smear the jelly and the glue on Moe.</p>
 </div>
@@ -7147,8 +7080,8 @@ change the design of the game to allow the chest of drawers to be moved
 from place to place, the drawers will come along with it
 automatically.</p>
 
-<p><strong>Page 8.4</strong> of the <em>Recipe Book</em> has some
-examples showing how to make furniture. Example 83, “Yolk of Gold,” has
+<p><a href="../RB_8.html#section_4">RB 8.4</a> has some
+examples showing how to make furniture. <a href="../examples/yolk_of_gold.html">Example 83, “Yolk of Gold”</a>, has
 a complete implementation of a three-drawer dresser, with the added
 feature that the player will always find what he’s looking for in the
 last drawer he opens, no matter which drawer it is.</p>
@@ -7195,7 +7128,7 @@ work:</p>
 attached to the postcard, the player will get this output:</p>
 
 <div class="game-output">
-<p>&gt;take stamp</p>
+<div class="command"><span class="prompt">&gt;</span>take stamp</div>
 <p>That seems to be a part of the postcard.</p>
 </div>
 
@@ -7271,6 +7204,7 @@ impossible to create in an Inform game. But creating an in-game object,
 such as a piece of paper or an old-fashioned slate, that the player can
 write on is not terribly difficult.</p>
 
+<!--- TODO -->
 <p>An object like this might even be part of a puzzle: You could use it
 to let the player leave a message for another character. After writing
 this section of the <em>Handbook,</em> I expanded its ideas into an
@@ -7450,7 +7384,7 @@ action for each possible variation.”</p>
 <p>The default response when a device is switched on or off is this:</p>
 
 <div class="game-output">
-<p>&gt;switch on razor</p>
+<div class="command"><span class="prompt">&gt;</span>switch on razor</div>
 
 <p>You switch the electric razor on.</p>
 </div>
@@ -7461,7 +7395,7 @@ your device, it will run &ndash; and then the standard report switching on
 rule in the library will run, resulting in a double output:</p>
 
 <div class="game-output">
-<p>&gt;switch on razor</p>
+<div class="command"><span class="prompt">&gt;</span>switch on razor</div>
 <p>The razor begins humming faintly.</p>
 <p>You switch the electric razor on.</p>
 </div>
@@ -7494,7 +7428,7 @@ almost too simple to be worth mentioning:</p>
 <div class="codeline">&ensp;&ensp;&ensp;now SD is in the hopper.</div>
 </div>
 
-<p>Example 298 in the Documentation, “Safety,” shows how to make a
+<p><a href="../examples/safety.html">Example 298 in the Documentation, “Safety”</a>, shows how to make a
 spinning dial on a safe, but the example is hardly complete. For one
 thing, the dial doesn’t exist as a separate object that can be examined.
 And because it can’t be examined, there’s no way to find out what number
@@ -7627,7 +7561,7 @@ smelly things in the room.</p>
 <p>Here’s the output when the player is in the Kitchen:</p>
 
 <div class="game-output">
-<p>&gt;smell</p>
+<div class="command"><span class="prompt">&gt;</span>smell</div>
 
 <p>You smell a banana and a loaf of bread.</p>
 </div>
@@ -7973,7 +7907,7 @@ objects that are being carried, put objects on top of supporters or in
 containers, open and close doors, wear and remove clothing, unlock or
 lock things that are locked, and so on.</p>
 
-<p><img src="images/action_index.jpg"></p>
+<div class="image-frame"><img src="images/action_index.jpg"></div>
 
 <p>If you click on the gray magnifying-glass button next to an action in
 the Actions Index, a page will open up in which you’ll learn more about
@@ -7990,7 +7924,7 @@ happen. (For more on the relationship between Inform 6 and Inform 7, see
 Here, for instance, is the output for the drop action:</p>
 
 <div class="game-output">
-<p>&gt;showverb drop</p>
+<div class="command"><span class="prompt">&gt;</span>showverb drop</div>
 
 <p>Verb 'discard' 'drop' 'throw'</p>
 
@@ -8028,11 +7962,11 @@ Here’s an example of how the ACTIONS debugging command works:</p>
 <div class="game-output">
 <p>You can see an apple here.</p>
 
-<p>&gt;actions</p>
+<div class="command"><span class="prompt">&gt;</span>actions</div>
 
 <p>Actions listing on.</p>
 
-<p>&gt;pick up apple</p>
+<div class="command"><span class="prompt">&gt;</span>pick up apple</div>
 
 <p>[taking the apple]</p>
 
@@ -8048,7 +7982,7 @@ example. Here’s the action listing in the game for an absurd action, one
 that isn’t going to work:</p>
 
 <div class="game-output">
-<p>&gt;wear book</p>
+<div class="command"><span class="prompt">&gt;</span>wear book</div>
 
 <p>[wearing the book]</p>
 
@@ -8073,7 +8007,7 @@ only that it failed, but what specific rule caused it to fail. This
 information could be important if we want to replace that rule.
 Replacing the rules in the Standard Library is an advanced topic,
 however. It’s touched on only briefly in this <em>Handbook,</em> in
-Chapter 10.</p>
+<a href="#chapter-10-advanced-topics">Chapter 10, Advanced Topics</a>.</p>
 
 <p>One of the common sources of frustration for newcomers to Inform is
 not knowing how to refer to the built-in actions in their code. One of
@@ -8149,7 +8083,7 @@ this diagram, it baffled me, but it really does make sense. (See <a
 href="#action-processing-summary">Action Processing Summary</a> for a detailed run-through of
 this diagram).</p>
 
-<p><img src="images/action_rulebooks.png"</p>
+<div class="image-frame"><img src="images/action_rulebooks.png"</div>
 
 <p>When the player types a command, the game goes through a number of
 steps. First it makes sure it knows what the input words are, and that
@@ -8226,19 +8160,19 @@ player who is carrying the basket can get the apple out of the glass
 case without unlocking or opening the case!</p>
 
 <div class="game-output">
-<p>&gt;take apple</p>
+<div class="command"><span class="prompt">&gt;</span>take apple</div>
 
 <p>The glass case isn't open.</p>
 
-<p>&gt;take basket</p>
+<div class="command"><span class="prompt">&gt;</span>take basket</div>
 
 <p>Taken.</p>
 
-<p>&gt;take apple</p>
+<div class="command"><span class="prompt">&gt;</span>take apple</div>
 
 <p>You pick up the apple and put it in the basket.</p>
 
-<p>&gt;i</p>
+<div class="command"><span class="prompt">&gt;</span>i</div>
 
 <p>You are carrying:</p>
 
@@ -8269,7 +8203,7 @@ taking of a portable edible thing happens in a Check rule, not in a
 Before rule.)</p>
 
 <div class="game-output">
-<p>&gt;wear crown</p>
+<div class="command"><span class="prompt">&gt;</span>wear crown</div>
 <p>
 (first taking the jeweled crown)</p>
 <p>
@@ -8348,7 +8282,7 @@ and then EAT something that we’ve declared as edible, we’ll see exactly
 which rules are running:</p>
 </div>
   <div class="game-output">
-    <p>&gt;eat apple</p>
+    <div class="command"><span class="prompt">&gt;</span>eat apple</div>
 
 <p>[Rule "declare everything initially unmentioned rule" applies.]</p>
 
@@ -8424,7 +8358,7 @@ action processing. You’ve already seen a couple of examples. For more,
 see the section on “Altered Actions,” below. Before we get to that,
 let’s take a closer look at how action processing rulebooks work.</p>
 
-<div class="sidebar" id="ref_efficiency_box">
+<div class="sidebar" id="efficiency-tip">
 <h4>Efficiency Tip</h4>
 
 <p>If you’re writing a game that may be played on an interpreter that
@@ -8455,8 +8389,8 @@ using &ndash; are packed into the Before rulebook. Likewise, all of the
 Instead rules are packed into an Instead rulebook. (For now, we’re not
 going to get into the question of how Inform decides what order to put
 the rules in. If you want to know more about this, you can read
-<strong>Chapter 19</strong> of <em>Writing with Inform</em>,
-“Rulebooks.”) And all of the After rules are in a single After rulebook.
+<a href="../WI_19.html">Chapter 19 of <em>Writing with Inform</em>,
+“Rulebooks”</a>.) And all of the After rules are in a single After rulebook.
 But each action (for example, taking, looking, and going) has its own
 Check, Carry Out, and Report rulebooks.</p>
 
@@ -8585,7 +8519,7 @@ failure is the default outcome of the Instead rulebook. Here’s the
 output in the game:</p>
 
 <div class="game-output">
-<p>&gt;<strong>steve, take the pitchfork</strong></p>
+<div class="command"><span class="prompt">&gt;</span><strong>steve, take the pitchfork</strong></div>
 
 <p>Steve scoops up the pitchfork. This evidently makes the unicorn very
 uneasy.</p>
@@ -8684,7 +8618,7 @@ action succeeds, and messages that will print out if the action fails
   for some reason.)</li>
 </p>
 
-<p>Chapter 6 of the <em>Recipe Book,</em> “Commands,” has a lot of good
+<p><a href="../RB_6.html">Chapter 6 of the <em>Recipe Book,</em> “Commands”</a>, has a lot of good
 information on how to create your own actions. If you haven’t read this
 yet, give it a look.</p>
 </div></li>
@@ -8713,11 +8647,11 @@ something might be a way of solving a puzzle in your game.</p>
 output:</p>
 
 <div class="game-output">
-<p>&gt;paint</p>
+<div class="command"><span class="prompt">&gt;</span>paint</div>
 
 <p>You don't have any paint.</p>
 
-<p>&gt;paint the fence</p>
+<div class="command"><span class="prompt">&gt;</span>paint the fence</div>
 
 <p>I only understood you as far as wanting to paint.</p>
 </div>
@@ -8896,7 +8830,7 @@ be so sensible. If we put the question of whether the fence is painted
 first, for instance, this output could happen:</p>
 
 <div class="game-output">
-<p>&gt;paint the bucket with the apple</p>
+<div class="command"><span class="prompt">&gt;</span>paint the bucket with the apple</div>
 
 <p>You already did that.</p>
 </div>
@@ -8973,7 +8907,7 @@ world but simply as an object that can be talked about, you don’t want
 the naughty player to be able to do this:</p>
 
 <div class="game-output">
-<p>&gt; shazam india</p>
+<div class="command"><span class="prompt">&gt;</span> shazam india</div>
 </div>
 
 <p>With a swirl of sparkling light, India appears in your hands!</p>
@@ -9291,8 +9225,7 @@ message is displayed.</p>
 <p>It’s possible to modify how the parser understands the player’s
 input, but this is an advanced topic not covered in the
 <em>Handbook</em>. For details on how to use the “After reading a
-command” feature, see <strong>p. 20.6</strong> in <em>Writing with
-Inform,</em> especially Example 412.</p>
+command” feature, see <a href="../WI_20.html#section_6">WI 20.6</a>, especially <a href="../examples/rocket_man.html">Example 412</a>.</p>
 </td>
 </tr>
 <tr class="odd">
@@ -9315,7 +9248,7 @@ discussed in this chapter, is where the action affects “[any thing].”
 The second is to write some special code that will place something in
 scope when it would otherwise not be. This is an advanced topic not
 covered in the <em>Handbook</em>. For examples, you can search the
-Documentation for “scope,” noting especially Examples 209 and 226.</p>
+Documentation for “scope,” noting especially <a href="../examples/fate_steps_in.html">Example 209, Fate Steps In</a>, and <a href="../examples/four_cheeses.html">Example 226, Four Cheeses</a>.</p>
 </td>
 </tr>
 <tr class="even">
@@ -9588,7 +9521,7 @@ cardboard, but players will enjoy meeting and talking with them.</p>
 need to talk about how you might want to use characters in your
 interactive story. What roles or functions might they take on?</p>
 
-<div class="sidebar">
+<div class="sidebar" id="believeable-characters">
 <h4>Believable Characters</h4>
 
 <p>Characters will seem more believable if the player’s interaction with
@@ -9803,13 +9736,13 @@ Here’s a transcript of what can happen in the billiard room with no more
 code for Troy than what we’ve written above:</p>
 
 <div class="game-output">
-<p>&gt;kiss troy</p>
+<div class="command"><span class="prompt">&gt;</span>kiss troy</div>
 <p>Troy might not like that.</p>
-<p>&gt;kiss tuxedo</p>
+<div class="command"><span class="prompt">&gt;</span>kiss tuxedo</div>
 <p>You can only do that to something animate.</p>
-<p>&gt;take troy</p>
+<div class="command"><span class="prompt">&gt;</span>take troy</div>
 <p>I don't suppose Troy would care for that.</p>
-<p>&gt;take tuxedo</p>
+<div class="command"><span class="prompt">&gt;</span>take tuxedo</div>
 <p>That seems to belong to Troy.</p>
 </div>
 
@@ -9886,7 +9819,7 @@ for all of them at once by writing:</p>
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Understand &quot;man&quot; as a man.\n`)"><span class="sym">⧉</span></button><div class="codeline">Understand "man" as a man.</div>
 </div>
 
-<div class="sidebar">
+<div class="sidebar" id="man-and-woman">
 <h4>“Man” &amp; “Woman”</h4>
 
 <p>If you create an NPC by saying, for instance, “Troy is a man,” the
@@ -9895,6 +9828,7 @@ because the name of a kind is not understood as referring to specific
 objects of that kind unless you say it is. You have to add the
 vocabulary by hand:</p>
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Troy is a man in the Billiard Room. Understand &quot;man&quot; as Troy.\n`)"><span class="sym">⧉</span></button><div class="codeline">Troy is a man in the Billiard Room. Understand "man" as Troy.</div>
+</div>
 </div>
 
 <h3 id="mr.-mrs.">Mr. &amp; Mrs.</h3>
@@ -9938,7 +9872,7 @@ player can move quickly from room to room (assuming she knows the route)
 like this:</p>
 
 <div class="game-output">
-<p>&gt;n. e. n. nw</p>
+<div class="command"><span class="prompt">&gt;</span>n. e. n. nw</div>
 </div>
 
 <p>As far as the parser is concerned, those are four separate commands.
@@ -9966,8 +9900,8 @@ While we’re at it, we’ll fix the other common abbreviations too:</p>
 <p>I’m not going to try to explain every line in that code, because
 regular expressions are an advanced topic, not something we’ll explore
 in detail in the <em>Handbook</em>. If you’re curious, you can learn
-more by reading <strong>Chapter 20</strong> of <em>Writing with
-Inform</em>, “Advanced Text.” If you don’t have the patience for that,
+more by reading <a href="../WI_20.html">Chapter 20 of <em>Writing with
+Inform</em>, “Advanced Text”</a>. If you don’t have the patience for that,
 just copy the code above exactly, and it will do the job. (If you’re
 retyping it, don’t skip the backslash characters before the periods, or
 skip the hard-to-see periods themselves.)</p>
@@ -10016,13 +9950,13 @@ Note also the use of “[paragraph break]” for the outputs that are
 separated into paragraphs. The output will look like this:</p>
 
 <div class="game-output">
-<p>&gt;talk to troy</p>
+<div class="command"><span class="prompt">&gt;</span>talk to troy</div>
 
 <p>"Hi, there," you say confidently.</p>
 
 <p>"What's happening?" he replies casually.</p>
 
-<p>&gt;g</p>
+<div class="command"><span class="prompt">&gt;</span>g</div>
 
 <p>"I've been meaning to ask you about that tuxedo," you comment. "Where
 did you get it?"</p>
@@ -10030,7 +9964,7 @@ did you get it?"</p>
 <p>"My tailor is quite exclusive," Troy replies, inspecting his cuff.
 "He would never consent to clothe riffraff like you."</p>
 
-<p>&gt;g</p>
+<div class="command"><span class="prompt">&gt;</span>g</div>
 
 <p>"You really are a stuck-up snob, aren't you?" you say hotly.</p>
 
@@ -10038,7 +9972,7 @@ did you get it?"</p>
 Macy's for $60 at a clearance sale. I'll give it to you if you
 like."</p>
 
-<p>&gt;g</p>
+<div class="command"><span class="prompt">&gt;</span>g</div>
 
 <p>You decide against talking any further with Troy right now.</p>
 </div>
@@ -10073,7 +10007,7 @@ conversation would occur in an ASK ABOUT or TELL ABOUT command, which is
 the subject of the next section.</p>
 
 <div class="game-output">
-<p>&gt;talk to bishop</p>
+<div class="command"><span class="prompt">&gt;</span>talk to bishop</div>
 
 <p>You could ask the bishop about the crypt, about the impending
 eclipse, or about the Uzi he’s carrying.</p>
@@ -10188,9 +10122,9 @@ our model world. The disadvantage is that the parser will only match the
 will show why this can be a big problem:</p>
 
 <div class="game-output">
-<p>&gt;ask troy about tuxedo</p>
+<div class="command"><span class="prompt">&gt;</span>ask troy about tuxedo</div>
 <p>"Oh, you've noticed my tuxedo," he replies. "I'm fond of it."</p>
-<p>&gt;ask troy about the tuxedo</p>
+<div class="command"><span class="prompt">&gt;</span>ask troy about the tuxedo</div>
 <p>There is no reply.</p>
 </div>
 
@@ -10421,7 +10355,7 @@ NPC is presented with a menu of options, and selects one of the
 responses by number. The output might look something like this:</p>
 
 <div class="game-output">
-<p>&gt;talk to madelyn</p>
+<div class="command"><span class="prompt">&gt;</span>talk to madelyn</div>
 
 <p>You could:</p>
 
@@ -10434,7 +10368,7 @@ night.</p>
 
 <p>[4] say goodbye.</p>
 
-<p>&gt;1</p>
+<div class="command"><span class="prompt">&gt;</span>1</div>
 
 <p>“You have really lovely hair,” you tell Madelyn.</p>
 
@@ -10461,9 +10395,9 @@ This process is called “the lawnmower effect,” because it turns the
 game-play into a rather boring mechanical process of mowing down
 everything on the menu.</p>
 
-<p>If you look on <strong>p. 7.8</strong> of the <em>Recipe Book</em>,
-“Saying Complicated Things,” you’ll find several examples of
-conversational systems. Example 282, “Sweeney,” provides a hybrid system
+<p>If you look in <a href="../RB_7.html#section_8">RB 7.8,
+“Saying Complicated Things”</a>, you’ll find several examples of
+conversational systems. <a href="../examples/sweeney.html">Example 282, “Sweeney”</a>, provides a hybrid system
 in which the player can ask or tell about topics, but will sometimes be
 prompted with a numbered list of items. The Recipe Book doesn’t give an
 example of a full menu-based conversation system, reporting that “they
@@ -10681,11 +10615,11 @@ Bob succeeds in leaving. The output might look like this:</p>
 
 <p>Bob goes south.</p>
 
-<p>&gt;z</p>
+<div class="command"><span class="prompt">&gt;</span>z</div>
 
 <p>Time passes.</p>
 
-<p>&gt;z</p>
+<div class="command"><span class="prompt">&gt;</span>z</div>
 
 <p>Time passes.</p>
 
@@ -10719,9 +10653,9 @@ vehicle.</p>
 arrives from or departs to; that would require more tinkering. But now
 we have a way to add a little variety to the output.</p>
 
-<p><strong>Page 7.13</strong> in the <em>Recipe Book</em> provides
+<p><a href="../RB_7.html#section_13">RB 7.13</a> provides
 several examples of different ways to move NPCs around. Possibly the
-most interesting of these is shown in Example 185, “Latris Theon.”
+most interesting of these is shown in <a href="../examples/latris_theon.html">Example 185, “Latris Theon”</a>.
 Inform includes a path-finding algorithm &ndash; a built-in procedure that
 will allow an NPC to calculate the best route from his or her current
 location to any other location. Applying this to the example given
@@ -10763,13 +10697,13 @@ Theon.”</p>
 applies to <em>someone</em> going vaguely (in other words, not the
 player character), while the other applies to the PC.</p>
 
-<p>Example 274, “Odyssey,” is on the same page of the <em>Recipe
+<p><a href="../examples/odyssey.html">Example 274, “Odyssey”</a> is in the same section of the <em>Recipe
 Book</em>. This shows how to move an NPC along a route that we’ve
 created in advance. The NPC’s travel will be interrupted temporarily if
 the player chooses to interact with her. One refinement I’d suggest
 adding to this example, if you try it out, would be to define a scene
 called Athena Traveling. (See <a
-href="#scenes">Scenes</a> and Chapter 10 of <em>Writing with Inform</em>.)
+href="#scenes">Scenes</a> and <a href="../WI_10.html">Chapter 10 of <em>Writing with Inform</em>, Scenes</a>.)
 I would then change the Every Turn rule like this:</p>
 
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Every turn when Athena Traveling is happening:\n\tif Athena is active:\n`)"><span class="sym">⧉</span></button><div class="codeline">Every turn when Athena Traveling is happening:</div>
@@ -10794,8 +10728,8 @@ extra tools with which to write NPCs who move from place to place.</p>
 <h3 id="characters-who-follow-the-player">Characters Who Follow the Player</h3>
 
 <p>Writing a character who will find the player and then follow the
-player around like a faithful puppy is not difficult. Example 39, “Van
-Helsing” (again on <strong>p. 7.13</strong> of the <em>Recipe Book</em>)
+player around like a faithful puppy is not difficult. <a href="../examples/van_helsing.html">Example 39, “Van
+Helsing”</a> (again from <a href="../RB_7.html#section_13">RB 7.13</a>)
 shows how to do it. We can adapt this code slightly to the example above
 by getting rid of the code that allows the player to order Bob around,
 replacing it with this:</p>
@@ -10842,8 +10776,7 @@ transparent). If the NPC has left the room, he won’t be in scope, so
 FOLLOW BOB will produce the unhelpful output “You can’t see any such
 thing.” Well, duh &ndash; that was why I wanted to follow him!</p>
 
-<p>Example 302, “Actaeon” (found on <strong>p. 7.13</strong> of the
-<em>Recipe Book</em>), shows how to allow the PC to follow an NPC who
+<p><a href="../examples/actaeon.html">Example 302, “Actaeon”</a> (from <a href="../RB_7.html#section_13">RB 7.13</a>), shows how to allow the PC to follow an NPC who
 has left the room. This example is easy to customize, but it’s worth
 including some of the code here to point out a couple of features. We’ll
 start with the setup from <a href="#Ref_boring_bob">Boring Bob</a>, in which
@@ -11233,7 +11166,7 @@ But as a player, I prefer the easy ones, because I’m very bad at
 puzzle-solving. While playing other people’s games, I often get stuck.
 Many authors feel that it’s a good idea to help players by including
 some form of hint system in the game. You’ll find some advice on how to
-set up a hint system in Chapter 10. Other authors feel that providing
+set up a hint system in <a href="#chapter-10-advanced-topics">Chapter 10, Advanced Topics</a>. Other authors feel that providing
 hints spoils the game, or is just too much trouble.</p>
 
 <h3 id="mapping">Mapping</h3>
@@ -11420,19 +11353,19 @@ action needs to be taken. Here’s a not very subtle example, in which
 
 <p>You can see a big old box (in which is a pile of old junk) here.</p>
 
-<p>&gt;x box</p>
+<div class="command"><span class="prompt">&gt;</span>x box</div>
 
 <p>It's just a big old box full of junk. There's so much stuff that
 almost anything might be buried down there.</p>
 
 <p>In the big old box is a pile of old junk.</p>
 
-<p>&gt;look in box</p>
+<div class="command"><span class="prompt">&gt;</span>look in box</div>
 
 <p>Down among the rusty junk, you spot a priceless jewel-encrusted
 bracelet!</p>
 
-<p>&gt;x box</p>
+<div class="command"><span class="prompt">&gt;</span>x box</div>
 
 <p>It's just a big old box.</p>
 
@@ -11530,8 +11463,8 @@ for instance.”</p>
 
 <p>Among the things one may find in a game that pose manipulation
 difficulties &ndash; and also implementation difficulties for the author &ndash; are
-fire, water, rope, and chemicals of all kinds. Chapter 10 of the
-<em>Inform Recipe Book</em> has some good examples of how to create
+fire, water, rope, and chemicals of all kinds. <a href="../RB_10.html">Chapter 10 of the
+<em>Inform Recipe Book</em></a> has some good examples of how to create
 puzzles of this type. You might want the player to mix three chemicals
 to create a new substance, for instance. Mixing would naturally require
 a container that the ingredients can be put into. (The cocoa mug puzzle
@@ -11603,8 +11536,8 @@ story, we might call this type of puzzle an enigma.</p>
 Muckenhaupt. In this game, <em>all</em> of the nouns and verbs,
 including the ones you use in commands, have been replaced by nonsense
 words of the author’s own devising. The puzzle is to figure out how to
-read the text of the game and issue commands. Roger Firth’s “Letters
-from Home” is also an enigma-based game, with only a thin veneer of
+read the text of the game and issue commands. <a href="https://ifdb.org/viewgame?id=7d5kjxqadyuyfgzu">Roger Firth’s “Letters
+from Home”</a> is also an enigma-based game, with only a thin veneer of
 story.</p>
 
 <h3 id="deceptive-appearances-unusual-usages">Deceptive Appearances &amp; Unusual Usages</h3>
@@ -11857,11 +11790,11 @@ commands you can think of that a player might use while working on a
 puzzle? Almost as bad as guess-the-verb puzzles are misleading responses
 from the parser. Here’s an example:</p>
 
-<p>&gt;hit guard</p>
+<div class="command"><span class="prompt">&gt;</span>hit guard</div>
 
 <p>Violence isn’t the answer to this one.</p>
 
-<p>&gt;hit guard with stick</p>
+<div class="command"><span class="prompt">&gt;</span>hit guard with stick</div>
 
 <p>You smack the guard in the head with the stick, and he goes down like
 a sack of potatoes. Congratulations! Now you can steal the jewels from
@@ -12060,6 +11993,7 @@ now it’s not the first time the action has been attempted.</p>
 be sure that the action will succeed the first time the player attempts
 it.</p>
 
+<!-- TODO continue linking examples -->
 <p>Examples 136 and 137 in <em>Writing with Inform</em>, “Mutt’s
 Adventure” and “No Place Like Home,” show other ways of awarding points.
 <strong>Page 9.3</strong>, “Introducing tables: rankings,” shows how to
@@ -12118,19 +12052,19 @@ into it, the points will never be awarded. Consider this code:</p>
 <p>That certainly looks as if it should work. But here’s the output:</p>
 
 <div class="game-output">
-<p>&gt;put fish in trunk</p>
+<div class="command"><span class="prompt">&gt;</span>put fish in trunk</div>
 
 <p>The old shipping trunk is closed.</p>
 
-<p>&gt;open trunk</p>
+<div class="command"><span class="prompt">&gt;</span>open trunk</div>
 
 <p>You open the old shipping trunk.</p>
 
-<p>&gt;put fish in trunk</p>
+<div class="command"><span class="prompt">&gt;</span>put fish in trunk</div>
 
 <p>You put the fish into the old shipping trunk.</p>
 
-<p>&gt;score</p>
+<div class="command"><span class="prompt">&gt;</span>score</div>
 
 <p>You have so far scored 0 out of a possible 0, in 4 turns.</p>
 </div>
@@ -12478,8 +12412,8 @@ later.</p>
 <h3 id="scenes">Scenes</h3>
 
 <p>One of the more powerful features of Inform is its ability to
-organize the story into scenes. An entire chapter of <em>Writing with
-Inform</em> (Chapter 10, “Scenes”) is devoted to scenes. If you haven’t
+organize the story into scenes. An entire chapter of <a href="../WI_10.html"><em>Writing with
+Inform</em> (Chapter 10, “Scenes”)</a>, is devoted to scenes. If you haven’t
 read this chapter yet, give it a look. Some games won’t need scenes at
 all, but scenes can be very handy for giving your story some structure.
 Almost any time you need to create a complex, well-coordinated set of
@@ -12972,8 +12906,8 @@ doesn’t want to compile your game.</p>
 
 <p>It’s extremely common for the game to need to make some decisions
 about what to print while the game is being played. The ways to do this
-are well described in <strong>Chapter 5</strong> of <em>Writing with
-Inform</em>, “Text,” but we’ll look at a couple of examples here.</p>
+are well described in <a href="../WI_5.html">Chapter 5 of <em>Writing with
+Inform</em>, “Text”</a>, but we’ll look at a couple of examples here.</p>
 
 <p>In our first example, a ceramic bowl can be broken or unbroken. If
 it’s broken, the description should obviously change. You can use square
@@ -13226,7 +13160,7 @@ for instance, is an error:</p>
 <p>Here’s the output:</p>
 
 <div class="game-output">
-<p>&gt;ask alexander for will</p>
+<div class="command"><span class="prompt">&gt;</span>ask alexander for will</div>
 
 <p>I would never give it to you!</p>
 </div>
@@ -13242,7 +13176,7 @@ quotes within the double quotes, like this:</p>
 <p>This produces a better output:</p>
 
 <div class="game-output">
-<p>&gt;ask alexander for will</p>
+<div class="command"><span class="prompt">&gt;</span>ask alexander for will</div>
 
 <p>"I would never give it to you!"</p>
 </div>
@@ -13285,7 +13219,7 @@ brackets around it:</p>
 <div class="codeline">say "'I'm not givin['] it to you!' he replies with a sneer."</div>
 </div>
 
-<div class="sidebar">
+<div class="sidebar" id="extra-and-missing-blank-lines-in-output">
 <h4>Extra &amp; Missing Blank Lines in Output</h4>
 
 <p>A frequent problem for beginning Inform authors is that the game
@@ -13511,8 +13445,10 @@ them will work:</p>
 
 <p>But this won’t:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Painting is an action applying to nothing\n&thinsp;\nUnderstand &quot;paint&quot; as painting\n`)"><span class="sym">⧉</span></button><div class="codeline">Painting is an action applying to nothing</div>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Painting is an action applying to nothing\n&thinsp;\nUnderstand &quot;paint&quot; as painting\n`)"><span class="sym">⧉</span></button>
+<div class="codeline">[ doesn't work! ]</div>
 <div class="codeline">&thinsp;</div>
+<div class="codeline">Painting is an action applying to nothing</div>
 <div class="codeline">Understand "paint" as painting</div>
 </div>
 
@@ -13524,7 +13460,9 @@ can’t compile the code.</p>
 compile:</p>
 
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of looking when the location is the hall of mirrors:\n\tif the player is invisible:\n\t\tsay &quot;It feels weird to look in the mirrors and not see your\nhandsome features reflected back.&quot; [Errors!]\n`)"><span class="sym">⧉</span></button><div class="codeline">Instead of looking when the location is the hall of mirrors:</div>
+<div class="codeline">&thinsp;</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the player is invisible:</div>
+<div class="codeline">&thinsp;</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say "It feels weird to look in the mirrors and not see your</div>
 <div class="codeline">handsome features reflected back." [Errors!]</div>
 </div>
@@ -13573,8 +13511,8 @@ rulebooks in the action-processing sequence, as shown on <strong>p.
 
 <p>The rulebooks are constructed by the compiler according to certain
 principles. If you’re curious how this works, you should definitely read
-<strong>Chapter 19</strong> of <em>Writing with Inform</em>,
-“Rulebooks.” Basically, rules that are more specific will be listed
+<a href="../WI_19.html">Chapter 19</strong> of <em>Writing with Inform</em>,
+“Rulebooks”</a>. Basically, rules that are more specific will be listed
 earlier in the rulebook, while more general rules will be listed later.
 For instance, a game might have these two rules:</p>
 
@@ -13664,8 +13602,7 @@ Inform</em>, “Rooms and the map,” but it’s awkward.</p>
 
 <p>I prefer to do it this way:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`South of the Hut is Hut-South-Side. The printed name of\nHut-South-Side is &quot;South of the Hut&quot;.\n`)"><span class="sym">⧉</span></button><div class="codeline">South of the Hut is Hut-South-Side. The printed name of</div>
-<div class="codeline">Hut-South-Side is "South of the Hut".</div>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`South of the Hut is Hut-South-Side. The printed name of\nHut-South-Side is &quot;South of the Hut&quot;.\n`)"><span class="sym">⧉</span></button><div class="codeline">South of the Hut is Hut-South-Side. The printed name of Hut-South-Side is "South of the Hut".</div>
 </div>
 
 <p>This will work nicely, but if you do it this way, you’ll have to call
@@ -13674,10 +13611,7 @@ code.</p>
 
 <p>While we’re at it, we’ll put a thing in this room:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The object22 is a privately-named thing in Hut-South-Side. The\ndescription is &quot;It&apos;s a beautiful little yellow flower.&quot; Understand\n&quot;beautiful&quot;, &quot;little&quot;, &quot;yellow&quot;, and &quot;flower&quot; as object22. The printed\nname of object22 is &quot;yellow flower&quot;.\n`)"><span class="sym">⧉</span></button><div class="codeline">The object22 is a privately-named thing in Hut-South-Side. The</div>
-<div class="codeline">description is "It's a beautiful little yellow flower." Understand</div>
-<div class="codeline">"beautiful", "little", "yellow", and "flower" as object22. The printed</div>
-<div class="codeline">name of object22 is "yellow flower".</div>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The object22 is a privately-named thing in Hut-South-Side. The\ndescription is &quot;It&apos;s a beautiful little yellow flower.&quot; Understand\n&quot;beautiful&quot;, &quot;little&quot;, &quot;yellow&quot;, and &quot;flower&quot; as object22. The printed\nname of object22 is &quot;yellow flower&quot;.\n`)"><span class="sym">⧉</span></button><div class="codeline">The object22 is a privately-named thing in Hut-South-Side. The description is "It's a beautiful little yellow flower." Understand "beautiful", "little", "yellow", and "flower" as object22. The printed name of object22 is "yellow flower".</div>
 </div>
 
 <p>This object can’t be referred to by the player as “object22”, because
@@ -13691,11 +13625,9 @@ so, remember to also give it a printed name.</p>
 name. Here are two ways to do it, either of which might be useful in
 some situations:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The printed name of the ceramic bowl is &quot;[bowl-condition] ceramic\nbowl&quot;.\n&thinsp;\nThe printed name of the ceramic bowl is &quot;[if broken]broken [end\nif]ceramic bowl&quot;.\n`)"><span class="sym">⧉</span></button><div class="codeline">The printed name of the ceramic bowl is "[bowl-condition] ceramic</div>
-<div class="codeline">bowl".</div>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The printed name of the ceramic bowl is &quot;[bowl-condition] ceramic\nbowl&quot;.\n&thinsp;\nThe printed name of the ceramic bowl is &quot;[if broken]broken [end\nif]ceramic bowl&quot;.\n`)"><span class="sym">⧉</span></button><div class="codeline">The printed name of the ceramic bowl is "[bowl-condition] ceramic bowl".</div>
 <div class="codeline">&thinsp;</div>
-<div class="codeline">The printed name of the ceramic bowl is "[if broken]broken [end</div>
-<div class="codeline">if]ceramic bowl".</div>
+<div class="codeline">The printed name of the ceramic bowl is "[if broken]broken [end if]ceramic bowl".</div>
 </div>
 <h3 id="punctuation">Punctuation</h3>
 
@@ -14067,7 +13999,7 @@ of it. Can you spot the bug in this code?</p>
 <p>The output is this:</p>
 
 <div class="game-output">
-<p>&gt;bribe inspector</p>
+<div class="command"><span class="prompt">&gt;</span>bribe inspector</div>
 
 <p>After bribing the inspector, you have 20 dollars remaining.</p>
 </div>
@@ -14130,8 +14062,8 @@ calculations are very seldom needed in interactive fiction. Nonetheless,
 Inform has a surprising amount of power in this area, including the
 ability to use real numbers in scientific notation, to derive square
 roots, to utilize trigonometric functions such as sine and tangent, and
-so on. These features are explained in Chapter 15 of <em>Writing with
-Inform.</em></p>
+so on. These features are explained in <a href="../WI_15.html">Chapter 15 of <em>Writing with
+Inform</em></a>.</p>
 
 <p>Most stories will only need to keep track of a few simple integers,
 for the purpose of counting things. The tool for this is the number
@@ -14507,7 +14439,7 @@ easier to visualize. Each line in each of the colored blocks in that
 diagram is indented one Tab further than the lines in the block outside
   of it.</p>
 
-<img src="images/if_blocks.png">
+<div class="image-frame"><img src="images/if_blocks.png"></div>
 
 <p>Here’s an example from a recent game of my own that may make this
 idea a little more real-world. If you don’t understand what’s going on
@@ -14683,8 +14615,8 @@ headings are strictly a way to organize your source code. They have no
 effect whatever on what happens when the game is being played. To switch
 to a new set of circumstances at a certain point in the game, you need
 to use scenes, as explained in Chapter 8 of this <em>Handbook</em> and
-<strong>Chapter 10</strong> of <em>Writing with Inform</em>,
-“Scenes.”</p>
+<a href="../WI_10.html"><strong>Chapter 10</strong> of <em>Writing with Inform</em>,
+“Scenes.”</a></p>
 
 <h3 id="loops">Loops</h3>
 
@@ -14824,7 +14756,7 @@ of your source code, and you’re good to go:</p>
 <p>If you need to switch from one viewpoint or tense to another during
 the course of the game, you’ll probably want to make use of the same
 kinds of text insertions that the Standard Library uses. These methods
-are detailed in Chapter 14 of <em>Writing with Inform.</em></p>
+are detailed in <a href="../WI_14.html">Chapter 14 of <em>Writing with Inform</em></a>.</p>
 
 <h3 id="code-optimization">Code Optimization</h3>
 
@@ -14974,7 +14906,7 @@ likely to include bugs.</p>
 <h3 id="tables">Tables</h3>
 
 <p>Tables are Inform’s way of organizing complicated blocks of data.
-<strong>Chapter 16</strong> of <em>Writing with Inform</em>, “Tables,”
+<a href="../WI_16.html">Chapter 16 of <em>Writing with Inform</em>, “Tables”</a>,
 will tell you a great deal about tables, but it won’t, at first glance,
 give you a very clear idea why you might want to use a table. I’m pretty
 sure you can write a complete and satisfying game without ever using
@@ -15138,8 +15070,8 @@ are called name and critter, so “now the name corresponding to a critter
 of the noun...” will let us alter the name of any of the critters to
 “Judy Garland” by typing ALTER MOLE in the game, or ALTER MUSKRAT.</p>
 
-<div class="sidebar">
-<p>Emily Short on Using Tables</p>
+<div class="sidebar" id="emily-short-on-using-tables">
+<h4>Emily Short on Using Tables</h4>
 
 <p>The most common uses for me are these:</p>
 
@@ -15276,7 +15208,7 @@ you’ll start to see how useful these features can be.</p>
 
 <h3 id="using-the-index">Using the Index</h3>
 
-<img src="images/project_index.jpg">
+<div class="image-frame"><img src="images/project_index.jpg"></div>
 
 <p>I really shouldn’t have buried a discussion of the Index panel in the
 Inform IDE way back here in Chapter 10, but I didn’t know where else to
@@ -15428,15 +15360,15 @@ cases, such a lapse can seriously confuse the player. Consider this
 transcript:</p>
 
 <div class="game-output">
-<p>&gt;put bullet in revolver</p>
+<div class="command"><span class="prompt">&gt;</span>put bullet in revolver</div>
 
 <p>You put the bullet into the revolver.</p>
 
-<p>&gt;point it at dave</p>
+<div class="command"><span class="prompt">&gt;</span>point it at dave</div>
 
 <p>Nothing happens.</p>
 
-<p>&gt;point revolver at dave</p>
+<div class="command"><span class="prompt">&gt;</span>point revolver at dave</div>
 
 <p>Dave backs away from you, saying, "No! No!"</p>
 </div>
@@ -15549,8 +15481,8 @@ performance.”</p>
 
 <h3 id="relations">Relations</h3>
 
-<p>Relations are explained in <strong>Chapter 13</strong> of <em>Writing
-with Inform</em>. They give Inform some extra power, but seeing how best
+<p>Relations are explained in <a href="../WI_13.html">Chapter 13 of <em>Writing
+with Inform</em></a>. They give Inform some extra power, but seeing how best
 to use that power may not be easy. Relations can do at least two kinds
 of things, and probably others &ndash; I haven’t used them much, so I’m not
 sure.</p>
@@ -15590,7 +15522,7 @@ would serve &ndash; “snuggles” or “elbows”, for instance (but probably n
 able to touch”, since Inform already knows how to test whether a
 character “can touch” an object).</p>
 
-<p>Various Examples in Chapter 13 of <em>Writing with Inform</em> show
+<p>Various Examples in <a href="../WI_13.html">Chapter 13 of <em>Writing with Inform</em></a> show
 how the interactions among groups of people can be managed using
 relations. These examples are worth studying in detail. If you’re
 wondering whether it would be worth your while to spend the time on it,
@@ -15773,8 +15705,8 @@ choice.</p>
 
 <h3 id="special-features-in-glulx">Special Features in Glulx</h3>
 
-<p>In <strong>Chapter 23</strong> of <em>Writing with Inform</em>,
-“Figures, Sounds and Files,” you’ll find a good discussion of how to add
+<p>In <a href="../WI_23.html">Chapter 23 of <em>Writing with Inform</em>,
+“Figures, Sounds and Files”</a>, you’ll find a good discussion of how to add
 graphics files (digital photos or clip art in .jpg or .png format) to
 your game. To do so, you’ll need to compile to glulx, not to .z8.</p>
 
@@ -16540,7 +16472,7 @@ an electric shock if he tries to get the jewels from the box. But what
 we don’t want is an output that looks like this:</p>
 
 <div class="game-output">
-<p>&gt;take jewels</p>
+<div class="command"><span class="prompt">&gt;</span>take jewels</div>
 
 <p>ruby: Zap! As your fingers near the jewel box, you recoil from a
 powerful electric shock.</p>
@@ -17728,6 +17660,34 @@ not granted under this License, such additional rights are deemed to be
 included in the License; this License is not intended to restrict the
 license of any rights under applicable law.</p>
 </div>
-    </main>
+<footer>
+        <blockquote>
+<p><em>The Inform 7 Handbook</em> is copyright (c) 2015 by Jim Aikin.
+<em>The Inform 7 Handbook</em> has been released under and is subject to
+the terms of the Creative Commons Public License, the terms of which are
+hereby incorporated by reference. Please see Appendix C of this book and
+read it before using this material. Your use of this material signifies
+your agreement to the terms of the License.</p>
+<p>You are free to copy, distribute, and transmit this work, and you are
+free to excerpt and adapt it, in whole or in part, subject to the
+following conditions:</p>
+<p>1) You must attribute the work by prominently displaying the words
+“<em>Inform 7 Handbook</em>, by Jim Aikin.”</p>
+<p>2) You may not in any way suggest that Jim Aikin endorses you or your
+use of the <em>Inform 7 Handbook</em>.</p>
+<p>3) You may not receive any monetary or other compensation for your
+copying, distribution, or transmission of this work, nor for any
+derivative work that incorporates it, in whole or in part.</p>
+
+<p>4) If you alter, transform, or build upon this work, you may
+distribute the resulting work only under the same or similar license to
+this one.</p>
+<p>5) For any reuse or distribution, you must make clear to others the
+license terms of this work by incorporating the text of the license (see
+Appendix C), or by including a link to a Web page wherein the license
+resides.</p>
+</blockquote>
+</footer>
+</main>
   </body>
 </html>
