@@ -2422,7 +2422,7 @@ morning.</p>
 
 <p>To get the most out of the forum, a few simple procedures will
 help:</p>
-<p>
+
 <ol class="num">
 <li>
 Post your question in the <a href="https://intfiction.org/c/authoring/inform-7/19">Inform 7 subcategory</a> of the forum. Inform 7 is
@@ -2439,7 +2439,7 @@ process of creating the example game, you may figure out how to solve
 the problem yourself! (It often works that way, in my experience.)
 </li>
 </ol>
-</p>
+
 
 <p>Carolyn VanEseltine has a quick-start I7 tutorial,
 <a href="https://www.sibylmoon.com/welcome-to-adventure/">Welcome to Adventure</a>. For more general advice on
@@ -5609,7 +5609,7 @@ cupboard.</p>
 and supporters. Sometimes the game will add sentences of its own after
 the room description that you wrote; other times, it won’t add anything.
 Here are the normal rules (which we can change if we need to):</p>
-<p>
+
 <ol class="num">
 <li>
 If a container is scenery, it doesn’t get its own paragraph of output
@@ -5632,7 +5632,6 @@ Inform will add “(closed)” after mentioning it. If it’s open and
 contains something, Inform will list the contents. If it’s open and
 empty, Inform will say “(empty)”.</li>
 </ol>
-</p>
 
 <h4 id="stealthy-containers">Stealthy Containers</h4>
 
@@ -9091,8 +9090,8 @@ Here’s an encyclopedia:</p>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say "there's nothing in the encyclopedia on that topic."</div>
 <br>
 <table>
-  <thead>Table of Encyclopedia Entries</thead>
-  <tbody>
+<thead><tr><th>Table of Encyclopedia Entries</th></tr></thead>
+<tbody>
 <tr><td>topic</td><td>article</td></tr>
 <tr><td>"Monty Python" or "Python" or "Monty Python's Flying Circus" or "Flying Circus"</td><td>"Monty Python's Flying Circus was a very strange British comedy show popular in the 1970s."</td></tr>
 <tr><td>"crayons" or "crayolas" or "crayon"</td><td>"crayons are made of wax. They come in bright colors, and are used to create works of art on paper."</td></tr>
@@ -9501,8 +9500,7 @@ inspiring. Technically, it’s possible to write a game that will respond
 to whatever complicated player inputs you’d like. If you want your game
 to respond to ASK EMILY WHETHER EMILE’S DOG IS STILL TOO SICK TO HUNT
 FOR THE SQUIRREL, you can do it using the “after reading a command”
-activity, as explained on <strong>p. 18.33</strong> of <em>Writing with
-Inform</em>, “Reading a command.” But there are several problems with
+activity, as explained in <a href="../WI_18.html#section_33">WI 18.33 Reading a command</a>. But there are several problems with
 this type of trick, including the problem of letting the player know
 that such a complex input is possible. I don’t recommend that authors go
 down that road in their first or second game.</p>
@@ -9933,8 +9931,7 @@ sample that will produce a simple conversation:</p>
 long “say” block. This is set up to give Inform some alternative
 outputs. The structure looks like this: “[one
 of]...[or]...[or]...[or]...[stopping]”. This structure is covered down
-near the bottom of <strong>p. 5. 7</strong> of <em>Writing with
-Inform</em>, “Text with random alternatives”; also see <a href="#text-insertions">Text Insertions</a>.</p>
+near the bottom of <a href="../WI_5#section_7>Text with random alternatives</a>; also see <a href="#text-insertions">Text Insertions</a>.</p>
 
 <p>When you use this type of code, the player can type TALK TO TROY,
 read the first response (up to “[or]”), then type AGAIN (or just G) to
@@ -10451,8 +10448,7 @@ a command in the presence of Bob”. But you can do it this way:</p>
 phrases. But there’s a better way, which was suggested by Emily Short.
 This uses Inform’s ability to match regular expressions &ndash; frankly not a
 topic that belongs in a handbook for new authors. (If you’re curious,
-have a look at <strong>p. 20.6</strong> in <em>Writing with Inform</em>,
-“Regular expression matching.”) The code below will handle giving orders
+have a look at <a href="../WI_20.html#section_6">WI 20.6 Regular expression matching</a>. The code below will handle giving orders
 to all of the characters in your game:</p>
 
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`After reading a command: \n\tlet N be  text; \n\tlet N be the player&apos;s command; \n\treplace the regular expression &quot;\b(ask|tell|order) (.+?) to (.+)&quot; in N with &quot;\2, \3&quot;; \n\tchange the text of the player&apos;s command to N. \n`)"><span class="sym">⧉</span></button><div class="codeline">After reading a command: </div>
@@ -10464,8 +10460,7 @@ to all of the characters in your game:</p>
 
 <p>But by default, NPCs will refuse to follow orders. If you want an NPC
 to obey the player, you need to write a <strong>persuasion
-rule</strong>, as explained on <strong>p. 12.4</strong> of <em>Writing
-with Inform</em>, “Persuasion.” A persuasion rule can be as specific or
+rule</strong>, as explained in <a href="../WI_12.html#section_4>WI 12.4: Persuasion</a>. A persuasion rule can be as specific or
 as broad as you like &ndash; you can have all NPCs obey orders, or only have
 one NPC obey one specific order. Here’s how to do it with two specific
 actions. We’re going to allow Uncle Jack to take the jewels or give them
@@ -10487,8 +10482,7 @@ is already carrying them.) If you need an NPC to give the player
 something that has only been talked about, but that isn’t in the room at
 the moment, you have a slightly more complex problem. The easy way to
 deal with this is to have the NPC carry the object, but make it a
-concealed possession, as explained on <strong>p. 3.24</strong> of
-<em>Writing with Inform</em> (“Concealment”):</p>
+concealed possession, as explained in <a href="../WI_3.html#section_24">WI 3.24 Concealment</a>:</p>
 
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Troy is a man in the Billiard Room. Troy carries a banana.\n&thinsp;\nRule for deciding the concealed possessions of Troy: if the particular possession is the banana, yes; otherwise no.\n&thinsp;\nPersuasion rule for asking Troy to try giving the banana to the player:\n\tpersuasion succeeds.\n&thinsp;\nInstead of Troy giving the banana to the player:\n\tsay &quot;Troy gives you the banana.&quot;;\n\tnow the player carries the banana;\n\trule succeeds.\n`)"><span class="sym">⧉</span></button><div class="codeline">Troy is a man in the Billiard Room. Troy carries a banana.</div>
 <div class="codeline">&thinsp;</div>
@@ -11864,8 +11858,8 @@ when the game ends.</p>
 the word “the”. More often than not, Inform strips out “the” when
 compiling, but here it’s required.</p>
 
-<p>On <strong>p. 9.4</strong> of <em>Writing with Inform,</em> “When
-play ends,” a distinction is made between “end the story” and “end the
+<p>In <a href="../WI_9.html#section_4">WI 9.4 When
+play ends</a>, a distinction is made between “end the story” and “end the
 story finally.” I haven’t been able to figure out exactly what the
 difference is. I suggest just using “end the story” without worrying
 about “finally.”</p>
@@ -11938,8 +11932,7 @@ latest action, thereby retrieving the chocolate biscuit.</p>
 <p>In a game whose story is serious in tone, awarding points might seem
 too frivolous, so you might want to use no scoring. Inform allows the
 author, however, to give the player points for doing certain actions. A
-way to do this is explained on <strong>p. 9.2</strong> of <em>Writing
-with Inform</em>, “Awarding points.” The first step is to put this line
+way to do this is explained in <a href="../WI_9.html#section_2">WI 9.2 Awarding points</a>. The first step is to put this line
 near the top of your source code, along with whatever other Use or
 Include options you’ve selected:</p>
 
@@ -12274,7 +12267,7 @@ So if you use a Before rule in this case, the game will be starting one
 minute before you think it does, which could be a problem in a game that
 opens with a tight timing puzzle.</p>
 
-<p>Example 407, “Timeless,” shows a different way to accomplish the same
+<p><a href="../examples/timeless.html">Example 408, Timeless</a>, shows a different way to accomplish the same
 thing.</p>
 
 <p>The game doesn’t have to start at 9:00 A.M. If you want it to start
@@ -12310,12 +12303,11 @@ be printed out on the hour.</p>
 <p>In this case, Inform has a simpler way to get the same effect. You
 can write a rule that tells the game what to do at specific times:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`At 11:59 pm: say chimes.\nAt 12:59 am: say chimes.\nAt 1:59 am: say chimes.\n&thinsp;\nTo say chimes: say &quot;In the distance you hear the chimes in the tower\nstrike the hour.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">At 11:59 pm: say chimes.</div>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`At 11:59 pm: say chimes.\nAt 12:59 am: say chimes.\nAt 1:59 am: say chimes.\n&thinsp;\nTo say chimes: say &quot;In the distance you hear the chimes in the tower strike the hour.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">At 11:59 pm: say chimes.</div>
 <div class="codeline">At 12:59 am: say chimes.</div>
 <div class="codeline">At 1:59 am: say chimes.</div>
 <div class="codeline">&thinsp;</div>
-<div class="codeline">To say chimes: say "In the distance you hear the chimes in the tower</div>
-<div class="codeline">strike the hour."</div>
+<div class="codeline">To say chimes: say "In the distance you hear the chimes in the tower strike the hour."</div>
 </div>
 
 <p>This way of doing it is easier to write and debug, especially when
@@ -12561,8 +12553,7 @@ won’t help. The princess will still demand that they be turned over.</p>
 
 <p>But there’s still a problem. Try this series of commands:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Test me with &quot;s / put jewels in sack / drop sack / take sack /\nn&quot;.\n`)"><span class="sym">⧉</span></button><div class="codeline">Test me with "s / put jewels in sack / drop sack / take sack /</div>
-<div class="codeline">n".</div>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Test me with &quot;s / put jewels in sack / drop sack / take sack / n&quot;.\n`)"><span class="sym">⧉</span></button><div class="codeline">Test me with "s / put jewels in sack / drop sack / take sack / n".</div>
 </div>
 
 <p>The princess will notice the jewels ... but you can still get away
@@ -12811,8 +12802,9 @@ when the game is played, and words and phrases that you want Inform to
 understand when the player types them. Here’s a quick example that shows
 both of these types:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The will is on the end table. The description is &quot;A legal-looking\npiece of paper. You can&apos;t read what&apos;s on it, because it&apos;s upside down.&quot;\nUnderstand &quot;legal&quot;, &quot;legal-looking&quot;, &quot;document&quot;, &quot;paper&quot;, &quot;piece&quot;, and\n&quot;piece of&quot; as the will.\n`)"><span class="sym">⧉</span></button><div class="codeline">The will is on the end table. The description is "A legal-looking</div>
-<div class="codeline">piece of paper. You can't read what's on it, because it's upside down."</div>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The will is on the end table. The description is &quot;A legal-looking piece of paper. You can&apos;t read what&apos;s on it, because it&apos;s upside down.&quot;\n\nUnderstand &quot;legal&quot;, &quot;legal-looking&quot;, &quot;document&quot;, &quot;paper&quot;, &quot;piece&quot;, and\n&quot;piece of&quot; as the will.\n`)"><span class="sym">⧉</span></button>
+  <div class="codeline">The will is on the end table. The description is "A legal-looking piece of paper. You can't read what's on it, because it's upside down."</div>
+  
 <div class="codeline">Understand "legal", "legal-looking", "document", "paper", "piece", and</div>
 <div class="codeline">"piece of" as the will.</div>
 </div>
@@ -13096,8 +13088,7 @@ Say statement is really the best way to do it.</p>
 </div>
 <h4 id="switchable-markup">Switchable Markup</h4>
 
-<p>As explained on <strong>page 5.9</strong> of <em>Writing with
-Inform</em>, you can switch bold and italic type on and off within the
+<p>As explained in <a href="../WI_5.html#section_9">WI 5.9</a>, you can switch bold and italic type on and off within the
 quoted text in a “say” statement. You might want to do this, for
 instance, to draw the player’s attention to items in a room description
 if the item can be examined or otherwise manipulated. This effect can be
@@ -13183,8 +13174,7 @@ style would be to include a <em>dialog tag</em> in the text:</p>
 <div class="codeline">&ensp;&ensp;&ensp;say "'I would never give it to you!' he replies with a sneer."</div>
 </div>
 
-<p>As explained on <strong>p. 2.3</strong> of <em>Writing with
-Inform</em>, “Punctuation,” Inform will automatically turn single quotes
+<p>As explained in <a href="../WI_2.html#section_3>WI 2.3 Punctuation</a>, Inform will automatically turn single quotes
 into double quotes when formatting its output. But this raises a
 potential problem &ndash; how to handle apostrophes. If an apostrophe is in
 the middle of a word, Inform will understand that it’s an apostrophe,
@@ -13228,8 +13218,7 @@ it under all of the conditions that can arise.</p>
 <p>Three instructions are available to help you fiddle with the line
 breaks if you need to. You can use [line break], [paragraph break], or
 [run paragraph on]. All of these are worth knowing about. They’re
-discussed on <strong>p. 5.8</strong> of <em>Writing with
-Inform.</em></p>
+discussed in <a href="../WI_5.html#section_8">WI 5.8</a>.</p>
 </div>
 
 <h3 id="breaking-up-paragraphs">Breaking Up Paragraphs</h3>
@@ -13891,8 +13880,7 @@ the value:</p>
 </div>
 
 <p>(If you want to have the length be in inches, centimeters, or some
-other unit of measurement rather than just a number, consult <strong>p.
-15.8</strong> of <em>Writing with Inform</em>, “Units.”) You don’t
+other unit of measurement rather than just a number, consult <a href="../WI_15.html#section_8">WI 15.8 Units</a>. You don’t
 actually have to initialize the value of a number, but if you don’t,
 your game may not work the way you expect it to.</p>
 
@@ -14089,8 +14077,7 @@ difference.)</p>
 <div class="codeline">&ensp;&ensp;&ensp;now the parrot is dead.</div>
 </div>
 
-<p>The syntax for these operations is outlined on <strong>p.
-15.5</strong> of <em>Writing with Inform</em>, “Arithmetic.” Other tests
+<p>The syntax for these operations is outlined on <a href="../WI_15.html#section_5">WI 15.5 Arithmetic</a>. Other tests
 that we can use include:</p>
 
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`if the squawk-count of the parrot is 7: [...]\nif the squawk-count of the parrot is at least 7: [...]\nif the squawk-count of the parrot is less than 7: [...]\nif the squawk-count of the parrot is at most 7: [...]\n`)"><span class="sym">⧉</span></button><div class="codeline">if the squawk-count of the parrot is 7: [...]</div>
@@ -14198,8 +14185,7 @@ computed in the “To decide what number is a … roll” code block.</p>
 
 <p>Many of the examples in this book test conditions in the model world
 and produce a different result depending on the conditions. The keyword
-in each case is “if”. <strong>Page 11.6</strong> of <em>Writing with
-Inform</em> (“If”) explains how to create and test conditions. The point
+  in each case is “if”. <a href="../WI_11.html#section_6">WI 11.6: If</a> explains how to create and test conditions. The point
 of testing a condition is for the game to make a decision about what to
 do next. If the condition is true, we want the game to do one thing; if
 the condition isn’t true, we want something different to happen. Here’s
@@ -14298,31 +14284,34 @@ blocks often need to branch based on whether a logical test is true or
 false. The keyword “if” is used in many programming languages, including
 Inform, to write a statement that will allow the code to branch. In
 pseudo-code, a short version look be something like this:</p>
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`    if A, do X; otherwise, do Y. [ pseudo-code; not valid ]\n\n`)"><span class="sym">⧉</span></button><div class="codeline">    if A, do X; otherwise, do Y. [ pseudo-code; not valid ]</div>
-    
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`    if A, do X;\notherwise, do Y. [ pseudo-code; not valid ]\n`)"><span class="sym">⧉</span></button><div class="codeline">if A, do X; <br>
+    otherwise, do Y. [ pseudo-code; not valid ]</div>
 </div>
+
 <p>Here, “X” and “Y” would be entire lines or multiple lines of code. A
 more complex (and more realistic) example might look more like this:</p>
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`if A, do Q, R, and S; otherwise, do X, Y, and Z. [ pseudo-code; not valid ]\n`)"><span class="sym">⧉</span></button><div class="codeline">if A, do Q, R, and S; otherwise, do X, Y, and Z. [ pseudo-code; not valid ]</div>
-<br></div>
-<div class="codeline"><p>Again, “Q,” “R,” “S,” and so on would be entire lines of code. In</div>
-<div class="codeline">this situation, the compiler needs some way to understand which lines of</div>
-<div class="codeline">code to group together into a block. Q, R, and S should be grouped</div>
-<div class="codeline">together, and X, Y, and Z should be grouped together &ndash; but it would be</div>
-<div class="codeline">horribly wrong to have all six grouped together!</p></div>
-<div class="codeline">&thinsp;</div>
-<div class="codeline"><p>Two systems for organizing lines of code into blocks (groups of</div>
-<div class="codeline">lines) are in common use. Some languages use indenting. Other languages</div>
-<div class="codeline">don’t require indenting (though indenting can be used to make their</div>
-<div class="codeline">source code easier to read). Languages that don’t use indenting usually</div>
-<div class="codeline">put brackets or curly braces (like these {...} ) around blocks of</div>
-<div class="codeline">code.</p></div>
-<br></div>
-<div class="codeline"><p>The original release of Inform 7 used neither system. Instead, in</div>
-<div class="codeline">keeping with the “natural language” idea, the keywords “begin” and “end”</div>
-<div class="codeline">were used to set off code blocks. Here is an example (borrowed from</div>
-<div class="codeline">Chapter 4 of this <em>Handbook</em>) using the syntax format that Inform</div>
-<div class="codeline">originally provided:</p></div>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`if A, do Q, R, and S;\notherwise, do X, Y, and Z. [ pseudo-code; not valid ]\n`)"><span class="sym">⧉</span></button><div class="codeline">if A, do Q, R, and S;<br>otherwise, do X, Y, and Z. [ pseudo-code; not valid ]</div>
+</div>
+
+<p>Again, “Q,” “R,” “S,” and so on would be entire lines of code. In
+this situation, the compiler needs some way to understand which lines of
+code to group together into a block. Q, R, and S should be grouped
+together, and X, Y, and Z should be grouped together &ndash; but it would be
+horribly wrong to have all six grouped together!</p>
+
+<p>Two systems for organizing lines of code into blocks (groups of
+lines) are in common use. Some languages use indenting. Other languages
+don’t require indenting (though indenting can be used to make their
+source code easier to read). Languages that don’t use indenting usually
+put brackets or curly braces (like these {...} ) around blocks of
+code.</p>
+
+<p>The original release of Inform 7 used neither system. Instead, in
+keeping with the “natural language” idea, the keywords “begin” and “end”
+were used to set off code blocks. Here is an example (borrowed from
+Chapter 4 of this <em>Handbook</em>) using the syntax format that Inform
+originally provided:</p>
+
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Before taking the apple:\nif the player does not carry the apple begin;\nif the player carries the basket begin;\nif the apple is not in the basket begin;\nnow the apple is in the basket;\nsay &quot;You pick up the apple and put it in the basket.&quot;;\nrule succeeds;\nend if;\nend if;\nend if.\n`)"><span class="sym">⧉</span></button><div class="codeline">Before taking the apple:</div>
 <div class="codeline">if the player does not carry the apple begin;</div>
 <div class="codeline">if the player carries the basket begin;</div>
@@ -14720,7 +14709,7 @@ tense. But what if you’d like to write a story in first person singular,
 past tense? Or, more exotically, third person plural, future tense? The
 current version of the Inform library provides fairly full support for
 writing a game in any combination of tense and viewpoint, as explained
-in <a href="../WI_14.html#section_1">WI 14.1</a>. In fact,
+in <a href="../WI_14.html#section_1">WI 14.1: Tense and narrative viewpoint</a>. In fact,
 you can switch tense and viewpoint at any point in the story, which
 might be useful if one section of the story is a flashback to an earlier
 time, or has a different viewpoint character.</p>
@@ -14744,7 +14733,7 @@ of your source code, and you’re good to go:</p>
 <p>If you need to switch from one viewpoint or tense to another during
 the course of the game, you’ll probably want to make use of the same
 kinds of text insertions that the Standard Library uses. These methods
-are detailed in <a href="../WI_14.html">Chapter 14 of <em>Writing with Inform</em></a>.</p>
+are detailed in <a href="../WI_14.html">WI Chapter 14</a>.</p>
 
 <h3 id="code-optimization">Code Optimization</h3>
 
@@ -14790,7 +14779,7 @@ that will optimize your Inform games.</p>
 Newcomb, Andrew Plotkin, and others. They know a lot more about Inform,
 and about programming in general, than I do. (Plotkin created Quixe, in
 fact.)</p>
-</div>
+
 <h4 id="instead-of-instead">Instead of Instead</h4>
 
 <p>As noted previously regarding <a href="#ref_efficiency_box">efficiency</a>,
@@ -14843,14 +14832,13 @@ only because Before rules are intended for situations that are a little
 tricky. I tend to use Before rules mostly in constructions like
 this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Before doing anything other than examining to the sky, say &quot;The sky\nis too far away.&quot; instead.\n`)"><span class="sym">⧉</span></button><div class="codeline">Before doing anything other than examining to the sky, say "The sky</div>
-<div class="codeline">is too far away." instead.</div>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Before doing anything other than examining to the sky, say &quot;The sky is too far away.&quot; instead.\n`)"><span class="sym">⧉</span></button><div class="codeline">Before doing anything other than examining to the sky, say "The sky is too far away." instead.</div>
 </div>
 
 <p>This type of construction (“anything other than...”) can’t be used in
 Check or Carry Out rules, simply because each action has its own set of
 rulebooks.</p>
-</div>
+
 <h4 id="every-turn-rules-1">Every Turn Rules</h4>
 
 <p>In every turn, every Every Turn rule in your game will be consulted
@@ -14875,7 +14863,7 @@ if-tests within a single rule, you’ll gain efficiency. For instance:</p>
 grouped will change nothing &ndash; but whenever the player is <em>not</em> in
 the Glue Factory, only one Every Turn rule will be consulted to see
 whether it applies, rather than several of them.</p>
-</div>
+
 <h4 id="other-ways-to-streamline-your-code">Other Ways to Streamline Your Code</h4>
 
 <p>Occasionally, the “after reading a command” activity will prove very
