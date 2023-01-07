@@ -9,12 +9,12 @@
 <link rel="stylesheet" href="i7handbook.css">
   </head>
   <body>
-    <heading>
-<h1 id="inform7-handbook">Inform 7 Handbook</h1>
+    <header>
+<h1 id="inform7-handbook">Inform 7 Handbook, by Jim Aikin</h1>
 
-<div class="subtitle">Jim Aikin<br>May 2015<br>build 6L38</div>
-    </heading>
+    </header>
     <main>
+<p class="disclaimer">Adapted for the web and modified by Zed Lopez, based on version 2.0 of the Handbook, as updated by Jim Aikin in 2015 for Inform 7 version 9.2/6L38. No endorsement of this adaptation by Jim Aikin is implied.</p>
 
       <div class="chapter">
         <h2>Table of Contents</h2>
@@ -1700,7 +1700,6 @@ code later.</p>
 <p>There’s a lot to learn in Inform. So start with simple things and
 build up your game in an orderly way. Put off the complex and tricky
 stuff for a later stage in the development.</p>
-</div>
 
 <h4 id="title-trickery">Title Trickery</h4>
 
@@ -1955,7 +1954,7 @@ you can file a report and keep an eye on it. You can also check here to
 discover what other bugs you’ll need to be aware of while writing. Most
 of them are relatively obscure and shouldn’t cause you any trouble, but
 some are worth knowing about.</p>
-</div>
+
 <h3 id="testing-your-game">Testing Your Game</h3>
 
 <p>Testing a game, or any other piece of software, happens in two
@@ -2173,7 +2172,8 @@ figure out what rule is producing that output by using RULES and then
 trying the command that isn’t working correctly. Most often, the last
 rule that is displayed before the offending output text is the rule
 that’s producing the text.</p>
-</div>
+
+
 <h3 id="another-way-to-debug">Another Way to Debug</h3>
 
 <p>One of the easiest traditional ways to debug a computer program is to
@@ -2250,7 +2250,7 @@ repeatedly.</p>
 comment out the line “Use inline debugging” before compiling for
 release, and all of the debug code will disappear from the released
 version of the game.</p>
-</div>
+
 <h3 id="puzzles">Puzzles</h3>
 
 <p>Let’s be frank: This <em>Handbook</em> is not going to tell you
@@ -2294,7 +2294,7 @@ with you about which puzzles are easy and which are hard!</p>
 <p>For details on the types of puzzles you’re likely to find when
 playing IF, or likely to want to implement, see Chapter 6,
 “Puzzles.”</p>
-</div>
+
 <h3 id="extensions-for-inform">Extensions for Inform</h3>
 
 <p>A number of people in the Inform 7 community (which exists almost
@@ -2399,7 +2399,7 @@ without needing to download it again.</p>
 recently than extension A, extension A may now be broken. In this type
 of situation, your best bet is to report the problem, either in the
 intfiction.org forum or directly to the extension author.</p>
-</div>
+
 <h3 id="where-to-learn-more">Where to Learn More</h3>
 
 <p>Once you’ve started writing with Inform, you’ll find the built-in
@@ -2436,7 +2436,7 @@ than questions that are clear and concise.</li>
 than 20 lines) that shows the problem you’re having. This will make it
 easier for the experts to see what you’re doing wrong &ndash; and in the
 process of creating the example game, you may figure out how to solve
-the problem yourself! (It often works that way, in my experience.)</p>
+the problem yourself! (It often works that way, in my experience.)
 </li>
 </ol>
 </p>
@@ -2894,8 +2894,8 @@ game, such as scattering birdseed to distract the homicidal songbirds.
 After scattering the birdseed, the player might be allowed to climb a
 tree after all. But that type of complication will have to wait for a
 later chapter.</p>
-</div>
-  <h4 id="how-much-scenery-is-enough">How Much Scenery Is Enough?</h4>
+
+<h4 id="how-much-scenery-is-enough">How Much Scenery Is Enough?</h4>
 
 <p>As noted in Chapter 1, in the section “The Detail Trap,” it’s easy to
 get sidetracked by trying to cram too much scenery into a room. If your
@@ -3022,7 +3022,8 @@ noun</strong>.</p>
 
 <p>To be safe, we might also want to trap commands like PUT VASE ON
 STONE WALL. In this command, the stone wall is the second noun. To
-handle this, you can write:</p></div>
+  handle this, you can write:</p>
+                                   
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of doing anything when the second noun is a distant thing:\n\tsay &quot;[The second noun] [are] too far away.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">Instead of doing anything when the second noun is a distant thing:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "[The second noun] [are] too far away."</div>
 </div>
@@ -3350,7 +3351,7 @@ large enough to be visible from a distance:</p>
 
 <p>Next, we’ll give our outdoor rooms containing-names, and add a
 function that will use this property:</p>
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The containing-name of the Forest Path is &quot;Lying on the path&quot;.\nThe containing-name of By the Wall is &quot;Not far from the wall&quot;.\n&thinsp;\nTo scrutinize (R - a room):\n\tlet L be a list of things;\n\trepeat with item running through things in R:\n\t\tif item is huge:\n\t\t\tadd item to L;\n\tif the number of entries in L > 0:\n\t\tsay &quot; [The containing-name of R] you can see &quot;;\n\t\tsay &quot;[L with indefinite articles].&quot;;\n\totherwise:\n\t\tsay &quot;[line break]&quot;. \n`)"><span class="sym">⧉</span></button><div class="codeline">The containing-name of the Forest Path is "Lying on the path".</div>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The containing-name of the Forest Path is &quot;Lying on the path&quot;.\nThe containing-name of By the Wall is &quot;Not far from the wall&quot;.\n&thinsp;\nTo scrutinize (R - a room):\n\tlet L be a list of things;\n\trepeat with item running through things in R:\n\t\tif item is huge:\n\t\t\tadd item to L;\n\tif the number of entries in L &gt; 0:\n\t\tsay &quot; [The containing-name of R] you can see &quot;;\n\t\tsay &quot;[L with indefinite articles].&quot;;\n\totherwise:\n\t\tsay &quot;[line break]&quot;. \n`)"><span class="sym">⧉</span></button><div class="codeline">The containing-name of the Forest Path is "Lying on the path".</div>
 <div class="codeline">The containing-name of By the Wall is "Not far from the wall".</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">To scrutinize (R - a room):</div>
@@ -3358,7 +3359,7 @@ function that will use this property:</p>
 <div class="codeline">&ensp;&ensp;&ensp;repeat with item running through things in R:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if item is huge:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;add item to L;</div>
-<div class="codeline">&ensp;&ensp;&ensp;if the number of entries in L > 0:</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the number of entries in L &gt; 0:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say " [The containing-name of R] you can see ";</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say "[L with indefinite articles].";</div>
 <div class="codeline">&ensp;&ensp;&ensp;otherwise:</div>
@@ -3597,7 +3598,7 @@ Deluxe Doors by Emily Short. This extension allows you to create
 “half-doors,” each of which represents only one side of the door, and to
 keep them in sync, so that when the player opens or closes one of the
 half-doors, the other opens or closes as well.</p>
-</div>
+
 <h4 id="locked-doors">Locked Doors</h4>
 
 <p>A locked door is a slightly
@@ -3626,7 +3627,7 @@ will be unlocked</p>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the oak door is unlocked;</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the oak door is open.</div>
 <div class="codeline">&thinsp;</div>
-<div class="codeline">The player carries the brass key.</div></div>
+<div class="codeline">The player carries the brass key.</div>
 </div>
 
 <p>Several new elements are introduced above. First, I’ve written a
@@ -3684,7 +3685,7 @@ player character’s) knowledge is not difficult to manage, but the
 details may differ from one game to the next. The extension Epistemology
 by Eric Eve is designed to make it easy to track the player’s
 knowledge.</p>
-</div>
+
 <h4 id="secret-doors">Secret Doors</h4>
 
 <p>More interesting in a game than a locked door is a secret door &ndash;
@@ -3717,7 +3718,8 @@ wall paneling, this would work:</p>
 </div>
 
 <p>This produces exactly the type of interaction we’d expect of a secret
-door:</p></div>
+  door:</p>
+
 <div class="game-output">
 <div class="command"><span class="prompt">&gt;</span>n</div>
 
@@ -4314,7 +4316,7 @@ href="#containers-supporters">Containers &amp; Supporters</a>) that could be rea
 inside and outside the room. At Emily Short’s suggestion, I created the
 window as a backdrop, so that it could be in two rooms at once, and then
 made the windowsill a part of the window.</p>
-</div>
+
 <h4 id="removing-a-backdrop">Removing a Backdrop</h4>
 
 <p>Getting rid of a backdrop entirely during play is easy. If we’ve
@@ -4489,7 +4491,7 @@ LAMP, the command will be redirected to SWITCH OFF LIGHT-SWITCH. This
 keeps all of the handling of the lamp’s on/off condition in one place &ndash;
 in the switch. The switch is an Inform <strong><a href="#Ref_device">device</a></strong>, which as explained in Chapter 3 is one
 of the kinds of object that Inform allows you to create.</p>
-</div>
+
 <h4 id="backdrops-in-dark-rooms">Backdrops in Dark Rooms</h4>
 
 <p>Inform assumes, by default, that a backdrop is something that a
@@ -4793,9 +4795,8 @@ this would be dull:</p>
 </div>
 
 <p>Eric Eve has suggested a simple way to get a more dramatic output,
-using the printing a locale paragraph about activity (see <strong>p.
-18.28</strong> of <em>Writing with Inform</em>, “Printing a locale
-paragraph about”).</p>
+using the printing a locale paragraph about activity (see <a href="../WI_18.html#section_9">WI 18.28, Printing a locale
+paragraph about</a>).</p>
 
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Rule for printing a locale paragraph about the coffee table when the Etruscan figurine is on the coffee table and the number of things on the coffee table is 1:\n\tnow the Etruscan figurine is mentioned;\n\tsay &quot;On the coffee table you espy the priceless Etruscan figurine Mandy has been raving about!&quot;;\n\tcontinue the activity. \n`)"><span class="sym">⧉</span></button><div class="codeline">Rule for printing a locale paragraph about the coffee table when the Etruscan figurine is on the coffee table and the number of things on the coffee table is 1:</div>
 <div class="codeline">&ensp;&ensp;&ensp;now the Etruscan figurine is mentioned;</div>
@@ -5106,8 +5107,7 @@ The rest of the letters are ignored. This is true both for the names of
 things in your code and for the words in commands that the player types.
 Normally nine letters are plenty. (In the very first text-based games,
 only the first five or six letters in the player’s commands were read,
-and six letters weren’t really enough.) But as <strong>p. 3.1</strong>
-(“Descriptions”) of the Documentation points out, if you happen to put a
+and six letters weren’t really enough.) But as <a href="../WI_3.html#section_1">WI 3.1 Descriptions</a> points out, if you happen to put a
 superhero and a superheroine in the same room, the player will quite
 likely get the wrong result from the command KISS SUPERHEROINE.</p>
 
@@ -5207,11 +5207,13 @@ yet another.</p>
 <p>When we give the banjo an initial appearance, this is what will
 happen when the player enters the Meadow:</p>
 
+<div class="game-output">
 <p><strong>Meadow</strong></p>
 
 <p>Wildflowers carpet the meadow.</p>
 
 <p>A banjo lies forgotten among the wildflowers.</p>
+</div>
 
 <p>Having the line about the banjo off in a paragraph by itself looks a
 little odd, but that’s mainly because the room description of the meadow
@@ -5284,9 +5286,8 @@ words overlap.</p>
 game, and the parser will try to figure out what the player means when
 entering the word PAINT. If the parser can’t figure out what the player
 meant, it will ask questions. You can help the parser by writing “does
-the player mean” rules (see <strong>p. 17.19</strong> of <em>Writing
-with Inform</em>, “Does the player mean...”).</p>
-</div>
+the player mean” rules (see <a href="../WI_17.html#section_19">WI 17.19 Does the player mean...</a>).</p>
+
 <h4 id="conditional-vocabulary">Conditional Vocabulary</h4>
 
 <p>Most of the objects in a game will likely have the same vocabulary
@@ -5399,9 +5400,7 @@ basic cupboard like this:</p>
 </div>
 
 <p>If a container is openable, it can also be lockable. If it’s
-lockable, it can start the game either locked or unlocked. And as
-<strong>p. 3.13</strong> of <em>Writing with Inform</em> (“Locks and
-keys”) explains, things that are lockable can be given keys.</p>
+lockable, it can start the game either locked or unlocked. And as <a href="../WI_3.html#section_13">WI 3.13 Locks and keys</a> explains, things that are lockable can be given keys.</p>
 
 <p>In fact, Inform is a little pickier than this: By default, you can
 only say that something is lockable if it’s a container or a door. If
@@ -5471,7 +5470,7 @@ the game. This is something you will rarely need to do, but someday you
 might want to create an openable lockable container that is closed and
 locked, and that has <em>no</em> key. If the solution of the puzzle is
 HIT CUPBOARD WITH HAMMER, you might create a new action called attacking
-it with and then write some code along these lines:</p></div>
+it with and then write some code along these lines:</p>
 
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Carry out attacking the cupboard with the hammer:\n\tnow the cupboard is open;\n\tnow the cupboard is not openable;\n\tnow the cupboard is unlocked;\n\tnow the cupboard is not lockable;\n\tsay &quot;You smash the cupboard door with the hammer, and it springs open.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">Carry out attacking the cupboard with the hammer:</div>
 <div class="codeline">&ensp;&ensp;&ensp;now the cupboard is open;</div>
@@ -5634,8 +5633,8 @@ contains something, Inform will list the contents. If it’s open and
 empty, Inform will say “(empty)”.</li>
 </ol>
 </p>
-</div>
-  <h4 id="stealthy-containers">Stealthy Containers</h4>
+
+<h4 id="stealthy-containers">Stealthy Containers</h4>
 
 <p>The logic shown above is fine as a basic way of designing a game, but
 you may run into situations in which it doesn’t work well. For instance,
@@ -5762,9 +5761,8 @@ puzzle):</p>
 
 <p>Sometimes we may want an open container to list its contents. We just
 don’t want Inform to print out an annoying reminder that the container
-is closed or empty every time it includes the container in a list.
-<strong>Page 18.10</strong> of <em>Writing with Inform</em>, “Printing
-the name of something,” shows how to handle this. Adapting the code
+is closed or empty every time it includes the container in a list. <a href="../WI_18.html#section_10">WI 18.10 Printing
+the name of something</a> shows how to handle this. Adapting the code
 there slightly, we’ll create a pillbox. While we’re at it, we’ll
 restrict the pillbox so that it can only contain pills. This type of
 restriction is often useful with small containers. (Another way to
@@ -5888,17 +5886,17 @@ code can be simpler:</p>
 question of whether there’s something on the table into a different
 block of code.</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The billiard table is a scenery supporter in the Billiard Room. The description is &quot;The table is big and green[list-table-stuff].&quot;\n&thinsp;\nTo say list-table-stuff:\n\tlet L be the list of things on the billiard table;\n\tif the number of entries in L > 0:\n\t\tsay &quot;. On the table you can see [a list of things on the billiard table]&quot;.\n`)"><span class="sym">⧉</span></button><div class="codeline">The billiard table is a scenery supporter in the Billiard Room. The description is "The table is big and green[list-table-stuff]."</div>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The billiard table is a scenery supporter in the Billiard Room. The description is &quot;The table is big and green[list-table-stuff].&quot;\n&thinsp;\nTo say list-table-stuff:\n\tlet L be the list of things on the billiard table;\n\tif the number of entries in L &gt; 0:\n\t\tsay &quot;. On the table you can see [a list of things on the billiard table]&quot;.\n`)"><span class="sym">⧉</span></button><div class="codeline">The billiard table is a scenery supporter in the Billiard Room. The description is "The table is big and green[list-table-stuff]."</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">To say list-table-stuff:</div>
 <div class="codeline">&ensp;&ensp;&ensp;let L be the list of things on the billiard table;</div>
-<div class="codeline">&ensp;&ensp;&ensp;if the number of entries in L > 0:</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the number of entries in L &gt; 0:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say ". On the table you can see [a list of things on the billiard table]".</div>
 </div>
 
 <p>Which of these forms you use is purely a matter of taste. I like the
 second one because it makes the logic easier to see at a glance.</p>
-</div>
+
 <h4 id="sneaky-supporters">Sneaky Supporters</h4>
 
 <p>There may be times when you’d like to force the player to examine a
@@ -6107,12 +6105,12 @@ player would learn that the scenery objects were not portable) and
 people (leading to a report that the person wouldn’t care for that).
 This was all rather silly. In the current version of Inform (and most
 likely in the future as well), TAKE ALL does not include people or
-scenery. This is described on <strong>p. 18.36</strong> (“Deciding
-whether all includes”) of <em>Writing with Inform.</em></p>
+scenery. This is described in <a href="../WI_18.html#section_36">WI 18.36 Deciding
+whether all includes</a>.</p>
 
 <p>We might decide to let “all” include a particular scenery item,
 perhaps because the player’s attempt to take it will reveal something
-interesting. Unfortunately, page <strong>18.36</strong> fails to provide
+interesting. Unfortunately, WI 18.36 fails to provide
 a correct explanation of how to re-include something in ALL. Here’s the
 correct way to do it:</p>
 
@@ -6415,14 +6413,14 @@ safely discard the hairpin, because it won’t be needed again. Your game
 will be more interesting for players if you add variety to this
 scheme.</p>
 
-  <ul>
+<ul>
 <li>Two or three of the things you create might have multiple uses.</li>
 <li>Two or three of your puzzles might have two solutions using
 different things.</li>
 <li>One or two objects might be <em>red herrings.</em> They might not
 be good for anything at all.</li>
 <li>One object or obstacle that appears to be a puzzle might also be a
-red herring. It have no solution at all.</li></div>
+red herring. It have no solution at all.</li></ul>
 
 <h3 id="testing-where-a-thing-is">Testing Where a Thing Is</h3>
 
@@ -6522,7 +6520,7 @@ with or to the object.</p>
 <p>Properties can be of two types. Some of them are numbers, while
 others are words or groups of words. They’re similar in some ways, but
 let’s look at them one at a time.</p>
-</div>
+
 <h4 id="number-properties">Number Properties</h4>
 
 <p>Attaching a named number to an object (making it a property of the
@@ -6574,7 +6572,7 @@ re-light an oil lamp after it had burned out. Also, we would expect that
 the player would have to be holding the oil can in order to refill the
 lamp. The main thing this example is designed to show is the properties
 fuel-remaining (of the lamp) and full or empty (of the oil can).</p>
-</div>
+
 <h4 id="word-properties">Word Properties</h4>
 
 <p>The easiest way to add word properties to an object is by simply
@@ -7438,11 +7436,11 @@ intfiction.org became the central hub) included some code for a dial
 that could be set to any number from 1 to 8. I modified the posted code
 slightly and came up with this dial:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The rotary dial is part of the safe. The dial has a number called current setting. The current setting of the dial is 1. The dial has a number called max setting. The max setting of the dial is 8. The description of the dial is &quot;The rotary dial has eight numbers, 1 through [max setting]. At the moment it&apos;s set to [current setting].&quot;\n&thinsp;\nInstead of turning the dial:\n\tincrease the current setting of the dial by 1;\n\tif the current setting of the dial > max setting of the dial:\n\t\tnow the current setting of the dial is 1;\n\tsay &quot;You turn the dial to [current setting of the dial].&quot;\n&thinsp;\nUnderstand &quot;set [something] to [number]&quot; as setting the state of it to. Setting the state of it to is an action applying to one thing and one number. Understand &quot;turn [something] to [number]&quot; or &quot;turn [something] to setting [number]&quot; or &quot;turn [something] to position [number]&quot; or &quot;adjust [something] to [number]&quot; or &quot;adjust [something] to position [number]&quot; or &quot;adjust [something] to setting [number]&quot; as setting the state of it to.\n&thinsp;\nCheck setting the state of it to:\n\tif the noun is not the rotary dial:\n\t\tsay &quot;You can&apos;t set [the noun] to a number.&quot; instead;\n\tif the number understood < 1, say &quot;The lowest setting is 1.&quot; instead;\n\tif the number understood > max setting of the dial, say &quot;Sorry, the dial can only be set from 1 to [max setting of the dial].&quot; instead.\n&thinsp;\nCarry out setting the state of it to:\n\tnow the current setting of the noun is the number understood;\n\tsay &quot;You turn the dial to [number understood].&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">The rotary dial is part of the safe. The dial has a number called current setting. The current setting of the dial is 1. The dial has a number called max setting. The max setting of the dial is 8. The description of the dial is "The rotary dial has eight numbers, 1 through [max setting]. At the moment it's set to [current setting]."</div>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The rotary dial is part of the safe. The dial has a number called current setting. The current setting of the dial is 1. The dial has a number called max setting. The max setting of the dial is 8. The description of the dial is &quot;The rotary dial has eight numbers, 1 through [max setting]. At the moment it&apos;s set to [current setting].&quot;\n&thinsp;\nInstead of turning the dial:\n\tincrease the current setting of the dial by 1;\n\tif the current setting of the dial &gt; max setting of the dial:\n\t\tnow the current setting of the dial is 1;\n\tsay &quot;You turn the dial to [current setting of the dial].&quot;\n&thinsp;\nUnderstand &quot;set [something] to [number]&quot; as setting the state of it to. Setting the state of it to is an action applying to one thing and one number. Understand &quot;turn [something] to [number]&quot; or &quot;turn [something] to setting [number]&quot; or &quot;turn [something] to position [number]&quot; or &quot;adjust [something] to [number]&quot; or &quot;adjust [something] to position [number]&quot; or &quot;adjust [something] to setting [number]&quot; as setting the state of it to.\n&thinsp;\nCheck setting the state of it to:\n\tif the noun is not the rotary dial:\n\t\tsay &quot;You can&apos;t set [the noun] to a number.&quot; instead;\n\tif the number understood &lt; 1, say &quot;The lowest setting is 1.&quot; instead;\n\tif the number understood &gt; max setting of the dial, say &quot;Sorry, the dial can only be set from 1 to [max setting of the dial].&quot; instead.\n&thinsp;\nCarry out setting the state of it to:\n\tnow the current setting of the noun is the number understood;\n\tsay &quot;You turn the dial to [number understood].&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">The rotary dial is part of the safe. The dial has a number called current setting. The current setting of the dial is 1. The dial has a number called max setting. The max setting of the dial is 8. The description of the dial is "The rotary dial has eight numbers, 1 through [max setting]. At the moment it's set to [current setting]."</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">Instead of turning the dial:</div>
 <div class="codeline">&ensp;&ensp;&ensp;increase the current setting of the dial by 1;</div>
-<div class="codeline">&ensp;&ensp;&ensp;if the current setting of the dial > max setting of the dial:</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the current setting of the dial &gt; max setting of the dial:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the current setting of the dial is 1;</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "You turn the dial to [current setting of the dial]."</div>
 <div class="codeline">&thinsp;</div>
@@ -7451,8 +7449,8 @@ slightly and came up with this dial:</p>
 <div class="codeline">Check setting the state of it to:</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the noun is not the rotary dial:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say "You can't set [the noun] to a number." instead;</div>
-<div class="codeline">&ensp;&ensp;&ensp;if the number understood < 1, say "The lowest setting is 1." instead;</div>
-<div class="codeline">&ensp;&ensp;&ensp;if the number understood > max setting of the dial, say "Sorry, the dial can only be set from 1 to [max setting of the dial]." instead.</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the number understood &lt; 1, say "The lowest setting is 1." instead;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the number understood &gt; max setting of the dial, say "Sorry, the dial can only be set from 1 to [max setting of the dial]." instead.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">Carry out setting the state of it to:</div>
 <div class="codeline">&ensp;&ensp;&ensp;now the current setting of the noun is the number understood;</div>
@@ -7467,7 +7465,7 @@ want to write some code that would interpret DIAL 123 as a command to
 set the first dial to 1, the second dial to 2, and so on. I’ll leave
 this as an exercise for you to try on your own. The main things to
 notice about the code given above are:</p>
-<p>
+
 <ol class="num">
 <li>
 A new action, setting the state of it to, can be used to SET DIAL TO
@@ -7478,7 +7476,7 @@ dial.</li>
 around to 1 again.
 </li>
 </ol>
-</p>
+
 <p>Many other kinds of mechanical contrivances might be useful in your
 game. If you want to create a tricycle that the player can ride, for
 instance, you’ll want to look at the extension called Rideable Vehicles
@@ -7708,7 +7706,7 @@ sensible-sounding refusal message. You may also want to write an in-game
 clue to suggest that tipping something might be a good action to try.
 For instance, in a description of an object: “It looks as if it might
 tip over in a strong breeze.”</p>
-</div>
+
 <h4 id="holding-something-up-in-the-air">Holding Something Up in the Air</h4>
 
 <p>The player might very reasonably want to hold an object up in the air
@@ -8083,7 +8081,7 @@ this diagram, it baffled me, but it really does make sense. (See <a
 href="#action-processing-summary">Action Processing Summary</a> for a detailed run-through of
 this diagram).</p>
 
-<div class="image-frame"><img src="images/action_rulebooks.png"</div>
+<div class="image-frame"><img src="images/action_rulebooks.png"></div>
 
 <p>When the player types a command, the game goes through a number of
 steps. First it makes sure it knows what the input words are, and that
@@ -8605,7 +8603,7 @@ job.</p>
 <h3 id="creating-new-actions">Creating New Actions</h3>
 
 <p>To create a new action, we need to do three things:</p>
-<p>
+
 <ol class="num">
 <li>
 We give the action itself a name, so that we’ll be able to refer to
@@ -8616,14 +8614,11 @@ happen, using Understand rules.</li>
 action happens. (This would include both things that happen if the
 action succeeds, and messages that will print out if the action fails
   for some reason.)</li>
-</p>
+</ol>
 
 <p><a href="../RB_6.html">Chapter 6 of the <em>Recipe Book,</em> “Commands”</a>, has a lot of good
 information on how to create your own actions. If you haven’t read this
 yet, give it a look.</p>
-</div></li>
-</ol>
-</p>
 
 <p>To illustrate the various possibilities for creating actions, we’re
 going to create an action that will happen when the player uses the verb
@@ -13256,9 +13251,7 @@ this:</p>
 <p>Another way to get the same effect is with the text insertion
 “[paragraph break]”:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Desolate Moor is a room. &quot;A gloomy treeless waste stretches out\non all sides. A few rocky outcrops add an air of ancient\nmenace.[paragraph break]Closer to hand, a crumbling castle stands.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">The Desolate Moor is a room. "A gloomy treeless waste stretches out</div>
-<div class="codeline">on all sides. A few rocky outcrops add an air of ancient</div>
-<div class="codeline">menace.[paragraph break]Closer to hand, a crumbling castle stands."</div>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Desolate Moor is a room. &quot;A gloomy treeless waste stretches out on all sides. A few rocky outcrops add an air of ancient menace.[paragraph break]Closer to hand, a crumbling castle stands.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">The Desolate Moor is a room. "A gloomy treeless waste stretches out on all sides. A few rocky outcrops add an air of ancient menace.[paragraph break]Closer to hand, a crumbling castle stands."</div>
 </div>
 
 <p>This is a better, safer way to break up multiple paragraphs when the
@@ -13459,12 +13452,11 @@ can’t compile the code.</p>
 <p>Blank lines can’t be used within code blocks, however. This won’t
 compile:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of looking when the location is the hall of mirrors:\n\tif the player is invisible:\n\t\tsay &quot;It feels weird to look in the mirrors and not see your\nhandsome features reflected back.&quot; [Errors!]\n`)"><span class="sym">⧉</span></button><div class="codeline">Instead of looking when the location is the hall of mirrors:</div>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of looking when the location is the hall of mirrors:\n\n\tif the player is invisible:\n\n\t\tsay &quot;It feels weird to look in the mirrors and not see your handsome features reflected back.&quot; [Errors!]\n`)"><span class="sym">⧉</span></button><div class="codeline">Instead of looking when the location is the hall of mirrors:</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the player is invisible:</div>
 <div class="codeline">&thinsp;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say "It feels weird to look in the mirrors and not see your</div>
-<div class="codeline">handsome features reflected back." [Errors!]</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say "It feels weird to look in the mirrors and not see your handsome features reflected back." [Errors!]</div>
 </div>
 
 <h3 id="objects-vs.-rules">Objects vs. Rules</h3>
@@ -13506,8 +13498,7 @@ that applies to the current action, it will follow the rule. If the rule
 makes a decision (that is, if it ends with “rule succeeds”, “rule
 fails”, or “stop the action”), Inform will stop. Otherwise, it will
 continue on through the rulebook, and then perhaps proceed to other
-rulebooks in the action-processing sequence, as shown on <strong>p.
-12.2</strong> of <em>Writing with Inform.</em></p>
+rulebooks in the action-processing sequence, as shown in <a href="../WI_12.html#section_2">WI 12.2</a>.</p>
 
 <p>The rulebooks are constructed by the compiler according to certain
 principles. If you’re curious how this works, you should definitely read
@@ -13533,8 +13524,8 @@ end with a default “rule fails”, so action processing will halt. The
 rule about inserting something into an open container will never be
 reached.</p>
 
-<p>As <strong>p. 18.4</strong> of <em>Writing with Inform</em> (“Listing
-rules explicitly”) explains, we can tinker with the ordering of the
+<p>As <a href="../WI_18.html#section_4">WI 18.4 Listing
+rules explicitly”</a> explains, we can tinker with the ordering of the
 rules if we need to. We can tell Inform to put a rule first or last in a
 rulebook, or before or after some other specific rule (if the latter
 rule has a nam). If a rule has a name (and most of the rules in Inform’s
@@ -14628,10 +14619,7 @@ process of doing this is called a loop.</p>
 
 <p>Loops are used less in interactive fiction than in many other types
 of programming, but they definitely have their uses. The basic syntax
-for how to use loops is on <strong>p. 11.9</strong> (“While”),
-<strong>p. 11.10</strong> (“Repeat”), and <strong>p.</strong>
-<strong>11.11</strong> (“Repeat running through”) of <em>Writing with
-Inform</em>. We’ve already seen loops a few times in the
+  for how to use loops is in <a href="WI_11#section_9">WI 11.9 While</a>, <a href="WI_11#section_10">WI 11.10 Repeat</a>, and <a href="WI_11#section_11">WI 11.11 Repeat running through</a>. We’ve already seen loops a few times in the
 <em>Handbook,</em> for instance in the <a
 href="#Ref_dollar_bill">dollar bill example</a>, where the loop was used to move a bunch
 of dollar bills. Here’s a more straightforward example.</p>
@@ -14732,7 +14720,7 @@ tense. But what if you’d like to write a story in first person singular,
 past tense? Or, more exotically, third person plural, future tense? The
 current version of the Inform library provides fairly full support for
 writing a game in any combination of tense and viewpoint, as explained
-on <strong>p. 14.1</strong> of <em>Writing with Inform.</em> In fact,
+in <a href="../WI_14.html#section_1">WI 14.1</a>. In fact,
 you can switch tense and viewpoint at any point in the story, which
 might be useful if one section of the story is a flashback to an earlier
 time, or has a different viewpoint character.</p>
@@ -15004,8 +14992,7 @@ time. Here’s one way to do that:</p>
 </div>
 
 <p>The phrase “repeat with N running from 1 to the number of Rows in the
-Table of Mammals” is explained on <strong>p. 16.6</strong> of
-<em>Writing with Inform.</em> This phrase has several elements. The
+Table of Mammals” is explained in <a href="../WI_16.html#section_6">WI 16.6</a>. This phrase has several elements. The
 phrase “repeat with” creates a <em>loop.</em> Inform will run through
 the code block below the “repeat with” statement over and over. The
 first time through the loop, N will be 1. The second time through the
@@ -15029,8 +15016,7 @@ loop counter:</p>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say "[name entry] is rather obese."</div>
 </div>
 
-<p>As mentioned on <strong>p. 16.12</strong> of <em>Writing with
-Inform</em>, “Listed in...,” when Inform looks at some data in a table
+<p>As mentioned in <a href="../WI_16.html#section_12">WI 16.12 Listed in...</a>, when Inform looks at some data in a table
 row, that row is automatically chosen. This makes it easy to refer to
 the other data in the same row without having to tell the compiler what
 row we’re talking about. Here’s an example that shows how this works.
@@ -15158,6 +15144,7 @@ but this is still just row-choosing stuff.</p>
 
 <h3 id="the-skein">The Skein</h3>
 
+<!-- TODO -->
 <p>As explained in <strong>pages 1.7 and 1.8</strong> of <em>Writing
 with Inform</em> (“The Skein” and “A short Skein tutorial”), the Skein
 and Transcript panels are used to replay series of commands and examine
@@ -15268,11 +15255,10 @@ be indexed.</p>
 
 <p>Under the World tab, you’ll find a graphic map showing all of your
 rooms and the connections among them. Inform’s attempt to map
-complicated layouts is not perfect (nor could it be). On <strong>p.
-25.18</strong> of <em>Writing with Inform</em> you’ll find some
+complicated layouts is not perfect (nor could it be). In <a href="../WI_25.html#section_18">WI 25.18</a> you’ll find some
 suggestions on how to improve the map. After a bit of tweaking if
-necessary, this map can be exported as an EPS file, as explained on
-<strong>p. 25.19.</strong> You may find this convenient, but my own
+necessary, this map can be exported as an EPS file, as explained in
+<a href="../WI_25.html#section_19">WI 25.19</a>. You may find this convenient, but my own
 preference is to create a PDF map by hand using a freeware drawing
 program such as OpenOffice.</p>
 
@@ -15330,16 +15316,11 @@ game, but sometimes that’s just not possible.</p>
 
 <p>A handy trick for helping the parser deal with this type of ambiguity
 is to write a Does The Player Mean rule. The way to do this is explained
-on <strong>p. 17.19</strong> of <em>Writing with Inform</em>, “Does the
-player mean....” Other useful techniques are shown on <strong>pages
-17.17</strong> (“Context: understanding when”), <strong>17.20</strong>
-(“Understanding mistakes”), and <strong>17.21</strong> (“Precedence”).
-One of my favorite techniques (from 17.17) is writing Understand When
+  in <a href="../WI_17.html#section_19">WI 17.19 Does the player mean...</a>. Other useful techniques are shown in <a href="../WI_17.html#section_17">WI 17.17 Context: understanding when...</a>, <a href="../WI_17.html#section_20">WI 17.20 Understanding mistakes</a>, and <a href="../WI_17.html#section_21">WI 17.21 Precedence</a>. One of my favorite techniques (from <a href="../WI_17.html#section_17">WI 17.17</a>) is writing Understand When
 rules. We’ve seen a couple of these elsewhere in the <em>Handbook</em>.
 Such a rule might look like this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Understand &quot;cracked&quot; and &quot;chipped&quot; as the Ming vase when the Ming\nvase is broken.\n`)"><span class="sym">⧉</span></button><div class="codeline">Understand "cracked" and "chipped" as the Ming vase when the Ming</div>
-<div class="codeline">vase is broken.</div>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Understand &quot;cracked&quot; and &quot;chipped&quot; as the Ming vase when the Ming vase is broken.\n`)"><span class="sym">⧉</span></button><div class="codeline">Understand "cracked" and "chipped" as the Ming vase when the Ming vase is broken.</div>
 </div>
 
 <p>When you put this rule in your code, the words “cracked” and
@@ -15347,8 +15328,7 @@ Such a rule might look like this:</p>
 not broken. Writing conditions that refer to specific scenes is also
 useful:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Understand &quot;dismantled&quot; as the robot when Emergency Repairs is\nhappening.\n`)"><span class="sym">⧉</span></button><div class="codeline">Understand "dismantled" as the robot when Emergency Repairs is</div>
-<div class="codeline">happening.</div>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Understand &quot;dismantled&quot; as the robot when Emergency Repairs is happening.\n`)"><span class="sym">⧉</span></button><div class="codeline">Understand "dismantled" as the robot when Emergency Repairs is happening.</div>
 </div>
 
 <h4 id="pronouns">Pronouns</h4>
@@ -15492,9 +15472,8 @@ model world in ways that are shorter and easier to understand when
 reading the code. Second, relations can be used to manage how bunches of
 objects … well, how they relate to one another.</p>
 
-<p>For a couple of examples of the first usage, see <strong>p.
-13.9</strong> of <em>Writing with Inform</em>, “Defining new assertion
-verbs.” There, some new verbs are defined, which can then be used in
+<p>For a couple of examples of the first usage, see <a href="../WI_13.html#section_9">WI 13.9 Defining new assertion
+verbs</a>. There, some new verbs are defined, which can then be used in
 code. Here’s another example, this one my own:</p>
 
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Proximity relates a thing (called X) to a thing (called Y) when the\nholder of X is the holder of Y. The verb to jostle (he jostles, he\njostled, it is jostled, he is jostling) implies the proximity\nrelation.\n`)"><span class="sym">⧉</span></button><div class="codeline">Proximity relates a thing (called X) to a thing (called Y) when the</div>
@@ -15546,8 +15525,7 @@ with Jason when she sees him.</p>
 <p>There’s no real need to use relations to manage this game. You can do
 something simple, with properties, like this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Jason can be ready-for-love or not ready-for-love. Jason can be\nloving-Jennifer or not loving-Jennifer.\n`)"><span class="sym">⧉</span></button><div class="codeline">Jason can be ready-for-love or not ready-for-love. Jason can be</div>
-<div class="codeline">loving-Jennifer or not loving-Jennifer.</div>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Jason can be ready-for-love or not ready-for-love. Jason can be loving-Jennifer or not loving-Jennifer.\n`)"><span class="sym">⧉</span></button><div class="codeline">Jason can be ready-for-love or not ready-for-love. Jason can be loving-Jennifer or not loving-Jennifer.</div>
 </div>
 
 <p>...and similar properties for Jennifer. When Jason is loving-Jennifer
@@ -15555,10 +15533,8 @@ and Jennifer is loving-Jason, the player has won the game. We don’t need
 relations here, because these two properties will do the job nicely.</p>
 
 <p>But now imagine that the game includes Steve, Bill, Ted, Ralph, and
-Jason; and also Jennifer, Susan, Beth, Amy, and Helen. Any of the men
-can fall in love with any of the women, and vice-versa! (In the interest
-of not offending our more traditionally minded readers, we’ll ignore the
-other possibilities.) If we try to use properties, the list of
+Jason; and also Jennifer, Susan, Beth, Amy, and Helen. Any one of them
+can fall in love with any of the others, and vice-versa! If we try to use properties, the list of
 properties each character will need is going to be rather long, and
 managing these properties in such a way as to avoid bugs will be quite
 tricky. To manage the potential romantic tangles that can arise during
@@ -15566,8 +15542,8 @@ the game in a more reliable way, a better approach will be to use
 relations.</p>
 
 <p>The code for this game would almost certainly include the example
-sentence on <strong>p. 13.5</strong>, “Loving relates various people to
-one person.” We would have to write more code in order to cause
+sentence in <a href="../WI_13.html#section_5">WI 13.5 Loving relates various people to
+one person</a>. We would have to write more code in order to cause
 characters who have been shot with one of Cupid’s arrows to fall in love
 with the next suitable person they see. I’m not going to do that here,
 but it’s not actually a bad idea for a game. I hope someone will try it.
@@ -15706,7 +15682,7 @@ choice.</p>
 <h3 id="special-features-in-glulx">Special Features in Glulx</h3>
 
 <p>In <a href="../WI_23.html">Chapter 23 of <em>Writing with Inform</em>,
-“Figures, Sounds and Files”</a>, you’ll find a good discussion of how to add
+Figures, Sounds and Files</a>, you’ll find a good discussion of how to add
 graphics files (digital photos or clip art in .jpg or .png format) to
 your game. To do so, you’ll need to compile to glulx, not to .z8.</p>
 
@@ -15752,8 +15728,7 @@ you look at the code in a few extensions written by experts, you’ll
 probably see Inform 6 peeking through the curtain. Here’s a line from an
 extension by Emily Short that I chose at random:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Use direct event handling translates as (- Constant\nDIRECT_GLK_EVENT_HANDLING; -).\n`)"><span class="sym">⧉</span></button><div class="codeline">Use direct event handling translates as (- Constant</div>
-<div class="codeline">DIRECT_GLK_EVENT_HANDLING; -).</div>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Use direct event handling translates as (- Constant DIRECT_GLK_EVENT_HANDLING; -).\n`)"><span class="sym">⧉</span></button><div class="codeline">Use direct event handling translates as (- Constant DIRECT_GLK_EVENT_HANDLING; -).</div>
 </div>
 
 <p>The parentheses and hyphens are what tells the compiler “Here’s some
@@ -17662,10 +17637,10 @@ license of any rights under applicable law.</p>
 </div>
 <footer>
         <blockquote>
-<p><em>The Inform 7 Handbook</em> is copyright (c) 2015 by Jim Aikin.
+<p><em>The Inform 7 Handbook</em> is copyright &copy; 2015 by Jim Aikin.
 <em>The Inform 7 Handbook</em> has been released under and is subject to
 the terms of the Creative Commons Public License, the terms of which are
-hereby incorporated by reference. Please see Appendix C of this book and
+hereby incorporated by reference. Please see <a href="#appendix-d-license">Appendix D</a> of this book and
 read it before using this material. Your use of this material signifies
 your agreement to the terms of the License.</p>
 <p>You are free to copy, distribute, and transmit this work, and you are
@@ -17689,5 +17664,8 @@ resides.</p>
 </blockquote>
 </footer>
 </main>
-  </body>
+<footer>
+  <p>The Inform 7 Handbook</em> is copyright &copy; 2015 by Jim Aikin, and released under a <a href="https://creativecommons.org/licenses/by-nc/1.0/legalcode">CC-BY-NC 1.0 license</a>.</p>
+</footer>
+</body>
 </html>

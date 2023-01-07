@@ -45,6 +45,8 @@ sidebar > p, blockquote > p:first-child { margin-top: 0; }
 blockquote > p:last-child { margin-bottom: 0; }
 sidebar > p:last-child { margin-bottom: 0; }
 
+.disclaimer { margin-top: 1rem; }
+
 p:last-child: { margin-bottom: revert; }
 
 p + ol, ol + p { margin-top: 1em; }
