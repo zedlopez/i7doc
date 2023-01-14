@@ -1,4 +1,5 @@
-  .image-frame {
+.bold { font-weight: bold; }
+.image-frame {
 display: flex;
     align-items: center;
     justify-content: center; }
@@ -17,7 +18,7 @@ display: flex;
 }
 .codeblock + .codeblock { margin-top: 1rem; }
 ol.num { list-style: decimal inside; }
-div { border-radius: 1.5rem; }
+div { border-radius: 1rem; }
 .caps { text-transform: uppercase }
 
 .command { margin-left: 1rem; margin-right: 1rem; font-family: monospace; font-size: .9375rem; }
@@ -26,28 +27,39 @@ p + div, div + p { margin-top: 1rem; }
 
 /* p + .command { margin-top: 1rem; } */
 
-.prompt::after { content: ' ' }
+.prompt { padding-right: .25rem; }
 
 .game-output { background-color: #88460b; padding-top: .75rem; padding-bottom: .75rem; }
-.sidebar { background-color: #232B32; padding-bottom: 1rem; margin-bottom: 1rem; }
+.sidebar { background-color: #232B32; margin-bottom: 1rem; padding-top: .5rem; padding-bottom: 1rem; margin-top: 1rem; }
+
+.sidebar + .sidebar { margin-top: 1.5rem; }
+
 /* p + .game-output, .game-output + p { margin-top: 1rem; } */
 .game-output > p { margin-top: 0; }
 .game-output > p:last-child { margin-bottom: 0; }
 .game-output > p { line-height: 1.33; }
 /*.game-output p + p { margin-top: 0; }*/
 
-.sidebar > h4 { margin-left: 1em; margin-right: 1em; }
+.sidebar > h4 { margin-left: 1em; margin-right: 1em; margin-top: .5rem; }
 ol, ul, p { margin-left: 1em; margin-right: 1em; }
 ol, ul { margin-left: 2.5em; text-indent: -1.5em; }
-ol > li::before { content: '\2002'; }
+ol > li::before { content: '\2002'; } 
 sidebar > p, blockquote > p { margin-left: 0em; margin-right: 0em; padding-left: 1em; padding-right: 1em; }
-sidebar > p, blockquote > p:first-child { margin-top: 0; }
-blockquote > p:last-child { margin-bottom: 0; }
-sidebar > p:last-child { margin-bottom: 0; }
+
+ol {  counter-reset: section; }
 
 .disclaimer { margin-top: 1rem; }
 
-p:last-child: { margin-bottom: revert; }
+
+.footnote + sidebar, p + sidebar { margin-top: 1rem; }
+sidebar + p { margin-top: 1rem; }
+
+/*body + p:first-child { margin-top: 1.5em; }
+
+body + p:last-child { margin-bottom: 1.5em; }*/
+
+/*.sidebar > p:first-child { margin-top: .5rem; }
+.sidebar > p:last-child { margin-bottom: .5rem; }*/
 
 p + ol, ol + p { margin-top: 1em; }
 p + ul, ul + p { margin-top: 1em; }
@@ -62,3 +74,5 @@ h3 { margin-top: 1rem; }
 h3 { margin-bottom: 1rem; }
 
 
+header > h1, header > h2 { text-align: center; }
+header > h1 + h2 { margin-top: 0; }

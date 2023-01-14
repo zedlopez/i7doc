@@ -199,12 +199,11 @@ table {
 :where(:root) {
 }
 
-p:first-child { margin-top: 1.5em; }
 p + blockquote, blockquote + p, p + p { margin-top: 1em; }
 
-p:last-child { margin-bottom: 1.5em; }
+.example-body > p:first-child, article > p:first-child { margin-top: 1.5em; }
 
-
+.example-body > p:last-child, article > p:last-child { margin-bottom: 1.5em; }
 
 p {
     line-height: calc(1ex / 0.32);
