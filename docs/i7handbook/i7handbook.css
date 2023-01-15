@@ -8,7 +8,9 @@ display: flex;
   p + .image-frame, .image-frame + p { margin-top: 1rem; }
   img {margin: auto; }
 
-  .addendum { border: .1rem solid currentColor; border-radius: 1.5rem; }
+  .addendum { border: .1rem solid currentColor; border-radius: 1rem;  }
+  .add-header { padding-left: 1rem; border-bottom: .1rem solid currentColor; border-radius: 1rem 1rem 0 0; background-color: var(--testme-bg-color); font-weight: bold; padding-top: .5rem; padding-bottom: .5rem; }
+  .add-body { margin-top: 1rem; margin-bottom: 1rem; padding-left: 1rem; border-radius: 0 0 1rem 1rem; }
   ul {
     list-style-position: inside;
     margin-left: 3em;
@@ -27,10 +29,12 @@ p + div, div + p { margin-top: 1rem; }
 
 /* p + .command { margin-top: 1rem; } */
 
+
+
 .prompt { padding-right: .25rem; }
 
-.game-output { background-color: #88460b; padding-top: .75rem; padding-bottom: .75rem; }
-.sidebar { background-color: #232B32; margin-bottom: 1rem; padding-top: .5rem; padding-bottom: 1rem; margin-top: 1rem; }
+.game-output { background-color: var(--defn-line-bg-color); padding-top: .75rem; padding-bottom: .75rem; }
+.sidebar { background-color: var(--indexbar-bg-color); margin-bottom: 1rem; padding-top: .5rem; padding-bottom: 1rem; margin-top: 1rem; }
 
 .sidebar + .sidebar { margin-top: 1.5rem; }
 
@@ -46,10 +50,7 @@ ol, ul { margin-left: 2.5em; text-indent: -1.5em; }
 ol > li::before { content: '\2002'; } 
 sidebar > p, blockquote > p { margin-left: 0em; margin-right: 0em; padding-left: 1em; padding-right: 1em; }
 
-ol {  counter-reset: section; }
-
 .disclaimer { margin-top: 1rem; }
-
 
 .footnote + sidebar, p + sidebar { margin-top: 1rem; }
 sidebar + p { margin-top: 1rem; }
