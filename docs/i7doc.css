@@ -429,8 +429,8 @@ div.section-row { display: table-row; }
 div.section-chapter-num { display: table-cell; text-align: right; font-weight: var(--bold-weight); font-size: 1.2em; }
 div.section-section-num { display: table-cell; font-weight: var(--bold-weight); font-size: 1.2em; }
 div.section-name-holder { display: table-cell; }
-div.section-name { font-size: 1.2em; font-weight: var(--bold-weight); padding-left: 1rem; } /* rem, not em: different font sizes in play */
-span.chapter-name { padding-left: 1rem; } /* same as div.section-name */
+div.section-name { font-size: 1.2em; font-weight: var(--bold-weight); padding-left: .33rem; } /* rem, not em: different font sizes in play */
+span.chapter-name { padding-left: .33rem; } /* same as div.section-name */
 
 div.example-block { display: table; }
 div.example-row { display: table-row; }
@@ -446,6 +446,8 @@ div.example-short { display: flex; }
 
 div.example-short-name { margin-left: .5em; }
 span.example-short-name { font-weight: var(--bold-weight); }
+
+h2 + .chapter-details { margin-top: 1rem; }
 details.chapter-details {
     padding-left: 2em;
     margin-bottom: .5em;
@@ -555,7 +557,7 @@ body.toc { width: 100%; }
 /*#general-index-page, #general-index, .index-entry { width: 100%; margin: auto; }*/
 
 
-.indexsource, .indexsourcearg, .indexsourcepartbracketed, indexphrase, .indexifphrase, .indexsayphrase, .indexoutphrase, .indexassert, .indexrb, .indexprop, .indexpropcat, .indexadj, .indexrelverb, .indexglob, .indexactvar, .indexconst, .indexaction, .indexactivity, .indexactivitycat, .indexdescactivity, .indexofsourcebracketed, .indexuseopt, .indextoken, .indexphrase, .indexsayphrase { font-family: var(--mono); }
+.indexsource, .indexsourcearg, .indexsourcepartbracketed, .indexsourcepartunbracketed, indexphrase, .indexifphrase, .indexsayphrase, .indexoutphrase, .indexassert, .indexrb, .indexprop, .indexpropcat, .indexadj, .indexrelverb, .indexglob, .indexactvar, .indexconst, .indexaction, .indexactivity, .indexactivitycat, .indexdescactivity, .indexofsourcebracketed, .indexuseopt, .indextoken, .indexphrase, .indexsayphrase, .indexadjunbracketed { font-family: var(--mono); }
 
 .indexcommand, .indextestcmd, .indexcommandpartbracketed { text-transform: uppercase; font-size: .9em; }
 .indent0 { font-size: 1.1em; margin-left: 0em; margin-top: .5rem; margin-bottom: 0; }
@@ -611,6 +613,8 @@ span.index-ref-list { font-size: .9375em; }
 
 .summation { display: inline-block; }
 summary > * { display: inline; }
+
+summary + .section-block { margin-top: .5rem; }
 
 .play-example { text-align: right; align: right; font-weight: var(--bold-weight); font-size: .9375em; }
 

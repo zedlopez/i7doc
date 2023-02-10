@@ -8,6 +8,18 @@
 <link rel="stylesheet" href="../i7doc.css">
 <link rel="stylesheet" href="i7handbook.css">
   </head>
+
+  <!-- TODO
+      replace ToC
+      comment on this edition & addenda
+      comment on copy-code button
+      more links to other chapters of the handbook
+      break up per chapter? + all-in-one for searching?
+      borogove for the long examples
+      
+      -->
+
+
   <body>
     <header>
       <h1 id="inform7-handbook">Inform 7 Handbook</h1>
@@ -16,279 +28,647 @@
     <main>
 <p class="disclaimer">Adapted from <a href="http://www.musicwords.net/if/i7hb.htm"><em>The Inform 7 Handbook</em>, version 2.0</a>, released in 2015 for Inform 7 9.2/6L38 under a <a href="#appendix-d-license">CC-BY-NC license</a>. No endorsement by Jim Aikin of this adaptation is implied.</p>
 
-      <div class="chapter">
         <h2>Table of Contents</h2>
-  <a href="#foreword">Foreword</a>
-  </div><ul>
-<li><a href="#acknowledgments">Acknowledgments</a></li>
-<li><a href="#about-the-author">About the Author</a></li>
-</ul>
-<div class="chapter">
-<a href="#chapter-1-getting-started">Chapter 1: Getting Started</a></div>
-<ul>
-  <li><a href="#downloading-installing">Downloading &amp; Installing</a></li>
-<li><a href="#the-inform-7-program">The Inform 7 Program</a></li>
-<ul>
-<li><a href="#the-page-headers">The Page Headers</a></li>
-<li><a href="#the-go-button">The Go! Button</a></li>
-<li><a href="#the-release-button">The Release Button</a></li>
-<li><a href="#other-features">Other Features</a></li>
-</ul>
-<li><a href="#using-the-built-in-documentation">Using the Built-In Documentation</a></li>
-<li><a href="#what-happens-in-a-game">What Happens in a Game</a></li>
-<ul>
-<li><a href="#entering-commands">Entering Commands</a></li>
-</ul>
-<li><a href="#downloading-playing-games">Downloading &amp; Playing Games</a></li>
-<ul>
-<li><a href="#whats-this-z8-stuff-all-about-anyway">What’s This .z8 Stuff All About, Anyway?</a></li>
-</ul>
-<li><a href="#writing-your-first-game">Writing Your First Game</a></li>
-<ul>
-<li><a href="#from-the-top">From the Top</a></li>
-<li><a href="#the-detail-trap">The Detail Trap</a></li>
-<li><a href="#title-trickery">Title Trickery</a></li>
-<li><a href="#telling-a-story">Telling a Story</a></li>
-<li><a href="#managing-your-projects">Managing Your Project(s)</a></li>
-<li><a href="#about-inform-source-code">About Inform Source Code</a></li>
-</ul>
-<li><a href="#all-about-bugs">All About Bugs</a></li>
-<li><a href="#testing-your-game">Testing Your Game</a></li>
-<li><a href="#using-the-debugging-commands">Using the Debugging Commands</a></li>
-<ul>
-<li><a href="#another-way-to-debug">Another Way to Debug</a></li>
-</ul>
-<li><a href="#puzzles">Puzzles</a></li>
-<li><a href="#extensions-for-inform">Extensions for Inform</a></li>
-<li><a href="#where-to-learn-more">Where to Learn More</a></li>
-</ul>
-<div class="chapter"><a href="#chapter-2-rooms-scenery">Chapter 2: Rooms &amp; Scenery</a></div>
-<ul>
-<li><a href="#creating-your-first-room">Creating Your First Room</a></li>
-<li><a href="#scenery">Scenery</a></li>
-<ul>
-<li><a href="#the-names-of-things">The Names of Things</a></li>
-<li><a href="#how-much-scenery-is-enough">How Much Scenery Is Enough?</a></li>
-</ul>
-<li><a href="#distant-scenery">Distant Scenery</a></li>
-<li><a href="#adding-more-rooms-to-the-map">Adding More Rooms to the Map</a></li>
-<li><a href="#the-great-outdoors">The Great Outdoors</a></li>
-<li><a href="#enterable-scenery">Enterable Scenery</a></li>
-<li><a href="#doors">Doors</a></li>
-<ul>
-<li><a href="#locked-doors">Locked Doors</a></li>
-<li><a href="#secret-doors">Secret Doors</a></li>
-<li><a href="#dangerous-doors">Dangerous Doors</a></li>
-</ul>
-<li><a href="#travel-by-fiat">Travel by Fiat</a></li>
-<li><a href="#windows">Windows</a></li>
-<li><a href="#you-cant-go-that-way.">“You can’t go that way.”</a></li>
-<li><a href="#duplicate-exits-twisty-connections">Duplicate Exits &amp; Twisty Connections</a></li>
-<ul>
-<li><a href="#hallways-with-lots-of-doors">Hallways with Lots of Doors</a></li>
-</ul>
-<li><a href="#changing-the-map-during-the-game">Changing the Map During the Game</a></li>
-<li><a href="#regions">Regions</a></li>
-<li><a href="#backdrops">Backdrops</a></li>
-<ul>
-<li><a href="#removing-a-backdrop">Removing a Backdrop</a></li>
-</ul>
-<li><a href="#dark-rooms">Dark Rooms</a></li>
-<ul>
-<li><a href="#backdrops-in-dark-rooms">Backdrops in Dark Rooms</a></li>
-</ul>
-<li><a href="#seemingly-identical-rooms">Seemingly Identical Rooms</a></li>
-<li><a href="#floorless-rooms">Floorless Rooms</a></li>
-<li><a href="#when-is-a-room-visited">When Is a Room “visited”?</a></li>
-<li><a href="#more-about-room-descriptions">More About Room Descriptions</a></li>
-</ul>
-<div class="chapter"><a href="#chapter-3-things">Chapter 3: Things</a></div>
-<ul>
-<li><a href="#creating-things">Creating Things</a></li>
-<li><a href="#things-vs.-kinds">Things vs. Kinds</a></li>
-<li><a href="#the-names-of-things-1">The Names of Things</a></li>
-<li><a href="#long-names">Long Names</a></li>
-<li><a href="#initial-appearance">Initial Appearance</a></li>
-<li><a href="#adding-vocabulary-words-with-understand">Adding Vocabulary Words with “Understand”</a></li>
-<ul>
-<li><a href="#conditional-vocabulary">Conditional Vocabulary</a></li>
-</ul>
-<li><a href="#containers-supporters">Containers &amp; Supporters</a></li>
-<ul>
-<li><a href="#stealthy-containers">Stealthy Containers</a></li>
-<li><a href="#sneaky-supporters">Sneaky Supporters</a></li>
-</ul>
-<li><a href="#looking-under-looking-behind">Looking Under &amp; Looking Behind</a></li>
-<li><a href="#take-all">Take All</a></li>
-<li><a href="#moving-things-around">Moving Things Around</a></li>
-<li><a href="#inventory">Inventory</a></li>
-<li><a href="#testing-where-a-thing-is">Testing Where a Thing Is</a></li>
-<li><a href="#things-can-have-properties">Things Can Have Properties</a></li>
-<ul>
-<li><a href="#number-properties">Number Properties</a></li>
-<li><a href="#word-properties">Word Properties</a></li>
-</ul>
-<li><a href="#plurals-collective-objects">Plurals &amp; Collective Objects</a></li>
-<li><a href="#more-about-collections-kinds">More about Collections &amp; Kinds</a></li>
-<li><a href="#objects-that-have-parts">Objects That Have Parts</a></li>
-<li><a href="#reading-matter">Reading Matter</a></li>
-<li><a href="#writing-on-things">Writing on Things</a></li>
-<li><a href="#mechanical-marvels">Mechanical Marvels</a></li>
-<li><a href="#smelling-listening">Smelling &amp; Listening</a></li>
-<li><a href="#transforming-one-thing-into-another">Transforming One Thing into Another</a></li>
-<li><a href="#new-ways-to-use-things">New Ways to Use Things</a></li>
-<ul>
-<li><a href="#holding-something-up-in-the-air">Holding Something Up in the Air</a></li>
-<li><a href="#tipping-something">Tipping Something</a></li>
-<li><a href="#holding-something-against-something-else">Holding Something Against Something Else</a></li>
-</ul>
-</ul>
-<div class="chapter"><a href="#chapter-4-actions">Chapter 4: Actions</a></div>
-<ul>
-<li><a href="#built-in-actions">Built-In Actions</a></li>
-<li><a href="#using-instead">Using “Instead”</a></li>
-<li><a href="#action-processing">Action Processing</a></li>
-<li><a href="#rulebooks-stop-the-action">Rulebooks &amp; “Stop the Action”</a></li>
-<li><a href="#three-types-of-actions">Three Types of Actions</a></li>
-<li><a href="#creating-new-actions">Creating New Actions</a></li>
-<li><a href="#any-thing">[Any Thing]</a></li>
-<li><a href="#same-action-new-results">Same Action, New Results</a></li>
-<li><a href="#redirecting-an-action">Redirecting an Action</a></li>
-<li><a href="#actions-with-topics">Actions with Topics</a></li>
-<li><a href="#action-processing-summary">Action Processing &ndash; Summary</a></li>
-</ul>
-<div class="chapter"><a href="#chapter-5-creating-characters">Chapter 5: Creating Characters</a></div>
-<ul>
-<li><a href="#overview">Overview</a></li>
-<li><a href="#the-player-character">The Player Character</a></li>
-<li><a href="#creating-an-npc">Creating an NPC</a></li>
-<li><a href="#mr.-mrs.">Mr. &amp; Mrs.</a></li>
-<li><a href="#conversations-part-i-talk-to">Conversations, Part I: talk to</a></li>
-<li><a href="#conversations-part-ii-asktellgiveshow">Conversations, Part II: ask/tell/give/show</a></li>
-<ul>
-<li><a href="#topics-of-conversation">Topics of Conversation</a></li>
-</ul>
-<li><a href="#conversations-part-iii-character-knowledge">Conversations, Part III: Character Knowledge</a></li>
-<li><a href="#conversations-part-iv-menu-based-conversation">Conversations, Part IV: Menu-Based Conversation</a></li>
-<li><a href="#giving-orders-to-characters">Giving Orders to Characters</a></li>
-<li><a href="#giving-orders-that-involve-going-elsewhere">Giving Orders that Involve Going Elsewhere</a></li>
-<li><a href="#moving-characters-around">Moving Characters Around</a></li>
-<li><a href="#characters-who-follow-the-player">Characters Who Follow the Player</a></li>
-<li><a href="#characters-the-player-can-follow">Characters the Player Can Follow</a></li>
-<li><a href="#stage-business">Stage Business</a></li>
-<li><a href="#character-actions">Character Actions</a></li>
-<li><a href="#combat">Combat</a></li>
-<li><a href="#moods">Moods</a></li>
-<li><a href="#body-parts">Body Parts</a></li>
-</ul>
-<div class="chapter"><a href="#chapter-6-puzzles">Chapter 6: Puzzles</a></div>
-<ul>
-<li><a href="#mapping">Mapping</a></li>
-<li><a href="#blocked-passageways">Blocked Passageways</a></li>
-<li><a href="#darkness">Darkness</a></li>
-<li><a href="#hidden-items">Hidden Items</a></li>
-<li><a href="#items-out-of-reach">Items Out of Reach</a></li>
-<li><a href="#locked-containers">Locked Containers</a></li>
-<li><a href="#combination-locks">Combination Locks</a></li>
-<li><a href="#manipulation-difficulties">Manipulation Difficulties</a></li>
-<li><a href="#enigmas">Enigmas</a></li>
-<li><a href="#deceptive-appearances-unusual-usages">Deceptive Appearances &amp; Unusual Usages</a></li>
-<li><a href="#assembly-required">Assembly Required</a></li>
-<li><a href="#mechanisms">Mechanisms</a></li>
-<li><a href="#vehicles">Vehicles</a></li>
-<li><a href="#consulting-information-sources">Consulting Information Sources</a></li>
-<li><a href="#the-uncooperative-character">The Uncooperative Character</a></li>
-<li><a href="#timed-puzzles">Timed Puzzles</a></li>
-<li><a href="#inadequate-implementation">Inadequate Implementation</a></li>
-</ul>
-<div class="chapter"><a href="#chapter-7-winning-losing">Chapter 7: Winning &amp; Losing</a></div>
-<ul>
-<li><a href="#a-word-about-fairness">A Word About Fairness</a></li>
-<li><a href="#keeping-score">Keeping Score</a></li>
-<ul>
-<li><a href="#a-treasure-chest">A Treasure Chest</a></li>
-</ul>
-<li><a href="#achievements">Achievements</a></li>
-</ul>
-<div class="chapter"><a href="#chapter-8-time-scenes">Chapter 8: Time &amp; Scenes</a></div>
-<ul>
-<li><a href="#passing-time">Passing Time</a></li>
-<li><a href="#future-events">Future Events</a></li>
-<li><a href="#scenes">Scenes</a></li>
-<ul>
-<li><a href="#chaining-scenes">Chaining Scenes</a></li>
-<li><a href="#using-scenes-to-control-action">Using Scenes to Control Action</a></li>
-</ul>
-<li><a href="#every-turn-rules">Every Turn Rules</a></li>
-</ul>
-<div class="chapter"><a href="#chapter-9-phrasing-punctuation">Chapter 9: Phrasing &amp; Punctuation</a></div>
-<ul>
-<li><a href="#types-of-source-text">Types of Source Text</a></li>
-<li><a href="#text-insertions">Text Insertions</a></li>
-<ul>
-<li><a href="#switchable-markup">Switchable Markup</a></li>
-<li><a href="#quotes-within-quotes">Quotes Within Quotes</a></li>
-</ul>
-<li><a href="#breaking-up-paragraphs">Breaking Up Paragraphs</a></li>
-<li><a href="#large-text-blocks">Large Text Blocks</a></li>
-<li><a href="#white-space">White Space</a></li>
-<li><a href="#objects-vs.-rules">Objects vs. Rules</a></li>
-<li><a href="#the-names-of-things-2">The Names of Things</a></li>
-<li><a href="#punctuation">Punctuation</a></li>
-<li><a href="#assertions">Assertions</a></li>
-<li><a href="#values">Values</a></li>
-<li><a href="#arithmetic">Arithmetic</a></li>
-<li><a href="#doing-calculations">Doing Calculations</a></li>
-<li><a href="#testing-conditions">Testing Conditions</a></li>
-<li><a href="#creating-new-phrases">Creating New Phrases</a></li>
-<li><a href="#indenting">Indenting</a></li>
-<ul>
-<li><a href="#too-many-indents">Too Many Indents</a></li>
-</ul>
-<li><a href="#headings">Headings</a></li>
-<li><a href="#loops">Loops</a></li>
-</ul>
-<div class="chapter"><a href="#chapter-10-advanced-topics">Chapter 10: Advanced Topics</a></div>
-<ul>
-<li><a href="#story-tense-and-viewpoint">Story Tense and Viewpoint</a></li>
-<li><a href="#code-optimization">Code Optimization</a></li>
-<ul>
-<li><a href="#instead-of-instead">Instead of Instead</a></li>
-<li><a href="#every-turn-rules-1">Every Turn Rules</a></li>
-<li><a href="#other-ways-to-streamline-your-code">Other Ways to Streamline Your Code</a></li>
-</ul>
-<li><a href="#tables">Tables</a></li>
-<li><a href="#the-skein">The Skein</a></li>
-<li><a href="#using-the-index">Using the Index</a></li>
-<li><a href="#helping-the-parser">Helping the Parser</a></li>
-<ul>
-<li><a href="#pronouns">Pronouns</a></li>
-</ul>
-<li><a href="#clearing-the-screen">Clearing the Screen</a></li>
-<li><a href="#i6-constants">I6 Constants</a></li>
-<li><a href="#relations">Relations</a></li>
-<li><a href="#adding-hints">Adding Hints</a></li>
-<li><a href="#special-features-in-glulx">Special Features in Glulx</a></li>
-<li><a href="#what-does-inform-6-have-to-do-with-inform-7">What Does Inform 6 Have to Do with Inform 7?</a></li>
-<li><a href="#so-is-inform-7-the-ultimate-if-programming-language">So, Is Inform 7 the Ultimate IF Programming Language?</a></li>
-</ul>
-<div class="chapter"><a href="#appendix-a-glossary">Appendix A: Glossary</a></div>
-<div><a href="#appendix-b-updating-older-extensions">Appendix B: Updating Older Extensions</a></div>
-<div><a href="#appendix-c-short-sample-games">Appendix C: Short Sample Games</a></div>
-<ul>
-<li><a href="#flea-market">Flea Market</a></li>
-<li><a href="#mr-potato-head">Mr Potato Head</a></li>
-<li><a href="#a-dangerous-jewel-box">A Dangerous Jewel Box</a></li>
-<li><a href="#the-omega-machine">The Omega Machine</a></li>
-<li><a href="#the-lurking-critter">The Lurking Critter</a></li>
-<li><a href="#restraints">Restraints</a></li>
-<li><a href="#broken-eggs">Broken Eggs</a></li>
-<li><a href="#indoors-outdoors">Indoors &amp; Outdoors</a></li>
-</ul>
-<li><a href="#appendix-d-license">Appendix D: License</a></li>
 
+<a href="#inform7-handbook">Inform 7 Handbook</a>
+<details class="chapter-details"><summary class="toc-chapter"><span class="chapter-num"><span class="hidden">00.</span></span><span class="chapter-name">Foreword</span></summary>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#acknowledgments">Acknowledgments</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#about-the-author">About the Author</a>
+</div></div></div>
+</div></details>
+<details class="chapter-details"><summary class="toc-chapter"><span class="chapter-num"><span class="hidden">0</span>1.</span><span class="chapter-name">Getting Started</span></summary>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#downloading-installing">Downloading &amp; Installing</a>
+</div></div></div>
+&emsp;
+<a href="#is-it-a-game-or-is-it-a-story">Is It a Game, or Is It a Story?</a>
+<br>
+</ul>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#the-inform-7-program">The Inform 7 Program</a>
+</div></div></div>
+&emsp;
+<a href="#the-page-headers">The Page Headers</a>
+<br>
+&emsp;
+<a href="#the-go-button">The Go! Button</a>
+<br>
+&emsp;
+<a href="#common-coding-problems">Six Common Problems</a>
+<br>
+&emsp;
+<a href="#the-release-button">The Release Button</a>
+<br>
+&emsp;
+<a href="#other-features">Other Features</a>
+<br>
+&emsp;
+<a href="#source-code-or-text">Source: Code or Text?</a>
+<br>
+</ul>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#using-the-built-in-documentation">Using the Built-In Documentation</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#what-happens-in-a-game">What Happens in a Game</a>
+</div></div></div>
+&emsp;
+<a href="#entering-commands">Entering Commands</a>
+<br>
+&emsp;
+<a href="#its-all-about-you">It’s All About You!</a>
+<br>
+</ul>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#downloading-playing-games">Downloading &amp; Playing Games</a>
+</div></div></div>
+&emsp;
+<a href="#whats-this-z8-stuff-all-about-anyway">What’s This .z8 Stuff All About, Anyway?</a>
+<br>
+</ul>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#writing-your-first-game">Writing Your First Game</a>
+</div></div></div>
+&emsp;
+<a href="#from-the-top">From the Top</a>
+<br>
+&emsp;
+<a href="#the-detail-trap">The Detail Trap</a>
+<br>
+&emsp;
+<a href="#title-trickery">Title Trickery</a>
+<br>
+&emsp;
+<a href="#telling-a-story">Telling a Story</a>
+<br>
+</ul>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#managing-your-projects">Managing Your Project(s)</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#about-inform-source-code">About Inform Source Code</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#all-about-bugs">All About Bugs</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#testing-your-game">Testing Your Game</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#using-the-debugging-commands">Using the Debugging Commands</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#another-way-to-debug">Another Way to Debug</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#puzzles">Puzzles</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#extensions-for-inform">Extensions for Inform</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#where-to-learn-more">Where to Learn More</a>
+</div></div></div>
+</div></details>
+<details class="chapter-details"><summary class="toc-chapter"><span class="chapter-num"><span class="hidden">0</span>2.</span><span class="chapter-name">Rooms &amp; Scenery</span></summary>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#creating-your-first-room">Creating Your First Room</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#scenery">Scenery</a>
+</div></div></div>
+&emsp;
+<a href="#the-names-of-things">The Names of Things</a>
+<br>
+&emsp;
+<a href="#how-much-scenery-is-enough">How Much Scenery Is Enough?</a>
+<br>
+</ul>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#distant-scenery">Distant Scenery</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#adding-more-rooms-to-the-map">Adding More Rooms to the Map</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#the-great-outdoors">The Great Outdoors</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#enterable-scenery">Enterable Scenery</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#doors">Doors</a>
+</div></div></div>
+&emsp;
+<a href="#locked-doors">Locked Doors</a>
+<br>
+&emsp;
+<a href="#secret-doors">Secret Doors</a>
+<br>
+&emsp;
+<a href="#dangerous-doors">Dangerous Doors</a>
+<br>
+</ul>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#travel-by-fiat">Travel by Fiat</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#windows">Windows</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#you-cant-go-that-way.">“You can’t go that way.”</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#duplicate-exits-twisty-connections">Duplicate Exits &amp; Twisty Connections</a>
+</div></div></div>
+&emsp;
+<a href="#hallways-with-lots-of-doors">Hallways with Lots of Doors</a>
+<br>
+</ul>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#changing-the-map-during-the-game">Changing the Map During the Game</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#regions">Regions</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#backdrops">Backdrops</a>
+</div></div></div>
+&emsp;
+<a href="#removing-a-backdrop">Removing a Backdrop</a>
+<br>
+</ul>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#dark-rooms">Dark Rooms</a>
+</div></div></div>
+&emsp;
+<a href="#backdrops-in-dark-rooms">Backdrops in Dark Rooms</a>
+<br>
+</ul>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#seemingly-identical-rooms">Seemingly Identical Rooms</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#floorless-rooms">Floorless Rooms</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#when-is-a-room-visited">When Is a Room “visited”?</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#more-about-room-descriptions">More About Room Descriptions</a>
+</div></div></div>
+</div></details>
+<details class="chapter-details"><summary class="toc-chapter"><span class="chapter-num"><span class="hidden">0</span>3.</span><span class="chapter-name">Things</span></summary>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#creating-things">Creating Things</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#things-vs-kinds">Things vs. Kinds</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#the-names-of-things-1">The Names of Things</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#long-names">Long Names</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#initial-appearance">Initial Appearance</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#adding-vocabulary-words-with-understand">Adding Vocabulary Words with “Understand”</a>
+</div></div></div>
+&emsp;
+<a href="#conditional-vocabulary">Conditional Vocabulary</a>
+<br>
+</ul>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#containers-supporters">Containers &amp; Supporters</a>
+</div></div></div>
+&emsp;
+<a href="#stealthy-containers">Stealthy Containers</a>
+<br>
+&emsp;
+<a href="#sneaky-supporters">Sneaky Supporters</a>
+<br>
+</ul>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#looking-under-looking-behind">Looking Under &amp; Looking Behind</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#take-all">Take All</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#moving-things-around">Moving Things Around</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#inventory">Inventory</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#testing-where-a-thing-is">Testing Where a Thing Is</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#things-can-have-properties">Things Can Have Properties</a>
+</div></div></div>
+&emsp;
+<a href="#number-properties">Number Properties</a>
+<br>
+&emsp;
+<a href="#word-properties">Word Properties</a>
+<br>
+</ul>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#plurals-collective-objects">Plurals &amp; Collective Objects</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#more-about-collections-kinds">More about Collections &amp; Kinds</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#objects-that-have-parts">Objects That Have Parts</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#reading-matter">Reading Matter</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#writing-on-things">Writing on Things</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#mechanical-marvels">Mechanical Marvels</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#smelling-listening">Smelling &amp; Listening</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#transforming-one-thing-into-another">Transforming One Thing into Another</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#new-ways-to-use-things">New Ways to Use Things</a>
+</div></div></div>
+&emsp;
+<a href="#holding-something-up-in-the-air">Holding Something Up in the Air</a>
+<br>
+&emsp;
+<a href="#tipping-something">Tipping Something</a>
+<br>
+&emsp;
+<a href="#holding-something-against-something-else">Holding Something Against Something Else</a>
+<br>
+</ul>
+</div></details>
+<details class="chapter-details"><summary class="toc-chapter"><span class="chapter-num"><span class="hidden">0</span>4.</span><span class="chapter-name">Actions</span></summary>
+</ul>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#built-in-actions">Built-In Actions</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#using-instead">Using “Instead”</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#action-processing">Action Processing</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#rulebooks-stop-the-action">Rulebooks &amp; “Stop the Action”</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#three-types-of-actions">Three Types of Actions</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#creating-new-actions">Creating New Actions</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#any-thing">[Any Thing]</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#same-action-new-results">Same Action, New Results</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#redirecting-an-action">Redirecting an Action</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#actions-with-topics">Actions with Topics</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#action-processing-summary">Action Processing &ndash; Summary</a>
+</div></div></div>
+</div></details>
+<details class="chapter-details"><summary class="toc-chapter"><span class="chapter-num"><span class="hidden">0</span>5.</span><span class="chapter-name">Creating Characters</span></summary>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#overview">Overview</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#the-player-character">The Player Character</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#creating-an-npc">Creating an NPC</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#mr.-mrs.">Mr. &amp; Mrs.</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#conversations-part-i-talk-to">Conversations, Part I: talk to</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#conversations-part-ii-asktellgiveshow">Conversations, Part II: ask/tell/give/show</a>
+</div></div></div>
+&emsp;
+<a href="#topics-of-conversation">Topics of Conversation</a>
+<br>
+</ul>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#conversations-part-iii-character-knowledge">Conversations, Part III: Character Knowledge</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#conversations-part-iv-menu-based-conversation">Conversations, Part IV: Menu-Based Conversation</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#giving-orders-to-characters">Giving Orders to Characters</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#giving-orders-that-involve-going-elsewhere">Giving Orders that Involve Going Elsewhere</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#moving-characters-around">Moving Characters Around</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#characters-who-follow-the-player">Characters Who Follow the Player</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#characters-the-player-can-follow">Characters the Player Can Follow</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#stage-business">Stage Business</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#character-actions">Character Actions</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#combat">Combat</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#moods">Moods</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#body-parts">Body Parts</a>
+</div></div></div>
+</div></details>
+<details class="chapter-details"><summary class="toc-chapter"><span class="chapter-num"><span class="hidden">0</span>6.</span><span class="chapter-name">Puzzles</span></summary>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#mapping">Mapping</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#blocked-passageways">Blocked Passageways</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#darkness">Darkness</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#hidden-items">Hidden Items</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#items-out-of-reach">Items Out of Reach</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#locked-containers">Locked Containers</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#combination-locks">Combination Locks</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#manipulation-difficulties">Manipulation Difficulties</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#enigmas">Enigmas</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#deceptive-appearances-unusual-usages">Deceptive Appearances &amp; Unusual Usages</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#assembly-required">Assembly Required</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#mechanisms">Mechanisms</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#vehicles">Vehicles</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#consulting-information-sources">Consulting Information Sources</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#the-uncooperative-character">The Uncooperative Character</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#timed-puzzles">Timed Puzzles</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#inadequate-implementation">Inadequate Implementation</a>
+</div></div></div>
+</div></details>
+<details class="chapter-details"><summary class="toc-chapter"><span class="chapter-num"><span class="hidden">0</span>7.</span><span class="chapter-name">Winning &amp; Losing</span></summary>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#a-word-about-fairness">A Word About Fairness</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#keeping-score">Keeping Score</a>
+</div></div></div>
+&emsp;
+<a href="#a-treasure-chest">A Treasure Chest</a>
+<br>
+</ul>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#achievements">Achievements</a>
+</div></div></div>
+</div></details>
+<details class="chapter-details"><summary class="toc-chapter"><span class="chapter-num"><span class="hidden">0</span>8.</span><span class="chapter-name">Time &amp; Scenes</span></summary>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#passing-time">Passing Time</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#future-events">Future Events</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#scenes">Scenes</a>
+</div></div></div>
+&emsp;
+<a href="#chaining-scenes">Chaining Scenes</a>
+<br>
+</ul>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#every-turn-rules">Every Turn Rules</a>
+</div></div></div>
+</div></details>
+<details class="chapter-details"><summary class="toc-chapter"><span class="chapter-num"><span class="hidden">0</span>9.</span><span class="chapter-name">Phrasing &amp; Punctuation</span></summary>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#types-of-source-text">Types of Source Text</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#text-insertions">Text Insertions</a>
+</div></div></div>
+&emsp;
+<a href="#switchable-markup">Switchable Markup</a>
+<br>
+&emsp;
+<a href="#quotes-within-quotes">Quotes Within Quotes</a>
+<br>
+</ul>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#breaking-up-paragraphs">Breaking Up Paragraphs</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#large-text-blocks">Large Text Blocks</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#white-space">White Space</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#objects-vs-rules">Objects vs. Rules</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#the-names-of-things-2">The Names of Things</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#punctuation">Punctuation</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#assertions">Assertions</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#values">Values</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#arithmetic">Arithmetic</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#doing-calculations">Doing Calculations</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#testing-conditions">Testing Conditions</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#creating-new-phrases">Creating New Phrases</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#indenting">Indenting</a>
+</div></div></div>
+&emsp;
+<a href="#too-many-indents">Too Many Indents</a>
+<br>
+</ul>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#headings">Headings</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#loops">Loops</a>
+</div></div></div>
+</div></details>
+<details class="chapter-details"><summary class="toc-chapter"><span class="chapter-num">10.</span><span class="chapter-name">Advanced Topics</span></summary>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#story-tense-and-viewpoint">Story Tense and Viewpoint</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#code-optimization">Code Optimization</a>
+</div></div></div>
+&emsp;
+<a href="#instead-of-instead">Instead of Instead</a>
+<br>
+&emsp;
+<a href="#every-turn-rules-1">Every Turn Rules</a>
+<br>
+&emsp;
+<a href="#other-ways-to-streamline-your-code">Other Ways to Streamline Your Code</a>
+<br>
+</ul>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#tables">Tables</a>
+</div></div></div>
+&emsp;
+<a href="#emily-short-on-using-tables">Emily Short on Using Tables</a>
+<br>
+</ul>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#the-skein">The Skein</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#using-the-index">Using the Index</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#helping-the-parser">Helping the Parser</a>
+</div></div></div>
+&emsp;
+<a href="#pronouns">Pronouns</a>
+<br>
+</ul>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#clearing-the-screen">Clearing the Screen</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#i6-constants">I6 Constants</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#relations">Relations</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#adding-hints">Adding Hints</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#special-features-in-glulx">Special Features in Glulx</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#what-does-inform-6-have-to-do-with-inform-7">What Does Inform 6 Have to Do with Inform 7?</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#so-is-inform-7-the-ultimate-if-programming-language">So, Is Inform 7 the Ultimate IF Programming Language?</a>
+</div></div></div>
+</div></details>
+<details class="chapter-details"><summary class="toc-chapter"><span class="chapter-num"><span class="hidden">00.</span></span><span class="chapter-name">Appendix A: Glossary</span></summary>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#glossary">Glossary</a>
+</div></div></div>
+</div></details>
+<details class="chapter-details"><summary class="toc-chapter"><span class="chapter-num"><span class="hidden">00.</span></span><span class="chapter-name">Appendix B: Updating Older Extensions</span></summary>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#updating-extensions">Updating Extensions</a>
+</div></div></div>
+</div></details>
+<details class="chapter-details"><summary class="toc-chapter"><span class="chapter-num"><span class="hidden">00.</span></span><span class="chapter-name">Appendix C: Short Sample Games</span></summary>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#sample-games">Sample Games</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#flea-market">Flea Market</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#mr-potato-head">Mr Potato Head</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#a-dangerous-jewel-box">A Dangerous Jewel Box</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#the-omega-machine">The Omega Machine</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#the-lurking-critter">The Lurking Critter</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#restraints">Restraints</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#broken-eggs">Broken Eggs</a>
+</div></div></div>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#indoors-outdoors">Indoors &amp; Outdoors</a>
+</div></div></div>
+</div></details>
+<details class="chapter-details"><summary class="toc-chapter"><span class="chapter-num"><span class="hidden">00.</span></span><span class="chapter-name">Appendix D: License</span></summary>
+<div class="section-block"><div class="section-row"><div class="section-chapter-num">
+<a href="#d-license">License</a>
+</div></div></div>
+</div></details>
 
-<h2 id="foreword">Foreword</h2>
+        
+<details><summary><h2 id="foreword">Foreword</h2></summary>
 
 <p>Somebody once said that if you ask five poets to define poetry,
 you’ll get seven definitions. I’m sure I’m misquoting wildly &ndash; the
@@ -411,8 +791,7 @@ but sometimes fuzzy approach of Inform 7 appeals to you, you can also
 investigate Inform 6, which is a completely different and much more
 traditional programming language, although it shares the “Inform” name,
 or a simpler system such as ADRIFT or ALAN. ALAN is cross-platform (Mac,
-Windows, Linux); ADRIFT is Windows-only. The full version of ADRIFT is
-not free, but it’s very affordable.</p>
+Windows, Linux); The application to create Adrift games is Windows-only, but the games are playable on other platforms.</p>
 
 <p>A simpler option for writing interactive stories would be to use a
 choice-based authoring system. Several are currently available,
@@ -483,6 +862,7 @@ Harmony</em> and <em>Power Tools for Synthesizer Programming</em> (both
 published by Hal Leonard), and he has written innumerable features on
 music technology for <em>Keyboard, Electronic Musician,</em> and other
 leading magazines. His personal website is <a href="jimaikin.net">JimAikin.net</a>.</p>
+</details>
 
 <h2 id="chapter-1-getting-started">Chapter 1: Getting Started</h2>
 
@@ -590,12 +970,26 @@ change. Please note that all of the page and Example numbers given in
 the <em>Handbook</em> refer to version 6L38.</p>
 
 <div class="addendum"><div class="add-header">Addendum</div><div class="add-body">
-    <p>In December of 2015, version 6M62 was released. It had a high degree of backwards-compatibility with 6L38 and the contents of the Handbook still applied.</p>
+    <p>In December of 2015, version 6M62 was released. It had a high degree of backwards-compatibility with 6L38, so the Handbook remained applicable.</p>
 
-    <p>After a long gap, version 10.1 was released in 2022.</p>
+    <p>After a long gap, version 10.1 was released in 2022 (and 6L38 and 6M62 were retroactively labelled 9.2 and 9.3). Inform 7, the language, was little changed, but much has changed in the overall landscape in the intervening 7 years. It's my aspiration that this adaptation could eventually be described as having been updated for 10.1, but for now it's a mishmash.</p>
     <!-- TODO -->
 </div></div>
 
+<h3 id="downloading-installing">Downloading &amp; Installing</h3>
+
+  <p>To get the most current version of Inform, go to the <a href="inform7.com/downloads/">Inform 7 Downloads page</a>,
+    and select the appropriate version.</p>
+
+<p>Install the program and launch it, as described in the next
+section.</p>
+
+<p>As you work with Inform, you’ll be creating projects. Each game that
+you create is a separate project. It’s a good idea to start by creating
+a folder called Inform Projects inside your Documents (Windows: My
+Documents) folder. This may be done for you automatically when you
+install Inform, or you may need to do it manually. Each time you create
+a new project, save it to that folder.</p>
 
 <div class="sidebar">
 <h4 id="is-it-a-game-or-is-it-a-story">Is It a Game, or Is It a Story?</h4>
@@ -613,21 +1007,6 @@ story is a game. In recent years the designers of Inform have been
 leaning toward “story” as a term for what you’ll be producing, but I
 still prefer to think of it as a game.</p>
 </div>
-
-<h3 id="downloading-installing">Downloading &amp; Installing</h3>
-
-  <p>To get the most current version of Inform, go to the <a href="inform7.com/downloads/">Inform 7 Downloads page</a>,
-    and select the appropriate version.</p>
-
-<p>Install the program and launch it, as described in the next
-section.</p>
-
-<p>As you work with Inform, you’ll be creating projects. Each game that
-you create is a separate project. It’s a good idea to start by creating
-a folder called Inform Projects inside your Documents (Windows: My
-Documents) folder. This may be done for you automatically when you
-install Inform, or you may need to do it manually. Each time you create
-a new project, save it to that folder.</p>
 
 <h3 id="the-inform-7-program">The Inform 7 Program</h3>
 
@@ -1192,6 +1571,7 @@ know which choices lead to which endings.</p>
 computer) when you see the command prompt. The <span
 id="Ref_command_prompt" class="anchor"></span>command prompt generally
 looks like this:</p>
+
 <div class="game-output">
 <div class="command"><span class="prompt">&gt;</span></div>
 </div>
@@ -1222,6 +1602,7 @@ how exactly to use the commands in any given game.</p>
 be error messages: Maybe you misspelled a word, for instance, so the
 game doesn’t know what you meant. In this case, try typing OOPS followed
 by the correct spelling. The result might look like this:</p>
+
 <div class="game-output">
 <p class="bold">Dungeon</p>
 
@@ -1454,7 +1835,9 @@ formats can be played in a Web browser using <a href="https://github.com/curious
 Windows, Mac OS, and Linux (as an AppImage). You can <a href="https://github.com/garglk/garglk/releases">download the latest Gargoyle release</a> Gargoyle can play all Z-code (Inform) and Glulx games, as
 well as TADS games and Hugo games.</p>
 
-<div class="addendum"><div class="add-header">Addendum</div><div class="add-body">Gargoyle is still popular. Most Mac users like Spatterlight; Lectrote is another popular choice.</div></div>
+<!-- TODO expand -->
+
+<div class="addendum"><div class="add-header">Addendum</div><div class="add-body"><p>Gargoyle is still popular. Most Mac users like Spatterlight; Lectrote is another popular choice.</p></div></div>
 
 <h4 id="whats-this-z8-stuff-all-about-anyway">What’s This .z8 Stuff All About, Anyway?</h4>
 
@@ -1619,8 +2002,8 @@ Use sentence, like this:</p>
 a few words unless you instruct otherwise. “Use American dialect”
 switches the spelling from British to American. If you want the game to
 start out in brief mode, do it this way:</p>
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`\n`)"><span class="sym">⧉</span></button><div class="codeline">Use American dialect, brief room descriptions, and the serial
-comma.</div></div>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Use American dialect, brief room descriptions, and the serial comma.\n`)"><span class="sym">⧉</span></button><div class="codeline">Use American dialect, brief room descriptions, and the serial comma.</div></div>
 
 <p>Prior to version 6E59, Inform’s default for room descriptions was
 <span id="Ref_brief_mode" class="anchor"></span>brief mode, but the
@@ -1645,11 +2028,13 @@ more on how to do this, see <a href="#when-is-a-room-visited">When Is a Room ‘
 <p>The serial comma <span id="Ref_serial_comma" class="anchor"></span>is
 the final comma in lists of items. If the serial comma is switched on,
 your game might report this:</p>
+
 <div class="game-output">
 <p>You can see an apple, a pear, and a banana here.</p>
 </div>
 <p>If the serial comma is <em>not</em> being used, the output is just
 slightly different:</p>
+
 <div class="game-output">
 <p>You can see an apple, a pear and a banana here.</p>
 </div>
@@ -1657,11 +2042,7 @@ slightly different:</p>
 stage” for the story. You can create an introduction by writing a When
 Play Begins rule, perhaps something like this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`\n\n\n\n`)"><span class="sym">⧉</span></button><div class="codeline">When play begins, say "Lord Triffid has invited you to spend your
-week's vacation in his castle. Upon arriving, though, you begin to feel
-a bit uneasy. Perhaps it's the bats flying in and out of the attic
-window that put a damper on your mood, or perhaps it’s the sound of
-barking, snarling guard dogs&hellip;"</div></div>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`When play begins, say &quot;Lord Triffid has invited you to spend your week's vacation in his castle. Upon arriving, though, you begin to feel a bit uneasy. Perhaps it's the bats flying in and out of the attic window that put a damper on your mood, or perhaps it’s the sound of barking, snarling guard dogs&hellip;&quot;`)"><span class="sym">⧉</span></button><div class="codeline">When play begins, say "Lord Triffid has invited you to spend your week's vacation in his castle. Upon arriving, though, you begin to feel a bit uneasy. Perhaps it's the bats flying in and out of the attic window that put a damper on your mood, or perhaps it’s the sound of barking, snarling guard dogs&hellip;"</div></div>
 
 <h4 id="the-detail-trap">The Detail Trap</h4>
 
@@ -1669,7 +2050,7 @@ barking, snarling guard dogs&hellip;"</div></div>
 may want to watch out for &ndash; the detail trap. Let’s suppose you want your
 story to start in the kitchen of the main character’s house. So you
 start putting things in the kitchen &ndash; appliances and so on. (By the way, <a href="../RB_6.html#section_5">RB 6.5: Kitchen and
-Bathroom</a>, has some great tips on how to make appliances.) Now, a
+Bathroom</a> has some great tips on how to make appliances.) Now, a
 kitchen is a complicated place! The stove can be switched on, and
 touching it when it’s switched on will burn you. The hot and cold water
 taps in the sink can also be turned on, and when one of them is on,
@@ -1718,6 +2099,7 @@ looks like a banner and usually runs across the top of the interpreter
 window throughout the game.) If you’ve given your game a title and
 subtitle, they’ll appear in the banner text, which might look something
 like this:</p>
+
 <div class="game-output">
 <p class="bold">A Screw Loose</p>
 
@@ -1740,8 +2122,10 @@ You may want to replace the default banner text with your own text, or
 suppress it entirely. To do this, you could add code like this near the
 top of your game:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`\n`)"><span class="sym">⧉</span></button><div class="codeline">Rule for printing the banner text: say "[bold type]I'm a lumberjack
-and I'm okay![roman type][line break][line break]"</div></div>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Rule for printing the banner text:\n  say &quot;[bold type]I'm a lumberjack and I'm okay![roman type][line break][line break]&quot;`)"><span class="sym">⧉</span></button>
+<div class="codeline">Rule for printing the banner text:</div>
+<div class="codeline">&ensp;&ensp;&ensp;say "[bold type]I'm a lumberjack and I'm okay![roman type][line break][line break]"</div>
+</div>
 
 <p>Whatever you write as a rule for printing the banner text will be
 printed out as the banner. Instead of using a “say” phrase as shown
@@ -1759,6 +2143,7 @@ and compiler number will be unavailable. This is less desirable. If you
 want to suppress the banner text at the beginning of the game but keep
 the information available in response to the VERSION command, you can do
 it this way:</p>
+
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The display banner rule is not listed in the startup rulebook.\n`)"><span class="sym">⧉</span></button><div class="codeline">The display banner rule is not listed in the startup rulebook.</div>
 </div>
 
@@ -1771,11 +2156,13 @@ possible but tricky, so we won’t get into it here.</p>
 <p>Before we move on, we need to pause for a quick cautionary note: The
 title of an Inform game can’t contain quotation marks. That is, if you
 want your story’s title to be displayed this way:</p>
+
 <div class="game-output">
 <p>“Repent,” Said the Tick-Tock Man</p>
 </div>
 <p>… you just plain can’t. You can, however, use single quotes
 (apostrophes), producing this title:</p>
+
 <div class="game-output">
 <p>‘Repent,’ Said the Tick-Tock Man</p>
 </div>
@@ -2036,8 +2423,9 @@ be for Inform to respond with something like, “Comment noted.”
 Fortunately, this is easy to fix. Copy the following code into your
   game:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Commenting is an action out of world applying to one topic. Understand &quot;* [text]&quot; as commenting.\n\nCarry out commenting:\n\tsay &quot;Comment noted.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">Commenting is an action out of world applying to one topic. Understand "* [text]" as commenting.</div>
-<div class="codeline"></div>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Commenting is an action out of world applying to one topic.\nUnderstand &quot;* [text]&quot; as commenting.\n\nCarry out commenting:\n\tsay &quot;Comment noted.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">Commenting is an action out of world applying to one topic.</div>
+<div class="codeline">Understand "* [text]" as commenting.</div>
+<div class="codeline">&thinsp;</div>
 <div class="codeline">Carry out commenting:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "Comment noted."</div>
 </div>
@@ -2048,6 +2436,7 @@ Documentation. However, the regular expression matching used in that
 example doesn’t match the asterisk character. To allow the tester to use
 asterisks, as shown above, we would need to edit the code in the example
 slightly, like this:</p>
+
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`After reading a command (this is the ignore beta-comments rule): \n\tif the player&apos;s command matches the regular expression &quot;^\p&quot; or the player&apos;s command matches the regular expression &quot;^\*&quot;: \n\t\tsay &quot;(Noted.)&quot;; \n\t\treject the player&apos;s command.\n`)"><span class="sym">⧉</span></button><div class="codeline">After reading a command (this is the ignore beta-comments rule): </div>
 <div class="codeline">&ensp;&ensp;&ensp;if the player's command matches the regular expression "^\p" or the player's command matches the regular expression "^\*": </div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say "(Noted.)"; </div>
@@ -2125,11 +2514,13 @@ section, secure in the knowledge that it will be available only to you
 (and to your testers, if you choose). For example, if the hunger of the
 player character is a numerical value that changes during the game, and
 you want to keep an eye on it, do this:</p>
+
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Section - Not for Release\n\nEvery turn:\n\tsay &quot;The hunger of the player is now [hunger of the player].&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">Section - Not for Release</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">Every turn:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "The hunger of the player is now [hunger of the player]."</div>
 </div>
+
 <p>It’s not always convenient to put this type of game-state monitoring
 printout code in its own section, however. Another technique is
 suggested below, in the section “Another Way to Debug.”</p>
@@ -2139,12 +2530,13 @@ your work: If you’re using scenes in your game (see Chapter 7), the
 SCENES command can be used to show which scenes are currently
 running.</p>
 
-<p>The TEST ME command (see  <a href="../WI_2.html#section_8">WI 2.8: the TEST command</a>) gives you a quick way to run through
-a series of commands. To start with, define the series of commands you
-want to use in your game, like this:</p>
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Test me with &quot;open suitcase / unlock suitcase with rusty key / open\nsuitcase / search suitcase / take dynamite / light match / light dynamite with match / z / z / z&quot;.\n`)"><span class="sym">⧉</span></button><div class="codeline">Test me with "open suitcase / unlock suitcase with rusty key / open</div>
-<div class="codeline">suitcase / search suitcase / take dynamite / light match / light dynamite with match / z / z / z".</div>
+<p>The TEST ME command gives you a quick way to run through
+a series of commands (see  <a href="../WI_2.html#section_8">WI 2.8: the TEST command</a>). To start with, define the series of commands you
+  want to use in your game, like this:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Test me with &quot;open suitcase / unlock suitcase with rusty key / open suitcase / search suitcase / take dynamite / light match / light dynamite with match / z / z / z&quot;.\n`)"><span class="sym">⧉</span></button><div class="codeline">Test me with "open suitcase / unlock suitcase with rusty key / open suitcase / search suitcase / take dynamite / light match / light dynamite with match / z / z / z".</div>
 </div>
+
 <p>After compiling your game, when you type TEST ME the game will
 automatically run through this entire sequence of commands, in order.
 When you’re testing complex puzzles over and over, this will save you
@@ -2153,6 +2545,7 @@ reminiscent of a scene in <em>Alice in Wonderland</em>), but it’s not
 necessary. You could just as easily do it this way, writing two or more
 separate tests and then, if you like, writing a TEST ME command that
 nests some or all of the other tests:</p>
+
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Test suitcase with &quot;open suitcase / unlock suitcase with rusty key / open suitcase / search suitcase&quot;.\nTest dynamite with &quot;take dynamite / light match / light dynamite with match / z / z / z&quot;.\nTest me with &quot;test suitcase / test dynamite&quot;.\n\n`)"><span class="sym">⧉</span></button><div class="codeline">Test suitcase with "open suitcase / unlock suitcase with rusty key / open suitcase / search suitcase".</div>
 <div class="codeline">Test dynamite with "take dynamite / light match / light dynamite with match / z / z / z".</div>
 <div class="codeline">Test me with "test suitcase / test dynamite".</div>
@@ -2197,6 +2590,7 @@ if the player is carrying the detonator &ndash; but for some reason it appears
 that the player is able to demolish the dungeon even while not carrying
 the detonator. In that case, you might want to check the player’s
 inventory while printing out your debugging message:</p>
+
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`To demolish the dungeon:\n\tsay &quot;Now entering the dungeon-demolishing code. The player is currently carrying [a list of things carried by the player].&quot;;\n\t[other lines of code would go here...]\n`)"><span class="sym">⧉</span></button><div class="codeline">To demolish the dungeon:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "Now entering the dungeon-demolishing code. The player is currently carrying [a list of things carried by the player].";</div>
 <div class="codeline">&ensp;&ensp;&ensp;[other lines of code would go here&hellip;]</div>
@@ -2210,6 +2604,7 @@ technique that is mentioned only briefly in this <em>Handbook,</em> (see
 since we’re on the topic of debugging, here’s how to do it. First, add
 the following lines to your game, entering them carefully (the spaces
 are important):</p>
+
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Use inline debugging.\n\nUse inline debugging translates as (- Constant INLINE_DEBUG; -)\n\t\nTo #if utilizing inline debugging:\n\t(- #ifdef INLINE_DEBUG; -)\n\t\nTo #end if:\n\t(- #endif; -)\n\t\nTo debug (T - a text):\n\t#if utilizing inline debugging;\n\tsay T;\n\t#end if.\n`)"><span class="sym">⧉</span></button><div class="codeline">Use inline debugging.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">Use inline debugging translates as (- Constant INLINE_DEBUG; -)</div>
@@ -2226,14 +2621,16 @@ are important):</p>
 <div class="codeline">&ensp;&ensp;&ensp;#end if.</div>
 </div>
 
-<div class="addendum"><div class="add-header">Addendum</div><div class="add-body">This cannot work in 10.1, which won't allow an I6 inclusion to have an #ifdef without an #endif.</div></div>
+<div class="addendum"><div class="add-header">Addendum</div><div class="add-body"><p>This cannot work in 10.1, which won't allow an I6 inclusion to have an #ifdef without an #endif.</p></div></div>
 
 <p>Having done this, you can now write any debugging print statements
 that you add to your game’s code like this:</p>
+
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`\tdebug “--Now entering the dungeon-demolishing code. The player is currently carrying [a list of things carried by the player].]&quot;;\n`)"><span class="sym">⧉</span></button><div class="codeline">&ensp;&ensp;&ensp;debug “--Now entering the dungeon-demolishing code. The player is currently carrying [a list of things carried by the player].]";</div>
 </div>
 <p>The lines beginning with # can be used to do other things besides
 saying texts, though this is probably less useful. For instance:</p>
+
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of jumping:\n\tsay &quot;You jumped!&quot;;\n\t#if utilizing inline debugging;\n\tnow the player carries the rutabaga;\n\t#end if.\n`)"><span class="sym">⧉</span></button><div class="codeline">Instead of jumping:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "You jumped!";</div>
 <div class="codeline">&ensp;&ensp;&ensp;#if utilizing inline debugging;</div>
@@ -2331,7 +2728,8 @@ include one, the compiler will issue an error message. Bottom line:
 Unless you know what you’re doing, do not attempt to download extensions
   one at a time manually from the Inform website.</p>
 
-<div class="addendum"><div class="add-header">Addendum</div><div class="add-body">I wish I could tell you that as of 2022 it's no longer confusing.</div></div>
+<!-- TODO expand -->
+<div class="addendum"><div class="add-header">Addendum</div><div class="add-body"><p>I wish I could tell you that as of 2022 it's no longer confusing.</p></div></div>
 
 <p>Some authors have updated their extensions to work with the new
 version, but others haven’t. If you want the features in an extension
@@ -2450,7 +2848,7 @@ href="https://emshort.blog">Emily Short’s interactive fiction blog</a>
 also has lots of useful resources, with links to many of them collected in her <a href="https://emshort.blog/2019/01/08/mailbag-self-training-in-narrative-design/">Self-training in Narrative Design</a>.</p>
 
 <div class="addendum"><div class="add-header">Addendum</div><div class="add-body">
-I recommend Allison Parrish's <a href="http://catn.decontextualize.com/inform7/">Inform 7: Concepts and Strategies</a> as the single best place to start. It and Welcome to Adventure complement each other well, with Concepts and Strategies offering a top-down view, and Welcome to Adventure being more bottom-up.
+I recommend Allison Parrish's <a href="http://catn.decontextualize.com/inform7/">Inform 7: Concepts and Strategies</a> as the single best place to start; go on to Welcome to Adventure afterwards. The two complement each other well, with Concepts and Strategies offering a top-down view, and Welcome to Adventure being more bottom-up.
 </div></div>
 
 <h2 id="chapter-2-rooms-scenery">Chapter 2: Rooms &amp; Scenery</h2>
@@ -2548,6 +2946,7 @@ printing the room name in the game’s output, so a room you call The
 Forest Path will appear in the game as Forest Path. You can override
 this if you want to, though, using the <strong>printed name</strong>
 property, like this:</p>
+
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The printed name of the Forest Path is “The Forest Path”.\n`)"><span class="sym">⧉</span></button><div class="codeline">The printed name of the Forest Path is “The Forest Path”.</div>
 </div>
 <p>Notice the punctuation in that sentence: The period is
@@ -2563,6 +2962,7 @@ putting the period outside the close-quote is the right thing to do.</p>
 The description is text to be printed out, so you write it in
 double-quotes, like this, putting the description immediately after the
 sentence in which we created the room:</p>
+
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Forest Path is a room. “Tall old trees surround you.”\n`)"><span class="sym">⧉</span></button><div class="codeline">Forest Path is a room. “Tall old trees surround you.”</div>
 </div>
 <p>The first sentence creates a room called Forest Path. The second
@@ -2576,6 +2976,7 @@ other objects, as you’ll learn in the next chapter.)</p>
 <p>If you’ve put something else between the sentence that creates the
 room and the description, however, you need to tell Inform what you’re
 doing. This won’t work:</p>
+
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Forest Path is a room. The printed name of Forest Path is &quot;The Forest Path.&quot; &quot;Tall old trees surround you.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">Forest Path is a room. The printed name of Forest Path is "The Forest Path." "Tall old trees surround you."</div>
 </div>
 
@@ -2610,6 +3011,7 @@ very hard. Imagine this situation in a game:</p>
 <div class="game-output">
 <p class="bold">Forest Path</p>
 <p>Tall old trees surround you.</p>
+
 <div class="command"><span class="prompt">&gt;</span>x trees</div>
 <p>You can’t see any such thing.</p>
 </div>
@@ -2666,7 +3068,7 @@ these things. If you want to customize the way room descriptions are
 printed out, see “Room Descriptions” at the end of this chapter.</p>
 
 <div id="fn1" class="footnote">
-<p><span data-custom-style="Footnote Characters">1.</span> A phone booth
+<p><sup class="footnote-char">1</sup> A phone booth
 could also be created as an enterable container within the main room &ndash;
 see the section on “Enterable Containers &amp; Supporters” in Chapter 3
 of the <em>Handbook</em>.&ensp;<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p>
@@ -2720,6 +3122,7 @@ to define new types of objects when the game will include several of
 them, and we want them to behave in similar ways. For instance, if a
 puzzle involves spelling words with alphabet blocks, we might do
 this:</p>
+
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`An alphabet block is a kind of thing.\n`)"><span class="sym">⧉</span></button><div class="codeline">An alphabet block is a kind of thing.</div>
 </div>
 <p>After writing this, we could write rules that would apply to all
@@ -2727,6 +3130,7 @@ alphabet blocks, and Inform would know what we were talking about. A
 trap that beginning Inform authors sometimes fall into is to use the
 word “kind” in the casual way that an English speaker would use it. For
 example:</p>
+
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`A leopard is a kind of animal.\n`)"><span class="sym">⧉</span></button><div class="codeline">A leopard is a kind of animal.</div>
 </div>
 <p>Inform knows what an animal is, so this sentence will compile. But
@@ -2736,6 +3140,7 @@ be writing about a small leopard, a large leopard, a spotless leopard,
 and a leaping leopard (or whatever), and that you plan to write some
 code that will be used by all of the objects of the leopard kind. If you
 want to create only one actual leopard, don’t use the word “kind”:</p>
+
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`A leopard is an animal.\n`)"><span class="sym">⧉</span></button><div class="codeline">A leopard is an animal.</div>
 </div>
 <p>The first type of object we’re going to meet in this book is scenery.
@@ -2761,6 +3166,7 @@ assumes that you mentioned the scenery objects in your own room
 description when you wrote it, so be sure to do so.</p>
 
 <p>We can add scenery to our forest path like this:</p>
+
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Forest Path is a room. “Tall old trees surround you.”\n\nThe tall old trees are scenery in the Forest Path. The description is “Ancient oaks stretch out their heavy branches overhead, blocking the sun.”\n`)"><span class="sym">⧉</span></button><div class="codeline">The Forest Path is a room. “Tall old trees surround you.”</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">The tall old trees are scenery in the Forest Path. The description is “Ancient oaks stretch out their heavy branches overhead, blocking the sun.”</div>
@@ -2780,6 +3186,7 @@ is” with scenery, you should be sure to always put the description in
 the very next sentence after you’ve created the scenery object. The code
 below works exactly like what was shown above &ndash; but only with scenery,
 not with ordinary things.</p>
+
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The tall old trees are scenery in the Forest Path. “Ancient oaks stretch out their heavy branches overhead, blocking the sun.”`)"><span class="sym">⧉</span></button><div class="codeline">The tall old trees are scenery in the Forest Path. “Ancient oaks stretch out their heavy branches overhead, blocking the sun.”</div></div>
 
 <h4 id="the-names-of-things">The Names of Things</h4>
@@ -2814,10 +3221,10 @@ sentence where we create the trees so that it refers to “Some tall old
 trees”. The second method is easier. Inform knows that when things are
 created using the word “some”, they’re plural-named. When we put it all
 together, the trees will look like this in our source code:</p>
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`\n\n\n`)"><span class="sym">⧉</span></button><div class="codeline">Some tall old trees are scenery in the Forest Path. “Ancient oaks
-stretch out their heavy branches overhead, blocking the sun.” Understand
-“ancient”, “oaks”, “heavy”, “branches”, “branch”, and “tree” as the tall
-old trees.</div>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Some tall old trees are scenery in the Forest Path. &quot;Ancient oaks stretch out their heavy branches overhead, blocking the sun.&quot;\nUnderstand &quot;ancient&quot;, &quot;oaks&quot;, &quot;heavy&quot;, &quot;branches&quot;, &quot;branch&quot;, and &quot;tree&quot; as the tall old trees.`)"><span class="sym">⧉</span></button>
+<div class="codeline">Some tall old trees are scenery in the Forest Path. "Ancient oaks stretch out their heavy branches overhead, blocking the sun."</div>
+<div class="codeline">Understand "ancient", "oaks", "heavy", "branches", "branch", and "tree" as the tall old trees.</div>
 </div>
 
 <p>Notice that when we add vocabulary words to the trees object, we have
@@ -2914,6 +3321,7 @@ mirror, turn the faucets on and off, and so forth.</p>
 
 <p>All the same, it’s jarring, if the game includes a bathroom, to see
 this kind of output:</p>
+
 <div class="game-output">
 <p class="bold">Bathroom</p>
 
@@ -2959,14 +3367,13 @@ way to handle this situation, but we can easily create one.</p>
 
 <p>We’ll start by showing the problem, and then show how to fix it. Here
 is our first attempt at source code:</p>
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Forest Path is a room. &quot;Tall old trees surround you. The path\ncontinues north and south. In the distance to the west, off among the\ntrees, you can see a crumbling stone wall.&quot;\n\nThe crumbling stone wall is scenery in the Forest Path. &quot;The wall is\nancient and moss-covered.&quot; Understand &quot;ancient&quot; and &quot;moss-covered&quot; as\nthe stone wall.\n`)"><span class="sym">⧉</span></button><div class="codeline">The Forest Path is a room. "Tall old trees surround you. The path</div>
-<div class="codeline">continues north and south. In the distance to the west, off among the</div>
-<div class="codeline">trees, you can see a crumbling stone wall."</div>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Forest Path is a room. &quot;Tall old trees surround you. The path continues north and south. In the distance to the west, off among the trees, you can see a crumbling stone wall.&quot;\n\nThe crumbling stone wall is scenery in the Forest Path. &quot;The wall is ancient and moss-covered.&quot;\nUnderstand &quot;ancient&quot; and &quot;moss-covered&quot; as\nthe stone wall.\n`)"><span class="sym">⧉</span></button><div class="codeline">The Forest Path is a room. "Tall old trees surround you. The path continues north and south. In the distance to the west, off among the trees, you can see a crumbling stone wall."</div>
 <div class="codeline">&thinsp;</div>
-<div class="codeline">The crumbling stone wall is scenery in the Forest Path. "The wall is</div>
-<div class="codeline">ancient and moss-covered." Understand "ancient" and "moss-covered" as</div>
-<div class="codeline">the stone wall.</div>
+<div class="codeline">The crumbling stone wall is scenery in the Forest Path. "The wall is ancient and moss-covered."</div>
+<div class="codeline">Understand "ancient" and "moss-covered" as the stone wall.</div>
 </div>
+
 <p>This code is fine, up to a point. The player can now examine the
 wall. But while the room description indicates that the wall is off in
 the distance, Inform doesn’t know that. The result, when the player
@@ -3041,6 +3448,7 @@ rule might come up in other situations too, so we’ll dig into it here.
 After creating an action called quizzing about, as explained in that
 section of Chapter 5, we could allow distant things to be quizzed about
 like this:</p>
+
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of doing anything other than quizzing someone about something when the second noun is a distant thing:\n\tsay &quot;[The second noun] [are] too far away.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">Instead of doing anything other than quizzing someone about something when the second noun is a distant thing:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "[The second noun] [are] too far away."</div>
 </div>
@@ -3053,6 +3461,7 @@ discussion is singular or plural. It will select “is” or “are” as
 needed. If we just wrote, “[The second noun] is too far away”, distant
 things that were plural-named, such as geese winging across the sky,
 wouldn’t work quite right. We’d see this:</p>
+
 <div class="game-output">
 <div class="command"><span class="prompt">&gt;</span>touch geese</div>
 
@@ -3079,6 +3488,7 @@ has not been upgraded for 6L38 compatibility. To learn how to update it
 
 <p>Once you’ve edited Far Away, it will do what we’ve been discussing in
 this section. Just put</p>
+
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Include far Away by Jon Ingold.\n`)"><span class="sym">⧉</span></button><div class="codeline">Include far Away by Jon Ingold.</div>
 </div>
 <p>near the top of your source code and then write a sentence saying
@@ -3086,6 +3496,7 @@ that the crumbling stone wall is distant. With the extension in place,
 you won’t need to write your own Instead rules to produce “too far away”
 messages. You may want to do so for particular literary reasons. For
 example:</p>
+
 <div class="game-output">
 <div class="command"><span class="prompt">&gt;</span>touch moon</div>
 
@@ -3126,16 +3537,12 @@ and suggest ways to work through problems that may come up.</p>
 
 <p>Once you’ve created your first room, you can create more rooms simply
 by describing the map to Inform, like this:</p>
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Forest Path is a room. “Tall old trees surround you. The path\ncontinues north and south from here.”\n\nCanyon View is north of Forest Path. “The path from the south ends\nhere at the top of a cliff, from which you have a spectacular view of a\ncanyon.”\n\nHaunted Grove is south of Forest Path. “The trees press close around\nyou, moaning faintly and waving their branches in an unsettling way. A\npath leads north.”\n`)"><span class="sym">⧉</span></button><div class="codeline">Forest Path is a room. “Tall old trees surround you. The path</div>
-<div class="codeline">continues north and south from here.”</div>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Forest Path is a room. “Tall old trees surround you. The path continues north and south from here.”\n\nCanyon View is north of Forest Path. “The path from the south ends here at the top of a cliff, from which you have a spectacular view of a canyon.”\n\nHaunted Grove is south of Forest Path. “The trees press close around you, moaning faintly and waving their branches in an unsettling way. A path leads north.”\n`)"><span class="sym">⧉</span></button><div class="codeline">Forest Path is a room. “Tall old trees surround you. The path continues north and south from here.”</div>
 <div class="codeline">&thinsp;</div>
-<div class="codeline">Canyon View is north of Forest Path. “The path from the south ends</div>
-<div class="codeline">here at the top of a cliff, from which you have a spectacular view of a</div>
-<div class="codeline">canyon.”</div>
+<div class="codeline">Canyon View is north of Forest Path. “The path from the south ends here at the top of a cliff, from which you have a spectacular view of a canyon.”</div>
 <div class="codeline">&thinsp;</div>
-<div class="codeline">Haunted Grove is south of Forest Path. “The trees press close around</div>
-<div class="codeline">you, moaning faintly and waving their branches in an unsettling way. A</div>
-<div class="codeline">path leads north.”</div>
+<div class="codeline">Haunted Grove is south of Forest Path. “The trees press close around you, moaning faintly and waving their branches in an unsettling way. A path leads north.”</div>
 </div>
 
 <p>This text will create a map with three rooms &ndash; from north to south,
@@ -3182,8 +3589,7 @@ won’t work:</p>
 
 <p>Nor will this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`South Of The Hut is a room. South Of The Hut is south of the Hut.\n[Error!]\n`)"><span class="sym">⧉</span></button><div class="codeline">South Of The Hut is a room. South Of The Hut is south of the Hut.</div>
-<div class="codeline">[Error!]</div>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`South Of The Hut is a room. South Of The Hut is south of the Hut. [Error!]\n`)"><span class="sym">⧉</span></button><div class="codeline">South Of The Hut is a room. South Of The Hut is south of the Hut. [Error!]</div>
 </div>
 
 <p>Either of these would work if Inform noticed the way we’re using
@@ -3349,6 +3755,7 @@ large enough to be visible from a distance:</p>
 
 <p>Next, we’ll give our outdoor rooms containing-names, and add a
 function that will use this property:</p>
+
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The containing-name of the Forest Path is &quot;Lying on the path&quot;.\nThe containing-name of By the Wall is &quot;Not far from the wall&quot;.\n\nTo scrutinize (R - a room):\n\tlet L be a list of things;\n\trepeat with item running through things in R:\n\t\tif item is huge:\n\t\t\tadd item to L;\n\tif the number of entries in L &gt; 0:\n\t\tsay &quot; [The containing-name of R] you can see &quot;;\n\t\tsay &quot;[L with indefinite articles].&quot;;\n\totherwise:\n\t\tsay &quot;[line break]&quot;. \n`)"><span class="sym">⧉</span></button><div class="codeline">The containing-name of the Forest Path is "Lying on the path".</div>
 <div class="codeline">The containing-name of By the Wall is "Not far from the wall".</div>
 <div class="codeline">&thinsp;</div>
@@ -4902,7 +5309,7 @@ In order to have these two things behave in different ways in your game,
 you’ll have to write some action-processing code. (To learn how to do
 this, see Chapter 4 of the <em>Handbook</em>.)</p>
 
-<h3 id="things-vs.-kinds">Things vs. Kinds</h3>
+<h3 id="things-vs-kinds">Things vs. Kinds</h3>
 
 <p>New Inform writers sometimes get into trouble by using the word
 “kind” when it’s not needed. This word has a special meaning in Inform.
@@ -6446,6 +6853,7 @@ or down. This fact is mentioned in <a href="../WI_3.html#section_2">WI 3.2: Room
 <p>If the aspirin tablet is in the pill box, the pill box is in the
 suitcase, the leather suitcase on the table, and the old oak table in
 the Dining Room, the containment hierarchy would look like this:</p>
+
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Dining Room\n\told oak table\n\t\tleather suitcase\n\t\t\tpill box\n\t\t\t\taspirin tablet\n`)"><span class="sym">⧉</span></button><div class="codeline">Dining Room</div>
 <div class="codeline">&ensp;&ensp;&ensp;old oak table</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;leather suitcase</div>
@@ -6477,7 +6885,7 @@ Room encloses the pill box”. This will be true if “if the pill box is
 enclosed by the Dining Room” is true.</p>
 
 <p>The <strong>location</strong> of a thing is always the room, as
-<a href="WI_3.html#section_25">WI 3.25: the location
+<a href="../WI_3.html#section_25">WI 3.25: the location
 of something</a>) points out. In the diagram above, the location of every
 object (except the Dining Room itself) is the Dining Room.</p>
 
@@ -6901,7 +7309,7 @@ reason to make several objects of a given kind is because they’re
 indistinguishable from one another, like the pennies in the section
 “Plurals &amp; Collective Objects,” above. But sometimes we want to make
 several objects of a single kind that are similar, yet different &ndash; for
-example, the various kinds of fruit in the section <a href="#things-vs.-kinds">Things vs. Kinds</a>. When we do this,
+example, the various kinds of fruit in the section <a href="#things-vs-kinds">Things vs. Kinds</a>. When we do this,
 the player may very reasonably want to perform an action on all of the
 members of the kind at once (or at least, on all of the members that are
 available at that point in the game). Persuading Inform to report the
@@ -7049,7 +7457,7 @@ names of the parts refer back to the main object, like this:</p>
 <p>If the player types X BLADE or X HILT, the game will simply print out
 the description of the knife. That may be all that we need. But with a
 more complex object, adding parts is a good way of designing it. The
-basics of how to do this are well explained on <a href="WI_3.html#section23">WI 3.23: Parts of things</a>. <a href="../examples/brown.html">Example 36: Brown</a> shows how to make parts that can be
+basics of how to do this are well explained on <a href="../WI_3.html#section23">WI 3.23: Parts of things</a>. <a href="../examples/brown.html">Example 36: Brown</a> shows how to make parts that can be
 detached and reattached. Unless our code detaches a part of an object,
 it will always be part of the object. If the larger object is picked up
 or dropped by the player, all of its parts will travel along with it
@@ -7410,7 +7818,7 @@ almost too simple to be worth mentioning:</p>
 <div class="codeline">&ensp;&ensp;&ensp;now SD is in the hopper.</div>
 </div>
 
-<p><a href="../examples/safety.html">Example 298: Safety</a>, shows how to make a
+<p><a href="../examples/safety.html">Example 298: Safety</a> shows how to make a
 spinning dial on a safe, but the example is hardly complete. For one
 thing, the dial doesn’t exist as a separate object that can be examined.
 And because it can’t be examined, there’s no way to find out what number
@@ -8057,7 +8465,7 @@ work, we need to delve deeper into Inform’s action processing.</p>
 
 <h3 id="action-processing">Action Processing</h3>
 
-<p><a href="WI_12.html#section2">WI 12.2: How
+<p><a href="../WI_12.html#section2">WI 12.2: How
 actions are processed</a> has a diagram (a flowchart) that shows &ndash; as you
 might expect &ndash; how actions are processed. The first time I looked at
 this diagram, it baffled me, but it really does make sense. (See <a
@@ -8229,7 +8637,7 @@ to the Check rulebook for the specific action. Each action has its own
 Check, Carry Out, and Report rules. Before the Report rules for the
 action are considered, though, Inform dips into the After rulebook
 (again, there’s only one, though it might contain dozens of rules
-applying to different actions). This is what <a href="WI_12.html#section2">WI 12.2</a>'s action processing diagram is illustrating. If no After rule shuts off the action
+applying to different actions). This is what <a href="../WI_12.html#section2">WI 12.2</a>'s action processing diagram is illustrating. If no After rule shuts off the action
 processing, the Report rules for the current action will be
 considered.</p>
 
@@ -9105,46 +9513,6 @@ you copy and paste text from the <em>Handbook.</em> These returns will
 have to be stripped out after you copy the example into Inform’s
 IDE.</p>
 
-<p>Inform’s IDE doesn’t display Tab-separated tables any better than the
-word processor I’m using to write this book. As a result, a table that
-has long entries, like the one above, can be difficult to understand or
-debug just by looking at it. It’s a mess. Here’s what the table above
-would look like if we could use a real word processor table (which we
-can’t do, because Inform wouldn’t understand it):</p>
-</div>
-<table>
-<tbody>
-<tr class="odd">
-<td><div data-custom-style="I7 Code">
-topic
-<td><div data-custom-style="I7 Code">
-article
-</tr>
-<tr class="even">
-<td><div data-custom-style="I7 Code">
-"Monty Python" or "Python" or "Monty Python's Flying Circus" or
-"Flying Circus"
-<td><div data-custom-style="I7 Code">
-"Monty Python's Flying Circus was a very strange British comedy show
-popular in the 1970s."
-</tr>
-<tr class="odd">
-<td><div data-custom-style="I7 Code">
-"crayons" or "crayolas" or "crayon"
-<td><div data-custom-style="I7 Code">
-"crayons are made of wax. They come in bright colors, and are used to
-create works of art on paper."
-</tr>
-<tr class="even">
-<td><div data-custom-style="I7 Code">
-"weapons" or "weaponry" or "swords" or "sword"
-<td><div data-custom-style="I7 Code">
-"a sword was the weapon preferred by knights in the Middle Ages.
-Swords are often used for hacking, slashing, and stabbing."
-</tr>
-</tbody>
-</table>
-
 <p>With the code shown above, the player can CONSULT ENCYCLOPEDIA ABOUT
 SWORDS or LOOK UP WEAPONRY IN ENCYCLOPEDIA. Both commands lead to the
 consulting it about action, and from there to the entry in the article
@@ -9170,15 +9538,12 @@ processing can be stopped at every stage. If it’s stopped at a given
 stage, none of the later stages will be reached.</p>
 
 <div class="addendum"><div class="add-header">Addendum</div><div class="add-body">
-Action processing can be stopped at every stage <em>except</em> Carry out. "stop the action" in a Carry out rule puts an end to following the Carry out rules for that action, but action processing moves on to the After rules.</div></div>
+<p>Action processing can be stopped at every stage <em>except</em> Carry out. "stop the action" in a Carry out rule stops *only the Carry out rulebook*, after which action processing would moves on to the After rules.</p><p>The table below has been reformatted and so has diverged from Michael Callaghan's suggestion.</p></div></div>
 
 <table class="codetable">
   <tbody>
     <tr class="action-stage"><td colspan="3"><strong>Parsing</strong></td></tr>
 <tr class="odd">
-<!-- <td>
-<p><strong>Stage</strong></p>
-</td> -->
 <td>
 <p><strong>Comment</strong></p>
 </td>
@@ -9190,9 +9555,6 @@ Action processing can be stopped at every stage <em>except</em> Carry out. "stop
 </td>
 </tr>
 <tr class="even">
-<!-- <td>
-<p><strong>Parsing</strong></p>
-</td> -->
 <td>
 <p>The player’s input is checked to make sure it makes sense &ndash; that all
 of the words are spelled correctly and so on.</p>
@@ -9211,9 +9573,6 @@ command” feature, see <a href="../WI_20.html#section_6">WI 20.6</a>, especiall
 </tr>
     <tr class="action-stage"><td colspan="3"><strong>Scope</strong></td></tr>
 <tr class="odd">
-<!-- <td>
-<p><strong>Stage</strong></p>
-</td> -->
 <td>
 <p><strong>Comment</strong></p>
 </td>
@@ -9224,10 +9583,6 @@ command” feature, see <a href="../WI_20.html#section_6">WI 20.6</a>, especiall
 <p><strong>How to change</strong></p>
 </td>
 </tr>
-<!-- <tr class="odd">
-<td>
-<p><strong>Scope</strong></p>
-</td> -->
 <td>
 <p>Where the action involves one or more things, Inform 7 checks that
 the things referred to are in scope. With some exceptions, things that
@@ -9249,9 +9604,6 @@ Documentation for “scope,” noting especially <a href="../examples/fate_steps
 </tr>
     <tr class="action-stage"><td colspan="3"><strong>Before rules</strong></td></tr>
 <tr class="odd">
-<!-- <td>
-<p><strong>Stage</strong></p>
-</td> -->
 <td>
 <p><strong>Comment</strong></p>
 </td>
@@ -9263,9 +9615,6 @@ Documentation for “scope,” noting especially <a href="../examples/fate_steps
 </td>
 </tr>
 <tr class="even">
-<!-- <td>
-<p><strong>Before rules</strong></p>
-</td> -->
 <td>
 <p>All Before rules are contained in a single rulebook that Inform
 consults to see if any of them applies to the action that is now being
@@ -9294,9 +9643,6 @@ action, you can use “rule fails” or “instead”.</p>
 </tr>
     <tr class="action-stage"><td colspan="3"><strong>Accessibility</strong></td></tr>
 <tr class="odd">
-<!-- <td>
-<p><strong>Stage</strong></p>
-</td> -->
 <td>
 <p><strong>Comment</strong></p>
 </td>
@@ -9309,9 +9655,6 @@ action, you can use “rule fails” or “instead”.</p>
 </tr>
 
 <tr class="odd">
-<!-- <td>
-<p><strong>Accessibility</strong></p>
-</td>-->
 <td>
 <p>Inform checks that even if something affected by the action is in
 scope (see above), it needs to be visible and touchable if the action
@@ -9332,9 +9675,6 @@ using a Before rule.</p>
 </tr>
     <tr class="action-stage"><td colspan="3"><strong>Implicit Actions</strong></td></tr>
 <tr class="odd">
-<!-- <td>
-<p><strong>Stage</strong></p>
-</td> -->
 <td>
 <p><strong>Comment</strong></p>
 </td>
@@ -9346,9 +9686,6 @@ using a Before rule.</p>
 </td>
 </tr>
 <tr class="even">
-<!-- <td>
-<p><strong>Implicit actions</strong></p>
-</td> -->
 <td>
 <p>Certain verbs trigger an implicit action. For example, the EAT
 command causes an implicit taking action if the item to be eaten is
@@ -9367,9 +9704,6 @@ way to do this is to intervene using a Before rule.</p>
 </tr>
     <tr class="action-stage"><td colspan="3"><strong>Instead</strong></td></tr>
 <tr class="odd">
-<!-- <td>
-<p><strong>Stage</strong></p>
-</td> -->
 <td>
 <p><strong>Comment</strong></p>
 </td>
@@ -9576,8 +9910,9 @@ that the second Report rule will run.</p>
     <p>What's described here as "Implicit Actions" is the effect of the Carrying requirements rule: if an action's definition requires one or more carried things and the actor isn't carrying the thing specified, an implicit take is attempted. For the Standard Rules' actions, this may happen during any of Giving, Showing, Throwing, Wearing, Locking, or Unlocking.</p>
 
     <p>
-Eating, Taking Off, Inserting it into, and Putting it on can invoke implicit taking as well, but for them it occurs within their Check rules.
-      </p>
+However, Eating, Taking Off, Inserting it into, and Putting it on may also cause an implicit take, but <em>not</em> as an effect of the Carrying requirements rule: for them it occurs within their Check rules, thus *after* the Instead rules are run.
+    </p>
+    <p>So Instead rules for Giving, Showing, Throwing, Wearing, Locking, or Unlocking can count on the actor carrying the thing (or things) needed, or the action would have stopped before reaching them. Instead rules for Eating, Taking Off, Inserting it into, or Putting it on shouldn't assume the actor is carrying the thing: the actor may or may not be.</p>
     </div></div>
 
 <h2 id="chapter-5-creating-characters">Chapter 5: Creating Characters</h2>
@@ -9866,10 +10201,13 @@ code for Troy than what we’ve written above:</p>
 <div class="game-output">
 <div class="command"><span class="prompt">&gt;</span>kiss troy</div>
 <p>Troy might not like that.</p>
+
 <div class="command"><span class="prompt">&gt;</span>kiss tuxedo</div>
 <p>You can only do that to something animate.</p>
+
 <div class="command"><span class="prompt">&gt;</span>take troy</div>
 <p>I don't suppose Troy would care for that.</p>
+
 <div class="command"><span class="prompt">&gt;</span>take tuxedo</div>
 <p>That seems to belong to Troy.</p>
 </div>
@@ -9955,6 +10293,7 @@ parser won’t understand the word “man” as referring to Troy. This is
 because the name of a kind is not understood as referring to specific
 objects of that kind unless you say it is. You have to add the
 vocabulary by hand:</p>
+
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Troy is a man in the Billiard Room. Understand &quot;man&quot; as Troy.\n`)"><span class="sym">⧉</span></button><div class="codeline">Troy is a man in the Billiard Room. Understand "man" as Troy.</div>
 </div>
 </div>
@@ -10250,6 +10589,7 @@ will show why this can be a big problem:</p>
 <div class="game-output">
 <div class="command"><span class="prompt">&gt;</span>ask troy about tuxedo</div>
 <p>"Oh, you've noticed my tuxedo," he replies. "I'm fond of it."</p>
+
 <div class="command"><span class="prompt">&gt;</span>ask troy about the tuxedo</div>
 <p>There is no reply.</p>
 </div>
@@ -10520,9 +10860,8 @@ This process is called “the lawnmower effect,” because it turns the
 game-play into a rather boring mechanical process of mowing down
 everything on the menu.</p>
 
-<p>If you look in <a href="../RB_7.html#section_8">RB 7.8,
-“Saying Complicated Things”</a>, you’ll find several examples of
-conversational systems. <a href="../examples/sweeney.html">Example 282, “Sweeney”</a>, provides a hybrid system
+<p>If you look in <a href="../RB_7.html#section_8">RB 7.8: Saying Complicated Things</a>, you’ll find several examples of
+conversational systems. <a href="../examples/sweeney.html">Example 282: Sweeney</a> provides a hybrid system
 in which the player can ask or tell about topics, but will sometimes be
 prompted with a numbered list of items. The Recipe Book doesn’t give an
 example of a full menu-based conversation system, reporting that “they
@@ -11586,7 +11925,7 @@ fire, water, rope, and chemicals of all kinds. <a href="../RB_10.html">Chapter 1
 puzzles of this type. You might want the player to mix three chemicals
 to create a new substance, for instance. Mixing would naturally require
 a container that the ingredients can be put into. (The cocoa mug puzzle
-in “Lydia’s Heart” was easily the most complex and difficult puzzle to
+in <a href="https://ifdb.org/viewgame?id=7t22wbllftv7nuiw">Lydia’s Heart</a> was easily the most complex and difficult puzzle to
 write in the game, and I’m still not sure it’s free of bugs. The puzzle
 had three ingredients &ndash; a paper envelope full of powdered cocoa, a
 sleeping pill, and some water. The water could be either hot or cold,
@@ -11654,8 +11993,8 @@ story, we might call this type of puzzle an enigma.</p>
 Muckenhaupt</a>. In this game, <em>all</em> of the nouns and verbs,
 including the ones you use in commands, have been replaced by nonsense
 words of the author’s own devising. The puzzle is to figure out how to
-read the text of the game and issue commands. <a href="https://ifdb.org/viewgame?id=7d5kjxqadyuyfgzu">Roger Firth’s “Letters
-from Home”</a> is also an enigma-based game, with only a thin veneer of
+read the text of the game and issue commands. <a href="https://ifdb.org/viewgame?id=7d5kjxqadyuyfgzu">Roger Firth’s Letters
+from Home</a> is also an enigma-based game, with only a thin veneer of
 story.</p>
 
 <h3 id="deceptive-appearances-unusual-usages">Deceptive Appearances &amp; Unusual Usages</h3>
@@ -11989,7 +12328,7 @@ when the game ends.</p>
 the word “the”. More often than not, Inform strips out “the” when
 compiling, but here it’s required.</p>
 
-<p>In <a href="../WI_9.html#section_4">WI 9.4 When
+<p>In <a href="../WI_9.html#section_4">WI 9.4: When
 play ends</a>, a distinction is made between “end the story” and “end the
 story finally.” I haven’t been able to figure out exactly what the
 difference is. I suggest just using “end the story” without worrying
@@ -12062,7 +12401,7 @@ latest action, thereby retrieving the chocolate biscuit.</p>
 <p>In a game whose story is serious in tone, awarding points might seem
 too frivolous, so you might want to use no scoring. Inform allows the
 author, however, to give the player points for doing certain actions. A
-way to do this is explained in <a href="../WI_9.html#section_2">WI 9.2 Awarding points</a>. The first step is to put this line
+way to do this is explained in <a href="../WI_9.html#section_2">WI 9.2: Awarding points</a>. The first step is to put this line
 near the top of your source code, along with whatever other Use or
 Include options you’ve selected:</p>
 
@@ -12365,7 +12704,7 @@ the bar across the top of the game window. Normally (unless you do
 something to change it), the right side of the status line is empty, but
 this code can be used to show the number of points the player has earned
 (“[score]”), for example. The code above changes the status line to show
-the time of day. For more, see <a href="WI_8.html#section3">WI 8.3: Changing the status line</a>.
+the time of day. For more, see <a href="../WI_8.html#section3">WI 8.3: Changing the status line</a>.
 
 <p>As a courtesy to the player, you might want to have no time pass when
 the player is simply using the LOOK command to refresh her memory about
@@ -13255,8 +13594,10 @@ Keyword Interface, which may be all you need:</p>
 <div class="game-output">
 <p class="bold">Patio</p>
 <p>In the pavement is set a small iron grate.</p>
+
 <div class="command"><span class="prompt">&gt;</span>bold on</div>
 <p>Bold type to highlight interesting objects switched on.</p>
+
 <div class="command"><span class="prompt">&gt;</span>look</div>
 <p class="bold">Patio</p>
 <p>In the pavement is set a small iron <span class="bold">grate</span>.
@@ -13585,7 +13926,7 @@ compile:</p>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say "It feels weird to look in the mirrors and not see your handsome features reflected back." [Errors!]</div>
 </div>
 
-<h3 id="objects-vs.-rules">Objects vs. Rules</h3>
+<h3 id="objects-vs-rules">Objects vs. Rules</h3>
 
 <p>Many computer programming languages are firmly based on the idea of
 objects. Even if you’re creating something as abstract as an email
@@ -14415,12 +14756,14 @@ blocks often need to branch based on whether a logical test is true or
 false. The keyword “if” is used in many programming languages, including
 Inform, to write a statement that will allow the code to branch. In
 pseudo-code, a short version look be something like this:</p>
+
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`    if A, do X;\notherwise, do Y. [ pseudo-code; not valid ]\n`)"><span class="sym">⧉</span></button><div class="codeline">if A, do X; <br>
     otherwise, do Y. [ pseudo-code; not valid ]</div>
 </div>
 
 <p>Here, “X” and “Y” would be entire lines or multiple lines of code. A
 more complex (and more realistic) example might look more like this:</p>
+
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`if A, do Q, R, and S;\notherwise, do X, Y, and Z. [ pseudo-code; not valid ]\n`)"><span class="sym">⧉</span></button><div class="codeline">if A, do Q, R, and S;<br>otherwise, do X, Y, and Z. [ pseudo-code; not valid ]</div>
 </div>
 
@@ -14510,6 +14853,25 @@ programmers today seem to prefer this method:</p>
 must be used as shown, and it must use Tab characters, not series of
 spaces. I find this much easier to read.</p>
 
+
+<div class="addendum"><div class="add-header">Addendum</div><div class="add-body">
+
+    <blockquote>Why not dispense with the “begin/end” keywords if we’re going to use indentation to make the code easier to read?</blockquote>
+
+    <p>I am so glad you asked. Among the reasons to both indent your code (with spaces) and use begin and end:</p>
+      <ul>
+        <li>Your code won't fail mysteriously because somehow something got indented with spaces instead of a tab, a difference that's invisible to you but crucial to the compiler.</li>
+        <li>Making indentation level syntactically significant needlessly creates an opportunity for errors when moving some given block of code elsewhere.</li>
+        <li>Maintaining indentation is tedium that can and should be automated. With explicit beginnings and endings, it can be (in a programmer's editor like Emacs or Vim).</li>
+        <li>The code could reliably be copy-pasted between applications.</li>
+        <li>Someone adapting a lengthy work with hundreds of Inform code snippets wouldn't have a nightmare ensuring that the separate versions, one for presentation, and another for copy-pasting because such code can't be copy-pasted between applications without doing that, were both consistent and correct.</li>
+        <li>OK, that one might be specific to me.</li>
+      </ul>
+    <p>Syntactically significant whitespace: a bad idea.</p>
+    <p>Syntactically significant <em>tab characters</em>: a much, much worse one.</p>
+    <p>But, alas, mine is a minority opinion in this modern world. The bad idea won.</p>
+    </div></div>
+
 <p>I’ve found that newcomers to Inform authoring quite often don’t pay
 enough attention to how many indents (that is, how many Tab key presses)
 they need for a particular line of code. If the indenting is wrong, the
@@ -14529,8 +14891,8 @@ screen. (Multi-line paragraphs in this Handbook don’t have hanging
 indents, so they won’t look exactly the way they will look in the
 IDE.)</p>
 
-<p>When do you indent? The rule is simple: <u>After a colon, you indent
-by one more Tab than the line that ends with the colon</u>.</p>
+<p>When do you indent? The rule is simple: <strong>After a colon, you indent
+by one more Tab than the line that ends with the colon.</strong></p>
 
 <p>Basically, a colon means “do the following action(s).” Following
 every colon is a list of one or more steps that you want Inform to take.
@@ -14656,8 +15018,8 @@ everything in your code, no matter where it is. But if you create your
 own organization, the writing will go more smoothly, and you’ll end up
 with fewer bugs.</p>
 
-<p>The natural and normal way to do this is by writing headings, as
-explained in <a href="../WI_2.html#section5">WI 2.5</a>,
+<p>The natural and normal way to do this is by writing headings (as
+explained in <a href="../WI_2.html#section5">WI 2.5: Headings</a>)
 and putting all of the code for some specific thing below a single
 heading. For instance, the chapter on the wizard might include a section
 called “Conversations with the Wizard.”</p>
@@ -14726,8 +15088,8 @@ headings are strictly a way to organize your source code. They have no
 effect whatever on what happens when the game is being played. To switch
 to a new set of circumstances at a certain point in the game, you need
 to use scenes, as explained in Chapter 8 of this <em>Handbook</em> and
-<a href="../WI_10.html"><strong>Chapter 10</strong> of <em>Writing with Inform</em>,
-“Scenes.”</a></p>
+<a href="../WI_10.html"><strong>Chapter 10</strong> of <em>Writing with Inform</em>:
+Scenes</a>.</p>
 
 <h3 id="loops">Loops</h3>
 
@@ -14739,7 +15101,7 @@ process of doing this is called a loop.</p>
 
 <p>Loops are used less in interactive fiction than in many other types
 of programming, but they definitely have their uses. The basic syntax
-  for how to use loops is in <a href="WI_11.html#section_9">WI 11.html.9 While</a>, <a href="WI_11.html#section_10">WI 11.10 Repeat</a>, and <a href="WI_11#section_11">WI 11.11 Repeat running through</a>. We’ve already seen loops a few times in the
+  for how to use loops is in <a href="../WI_11.html#section_9">WI 11.9: While</a>, <a href="../WI_11.html#section_10">WI 11.10 Repeat</a>, and <a href="../WI_11#section_11">WI 11.11 Repeat running through</a>. We’ve already seen loops a few times in the
 <em>Handbook,</em> for instance in the <a
 href="#Ref_dollar_bill">dollar bill example</a>, where the loop was used to move a bunch
 of dollar bills. Here’s a more straightforward example.</p>
@@ -14864,7 +15226,7 @@ of your source code, and you’re good to go:</p>
 <p>If you need to switch from one viewpoint or tense to another during
 the course of the game, you’ll probably want to make use of the same
 kinds of text insertions that the Standard Library uses. These methods
-are detailed in <a href="../WI_14.html">WI Chapter 14</a>.</p>
+are detailed in <a href="../WI_14.html">WI Chapter 14: Adaptive Text and Responses</a>.</p>
 
 <h3 id="code-optimization">Code Optimization</h3>
 
@@ -15013,7 +15375,7 @@ likely to include bugs.</p>
 <h3 id="tables">Tables</h3>
 
 <p>Tables are Inform’s way of organizing complicated blocks of data.
-<a href="../WI_16.html">Chapter 16 of <em>Writing with Inform</em>, “Tables”</a>,
+<a href="../WI_16.html">WI Chapter 16: Tables</a>,
 will tell you a great deal about tables, but it won’t, at first glance,
 give you a very clear idea why you might want to use a table. I’m pretty
 sure you can write a complete and satisfying game without ever using
@@ -15024,7 +15386,7 @@ instance.</p>
 
 <p>When I asked the Inform experts for ideas about why an author might
 want to use a table, Emily Short provided an excellent list. I’ll
-include her suggestions here, with only minor editing, in case they
+include her suggestions below, with only minor editing, in case they
 might give you an idea or two for your next game.</p>
 </div>
 
@@ -15068,6 +15430,11 @@ section:</p>
 <div class="codeline">chipmunk&ensp;&ensp;&ensp;"Abercrombie"&ensp;&ensp;&ensp;9</div>
 <div class="codeline">mole&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;"Edith"&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;27</div>
 </div>
+
+<div class="addendum"><div class="add-header">Addendum</div><div class="add-body">
+    <p>Table columns are separated by <em>any number of tab characters</em> so long as it's at least one. So one can make them look not ugly by going to the effort of inserting extra tabs between columns on a per row basis. But if you change a column's value to something of a different length, you're likely to need to adjust every other row to maintain it.</p>
+    <p>For your reading pleasure, henceforth this document will graphically represent tables <em>as tables</em> though that's not what they'll look like in actual Inform source.</p>
+    </div></div>
 
 <p>The first row under the table name contains the column headings
 (critter, name, weight). These are just abstract words, as far as Inform
@@ -15176,7 +15543,7 @@ of the noun&hellip;” will let us alter the name of any of the critters to
 “Judy Garland” by typing ALTER MOLE in the game, or ALTER MUSKRAT.</p>
 
 <div class="sidebar" id="emily-short-on-using-tables">
-<h4>Emily Short on Using Tables</h4>
+<h4 id="emily-short-on-using-tables">Emily Short on Using Tables</h4>
 
 <p>The most common uses for me are these:</p>
 
@@ -15539,8 +15906,8 @@ out of room.</p>
 controls the amount of memory available in the game for a certain type
 of data. Here’s the list:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`\n    Use ALLOC_CHUNK_SIZE of 32000.\nUse MAX_ARRAYS of 10000.\nUse MAX_CLASSES of 200.\nUse MAX_VERBS of 255.\nUse MAX_LABELS of 10000.\nUse MAX_ZCODE_SIZE of 500000.\nUse MAX_STATIC_DATA of 180000.\nUse MAX_PROP_TABLE_SIZE of 200000.\nUse MAX_INDIV_PROP_TABLE_SIZE of 20000.\nUse MAX_STACK_SIZE of 65536.\nUse MAX_SYMBOLS of 20000.\nUse MAX_EXPRESSION_NODES of 256.\nUse MAX_LABELS of 200000.\nUse MAX_LOCAL_VARIABLES of 256.\n\n`)"><span class="sym">⧉</span></button>  
-<div class="codeline">    Use ALLOC_CHUNK_SIZE of 32000.</div>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Use ALLOC_CHUNK_SIZE of 32000.\nUse MAX_ARRAYS of 10000.\nUse MAX_CLASSES of 200.\nUse MAX_VERBS of 255.\nUse MAX_LABELS of 10000.\nUse MAX_ZCODE_SIZE of 500000.\nUse MAX_STATIC_DATA of 180000.\nUse MAX_PROP_TABLE_SIZE of 200000.\nUse MAX_INDIV_PROP_TABLE_SIZE of 20000.\nUse MAX_STACK_SIZE of 65536.\nUse MAX_SYMBOLS of 20000.\nUse MAX_EXPRESSION_NODES of 256.\nUse MAX_LABELS of 200000.\nUse MAX_LOCAL_VARIABLES of 256.\n\n`)"><span class="sym">⧉</span></button>  
+<div class="codeline">Use ALLOC_CHUNK_SIZE of 32000.</div>
 <div class="codeline">Use MAX_ARRAYS of 10000.</div>
 <div class="codeline">Use MAX_CLASSES of 200.</div>
 <div class="codeline">Use MAX_VERBS of 255.</div>
@@ -15555,6 +15922,20 @@ of data. Here’s the list:</p>
 <div class="codeline">Use MAX_LABELS of 200000.</div>
 <div class="codeline">Use MAX_LOCAL_VARIABLES of 256.</div>
 </div>
+
+<div class="addendum"><div class="add-header">Addendum</div><div class="add-body">
+<p><a href="https://github.com/DavidKinder/Inform6/releases/tag/v6.36">Inform 6 version 6.36 and higher uses dynamic allocation during compilation</a>, rendering nearly all of these irrelevant. (Inform 7 10.1 is packaged with Inform 6 6.41.)</p>
+
+<p>MAX_LOCAL_VARIABLES has become a constant (16 on the Z-machine, 119 on Glulx) and isn't subject to change. MAX_STACK_SIZE has potential relevance, as it has meaning for the resultant game, not just for compilation. Other things of continued relevance include:
+</p>
+
+<ul>
+  <li>Use dynamic memory allocation of at least&hellip;</li>
+  <li>Use maximum text length of at least&hellip;</li>
+  <li>Use maximum things understood at once of at least&hellip;</li>
+  <li>Use DICT_WORD_SIZE of&hellip;</li>
+</ul>
+</div></div>
 
 <p>If you receive a message from the compiler saying that one of these
 values has been exceeded, all you need to do is write a line at the top
@@ -15599,10 +15980,7 @@ objects … well, how they relate to one another.</p>
 verbs</a>. There, some new verbs are defined, which can then be used in
 code. Here’s another example, this one my own:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Proximity relates a thing (called X) to a thing (called Y) when the\nholder of X is the holder of Y. The verb to jostle (he jostles, he\njostled, it is jostled, he is jostling) implies the proximity\nrelation.\n`)"><span class="sym">⧉</span></button><div class="codeline">Proximity relates a thing (called X) to a thing (called Y) when the</div>
-<div class="codeline">holder of X is the holder of Y. The verb to jostle (he jostles, he</div>
-<div class="codeline">jostled, it is jostled, he is jostling) implies the proximity</div>
-<div class="codeline">relation.</div>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Proximity relates a thing (called X) to a thing (called Y) when the holder of X is the holder of Y. The verb to jostle (he jostles, he jostled, it is jostled, he is jostling) implies the proximity relation.\n`)"><span class="sym">⧉</span></button><div class="codeline">Proximity relates a thing (called X) to a thing (called Y) when the holder of X is the holder of Y. The verb to jostle (he jostles, he jostled, it is jostled, he is jostling) implies the proximity relation.</div>
 </div>
 
 <p>If you need to make a decision in the game based on whether two
@@ -15665,7 +16043,7 @@ the game in a more reliable way, a better approach will be to use
 relations.</p>
 
 <p>The code for this game would almost certainly include the example
-sentence in <a href="../WI_13.html#section_5">WI 13.5 Loving relates various people to
+sentence in <a href="../WI_13.html#section_5">WI 13.5: Loving relates various people to
 one person</a>. We would have to write more code in order to cause
 characters who have been shot with one of Cupid’s arrows to fall in love
 with the next suitable person they see. I’m not going to do that here,
@@ -15804,8 +16182,7 @@ choice.</p>
 
 <h3 id="special-features-in-glulx">Special Features in Glulx</h3>
 
-<p>In <a href="../WI_23.html">Chapter 23 of <em>Writing with Inform</em>,
-Figures, Sounds and Files</a>, you’ll find a good discussion of how to add
+<p>In <a href="../WI_23.html">WI Chapter 23: Figures, Sounds and Files</a>, you’ll find a good discussion of how to add
 graphics files (digital photos or clip art in .jpg or .png format) to
 your game. To do so, you’ll need to compile to glulx, not to .z8.</p>
 
@@ -15988,6 +16365,8 @@ across the room in sheer frustration. Once in a while, you may notice
 that you’re actually having fun. And that’s the point, isn’t it?</p>
 
 <h2 id="appendix-a-glossary">Appendix A: Glossary</h2>
+
+<h3 id="glossary">Glossary</h3>
 
 <p><strong>After:</strong> One of the rulebooks used in processing
 player commands. (See <a href="#action-processing">Action Processing</a>.)</p>
@@ -16215,6 +16594,8 @@ devices.</p>
 
 <h2 id="appendix-b-updating-older-extensions">Appendix B: Updating Older Extensions</h2>
 
+<h3 id="updating-extensions">Updating Extensions</h3>
+
 <p>Extensions are an important and convenient way of extending the
 functionality of Inform 7. Many of them are available. Older extensions
 are archived on the Inform 7 website, and can be downloaded from there &ndash;
@@ -16343,6 +16724,8 @@ that’s what’s needed:</p></div>
 </div>
 
 <h2 id="appendix-c-short-sample-games">Appendix C: Short Sample Games</h2>
+
+<h3 id="sample-games">Sample Games</h3>
 
 <p>In this appendix you’ll find a few miniature games that illustrate
 various techniques. These games are a bit too complex to fit well within
@@ -17398,6 +17781,8 @@ are far away.</p>
 </div>
 
 <h2 id="appendix-d-license">Appendix D: License</h2>
+
+<h3 id="d-license">License</h3>
 
 <p>The Inform 7 Handbook is provided for your use under the terms of the
 Creative Commons Public License (“CCPL” or “License”). This work is
