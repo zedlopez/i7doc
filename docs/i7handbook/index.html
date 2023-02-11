@@ -16,9 +16,32 @@
       more links to other chapters of the handbook
       break up per chapter? + all-in-one for searching?
       borogove for the long examples
-      
+      alt txt      
       -->
+  <--
+    links for examples:
 
+    to get the same result is shown in Example 403, “Alpha,” in the
+rules. Fortunately, Example 365 in the Documentation, “Stately Gardens,”
+between rooms, see Example 7 (“Port Royal 2”) in the Documentation. We
+convention of IF that dark rooms are completely dark, but Example 345,
+Book,</em> especially Example 177, “Equipment List.”</p>
+new and better way to get the same output is described in Example 295,
+of <em>Writing With Inform</em> (“Parts of things”). Example 36
+examples showing how to make furniture. Example 83, “Yolk of Gold,” has
+<p>Example 298 in the Documentation, “Safety,” shows how to make a
+<p>Combining this code with Example 298 would require a little more
+Inform,</em> especially Example 412.</p>
+conversational systems. Example 282, “Sweeney,” provides a hybrid system
+most interesting of these is shown in Example 185, “Latris Theon.”
+<p>Example 274, “Odyssey,” is on the same page of the <em>Recipe
+player around like a faithful puppy is not difficult. Example 39, “Van
+<p>Example 302, “Actaeon” (found on <strong>p. 7.13</strong> of the
+<p>Example 407, “Timeless,” shows a different way to accomplish the same
+(Example 188, “Generation X,” demonstrates this.) I could also handle
+
+    -->
+  
 
   <body>
     <header>
@@ -866,7 +889,7 @@ leading magazines. His personal website is <a href="jimaikin.net">JimAikin.net</
 
 <h2 id="chapter-1-getting-started">Chapter 1: Getting Started</h2>
 
-<p>So … you’d like to try writing interactive fiction. It looks like
+<p>So… you’d like to try writing interactive fiction. It looks like
 fun, but you’re not sure where to start. Or maybe you’ve already
 started, and now you’re getting confused, or you’re not sure how to get
 the results you want.</p>
@@ -2496,13 +2519,13 @@ ACTIONS command causes Inform to print out the action that’s being
 triggered when you type a command. This can be useful if you aren’t
 getting the results you expect from a command.</p>
 
-<p>The SHOWME command (see <a href="../WI_2.html#section_7">WI 2.7: the SHOWME command</a>) prints out the current state of any object in the
+<p>The SHOWME command prints out the current state of any object in the
 model world. SHOWME SHOES, for instance, will print out all of the data
 associated with the shoes object. When you start writing objects that
 can get into several different states (for instance, a goblet of wine
 that can be poisonous or safe), you can use SHOWME GOBLET after dropping
 the tablets into the goblet to see if the goblet has switched to the
-state that it’s supposed to.</p>
+state that it’s supposed to. (See <a href="../WI_2.html#section_7">WI 2.7: the SHOWME command</a>.)</p>
 
 <p>As explained in <a href="../WI_11#section_4">WI 11.4: the showme phrase</a>, the word showme can be used to add
 debugging code to your game. When the game is running, if a line with a
@@ -2836,7 +2859,6 @@ the problem yourself! (It often works that way, in my experience.)
 </li>
 </ol>
 
-<p>The best short tutorials and  is a fantastic introduction
 <p>Carolyn VanEseltine has a quick-start I7 tutorial,
 <a href="https://www.sibylmoon.com/welcome-to-adventure/">Welcome to Adventure</a>.
 For more general advice on
@@ -3888,7 +3910,8 @@ a command, when in the Farmyard, in order to enter the little red
 barn:</p>
 
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of entering the barn-exterior:\n\ttry going north.\nInstead of going inside in the Farmyard:\n\ttry going north.\n`)"><span class="sym">⧉</span></button><div class="codeline">Instead of entering the barn-exterior:</div>
-<div class="codeline">&ensp;&ensp;&ensp;try going north.</div>
+  <div class="codeline">&ensp;&ensp;&ensp;try going north.</div>
+  <div class="codeline">&thinsp;</div>
 <div class="codeline">Instead of going inside in the Farmyard:</div>
 <div class="codeline">&ensp;&ensp;&ensp;try going north.</div>
 </div>
@@ -4571,7 +4594,7 @@ thing that responds to the user’s commands as if it were a door.</p>
 
 <h3 id="regions">Regions</h3>
 
-<p>As explained on <a href="../WI_3.html/#section_4">WI 3.4: Regions and the index map</a>), using regions is a nice way
+<p>As explained in <a href="../WI_3.html/#section_4">WI 3.4: Regions and the index map</a>, using regions is a nice way
 to keep a larger map organized. After you’ve defined some regions,
 you’ll also be able to use some of Inform’s world-building features more
 easily. This is because you can test what region the player is in, and
@@ -4670,6 +4693,7 @@ uncursed or vice-versa with a single line of code:</p>
 
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`now the Dormitory is uncursed.\n`)"><span class="sym">⧉</span></button><div class="codeline">now the Dormitory is uncursed.</div>
 </div>
+
 <h3 id="backdrops">Backdrops</h3>
 
 <p>Rooms in Inform are not built out of anything &ndash; they’re just empty,
@@ -5045,6 +5069,7 @@ is entered. Here’s how to do it:</p>
 <div class="codeline">Carry out mode-change-refusing:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "Sorry -- this game is always in verbose mode."</div>
 </div>
+
 <h3 id="more-about-room-descriptions">More About Room Descriptions</h3>
 
 <p>We’ve already seen (in the section on “Backdrops,” earlier in this
@@ -6599,6 +6624,7 @@ do. Here’s an easy way to fix it, suggested by Michael Callaghan:</p>
 <div class="codeline">&ensp;&ensp;&ensp;surreptitiously move the player to the holder of C;</div>
 <div class="codeline">&ensp;&ensp;&ensp;continue the action.</div>
 </div>
+
 <h3 id="moving-things-around">Moving Things Around</h3>
 
 <p>You can expect that during the game, the player will pick things up,
@@ -6671,6 +6697,7 @@ carried is this:</p>
 
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`now the player carries the sword.\n`)"><span class="sym">⧉</span></button><div class="codeline">now the player carries the sword.</div>
 </div>
+
 <h3 id="inventory">Inventory</h3>
 
 <p>When the player types INVENTORY, INV, or simply I, Inform will print
@@ -8668,7 +8695,7 @@ happened.</p>
 <p>If we use the RULES debugging command to turn on reporting of rules,
 and then EAT something that we’ve declared as edible, we’ll see exactly
 which rules are running:</p>
-</div>
+
   <div class="game-output">
     <div class="command"><span class="prompt">&gt;</span>eat apple</div>
 
@@ -9356,6 +9383,7 @@ gives the command. Here’s a simple game that shows how to do this:</p>
 <div class="codeline">Report digging it with:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "You pitch in with the shovel and dig a nice deep hole."</div>
 </div>
+
 <h3 id="same-action-new-results">Same Action, New Results</h3>
 
 <p>Some puzzles are designed to force the player to take a given action
@@ -10064,6 +10092,7 @@ sitting around in the drawing room at the same time. Inform provides
 some fascinating tools with which to allow these characters to relate to
 one another. (See <a href="#relations">Relations</a>.)
 </div>
+
 <h3 id="the-player-character">The Player Character</h3>
 
 <p>Pleasantly little needs to be said about creating the player
@@ -10565,7 +10594,7 @@ of an Instead rule), like this:</p>
 
 <p>Now you can show the tuxedo to Troy without having the parser try to
 have you take the tuxedo (which of course Troy won’t let you have).</p>
-</div>
+
 <h4 id="topics-of-conversation">Topics of Conversation</h4>
 
 <p>Inform’s default handling of ASK ABOUT and TELL ABOUT is good in one
@@ -11495,6 +11524,7 @@ Instead rule above with this one:</p>
 <div class="codeline">&ensp;&ensp;&ensp;otherwise:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say "The duke parries your clumsy thrust expertly with his rapier."</div>
 </div>
+
 <h3 id="moods">Moods</h3>
 
 <p>Real people can get into a variety of moods &ndash; friendly, bored,
@@ -11755,6 +11785,7 @@ from happening:</p>
 <div class="codeline">&ensp;&ensp;&ensp;otherwise:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;continue the action.</div>
 </div>
+
 <h3 id="hidden-items">Hidden Items</h3>
 
 <p>Experienced players of IF know to EXAMINE everything that’s mentioned
@@ -12040,6 +12071,7 @@ synonym, so we can write this:</p>
 <div class="codeline">&ensp;&ensp;&ensp;now the player carries the polished hand mirror;</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "As you rub the corrosion from the piece of metal, its true identity is revealed: It's a hand mirror!"</div>
 </div>
+
 <h3 id="assembly-required">Assembly Required</h3>
 
 <p>Sometimes objects have been
@@ -13204,7 +13236,7 @@ keeps track of how long the player has been hungry, and ends the game
 after a set number of turns. When the player eats food, your code would
 both switch the player to not hungry and reset the hunger-level of the
 player to 0.</p>
-</div>
+
 <h2 id="chapter-9-phrasing-punctuation">Chapter 9: Phrasing &amp; Punctuation</h2>
 
 <p>In this chapter we’re going to
@@ -13548,7 +13580,7 @@ phrase, as shown earlier in this section, by adding a line like “crank
 up Alexander’s hostility” in the Instead rule &ndash; but there are times
 (such as when printing text that’s stored in a table) when using a To
 Say statement is really the best way to do it.</p>
-</div>
+
 <h4 id="switchable-markup">Switchable Markup</h4>
 
 <p>As explained in <a href="../WI_5.html#section_9">WI 5.9</a>, you can switch bold and italic type on and off within the
@@ -13610,7 +13642,7 @@ is true or false. Once we’ve set things up properly, we can use the text
 insertions “[b]” and “[/b]” to mark any item that we want highlighted
 with boldface type &ndash; and the player will be able to control the effect
 using a simple utility command.</p>
-</div>
+
 <h4 id="quotes-within-quotes">Quotes Within Quotes</h4>
 
 <p>When you start writing NPC conversations, it’s easy to forget that
@@ -13789,6 +13821,7 @@ created to print it out:</p>
 <div class="codeline">flitting aimlessly about, trying to find its way back outdoors. [&hellip;and</div>
 <div class="codeline">so on&hellip;]”</div>
 </div>
+
 <h3 id="white-space">White Space</h3>
 
 <p>When you’re writing a game in Inform, does white space in your code
@@ -13969,7 +14002,7 @@ rulebooks in the action-processing sequence, as shown in <a href="../WI_12.html#
 
 <p>The rulebooks are constructed by the compiler according to certain
 principles. If you’re curious how this works, you should definitely read
-<a href="../WI_19.html">Chapter 19</strong> of <em>Writing with Inform</em>,
+<a href="../WI_19.html">Chapter 19 of <em>Writing with Inform</em>,
 “Rulebooks”</a>. Basically, rules that are more specific will be listed
 earlier in the rulebook, while more general rules will be listed later.
 For instance, a game might have these two rules:</p>
@@ -14085,6 +14118,7 @@ some situations:</p>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">The printed name of the ceramic bowl is "[if broken]broken [end if]ceramic bowl".</div>
 </div>
+
 <h3 id="punctuation">Punctuation</h3>
 
 <p>Inform is fussy about punctuation, but you have some options. In
@@ -14506,6 +14540,7 @@ repeat loops. See <a href="#loops">Loops</a> for more.</p>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say "'Would ten dollars be enough to have you ignore the bare wires, the cracks in the foundation, and the gaps in the pipe joints?' you ask, holding out the cash. 'Oh, sure, heck, whatever,' the inspector replies. In a moment the transaction is concluded. He makes a few careless check marks on his clipboard and moves away, humming a little tune. 'Pennies from Heaven,' it sounds like.";</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;remove the inspector from play.</div>
 </div>
+
 <h3 id="arithmetic">Arithmetic</h3>
 
 <p>Traditionally, computer programming languages are well supplied with
@@ -14584,59 +14619,59 @@ based on various factors. The example below shows how this type of thing
 might be done. It uses Inform’s To Decide syntax to run
 calculations.</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`A person has a number called strength. A person has a number called\nluck. A person has a number called dexterity.<br />\n<br />\nTo decide what number is combat-adds of (p - a person):<br />\nlet num be a number; [this will default to 0]<br />\nlet num be num + the modifier of the strength of p;<br />\nlet num be num + the modifier of the luck of p;<br />\nlet num be num + the modifier of the dexterity of p;<br />\ndecide on num.<br />\n<br />\n[Since the modifier formula is the same for each attribute, we can\ncreate a separate routine to calculate that and reuse it for each one.\nIf the base value (strength, luck, or dexterity) is greater than 12,\nwe’ll modify the combat-adds by adding the surplus to combat-adds. If\nit’s less than 9, we’ll subtract the difference from combat-adds:]<br />\n<br />\nTo decide what number is modifier of (n - a number):<br />\nlet m be a number;<br />\nif n &gt; 12, let m be n - 12;<br />\nif n &lt; 9, let m be n - 9;<br />\ndecide on m.<br />\n<br />\nTo say stats of (p - a person):<br />\nsay &quot;Strength: [strength of p]; Luck: [luck of p]; Dexterity: [dexterity\nof p].&quot;;<br />\nsay &quot;Combat Adds: [combat-adds of p].&quot;<br />\n<br />\n[Here&apos;s a generic dice-rolling routine:]<br />\nTo decide what number is a (n - a number) d (m - a number) roll:<br />\nlet tot be a number;<br />\nrepeat with loop running from 1 to n:<br />\nlet x be a random number between 1 and m;<br />\nlet tot be tot + x;<br />\ndecide on tot.<br />\n<br />\nTo char-roll (p - a person):<br />\nnow the strength of p is a 3 d 6 roll;<br />\nnow the luck of p is a 3 d 6 roll;<br />\nnow the dexterity of p is a 3 d 6 roll.\n\n[Purely for testing, the command JUMP will re-roll the player\ncharacter:]<br />\nInstead of jumping:<br />\nsay &quot;Re-rolling your character...&quot;;<br />\nchar-roll the player.<br />\n<br />\nThe Lab is a room.<br />\nWhen play begins:<br />\nchar-roll the player;<br />\nsay stats of the player.<br />\n<br />\nEvery turn: say stats of the player.<br />\n<br />\ntest me with &quot;jump / g / g / g&quot;.\n`)"><span class="sym">⧉</span></button><div class="codeline">A person has a number called strength. A person has a number called</div>
-<div class="codeline">luck. A person has a number called dexterity.<br /></div>
-<div class="codeline"><br /></div>
-<div class="codeline">To decide what number is combat-adds of (p - a person):<br /></div>
-<div class="codeline">let num be a number; [this will default to 0]<br /></div>
-<div class="codeline">let num be num + the modifier of the strength of p;<br /></div>
-<div class="codeline">let num be num + the modifier of the luck of p;<br /></div>
-<div class="codeline">let num be num + the modifier of the dexterity of p;<br /></div>
-<div class="codeline">decide on num.<br /></div>
-<div class="codeline"><br /></div>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`A person has a number called strength. A person has a number called\nluck. A person has a number called dexterity.\n\nTo decide what number is combat-adds of (p - a person):\nlet num be a number; [this will default to 0]\nlet num be num + the modifier of the strength of p;\nlet num be num + the modifier of the luck of p;\nlet num be num + the modifier of the dexterity of p;\ndecide on num.\n\n[Since the modifier formula is the same for each attribute, we can\ncreate a separate routine to calculate that and reuse it for each one.\nIf the base value (strength, luck, or dexterity) is greater than 12,\nwe’ll modify the combat-adds by adding the surplus to combat-adds. If\nit’s less than 9, we’ll subtract the difference from combat-adds:]\n\nTo decide what number is modifier of (n - a number):\nlet m be a number;\nif n &gt; 12, let m be n - 12;\nif n &lt; 9, let m be n - 9;\ndecide on m.\n\nTo say stats of (p - a person):\nsay &quot;Strength: [strength of p]; Luck: [luck of p]; Dexterity: [dexterity\nof p].&quot;;\nsay &quot;Combat Adds: [combat-adds of p].&quot;\n\n[Here&apos;s a generic dice-rolling routine:]\nTo decide what number is a (n - a number) d (m - a number) roll:\nlet tot be a number;\nrepeat with loop running from 1 to n:\nlet x be a random number between 1 and m;\nlet tot be tot + x;\ndecide on tot.\n\nTo char-roll (p - a person):\nnow the strength of p is a 3 d 6 roll;\nnow the luck of p is a 3 d 6 roll;\nnow the dexterity of p is a 3 d 6 roll.\n\n[Purely for testing, the command JUMP will re-roll the player\ncharacter:]\nInstead of jumping:\nsay &quot;Re-rolling your character...&quot;;\nchar-roll the player.\n\nThe Lab is a room.\nWhen play begins:\nchar-roll the player;\nsay stats of the player.\n\nEvery turn: say stats of the player.\n\ntest me with &quot;jump / g / g / g&quot;.\n`)"><span class="sym">⧉</span></button><div class="codeline">A person has a number called strength. A person has a number called</div>
+<div class="codeline">luck. A person has a number called dexterity.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">To decide what number is combat-adds of (p - a person):</div>
+<div class="codeline">let num be a number; [this will default to 0]</div>
+<div class="codeline">let num be num + the modifier of the strength of p;</div>
+<div class="codeline">let num be num + the modifier of the luck of p;</div>
+<div class="codeline">let num be num + the modifier of the dexterity of p;</div>
+<div class="codeline">decide on num.</div>
+<div class="codeline">&thinsp;</div>
 <div class="codeline">[Since the modifier formula is the same for each attribute, we can</div>
 <div class="codeline">create a separate routine to calculate that and reuse it for each one.</div>
 <div class="codeline">If the base value (strength, luck, or dexterity) is greater than 12,</div>
 <div class="codeline">we’ll modify the combat-adds by adding the surplus to combat-adds. If</div>
-<div class="codeline">it’s less than 9, we’ll subtract the difference from combat-adds:]<br /></div>
-<div class="codeline"><br /></div>
-<div class="codeline">To decide what number is modifier of (n - a number):<br /></div>
-<div class="codeline">let m be a number;<br /></div>
-<div class="codeline">if n &gt; 12, let m be n - 12;<br /></div>
-<div class="codeline">if n &lt; 9, let m be n - 9;<br /></div>
-<div class="codeline">decide on m.<br /></div>
-<div class="codeline"><br /></div>
-<div class="codeline">To say stats of (p - a person):<br /></div>
+<div class="codeline">it’s less than 9, we’ll subtract the difference from combat-adds:]</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">To decide what number is modifier of (n - a number):</div>
+<div class="codeline">let m be a number;</div>
+<div class="codeline">if n &gt; 12, let m be n - 12;</div>
+<div class="codeline">if n &lt; 9, let m be n - 9;</div>
+<div class="codeline">decide on m.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">To say stats of (p - a person):</div>
 <div class="codeline">say "Strength: [strength of p]; Luck: [luck of p]; Dexterity: [dexterity</div>
-<div class="codeline">of p].";<br /></div>
-<div class="codeline">say "Combat Adds: [combat-adds of p]."<br /></div>
-<div class="codeline"><br /></div>
-<div class="codeline">[Here's a generic dice-rolling routine:]<br /></div>
-<div class="codeline">To decide what number is a (n - a number) d (m - a number) roll:<br /></div>
-<div class="codeline">let tot be a number;<br /></div>
-<div class="codeline">repeat with loop running from 1 to n:<br /></div>
-<div class="codeline">let x be a random number between 1 and m;<br /></div>
-<div class="codeline">let tot be tot + x;<br /></div>
-<div class="codeline">decide on tot.<br /></div>
-<div class="codeline"><br /></div>
-<div class="codeline">To char-roll (p - a person):<br /></div>
-<div class="codeline">now the strength of p is a 3 d 6 roll;<br /></div>
-<div class="codeline">now the luck of p is a 3 d 6 roll;<br /></div>
+<div class="codeline">of p].";</div>
+<div class="codeline">say "Combat Adds: [combat-adds of p]."</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">[Here's a generic dice-rolling routine:]</div>
+<div class="codeline">To decide what number is a (n - a number) d (m - a number) roll:</div>
+<div class="codeline">let tot be a number;</div>
+<div class="codeline">repeat with loop running from 1 to n:</div>
+<div class="codeline">let x be a random number between 1 and m;</div>
+<div class="codeline">let tot be tot + x;</div>
+<div class="codeline">decide on tot.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">To char-roll (p - a person):</div>
+<div class="codeline">now the strength of p is a 3 d 6 roll;</div>
+<div class="codeline">now the luck of p is a 3 d 6 roll;</div>
 <div class="codeline">now the dexterity of p is a 3 d 6 roll.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">[Purely for testing, the command JUMP will re-roll the player</div>
-<div class="codeline">character:]<br /></div>
-<div class="codeline">Instead of jumping:<br /></div>
-<div class="codeline">say "Re-rolling your character&hellip;";<br /></div>
-<div class="codeline">char-roll the player.<br /></div>
-<div class="codeline"><br /></div>
-<div class="codeline">The Lab is a room.<br /></div>
-<div class="codeline">When play begins:<br /></div>
-<div class="codeline">char-roll the player;<br /></div>
-<div class="codeline">say stats of the player.<br /></div>
-<div class="codeline"><br /></div>
-<div class="codeline">Every turn: say stats of the player.<br /></div>
-<div class="codeline"><br /></div>
+<div class="codeline">character:]</div>
+<div class="codeline">Instead of jumping:</div>
+<div class="codeline">say "Re-rolling your character&hellip;";</div>
+<div class="codeline">char-roll the player.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">The Lab is a room.</div>
+<div class="codeline">When play begins:</div>
+<div class="codeline">char-roll the player;</div>
+<div class="codeline">say stats of the player.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Every turn: say stats of the player.</div>
+<div class="codeline">&thinsp;</div>
 <div class="codeline">test me with "jump / g / g / g".</div>
 </div>
 
@@ -14682,6 +14717,7 @@ Inform to understand:</p>
 
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`if the cat and the catnip are on the couch: [Error!]\n`)"><span class="sym">⧉</span></button><div class="codeline">if the cat and the catnip are on the couch: [Error!]</div>
 </div>
+
 <h3 id="creating-new-phrases">Creating New Phrases</h3>
 
 <p>Sometimes you may need to have your game do several things at once. A
@@ -14952,7 +14988,7 @@ which are more or less equivalent to saying, “You can try that, but it
 won’t do any good.” But if the rule also included a line like “now the
 blindfold is transparent;” the organization of the code into outer and
 inner blocks would be the same.</p>
-</div>
+
 <h4 id="too-many-indents">Too Many Indents</h4>
 
 <p>If you’re writing an extremely complex, embedded set of if-tests,
@@ -15176,7 +15212,7 @@ location, we make R stand for something else, and then we return to the
 top of the loop. As long as R is something (an object), the loop will
 continue to cycle. But if the container is now empty, R has become
 nothing, so the loop terminates.</p>
-</div>
+
 <h2 id="chapter-10-advanced-topics">Chapter 10: Advanced Topics</h2>
 
 <p>To round out <em>The Inform 7 Handbook,</em> we’ll take a quick look
@@ -15388,7 +15424,6 @@ instance.</p>
 want to use a table, Emily Short provided an excellent list. I’ll
 include her suggestions below, with only minor editing, in case they
 might give you an idea or two for your next game.</p>
-</div>
 
 <p>In a nutshell, here’s what you need to know about tables in order to
 start using them:</p>
@@ -15543,7 +15578,7 @@ of the noun&hellip;” will let us alter the name of any of the critters to
 “Judy Garland” by typing ALTER MOLE in the game, or ALTER MUSKRAT.</p>
 
 <div class="sidebar" id="emily-short-on-using-tables">
-<h4 id="emily-short-on-using-tables">Emily Short on Using Tables</h4>
+<h4>Emily Short on Using Tables</h4>
 
 <p>The most common uses for me are these:</p>
 
@@ -16667,10 +16702,10 @@ outdated method of printing messages for the player to read.
 duplicated, but that’s easy to fix.) Here are the two code blocks in
 Considerate Holdall that don’t work:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`To print the you can&apos;t go message:<br />\n    (- L__M(##Go, 2, 0); -).<br />\n<br />\nTo print the you can&apos;t see message:<br />\n    (- L__M(##Miscellany, 30, 0); -).\n`)"><span class="sym">⧉</span></button><div class="codeline">To print the you can't go message:<br /></div>
-<div class="codeline">    (- L__M(##Go, 2, 0); -).<br /></div>
-<div class="codeline"><br /></div>
-<div class="codeline">To print the you can't see message:<br /></div>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`To print the you can&apos;t go message:\n    (- L__M(##Go, 2, 0); -).\n\nTo print the you can&apos;t see message:\n    (- L__M(##Miscellany, 30, 0); -).\n`)"><span class="sym">⧉</span></button><div class="codeline">To print the you can't go message:</div>
+<div class="codeline">    (- L__M(##Go, 2, 0); -).</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">To print the you can't see message:</div>
 <div class="codeline">    (- L__M(##Miscellany, 30, 0); -).</div>
 </div>
 
@@ -16709,7 +16744,8 @@ originally contained this code:</p>
 items from multiple object lists rule” in one specific game situation.
 Here’s how the same code looks today &ndash; a new rule that replaces the old
 rule, checks the game-specific situation, and says “do nothing” if
-that’s what’s needed:</p></div>
+that’s what’s needed:</p>
+
 <div class="codeblock" id="Ref_new_rule_(replace)">
 <div class="codeline">This is the new announce items from multiple object lists rule:</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the current item from the multiple object list is not nothing:</div>
@@ -18171,7 +18207,7 @@ resides.</p>
 </footer>
 </main>
 <footer>
-  <p>The Inform 7 Handbook</em> is copyright &copy; 2015 by Jim Aikin, and released under a <a href="https://creativecommons.org/licenses/by-nc/1.0/legalcode">CC-BY-NC 1.0 license</a>.</p>
+  <p><em>The Inform 7 Handbook</em> is copyright &copy; 2015 by Jim Aikin, and released under a <a href="https://creativecommons.org/licenses/by-nc/1.0/legalcode">CC-BY-NC 1.0 license</a>.</p>
 </footer>
 </body>
 </html>
