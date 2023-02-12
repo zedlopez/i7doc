@@ -4,7 +4,7 @@
 you to define how your game will end. To end the game, put the phrase
 “end the story” in a rule somewhere &ndash; perhaps like this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Forest is a room. &quot;Tall trees stand on all sides.&quot;\n\nThe gold crown is in the Forest. The description is &quot;The crown is studded with sparkling jewels!&quot;\n\nAfter taking the crown:\n\tend the story saying “You have won!”\n\nThe player carries a cyanide pill. The cyanide pill is edible.\n\nAfter eating the cyanide pill:\n\tend the story saying “Alas, you have died.”\n`)"><span class="sym">⧉</span></button><div class="codeline">The Forest is a room. "Tall trees stand on all sides."</div>
+<div class="codeblock"><div class="codeline">The Forest is a room. "Tall trees stand on all sides."</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">The gold crown is in the Forest. The description is "The crown is studded with sparkling jewels!"</div>
 <div class="codeline">&thinsp;</div>
@@ -27,7 +27,7 @@ write a line immediately before the “end the story” line, in order to
 describe what the player has done to end the game before officially
 ending it. We might revise our code like this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`After taking the crown:\n\tsay &quot;At last! You&apos;ve found the gold crown you&apos;ve been seeking!&quot;;\n\tend the story saying “You have won!”\n\nAfter eating the cyanide pill:\n\tsay &quot;Moments after ingesting the pill, you begin to feel very, very ill.&quot;;\n\tend the story saying “Alas, you have died.”\n`)"><span class="sym">⧉</span></button><div class="codeline">After taking the crown:</div>
+<div class="codeblock"><div class="codeline">After taking the crown:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "At last! You've found the gold crown you've been seeking!";</div>
 <div class="codeline">&ensp;&ensp;&ensp;end the story saying “You have won!”</div>
 <div class="codeline">&thinsp;</div>
@@ -41,7 +41,7 @@ for something less drastic than the death of the player character.
 Depending on the story, maybe the game should detect that the player is
 giving up too soon. In that case, you could do this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`After taking the crown:\n\tsay &quot;At last! You&apos;ve found the gold crown you&apos;ve been seeking!&quot;;\n\tend the story saying “You have won!”\n\nAfter eating the cyanide pill:\n\tsay &quot;Moments after ingesting the pill, you begin to feel very, very ill.&quot;;\n\tend the story saying “Alas, you have died.”\n\nThis is fine as far as it goes, but sometimes the end of a game calls for something less drastic than the death of the player character. Depending on the story, maybe the game should detect that the player is giving up too soon. In that case, you could do this:\n\nInstead of going north in the Forest:\n\tsay &quot;As you wander back down the mountainside toward town, you feel a keen and lingering sense of regret.&quot;;\n\tend the story saying &quot;You have missed the point entirely!&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">After taking the crown:</div>
+<div class="codeblock"><div class="codeline">After taking the crown:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "At last! You've found the gold crown you've been seeking!";</div>
 <div class="codeline">&ensp;&ensp;&ensp;end the story saying “You have won!”</div>
 <div class="codeline">&thinsp;</div>
@@ -112,7 +112,7 @@ words &ndash; may be helpful.</p>
 do anything that would make the game unwinnable. If the chocolate
 biscuit will be needed later, write something like this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of eating the chocolate biscuit, say &quot;It&apos;s a mouth-watering treat, no doubt, but you decide to save it for later.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">Instead of eating the chocolate biscuit, say "It's a mouth-watering treat, no doubt, but you decide to save it for later."</div>
+<div class="codeblock"><div class="codeline">Instead of eating the chocolate biscuit, say "It's a mouth-watering treat, no doubt, but you decide to save it for later."</div>
 </div>
 
 <p>It can be a chore to come up with sensible-sounding reasons why the
@@ -124,7 +124,7 @@ will turn out to make the game unwinnable, but then add an immediate
 message giving a broad hint (which the player is free to ignore) that
 that was probably a stupid thing to do:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`After eating the chocolate biscuit:\n\tsay &quot;You chow down on the delicious biscuit and lick the last of the chocolate from your fingers. Afterward, though, you start to worry. Maybe you shouldn’t have indulged your gluttonous impulses quite so casually.&quot;;\n\trule succeeds.\n`)"><span class="sym">⧉</span></button><div class="codeline">After eating the chocolate biscuit:</div>
+<div class="codeblock"><div class="codeline">After eating the chocolate biscuit:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "You chow down on the delicious biscuit and lick the last of the chocolate from your fingers. Afterward, though, you start to worry. Maybe you shouldn’t have indulged your gluttonous impulses quite so casually.";</div>
 <div class="codeline">&ensp;&ensp;&ensp;rule succeeds.</div>
 </div>
@@ -141,7 +141,7 @@ way to do this is explained in <a href="../WI_9.html#section_2">WI 9.2: Awarding
 near the top of your source code, along with whatever other Use or
 Include options you’ve selected:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Use scoring.\n`)"><span class="sym">⧉</span></button><div class="codeline">Use scoring.</div>
+<div class="codeblock"><div class="codeline">Use scoring.</div>
 </div>
 
 <p>Among its other effects, this line will cause the current score to be
@@ -149,7 +149,7 @@ displayed alongside the turn count in the banner at the top of the game
 window. Normally, you would award points in an After rule, like
 this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`After taking the gold crown for the first time:\n\tincrease the score by 10;\n\tsay &quot;Ah, you&apos;ve finally gotten your hands on it!&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">After taking the gold crown for the first time:</div>
+<div class="codeblock"><div class="codeline">After taking the gold crown for the first time:</div>
 <div class="codeline">&ensp;&ensp;&ensp;increase the score by 10;</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "Ah, you've finally gotten your hands on it!"</div>
 </div>
@@ -179,7 +179,7 @@ now it’s not the first time the action has been attempted.</p>
 <p>It’s much safer to use one of Inform’s built-in properties,
 <strong>handled,</strong> to check whether points should be awarded:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`After taking the gold crown when the gold crown is not handled:\n`)"><span class="sym">⧉</span></button><div class="codeline">After taking the gold crown when the gold crown is not handled:</div>
+<div class="codeblock"><div class="codeline">After taking the gold crown when the gold crown is not handled:</div>
 </div>
 
 <p>Use “for the first time” to award points <em>only</em> when you can
@@ -194,7 +194,7 @@ still enjoy using it.</p>
 <p>Inform doesn’t insist that the number of points awarded for an action
 be constant. If you like, you can do this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`crown-points is a number that varies. crown-points is 10.\n\nAfter taking the gold crown when the gold crown is not handled:\n\tincrease the score by crown-points;\n\tsay &quot;Ah, you&apos;ve finally got your hands on it!&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">crown-points is a number that varies. crown-points is 10.</div>
+<div class="codeblock"><div class="codeline">crown-points is a number that varies. crown-points is 10.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">After taking the gold crown when the gold crown is not handled:</div>
 <div class="codeline">&ensp;&ensp;&ensp;increase the score by crown-points;</div>
@@ -219,7 +219,7 @@ total possible score. Near the top of your source code, tell Inform the
 maximum score, as suggested on <a href="../WI_9.html#section2">WI 9.2: Awarding
 Points</a>:
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The maximum score is 12.\n`)"><span class="sym">⧉</span></button><div class="codeline">The maximum score is 12.</div>
+<div class="codeblock"><div class="codeline">The maximum score is 12.</div>
 </div>
 
 <h4 id="a-treasure-chest">A Treasure Chest</h4>
@@ -234,7 +234,7 @@ into it, the points will never be awarded. Consider this code:</p>
 
 <p>The Lab is a room.</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`After inserting the fish into the trunk:\n\tif the fish is in the trunk for the first time:\n\t\tincrease the score by 1;\n\tcontinue the action.\n`)"><span class="sym">⧉</span></button><div class="codeline">After inserting the fish into the trunk:</div>
+<div class="codeblock"><div class="codeline">After inserting the fish into the trunk:</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the fish is in the trunk for the first time:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;increase the score by 1;</div>
 <div class="codeline">&ensp;&ensp;&ensp;continue the action.</div>
@@ -263,7 +263,7 @@ into it, the points will never be awarded. Consider this code:</p>
 first time the player tried it, the trunk was closed. Here’s the correct
 way to write the After rule:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`After inserting the fish into the trunk:\n\tif the fish is in the trunk for the first time:\n\t\tincrease the score by 1;\n\tcontinue the action.\n`)"><span class="sym">⧉</span></button><div class="codeline">After inserting the fish into the trunk:</div>
+<div class="codeblock"><div class="codeline">After inserting the fish into the trunk:</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the fish is in the trunk for the first time:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;increase the score by 1;</div>
 <div class="codeline">&ensp;&ensp;&ensp;continue the action.</div>
@@ -277,7 +277,7 @@ also subtract a point each time the treasure is taken out of the chest.
 To subtract a point, just increase the score by -1. Here’s one way to do
 that, using the example of the fish and the old trunk, as before:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`After inserting the fish into the trunk:\n\tif the fish is in the trunk:\n\t\tincrease the score by 1;\n\tcontinue the action.\n\nInstead of taking the fish:\n\tif the fish is in the trunk:\n\t\tdecrease the score by 1;\n\tcontinue the action.\n`)"><span class="sym">⧉</span></button><div class="codeline">After inserting the fish into the trunk:</div>
+<div class="codeblock"><div class="codeline">After inserting the fish into the trunk:</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the fish is in the trunk:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;increase the score by 1;</div>
 <div class="codeline">&ensp;&ensp;&ensp;continue the action.</div>
@@ -315,7 +315,7 @@ some text describing the achievement. The flag column contains a number;
 this starts out as 0, but we’ll change it to 1 when the player
 accomplishes the achievement.</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Living Room is a room. The guppy is here. The ruby is here. The player wears some goggles.\n\nThe fish tank is an open container in the Living room.\n\nAfter taking the ruby when the ruby is not handled:\n\tchoose the row with an object of ruby in the Table of Achievements;\n\tnow the flag entry is 1;\n\tcontinue the action.\n\nAfter taking off the goggles:\n\tchoose the row with an object of goggles in the Table of Achievements;\n\tnow the flag entry is 1;\n\tcontinue the action.\n\nAfter inserting the guppy into the fish tank:\n\tchoose the row with an object of guppy in the Table of Achievements;\n\tnow the flag entry is 1;\n\tcontinue the action.\n\nTable of Achievements\nobject\t\tachievement\t\t\t\tflag\nruby\t\t&quot;picked up the ruby&quot;\t\t\t0\ngoggles\t&quot;removed the goggles&quot;\t\t0\nguppy\t\t&quot;put the guppy back in the tank&quot;\t0\n\n\nThis is the new announce the score rule:\n\tlet flag-count be 0;\n\trepeat with N running from 1 to the number of rows in the Table of Achievements:\n\t\tchoose row N in the Table of Achievements;\n\t\tif the flag entry is 1:\n\t\t\tincrease the flag-count by 1;\n\tif the flag-count is 0:\n\t\tsay &quot;You haven&apos;t done anything notable yet.&quot;;\n\totherwise:\n\t\tlet total-flag-count be flag-count;\n\t\tsay &quot;So far you have [run paragraph on]&quot;;\n\t\trepeat with N running from 1 to the number of rows in the Table of Achievements:\n\t\t\tchoose row N in the Table of Achievements;\n\t\t\tif the flag entry is 1:\n\t\t\t\tsay &quot;[achievement entry][run paragraph on]&quot;;\n\t\t\t\tdecrease the flag-count by 1;\n\t\t\t\tif the flag-count is 0:\n\t\t\t\t\tsay &quot;.&quot;;\n\t\t\t\t\trule succeeds;\n\t\t\t\totherwise if the flag-count is 1:\n\t\t\t\t\tif the total-flag-count is 2:\n\t\t\t\t\t\tsay &quot; and [run paragraph on]&quot;;\n\t\t\t\t\totherwise:\n\t\t\t\t\t\tsay &quot;, and [run paragraph on]&quot;;\n\t\t\t\totherwise:\n\t\t\t\t\tsay &quot;, [run paragraph on]&quot;.\n\nThe new announce the score rule is listed instead of the announce the score rule in the carry out requesting the score rulebook.\n\nTest me with “put guppy in tank / score / take ruby / score / take off goggles / score”.\n`)"><span class="sym">⧉</span></button><div class="codeline">The Living Room is a room. The guppy is here. The ruby is here. The player wears some goggles.</div>
+<div class="codeblock"><div class="codeline">The Living Room is a room. The guppy is here. The ruby is here. The player wears some goggles.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">The fish tank is an open container in the Living room.</div>
 <div class="codeline">&thinsp;</div>

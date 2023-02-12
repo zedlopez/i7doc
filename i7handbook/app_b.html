@@ -40,14 +40,14 @@ supported. The new syntax is “now … is”. Use the Find command to find
 all instances of the word “change” and edit those lines so that they
 read, for example:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`now the far-off-object is n;\n`)"><span class="sym">⧉</span></button><div class="codeline">now the far-off-object is n;</div>
+<div class="codeblock"><div class="codeline">now the far-off-object is n;</div>
 </div>
 
 <p>Only one other change is needed. Inform no longer uses the word
 “consider” for sending the game off to a list of rules in the Standard
 Rules. The new term is “follow.” So this line:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`consider the distant-objects rules for the far-off-object;\n`)"><span class="sym">⧉</span></button><div class="codeline">consider the distant-objects rules for the far-off-object;</div>
+<div class="codeblock"><div class="codeline">consider the distant-objects rules for the far-off-object;</div>
 </div>
 
 <p>won’t compile until you change “consider” to “follow.”</p>
@@ -56,13 +56,13 @@ Rules. The new term is “follow.” So this line:</p>
 In <a href="https://github.com/i7/archive/blob/master/Jon%20Ingold/Considerate%20Holdall.i7x">Considerate Holdall by Jon Ingold</a>, for example, we find this
 line:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`if not using the inline implicit library option, disallow\nstashing;\n`)"><span class="sym">⧉</span></button><div class="codeline">if not using the inline implicit library option, disallow</div>
+<div class="codeblock"><div class="codeline">if not using the inline implicit library option, disallow</div>
 <div class="codeline">stashing;</div>
 </div>
 
 <p>This syntax has to be changed to “if the … option is active”:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`if the inline implicit library option is active, disallow\nstashing;\n`)"><span class="sym">⧉</span></button><div class="codeline">if the inline implicit library option is active, disallow</div>
+<div class="codeblock"><div class="codeline">if the inline implicit library option is active, disallow</div>
 <div class="codeline">stashing;</div>
 </div>
 
@@ -73,7 +73,7 @@ outdated method of printing messages for the player to read.
 duplicated, but that’s easy to fix.) Here are the two code blocks in
 Considerate Holdall that don’t work:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`To print the you can&apos;t go message:\n    (- L__M(##Go, 2, 0); -).\n\nTo print the you can&apos;t see message:\n    (- L__M(##Miscellany, 30, 0); -).\n`)"><span class="sym">⧉</span></button><div class="codeline">To print the you can't go message:</div>
+<div class="codeblock"><div class="codeline">To print the you can't go message:</div>
 <div class="codeline">    (- L__M(##Go, 2, 0); -).</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">To print the you can't see message:</div>
@@ -85,7 +85,7 @@ employs. By taking a cruise through the Standard Rules, you can find the
 new method of printing these messages, and edit the code so that it
 looks like this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`To print the you can&apos;t go message:\n\tsay &quot;[We] [can&apos;t go] that way.&quot;\nTo print the you can&apos;t see message:\n\tsay &quot;[We] [can&apos;t] see any such thing.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">To print the you can't go message:</div>
+<div class="codeblock"><div class="codeline">To print the you can't go message:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "[We] [can't go] that way."</div>
 <div class="codeline">To print the you can't see message:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "[We] [can't] see any such thing."</div>
@@ -103,7 +103,7 @@ quick example, not from an extension but from the 2009 edition of this
 <em>Handbook.</em> The “Dangerous Jewel Box” example in Appendix C
 originally contained this code:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`A procedural rule: if taking gems when the jewel box is dangerous\nthen ignore the announce items from multiple object lists rule.\n\nA procedural rule: if removing gems from the jewel box when the jewel\nbox is dangerous then ignore the announce items from multiple object\nlists rule.\n`)"><span class="sym">⧉</span></button><div class="codeline">A procedural rule: if taking gems when the jewel box is dangerous</div>
+<div class="codeblock"><div class="codeline">A procedural rule: if taking gems when the jewel box is dangerous</div>
 <div class="codeline">then ignore the announce items from multiple object lists rule.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">A procedural rule: if removing gems from the jewel box when the jewel</div>

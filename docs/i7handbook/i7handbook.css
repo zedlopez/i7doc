@@ -23,7 +23,9 @@ ol.num { list-style: decimal inside; }
 div { border-radius: 1rem; }
 .caps { text-transform: uppercase }
 .codeline { padding-right: .25rem; }
-.command { margin-left: 1rem; margin-right: 1rem; font-family: monospace; font-size: .9375rem; }
+.command {  font-family: monospace; font-size: .9375rem; }
+span.command::before { content: ">" }
+
 
 p + div, div + p { margin-top: 1rem; }
 
@@ -36,8 +38,10 @@ tr.action-stage > td { padding-top: .5rem; padding-bottom: .5rem; font-size: 1.2
 
 .prompt { padding-right: .25rem; }
 
-.game-output { background-color: var(--defn-line-bg-color); padding-top: .75rem; padding-bottom: .75rem; }
+blockquote { background-color: var(--defn-line-bg-color); padding-top: .75rem; padding-bottom: .75rem; }
 .sidebar { background-color: var(--indexbar-bg-color); margin-bottom: 2rem; padding-top: .5rem; padding-bottom: 1rem; margin-top: 2rem; }
+
+blockquote.quote { background-color: var(--indexbar-bg-color); padding-top: .75rem; padding-bottom: .75rem; }
 
 /*.sidebar + .sidebar { margin-top: 0; }*/
 

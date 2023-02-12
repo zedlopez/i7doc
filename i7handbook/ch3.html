@@ -30,7 +30,7 @@ such as a door or container.</p>
 <p>The most basic way to create a new thing is to tell Inform that it
 exists:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The paintbrush is a thing.\n`)"><span class="sym">⧉</span></button><div class="codeline">The paintbrush is a thing.</div>
+<div class="codeblock"><div class="codeline">The paintbrush is a thing.</div>
 </div>
 
 <p>This is enough to create an object called the paintbrush. But as yet,
@@ -42,13 +42,13 @@ onstage later. More often, you’ll write an assertion that will cause the
 thing to appear in a certain place at the beginning of the game. You can
 do it this way:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Tool Shed is a room.\nThe paintbrush is in the Tool Shed.\n`)"><span class="sym">⧉</span></button><div class="codeline">The Tool Shed is a room.</div>
+<div class="codeblock"><div class="codeline">The Tool Shed is a room.</div>
 <div class="codeline">The paintbrush is in the Tool Shed.</div>
 </div>
 
 <p>Another way to do exactly the same thing is this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Tool Shed is a room.\nThe paintbrush is here.\n`)"><span class="sym">⧉</span></button><div class="codeline">The Tool Shed is a room.</div>
+<div class="codeblock"><div class="codeline">The Tool Shed is a room.</div>
 <div class="codeline">The paintbrush is here.</div>
 </div>
 
@@ -60,7 +60,7 @@ bad things can happen. (That is, your code may acquire bugs.) It’s safer
 always to tell Inform specifically where a thing is to be placed at the
 beginning of the game. This is a safe way to create things, however:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The player carries a bowling ball.\nThe duchess wears a diamond tiara.\n`)"><span class="sym">⧉</span></button><div class="codeline">The player carries a bowling ball.</div>
+<div class="codeblock"><div class="codeline">The player carries a bowling ball.</div>
 <div class="codeline">The duchess wears a diamond tiara.</div>
 </div>
 
@@ -73,7 +73,7 @@ that it’s something characters can put on and take off.</p>
 chapter. Briefly, a supporter is a thing that acts like a table, so
 objects can be placed on it. This would also work well:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Tool Shed is a room.\nThe workbench is a supporter in the Tool Shed.\nThe screwdriver is on the workbench.\n`)"><span class="sym">⧉</span></button><div class="codeline">The Tool Shed is a room.</div>
+<div class="codeblock"><div class="codeline">The Tool Shed is a room.</div>
 <div class="codeline">The workbench is a supporter in the Tool Shed.</div>
 <div class="codeline">The screwdriver is on the workbench.</div>
 </div>
@@ -100,7 +100,7 @@ It refers to types of objects &ndash; what traditional computer programmers
 call “classes.” The usual reason to create kinds is so that you can
 write code that will apply to several different objects, like this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`A fruit is a kind of thing. The banana is a fruit. The orange is a fruit. The plum is a fruit. The apple is a fruit.\n\nBefore eating a fruit:\n\tsay &quot;You’re not hungry right now.&quot; instead.\n`)"><span class="sym">⧉</span></button><div class="codeline">A fruit is a kind of thing. The banana is a fruit. The orange is a fruit. The plum is a fruit. The apple is a fruit.</div>
+<div class="codeblock"><div class="codeline">A fruit is a kind of thing. The banana is a fruit. The orange is a fruit. The plum is a fruit. The apple is a fruit.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">Before eating a fruit:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "You’re not hungry right now." instead.</div>
@@ -115,7 +115,7 @@ is a fruit, the Before rule won’t be applied to EAT PEACH.</p>
 rec.arts.int-fiction, of how you can get in trouble using the word
 “kind” when you don’t need to:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`A phaser is a kind of thing. \nA phaser can be either set to stun or set to kill. \nInstead of examining the phaser, say &quot;Your shiny Mark Five phaser. Dual setting - stun and kill. [if the phaser is set to kill]It is currently set to kill.[Otherwise]It is currently set to stun.&quot; \nA phaser is usually set to stun. \n\nThe player is carrying a phaser. Understand &quot;Mark&quot;, &quot;Five&quot;, and &quot;shiny&quot; as the phaser.\n\n[Error: will not compile!]\nInstead of setting the phaser to &quot;kill&quot;:\n\tnow the phaser is set to kill;\n\tsay &quot;You set your phaser to kill.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">A phaser is a kind of thing. </div>
+<div class="codeblock"><div class="codeline">A phaser is a kind of thing. </div>
 <div class="codeline">A phaser can be either set to stun or set to kill. </div>
 <div class="codeline">Instead of examining the phaser, say "Your shiny Mark Five phaser. Dual setting - stun and kill. [if the phaser is set to kill]It is currently set to kill.[Otherwise]It is currently set to stun." </div>
 <div class="codeline">A phaser is usually set to stun. </div>
@@ -134,7 +134,7 @@ Inform won’t let the author do that. There are a couple of ways to solve
 the problem. We can rewrite the Instead rule so that Inform knows which
 phaser to set:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of setting a phaser (called P) to &quot;kill&quot;:\n\tnow P is set to kill;\n\tsay &quot;You set your phaser to kill.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">Instead of setting a phaser (called P) to "kill":</div>
+<div class="codeblock"><div class="codeline">Instead of setting a phaser (called P) to "kill":</div>
 <div class="codeline">&ensp;&ensp;&ensp;now P is set to kill;</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "You set your phaser to kill."</div>
 </div>
@@ -142,7 +142,7 @@ phaser to set:</p>
 <p>Here’s another way to do exactly the same thing without using the
 “called” phrase to create a temporary name for the object:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of setting a phaser to &quot;kill&quot;:\n\tnow the noun is set to kill;\n\tsay &quot;You set your phaser to kill.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">Instead of setting a phaser to "kill":</div>
+<div class="codeblock"><div class="codeline">Instead of setting a phaser to "kill":</div>
 <div class="codeline">&ensp;&ensp;&ensp;now the noun is set to kill;</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "You set your phaser to kill."</div>
 </div>
@@ -161,7 +161,7 @@ no reason to make phaser a kind in the first place. Instead, make it a
 plain old thing. The first sentence in the code below does exactly
 that:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The player carries a phaser. The phaser can be set to kill or set to stun. The phaser is set to stun. The description is &quot;Your shiny Mark Five phaser. Dual setting - stun and kill. [if the phaser is set to kill]It is currently set to kill.[Otherwise]It is currently set to stun.&quot; Understand &quot;Mark&quot;, &quot;Five&quot;, and &quot;shiny&quot; as the phaser.\n\nInstead of setting the phaser to &quot;kill&quot;:\n\tnow the phaser is set to kill;\n\tsay &quot;You set your phaser to kill.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">The player carries a phaser. The phaser can be set to kill or set to stun. The phaser is set to stun. The description is "Your shiny Mark Five phaser. Dual setting - stun and kill. [if the phaser is set to kill]It is currently set to kill.[Otherwise]It is currently set to stun." Understand "Mark", "Five", and "shiny" as the phaser.</div>
+<div class="codeblock"><div class="codeline">The player carries a phaser. The phaser can be set to kill or set to stun. The phaser is set to stun. The description is "Your shiny Mark Five phaser. Dual setting - stun and kill. [if the phaser is set to kill]It is currently set to kill.[Otherwise]It is currently set to stun." Understand "Mark", "Five", and "shiny" as the phaser.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">Instead of setting the phaser to "kill":</div>
 <div class="codeline">&ensp;&ensp;&ensp;now the phaser is set to kill;</div>
@@ -203,7 +203,7 @@ name. When possible, the adjective should be unique, not a word that can
 also be used with other objects. This is not required, but failing to do
 it can get you into trouble. Here’s a simple example that shows why:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The red potion vial is an open container on the table.\n\nThe red potion is in the red potion vial. [Error!]\n`)"><span class="sym">⧉</span></button><div class="codeline">The red potion vial is an open container on the table.</div>
+<div class="codeblock"><div class="codeline">The red potion vial is an open container on the table.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">The red potion is in the red potion vial. [Error!]</div>
 </div>
@@ -215,7 +215,7 @@ confused because all of the words that can refer to the red potion can
 also apply to the vial. The solution is simple: Just give the vial and
 potion their own names:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The red vial is an open container on the table.\n\nThe healing potion is in the red vial.\n`)"><span class="sym">⧉</span></button><div class="codeline">The red vial is an open container on the table.</div>
+<div class="codeblock"><div class="codeline">The red vial is an open container on the table.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">The healing potion is in the red vial.</div>
 </div>
@@ -295,7 +295,7 @@ likely get the wrong result from the command KISS SUPERHEROINE.</p>
 possible. Let’s suppose that for some bizarre reason you’ve created the
 following four objects:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The player carries a superheroism, a superheroine, a superheroich, and a superheroidiot.\n`)"><span class="sym">⧉</span></button><div class="codeline">The player carries a superheroism, a superheroine, a superheroich, and a superheroidiot.</div>
+<div class="codeblock"><div class="codeline">The player carries a superheroism, a superheroine, a superheroich, and a superheroidiot.</div>
 </div>
 
 <p>Here’s the result when the player tries to take inventory:</p>
@@ -317,7 +317,7 @@ compiling your game to Glulx, go to the Settings page in the Inform IDE
 and click the Glulx button. Then add the following line near the top of
 your source:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Use DICT_WORD_SIZE of 12.\n`)"><span class="sym">⧉</span></button><div class="codeline">Use DICT_WORD_SIZE of 12.</div>
+<div class="codeblock"><div class="codeline">Use DICT_WORD_SIZE of 12.</div>
 </div>
 
 <p>Now the player will be able to use both SUPERHERO and SUPERHEROINE in
@@ -336,7 +336,7 @@ player can converse) wandering around playing a fiddle. The trick is,
 we’re going to use words shorter than nine letters, but allow both the
 player’s input and the game’s output to use the longer words.</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`After reading a command: \n\tlet N be text; \n\tlet N be the player&apos;s command; \n\treplace the regular expression &quot;leprec&quot; in N with &quot;lpc&quot;;\n\tchange the text of the player&apos;s command to N.\n\nThe Grassy Knoll is a room. &quot;Some leprechauns are having a picnic here. One leprechaun is sauntering around playing a sprightly tune on a fiddle.&quot;\n\nSome lpchauns are scenery in the Grassy Knoll. The description is &quot;They&apos;re enjoying their picnic.&quot; The printed name of the lpchauns is &quot;leprechauns&quot;.\n\nThe lpchaun is a man in the Grassy Knoll. The description is &quot;He&apos;s playing a fiddle.&quot; The printed name of the lpchaun is &quot;leprechaun&quot;.\n`)"><span class="sym">⧉</span></button><div class="codeline">After reading a command: </div>
+<div class="codeblock"><div class="codeline">After reading a command: </div>
 <div class="codeline">&ensp;&ensp;&ensp;let N be text; </div>
 <div class="codeline">&ensp;&ensp;&ensp;let N be the player's command; </div>
 <div class="codeline">&ensp;&ensp;&ensp;replace the regular expression "leprec" in N with "lpc";</div>
@@ -371,7 +371,7 @@ the player.</p>
 created, it will know that this is the initial appearance of the object.
 We could create our banjo like this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Meadow is a room. &quot;Wildflowers carpet the meadow.&quot;\n\nThe old banjo is in the Meadow. &quot;A banjo lies forgotten among the wildflowers.&quot; The description is &quot;It&apos;s a 1938 Selmer 5-string.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">The Meadow is a room. "Wildflowers carpet the meadow."</div>
+<div class="codeblock"><div class="codeline">The Meadow is a room. "Wildflowers carpet the meadow."</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">The old banjo is in the Meadow. "A banjo lies forgotten among the wildflowers." The description is "It's a 1938 Selmer 5-string."</div>
 </div>
@@ -406,7 +406,7 @@ you’d like an object to be referred to in a non-default way in room
 descriptions on an ongoing basis, or possibly in several non-default
 ways depending on which room it’s in. The following code does that:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Rule for writing a paragraph about the shovel:\n\tsay &quot;[if the shovel is in the Garage]Your shovel lies in the corner against the wall.[otherwise if the shovel is in the Tool Shed]On a shelf is your handy shovel.[otherwise if the shovel is in the Work Site]Your shovel is stuck in the ground here.[otherwise]You seem to have left the shovel lying here.[end if]&quot;.\n`)"><span class="sym">⧉</span></button>  <div class="codeline">Rule for writing a paragraph about the shovel:</div>
+<div class="codeblock">  <div class="codeline">Rule for writing a paragraph about the shovel:</div>
   <div class="codeline">&ensp;&ensp;&ensp;say "[if the shovel is in the Garage]Your shovel lies in the corner against the wall.[otherwise if the shovel is in the Tool Shed]On a shelf is your handy shovel.[otherwise if the shovel is in the Work Site]Your shovel is stuck in the ground here.[otherwise]You seem to have left the shovel lying here.[end if]".</div>
 </div>
 
@@ -436,7 +436,7 @@ With a paintbrush, for instance, the player will quite often want to
 call it a brush. But the parser won’t understand that word unless you
 tell it to:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The paintbrush is in the Tool Shed.\nUnderstand &quot;brush&quot; as the paintbrush.\n`)"><span class="sym">⧉</span></button>  <div class="codeline">The paintbrush is in the Tool Shed.</div>
+<div class="codeblock">  <div class="codeline">The paintbrush is in the Tool Shed.</div>
     <div class="codeline">Understand "brush" as the paintbrush.</div>
 </div>
 
@@ -449,7 +449,7 @@ words that are used in the sentence that creates the object.</p>
 find that you’re adding extra adjectives. These should always be added
 as vocabulary:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The paintbrush is in the Tool Shed. The description is “The bristles of the paintbrush are stiff with dried paint.” Understand &quot;brush&quot;, &quot;bristles&quot;, &quot;stiff&quot;, &quot;dried&quot;, and &quot;paint&quot; as the paintbrush.\n`)"><span class="sym">⧉</span></button><div class="codeline">The paintbrush is in the Tool Shed. The description is “The bristles of the paintbrush are stiff with dried paint.” Understand "brush", "bristles", "stiff", "dried", and "paint" as the paintbrush.</div>
+<div class="codeblock"><div class="codeline">The paintbrush is in the Tool Shed. The description is “The bristles of the paintbrush are stiff with dried paint.” Understand "brush", "bristles", "stiff", "dried", and "paint" as the paintbrush.</div>
 </div>
 
 <p>If you also have a can of paint in your game (which wouldn’t be
@@ -479,7 +479,7 @@ to it as BROKEN VASE &ndash; but not otherwise.</p>
 <p>The simplest way to do this is to refer to properties of the object
 when listing the vocabulary words:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The porcelain vase is in the Museum Lobby. The vase can be broken or unbroken. Understand &quot;broken&quot; and &quot;shattered&quot; as the vase when the vase is broken.\n\nInstead of attacking the vase:\n\tnow the vase is broken;\n\tnow the printed name of the vase is &quot;broken porcelain vase&quot;;\n\tsay &quot;You shatter the vase.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">The porcelain vase is in the Museum Lobby. The vase can be broken or unbroken. Understand "broken" and "shattered" as the vase when the vase is broken.</div>
+<div class="codeblock"><div class="codeline">The porcelain vase is in the Museum Lobby. The vase can be broken or unbroken. Understand "broken" and "shattered" as the vase when the vase is broken.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">Instead of attacking the vase:</div>
 <div class="codeline">&ensp;&ensp;&ensp;now the vase is broken;</div>
@@ -495,7 +495,7 @@ described in Chapter 8 of the <em>Handbook</em>) and make the vocabulary
 words that the player is allowed to use depend on whether a scene is
 happening:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Daytime is a recurring scene. Daytime begins when the sun is part of the sky. Daytime ends when the sun is not part of the sky.\n\nUnderstand &quot;twittering&quot; and &quot;chirping&quot; as the birds when daytime is happening.\n`)"><span class="sym">⧉</span></button><div class="codeline">Daytime is a recurring scene. Daytime begins when the sun is part of the sky. Daytime ends when the sun is not part of the sky.</div>
+<div class="codeblock"><div class="codeline">Daytime is a recurring scene. Daytime begins when the sun is part of the sky. Daytime ends when the sun is not part of the sky.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">Understand "twittering" and "chirping" as the birds when daytime is happening.</div>
 </div>
@@ -535,7 +535,7 @@ not scenery (unless you make it scenery), but it’s fixed in place. If
 you want to create a portable supporter, such as a tea tray, you need to
 tell Inform that it is not fixed in place:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The tea tray is a supporter on the buffet. The tea tray is not fixed in place.\n`)"><span class="sym">⧉</span></button><div class="codeline">The tea tray is a supporter on the buffet. The tea tray is not fixed in place.</div>
+<div class="codeblock"><div class="codeline">The tea tray is a supporter on the buffet. The tea tray is not fixed in place.</div>
 </div>
 
 <p>If the player happens to be carrying the tea tray at the beginning of
@@ -576,7 +576,7 @@ creating things like bird cages and glass-front sideboards.</p>
 that “not open” means the same thing as “closed.” So we could create a
 basic cupboard like this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The cupboard is a closed openable container in the Kitchen.\n`)"><span class="sym">⧉</span></button><div class="codeline">The cupboard is a closed openable container in the Kitchen.</div>
+<div class="codeblock"><div class="codeline">The cupboard is a closed openable container in the Kitchen.</div>
 </div>
 
 <p>If a container is openable, it can also be lockable. If it’s
@@ -591,7 +591,7 @@ player from putting anything at all into it (unless putting a small
 photograph or a magic bean into the locket is the solution to a puzzle).
 This is not difficult to do:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The player carries a small gold locket. The locket is an openable container. The locket is lockable and locked. The tiny gold key unlocks the locket.\n\nThe player carries a bowling ball and the tiny gold key.\n\nInstead of inserting something into the small gold locket:\n\tif the locket is closed:\n\t\tsay &quot;You&apos;d need to open the locket to do that.&quot;;\n\totherwise if the player does not carry the noun:\n\t\tsay &quot;You&apos;re not holding [the noun].&quot;;\n\totherwise:\n\t\tsay &quot;There&apos;s not room for [the noun] in the locket.&quot;\n\nTest me with &quot;put ball in locket / unlock locket with key / open locket / put ball in locket&quot;. \n`)"><span class="sym">⧉</span></button><div class="codeline">The player carries a small gold locket. The locket is an openable container. The locket is lockable and locked. The tiny gold key unlocks the locket.</div>
+<div class="codeblock"><div class="codeline">The player carries a small gold locket. The locket is an openable container. The locket is lockable and locked. The tiny gold key unlocks the locket.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">The player carries a bowling ball and the tiny gold key.</div>
 <div class="codeline">&thinsp;</div>
@@ -619,7 +619,7 @@ What you need to know is that before you make something openable or
 lockable (unless it’s a container or a door), you have to tell Inform
 that it <em>can be</em> openable or lockable. Here’s how:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The player carries a locket. The locket can be lockable. The locket is lockable. The locket can be openable. The locket is openable. The locket can be open. The locket can be locked. The locket is not open. The locket is locked.\n\nThe player carries the tiny gold key. The tiny gold key unlocks the locket.\n`)"><span class="sym">⧉</span></button><div class="codeline">The player carries a locket. The locket can be lockable. The locket is lockable. The locket can be openable. The locket is openable. The locket can be open. The locket can be locked. The locket is not open. The locket is locked.</div>
+<div class="codeblock"><div class="codeline">The player carries a locket. The locket can be lockable. The locket is lockable. The locket can be openable. The locket is openable. The locket can be open. The locket can be locked. The locket is not open. The locket is locked.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">The player carries the tiny gold key. The tiny gold key unlocks the locket.</div>
 </div>
@@ -634,7 +634,7 @@ opening the locket, which would presumably be important information.</p>
 <p>We were talking, a couple of pages back, about a kitchen cupboard.
 Let’s make the cupboard a little fancier:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The glass-front cupboard is an openable transparent lockable container in the Kitchen. The cupboard is closed and locked. The brass key unlocks the cupboard.\n`)"><span class="sym">⧉</span></button><div class="codeline">The glass-front cupboard is an openable transparent lockable container in the Kitchen. The cupboard is closed and locked. The brass key unlocks the cupboard.</div>
+<div class="codeblock"><div class="codeline">The glass-front cupboard is an openable transparent lockable container in the Kitchen. The cupboard is closed and locked. The brass key unlocks the cupboard.</div>
 </div>
 
 <p>In order to allow the player to UNLOCK THE CUPBOARD DOOR, we might
@@ -652,7 +652,7 @@ locked, and that has <em>no</em> key. If the solution of the puzzle is
 HIT CUPBOARD WITH HAMMER, you might create a new action called attacking
 it with and then write some code along these lines:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Carry out attacking the cupboard with the hammer:\n\tnow the cupboard is open;\n\tnow the cupboard is not openable;\n\tnow the cupboard is unlocked;\n\tnow the cupboard is not lockable;\n\tsay &quot;You smash the cupboard door with the hammer, and it springs open.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">Carry out attacking the cupboard with the hammer:</div>
+<div class="codeblock"><div class="codeline">Carry out attacking the cupboard with the hammer:</div>
 <div class="codeline">&ensp;&ensp;&ensp;now the cupboard is open;</div>
 <div class="codeline">&ensp;&ensp;&ensp;now the cupboard is not openable;</div>
 <div class="codeline">&ensp;&ensp;&ensp;now the cupboard is unlocked;</div>
@@ -672,7 +672,7 @@ container, the suitcase, is closed and openable. The final container, a
 basket, is not scenery and not openable. That is, the basket is
 permanently open. Here’s the code for the game:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Living Room is a room. &quot;Your standard American living room, equipped with a table and a cupboard.&quot;\n\nThe table is a scenery supporter in the Living Room.\n\nThe cupboard is a closed openable scenery container in the Living Room.\n\nThe basket is a container in the Living Room.\n\nThe suitcase is a closed openable container in the Living Room.\n\nThe pear is on the table. The apple is in the cupboard. The plum is in the basket. The carrot is in the suitcase. The player carries a banana. \n\nTest me with &quot;open suitcase / look / take carrot / look / open cupboard / look / take plum / look / take pear / look&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">The Living Room is a room. "Your standard American living room, equipped with a table and a cupboard."</div>
+<div class="codeblock"><div class="codeline">The Living Room is a room. "Your standard American living room, equipped with a table and a cupboard."</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">The table is a scenery supporter in the Living Room.</div>
 <div class="codeline">&thinsp;</div>
@@ -821,7 +821,7 @@ you might want it to be less than obvious that a closed openable
 container is actually a container at all. Getting rid of the “(closed)”
 text would solve that. Here’s how:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Rule for printing room description details of a closed container:\n\tstop.\n`)"><span class="sym">⧉</span></button><div class="codeline">Rule for printing room description details of a closed container:</div>
+<div class="codeblock"><div class="codeline">Rule for printing room description details of a closed container:</div>
 <div class="codeline">&ensp;&ensp;&ensp;stop.</div>
 </div>
 
@@ -829,7 +829,7 @@ text would solve that. Here’s how:</p>
 “(closed)” will reappear when the player takes inventory. To prevent
 that, we need another few lines:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Rule for printing the name of a closed container (called C) while taking inventory:\n\tsay &quot;[printed name of C]&quot;;\n\tomit contents in listing.\n`)"><span class="sym">⧉</span></button><div class="codeline">Rule for printing the name of a closed container (called C) while taking inventory:</div>
+<div class="codeblock"><div class="codeline">Rule for printing the name of a closed container (called C) while taking inventory:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "[printed name of C]";</div>
 <div class="codeline">&ensp;&ensp;&ensp;omit contents in listing.</div>
 </div>
@@ -843,7 +843,7 @@ it to the river in order to cross the river.</p>
 
 <p>Our first thought might be to write it this way:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Forest is a room. &quot;Tall old trees stand on all sides.&quot;\n\nThe hollow log is in the Forest.\n\nThe gold key is in the hollow log.\n`)"><span class="sym">⧉</span></button><div class="codeline">The Forest is a room. "Tall old trees stand on all sides."</div>
+<div class="codeblock"><div class="codeline">The Forest is a room. "Tall old trees stand on all sides."</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">The hollow log is in the Forest.</div>
 <div class="codeline">&thinsp;</div>
@@ -869,7 +869,7 @@ the puzzle will fall flat. Here’s the output:</p>
 <p>One way to get rid of the mention of the key is to create an initial
 appearance for the hollow log, like this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Forest is a room. &quot;Tall old trees stand on all sides.&quot;\n\nThe hollow log is in the Forest. &quot;A hollow log lies fallen next to the path.&quot;\n\nThe gold key is in the hollow log.\n`)"><span class="sym">⧉</span></button><div class="codeline">The Forest is a room. "Tall old trees stand on all sides."</div>
+<div class="codeblock"><div class="codeline">The Forest is a room. "Tall old trees stand on all sides."</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">The hollow log is in the Forest. "A hollow log lies fallen next to the path."</div>
 <div class="codeline">&thinsp;</div>
@@ -890,7 +890,7 @@ revealing the gold key to the player.</p>
 <p>A slightly better solution is to give Inform a new rule for writing a
 paragraph about the hollow log. Here’s how to do it:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Rule for writing a paragraph about the hollow log:\n\tsay &quot;[if the location is the Forest]A hollow log lies fallen next to the path[otherwise]A hollow log is lying here[end if].&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">Rule for writing a paragraph about the hollow log:</div>
+<div class="codeblock"><div class="codeline">Rule for writing a paragraph about the hollow log:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "[if the location is the Forest]A hollow log lies fallen next to the path[otherwise]A hollow log is lying here[end if]."</div>
 </div>
 
@@ -933,7 +933,7 @@ rather than to all closed containers (because, of course, the hollow log
 isn’t closed; it’s just behaving in a mysterious way because it’s a
 puzzle):</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Rule for printing the name of the hollow log while taking inventory:\n\tsay &quot;hollow log&quot;;\n\tomit contents in listing.\n`)"><span class="sym">⧉</span></button><div class="codeline">Rule for printing the name of the hollow log while taking inventory:</div>
+<div class="codeblock"><div class="codeline">Rule for printing the name of the hollow log while taking inventory:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "hollow log";</div>
 <div class="codeline">&ensp;&ensp;&ensp;omit contents in listing.</div>
 </div>
@@ -948,7 +948,7 @@ restriction is often useful with small containers. (Another way to
 prevent the player from putting a bowling ball into the pillbox would be
 to use the extension called <a href="https://github.com/i7/extensions/blob/10.1/Eric%20Eve/Bulk%20Limiter-v9.i7x">Bulk Limiter by Eric Eve</a>.)</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`A pill is a kind of thing. The blue pill is a pill. The red pill is a pill. The yellow pill is a pill.\n\nThe player carries a paper clip and a pillbox. The pillbox is a closed openable container. The description is &quot;The pillbox is small and white.” Understand &quot;box&quot;, &quot;white&quot;, and &quot;pill box&quot; as the pillbox. The blue pill, the red pill, and the yellow pill are in the pillbox.\n\nRule for printing the name of the pillbox while not inserting or removing or opening: \n\tif the pillbox is open:\n\t\tif something is in the pillbox:\n\t\t\tsay &quot;pillbox (containing [a list of things in the pillbox])&quot;;\n\t\totherwise:\n\t\t\tsay &quot;empty pillbox&quot;;\n\totherwise:\n\t\tsay &quot;pillbox&quot;;\n\tomit contents in listing.\n\nInstead of inserting something into the pillbox:\n\tif the pillbox is not open:\n\t\tsay &quot;You can&apos;t put anything into the box until you open it.&quot;;\n\totherwise if the noun is not a pill:\n\t\tsay &quot;That won&apos;t fit into the pillbox.&quot;;\n\totherwise:\n\t\tcontinue the action.\n`)"><span class="sym">⧉</span></button><div class="codeline">A pill is a kind of thing. The blue pill is a pill. The red pill is a pill. The yellow pill is a pill.</div>
+<div class="codeblock"><div class="codeline">A pill is a kind of thing. The blue pill is a pill. The red pill is a pill. The yellow pill is a pill.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">The player carries a paper clip and a pillbox. The pillbox is a closed openable container. The description is "The pillbox is small and white.” Understand "box", "white", and "pill box" as the pillbox. The blue pill, the red pill, and the yellow pill are in the pillbox.</div>
 <div class="codeline">&thinsp;</div>
@@ -992,7 +992,7 @@ to learn what’s in it. With an ordinary container like a suitcase,
 forcing the player to take that extra step is a bit silly. So here’s a
 suitcase that will list its contents (and its state) when examined:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The suitcase is in the Train Station. The suitcase is a closed openable container. The description is &quot;A vintage item of brown leather luggage.[if open] In the suitcase you can see [a list of things inside the suitcase].[otherwise] It&apos;s closed.[end if]&quot;.\n`)"><span class="sym">⧉</span></button><div class="codeline">The suitcase is in the Train Station. The suitcase is a closed openable container. The description is "A vintage item of brown leather luggage.[if open] In the suitcase you can see [a list of things inside the suitcase].[otherwise] It's closed.[end if]".</div>
+<div class="codeblock"><div class="codeline">The suitcase is in the Train Station. The suitcase is a closed openable container. The description is "A vintage item of brown leather luggage.[if open] In the suitcase you can see [a list of things inside the suitcase].[otherwise] It's closed.[end if]".</div>
 </div>
 
 <p>That works pretty well, as long as there’s something in the suitcase.
@@ -1010,7 +1010,7 @@ say “The suitcase seems to be empty.” The difficulty is this: Inform
 won’t let us embed one if-test inside of another in a double-quoted
 string. We’re not allowed to do this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The description is &quot;A vintage item of brown leather luggage.[if there is something in the suitcase][if open] In the suitcase you can see [a list of things inside the suitcase].[otherwise] It&apos;s closed.[end if][otherwise] It seems to be empty.[end if]&quot;. [Error!]\n`)"><span class="sym">⧉</span></button><div class="codeline">The description is "A vintage item of brown leather luggage.[if there is something in the suitcase][if open] In the suitcase you can see [a list of things inside the suitcase].[otherwise] It's closed.[end if][otherwise] It seems to be empty.[end if]". [Error!]</div>
+<div class="codeblock"><div class="codeline">The description is "A vintage item of brown leather luggage.[if there is something in the suitcase][if open] In the suitcase you can see [a list of things inside the suitcase].[otherwise] It's closed.[end if][otherwise] It seems to be empty.[end if]". [Error!]</div>
 </div>
 
 <p>The error report from the compiler is helpful. It says this: “a
@@ -1024,12 +1024,12 @@ define a new text substitution of your own ('To say fiddly details:
 This tells us exactly how to write code that will do what we want.
 Here’s one way to do it, using an [otherwise if] construction:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The description is &quot;A vintage item of brown leather luggage.[if there is something in the suitcase and the suitcase is open] In the suitcase you can see [a list of things inside the suitcase].[otherwise if open] It seems to be empty.[otherwise] It&apos;s closed.[end if]&quot;.\n`)"><span class="sym">⧉</span></button><div class="codeline">The description is "A vintage item of brown leather luggage.[if there is something in the suitcase and the suitcase is open] In the suitcase you can see [a list of things inside the suitcase].[otherwise if open] It seems to be empty.[otherwise] It's closed.[end if]".</div>
+<div class="codeblock"><div class="codeline">The description is "A vintage item of brown leather luggage.[if there is something in the suitcase and the suitcase is open] In the suitcase you can see [a list of things inside the suitcase].[otherwise if open] It seems to be empty.[otherwise] It's closed.[end if]".</div>
 </div>
 
 <p>And here’s another way, using Inform’s handy To Say phrase:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The suitcase is a closed openable container. The description is &quot;A vintage item of brown leather luggage. [suitcase-desc details].&quot;\n\nTo say suitcase-desc details:\n\tif the suitcase is open:\n\t\tif the number of entries in the list of things inside the suitcase is at least 1:\n\t\t\tsay &quot;In the suitcase you can see [a list of things inside the suitcase]&quot;;\n\t\totherwise:\n\t\t\tsay &quot;It seems to be empty&quot;;\n\totherwise:\n\t\tsay &quot;It&apos;s closed&quot;.\n`)"><span class="sym">⧉</span></button><div class="codeline">The suitcase is a closed openable container. The description is "A vintage item of brown leather luggage. [suitcase-desc details]."</div>
+<div class="codeblock"><div class="codeline">The suitcase is a closed openable container. The description is "A vintage item of brown leather luggage. [suitcase-desc details]."</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">To say suitcase-desc details:</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the suitcase is open:</div>
@@ -1057,14 +1057,14 @@ description. With a table, though, printing the line “It seems to be
 empty” in response to an EXAMINE action would be a bit silly, so the
 code can be simpler:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The billiard table is a scenery supporter in the Billiard Room. The description is &quot;The table is big and green[if there is something on the table]. On the table you can see [a list of things on the table][end if].&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">The billiard table is a scenery supporter in the Billiard Room. The description is "The table is big and green[if there is something on the table]. On the table you can see [a list of things on the table][end if]."</div>
+<div class="codeblock"><div class="codeline">The billiard table is a scenery supporter in the Billiard Room. The description is "The table is big and green[if there is something on the table]. On the table you can see [a list of things on the table][end if]."</div>
 </div>
 
 <p>Here’s another way to accomplish the same thing. This one moves the
 question of whether there’s something on the table into a different
 block of code.</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The billiard table is a scenery supporter in the Billiard Room. The description is &quot;The table is big and green[list-table-stuff].&quot;\n\nTo say list-table-stuff:\n\tlet L be the list of things on the billiard table;\n\tif the number of entries in L &gt; 0:\n\t\tsay &quot;. On the table you can see [a list of things on the billiard table]&quot;.\n`)"><span class="sym">⧉</span></button><div class="codeline">The billiard table is a scenery supporter in the Billiard Room. The description is "The table is big and green[list-table-stuff]."</div>
+<div class="codeblock"><div class="codeline">The billiard table is a scenery supporter in the Billiard Room. The description is "The table is big and green[list-table-stuff]."</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">To say list-table-stuff:</div>
 <div class="codeline">&ensp;&ensp;&ensp;let L be the list of things on the billiard table;</div>
@@ -1083,7 +1083,7 @@ supporter before the game reveals what’s on it. By default, Inform
 If you don’t like this effect, you can override it globally (that is,
 everywhere in your game) like this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The describe what&apos;s on scenery supporters in room descriptions rule is not listed in any rulebook.\n`)"><span class="sym">⧉</span></button><div class="codeline">The describe what's on scenery supporters in room descriptions rule is not listed in any rulebook.</div>
+<div class="codeblock"><div class="codeline">The describe what's on scenery supporters in room descriptions rule is not listed in any rulebook.</div>
 </div>
 
 <p>When you add this line, the player will have to examine scenery
@@ -1104,7 +1104,7 @@ billiard table in the room description of the Billiard Room, because the
 table is not scenery, so Inform will add a paragraph about it after the
 room description, using the new rule we’ve added:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Billiard Room is a room. &quot;Comfortable-looking leather chairs stand against the oak-paneled walls of this room. Overhead, a single hooded light fixture shines down.&quot;\n\nThe billiard table is a supporter in the Billiard Room. The description is &quot;The billiard table is big and green.&quot;\n\nThe white ball and the cue chalk are on the table. The indefinite article of the cue chalk is &quot;a piece of&quot;. Understand “piece” as the cue chalk.\n\nRule for writing a paragraph about the billiard table:\n\tsay &quot;A handsomely appointed billiard table dominates the center of the room.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">The Billiard Room is a room. "Comfortable-looking leather chairs stand against the oak-paneled walls of this room. Overhead, a single hooded light fixture shines down."</div>
+<div class="codeblock"><div class="codeline">The Billiard Room is a room. "Comfortable-looking leather chairs stand against the oak-paneled walls of this room. Overhead, a single hooded light fixture shines down."</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">The billiard table is a supporter in the Billiard Room. The description is "The billiard table is big and green."</div>
 <div class="codeline">&thinsp;</div>
@@ -1125,7 +1125,7 @@ sees a bed, he’s bound to try LOOK UNDER BED before very long. Inform’s
 default response is, “You find nothing of interest.” Creating a
 non-default response is easy:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of looking under the bed:\n\tsay &quot;Nothing but dust bunnies.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">Instead of looking under the bed:</div>
+<div class="codeblock"><div class="codeline">Instead of looking under the bed:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "Nothing but dust bunnies."</div>
 </div>
 
@@ -1134,7 +1134,7 @@ several ideas about how to hide things under other things. If we want
 to, we can have the player “find” something by moving it from off-stage
 into the room, or directly into the player’s inventory, like this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The odd sock is a thing. The odd sock can be found. The odd sock is not found.\n\nInstead of looking under the bed:\n\tif the odd sock is found:\n\t\tsay &quot;There&apos;s nothing else of interest under there, just a few dust bunnies.&quot;;\n\totherwise:\n\t\tnow the odd sock is found;\n\t\tnow the player carries the odd sock;\n\t\tsay &quot;Under the bed you find an odd sock, which you retrieve.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">The odd sock is a thing. The odd sock can be found. The odd sock is not found.</div>
+<div class="codeblock"><div class="codeline">The odd sock is a thing. The odd sock can be found. The odd sock is not found.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">Instead of looking under the bed:</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the odd sock is found:</div>
@@ -1174,7 +1174,7 @@ TAKE SOCK as an extra command, which is a bit annoying. If the player
 has been included in your game, hiding the sock under the bed is
 easier:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The double bed is a supporter in the Bedroom. The double bed is fixed in place. An underside called under#bed is part of the double bed.\n\nThe odd sock is in under#bed.\n`)"><span class="sym">⧉</span></button><div class="codeline">The double bed is a supporter in the Bedroom. The double bed is fixed in place. An underside called under#bed is part of the double bed.</div>
+<div class="codeblock"><div class="codeline">The double bed is a supporter in the Bedroom. The double bed is fixed in place. An underside called under#bed is part of the double bed.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">The odd sock is in under#bed.</div>
 </div>
@@ -1193,7 +1193,7 @@ find it would be with the command TAKE PICTURE or MOVE COUCH. Inform
 does not include looking behind as an action, though. Here’s how to set
 that up:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Looking behind is an action applying to one thing and requiring light. Understand &quot;look behind [something]&quot; as looking behind.\n\nCheck looking behind:\n\tsay &quot;You find nothing interesting behind [the noun].&quot;\n\nInstead of looking behind the couch:\n\tsay &quot;It&apos;s jammed up against the wall. In order to see what&apos;s behind it, if anything, you&apos;ll need to pull it out from the wall.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">Looking behind is an action applying to one thing and requiring light. Understand "look behind [something]" as looking behind.</div>
+<div class="codeblock"><div class="codeline">Looking behind is an action applying to one thing and requiring light. Understand "look behind [something]" as looking behind.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">Check looking behind:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "You find nothing interesting behind [the noun]."</div>
@@ -1206,7 +1206,7 @@ that up:</p>
 well as a way to test the position of the couch within the room. Is it
 against the wall, or has it been moved? Let’s add that possibility:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The couch is in the Living Room. The couch can be moved or not moved. The couch is not moved. The description is &quot;An overstuffed couch stands [if not moved]against the wall[otherwise]in the middle of the room[end if].&quot;\nInstead of pushing the couch:\n\ttry pulling the couch.\nInstead of pulling the couch:\n\tif the couch is moved:\n\t\tsay &quot;It&apos;s already out in the middle of the room.&quot;;\n\totherwise:\n\t\tnow the couch is moved;\n\t\tmove the odd sock to the Living Room;\n\t\tsay &quot;As you wrestle the couch out into the middle of the room, you find an odd sock behind it.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">The couch is in the Living Room. The couch can be moved or not moved. The couch is not moved. The description is "An overstuffed couch stands [if not moved]against the wall[otherwise]in the middle of the room[end if]."</div>
+<div class="codeblock"><div class="codeline">The couch is in the Living Room. The couch can be moved or not moved. The couch is not moved. The description is "An overstuffed couch stands [if not moved]against the wall[otherwise]in the middle of the room[end if]."</div>
 <div class="codeline">Instead of pushing the couch:</div>
 <div class="codeline">&ensp;&ensp;&ensp;try pulling the couch.</div>
 <div class="codeline">Instead of pulling the couch:</div>
@@ -1227,7 +1227,7 @@ was moved.</p>
 then simply drag the hidden object into the game from offstage when the
 player uses the command:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Library is a room. &quot;A beautiful tapestry hangs from the wall here.&quot;\n\nA beautiful tapestry is scenery in the Library. &quot;Sir Lancelot is depicted in vivid DayGlo stitchery. He seems to be riding on a sheep.&quot;\n\nThe rusty dagger is a thing. The description is &quot;Though mottled with rust, it looks quite sharp.&quot; The dagger can be discovered or undiscovered. The dagger is undiscovered.\n\nLooking behind is an action applying to one visible thing and requiring light. Understand &quot;look behind [something]&quot;, &quot;peek behind [something]&quot;, and &quot;search behind [something]&quot; as looking behind.\n\nCheck looking behind:\n\tsay &quot;There&apos;s nothing of any interest behind [the noun].&quot;\n\nInstead of looking behind the tapestry:\n\tif the dagger is undiscovered:\n\t\tnow the dagger is in the Library;\n\t\tnow the dagger is discovered;\n\t\tsay &quot;As you disturb the tapestry, a rusty dagger falls out from behind it and lands on the floor.&quot;;\n\totherwise:\n\t\tsay &quot;You find nothing else of interest behind the beautiful tapestry.&quot;\n\n`)"><span class="sym">⧉</span></button><div class="codeline">The Library is a room. "A beautiful tapestry hangs from the wall here."</div>
+<div class="codeblock"><div class="codeline">The Library is a room. "A beautiful tapestry hangs from the wall here."</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">A beautiful tapestry is scenery in the Library. "Sir Lancelot is depicted in vivid DayGlo stitchery. He seems to be riding on a sheep."</div>
 <div class="codeline">&thinsp;</div>
@@ -1250,7 +1250,7 @@ player uses the command:</p>
 <p>If you do it this way, you might want to add the following, as a
   courtesy to the player who tries MOVE TAPESTRY or SHAKE TAPESTRY:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of pushing the tapestry:\n\ttry looking behind the tapestry.\n\nShaking is an action applying to one visible thing and requiring light. Understand &quot;shake [something]&quot; as shaking.\n\nCheck shaking:\n\tsay &quot;Agitating [the noun] has no visible effect.&quot;\n\nInstead of shaking the tapestry:\n\tif the dagger is undiscovered:\n\t\ttry looking behind the tapestry;\n\totherwise:\n\t\tsay &quot;A little dust billows out.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">Instead of pushing the tapestry:</div>
+<div class="codeblock"><div class="codeline">Instead of pushing the tapestry:</div>
 <div class="codeline">&ensp;&ensp;&ensp;try looking behind the tapestry.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">Shaking is an action applying to one visible thing and requiring light. Understand "shake [something]" as shaking.</div>
@@ -1292,7 +1292,7 @@ interesting. Unfortunately, WI 18.36 fails to provide
 a correct explanation of how to re-include something in ALL. Here’s the
 correct way to do it:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The billiard table is scenery in the Recreation Room. \n\nInstead of taking the billiard table:\n\tsay &quot;It&apos;s much too heavy for you to pick up, but when you try to lift it, it rocks slightly, as if the floor beneath it is uneven.&quot;\n\nRule for deciding whether all includes the billiard table while taking or taking off or removing: it does.\n`)"><span class="sym">⧉</span></button><div class="codeline">The billiard table is scenery in the Recreation Room. </div>
+<div class="codeblock"><div class="codeline">The billiard table is scenery in the Recreation Room. </div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">Instead of taking the billiard table:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "It's much too heavy for you to pick up, but when you try to lift it, it rocks slightly, as if the floor beneath it is uneven."</div>
@@ -1316,7 +1316,7 @@ never be used.</p>
 could reasonably enter them &ndash; a chair or bed, for instance. Here is a
 simple example that includes both:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Bedroom is a room. &quot;Your basic bedroom. It&apos;s equipped with a bed and a chair.&quot;\n\nThe bed is an enterable scenery supporter in the Bedroom. The chair is an open enterable scenery container in the Bedroom.\n`)"><span class="sym">⧉</span></button><div class="codeline">The Bedroom is a room. "Your basic bedroom. It's equipped with a bed and a chair."</div>
+<div class="codeblock"><div class="codeline">The Bedroom is a room. "Your basic bedroom. It's equipped with a bed and a chair."</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">The bed is an enterable scenery supporter in the Bedroom. The chair is an open enterable scenery container in the Bedroom.</div>
 </div>
@@ -1329,7 +1329,7 @@ player to get out of an enterable container is STAND (or STAND UP, or
 EXIT). Annoyingly, GET OUT OF BED is not recognized by the parser. In
 order to handle this command, we need to write a little extra code:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Getting out of is an action applying to one thing.\nUnderstand &quot;get out of [something]&quot; as getting out of.\n\nCarry out getting out of something:\n\ttry exiting instead.\n`)"><span class="sym">⧉</span></button><div class="codeline">Getting out of is an action applying to one thing.</div>
+<div class="codeblock"><div class="codeline">Getting out of is an action applying to one thing.</div>
 <div class="codeline">Understand "get out of [something]" as getting out of.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">Carry out getting out of something:</div>
@@ -1342,7 +1342,7 @@ closed container is dark, so if the player enters the container and then
 closes it, the player will be in darkness &ndash; unless carrying a light
 source, of course.</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The refrigerator is an openable enterable container in the Kitchen.\nThe description is &quot;An old white General Electric fridge.&quot;\nUnderstand &quot;fridge&quot; as the refrigerator.\nThe refrigerator is open.\n`)"><span class="sym">⧉</span></button><div class="codeline">The refrigerator is an openable enterable container in the Kitchen.</div>
+<div class="codeblock"><div class="codeline">The refrigerator is an openable enterable container in the Kitchen.</div>
 <div class="codeline">The description is "An old white General Electric fridge."</div>
 <div class="codeline">Understand "fridge" as the refrigerator.</div>
 <div class="codeline">The refrigerator is open.</div>
@@ -1355,7 +1355,7 @@ prevent it. I’m a little nervous about the syntax of the next bit of
 code, because at any given moment either C or S will be nothing &hellip; but
 it seems to work:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Before taking something:\n\tif the player is enclosed by an enterable container (called C) or the player is enclosed by an enterable supporter (called S):\n\t\tif the noun is not enclosed by C and the noun is not enclosed by S:\n\t\t\tsay &quot;You can&apos;t reach [the noun] from here.&quot; instead.\n`)"><span class="sym">⧉</span></button><div class="codeline">Before taking something:</div>
+<div class="codeblock"><div class="codeline">Before taking something:</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the player is enclosed by an enterable container (called C) or the player is enclosed by an enterable supporter (called S):</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the noun is not enclosed by C and the noun is not enclosed by S:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say "You can't reach [the noun] from here." instead.</div>
@@ -1372,7 +1372,7 @@ message “You would have to get off [the supporter] first.” This is
 realistic, but a bit annoying, since the player knew what she wanted to
 do. Here’s an easy way to fix it, suggested by Michael Callaghan:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of going when the player is on a supporter (called S):\n\tsay &quot;(First getting off the [printed name of S])[command clarification break]&quot;;\n\tsurreptitiously move the player to the holder of S;\n\tcontinue the action.\n\nInstead of going when the player is in a container (called C):\n\tsay &quot;(First getting out of the [printed name of C])[command clarification break]&quot;;\n\tsurreptitiously move the player to the holder of C;\n\tcontinue the action.\n`)"><span class="sym">⧉</span></button><div class="codeline">Instead of going when the player is on a supporter (called S):</div>
+<div class="codeblock"><div class="codeline">Instead of going when the player is on a supporter (called S):</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "(First getting off the [printed name of S])[command clarification break]";</div>
 <div class="codeline">&ensp;&ensp;&ensp;surreptitiously move the player to the holder of S;</div>
 <div class="codeline">&ensp;&ensp;&ensp;continue the action.</div>
@@ -1391,7 +1391,7 @@ yourself, in your own code. For instance, if the player rubs the magic
 lamp, you would probably want to move the genie into the room. The
 keyword for doing this is “now”:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of rubbing the lamp:\n\tif the genie is off-stage:\n\t\tnow the genie is in the location;\n\t\tsay &quot;Shazam! A genie appears!&quot;;\n\totherwise:\n\t\tsay &quot;You make a small squeaking noise by rubbing the lamp.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">Instead of rubbing the lamp:</div>
+<div class="codeblock"><div class="codeline">Instead of rubbing the lamp:</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the genie is off-stage:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the genie is in the location;</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say "Shazam! A genie appears!";</div>
@@ -1403,7 +1403,7 @@ keyword for doing this is “now”:</p>
 If you need to move an object to a container or supporter, it’s usually
 easiest to refer to the container or supporter by name:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`now the knockwurst is on the plate;\n`)"><span class="sym">⧉</span></button><div class="codeline">now the knockwurst is on the plate;</div>
+<div class="codeblock"><div class="codeline">now the knockwurst is on the plate;</div>
 </div>
 
 <p>But sometimes you may not know exactly where the object should show
@@ -1412,7 +1412,7 @@ into a jewelled crown. In this case the shoe could be almost anywhere,
 so you need to figure out where it is, store that data, and then use the
 data to move the jewelled crown onstage:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of the player rubbing the lamp:\n\tif the holder of the old shoe is not nothing:\n\t\tlet H be the holder of the old shoe;\n\t\tmove the jewelled crown to H;\n\t\tremove the old shoe from play;\n\t\tsay &quot;You rub the old lamp. Squeak, squeak[if the player is in the location of the jewelled crown]. The old shoe turns into a jewelled crown![else].&quot;;\n\telse:\n\t\tsay &quot;You rub the old lamp. Squeak, squeak.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">Instead of the player rubbing the lamp:</div>
+<div class="codeblock"><div class="codeline">Instead of the player rubbing the lamp:</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the holder of the old shoe is not nothing:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;let H be the holder of the old shoe;</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;move the jewelled crown to H;</div>
@@ -1444,7 +1444,7 @@ once using a loop, see the <a href="#Ref_dollar_bill">dollar bill example</a>.</
 inventory (for a discussion of inventory, see below) by saying exactly
 that:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`add the sword to the player&apos;s inventory. [Error!]\n`)"><span class="sym">⧉</span></button><div class="codeline">add the sword to the player's inventory. [Error!]</div>
+<div class="codeblock"><div class="codeline">add the sword to the player's inventory. [Error!]</div>
 </div>
 
 <p>You might think that would work, but it won’t, first because there is
@@ -1453,7 +1453,7 @@ no container in the model world called “inventory” and second because
 in the world. The way to give the sword to the player as an item being
 carried is this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`now the player carries the sword.\n`)"><span class="sym">⧉</span></button><div class="codeline">now the player carries the sword.</div>
+<div class="codeblock"><div class="codeline">now the player carries the sword.</div>
 </div>
 
 <h3 id="inventory">Inventory</h3>
@@ -1469,7 +1469,7 @@ player character is an alien with 20 or 30 hands). Some game authors
 prefer to limit the number of items the player can carry at once. As
 explained in <a href="../WI_3.html#section_19">WI 3.19: Carrying capacity</a>, we can easily set this up by saying:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The carrying capacity of the player is 5.\n`)"><span class="sym">⧉</span></button><div class="codeline">The carrying capacity of the player is 5.</div>
+<div class="codeblock"><div class="codeline">The carrying capacity of the player is 5.</div>
 </div>
 
 <p>Players don’t like having a limited carrying capacity, because it’s a
@@ -1481,7 +1481,7 @@ place where the player will find it early in the game. The holdall could
 be a shopping bag, a backpack, a burlap sack, or whatever fits with your
 story. Creating a holdall is easy:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The backpack is an open container in the Barn. The backpack is a\nplayer’s holdall.\n`)"><span class="sym">⧉</span></button><div class="codeline">The backpack is an open container in the Barn. The backpack is a</div>
+<div class="codeblock"><div class="codeline">The backpack is an open container in the Barn. The backpack is a</div>
 <div class="codeline">player’s holdall.</div>
 </div>
 
@@ -1572,7 +1572,7 @@ chair in his pocket. And if there are numerous bulky objects around
 the game up so that the player will only be able to carry one of them at
 a time. Your code might look something like this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The bulk capacity of the player is 65.\nThe bulk of the chair is 45.\nThe bulk of the string bass is 50.\nThe bulk of the shipping trunk is 40.\n`)"><span class="sym">⧉</span></button><div class="codeline">The bulk capacity of the player is 65.</div>
+<div class="codeblock"><div class="codeline">The bulk capacity of the player is 65.</div>
 <div class="codeline">The bulk of the chair is 45.</div>
 <div class="codeline">The bulk of the string bass is 50.</div>
 <div class="codeline">The bulk of the shipping trunk is 40.</div>
@@ -1639,7 +1639,7 @@ or down. This fact is mentioned in <a href="../WI_3.html#section_2">WI 3.2: Room
 suitcase, the leather suitcase on the table, and the old oak table in
 the Dining Room, the containment hierarchy would look like this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Dining Room\n\told oak table\n\t\tleather suitcase\n\t\t\tpill box\n\t\t\t\taspirin tablet\n`)"><span class="sym">⧉</span></button><div class="codeline">Dining Room</div>
+<div class="codeblock"><div class="codeline">Dining Room</div>
 <div class="codeline">&ensp;&ensp;&ensp;old oak table</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;leather suitcase</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;pill box</div>
@@ -1678,7 +1678,7 @@ object (except the Dining Room itself) is the Dining Room.</p>
 the same container, on the same supporter, carried by the same person,
 or in the same room &ndash; using the general-purpose term “holder”:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`if the holder of the pear is the holder of the banana:\n`)"><span class="sym">⧉</span></button><div class="codeline">if the holder of the pear is the holder of the banana:</div>
+<div class="codeblock"><div class="codeline">if the holder of the pear is the holder of the banana:</div>
 </div>
 
 <p>This condition will be true if they’re both carried by the player, or
@@ -1710,7 +1710,7 @@ let’s look at them one at a time.</p>
 object) is very simple. To show how it works, we’ll create a lamp that
 will run out of fuel after a certain number of turns:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The player carries a lamp. The lamp is lit. The lamp has a number called fuel-remaining. The fuel-remaining of the lamp is 50.\n\nEvery turn:\n\tif the fuel-remaining of the lamp is greater than 0:\n\t\tdecrease the fuel-remaining of the lamp by 1;\n\t\tif the fuel-remaining of the lamp is 0:\n\t\t\tnow the lamp is not lit;\n\t\t\tif the lamp is enclosed by the location:\n\t\t\t\tsay &quot;The lamp flickers and then goes out.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">The player carries a lamp. The lamp is lit. The lamp has a number called fuel-remaining. The fuel-remaining of the lamp is 50.</div>
+<div class="codeblock"><div class="codeline">The player carries a lamp. The lamp is lit. The lamp has a number called fuel-remaining. The fuel-remaining of the lamp is 50.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">Every turn:</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the fuel-remaining of the lamp is greater than 0:</div>
@@ -1726,7 +1726,7 @@ We can manipulate them however we like. If this is an oil lamp, for
 instance, the player might be able to refill it from an oil can. Here’s
 a somewhat oversimplified way to do exactly that:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The oil can is here. The oil can can be full or empty. The oil can is full.\n\nRefilling is an action applying to one thing. Understand &quot;fill [something]&quot; and &quot;refill [something]&quot; as refilling.\n\nCheck refilling:\n\tsay &quot;[The noun] can&apos;t be refilled.&quot; instead.\n\nInstead of refilling the lamp:\n\tif the oil can is enclosed by the location:\n\t\tif the oil can is full:\n\t\t\tnow the oil can is empty;\n\t\t\tincrease the fuel-remaining of the lamp by 50;\n\t\t\tsay &quot;You drain the oil can into the lamp[run paragraph on]&quot;;\n\t\t\tif the lamp is not lit:\n\t\t\t\tnow the lamp is lit;\n\t\t\t\tsay &quot;, and quite magically the lamp&apos;s mantle begins glowing brightly again[run paragraph on]&quot;;\n\t\t\tsay &quot;.&quot;;\n\t\totherwise:\n\t\t\tsay &quot;The oil can appears to be empty.&quot;;\n\totherwise:\n\t\tsay &quot;You have nothing to fill the lamp with.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">The oil can is here. The oil can can be full or empty. The oil can is full.</div>
+<div class="codeblock"><div class="codeline">The oil can is here. The oil can can be full or empty. The oil can is full.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">Refilling is an action applying to one thing. Understand "fill [something]" and "refill [something]" as refilling.</div>
 <div class="codeline">&thinsp;</div>
@@ -1762,7 +1762,7 @@ fuel-remaining (of the lamp) and full or empty (of the oil can).</p>
 listing the words. In this case, what we have is an anonymous (nameless)
 property. For instance:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The player carries a potato. The potato can be cold, warm, or\nhot.\n`)"><span class="sym">⧉</span></button><div class="codeline">The player carries a potato. The potato can be cold, warm, or</div>
+<div class="codeblock"><div class="codeline">The player carries a potato. The potato can be cold, warm, or</div>
 <div class="codeline">hot.</div>
 </div>
 
@@ -1772,7 +1772,7 @@ always to tell Inform what condition you want the object to be in at the
 start of the game. This removes any possible ambiguity, and makes your
 code easier to read:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The player carries a potato. The potato can be cold, warm, or hot.\nThe potato is cold.\n`)"><span class="sym">⧉</span></button><div class="codeline">The player carries a potato. The potato can be cold, warm, or hot.</div>
+<div class="codeblock"><div class="codeline">The player carries a potato. The potato can be cold, warm, or hot.</div>
 <div class="codeline">The potato is cold.</div>
 </div>
 
@@ -1790,7 +1790,7 @@ possible states.</p>
 depend on the nature of the object and also on the type of puzzle you’re
 implementing. Here’s a simple example:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The blazing fireplace is an open scenery container in the Library.\n\nAfter inserting the potato into the blazing fireplace:\n\tnow the potato is hot;\n\tsay &quot;You drop the potato into the blazing fireplace, and in a few moments the potato is glowing cherry red and smoldering cheerfully.&quot;;\n\trule succeeds.\n\nInstead of taking the potato when the potato is hot:\n\tsay &quot;You&apos;d burn your fingers.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">The blazing fireplace is an open scenery container in the Library.</div>
+<div class="codeblock"><div class="codeline">The blazing fireplace is an open scenery container in the Library.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">After inserting the potato into the blazing fireplace:</div>
 <div class="codeline">&ensp;&ensp;&ensp;now the potato is hot;</div>
@@ -1808,7 +1808,7 @@ happen to refer to the object as a hot potato, the parser will report,
 the vocabulary. Let’s omit, for now, the option of a warm potato, and
 create one that can be either cold or hot:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The potato can be cold or hot. The potato is cold. Understand &quot;hot&quot;\nas the potato when the potato is hot. The description of the potato is\n&quot;It&apos;s brown and a bit lumpy[if hot]. It&apos;s also glowing with heat[end\nif].&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">The potato can be cold or hot. The potato is cold. Understand "hot"</div>
+<div class="codeblock"><div class="codeline">The potato can be cold or hot. The potato is cold. Understand "hot"</div>
 <div class="codeline">as the potato when the potato is hot. The description of the potato is</div>
 <div class="codeline">"It's brown and a bit lumpy[if hot]. It's also glowing with heat[end</div>
 <div class="codeline">if]."</div>
@@ -1818,7 +1818,7 @@ create one that can be either cold or hot:</p>
 hot to pick up because they’ve been put in the fireplace, we might want
 to write a more general rule, along these lines:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of taking something when the noun is hot:\n\tsay &quot;You&apos;d burn your fingers.&quot; [Error!]\n`)"><span class="sym">⧉</span></button><div class="codeline">Instead of taking something when the noun is hot:</div>
+<div class="codeblock"><div class="codeline">Instead of taking something when the noun is hot:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "You'd burn your fingers." [Error!]</div>
 </div>
 
@@ -1829,7 +1829,7 @@ parser will assume that <em>everything</em> is hot. We could get around
 this by saying, “The potato can be hot or cold,” but here’s a safer way
 to do it:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`A thing can be hot or cold. A thing is usually cold.\n`)"><span class="sym">⧉</span></button><div class="codeline">A thing can be hot or cold. A thing is usually cold.</div>
+<div class="codeblock"><div class="codeline">A thing can be hot or cold. A thing is usually cold.</div>
 </div>
 
 <p>Now all of the objects in your game will be explicitly cold, so the
@@ -1841,7 +1841,7 @@ blazing fireplace.</p>
 temperature, while other things don’t need this property. So you decide
 to be clever. You create temperature as a kind of value, like this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Temperature is a kind of value. The temperatures are cold, warm, and hot.\n\nThe Library is a room. A toad is in the Library. The blazing fireplace is an open scenery container in the Library.\n\nThe player carries a potato. The potato has a temperature. Understand &quot;hot&quot; as the potato when the potato is hot. The description of the potato is &quot;It&apos;s brown and a bit lumpy[if hot]. It&apos;s also glowing with heat[end if].&quot;\n\nAfter inserting the potato into the blazing fireplace:\n\tnow the potato is hot;\n\tsay &quot;You drop the potato into the blazing fireplace, and in a few moments the potato is glowing cherry red and smoldering cheerfully.&quot;;\n\trule succeeds.\n\nInstead of taking something when the noun is hot:\n\tsay &quot;You&apos;d burn your fingers.&quot; [Error!]\n`)"><span class="sym">⧉</span></button><div class="codeline">Temperature is a kind of value. The temperatures are cold, warm, and hot.</div>
+<div class="codeblock"><div class="codeline">Temperature is a kind of value. The temperatures are cold, warm, and hot.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">The Library is a room. A toad is in the Library. The blazing fireplace is an open scenery container in the Library.</div>
 <div class="codeline">&thinsp;</div>
@@ -1870,7 +1870,7 @@ temperature property, so trying to test whether it’s hot (using the
 Instead rule) can’t possibly work. You might think to try dodging the
 problem like this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of taking something:\n\tif the noun provides the temperature property:\n\t\tif the noun is hot:\n\t\t\tsay &quot;You&apos;d burn your fingers.&quot;;\n\t\totherwise:\n\t\t\tcontinue the action;\n\totherwise:\n\t\tcontinue the action.\n`)"><span class="sym">⧉</span></button><div class="codeline">Instead of taking something:</div>
+<div class="codeblock"><div class="codeline">Instead of taking something:</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the noun provides the temperature property:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the noun is hot:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say "You'd burn your fingers.";</div>
@@ -1890,7 +1890,7 @@ distinct name, so that it isn’t an anonymous property. Once the property
 has a name, we can test whether any object possesses that property. The
 final version is a bit more wordy, but it works as needed:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Temperature is a kind of value. The temperatures are cold, warm, and hot.\n\nThe Library is a room. A toad is in the Library. The blazing fireplace is an open scenery container in the Library.\n\nThe player carries a potato. The potato has a temperature called the heat. Understand &quot;hot&quot; as the potato when the heat of the potato is hot. The description of the potato is &quot;It&apos;s brown and a bit lumpy[if the heat of the potato is hot]. It&apos;s also glowing with heat[end if].&quot;\n\nInstead of taking something:\n\tif the noun provides the property heat:\n\t\tif the heat of the noun is hot:\n\t\t\tsay &quot;You&apos;d burn your fingers.&quot;;\n\t\totherwise:\n\t\t\tcontinue the action;\n\totherwise:\n\t\tcontinue the action.\n`)"><span class="sym">⧉</span></button><div class="codeline">Temperature is a kind of value. The temperatures are cold, warm, and hot.</div>
+<div class="codeblock"><div class="codeline">Temperature is a kind of value. The temperatures are cold, warm, and hot.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">The Library is a room. A toad is in the Library. The blazing fireplace is an open scenery container in the Library.</div>
 <div class="codeline">&thinsp;</div>
@@ -1936,7 +1936,7 @@ give it the property plural-named. We can do this ourselves, by writing
 out, by using the word “some”. Let’s create a plural-named object that
 isn’t scenery:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Some scissors are on the sewing table. The description is &quot;The\nscissors look quite sharp.&quot; Understand &quot;sharp&quot;, &quot;blades&quot;, and &quot;shears&quot;\nas the scissors.\n`)"><span class="sym">⧉</span></button><div class="codeline">Some scissors are on the sewing table. The description is "The</div>
+<div class="codeblock"><div class="codeline">Some scissors are on the sewing table. The description is "The</div>
 <div class="codeline">scissors look quite sharp." Understand "sharp", "blades", and "shears"</div>
 <div class="codeline">as the scissors.</div>
 </div>
@@ -1949,13 +1949,13 @@ than “You are carrying a scissors.”</p>
 <p>If we need to create a collective object, such as sand or water, we
 can’t use “some” in this way. Here’s the wrong way to do it:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Some brackish water is in the pond. [Error!] The water is fixed in place.\n`)"><span class="sym">⧉</span></button><div class="codeline">Some brackish water is in the pond. [Error!] The water is fixed in place.</div>
+<div class="codeblock"><div class="codeline">Some brackish water is in the pond. [Error!] The water is fixed in place.</div>
 </div>
 
 <p>If the player tries TAKE WATER, the game will respond, “Those are
 hardly portable.” Instead, we need to do it like this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The brackish water is in the pond. The indefinite article of the brackish water is &quot;some&quot;. The water is fixed in place.\n`)"><span class="sym">⧉</span></button><div class="codeline">The brackish water is in the pond. The indefinite article of the brackish water is "some". The water is fixed in place.</div>
+<div class="codeblock"><div class="codeline">The brackish water is in the pond. The indefinite article of the brackish water is "some". The water is fixed in place.</div>
 </div>
 
 <p>When we do it this way, by telling Inform what the indefinite article
@@ -1969,7 +1969,7 @@ substitutions “[the second noun]” and “[a second noun]” work the same
 way.) But when we do this, we have to be careful about how we construct
 the sentence. This looks correct, but it’s a bug:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`say &quot;[The noun] is too heavy for you to carry.&quot; [Error!]\n`)"><span class="sym">⧉</span></button><div class="codeline">say "[The noun] is too heavy for you to carry." [Error!]</div>
+<div class="codeblock"><div class="codeline">say "[The noun] is too heavy for you to carry." [Error!]</div>
 </div>
 
 <p>If the noun being referred to at the moment happens to be
@@ -1982,7 +1982,7 @@ plural-named, the output will be wrong:</p>
 
 <p>The old-school solution is to fix this by hand:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`say &quot;[The noun] [if the noun is plural-named]are[otherwise]is[end if] too heavy for you to carry.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">say "[The noun] [if the noun is plural-named]are[otherwise]is[end if] too heavy for you to carry."</div>
+<div class="codeblock"><div class="codeline">say "[The noun] [if the noun is plural-named]are[otherwise]is[end if] too heavy for you to carry."</div>
 </div>
 
 <p>Inserting an if-test within text in this way is sometimes an ideal
@@ -1990,7 +1990,7 @@ solution to a tricky problem. But when writing messages that may need to
 refer to things that are plural-named it’s almost always more convenient
 do this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`say &quot;[The noun] [are] too heavy for you to carry.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">say "[The noun] [are] too heavy for you to carry."</div>
+<div class="codeblock"><div class="codeline">say "[The noun] [are] too heavy for you to carry."</div>
 </div>
 
 <p>This type of syntax used to require an extension called Plurality by
@@ -2012,7 +2012,7 @@ you still have to refer to “a random” object of that kind.</p>
 
 <p>Here’s a simple example:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Poultry Shop is a room.\n\nA coin is a kind of thing. Understand &quot;coin&quot; as a coin.\nA copper penny is a kind of coin.\nA silver dollar is a kind of coin.\nA gold eagle is a kind of coin.\n\nThe player carries three copper pennies, five silver dollars, and two gold eagles.\n\nThe shopkeeper is a man in the Poultry Shop. The shopkeeper carries a duck.\n\nInstead of buying the duck:\n\tif the shopkeeper carries the duck:\n\t\tlet P be a random copper penny carried by the player;\n\t\tif P is not nothing:\n\t\t\tnow the shopkeeper carries P;\n\t\t\tnow the player carries the duck;\n\t\t\tsay &quot;You buy the duck from the shopkeeper for a penny.&quot;;\n\t\totherwise:\n\t\t\tsay &quot;&apos;I&apos;ll need a penny for this handsome duck,&apos; the shopkeeper says.&quot;;\n\totherwise:\n\t\tsay &quot;You&apos;ve already bought the duck.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">The Poultry Shop is a room.</div>
+<div class="codeblock"><div class="codeline">The Poultry Shop is a room.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">A coin is a kind of thing. Understand "coin" as a coin.</div>
 <div class="codeline">A copper penny is a kind of coin.</div>
@@ -2106,7 +2106,7 @@ this extension to be used with any new actions you define in your game,
 you’ll need to write a bit of extra code. This rather gross example
 shows how to do it:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Include Consolidated Multiple Actions by John Clemens.\n\nThe Test Lab is a room.\n\nMoe is a man in the Lab.\n\nA glop is a kind of thing. The indefinite article of a glop is &quot;some&quot;. Understand &quot;glop&quot; as a glop. Understand &quot;glop&quot; as the plural of glop.\n\nThe jelly is a glop. The glue is a glop. The taco sauce is a glop. The player carries the jelly, the glue, and the taco sauce.\n\nSmearing it on is an action applying to two things and requiring light. Understand &quot;smear [things] on [something]&quot; as smearing it on.\n\nReport smearing it on:\n\tsay &quot;You smear [the noun] on [the second noun].&quot;\n\nLast for reporting consolidated actions rule when smearing on:\n\tsay &quot;You smear [consolidated objects] on [the second noun].&quot; \n`)"><span class="sym">⧉</span></button><div class="codeline">Include Consolidated Multiple Actions by John Clemens.</div>
+<div class="codeblock"><div class="codeline">Include Consolidated Multiple Actions by John Clemens.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">The Test Lab is a room.</div>
 <div class="codeline">&thinsp;</div>
@@ -2170,7 +2170,7 @@ sequence does what we want it to, and then stops. This is the purpose of
 the truth state called group-description-complete in the following
 code.</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Guardhouse is a room.\n\nA guard is a kind of person. Understand &quot;guard&quot; and &quot;man&quot; as a guard. Understand &quot;men&quot; as the plural of a guard. The description of a guard is usually &quot;He&apos;s wearing armor and a tarnished tin nametag that says &apos;[the noun].&apos;&quot;\n\nMoe is a guard in the Guardhouse. Larry is a guard in the Guardhouse. Curly is a guard in the Guardhouse.\n\nGuard list is a list of objects which varies. Guard list is { Curly, Larry, Moe }.\n\nWhen play begins: \n\tsort guard list.\n\nUnderstand &quot;examine [things]&quot; or &quot;look at [things]&quot; as multiply-examining. Multiply-examining is an action applying to one thing.\n\nUnderstand &quot;examine [things inside] in/on [something]&quot; or &quot;look at [things inside] in/on [something]&quot; as multiply-examining it from. Multiply-examining it from is an action applying to two things. \n\nGroup-description-complete is a truth state that varies. \n\nCarry out multiply-examining it from: \n\ttry multiply-examining the noun instead. \n\nCheck multiply-examining when group-description-complete is true: \n\tstop the action. \n\nCarry out multiply-examining: \n\tlet L be the list of matched things; \n\tif the number of entries in L is 0, try examining the noun instead; \n\tif the number of entries in L is 1, try examining entry 1 of L instead; \n\tdescribe L; \n\tsay line break; \n\tnow group-description-complete is true. \n\nBefore reading a command: \n\tnow group-description-complete is false. \n\nThe silently announce items from multiple object lists rule is listed instead of the announce items from multiple object lists rule in the action-processing rules. \n\nThis is the silently announce items from multiple object lists rule: \n\tunless multiply-examining or multiply-examining something from something: \n\t\tif the current item from the multiple object list is not nothing, say &quot;[current item from the multiple object list]: [run paragraph on]&quot;. \n\nDefinition: a thing is matched if it is listed in the multiple object list. \n\nTo describe (L - a list of objects): \n\tsort L; \n\tif L is guard list: \n\t\tsay &quot;They&apos;re wearing armor and nametags, which identify them as Moe, Larry, and Curly.&quot;; \n\totherwise: \n\t\tsay &quot;You see [L with indefinite articles].&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">The Guardhouse is a room.</div>
+<div class="codeblock"><div class="codeline">The Guardhouse is a room.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">A guard is a kind of person. Understand "guard" and "man" as a guard. Understand "men" as the plural of a guard. The description of a guard is usually "He's wearing armor and a tarnished tin nametag that says '[the noun].'"</div>
 <div class="codeline">&thinsp;</div>
@@ -2236,7 +2236,7 @@ objects that are its parts.</p>
 to create separate objects to model the parts. We can just make the
 names of the parts refer back to the main object, like this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The player carries a knife. The description is &quot;It’s a shiny Bowie knife with a sharp three-inch blade and a black leather hilt.&quot; Understand &quot;shiny&quot;, &quot;Bowie&quot;, &quot;sharp&quot;, &quot;blade&quot;, &quot;black&quot;, &quot;leather&quot;, and &quot;hilt&quot; as the knife.\n`)"><span class="sym">⧉</span></button><div class="codeline">The player carries a knife. The description is "It’s a shiny Bowie knife with a sharp three-inch blade and a black leather hilt." Understand "shiny", "Bowie", "sharp", "blade", "black", "leather", and "hilt" as the knife.</div>
+<div class="codeblock"><div class="codeline">The player carries a knife. The description is "It’s a shiny Bowie knife with a sharp three-inch blade and a black leather hilt." Understand "shiny", "Bowie", "sharp", "blade", "black", "leather", and "hilt" as the knife.</div>
 </div>
 
 <p>If the player types X BLADE or X HILT, the game will simply print out
@@ -2267,19 +2267,19 @@ last drawer he opens, no matter which drawer it is.</p>
 <p>There are two ways to make something part of something else. We can
 say:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The blade is part of the knife.\n`)"><span class="sym">⧉</span></button><div class="codeline">The blade is part of the knife.</div>
+<div class="codeblock"><div class="codeline">The blade is part of the knife.</div>
 </div>
 
 <p>&hellip;or we can say:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The knife incorporates the blade.\n`)"><span class="sym">⧉</span></button><div class="codeline">The knife incorporates the blade.</div>
+<div class="codeblock"><div class="codeline">The knife incorporates the blade.</div>
 </div>
 
 <p>Parts are detachable and attachable objects. This fact can be
 extremely handy. Let’s suppose, for instance, that in your game you want
 the player to be able to put a stamp on a postcard:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The player carries a postcard and a stamp. Understand &quot;card&quot; and &quot;post card&quot; as the postcard. Understand &quot;postage&quot; as the stamp. The description of the postcard is &quot;A plain white postcard[if the stamp is part of the postcard] with a stamp on it[end if].&quot;\n\nInstead of tying the stamp to the postcard:\n\tif the stamp is part of the postcard:\n\t\tsay &quot;You already did that.&quot;;\n\totherwise:\n\t\tnow the stamp is part of the postcard;\n\t\tsay &quot;You lick the stamp and affix it to the postcard.&quot;\n\nTest me with &quot;x card / fasten stamp to card / x card / take stamp&quot;.\n`)"><span class="sym">⧉</span></button><div class="codeline">The player carries a postcard and a stamp. Understand "card" and "post card" as the postcard. Understand "postage" as the stamp. The description of the postcard is "A plain white postcard[if the stamp is part of the postcard] with a stamp on it[end if]."</div>
+<div class="codeblock"><div class="codeline">The player carries a postcard and a stamp. Understand "card" and "post card" as the postcard. Understand "postage" as the stamp. The description of the postcard is "A plain white postcard[if the stamp is part of the postcard] with a stamp on it[end if]."</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">Instead of tying the stamp to the postcard:</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the stamp is part of the postcard:</div>
@@ -2298,7 +2298,7 @@ synonyms for TIE. If we want the player to be able to use the command
 PUT STAMP ON CARD, however, we’ll have to do just a little more
 work:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of putting the stamp on the postcard:\n\ttry tying the stamp to the postcard.\n`)"><span class="sym">⧉</span></button><div class="codeline">Instead of putting the stamp on the postcard:</div>
+<div class="codeblock"><div class="codeline">Instead of putting the stamp on the postcard:</div>
 <div class="codeline">&ensp;&ensp;&ensp;try tying the stamp to the postcard.</div>
 </div>
 
@@ -2324,7 +2324,7 @@ text printed on the sign, so there’s no need to have a special reading
 action. But in the case of a book or even a note on a piece of paper, we
 may want to make reading a separate action. Here’s how to do it:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`A thing has some text called the reading-material. The reading-material of a thing is usually &quot;&quot;.\n\nThe book is in the Library. The description is &quot;A first edition of [italic type]In Praise of Folly[roman type], by Erasmus.&quot; Understand &quot;praise&quot;, &quot;in praise of&quot;, &quot;folly&quot;, and &quot;erasmus&quot; as the book. The reading-material of the book is &quot;A fascinating discussion of the idiocies to which the human mind is susceptible. After reading it, you feel quite humble, and even more foolish than before&quot;.\n\nUnderstand the command &quot;read&quot; as something new.\n\nReading is an action applying to one thing and requiring light.\nUnderstand &quot;read [something]&quot; as reading.\n\nCheck reading:\n\tif the reading-material of the noun is &quot;&quot;:\n\t\tsay &quot;Nothing is printed on [the noun].” instead.\n\nCarry out reading:\n\tsay &quot;[reading-material of the noun].&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">A thing has some text called the reading-material. The reading-material of a thing is usually "".</div>
+<div class="codeblock"><div class="codeline">A thing has some text called the reading-material. The reading-material of a thing is usually "".</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">The book is in the Library. The description is "A first edition of [italic type]In Praise of Folly[roman type], by Erasmus." Understand "praise", "in praise of", "folly", and "erasmus" as the book. The reading-material of the book is "A fascinating discussion of the idiocies to which the human mind is susceptible. After reading it, you feel quite humble, and even more foolish than before".</div>
 <div class="codeline">&thinsp;</div>
@@ -2345,7 +2345,7 @@ may want to make reading a separate action. Here’s how to do it:</p>
 want READ to give the same result as EXAMINE, you could change the Check
 rule like this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Check reading:\n\tif the reading-material of the noun is &quot;&quot;:\n\t\ttry examining the noun instead.\n`)"><span class="sym">⧉</span></button><div class="codeline">Check reading:</div>
+<div class="codeblock"><div class="codeline">Check reading:</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the reading-material of the noun is "":</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;try examining the noun instead.</div>
 </div>
@@ -2353,7 +2353,7 @@ rule like this:</p>
 <p>Another way to do it would be to leave the Check rule saying “Nothing
 is printed on [the noun]” and add this for any signs:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of reading the roadside sign:\n\ttry examining the roadside sign.\n\n`)"><span class="sym">⧉</span></button><div class="codeline">Instead of reading the roadside sign:</div>
+<div class="codeblock"><div class="codeline">Instead of reading the roadside sign:</div>
 <div class="codeline">&ensp;&ensp;&ensp;try examining the roadside sign.</div>
   
 </div>
@@ -2393,7 +2393,7 @@ kind of thing called a notepad. Then we’ll change the command READ
 (which normally triggers the examining action) and add two new actions &ndash;
 writing it on and erasing.</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`A notepad is a kind of thing. A notepad has a text called memo. The memo of a notepad is usually &quot;&quot;.\n\nUnderstand the command &quot;read&quot; as something new.\n\nReading is an action applying to one thing and requiring light. Understand &quot;read [something]&quot; as reading.\n\nCheck reading:\n\tif the noun is not a notepad:\n\t\tsay &quot;Nothing is written on [the noun].&quot; instead;\n\totherwise if the memo of the noun is &quot;&quot;:\n\t\tsay &quot;At the moment, [the noun] is blank.&quot; instead.\n\nCarry out reading:\n\tif the memo of the noun is not &quot;&quot;:\n\t\tsay &quot;On [the noun] you find the words &apos;[memo of the noun].&apos;&quot;;\n\totherwise:\n\t\tsay &quot;Nothing is written on [the noun].&quot;\n\nWriting it on is an action applying to one topic and one thing and requiring light. Understand &quot;write [text] on [something]&quot; as writing it on.\n\nCheck writing it on:\n\tif the second noun is not a notepad:\n\t\tsay &quot;You can&apos;t write anything on [the second noun]!&quot; instead.\n\nCheck writing it on when the second noun is the slate:\n\tif the player does not carry the chalk:\n\t\tsay &quot;You&apos;d need some chalk to do that.&quot; instead.\n\nCarry out writing it on:\n\tlet T be  text;\n\tlet T be the topic understood;\n\tnow the memo of the second noun is T;\n\tsay &quot;Writing &apos;[T]&apos; on [the second noun].&quot;\n\nErasing is an action applying to one thing and requiring light. Understand &quot;erase [something]&quot; as erasing.\n\nCheck erasing:\n\tif the noun is not a notepad:\n\t\tsay &quot;There&apos;s nothing on [the noun] to erase.&quot; instead;\n\totherwise if the memo of the noun is &quot;&quot;:\n\t\tsay &quot;At the moment, nothing is written on [the noun].&quot;\n\nCarry out erasing:\n\tnow the memo of the noun is &quot;&quot;;\n\tsay &quot;You erase what was written on [the noun].&quot;\t\n\nThe Lab is a room. A piece of chalk is in the Lab.\n\nThe player carries a fish. The description of the fish is &quot;Scaly.&quot;\nThe player carries a slate. The slate is a notepad. The description of the slate is &quot;Black.&quot;\n\nTest me with &quot;read fish / read slate / write E=mc2 on fish / write E=mc2 on slate / take chalk / write E=mc2 on slate / read slate / erase fish / erase slate / read slate&quot;.\n`)"><span class="sym">⧉</span></button><div class="codeline">A notepad is a kind of thing. A notepad has a text called memo. The memo of a notepad is usually "".</div>
+<div class="codeblock"><div class="codeline">A notepad is a kind of thing. A notepad has a text called memo. The memo of a notepad is usually "".</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">Understand the command "read" as something new.</div>
 <div class="codeline">&thinsp;</div>
@@ -2463,7 +2463,7 @@ applied to it (along with a few synonyms, such as TURN ON and TURN OFF).
 A device keeps track of whether it’s switched on or switched off, so
 this property can be tested in your code:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`if the electric razor is switched on:\n\tnow the player is clean-shaven;\n\t[...and so on...]\n`)"><span class="sym">⧉</span></button><div class="codeline">if the electric razor is switched on:</div>
+<div class="codeblock"><div class="codeline">if the electric razor is switched on:</div>
 <div class="codeline">&ensp;&ensp;&ensp;now the player is clean-shaven;</div>
 <div class="codeline">&ensp;&ensp;&ensp;[&hellip;and so on&hellip;]</div>
 </div>
@@ -2478,20 +2478,20 @@ switched on. In that case, we might prefer to prevent Inform’s automatic
 mention of the device’s on/off state. This can be done by removing the
 rule that causes the state to print out, like this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The examine devices rule is not listed in any rulebook.\n`)"><span class="sym">⧉</span></button><div class="codeline">The examine devices rule is not listed in any rulebook.</div>
+<div class="codeblock"><div class="codeline">The examine devices rule is not listed in any rulebook.</div>
 </div>
 
 <p>If you do this, it’s up to you to write a description for each device
 that will alert the player to the device’s state:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The description of the electric razor is &quot;It&apos;s a Remington cordless[if switched on]. At the moment it&apos;s humming faintly[end if].&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">The description of the electric razor is "It's a Remington cordless[if switched on]. At the moment it's humming faintly[end if]."</div>
+<div class="codeblock"><div class="codeline">The description of the electric razor is "It's a Remington cordless[if switched on]. At the moment it's humming faintly[end if]."</div>
 </div>
 
 <p>If you want the on/off state to not be mentioned with respect to only
 one device, unlisting the examine devices rule is like unscrewing a
 screw with a shovel. Instead, do this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The examine devices rule does nothing when the noun is the electric razor.\n`)"><span class="sym">⧉</span></button><div class="codeline">The examine devices rule does nothing when the noun is the electric razor.</div>
+<div class="codeblock"><div class="codeline">The examine devices rule does nothing when the noun is the electric razor.</div>
 </div>
 
 <p>(Note: This procedure only works from 6L02 onward; if you’re using an
@@ -2509,7 +2509,7 @@ complete tutorial, let’s look at them both.</p>
 you’ll learn how to detach the word “switch” from the switching on
 action.</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Understand the command &quot;switch&quot; as something new.\n`)"><span class="sym">⧉</span></button><div class="codeline">Understand the command "switch" as something new.</div>
+<div class="codeblock"><div class="codeline">Understand the command "switch" as something new.</div>
 </div>
 
 <p>The tricky thing is, when we do this, SWITCH ON and SWITCH OFF won’t
@@ -2520,7 +2520,7 @@ to work the way it did before.</p>
 
 <p>Here’s the final version of my code:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Understand the command &quot;switch&quot; as something new.\nUnderstand &quot;switch [something] on&quot; and &quot;switch on [something]&quot; as switching on.\nUnderstand &quot;switch [something] off&quot; and &quot;switch off [something]&quot; as switching off.\n\nToggling is an action applying to one thing and requiring light. Understand &quot;toggle [something]&quot; and &quot;switch [something]&quot; as toggling.\n\nCheck toggling:\n\tif the noun is not a device:\n\t\tsay &quot;[The noun] can&apos;t be toggled on and off.&quot;\n\nCarry out toggling:\n\tif the noun is switched on:\n\t\ttry switching off the noun instead;\n\totherwise:\n\t\ttry switching on the noun instead.\n`)"><span class="sym">⧉</span></button><div class="codeline">Understand the command "switch" as something new.</div>
+<div class="codeblock"><div class="codeline">Understand the command "switch" as something new.</div>
 <div class="codeline">Understand "switch [something] on" and "switch on [something]" as switching on.</div>
 <div class="codeline">Understand "switch [something] off" and "switch off [something]" as switching off.</div>
 <div class="codeline">&thinsp;</div>
@@ -2543,7 +2543,7 @@ off.</p>
 <p>Emily’s method is much simpler, and illustrates a cool feature of
 Inform programming:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Understand &quot;switch [a switched on thing]&quot; as switching off.\n`)"><span class="sym">⧉</span></button><div class="codeline">Understand "switch [a switched on thing]" as switching off.</div>
+<div class="codeblock"><div class="codeline">Understand "switch [a switched on thing]" as switching off.</div>
 </div>
 
 <p>That’s it &ndash; that’s the whole answer. Emily explains it this way:
@@ -2578,7 +2578,7 @@ rule in the library will run, resulting in a double output:</p>
 <p>This is obviously undesirable. Here’s how to get rid of it for a
 specific device:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Report an actor switching on (this is the new report switching on rule):\n\tif the action is not silent:\n\t\tif the noun is the razor:\n\t\t\tsay &quot;The razor begins humming faintly.&quot;;\n\t\totherwise:\n\t\t\tsay &quot;[The actor] [switch] [the noun] on.&quot; (A).\n\nThe new report switching on rule is listed instead of the standard report switching on rule in the report switching on rulebook.\n`)"><span class="sym">⧉</span></button><div class="codeline">Report an actor switching on (this is the new report switching on rule):</div>
+<div class="codeblock"><div class="codeline">Report an actor switching on (this is the new report switching on rule):</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the action is not silent:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the noun is the razor:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say "The razor begins humming faintly.";</div>
@@ -2595,7 +2595,7 @@ action.</p>
 <p>Creating buttons that can be pushed and levers that can be pulled is
 almost too simple to be worth mentioning:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The silver lever is a part of the shiny blinking plastic box.\n\nInstead of pulling the silver lever:\n\tsay &quot;Clunk! You pull the lever, and a silver dollar drops into the hopper.&quot;;\n\tlet SD be a random silver dollar in the money bin;\n\tnow SD is in the hopper.\n`)"><span class="sym">⧉</span></button><div class="codeline">The silver lever is a part of the shiny blinking plastic box.</div>
+<div class="codeblock"><div class="codeline">The silver lever is a part of the shiny blinking plastic box.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">Instead of pulling the silver lever:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "Clunk! You pull the lever, and a silver dollar drops into the hopper.";</div>
@@ -2613,7 +2613,7 @@ IntFiction became the central hub) included some code for a dial
 that could be set to any number from 1 to 8. I modified the posted code
 slightly and came up with this dial:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The rotary dial is part of the safe. The dial has a number called current setting. The current setting of the dial is 1. The dial has a number called max setting. The max setting of the dial is 8. The description of the dial is &quot;The rotary dial has eight numbers, 1 through [max setting]. At the moment it&apos;s set to [current setting].&quot;\n\nInstead of turning the dial:\n\tincrease the current setting of the dial by 1;\n\tif the current setting of the dial &gt; max setting of the dial:\n\t\tnow the current setting of the dial is 1;\n\tsay &quot;You turn the dial to [current setting of the dial].&quot;\n\nUnderstand &quot;set [something] to [number]&quot; as setting the state of it to. Setting the state of it to is an action applying to one thing and one number. Understand &quot;turn [something] to [number]&quot; or &quot;turn [something] to setting [number]&quot; or &quot;turn [something] to position [number]&quot; or &quot;adjust [something] to [number]&quot; or &quot;adjust [something] to position [number]&quot; or &quot;adjust [something] to setting [number]&quot; as setting the state of it to.\n\nCheck setting the state of it to:\n\tif the noun is not the rotary dial:\n\t\tsay &quot;You can&apos;t set [the noun] to a number.&quot; instead;\n\tif the number understood &lt; 1, say &quot;The lowest setting is 1.&quot; instead;\n\tif the number understood &gt; max setting of the dial, say &quot;Sorry, the dial can only be set from 1 to [max setting of the dial].&quot; instead.\n\nCarry out setting the state of it to:\n\tnow the current setting of the noun is the number understood;\n\tsay &quot;You turn the dial to [number understood].&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">The rotary dial is part of the safe. The dial has a number called current setting. The current setting of the dial is 1. The dial has a number called max setting. The max setting of the dial is 8. The description of the dial is "The rotary dial has eight numbers, 1 through [max setting]. At the moment it's set to [current setting]."</div>
+<div class="codeblock"><div class="codeline">The rotary dial is part of the safe. The dial has a number called current setting. The current setting of the dial is 1. The dial has a number called max setting. The max setting of the dial is 8. The description of the dial is "The rotary dial has eight numbers, 1 through [max setting]. At the moment it's set to [current setting]."</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">Instead of turning the dial:</div>
 <div class="codeline">&ensp;&ensp;&ensp;increase the current setting of the dial by 1;</div>
@@ -2672,7 +2672,7 @@ interactive fiction) is letting your readers use all of their senses.
 Adding an odor or sound to a single object with an Instead rule is
 easy:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of smelling the garbage:\n\tsay &quot;It smells awful!&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">Instead of smelling the garbage:</div>
+<div class="codeblock"><div class="codeline">Instead of smelling the garbage:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "It smells awful!"</div>
 </div>
 
@@ -2684,7 +2684,7 @@ the location, this response is just plain wrong. If the garbage is fixed
 in place, we can give the room an Instead rule so that it will respond
 to the SMELL command:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of smelling the Alley:\n\tsay &quot;It smells of garbage.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">Instead of smelling the Alley:</div>
+<div class="codeblock"><div class="codeline">Instead of smelling the Alley:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "It smells of garbage."</div>
 </div>
 
@@ -2708,7 +2708,7 @@ if its scent is not “” (that is, when the scent property is not empty).
 When there is something smelly in the room, typing SMELL will list the
 smelly things in the room.</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`A thing has some text called the scent.\n\nDefinition: A thing (called the odor-bearer) is smelly if the scent of the odor-bearer is not &quot;&quot;.\n\nInstead of smelling something:\n\tif the noun is smelly:\n\t\tsay &quot;[scent of the noun][paragraph break]&quot;;\n\totherwise if the noun is the player:\n\t\tsay &quot;You don&apos;t smell too sweaty today.&quot;;\n\totherwise:\n\t\tsay &quot;It smells like an ordinary [noun].&quot;\n\nInstead of smelling a room:\n\tlet L be the list of smelly things enclosed by the location;\n\tif L is empty: \n\t\tsay &quot;You smell nothing unexpected.&quot;; \n\totherwise: \n\t\tsay &quot;You smell [a list of smelly things enclosed by the location].&quot; \n\nThe Kitchen is a room.\nThe banana is in the Kitchen. The scent of the banana is &quot;It smells sweet and ripe.&quot;\nThe loaf of bread is in the Kitchen. The scent of the bread is &quot;Ah -- fresh-baked bread.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">A thing has some text called the scent.</div>
+<div class="codeblock"><div class="codeline">A thing has some text called the scent.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">Definition: A thing (called the odor-bearer) is smelly if the scent of the odor-bearer is not "".</div>
 <div class="codeline">&thinsp;</div>
@@ -2756,7 +2756,7 @@ a puzzle, in the form of a spacesuit that will block smelling. Fourth,
 the odor of the sewage is so powerful that it will prevent you from
 smelling the flower.</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`[First we&apos;ll create the property for all things and rooms.]\nA thing has a text called odor.\nA room has a text called odor.\n\nReport an actor smelling (this is the new report smelling rule):\n\tif the actor is the player:\n\t\tif the action is not silent:\n\t\t\tif the odor of the noun is not empty:\n\t\t\t\tsay &quot;[the odor of the noun][paragraph break]&quot;;\n\t\t\totherwise:\n\t\t\t\tsay &quot;[We] [smell] nothing unexpected.&quot; (A);\n\totherwise:\n\t\tsay &quot;[The actor] [sniff].&quot; (B).\n\nThe new report smelling rule is listed instead of the report smelling rule in the report smelling rulebook.\n\n[The player might try &apos;smell the odor&apos;, so we&apos;ll allow that by creating a backdrop:]\nThe ambient-odor is a backdrop. It is everywhere. The description is &quot;The odor is impalpable.&quot;\nUnderstand &quot;odor&quot;, &quot;odour&quot;, &quot;stench&quot;, &quot;stink&quot;, &quot;fragrance&quot;, &quot;reek&quot;, and &quot;smell&quot; as the ambient-odor.\n\nInstead of doing anything other than smelling or examining with the ambient-odor:\n\ttry examining the ambient-odor.\n\nInstead of smelling the ambient-odor:\n\ttry smelling the location.\n\nStreet is a room. &quot;You are in a street. The sewer is below you.&quot; The odor is &quot;You pick up a faint odor from below.&quot;\nA flower is here. The description is &quot;It&apos;s just a nice flower. You don&apos;t know what type.&quot; The odor is &quot;It smells wonderful.&quot;\nA spacesuit is here. It is wearable. Understand &quot;space suit&quot; and &quot;suit&quot; as the spacesuit. The description is &quot;Spacesuits are wonderful things, but they make EVERYONE look fat.&quot;\n\nSewer is below Street. &quot;You are in a sewer. The street is above you.&quot;\nSome sewage is here. It is fixed in place. The description is &quot;Horrible smelly sewage is everywhere in the sewer.&quot; The odor is &quot;It reeks.&quot;\n\n[Finally we&apos;ll add some rules to restrict smelling.]\nInstead of smelling when the spacesuit is worn and the noun is not yourself and the noun is not the spacesuit:\n\tsay &quot;You can&apos;t smell anything outside the spacesuit while wearing the spacesuit.&quot;\nInstead of smelling in the presence of the sewage when the spacesuit is not worn and the noun is not the sewage:\n\tsay &quot;The disgusting reek of the sewage overwhelms your nose. You can&apos;t smell anything else.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">[First we'll create the property for all things and rooms.]</div>
+<div class="codeblock"><div class="codeline">[First we'll create the property for all things and rooms.]</div>
 <div class="codeline">A thing has a text called odor.</div>
 <div class="codeline">A room has a text called odor.</div>
 <div class="codeline">&thinsp;</div>
@@ -2810,7 +2810,7 @@ beginning of the game. When it’s time to transform the object, simply
 whisk it offstage and replace it with the other object. Here’s the
 classic story situation, more or less:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Creekside is a room. &quot;A burbling creek runs through the forest here.&quot;\n\nThe toad is an animal in the Creekside. &quot;An ugly, warty toad squats on a rock near the creek.&quot; The description is &quot;He&apos;s ugly and green.&quot; Understand &quot;ugly&quot; and &quot;green&quot; as the toad.\n\nThe princess is a woman. &quot;A beautiful princess stands before you!&quot; The description is &quot;She&apos;s the most beautiful woman you&apos;ve ever seen.&quot; Understand &quot;beautiful&quot; and &quot;woman&quot; as the princess.\n\nInstead of kissing the toad:\n\tnow the princess is in the location of the toad;\n\tnow the toad is nowhere;\n\tsay &quot;As your lips touch the ugly toad, it shimmers and sparkles and turns into a beautiful princess. &apos;My goodness,&apos; the princess declares. &apos;Thank you!&apos;&quot;\n\nInstead of kissing the princess:\n\tsay &quot;The princess smiles modestly and pushes you away. &apos;Maybe later,&apos; she suggests. &apos;After we get to know one another better.&apos;&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">The Creekside is a room. "A burbling creek runs through the forest here."</div>
+<div class="codeblock"><div class="codeline">The Creekside is a room. "A burbling creek runs through the forest here."</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">The toad is an animal in the Creekside. "An ugly, warty toad squats on a rock near the creek." The description is "He's ugly and green." Understand "ugly" and "green" as the toad.</div>
 <div class="codeline">&thinsp;</div>
@@ -2841,7 +2841,7 @@ up on the table. To take care of this, we need to refer to “the holder”
 of the crown. The holder will always be the crown’s immediate
 location:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of casting shazam at the crown:\n\tnow the old shoe is in the holder of the crown;\n\tremove the crown from play;\n\tsay &quot;The crown emits an unhappy crinkling, shriveling sort of noise, and turns into an old shoe.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">Instead of casting shazam at the crown:</div>
+<div class="codeblock"><div class="codeline">Instead of casting shazam at the crown:</div>
 <div class="codeline">&ensp;&ensp;&ensp;now the old shoe is in the holder of the crown;</div>
 <div class="codeline">&ensp;&ensp;&ensp;remove the crown from play;</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "The crown emits an unhappy crinkling, shriveling sort of noise, and turns into an old shoe."</div>
@@ -2913,7 +2913,7 @@ later be writing a different section and decide that the player needs to
 hold a torch aloft, you don’t have to go back and revise anything,
 because the torch already has that property.</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`A thing can be aloft. A thing is usually not aloft. A thing has a number called the aloft-count. The aloft-count of a thing is usually 0.\n\nThe Beach is a room. The player carries a white sheet.\n\nElevating is an action applying to one thing. Understand &quot;hold [something preferably held] up&quot;, &quot;hold up [something preferably held]&quot;, &quot;wave [something preferably held]&quot;, &quot;elevate [something preferably held]&quot;, &quot;hold [something preferably held] aloft&quot;, &quot;hold [something preferably held] in the air&quot;, &quot;hold [something preferably held] in air&quot;, and &quot;hold [something preferably held] up in the air&quot; as elevating.\n\nCheck elevating:\n\tif the noun is not held:\n\t\tsay &quot;You&apos;ll need to pick up [the noun] first.&quot;;\n\t\trule fails.\n\nCarry out elevating:\n\tnow the noun is aloft;\n\tsay &quot;You hold [the noun] high in the air.&quot;\n\nAfter dropping something:\n\tnow the noun is not aloft;\n\tnow the aloft-count of the noun is 0;\n\tcontinue the action.\n\nAfter going:\n\trepeat with item running through things carried by the player:\n\t\tnow item is not aloft;\n\t\tnow the aloft-count of item is 0;\n\tcontinue the action.\n\nThe Jungle is west of the Beach.\n\nEvery turn:\n\tif the white sheet is aloft and the location is the Beach:\n\t\tincrease the aloft-count of the white sheet by 1;\n\tif aloft-count of the white sheet is 4:\n\t\tend the story saying &quot;A passing ship spots your signal, and steers in toward shore. You&apos;re saved!&quot;\n\n\n`)"><span class="sym">⧉</span></button><div class="codeline">A thing can be aloft. A thing is usually not aloft. A thing has a number called the aloft-count. The aloft-count of a thing is usually 0.</div>
+<div class="codeblock"><div class="codeline">A thing can be aloft. A thing is usually not aloft. A thing has a number called the aloft-count. The aloft-count of a thing is usually 0.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">The Beach is a room. The player carries a white sheet.</div>
 <div class="codeline">&thinsp;</div>
@@ -2959,7 +2959,7 @@ rocked or tipped. In the example below, note that the pushing action
 (which is part of Inform’s standard library) has been remapped to the
 new rocking action.</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Living Room is a room. &quot;The only furniture here is a tall bookshelf.&quot;\n\nThe bookshelf is a scenery supporter in the Living Room. &quot;It&apos;s so tall you can&apos;t possibly reach the top shelf -- and oddly enough, there&apos;s only one shelf, the top one.&quot; Understand &quot;top&quot;, &quot;shelf&quot;, and &quot;bookcase&quot; as the bookshelf.\n\nThe Ming vase is on the bookshelf. The description is &quot;A priceless vase!&quot;\n\nInstead of putting anything on the bookshelf:\n\tsay &quot;You can&apos;t reach the top shelf.&quot;\n\nInstead of doing something other than examining when the noun is not nothing and the noun is on the bookshelf:\n\tsay &quot;You can&apos;t reach [the noun], as the shelf is too high.&quot;\n\nRocking is an action applying to one thing and requiring light. Understand &quot;tip [something]&quot;, &quot;rock [something]&quot;, &quot;shake [something]&quot;, &quot;tip [something] forward&quot;, and &quot;rock [something] forward&quot; as rocking.\n\nCheck rocking:\n\tsay &quot;There&apos;s no need to agitate [the noun].&quot;\n\nInstead of rocking the bookshelf:\n\tif the Ming vase is on the bookshelf:\n\t\tnow the player carries the Ming vase;\n\t\tsay &quot;You give the shelf a good shake ... and the vase teeters forward, reaches the edge, and plummets! Fortunately, you&apos;re able to catch it just before it hits the floor.&quot;;\n\totherwise:\n\t\tsay &quot;There&apos;s nothing else up there.&quot;\n\nInstead of pushing the bookshelf:\n\ttry rocking the bookshelf.\n`)"><span class="sym">⧉</span></button><div class="codeline">The Living Room is a room. "The only furniture here is a tall bookshelf."</div>
+<div class="codeblock"><div class="codeline">The Living Room is a room. "The only furniture here is a tall bookshelf."</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">The bookshelf is a scenery supporter in the Living Room. "It's so tall you can't possibly reach the top shelf -- and oddly enough, there's only one shelf, the top one." Understand "top", "shelf", and "bookcase" as the bookshelf.</div>
 <div class="codeline">&thinsp;</div>
@@ -3008,7 +3008,7 @@ stop. For this reason, we’ll end the specific rule with the line “rule
 succeeds.” This will prevent the more general rule from being
 applied.</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Cell is a room. &quot;A dank, rat-infested cell. Faint murmurings can be heard from the other side of the wall.&quot;\n\nA stethoscope is here. The stethoscope is wearable. Understand &quot;scope&quot; as the stethoscope.\n\nReport wearing the stethoscope:\n\tsay &quot;You insert the ear-pieces into your ears.&quot;;\n\trule succeeds.\n\nThe wall is scenery in the Cell. The description is &quot;Solid cement blocks.&quot;\n\nHolding it against is an action applying to two things. Understand &quot;hold [something] against [something]&quot;, &quot;press [something] against [something]&quot;, and &quot;apply [something] to [something]&quot; as holding it against.\n\nCheck holding it against:\n\tif the player does not enclose the noun:\n\t\tsay &quot;You&apos;ll need to be holding [the noun] in order to do that.&quot;;\n\t\trule fails.\n\nReport holding it against:\n\tsay &quot;You press [the noun] against [the second noun] for a moment, but nothing seems to have been accomplished by this.&quot;\n\nReport holding the stethoscope against the wall:\n\tif the player wears the stethoscope:\n\t\tsay &quot;You press the stethoscope against the wall. [one of]After a moment you hear a man&apos;s voice as distinctly as if he were in the cell with you: &apos;Good thing he doesn&apos;t know I hid the key in the light fixture!&apos;[or]In the next room, two men are discussing horse racing. Since you already know where the key is hidden, there&apos;s probably no need to keep listening.[stopping]&quot;;\n\t\trule succeeds.\n`)"><span class="sym">⧉</span></button><div class="codeline">The Cell is a room. "A dank, rat-infested cell. Faint murmurings can be heard from the other side of the wall."</div>
+<div class="codeblock"><div class="codeline">The Cell is a room. "A dank, rat-infested cell. Faint murmurings can be heard from the other side of the wall."</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">A stethoscope is here. The stethoscope is wearable. Understand "scope" as the stethoscope.</div>
 <div class="codeline">&thinsp;</div>

@@ -170,7 +170,7 @@ dark room before finding the candle. If you don’t want to allow the game
 to become unwinnable, you’ll need to write a rule that will prevent this
 from happening:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of dropping the candle:\n\tif the player is in a dark room:\n\t\tsay &quot;Better keep your hands on the candle for now. You may need it later.&quot;;\n\totherwise:\n\t\tcontinue the action.\n`)"><span class="sym">⧉</span></button><div class="codeline">Instead of dropping the candle:</div>
+<div class="codeblock"><div class="codeline">Instead of dropping the candle:</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the player is in a dark room:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say "Better keep your hands on the candle for now. You may need it later.";</div>
 <div class="codeline">&ensp;&ensp;&ensp;otherwise:</div>
@@ -204,7 +204,7 @@ though, it would be a courtesy to the player to provide a clue that more
 action needs to be taken. Here’s a not very subtle example, in which
 “almost anything might be buried down there” serves as a clue:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Living Room is a room. &quot;Your comfy living room.&quot;\n\nThe big old box is an open container in the living room.The description is &quot;It&apos;s just a big old box[one of] full of junk. There&apos;s so much stuff that almost anything might be buried down there[or][stopping].&quot;\n\nThe pile of old junk is in the box. The description is &quot;A horrible mass of rusty old junk.&quot; Understand &quot;rusty&quot; as the junk.\n\nInstead of taking the junk:\n\tsay &quot;You have no need to burden yourself with a pile of old junk.&quot;\n\nThe jewel-encrusted bracelet is a thing. The description is &quot;Diamonds and sapphires and rubies, oh my!&quot;\n\nInstead of searching the box for the first time:\n\ttry searching the junk.\n\nInstead of searching the junk for the first time:\n\tsay &quot;Down among the rusty junk, you spot a priceless jewel-encrusted bracelet!&quot;;\n\tnow the bracelet is in the box.\n`)"><span class="sym">⧉</span></button><div class="codeline">The Living Room is a room. "Your comfy living room."</div>
+<div class="codeblock"><div class="codeline">The Living Room is a room. "Your comfy living room."</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">The big old box is an open container in the living room.The description is "It's just a big old box[one of] full of junk. There's so much stuff that almost anything might be buried down there[or][stopping]."</div>
 <div class="codeline">&thinsp;</div>
@@ -364,7 +364,7 @@ But if we do that, we also have to be careful to allow her to pick up
 the glasses while not wearing them &ndash; otherwise, dropping the glasses
 will make the game unwinnable.</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The player is wearing some glasses. The description is &quot;They&apos;re as thick as bottle-bottoms.&quot; Understand &quot;bifocals&quot; and &quot;spectacles&quot; as the glasses.\n\nInstead of looking when the player is not wearing the glasses:\n\tsay &quot;Unfortunately, you&apos;re as blind as a bat without your glasses.&quot;\t\nInstead of examining something when the player is not wearing the glasses:\n\ttry looking instead.\n\nInstead of taking something when the player is not wearing the glasses:\n\tsay &quot;You grope around, but you can&apos;t find a darn thing.&quot;\n\nInstead of taking the glasses when the player is not wearing the glasses:\n\tif the player does not enclose the glasses:\n\t\tsay &quot;You grope around blindly and somehow find your glasses.&quot;;\n\t\tnow the player carries the glasses;\n\totherwise:\n\t\tsay &quot;You&apos;ve already got them.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">The player is wearing some glasses. The description is "They're as thick as bottle-bottoms." Understand "bifocals" and "spectacles" as the glasses.</div>
+<div class="codeblock"><div class="codeline">The player is wearing some glasses. The description is "They're as thick as bottle-bottoms." Understand "bifocals" and "spectacles" as the glasses.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">Instead of looking when the player is not wearing the glasses:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "Unfortunately, you're as blind as a bat without your glasses."&ensp;&ensp;&ensp;</div>
@@ -453,7 +453,7 @@ of metal off-stage and replace it with a new object that has been
 waiting in the wings. The rubbing action already has “polish” as a
 synonym, so we can write this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The player carries a small tarnished piece of metal. The description is &quot;It&apos;s rather corroded.&quot;\n\nThe polished hand mirror is a thing. The description is &quot;A gleaming smooth mirror, small enough to fit in the palm of your hand.&quot;\n\nInstead of rubbing the piece of metal:\n\tnow the piece of metal is nowhere;\n\tnow the player carries the polished hand mirror;\n\tsay &quot;As you rub the corrosion from the piece of metal, its true identity is revealed: It&apos;s a hand mirror!&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">The player carries a small tarnished piece of metal. The description is "It's rather corroded."</div>
+<div class="codeblock"><div class="codeline">The player carries a small tarnished piece of metal. The description is "It's rather corroded."</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">The polished hand mirror is a thing. The description is "A gleaming smooth mirror, small enough to fit in the palm of your hand."</div>
 <div class="codeline">&thinsp;</div>

@@ -148,14 +148,14 @@ the most frequent problems comes from the inserting it into action.
 Newcomers tend to try to refer to this action in what seems to be a
 natural way, like this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of putting the apple in the basket:\n\tsay &quot;The basket scoots away from you!&quot; [Error!]\n`)"><span class="sym">⧉</span></button>  <div class="codeline">Instead of putting the apple in the basket:</div>
+<div class="codeblock">  <div class="codeline">Instead of putting the apple in the basket:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "The basket scoots away from you!" [Error!]</div>
 </div>
 
 <p>But that doesn’t work, because there is no action called “putting it
 in.” Here’s the correct way to refer to this action:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of inserting the apple into the basket:\n\tsay &quot;The basket scoots away from you!&quot;\n`)"><span class="sym">⧉</span></button>  <div class="codeline">Instead of inserting the apple into the basket:</div>
+<div class="codeblock">  <div class="codeline">Instead of inserting the apple into the basket:</div>
   <div class="codeline">&ensp;&ensp;&ensp;say "The basket scoots away from you!"</div>
 </div>
 
@@ -175,7 +175,7 @@ allow the player to pick up the potion, and that might not be what we
 want either, if the potion is a liquid in a container. Here’s how to
 customize Inform’s default behavior using Instead rules:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The bubbling potion is on the stone table. The description is &quot;The bubbling beaker is full of noxious-looking yellow potion.&quot; Understand &quot;beaker&quot;, &quot;yellow&quot;, and &quot;noxious&quot; as the bubbling potion.\n\nInstead of drinking the bubbling potion:\n\tsay &quot;You take a tiny sip, but it smells awful, so you put it down again.&quot;\n\nInstead of taking the bubbling potion:\n\tsay &quot;If you try to carry it around, you&apos;ll only spill it and stain your clothes.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">The bubbling potion is on the stone table. The description is "The bubbling beaker is full of noxious-looking yellow potion." Understand "beaker", "yellow", and "noxious" as the bubbling potion.</div>
+<div class="codeblock"><div class="codeline">The bubbling potion is on the stone table. The description is "The bubbling beaker is full of noxious-looking yellow potion." Understand "beaker", "yellow", and "noxious" as the bubbling potion.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">Instead of drinking the bubbling potion:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "You take a tiny sip, but it smells awful, so you put it down again."</div>
@@ -198,7 +198,7 @@ but if we wanted something to happen, we could just add it to the
 Instead rule. In an extreme case, we might want to do something like
 this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of drinking the bubbling potion:\n\tsay &quot;Your first tiny sip of the bubbling potion causes your whole body to be wracked by horrible spasms!&quot;;\n\tend the story saying &quot;How inconvenient. You have died!&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">Instead of drinking the bubbling potion:</div>
+<div class="codeblock"><div class="codeline">Instead of drinking the bubbling potion:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "Your first tiny sip of the bubbling potion causes your whole body to be wracked by horrible spasms!";</div>
 <div class="codeline">&ensp;&ensp;&ensp;end the story saying "How inconvenient. You have died!"</div>
 </div>
@@ -269,7 +269,7 @@ considered, Inform doesn’t yet know that the glass container is closed
 and locked! Here’s an example of a Before rule that may look sensible at
 first glance, but that will get you in trouble:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The glass case is an openable lockable transparent container in the Lab. The glass case is closed and locked.\n\nAn apple is in the glass case. A wicker basket is an open container in the Lab.\n\nBefore taking the apple:\n\tif the player does not carry the apple:\n\t\tif the player carries the basket:\n\t\t\tif the apple is not in the basket:\n\t\t\t\tnow the apple is in the basket;\n\t\t\t\tsay &quot;You pick up the apple and put it in the basket.&quot;;\n\t\t\t\trule succeeds.\n`)"><span class="sym">⧉</span></button><div class="codeline">The glass case is an openable lockable transparent container in the Lab. The glass case is closed and locked.</div>
+<div class="codeblock"><div class="codeline">The glass case is an openable lockable transparent container in the Lab. The glass case is closed and locked.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">An apple is in the glass case. A wicker basket is an open container in the Lab.</div>
 <div class="codeline">&thinsp;</div>
@@ -318,7 +318,7 @@ case without unlocking or opening the case!</p>
 Instead rules are safer. But sometimes a Before rule will give you
 better results. Consider this code:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The jeweled crown is on the table. It is wearable.\n\nInstead of wearing the jeweled crown:\n\tsay &quot;The king has warned you not to touch his crown.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">The jeweled crown is on the table. It is wearable.</div>
+<div class="codeblock"><div class="codeline">The jeweled crown is on the table. It is wearable.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">Instead of wearing the jeweled crown:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "The king has warned you not to touch his crown."</div>
@@ -353,7 +353,7 @@ a jeweled crown</p>
 the player won’t automatically pick up the cake before changing her mind
 about eating it:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Before wearing the jeweled crown:\n\tsay &quot;The king has warned you not to touch his crown.&quot; instead.\n`)"><span class="sym">⧉</span></button><div class="codeline">Before wearing the jeweled crown:</div>
+<div class="codeblock"><div class="codeline">Before wearing the jeweled crown:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "The king has warned you not to touch his crown." instead.</div>
 </div>
 
@@ -556,7 +556,7 @@ learned when I started writing new rules. It means exactly the same
 thing as “make no decision”. You can use either of these two phrases.
 Here’s a simple example:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of taking the live wire:\n\tif the player does not wear the insulated gloves:\n\t\tend the story saying “You have been electrocuted!”;\n\totherwise:\n\t\tcontinue the action.\n`)"><span class="sym">⧉</span></button><div class="codeline">Instead of taking the live wire:</div>
+<div class="codeblock"><div class="codeline">Instead of taking the live wire:</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the player does not wear the insulated gloves:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;end the story saying “You have been electrocuted!”;</div>
 <div class="codeline">&ensp;&ensp;&ensp;otherwise:</div>
@@ -585,7 +585,7 @@ to ever do it as shown here. But the result (when the game is being
 played) might be similar to what you’re seeing if you have a mysterious
 bug in your code.</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Lounge is a room.\n\nA sponge is in the Lounge. A red button is in the Lounge.\n\nBefore taking the sponge:\n\tnow the player carries the sponge;\n\tsay &quot;You grab the sponge.&quot;;\n\trule succeeds.\n\t[stop the action.]\n\nInstead of pushing the red button:\n\tif we have taken the sponge:\n\t\tsay &quot;Yep -- you took the sponge.&quot;;\n\totherwise:\n\t\tsay &quot;Nope -- you never took the sponge.&quot;\n\ntest me with &quot;take sponge / i / press red button&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">The Lounge is a room.</div>
+<div class="codeblock"><div class="codeline">The Lounge is a room.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">A sponge is in the Lounge. A red button is in the Lounge.</div>
 <div class="codeline">&thinsp;</div>
@@ -624,7 +624,7 @@ will include a mistake.</p>
 
 <p>Still not convinced? Here’s another quick example.</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Meadow is a room.\n\nThe unicorn is an animal in the Meadow. The unicorn can be angry. The unicorn is not angry. The description of the unicorn is &quot;The unicorn is [if angry]stamping his hooves and brandishing his wickedly sharp horn at Steve[else]peacefully cropping daisies[end if].&quot;\n\nSteve is a man in the Meadow.\n\nA pitchfork is in the Meadow. Understand &quot;fork&quot; as the pitchfork.\n\nPersuasion rule for asking Steve to try taking the pitchfork:\n\tpersuasion succeeds.\n\nInstead of Steve taking the pitchfork:\n\tnow Steve carries the pitchfork;\n\tnow the unicorn is angry;\n\tsay &quot;Steve scoops up the pitchfork. This evidently makes the unicorn very uneasy.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">The Meadow is a room.</div>
+<div class="codeblock"><div class="codeline">The Meadow is a room.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">The unicorn is an animal in the Meadow. The unicorn can be angry. The unicorn is not angry. The description of the unicorn is "The unicorn is [if angry]stamping his hooves and brandishing his wickedly sharp horn at Steve[else]peacefully cropping daisies[end if]."</div>
 <div class="codeline">&thinsp;</div>
@@ -664,7 +664,7 @@ uneasy.</p>
 extra message giving the player bad information. To avoid this, we need
 to make sure the Instead rule succeeds:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of Steve taking the pitchfork:\n\tnow Steve carries the pitchfork;\n\tnow the unicorn is angry;\n\tsay &quot;Steve scoops up the pitchfork. This evidently makes the unicorn very uneasy.&quot;;\n\trule succeeds.\n`)"><span class="sym">⧉</span></button><div class="codeline">Instead of Steve taking the pitchfork:</div>
+<div class="codeblock"><div class="codeline">Instead of Steve taking the pitchfork:</div>
 <div class="codeline">&ensp;&ensp;&ensp;now Steve carries the pitchfork;</div>
 <div class="codeline">&ensp;&ensp;&ensp;now the unicorn is angry;</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "Steve scoops up the pitchfork. This evidently makes the unicorn very uneasy.";</div>
@@ -718,7 +718,7 @@ noun in the input simply as the noun. The second noun is referred to as
 &ndash; you guessed it &ndash; the second noun. In writing our own code, we can test
 the values of noun and second noun if we need to, like this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of inserting the apple into something:\n\tif the second noun is the basket:\n\t\tsay &quot;The basket scoots away from you!&quot;;\n\totherwise:\n\t\tcontinue the action.\n`)"><span class="sym">⧉</span></button><div class="codeline">Instead of inserting the apple into something:</div>
+<div class="codeblock"><div class="codeline">Instead of inserting the apple into something:</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the second noun is the basket:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say "The basket scoots away from you!";</div>
 <div class="codeline">&ensp;&ensp;&ensp;otherwise:</div>
@@ -763,7 +763,7 @@ something might be a way of solving a puzzle in your game.</p>
 <p>The most basic form of this action is one that takes no nouns at all
 &ndash; the bare command PAINT. We can create it this way:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Test Lab is a room. &quot;Many devious tests are conducted here. You can see a wooden fence.&quot;\n\nA wooden fence is scenery in the Lab.\n\nPainting is an action applying to nothing. Understand &quot;paint&quot; as painting.\n\nCheck painting:\n\tsay &quot;You don&apos;t have any paint.&quot; instead.\n`)"><span class="sym">⧉</span></button><div class="codeline">The Test Lab is a room. "Many devious tests are conducted here. You can see a wooden fence."</div>
+<div class="codeblock"><div class="codeline">The Test Lab is a room. "Many devious tests are conducted here. You can see a wooden fence."</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">A wooden fence is scenery in the Lab.</div>
 <div class="codeline">&thinsp;</div>
@@ -790,7 +790,7 @@ output:</p>
 check rule has no exceptions. We could, however, make an exception if we
 wanted to, using an Instead rule. For instance, we might do this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Check painting when the location is the Paint Store:\n\tsay &quot;You find it impossible to choose from among the hundreds of\ntempting colors.&quot; instead.\n`)"><span class="sym">⧉</span></button><div class="codeline">Check painting when the location is the Paint Store:</div>
+<div class="codeblock"><div class="codeline">Check painting when the location is the Paint Store:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "You find it impossible to choose from among the hundreds of</div>
 <div class="codeline">tempting colors." instead.</div>
 </div>
@@ -824,7 +824,7 @@ we’ve already created an action called painting (which applies to
 nothing), so we can’t call our new action painting. Let’s call it
 paint-applying:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Paint-applying is an action applying to one thing and requiring\nlight. Understand &quot;paint [something]&quot;, &quot;put paint on [something]&quot;, and\n&quot;apply paint to [something]&quot; as paint-applying.\n\nCheck paint-applying:\n\tsay &quot;[The noun] [look] fine the way [they] [are].&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">Paint-applying is an action applying to one thing and requiring</div>
+<div class="codeblock"><div class="codeline">Paint-applying is an action applying to one thing and requiring</div>
 <div class="codeline">light. Understand "paint [something]", "put paint on [something]", and</div>
 <div class="codeline">"apply paint to [something]" as paint-applying.</div>
 <div class="codeline">&thinsp;</div>
@@ -875,7 +875,7 @@ deep and tangled set of indentations. If you’re trying out this game,
 you’ll need to copy these with care. Even better would be to develop an
 understanding of <a href="#indenting">how indentation works in Inform</a>.</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Test Lab is a room. &quot;Many devious tests are conducted here. You can see a [wooden fence].&quot;\n\nA wooden fence is scenery in the Lab. The description is &quot;It&apos;s a [if the fence is painted]freshly painted[otherwise]plain[end if] wooden fence.&quot; The wooden fence can be painted or unpainted. The wooden fence is unpainted. Understand &quot;freshly&quot; and &quot;painted&quot; as the wooden fence when the wooden fence is painted. The printed name of the wooden fence is &quot;[if the fence is painted]freshly painted [end if]wooden fence&quot;.\n\nA paintbrush is in the Lab. Understand &quot;brush&quot; as the paintbrush.\n\nPainting is an action applying to nothing. Understand &quot;paint&quot; as painting.\nCheck painting:\n\tif the player carries the paintbrush:\n\t\tsay &quot;You&apos;ll need to be more specific about what you want to paint.&quot;;\n\totherwise:\n\t\tsay &quot;You don&apos;t have any paint.&quot;\n\nPaint-applying is an action applying to one thing and requiring light. Understand &quot;paint [something]&quot;, &quot;put paint on [something]&quot;, and &quot;apply paint to [something]&quot; as paint-applying.\n\nCheck paint-applying:\n\tif the noun is the fence:\n\t\tif the fence is painted:\n\t\t\tsay &quot;You already did that.&quot;;\n\t\totherwise if the player carries the paintbrush:\n\t\t\ttry painting the fence with the paintbrush instead;\n\t\totherwise:\n\t\t\tsay &quot;You&apos;ll need to find a paintbrush somewhere if you want to do that.&quot;;\n\totherwise:\n\t\tsay say &quot;[The noun] [look] fine the way [they] [are].&quot;\n\nPainting it with is an action applying to two things and requiring light. Understand &quot;paint [something] with [something]&quot; as painting it with.\n\nCheck painting it with:\n\tif the second noun is not the paintbrush:\n\t\tsay &quot;[The second noun] can&apos;t be used for painting things.&quot; instead;\n\totherwise if the player does not carry the paintbrush:\n\t\tsay &quot;You&apos;d need to find a paintbrush somewhere if you want to do that.&quot; instead;\n\totherwise if the noun is not the fence:\n\t\tsay &quot;[The noun] [look] fine the way [they] [are].&quot; instead;\n\totherwise if the fence is painted:\n\t\tsay &quot;You already did that.&quot; instead.\n\nCarry out painting it with:\n\tnow the fence is painted.\n\nReport painting it with:\n\tsay &quot;You apply a fresh coat of paint to the fence.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">The Test Lab is a room. "Many devious tests are conducted here. You can see a [wooden fence]."</div>
+<div class="codeblock"><div class="codeline">The Test Lab is a room. "Many devious tests are conducted here. You can see a [wooden fence]."</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">A wooden fence is scenery in the Lab. The description is "It's a [if the fence is painted]freshly painted[otherwise]plain[end if] wooden fence." The wooden fence can be painted or unpainted. The wooden fence is unpainted. Understand "freshly" and "painted" as the wooden fence when the wooden fence is painted. The printed name of the wooden fence is "[if the fence is painted]freshly painted [end if]wooden fence".</div>
 <div class="codeline">&thinsp;</div>
@@ -996,7 +996,7 @@ create. Once in a while, though, it may be useful. For instance, you
 could give your players more or less the same power as the debugging
 PURLOIN command, like this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Acquiring is an action applying to one visible thing. Understand &quot;acquire [any thing]&quot; as acquiring.\n\nCheck acquiring:\n\tif the player encloses the noun:\n\t\tsay &quot;You already have [the noun].&quot; instead.\n\nCarry out acquiring:\n\tnow the player carries the noun.\n\nReport acquiring:\n\tsay &quot;You are now carrying [the noun].&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">Acquiring is an action applying to one visible thing. Understand "acquire [any thing]" as acquiring.</div>
+<div class="codeblock"><div class="codeline">Acquiring is an action applying to one visible thing. Understand "acquire [any thing]" as acquiring.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">Check acquiring:</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the player encloses the noun:</div>
@@ -1060,7 +1060,7 @@ player can use the command DIG HOLE?</p>
 create the hole offstage and then move it into the room when the player
 gives the command. Here’s a simple game that shows how to do this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Forest Path is a room. &quot;Tall trees surround you.&quot;\n\nThe player carries a shovel.\n\nThe hole is an open container. The hole is fixed in place. [The hole starts out nowhere.]\n\nRule for writing a paragraph about the hole:\n\tsay &quot;You&apos;ve dug a hole here.&quot;\n\nDigging is an action applying to one visible thing. Understand &quot;dig [any thing]&quot; as digging.\n\nCheck digging:\n\tif the noun is not the hole:\n\t\tsay &quot;[The noun] can&apos;t be excavated.&quot; instead;\n\totherwise if the holder of the hole is a room:\n\t\tsay &quot;You&apos;ve already dug a hole.&quot; instead;\n\totherwise if the player does not carry the shovel:\n\t\tsay &quot;You scrabble around with your hands, but the dirt is pretty hard. You need a shovel.&quot; instead.\n\nCarry out digging:\n\ttry digging the hole with the shovel instead.\n\nDigging it with is an action applying to one visible thing and one thing. Understand &quot;dig [any thing] with [something]&quot; as digging it with.\n\nCheck digging it with:\n\tif the noun is not the hole:\n\t\tsay &quot;[The noun] can&apos;t be excavated.&quot; instead;\n\tif the second noun is not the shovel:\n\t\tsay &quot;[The second noun] can&apos;t be used for excavating.&quot; instead;\n\totherwise if the holder of the hole is a room:\n\t\tsay &quot;You&apos;ve already dug a hole.&quot; instead;\n\totherwise if the player does not carry the shovel:\n\t\tsay &quot;You can&apos;t do that unless you&apos;re actually holding the shovel.&quot; instead.\n\nCarry out digging it with:\n\tmove the hole to the location.\n\nReport digging it with:\n\tsay &quot;You pitch in with the shovel and dig a nice deep hole.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">The Forest Path is a room. "Tall trees surround you."</div>
+<div class="codeblock"><div class="codeline">The Forest Path is a room. "Tall trees surround you."</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">The player carries a shovel.</div>
 <div class="codeline">&thinsp;</div>
@@ -1113,7 +1113,7 @@ it’s attempted more often than you’ve explicitly allowed for. In the
 example below, the Report rule for our new knocking on action takes care
 of this.</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The chapel door is west of the Grand Entry Hall and east of the Chapel. The chapel door is a door. The chapel door is scenery and locked.\n\nKnocking on is an action applying to one thing and requiring light. Understand &quot;knock on [something]&quot; and &quot;tap on [something]&quot; as knocking on.\n\nCheck knocking on:\n\tif the noun is the player:\n\t\tsay &quot;Your head makes a hollow sound.&quot; instead;\n\totherwise if the noun is a person:\n\t\tsay &quot;That wouldn&apos;t be polite.&quot; instead.\n\nReport knocking on:\n\tsay &quot;You tap gently on [the noun], but nothing happens.&quot;\n\nInstead of knocking on the chapel door for the first time:\n\tsay &quot;The sound of your knuckles generates booming echoes within the chapel. For a moment you think you hear someone moving around inside, but the door remains closed.&quot;\n\nInstead of knocking on the chapel door for the second time:\n\tsay &quot;Within the chapel, a faint and uncertain voice cries, &apos;I&apos;m coming, I&apos;m coming.&apos; You wait patiently for a minute, but the door doesn&apos;t open.&quot;\n\nInstead of knocking on the chapel door for the third time:\n\tnow the chapel door is open;\n\tsay &quot;After a few more interminable minutes of waiting, the door swings ponderously open. A man in a clerical collar, who looks to be at least a hundred years old, peers out at you through rheumy eyes. &apos;I&apos;m sorry,&apos; he says. &apos;We&apos;re no longer admitting worshippers. God is dead, you see.&apos;&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">The chapel door is west of the Grand Entry Hall and east of the Chapel. The chapel door is a door. The chapel door is scenery and locked.</div>
+<div class="codeblock"><div class="codeline">The chapel door is west of the Grand Entry Hall and east of the Chapel. The chapel door is a door. The chapel door is scenery and locked.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">Knocking on is an action applying to one thing and requiring light. Understand "knock on [something]" and "tap on [something]" as knocking on.</div>
 <div class="codeline">&thinsp;</div>
@@ -1157,7 +1157,7 @@ first room, and we want the player to be able to climb the tree. The
 command CLIMB TREE will result in the same action as the command GO
 UP:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`At the Foot of a Tree is a room. &quot;You&apos;re standing at the foot of a tall tree. Sturdy low-hanging branches suggest that it may be easy to climb.&quot;\n\nThe tall tree is scenery in At the Foot of a Tree. Understand &quot;sturdy&quot; and &quot;branches&quot; as the tall tree.\n\nPerched in the Tree is up from At the Foot of a Tree. &quot;The view from up here is spectacular (though admittedly rather leafy).&quot;\n\nInstead of climbing the tall tree:\n\ttry going up.\n`)"><span class="sym">⧉</span></button><div class="codeline">At the Foot of a Tree is a room. "You're standing at the foot of a tall tree. Sturdy low-hanging branches suggest that it may be easy to climb."</div>
+<div class="codeblock"><div class="codeline">At the Foot of a Tree is a room. "You're standing at the foot of a tall tree. Sturdy low-hanging branches suggest that it may be easy to climb."</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">The tall tree is scenery in At the Foot of a Tree. Understand "sturdy" and "branches" as the tall tree.</div>
 <div class="codeline">&thinsp;</div>
@@ -1188,7 +1188,7 @@ the going up action, turning the tree-climbing action into a puzzle
 (absurdly easy, but a puzzle for all that) requires very little effort.
 After the code above, we add the following:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The player carries a heavy iron anvil. The description is &quot;The iron anvil must weigh at least a hundred pounds.&quot;\n\nInstead of going up in At the Foot of a Tree:\n\tif the player encloses the anvil:\n\t\tsay &quot;You&apos;ll never be able to climb the tree while carrying something so heavy.&quot;;\n\totherwise:\n\t\tcontinue the action.\n`)"><span class="sym">⧉</span></button><div class="codeline">The player carries a heavy iron anvil. The description is "The iron anvil must weigh at least a hundred pounds."</div>
+<div class="codeblock"><div class="codeline">The player carries a heavy iron anvil. The description is "The iron anvil must weigh at least a hundred pounds."</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">Instead of going up in At the Foot of a Tree:</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the player encloses the anvil:</div>
@@ -1216,7 +1216,7 @@ action to create an encyclopedia &ndash; or for that matter, a computer
 terminal &ndash; in which the player can look up whatever topics we like.
 Here’s an encyclopedia:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The encyclopedia is in the Library. The description is &quot;A massive 27-volume set of the Encyclopedia Frobozzica. You could probably look up almost anything in it!&quot; Understand &quot;volume&quot; and &quot;book&quot; as the encyclopedia.\n\nInstead of consulting the encyclopedia about something:\n\tsay &quot;Flipping through the encyclopedia, you learn that [run paragraph on]&quot;;\n\tif the topic understood is a topic listed in the Table of Encyclopedia Entries:\n\t\tsay &quot;[article entry][paragraph break]&quot;;\n\totherwise:\n\t\tsay &quot;there&apos;s nothing in the encyclopedia on that topic.&quot;\n\n\n\n\n\n\n\n\n\n\n\nInstead of consulting someone about something:\n\tsay &quot;Does [the noun] look like an encyclopedia?&quot;\n\nInstead of consulting something about something:\n\tsay &quot;[The noun] [are] not a likely-looking source of information.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">The encyclopedia is in the Library. The description is "A massive 27-volume set of the Encyclopedia Frobozzica. You could probably look up almost anything in it!" Understand "volume" and "book" as the encyclopedia.</div>
+<div class="codeblock"><div class="codeline">The encyclopedia is in the Library. The description is "A massive 27-volume set of the Encyclopedia Frobozzica. You could probably look up almost anything in it!" Understand "volume" and "book" as the encyclopedia.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">Instead of consulting the encyclopedia about something:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "Flipping through the encyclopedia, you learn that [run paragraph on]";</div>

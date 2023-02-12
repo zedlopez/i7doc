@@ -33,7 +33,7 @@ details of how the Standard Library does this magic trick may not be of
 much interest. You can just put something like this near the beginning
 of your source code, and you’re good to go:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`When play begins:\n\tnow the story viewpoint is first person singular;\n\tnow the story tense is past tense.\n`)"><span class="sym">⧉</span></button><div class="codeline">When play begins:</div>
+<div class="codeblock"><div class="codeline">When play begins:</div>
 <div class="codeline">&ensp;&ensp;&ensp;now the story viewpoint is first person singular;</div>
 <div class="codeline">&ensp;&ensp;&ensp;now the story tense is past tense.</div>
 </div>
@@ -110,7 +110,7 @@ applies. In a large game, that could be hundreds of rules.</p>
 Carry Out rules and After rules with Carry Out and/or Report rules.
 Let’s start with a simple Check rule:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The player carries a rotten banana. The banana is edible.\n\nCheck eating the banana:\n\tsay &quot;Ewwww!&quot; instead.\n\n[Instead of eating the banana:\n\tsay &quot;Ewwww!&quot;] [This produces the same result, but it&apos;s less efficient.]\n`)"><span class="sym">⧉</span></button><div class="codeline">The player carries a rotten banana. The banana is edible.</div>
+<div class="codeblock"><div class="codeline">The player carries a rotten banana. The banana is edible.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">Check eating the banana:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "Ewwww!" instead.</div>
@@ -129,7 +129,7 @@ that nothing else will happen.</p>
 <p>In exactly the same way, we can replace an After rule with a Report
 rule, like this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`[After eating the banana:\n\tsay &quot;After chowing down on the banana, you feel a little ill.&quot;] [Not efficient.]\n\nReport eating the banana:\n\tsay &quot;After chowing down on the banana, you feel a little ill.&quot;;\n\trule succeeds.\n`)"><span class="sym">⧉</span></button><div class="codeline">[After eating the banana:</div>
+<div class="codeblock"><div class="codeline">[After eating the banana:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "After chowing down on the banana, you feel a little ill."] [Not efficient.]</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">Report eating the banana:</div>
@@ -146,7 +146,7 @@ only because Before rules are intended for situations that are a little
 tricky. I tend to use Before rules mostly in constructions like
 this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Before doing anything other than examining to the sky, say &quot;The sky is too far away.&quot; instead.\n`)"><span class="sym">⧉</span></button><div class="codeline">Before doing anything other than examining to the sky, say "The sky is too far away." instead.</div>
+<div class="codeblock"><div class="codeline">Before doing anything other than examining to the sky, say "The sky is too far away." instead.</div>
 </div>
 
 <p>This type of construction (“anything other than&hellip;”) can’t be used in
@@ -163,7 +163,7 @@ a certain scene is active or when the player is in a certain room. If
 you group all of the Every Turn rules that apply to a given situation as
 if-tests within a single rule, you’ll gain efficiency. For instance:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Every turn when in the Glue Factory:\n\tif the security guard is in the Factory:\n\t\tsay &quot;The guard belches loudly.&quot;;\n\tif Esmerelda is in the Factory:\n\t\tsay &quot;Esmerelda sighs winsomely.&quot;;\n\tif the blast furnace is heated:\n\t\tsay &quot;Heat radiates from the blast furnace.&quot;;\n\t[...and so on...]\n`)"><span class="sym">⧉</span></button><div class="codeline">Every turn when in the Glue Factory:</div>
+<div class="codeblock"><div class="codeline">Every turn when in the Glue Factory:</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the security guard is in the Factory:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say "The guard belches loudly.";</div>
 <div class="codeline">&ensp;&ensp;&ensp;if Esmerelda is in the Factory:</div>
@@ -236,7 +236,7 @@ work the way you want it to.</p>
 <p>Let’s create a table, so that we can refer to it in the rest of this
 section:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`A furry menace is a kind of thing.\n\nThe gopher is a furry menace in the Meadow.\nThe muskrat is a furry menace in the Meadow.\nThe chipmunk is a furry menace in the Meadow.\nThe mole is a furry menace in the Meadow.\n\nTable of Obnoxious Mammals\ncritter\t\tname\t\tweight\ngopher\t\t&quot;Herman&quot;\t17\nmuskrat\t&quot;Vivian&quot;\t12\nchipmunk\t&quot;Abercrombie&quot;\t9\nmole\t\t&quot;Edith&quot;\t\t27\n`)"><span class="sym">⧉</span></button><div class="codeline">A furry menace is a kind of thing.</div>
+<div class="codeblock"><div class="codeline">A furry menace is a kind of thing.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">The gopher is a furry menace in the Meadow.</div>
 <div class="codeline">The muskrat is a furry menace in the Meadow.</div>
@@ -273,7 +273,7 @@ first row is 1, not 0.</p>
 <p>You can also get at the data in the table by cross-referencing the
 data you want with the data in some other column, like this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`say &quot;The name of the muskrat in the Table of Obnoxious Mammals is\n[name corresponding to the critter of muskrat in the Table of Obnoxious\nMammals].&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">say "The name of the muskrat in the Table of Obnoxious Mammals is</div>
+<div class="codeblock"><div class="codeline">say "The name of the muskrat in the Table of Obnoxious Mammals is</div>
 <div class="codeline">[name corresponding to the critter of muskrat in the Table of Obnoxious</div>
 <div class="codeline">Mammals]."</div>
 </div>
@@ -286,13 +286,13 @@ critter.”</p>
 course of the game. Inform’s standard “now … is” syntax will do the
 job:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`now the weight in row 1 of the Table of Obnoxious Mammals is 8;\n`)"><span class="sym">⧉</span></button><div class="codeline">now the weight in row 1 of the Table of Obnoxious Mammals is 8;</div>
+<div class="codeblock"><div class="codeline">now the weight in row 1 of the Table of Obnoxious Mammals is 8;</div>
 </div>
 
 <p>It’s often useful to look at all of the data in a table, one row at a
 time. Here’s one way to do that:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`repeat with N running from 1 to the number of rows in the Table of Obnoxious Mammals:\n\tif the weight in row N of the Table of Obnoxious Mammals is greater than 15:\n\t\tsay &quot;[Name in row N of the Table of Obnoxious Mammals] is rather obese.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">repeat with N running from 1 to the number of rows in the Table of Obnoxious Mammals:</div>
+<div class="codeblock"><div class="codeline">repeat with N running from 1 to the number of rows in the Table of Obnoxious Mammals:</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the weight in row N of the Table of Obnoxious Mammals is greater than 15:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say "[Name in row N of the Table of Obnoxious Mammals] is rather obese."</div>
 </div>
@@ -317,7 +317,7 @@ can change it.</p>
 <p>Here’s a more concise way of doing the same thing, without using a
 loop counter:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`repeat through the Table of Obnoxious Mammals:\n\tif the weight entry is greater than 15:\n\t\tsay &quot;[name entry] is rather obese.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">repeat through the Table of Obnoxious Mammals:</div>
+<div class="codeblock"><div class="codeline">repeat through the Table of Obnoxious Mammals:</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the weight entry is greater than 15:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say "[name entry] is rather obese."</div>
 </div>
@@ -330,7 +330,7 @@ Because we defined the objects that show up in the table as of the furry
 menace kind, we can write a rule that will apply to any furry
 menace:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of examining a furry menace (called FM):\n\tif FM is a critter listed in the Table of Obnoxious Mammals: \n\t\tsay &quot;[The FM] is named [name entry].&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">Instead of examining a furry menace (called FM):</div>
+<div class="codeblock"><div class="codeline">Instead of examining a furry menace (called FM):</div>
 <div class="codeline">&ensp;&ensp;&ensp;if FM is a critter listed in the Table of Obnoxious Mammals: </div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say "[The FM] is named [name entry]."</div>
 </div>
@@ -347,7 +347,7 @@ of the row the data is in. Continuing with our rather silly example,
 we’re going to create a new action, altering, which will do nothing
 except change the entry in the name column:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Altering is an action applying to one thing. Understand &quot;alter [furry\nmenace]&quot; as altering.\n\nCarry out altering:\n\nnow the name corresponding to a critter of the noun in the Table of\nObnoxious Mammals is &quot;Judy Garland&quot;;\n\nsay &quot;Name altered.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">Altering is an action applying to one thing. Understand "alter [furry</div>
+<div class="codeblock"><div class="codeline">Altering is an action applying to one thing. Understand "alter [furry</div>
 <div class="codeline">menace]" as altering.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">Carry out altering:</div>
@@ -584,7 +584,7 @@ not exactly light reading, but you can start to get a better idea of
 what’s going on in Inform by skimming them. You’ll find, for instance,
 this bit of code:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Check an actor taking (this is the can&apos;t take scenery rule):\n\tif the noun is scenery:\n\t\tif the actor is the player:\n\t\t\tsay &quot;[regarding the noun][They&apos;re] hardly portable.&quot; (A);\n\t\tstop the action. \n`)"><span class="sym">⧉</span></button><div class="codeline">Check an actor taking (this is the can't take scenery rule):</div>
+<div class="codeblock"><div class="codeline">Check an actor taking (this is the can't take scenery rule):</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the noun is scenery:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the actor is the player:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say "[regarding the noun][They're] hardly portable." (A);</div>
@@ -601,7 +601,7 @@ Standard Library, has a name. It’s called the can’t take scenery rule.
 If you want to replace this rule, perhaps to produce a message that you
 like better, here’s how to do it:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Check an actor taking (this is the new can&apos;t take scenery rule):\n\tif the noun is scenery:\n\t\tif the actor is the player:\n\t\t\tsay &quot;[regarding the noun][They&apos;re] not even faintly portable.&quot; (A);\n\t\tstop the action.\n\nThe new can&apos;t take scenery rule is listed instead of the  can&apos;t take scenery rule in the check taking rulebook.\n`)"><span class="sym">⧉</span></button><div class="codeline">Check an actor taking (this is the new can't take scenery rule):</div>
+<div class="codeblock"><div class="codeline">Check an actor taking (this is the new can't take scenery rule):</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the noun is scenery:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the actor is the player:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say "[regarding the noun][They're] not even faintly portable." (A);</div>
@@ -614,7 +614,7 @@ like better, here’s how to do it:</p>
 object (or for a kind of scenery object), you can do it even more
 easily:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Check an actor taking the boulder:\n\tsay &quot;You&apos;d give yourself a hernia.&quot;;\n\tstop the action.\n`)"><span class="sym">⧉</span></button><div class="codeline">Check an actor taking the boulder:</div>
+<div class="codeblock"><div class="codeline">Check an actor taking the boulder:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "You'd give yourself a hernia.";</div>
 <div class="codeline">&ensp;&ensp;&ensp;stop the action.</div>
 </div>
@@ -632,7 +632,7 @@ is to write a Does The Player Mean rule. The way to do this is explained
 rules. We’ve seen a couple of these elsewhere in the <em>Handbook</em>.
 Such a rule might look like this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Understand &quot;cracked&quot; and &quot;chipped&quot; as the Ming vase when the Ming vase is broken.\n`)"><span class="sym">⧉</span></button><div class="codeline">Understand "cracked" and "chipped" as the Ming vase when the Ming vase is broken.</div>
+<div class="codeblock"><div class="codeline">Understand "cracked" and "chipped" as the Ming vase when the Ming vase is broken.</div>
 </div>
 
 <p>When you put this rule in your code, the words “cracked” and
@@ -640,7 +640,7 @@ Such a rule might look like this:</p>
 not broken. Writing conditions that refer to specific scenes is also
 useful:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Understand &quot;dismantled&quot; as the robot when Emergency Repairs is happening.\n`)"><span class="sym">⧉</span></button><div class="codeline">Understand "dismantled" as the robot when Emergency Repairs is happening.</div>
+<div class="codeblock"><div class="codeline">Understand "dismantled" as the robot when Emergency Repairs is happening.</div>
 </div>
 
 <h4 id="pronouns">Pronouns</h4>
@@ -671,7 +671,7 @@ command containing “it”, she will conclude (erroneously) that Dave is
 not intimidated by the loaded revolver. To solve this problem, you can
 use the phrase “set pronouns from” in your code:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`After inserting the bullet into the revolver:\n\tset pronouns from the revolver;\n\tcontinue the action.\n`)"><span class="sym">⧉</span></button><div class="codeline">After inserting the bullet into the revolver:</div>
+<div class="codeblock"><div class="codeline">After inserting the bullet into the revolver:</div>
 <div class="codeline">&ensp;&ensp;&ensp;set pronouns from the revolver;</div>
 <div class="codeline">&ensp;&ensp;&ensp;continue the action.</div>
 </div>
@@ -683,7 +683,7 @@ begins. This can be a nice effect if the player is teleported to an
 entirely new time or place, for instance. You can get that
 effect using <a href="https://github.com/ganelson/inform/blob/master/inform7/Internal/Extensions/Emily%20Short/Basic%20Screen%20Effects.i7x">Basic Screen Effects by Emily Short</a>:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Include Basic Screen Effects by Emily Short.\n\nInstead of pushing the big red button:\n\tclear the screen;\n\tsay &quot;[line break]&quot;;\n\tsay &quot;You feel a brief tingling sensation...&quot;;\n\tmove the player to Phobos;\n\tif the player does not wear the helmet:\n\t\tsay &quot;A little too late, you realize you&apos;ve forgotten to don your helmet. There&apos;s no air on the surface of Phobos...&quot;;\n\t\tend the story saying &quot;You have died.&quot;;\n\telse:\n\t\tstop the action.\n`)"><span class="sym">⧉</span></button><div class="codeline">Include Basic Screen Effects by Emily Short.</div>
+<div class="codeblock"><div class="codeline">Include Basic Screen Effects by Emily Short.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">Instead of pushing the big red button:</div>
 <div class="codeline">&ensp;&ensp;&ensp;clear the screen;</div>
@@ -726,7 +726,7 @@ out of room.</p>
 controls the amount of memory available in the game for a certain type
 of data. Here’s the list:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Use ALLOC_CHUNK_SIZE of 32000.\nUse MAX_ARRAYS of 10000.\nUse MAX_CLASSES of 200.\nUse MAX_VERBS of 255.\nUse MAX_LABELS of 10000.\nUse MAX_ZCODE_SIZE of 500000.\nUse MAX_STATIC_DATA of 180000.\nUse MAX_PROP_TABLE_SIZE of 200000.\nUse MAX_INDIV_PROP_TABLE_SIZE of 20000.\nUse MAX_STACK_SIZE of 65536.\nUse MAX_SYMBOLS of 20000.\nUse MAX_EXPRESSION_NODES of 256.\nUse MAX_LABELS of 200000.\nUse MAX_LOCAL_VARIABLES of 256.\n\n`)"><span class="sym">⧉</span></button>  
+<div class="codeblock">  
 <div class="codeline">Use ALLOC_CHUNK_SIZE of 32000.</div>
 <div class="codeline">Use MAX_ARRAYS of 10000.</div>
 <div class="codeline">Use MAX_CLASSES of 200.</div>
@@ -763,7 +763,7 @@ of your source code increasing it. (It goes without saying that you
 should <em>never</em> edit the Standard Rules themselves.) For
 instance:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Use MAX_STATIC_DATA of 360000.\n`)"><span class="sym">⧉</span></button><div class="codeline">Use MAX_STATIC_DATA of 360000.</div>
+<div class="codeblock"><div class="codeline">Use MAX_STATIC_DATA of 360000.</div>
 </div>
 
 <p>With a large game, I’ve had to increase MAX_DICT_ENTRIES to 5000 to
@@ -800,7 +800,7 @@ objects … well, how they relate to one another.</p>
 verbs</a>. There, some new verbs are defined, which can then be used in
 code. Here’s another example, this one my own:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Proximity relates a thing (called X) to a thing (called Y) when the holder of X is the holder of Y. The verb to jostle (he jostles, he jostled, it is jostled, he is jostling) implies the proximity relation.\n`)"><span class="sym">⧉</span></button><div class="codeline">Proximity relates a thing (called X) to a thing (called Y) when the holder of X is the holder of Y. The verb to jostle (he jostles, he jostled, it is jostled, he is jostling) implies the proximity relation.</div>
+<div class="codeblock"><div class="codeline">Proximity relates a thing (called X) to a thing (called Y) when the holder of X is the holder of Y. The verb to jostle (he jostles, he jostled, it is jostled, he is jostling) implies the proximity relation.</div>
 </div>
 
 <p>If you need to make a decision in the game based on whether two
@@ -808,13 +808,13 @@ objects are in the same container, or on the same supporter, or in the
 same room (directly in the room &ndash; on the floor), or carried by the same
 person, you would normally write something like this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`if the holder of the apple is the holder of the orange:\n`)"><span class="sym">⧉</span></button><div class="codeline">if the holder of the apple is the holder of the orange:</div>
+<div class="codeblock"><div class="codeline">if the holder of the apple is the holder of the orange:</div>
 </div>
 
 <p>But after creating a proximity relation as shown above, you can
 simplify this test a bit by writing:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`if the apple jostles the orange:\n`)"><span class="sym">⧉</span></button><div class="codeline">if the apple jostles the orange:</div>
+<div class="codeblock"><div class="codeline">if the apple jostles the orange:</div>
 </div>
 
 <p>I’ve defined the word “jostles” using a relation. Any unused word
@@ -846,7 +846,7 @@ with Jason when she sees him.</p>
 <p>There’s no real need to use relations to manage this game. You can do
 something simple, with properties, like this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Jason can be ready-for-love or not ready-for-love. Jason can be loving-Jennifer or not loving-Jennifer.\n`)"><span class="sym">⧉</span></button><div class="codeline">Jason can be ready-for-love or not ready-for-love. Jason can be loving-Jennifer or not loving-Jennifer.</div>
+<div class="codeblock"><div class="codeline">Jason can be ready-for-love or not ready-for-love. Jason can be loving-Jennifer or not loving-Jennifer.</div>
 </div>
 
 <p>&hellip;and similar properties for Jennifer. When Jason is loving-Jennifer
@@ -871,7 +871,7 @@ but it’s not actually a bad idea for a game. I hope someone will try it.
 Once a character is ready-for-love and sees an appropriate romantic
 object, all we need to write is:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`now Steve loves Susan;\n`)"><span class="sym">⧉</span></button><div class="codeline">now Steve loves Susan;</div>
+<div class="codeblock"><div class="codeline">now Steve loves Susan;</div>
 </div>
 
 <p>If Steve has previously been in love with Amy, that one line of code
@@ -901,7 +901,7 @@ this example could easily be adapted so as to force the player to put a
 chair beneath a high shelf in order to get something off of the shelf,
 for example.</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`A thing can be high or low. A thing is usually low.\n\nThe Living Room is a room. &quot;A large, old-fashioned room lit by a crystal chandelier.&quot;\n\nThe crystal chandelier is scenery in the Living Room. The description is &quot;It shimmers with light.&quot; The chandelier is high.\n\nThe chair is an enterable supporter in the Living Room. It is not fixed in place. The description is &quot;A sturdy chair[if the chair is near the chandelier]. It&apos;s positioned directly beneath the chandelier[end if].&quot;\n\nProximity relates things to each other. The verb to be near implies the proximity relation.\n\nPutting it beneath is an action applying to two things and requiring light. \n\nUnderstand &quot;put [something] underneath/beneath/under [something]&quot;, &quot;push [something] underneath/beneath/under [something]&quot;, &quot;place [something] underneath/beneath/under [something]&quot;, &quot;set [something] underneath/beneath/under [something]&quot;, and &quot;position [something] underneath/beneath/under [something]&quot; as putting it beneath.\n\nCheck putting it beneath:\n\tif the second noun is not high:\n\t\tsay &quot;[The second noun] lack[if the second noun is not plural-named]s[end if] the requisite elevation.&quot; instead.\n\nCarry out putting it beneath:\n\tnow the noun is in the location;\n\tnow the noun is near the second noun.\n\nReport putting it beneath:\n\tsay &quot;You place [the noun] on the floor directly beneath [the second noun].&quot;\n\nInstead of putting the chair beneath the chandelier:\n\tif the chair is near the chandelier:\n\t\tsay &quot;The chair is already beneath the chandelier.&quot;;\n\totherwise if the player is on the chair:\n\t\tsay &quot;You&apos;ll have to get off of the chair if you want to do that.&quot;;\n\totherwise:\n\t\tif the player carries the chair:\n\t\t\tmove the chair to the location;\n\t\tnow the chair is near the chandelier;\n\t\tsay &quot;You place the chair beneath the chandelier.&quot;\n\nAfter taking something:\n\tif the noun is near a thing:\n\t\tnow the noun is near nothing;\n\tcontinue the action.\n\nCheck touching the chandelier:\n\tif the player is not on the chair:\n\t\tsay &quot;You can&apos;t reach it.&quot; instead;\n\totherwise if the chair is not near the chandelier:\n\t\tsay &quot;It&apos;s out of reach. Maybe if you put the chair underneath the chandelier first, you could reach the chandelier.&quot; instead.\n\nReport touching the chandelier:\n\tsay &quot;The crystal is cool to the touch, and a little dusty. The entire chandelier sways gently as your fingers brush it, and makes a soft, musical tinkling sound.&quot;;\n\trule succeeds.\n\nThe player carries a bowling ball. [For testing purposes.]\n\nTest me with &quot;touch chandelier / stand on chair / touch chandelier / get off / put chair under chandelier / stand on chair / touch chandelier / put ball under chandelier / relations&quot;.\n`)"><span class="sym">⧉</span></button><div class="codeline">A thing can be high or low. A thing is usually low.</div>
+<div class="codeblock"><div class="codeline">A thing can be high or low. A thing is usually low.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">The Living Room is a room. "A large, old-fashioned room lit by a crystal chandelier."</div>
 <div class="codeline">&thinsp;</div>
@@ -1048,7 +1048,7 @@ you look at the code in a few extensions written by experts, you’ll
 probably see Inform 6 peeking through the curtain. Here’s a line from an
 extension by Emily Short that I chose at random:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Use direct event handling translates as (- Constant DIRECT_GLK_EVENT_HANDLING; -).\n`)"><span class="sym">⧉</span></button><div class="codeline">Use direct event handling translates as (- Constant DIRECT_GLK_EVENT_HANDLING; -).</div>
+<div class="codeblock"><div class="codeline">Use direct event handling translates as (- Constant DIRECT_GLK_EVENT_HANDLING; -).</div>
 </div>
 
 <p>The parentheses and hyphens are what tells the compiler “Here’s some

@@ -33,7 +33,7 @@ understand, no time passes.</p>
 <p>A simple way to see this mechanism in action is to add this code to
 your game:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`When play begins:\n\tnow the right hand status line is &quot;[time of day]&quot;.\n`)"><span class="sym">⧉</span></button><div class="codeline">When play begins:</div>
+<div class="codeblock"><div class="codeline">When play begins:</div>
 <div class="codeline">&ensp;&ensp;&ensp;now the right hand status line is "[time of day]".</div>
 </div>
 
@@ -49,7 +49,7 @@ the player is simply using the LOOK command to refresh her memory about
 the room, or the INV (or I) command to remind herself what she’s
 carrying. To do that, use this code:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Every turn:\n\tif the current action is taking inventory or the current action is looking:\n\t\tnow the time of day is 1 minute before the time of day.\n`)"><span class="sym">⧉</span></button><div class="codeline">Every turn:</div>
+<div class="codeblock"><div class="codeline">Every turn:</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the current action is taking inventory or the current action is looking:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the time of day is 1 minute before the time of day.</div>
 </div>
@@ -58,7 +58,7 @@ carrying. To do that, use this code:</p>
 Another way to do the same thing is to use a Before rule rather than an
 Every Turn rule:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Before looking or taking inventory:\n\tnow the time of day is 1 minute before the time of day.\n`)"><span class="sym">⧉</span></button><div class="codeline">Before looking or taking inventory:</div>
+<div class="codeblock"><div class="codeline">Before looking or taking inventory:</div>
 <div class="codeline">&ensp;&ensp;&ensp;now the time of day is 1 minute before the time of day.</div>
 </div>
 
@@ -75,7 +75,7 @@ thing.</p>
 <p>The game doesn’t have to start at 9:00 A.M. If you want it to start
 at 3:00 in the afternoon, do this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`When play begins:\n\tnow the time of day is 3:00 pm.\n`)"><span class="sym">⧉</span></button><div class="codeline">When play begins:</div>
+<div class="codeblock"><div class="codeline">When play begins:</div>
 <div class="codeline">&ensp;&ensp;&ensp;now the time of day is 3:00 pm.</div>
 </div>
 
@@ -84,14 +84,14 @@ player character has been hit on the head and is unconscious for a
 while), include a line like this in your code as part of what happens
 when the player is hit:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`now the time of day is 7:00 pm.\n`)"><span class="sym">⧉</span></button><div class="codeline">now the time of day is 7:00 pm.</div>
+<div class="codeblock"><div class="codeline">now the time of day is 7:00 pm.</div>
 </div>
 
 <p>If you want something to happen at a specific time, one way to do it
 &ndash; the primitive, clumsy way, as I’ll explain in a moment &ndash; is with an
 Every Turn rule:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Every turn:\n\tif the time of day is 11:59 pm or the time of day is 12:59 am or the time of day is 1:59 am:\n\t\tsay &quot;In the distance you hear the chimes in the tower strike the hour.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">Every turn:</div>
+<div class="codeblock"><div class="codeline">Every turn:</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the time of day is 11:59 pm or the time of day is 12:59 am or the time of day is 1:59 am:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say "In the distance you hear the chimes in the tower strike the hour."</div>
 </div>
@@ -105,7 +105,7 @@ be printed out on the hour.</p>
 <p>In this case, Inform has a simpler way to get the same effect. You
 can write a rule that tells the game what to do at specific times:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`At 11:59 pm: say chimes.\nAt 12:59 am: say chimes.\nAt 1:59 am: say chimes.\n\nTo say chimes: say &quot;In the distance you hear the chimes in the tower strike the hour.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">At 11:59 pm: say chimes.</div>
+<div class="codeblock"><div class="codeline">At 11:59 pm: say chimes.</div>
 <div class="codeline">At 12:59 am: say chimes.</div>
 <div class="codeline">At 1:59 am: say chimes.</div>
 <div class="codeline">&thinsp;</div>
@@ -135,7 +135,7 @@ chapter of the <em>Handbook</em> on characters. When the player tries to
 take the spider, not only the game prevent the action, but there will be
 an after-effect &ndash; a sort of emotional echo of the intended action:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of taking the spider:\n\tsay &quot;You can&apos;t bring yourself even to get near it.&quot;;\n\tthe spider thought returns in four minutes from now.\n\nAt the time when the spider thought returns:\n\tsay &quot;You&apos;re still thinking about that creepy spider...&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">Instead of taking the spider:</div>
+<div class="codeblock"><div class="codeline">Instead of taking the spider:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "You can't bring yourself even to get near it.";</div>
 <div class="codeline">&ensp;&ensp;&ensp;the spider thought returns in four minutes from now.</div>
 <div class="codeline">&thinsp;</div>
@@ -166,7 +166,7 @@ phrase. The example below was suggested by one of my students, who
 wanted to transform a magic wand into an old shoe &ndash; but only if the
 player has been carrying the wand for three turns in a row.</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Wizard&apos;s Workshop is a room. &quot;This odd-smelling little room is crowded with tables and shelves overflowing with magical implements.&quot;\n\nThe magic wand is in the Wizard&apos;s Workshop. &quot;A Wham-O(tm) magic wand lies on the floor.&quot; The description is &quot;It&apos;s a shiny black plastic wand on which the words &apos;Wham-O&apos; are written in flowing white script.&quot;\nUnderstand &quot;wham-o&quot;, &quot;shiny&quot;, &quot;black&quot;, and &quot;plastic&quot; as the magic wand.\n\nThe old shoe is a thing. The description is &quot;It looks like somebody left it lying in the gutter.&quot;\n\nAfter taking the magic wand:\n\tthe wand transforms in three turns from now;\n\tcontinue the action.\n\nAt the time when the wand transforms:\n\tif the player does not carry the wand:\n\t\tdo nothing;\n\totherwise:\n\t\tremove the magic wand from play;\n\t\tnow the player carries the old shoe;\n\t\tsay &quot;The wand quivers and squirms in your hand! Suddenly it&apos;s not a wand, it&apos;s an old shoe!&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">The Wizard's Workshop is a room. "This odd-smelling little room is crowded with tables and shelves overflowing with magical implements."</div>
+<div class="codeblock"><div class="codeline">The Wizard's Workshop is a room. "This odd-smelling little room is crowded with tables and shelves overflowing with magical implements."</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">The magic wand is in the Wizard's Workshop. "A Wham-O(tm) magic wand lies on the floor." The description is "It's a shiny black plastic wand on which the words 'Wham-O' are written in flowing white script."</div>
 <div class="codeline">Understand "wham-o", "shiny", "black", and "plastic" as the magic wand.</div>
@@ -219,7 +219,7 @@ scene.</p>
 
 <p>Why might you want to use a scene? Here are some random ideas:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Saucer-menace is a scene. Saucer-menace begins when the flying saucer is in the Meadow. Saucer-menace ends when the bug-eyed monster is dead.\n\nGuard-evasion is a scene. Guard-evasion begins when the security guard is suspicious. Guard-evasion ends when the player is in the Bank Vault for the first time. \n\nDance mania is a scene. Dance mania begins when the player is in the Abandoned Warehouse for the first time. Dance mania ends when the police sergeant is in the Abandoned Warehouse.\n`)"><span class="sym">⧉</span></button><div class="codeline">Saucer-menace is a scene. Saucer-menace begins when the flying saucer is in the Meadow. Saucer-menace ends when the bug-eyed monster is dead.</div>
+<div class="codeblock"><div class="codeline">Saucer-menace is a scene. Saucer-menace begins when the flying saucer is in the Meadow. Saucer-menace ends when the bug-eyed monster is dead.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">Guard-evasion is a scene. Guard-evasion begins when the security guard is suspicious. Guard-evasion ends when the player is in the Bank Vault for the first time. </div>
 <div class="codeline">&thinsp;</div>
@@ -237,20 +237,20 @@ possibilities are unlimited.</p>
 
 <p>You can’t start a scene simply by saying that it starts:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`now guard-evasion is happening; [Error!]\n`)"><span class="sym">⧉</span></button><div class="codeline">now guard-evasion is happening; [Error!]</div>
+<div class="codeblock"><div class="codeline">now guard-evasion is happening; [Error!]</div>
 </div>
 
 <p>Nor can you end a scene by saying that it ends. The way to start or
 end a scene is to tie it to a condition, as shown above:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Guard-evasion begins when the security guard is suspicious.\n`)"><span class="sym">⧉</span></button><div class="codeline">Guard-evasion begins when the security guard is suspicious.</div>
+<div class="codeblock"><div class="codeline">Guard-evasion begins when the security guard is suspicious.</div>
 </div>
 
 <p>The condition can be as simple as whether a truth state that varies
 (a true-or-false variable) is true or false. You could do it this
 way:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Guard-evasion-flag is a truth state that varies. Guard-evasion-flag is false.\n\nGuard-evasion is a scene. Guard-evasion begins when guard-evasion-flag is true.\n`)"><span class="sym">⧉</span></button><div class="codeline">Guard-evasion-flag is a truth state that varies. Guard-evasion-flag is false.</div>
+<div class="codeblock"><div class="codeline">Guard-evasion-flag is a truth state that varies. Guard-evasion-flag is false.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">Guard-evasion is a scene. Guard-evasion begins when guard-evasion-flag is true.</div>
 </div>
@@ -258,7 +258,7 @@ way:</p>
 <p>Having set it up this way, you can start the scene whenever or
 wherever you like by writing:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`now guard-evasion-flag is true;\n`)"><span class="sym">⧉</span></button><div class="codeline">now guard-evasion-flag is true;</div>
+<div class="codeblock"><div class="codeline">now guard-evasion-flag is true;</div>
 </div>
 <h4 id="chaining-scenes">Chaining Scenes</h4>
 
@@ -266,7 +266,7 @@ wherever you like by writing:</p>
 scenes together</a> gives this simple example of how to chain two
 scenes:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Train Stop is a scene. Brief Encounter is a scene. Brief Encounter begins when Train Stop ends.\n`)"><span class="sym">⧉</span></button><div class="codeline">Train Stop is a scene. Brief Encounter is a scene. Brief Encounter begins when Train Stop ends.</div>
+<div class="codeblock"><div class="codeline">Train Stop is a scene. Brief Encounter is a scene. Brief Encounter begins when Train Stop ends.</div>
 </div>
 <p>From this code, we can’t tell what events will cause Train Stop to
 begin or end, but we can see that Brief Encounter will begin immediately
@@ -279,7 +279,7 @@ will switch the truth state to true. Third, we need to tell Inform to
 run the function at some time in the future. Here’s an example that
 shows how to do it:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Antechamber is a room. &quot;The princess&apos;s boudoir lies to the south.&quot;\n\nThe Princess&apos;s Boudoir is south of the Antechamber. &quot;This luxuriously appointed chamber is fit for a princess.&quot;\n\nThe princess is a woman in the Boudoir. &quot;...and as it happens, a princess is sitting here right now!&quot;\n\nThe player carries some crown jewels. The indefinite article of the crown jewels is &quot;the&quot;.\n\nPrincess Demanding is a recurring scene. Princess Demanding begins when the player is in the Boudoir and the player carries the crown jewels.\n\nPrincess Demanding ends when the player does not carry the crown jewels.\n\nInstead of going during Princess Demanding:\n\tsay &quot;&apos;You&apos;re not going anywhere until you surrender the jewels!&apos; the princess insists.&quot;\n\nWhen Princess Demanding begins:\n\tsay &quot;&apos;I notice you&apos;re carrying the crown jewels,&apos; the princess says. &apos;Give them to me at once!&apos;&quot;\n\nInstead of giving the jewels to the princess:\n\tnow the princess carries the jewels;\n\tsay &quot;You surrender the jewels. The princess smiles sweetly. &apos;Thank you,&apos; she says. &apos;You may go.&apos;&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">The Antechamber is a room. "The princess's boudoir lies to the south."</div>
+<div class="codeblock"><div class="codeline">The Antechamber is a room. "The princess's boudoir lies to the south."</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">The Princess's Boudoir is south of the Antechamber. "This luxuriously appointed chamber is fit for a princess."</div>
 <div class="codeline">&thinsp;</div>
@@ -333,7 +333,7 @@ player carries the crown” is only true if the crown is in the PC’s hands
 &ndash; that is, if it’s directly carried. The bug will show up if we give the
 player a container for carrying things:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The sack is a container. The player carries the sack.\n`)"><span class="sym">⧉</span></button><div class="codeline">The sack is a container. The player carries the sack.</div>
+<div class="codeblock"><div class="codeline">The sack is a container. The player carries the sack.</div>
 </div>
 
 <p>Now the player can walk into the boudoir, which will cause the
@@ -341,7 +341,7 @@ princess to notice the jewels, and then put the jewels in the sack and
 walk straight out again. Oops! The fix for this bug is simple. We change
 “carries” in the end-of-scene statement to “encloses”:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Princess Demanding ends when the player does not enclose the crown jewels.\n`)"><span class="sym">⧉</span></button><div class="codeline">Princess Demanding ends when the player does not enclose the crown jewels.</div>
+<div class="codeblock"><div class="codeline">Princess Demanding ends when the player does not enclose the crown jewels.</div>
 </div>
 
 <p>If you make these changes, the player will be able to put the jewels
@@ -353,7 +353,7 @@ won’t help. The princess will still demand that they be turned over.</p>
 
 <p>But there’s still a problem. Try this series of commands:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Test me with &quot;s / put jewels in sack / drop sack / take sack / n&quot;.\n`)"><span class="sym">⧉</span></button><div class="codeline">Test me with "s / put jewels in sack / drop sack / take sack / n".</div>
+<div class="codeblock"><div class="codeline">Test me with "s / put jewels in sack / drop sack / take sack / n".</div>
 </div>
 
 <p>The princess will notice the jewels &hellip; but you can still get away
@@ -371,7 +371,7 @@ Still Demanding. This scene will do the work of stopping the player from
 leaving &ndash; and it will have a more complicated beginning. Here’s the
 revised part of the code:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The princess is a woman in the Boudoir. &quot;...and as it happens, a princess is sitting here right now!&quot;\nThe princess can be jewel-knowing or jewel-ignorant. The princess is jewel-ignorant.\n\nWhen Princess Demanding begins:\n\tnow the princess is jewel-knowing.\n\nThe player carries some crown jewels. The indefinite article of the crown jewels is &quot;the&quot;.\n\nThe sack is a container. The player carries the sack.\n\nPrincess Demanding is a scene. Princess Demanding begins when the player is in the Boudoir and the player carries the crown jewels.\n\nPrincess Still Demanding is a recurring scene. Princess Still Demanding begins when the player is in the boudoir and the player encloses the crown jewels and the princess is jewel-knowing.\n\nPrincess Demanding ends when Princess Still Demanding begins.\n\nPrincess Still Demanding ends when the player does not enclose the crown jewels.\n\nInstead of going during Princess Still Demanding:\n\tsay &quot;&apos;You&apos;re not going anywhere until you surrender the jewels!&apos; the princess insists.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">The princess is a woman in the Boudoir. "&hellip;and as it happens, a princess is sitting here right now!"</div>
+<div class="codeblock"><div class="codeline">The princess is a woman in the Boudoir. "&hellip;and as it happens, a princess is sitting here right now!"</div>
 <div class="codeline">The princess can be jewel-knowing or jewel-ignorant. The princess is jewel-ignorant.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">When Princess Demanding begins:</div>
@@ -414,7 +414,7 @@ writer of conventional fiction might describe this by saying that the
 princess’s motivation (her reasons for her actions) is not consistent.
 We can fix this with an Every Turn rule:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Every turn:\n\tif the holder of the crown jewels is the Boudoir:\n\t\tnow the princess carries the crown jewels;\n\t\tsay &quot;The princess scoops up the jewels. &apos;These belong to my family,&apos; she says, adding haughtily, &apos;you may go.&apos;&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">Every turn:</div>
+<div class="codeblock"><div class="codeline">Every turn:</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the holder of the crown jewels is the Boudoir:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the princess carries the crown jewels;</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say "The princess scoops up the jewels. 'These belong to my family,' she says, adding haughtily, 'you may go.'"</div>
@@ -447,7 +447,7 @@ annoying. Here’s an Every Turn rule that adds atmosphere to a forest
 setting in a slightly more interesting way. Sometimes it chooses a
 random text to print, and sometimes it does nothing:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Every turn:\n\tif a random chance of 1 in 3 succeeds:\n\t\tsay &quot;[one of]A dragonfly darts past you.[or]You hear a frog croaking.[or]A bird chirps in the bushes.[or]The breeze rustles the leaves.[at random]&quot;.\n`)"><span class="sym">⧉</span></button><div class="codeline">Every turn:</div>
+<div class="codeblock"><div class="codeline">Every turn:</div>
 <div class="codeline">&ensp;&ensp;&ensp;if a random chance of 1 in 3 succeeds:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say "[one of]A dragonfly darts past you.[or]You hear a frog croaking.[or]A bird chirps in the bushes.[or]The breeze rustles the leaves.[at random]".</div>
 </div>
@@ -458,13 +458,13 @@ rule that only runs when a certain scene is happening, or when the
 player is in a certain region. If we have defined the Forest Area as a
 region, we could rewrite the rule above like this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Every turn when the player is in the Forest Area:\n`)"><span class="sym">⧉</span></button><div class="codeline">Every turn when the player is in the Forest Area:</div>
+<div class="codeblock"><div class="codeline">Every turn when the player is in the Forest Area:</div>
 </div>
 
 <p>If we’ve created a scene called Forest Explorations, we could do it
 this way:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Every turn during Forest Explorations:\n`)"><span class="sym">⧉</span></button><div class="codeline">Every turn during Forest Explorations:</div>
+<div class="codeblock"><div class="codeline">Every turn during Forest Explorations:</div>
 </div>
 
 <p>In fact, if you’re concerned about writing efficient code so that
@@ -479,7 +479,7 @@ or background text at specific points within a scene. Here, the phrase
 once (unless the scene is recurring, in which case it will be produced
 once per recurrence):</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Every turn:\n\tif Saucer Menace has been happening for exactly three turns:\n\t\tsay &quot;You hear an odd glorping noise somewhere nearby.&quot;;\n\totherwise if Saucer Menace has been happening for exactly five turns:\n\t\tsay &quot;Was that a tentacle you saw slithering out of sight?&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">Every turn:</div>
+<div class="codeblock"><div class="codeline">Every turn:</div>
 <div class="codeline">&ensp;&ensp;&ensp;if Saucer Menace has been happening for exactly three turns:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say "You hear an odd glorping noise somewhere nearby.";</div>
 <div class="codeline">&ensp;&ensp;&ensp;otherwise if Saucer Menace has been happening for exactly five turns:</div>
@@ -491,7 +491,7 @@ for a certain set of conditions, and then do something when the
 conditions are met. Here’s a simple game that shows how the idea might
 work:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Throne Room is a room. &quot;The king&apos;s golden throne stands here.&quot;\n\nThe golden throne is an enterable scenery supporter in the Throne Room. The description is &quot;A magnificent golden throne.&quot;\n\nThe jewelled sceptre is here. The sparkling crown is here. The crown is wearable.\n\nEvery turn:\n\tif the player wears the sparkling crown and the player carries the jewelled sceptre and the player is on the golden throne:\n\t\tsay &quot;You&apos;re the king!!!&quot;;\n\t\tend the story saying “Congratulations!”\n`)"><span class="sym">⧉</span></button><div class="codeline">The Throne Room is a room. "The king's golden throne stands here."</div>
+<div class="codeblock"><div class="codeline">The Throne Room is a room. "The king's golden throne stands here."</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">The golden throne is an enterable scenery supporter in the Throne Room. The description is "A magnificent golden throne."</div>
 <div class="codeline">&thinsp;</div>
@@ -517,7 +517,7 @@ condition is being checked.</p>
 
 <p>Here’s another way to get the same result:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Every turn when the player is on the golden throne:\n\tif the player wears the sparkling crown and the player carries the jewelled sceptre:\n\t\tsay &quot;You&apos;re the king!!!&quot;;\n\t\tend the story saying “Congratulations!”\n`)"><span class="sym">⧉</span></button><div class="codeline">Every turn when the player is on the golden throne:</div>
+<div class="codeblock"><div class="codeline">Every turn when the player is on the golden throne:</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the player wears the sparkling crown and the player carries the jewelled sceptre:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say "You're the king!!!";</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;end the story saying “Congratulations!”</div>
@@ -527,7 +527,7 @@ condition is being checked.</p>
 first line. If we’re writing a game in which the player needs to eat
 periodically, we might do something like this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`A person can be hungry or not hungry. A person is usually not hungry.\nThe player has a number called hunger-level. The hunger-level of the player is 0.\nEvery turn when the player is hungry:\n\tincrease the hunger-level of the player by 1;\n\tsay &quot;[one of]Your stomach is rumbling.[or]You&apos;re becoming quite hungry.[or]You&apos;re very hungry. You need to find food soon.[or]You&apos;re practically starving![stopping]&quot;;\n\tif the hunger-level of the player is 7:\n\t\tend the story saying &quot;You have starved to death!&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">A person can be hungry or not hungry. A person is usually not hungry.</div>
+<div class="codeblock"><div class="codeline">A person can be hungry or not hungry. A person is usually not hungry.</div>
 <div class="codeline">The player has a number called hunger-level. The hunger-level of the player is 0.</div>
 <div class="codeline">Every turn when the player is hungry:</div>
 <div class="codeline">&ensp;&ensp;&ensp;increase the hunger-level of the player by 1;</div>

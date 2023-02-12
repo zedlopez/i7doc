@@ -569,7 +569,7 @@ released game. These options are not found in the Release menu in the
 IDE. Instead, you invoke them by adding statements to your source. For
   instance, you might want to write:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Release along with cover art, a solution, and a website.\n`)"><span class="sym">⧉</span></button><div class="codeline">Release along with cover art, a solution, and a website.</div>
+<div class="codeblock"><div class="codeline">Release along with cover art, a solution, and a website.</div>
 </div>
 
 <p>The release options are explained in <a href="../WI_25.html">WI Chapter 25: Releasing</a>.</p>
@@ -1130,14 +1130,14 @@ but you can change them at any time just by editing the first line in
 the Source page.) After the title and byline, skip a line and write a
 Use sentence, like this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Use American dialect and the serial comma.`)"><span class="sym">⧉</span></button><div class="codeline">Use American dialect and the serial comma.</div></div>
+<div class="codeblock"><div class="codeline">Use American dialect and the serial comma.</div></div>
 
 <p>Inform was written by an Englishman, so it uses British spellings for
 a few words unless you instruct otherwise. “Use American dialect”
 switches the spelling from British to American. If you want the game to
 start out in brief mode, do it this way:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Use American dialect, brief room descriptions, and the serial comma.\n`)"><span class="sym">⧉</span></button><div class="codeline">Use American dialect, brief room descriptions, and the serial comma.</div></div>
+<div class="codeblock"><div class="codeline">Use American dialect, brief room descriptions, and the serial comma.</div></div>
 
 <p>Prior to version 6E59, Inform’s default for room descriptions was
 <span id="Ref_brief_mode" class="anchor"></span>brief mode, but the
@@ -1176,7 +1176,7 @@ slightly different:</p>
 stage” for the story. You can create an introduction by writing a When
 Play Begins rule, perhaps something like this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`When play begins, say &quot;Lord Triffid has invited you to spend your week's vacation in his castle. Upon arriving, though, you begin to feel a bit uneasy. Perhaps it's the bats flying in and out of the attic window that put a damper on your mood, or perhaps it’s the sound of barking, snarling guard dogs&hellip;&quot;`)"><span class="sym">⧉</span></button><div class="codeline">When play begins, say "Lord Triffid has invited you to spend your week's vacation in his castle. Upon arriving, though, you begin to feel a bit uneasy. Perhaps it's the bats flying in and out of the attic window that put a damper on your mood, or perhaps it’s the sound of barking, snarling guard dogs&hellip;"</div></div>
+<div class="codeblock"><div class="codeline">When play begins, say "Lord Triffid has invited you to spend your week's vacation in his castle. Upon arriving, though, you begin to feel a bit uneasy. Perhaps it's the bats flying in and out of the attic window that put a damper on your mood, or perhaps it’s the sound of barking, snarling guard dogs&hellip;"</div></div>
 
 <h4 id="the-detail-trap">The Detail Trap</h4>
 
@@ -1245,7 +1245,7 @@ like this:</p>
 the one shown above? That text is called the story headline. You do it
 like this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The story headline is &quot;A Digital Dalliance&quot;.`)"><span class="sym">⧉</span></button><div class="codeline">The story headline is "A Digital Dalliance".</div></div>
+<div class="codeblock"><div class="codeline">The story headline is "A Digital Dalliance".</div></div>
 
 <p>Providing the release number, serial number, and so on as part of the
 banner is not anything you need to set up; it’s done automatically, as a
@@ -1256,7 +1256,7 @@ You may want to replace the default banner text with your own text, or
 suppress it entirely. To do this, you could add code like this near the
 top of your game:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Rule for printing the banner text:\n  say &quot;[bold type]I'm a lumberjack and I'm okay![roman type][line break][line break]&quot;`)"><span class="sym">⧉</span></button>
+<div class="codeblock">
 <div class="codeline">Rule for printing the banner text:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "[bold type]I'm a lumberjack and I'm okay![roman type][line break][line break]"</div>
 </div>
@@ -1278,7 +1278,7 @@ want to suppress the banner text at the beginning of the game but keep
 the information available in response to the VERSION command, you can do
 it this way:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The display banner rule is not listed in the startup rulebook.\n`)"><span class="sym">⧉</span></button><div class="codeline">The display banner rule is not listed in the startup rulebook.</div>
+<div class="codeblock"><div class="codeline">The display banner rule is not listed in the startup rulebook.</div>
 </div>
 
 <p>This will eliminate the opening banner but leave the version
@@ -1557,7 +1557,7 @@ be for Inform to respond with something like, “Comment noted.”
 Fortunately, this is easy to fix. Copy the following code into your
   game:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Commenting is an action out of world applying to one topic.\nUnderstand &quot;* [text]&quot; as commenting.\n\nCarry out commenting:\n\tsay &quot;Comment noted.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">Commenting is an action out of world applying to one topic.</div>
+<div class="codeblock"><div class="codeline">Commenting is an action out of world applying to one topic.</div>
 <div class="codeline">Understand "* [text]" as commenting.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">Carry out commenting:</div>
@@ -1571,7 +1571,7 @@ example doesn’t match the asterisk character. To allow the tester to use
 asterisks, as shown above, we would need to edit the code in the example
 slightly, like this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`After reading a command (this is the ignore beta-comments rule): \n\tif the player&apos;s command matches the regular expression &quot;^\p&quot; or the player&apos;s command matches the regular expression &quot;^\*&quot;: \n\t\tsay &quot;(Noted.)&quot;; \n\t\treject the player&apos;s command.\n`)"><span class="sym">⧉</span></button><div class="codeline">After reading a command (this is the ignore beta-comments rule): </div>
+<div class="codeblock"><div class="codeline">After reading a command (this is the ignore beta-comments rule): </div>
 <div class="codeline">&ensp;&ensp;&ensp;if the player's command matches the regular expression "^\p" or the player's command matches the regular expression "^\*": </div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say "(Noted.)"; </div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;reject the player's command.</div>
@@ -1649,7 +1649,7 @@ section, secure in the knowledge that it will be available only to you
 player character is a numerical value that changes during the game, and
 you want to keep an eye on it, do this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Section - Not for Release\n\nEvery turn:\n\tsay &quot;The hunger of the player is now [hunger of the player].&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">Section - Not for Release</div>
+<div class="codeblock"><div class="codeline">Section - Not for Release</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">Every turn:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "The hunger of the player is now [hunger of the player]."</div>
@@ -1668,7 +1668,7 @@ running.</p>
 a series of commands (see  <a href="../WI_2.html#section_8">WI 2.8: the TEST command</a>). To start with, define the series of commands you
   want to use in your game, like this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Test me with &quot;open suitcase / unlock suitcase with rusty key / open suitcase / search suitcase / take dynamite / light match / light dynamite with match / z / z / z&quot;.\n`)"><span class="sym">⧉</span></button><div class="codeline">Test me with "open suitcase / unlock suitcase with rusty key / open suitcase / search suitcase / take dynamite / light match / light dynamite with match / z / z / z".</div>
+<div class="codeblock"><div class="codeline">Test me with "open suitcase / unlock suitcase with rusty key / open suitcase / search suitcase / take dynamite / light match / light dynamite with match / z / z / z".</div>
 </div>
 
 <p>After compiling your game, when you type TEST ME the game will
@@ -1680,7 +1680,7 @@ necessary. You could just as easily do it this way, writing two or more
 separate tests and then, if you like, writing a TEST ME command that
 nests some or all of the other tests:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Test suitcase with &quot;open suitcase / unlock suitcase with rusty key / open suitcase / search suitcase&quot;.\nTest dynamite with &quot;take dynamite / light match / light dynamite with match / z / z / z&quot;.\nTest me with &quot;test suitcase / test dynamite&quot;.\n\n`)"><span class="sym">⧉</span></button><div class="codeline">Test suitcase with "open suitcase / unlock suitcase with rusty key / open suitcase / search suitcase".</div>
+<div class="codeblock"><div class="codeline">Test suitcase with "open suitcase / unlock suitcase with rusty key / open suitcase / search suitcase".</div>
 <div class="codeline">Test dynamite with "take dynamite / light match / light dynamite with match / z / z / z".</div>
 <div class="codeline">Test me with "test suitcase / test dynamite".</div>
     
@@ -1707,7 +1707,7 @@ form of a “say” statement) prints a text output to the screen. You can
 put whatever you want in a print statement. For instance, you could do
 something like this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`To demolish the dungeon:\n\tsay &quot;Now entering the dungeon-demolishing code.&quot;;\n\t[other lines of code would go here...]\n`)"><span class="sym">⧉</span></button><div class="codeline">To demolish the dungeon:</div>
+<div class="codeblock"><div class="codeline">To demolish the dungeon:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "Now entering the dungeon-demolishing code.";</div>
 <div class="codeline">&ensp;&ensp;&ensp;[other lines of code would go here&hellip;]</div>
 </div>
@@ -1725,7 +1725,7 @@ that the player is able to demolish the dungeon even while not carrying
 the detonator. In that case, you might want to check the player’s
 inventory while printing out your debugging message:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`To demolish the dungeon:\n\tsay &quot;Now entering the dungeon-demolishing code. The player is currently carrying [a list of things carried by the player].&quot;;\n\t[other lines of code would go here...]\n`)"><span class="sym">⧉</span></button><div class="codeline">To demolish the dungeon:</div>
+<div class="codeblock"><div class="codeline">To demolish the dungeon:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "Now entering the dungeon-demolishing code. The player is currently carrying [a list of things carried by the player].";</div>
 <div class="codeline">&ensp;&ensp;&ensp;[other lines of code would go here&hellip;]</div>
 </div>
@@ -1739,7 +1739,7 @@ since we’re on the topic of debugging, here’s how to do it. First, add
 the following lines to your game, entering them carefully (the spaces
 are important):</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Use inline debugging.\n\nUse inline debugging translates as (- Constant INLINE_DEBUG; -)\n\t\nTo #if utilizing inline debugging:\n\t(- #ifdef INLINE_DEBUG; -)\n\t\nTo #end if:\n\t(- #endif; -)\n\t\nTo debug (T - a text):\n\t#if utilizing inline debugging;\n\tsay T;\n\t#end if.\n`)"><span class="sym">⧉</span></button><div class="codeline">Use inline debugging.</div>
+<div class="codeblock"><div class="codeline">Use inline debugging.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">Use inline debugging translates as (- Constant INLINE_DEBUG; -)</div>
 <div class="codeline">&ensp;&ensp;&ensp;</div>
@@ -1760,12 +1760,12 @@ are important):</p>
 <p>Having done this, you can now write any debugging print statements
 that you add to your game’s code like this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`\tdebug “--Now entering the dungeon-demolishing code. The player is currently carrying [a list of things carried by the player].]&quot;;\n`)"><span class="sym">⧉</span></button><div class="codeline">&ensp;&ensp;&ensp;debug “--Now entering the dungeon-demolishing code. The player is currently carrying [a list of things carried by the player].]";</div>
+<div class="codeblock"><div class="codeline">&ensp;&ensp;&ensp;debug “--Now entering the dungeon-demolishing code. The player is currently carrying [a list of things carried by the player].]";</div>
 </div>
 <p>The lines beginning with # can be used to do other things besides
 saying texts, though this is probably less useful. For instance:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of jumping:\n\tsay &quot;You jumped!&quot;;\n\t#if utilizing inline debugging;\n\tnow the player carries the rutabaga;\n\t#end if.\n`)"><span class="sym">⧉</span></button><div class="codeline">Instead of jumping:</div>
+<div class="codeblock"><div class="codeline">Instead of jumping:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "You jumped!";</div>
 <div class="codeline">&ensp;&ensp;&ensp;#if utilizing inline debugging;</div>
 <div class="codeline">&ensp;&ensp;&ensp;now the player carries the rutabaga;</div>
@@ -1896,7 +1896,7 @@ the MacOS tends to want to hide this Library folder from users. If you
 can’t find it, open a Terminal window. Type this line (carefully) and
 hit Return:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`chflags nohidden ~/Library/`)"><span class="sym">⧉</span></button>
+<div class="codeblock">
   <div class="codeline">chflags nohidden ~/Library/</div>
 </div>
 
@@ -1909,7 +1909,7 @@ described earlier.</p>
 game is easy. Near the top of your source code, just below the name of
 the game and the author byline, enter a line like this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Include Notepad by Jim Aikin.\n`)"><span class="sym">⧉</span></button><div class="codeline">Include Notepad by Jim Aikin.</div>
+<div class="codeblock"><div class="codeline">Include Notepad by Jim Aikin.</div>
 </div>
 <p>This format is required: You have to give the name of the author, and
 you can’t put a comma after the name of the extension.</p>

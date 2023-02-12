@@ -1,5 +1,6 @@
 require 'ostruct'
 require 'fileutils'
+require 'erubi'
 
 module I7
   class Template

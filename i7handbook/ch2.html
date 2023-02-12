@@ -76,7 +76,7 @@ especially not when writing your first game.</p>
 <p>Every Inform game has to have at least one room. Creating a room is
 easy; you do it like this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Forest Path is a room.\n`)"><span class="sym">⧉</span></button><div class="codeline">The Forest Path is a room.</div>
+<div class="codeblock"><div class="codeline">The Forest Path is a room.</div>
 </div>
 
 <p>This
@@ -94,7 +94,7 @@ Forest Path will appear in the game as Forest Path. You can override
 this if you want to, though, using the <strong>printed name</strong>
 property, like this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The printed name of the Forest Path is “The Forest Path”.\n`)"><span class="sym">⧉</span></button><div class="codeline">The printed name of the Forest Path is “The Forest Path”.</div>
+<div class="codeblock"><div class="codeline">The printed name of the Forest Path is “The Forest Path”.</div>
 </div>
 <p>Notice the punctuation in that sentence: The period is
 <em>outside</em> the quotation mark, not inside. This is important. When
@@ -110,7 +110,7 @@ The description is text to be printed out, so you write it in
 double-quotes, like this, putting the description immediately after the
 sentence in which we created the room:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Forest Path is a room. “Tall old trees surround you.”\n`)"><span class="sym">⧉</span></button><div class="codeline">Forest Path is a room. “Tall old trees surround you.”</div>
+<div class="codeblock"><div class="codeline">Forest Path is a room. “Tall old trees surround you.”</div>
 </div>
 <p>The first sentence creates a room called Forest Path. The second
 sentence, in quotes, is the description of the room. If you put the
@@ -124,12 +124,12 @@ other objects, as you’ll learn in the next chapter.)</p>
 room and the description, however, you need to tell Inform what you’re
 doing. This won’t work:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Forest Path is a room. The printed name of Forest Path is &quot;The Forest Path.&quot; &quot;Tall old trees surround you.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">Forest Path is a room. The printed name of Forest Path is "The Forest Path." "Tall old trees surround you."</div>
+<div class="codeblock"><div class="codeline">Forest Path is a room. The printed name of Forest Path is "The Forest Path." "Tall old trees surround you."</div>
 </div>
 
 <p>Instead, you need to do it this way:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Forest Path is a room. The printed name of Forest Path is &quot;The Forest Path.&quot; The description is &quot;Tall old trees surround you.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">Forest Path is a room. The printed name of Forest Path is "The Forest Path." The description is "Tall old trees surround you."</div>
+<div class="codeblock"><div class="codeline">Forest Path is a room. The printed name of Forest Path is "The Forest Path." The description is "Tall old trees surround you."</div>
 </div>
 
 <p>A room description can be as long or short as you like. It always has
@@ -270,7 +270,7 @@ them, and we want them to behave in similar ways. For instance, if a
 puzzle involves spelling words with alphabet blocks, we might do
 this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`An alphabet block is a kind of thing.\n`)"><span class="sym">⧉</span></button><div class="codeline">An alphabet block is a kind of thing.</div>
+<div class="codeblock"><div class="codeline">An alphabet block is a kind of thing.</div>
 </div>
 <p>After writing this, we could write rules that would apply to all
 alphabet blocks, and Inform would know what we were talking about. A
@@ -278,7 +278,7 @@ trap that beginning Inform authors sometimes fall into is to use the
 word “kind” in the casual way that an English speaker would use it. For
 example:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`A leopard is a kind of animal.\n`)"><span class="sym">⧉</span></button><div class="codeline">A leopard is a kind of animal.</div>
+<div class="codeblock"><div class="codeline">A leopard is a kind of animal.</div>
 </div>
 <p>Inform knows what an animal is, so this sentence will compile. But
 oddly enough, the sentence doesn’t create an object called a leopard. It
@@ -288,7 +288,7 @@ and a leaping leopard (or whatever), and that you plan to write some
 code that will be used by all of the objects of the leopard kind. If you
 want to create only one actual leopard, don’t use the word “kind”:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`A leopard is an animal.\n`)"><span class="sym">⧉</span></button><div class="codeline">A leopard is an animal.</div>
+<div class="codeblock"><div class="codeline">A leopard is an animal.</div>
 </div>
 <p>The first type of object we’re going to meet in this book is scenery.
 To make matters a little more confusing, however, the word “scenery” in
@@ -314,7 +314,7 @@ description when you wrote it, so be sure to do so.</p>
 
 <p>We can add scenery to our forest path like this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Forest Path is a room. “Tall old trees surround you.”\n\nThe tall old trees are scenery in the Forest Path. The description is “Ancient oaks stretch out their heavy branches overhead, blocking the sun.”\n`)"><span class="sym">⧉</span></button><div class="codeline">The Forest Path is a room. “Tall old trees surround you.”</div>
+<div class="codeblock"><div class="codeline">The Forest Path is a room. “Tall old trees surround you.”</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">The tall old trees are scenery in the Forest Path. The description is “Ancient oaks stretch out their heavy branches overhead, blocking the sun.”</div>
 </div>
@@ -323,7 +323,7 @@ description when you wrote it, so be sure to do so.</p>
 that adds detail to the scene. Notice that here I’ve started the
 sentence by saying:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The description is [… and so on …]\n`)"><span class="sym">⧉</span></button><div class="codeline">The description is [… and so on …]</div>
+<div class="codeblock"><div class="codeline">The description is [… and so on …]</div>
 </div>
 
 <p>The phrase “The description is” is optional with scenery and rooms,
@@ -334,7 +334,7 @@ the very next sentence after you’ve created the scenery object. The code
 below works exactly like what was shown above &ndash; but only with scenery,
 not with ordinary things.</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The tall old trees are scenery in the Forest Path. “Ancient oaks stretch out their heavy branches overhead, blocking the sun.”`)"><span class="sym">⧉</span></button><div class="codeline">The tall old trees are scenery in the Forest Path. “Ancient oaks stretch out their heavy branches overhead, blocking the sun.”</div>
+<div class="codeblock"><div class="codeline">The tall old trees are scenery in the Forest Path. “Ancient oaks stretch out their heavy branches overhead, blocking the sun.”</div>
 </div>
 
 <h4 id="the-names-of-things">The Names of Things</h4>
@@ -370,7 +370,7 @@ trees”. The second method is easier. Inform knows that when things are
 created using the word “some”, they’re plural-named. When we put it all
 together, the trees will look like this in our source code:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Some tall old trees are scenery in the Forest Path. &quot;Ancient oaks stretch out their heavy branches overhead, blocking the sun.&quot;\nUnderstand &quot;ancient&quot;, &quot;oaks&quot;, &quot;heavy&quot;, &quot;branches&quot;, &quot;branch&quot;, and &quot;tree&quot; as the tall old trees.`)"><span class="sym">⧉</span></button>
+<div class="codeblock">
 <div class="codeline">Some tall old trees are scenery in the Forest Path. "Ancient oaks stretch out their heavy branches overhead, blocking the sun."</div>
 <div class="codeline">Understand "ancient", "oaks", "heavy", "branches", "branch", and "tree" as the tall old trees.</div>
 </div>
@@ -389,7 +389,7 @@ To avoid this, we need to create the sand using “the”, not “some” &ndash
 then we need to tell Inform to refer to the sand as “some sand” when it
 needs to construct a sentence, not as “a sand”. Here’s how to do it:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The sand is scenery in the Beach. The indefinite article of the sand is &quot;some&quot;.\n`)"><span class="sym">⧉</span></button><div class="codeline">The sand is scenery in the Beach. The indefinite article of the sand is "some".</div>
+<div class="codeblock"><div class="codeline">The sand is scenery in the Beach. The indefinite article of the sand is "some".</div>
 </div>
 
 <p>The term “indefinite article” refers, in English, to the words “a”
@@ -436,7 +436,7 @@ you can’t very well climb several trees at once). By default, this will
 <p>There’s nothing wrong with this output, except that it’s boring. We
 can make it more interesting using an Instead rule:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of climbing the tall old trees:\n\tsay “Vicious flocks of sparrows and wrens dart down at you and peck at you with their sharp little beaks, driving you back.”\n`)"><span class="sym">⧉</span></button><div class="codeline">Instead of climbing the tall old trees:</div>
+<div class="codeblock"><div class="codeline">Instead of climbing the tall old trees:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say “Vicious flocks of sparrows and wrens dart down at you and peck at you with their sharp little beaks, driving you back.”</div>
 </div>
 
@@ -492,7 +492,7 @@ this kind of output:</p>
 room. A better approach is to create a single scenery object that stands
 in for all of the things in the room that aren’t important:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Some fixtures are scenery in the Bathroom. Understand &quot;sink&quot;, &quot;toilet&quot;, &quot;faucet&quot;, &quot;mirror&quot;, &quot;cabinet&quot;, &quot;tub&quot;, &quot;basin&quot;, &quot;shower&quot;, &quot;towel&quot;, &quot;bath&quot;, and &quot;mat&quot; as the fixtures. The description is &quot;The bathroom fixtures are not very interesting.&quot;\n\nInstead of doing anything other than examining with the fixtures:\n\tsay &quot;You have more important things to do right now than fiddle with the bathroom fixtures.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">Some fixtures are scenery in the Bathroom. Understand "sink", "toilet", "faucet", "mirror", "cabinet", "tub", "basin", "shower", "towel", "bath", and "mat" as the fixtures. The description is "The bathroom fixtures are not very interesting."</div>
+<div class="codeblock"><div class="codeline">Some fixtures are scenery in the Bathroom. Understand "sink", "toilet", "faucet", "mirror", "cabinet", "tub", "basin", "shower", "towel", "bath", and "mat" as the fixtures. The description is "The bathroom fixtures are not very interesting."</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">Instead of doing anything other than examining with the fixtures:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "You have more important things to do right now than fiddle with the bathroom fixtures."</div>
@@ -516,7 +516,7 @@ way to handle this situation, but we can easily create one.</p>
 <p>We’ll start by showing the problem, and then show how to fix it. Here
 is our first attempt at source code:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Forest Path is a room. &quot;Tall old trees surround you. The path continues north and south. In the distance to the west, off among the trees, you can see a crumbling stone wall.&quot;\n\nThe crumbling stone wall is scenery in the Forest Path. &quot;The wall is ancient and moss-covered.&quot;\nUnderstand &quot;ancient&quot; and &quot;moss-covered&quot; as\nthe stone wall.\n`)"><span class="sym">⧉</span></button><div class="codeline">The Forest Path is a room. "Tall old trees surround you. The path continues north and south. In the distance to the west, off among the trees, you can see a crumbling stone wall."</div>
+<div class="codeblock"><div class="codeline">The Forest Path is a room. "Tall old trees surround you. The path continues north and south. In the distance to the west, off among the trees, you can see a crumbling stone wall."</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">The crumbling stone wall is scenery in the Forest Path. "The wall is ancient and moss-covered."</div>
 <div class="codeline">Understand "ancient" and "moss-covered" as the stone wall.</div>
@@ -552,7 +552,7 @@ create an either/or property called distant/near. Every object in the
 model world will be either distant or near, but all of them will be near
 unless we say otherwise:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`A thing can be distant or near. A thing is usually near.\n\nInstead of doing anything other than examining to a distant thing:\n\tsay &quot;[The noun] [are] too far away.&quot;\n\nThe crumbling stone wall is scenery in the Forest Path. &quot;The wall is ancient and moss-covered.&quot; Understand &quot;ancient&quot; and &quot;moss-covered&quot; as the stone wall. The stone wall is distant.\n`)"><span class="sym">⧉</span></button><div class="codeline">A thing can be distant or near. A thing is usually near.</div>
+<div class="codeblock"><div class="codeline">A thing can be distant or near. A thing is usually near.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">Instead of doing anything other than examining to a distant thing:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "[The noun] [are] too far away."</div>
@@ -581,7 +581,7 @@ noun</strong>.</p>
 STONE WALL. In this command, the stone wall is the second noun. To
   handle this, you can write:</p>
                                    
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of doing anything when the second noun is a distant thing:\n\tsay &quot;[The second noun] [are] too far away.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">Instead of doing anything when the second noun is a distant thing:</div>
+<div class="codeblock"><div class="codeline">Instead of doing anything when the second noun is a distant thing:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "[The second noun] [are] too far away."</div>
 </div>
 <p>This code won’t work well if the command involves, for instance,
@@ -597,7 +597,7 @@ After creating an action called quizzing about, as explained in that
 section of Chapter 5, we could allow distant things to be quizzed about
 like this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of doing anything other than quizzing someone about something when the second noun is a distant thing:\n\tsay &quot;[The second noun] [are] too far away.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">Instead of doing anything other than quizzing someone about something when the second noun is a distant thing:</div>
+<div class="codeblock"><div class="codeline">Instead of doing anything other than quizzing someone about something when the second noun is a distant thing:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "[The second noun] [are] too far away."</div>
 </div>
 <p>If you’re reading closely, you may wonder why the code above uses
@@ -638,7 +638,7 @@ has not been upgraded for 6L38 compatibility. To learn how to update it
 <p>Once you’ve edited Far Away, it will do what we’ve been discussing in
 this section. Just put</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Include far Away by Jon Ingold.\n`)"><span class="sym">⧉</span></button><div class="codeline">Include far Away by Jon Ingold.</div>
+<div class="codeblock"><div class="codeline">Include far Away by Jon Ingold.</div>
 </div>
 <p>near the top of your source code and then write a sentence saying
 that the crumbling stone wall is distant. With the extension in place,
@@ -687,7 +687,7 @@ and suggest ways to work through problems that may come up.</p>
 <p>Once you’ve created your first room, you can create more rooms simply
 by describing the map to Inform, like this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Forest Path is a room. “Tall old trees surround you. The path continues north and south from here.”\n\nCanyon View is north of Forest Path. “The path from the south ends here at the top of a cliff, from which you have a spectacular view of a canyon.”\n\nHaunted Grove is south of Forest Path. “The trees press close around you, moaning faintly and waving their branches in an unsettling way. A path leads north.”\n`)"><span class="sym">⧉</span></button><div class="codeline">Forest Path is a room. “Tall old trees surround you. The path continues north and south from here.”</div>
+<div class="codeblock"><div class="codeline">Forest Path is a room. “Tall old trees surround you. The path continues north and south from here.”</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">Canyon View is north of Forest Path. “The path from the south ends here at the top of a cliff, from which you have a spectacular view of a canyon.”</div>
 <div class="codeline">&thinsp;</div>
@@ -733,19 +733,19 @@ problem in naming rooms and defining map connections: What if you have a
 room called Hut, and now you want to name a room South Of The Hut? This
 won’t work:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`South Of The Hut is south of the Hut. [Error!]\n`)"><span class="sym">⧉</span></button><div class="codeline">South Of The Hut is south of the Hut. [Error!]</div>
+<div class="codeblock"><div class="codeline">South Of The Hut is south of the Hut. [Error!]</div>
 </div>
 
 <p>Nor will this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`South Of The Hut is a room. South Of The Hut is south of the Hut. [Error!]\n`)"><span class="sym">⧉</span></button><div class="codeline">South Of The Hut is a room. South Of The Hut is south of the Hut. [Error!]</div>
+<div class="codeblock"><div class="codeline">South Of The Hut is a room. South Of The Hut is south of the Hut. [Error!]</div>
 </div>
 
 <p>Either of these would work if Inform noticed the way we’re using
 capital letters, but it doesn’t. The solution is to use the word
 “called”:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`South of the Hut is a room called South Of The Hut.\n`)"><span class="sym">⧉</span></button><div class="codeline">South of the Hut is a room called South Of The Hut.</div>
+<div class="codeblock"><div class="codeline">South of the Hut is a room called South Of The Hut.</div>
 </div>
 
 <p>This sentence may look as if it was written by Gertrude Stein. (An
@@ -763,12 +763,12 @@ Inform already knows there’s a room called the Hut.</p>
 Inside the Stone House. Inform understands “inside” and “outside” (or
 “in” and “out”) as directions for travel. So we can’t do this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Inside the Stone House is inside from Haunted Grove. [Error!]\n`)"><span class="sym">⧉</span></button><div class="codeline">Inside the Stone House is inside from Haunted Grove. [Error!]</div>
+<div class="codeblock"><div class="codeline">Inside the Stone House is inside from Haunted Grove. [Error!]</div>
 </div>
 
 <p>Here’s how to do it:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Haunted Grove is south of Forest Path. &quot;The trees press close around you, moaning faintly and waving their branches in an unsettling way. A path leads north, and a house built of stone stands here.&quot;\n\nInside from Haunted Grove is a room called Inside the Stone House. The description of Inside the Stone House is &quot;A small, dimly lit room. A doorway to the north leads deeper into the house.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">Haunted Grove is south of Forest Path. "The trees press close around you, moaning faintly and waving their branches in an unsettling way. A path leads north, and a house built of stone stands here."</div>
+<div class="codeblock"><div class="codeline">Haunted Grove is south of Forest Path. "The trees press close around you, moaning faintly and waving their branches in an unsettling way. A path leads north, and a house built of stone stands here."</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">Inside from Haunted Grove is a room called Inside the Stone House. The description of Inside the Stone House is "A small, dimly lit room. A doorway to the north leads deeper into the house."</div>
 </div>
@@ -810,7 +810,7 @@ map directions in your source (unless the direction is the first word in
 a sentence). Below are three code examples. The first two work, and
 produce exactly the same map; the third is a bug, and won’t compile.</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Lounge is a room.\nThe Dining Room is north of the Lounge.\n\nThe Lounge is a room.\nNorth of the Lounge is the Dining Room.\n\nThe Lounge is a room.\nThe Dining Room is North of the Lounge. [Error!]\n`)"><span class="sym">⧉</span></button><div class="codeline">The Lounge is a room.</div>
+<div class="codeblock"><div class="codeline">The Lounge is a room.</div>
 <div class="codeline">The Dining Room is north of the Lounge.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">The Lounge is a room.</div>
@@ -851,7 +851,7 @@ a couple of distant scenery objects. We’ll give them names that start
 with “view-of-” so that Inform won’t confuse them with the real objects
 in other locations.</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`A thing can be distant or near. A thing is usually near.\n\nInstead of doing anything other than examining to a distant thing:\n\tsay &quot;[The noun] [are] too far away.&quot;\n\nThe Forest Path is a room. &quot;Tall old trees surround you. The path continues north and south. In the distance to the west, off among the trees, you can see a low stone wall.&quot;\n\nThe winding path is scenery in Forest Path. &quot;The path meanders from north to south.&quot;\n\nThe view-of-wall is privately-named scenery in the Forest Path. &quot;The low stone wall appears to be ancient and moss-covered.&quot; Understand &quot;wall&quot;, &quot;low&quot;, &quot;stone&quot;, &quot;ancient&quot; and &quot;moss-covered&quot; as the view-of-wall. The view-of-wall is distant. The printed name of the view-of-wall is &quot;stone wall&quot;.\n\nBy the Wall is west of the Forest Path. &quot;A crumbling stone wall runs from north to south here, blocking the way to the west. To the east, among the trees, you can see a path.&quot;\n\nThe crumbling stone wall is scenery in By the Wall. &quot;The wall is ancient and moss-covered.&quot; Understand &quot;ancient&quot; and &quot;moss-covered&quot; as the stone wall.\n\nThe view-of-path is privately-named scenery in By the Wall. &quot;The path is only faintly visible from here, meandering among the trees to the east.&quot; The view-of-path is distant. Understand &quot;meandering&quot;, &quot;path&quot;, and &quot;trees&quot; as the view-of-path. The printed name of the view-of-path is &quot;path among the trees&quot;.\n`)"><span class="sym">⧉</span></button><div class="codeline">A thing can be distant or near. A thing is usually near.</div>
+<div class="codeblock"><div class="codeline">A thing can be distant or near. A thing is usually near.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">Instead of doing anything other than examining to a distant thing:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "[The noun] [are] too far away."</div>
@@ -871,7 +871,7 @@ in other locations.</p>
 
 <p>Next, we’ll allow the player to look in a direction:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Direction-looking is an action applying to one visible thing and requiring light. Understand &quot;look [direction]&quot; as direction-looking. \n\nCarry out direction-looking:\n\tsay &quot;You see nothing unusual in that direction.&quot; \n`)"><span class="sym">⧉</span></button><div class="codeline">Direction-looking is an action applying to one visible thing and requiring light. Understand "look [direction]" as direction-looking. </div>
+<div class="codeblock"><div class="codeline">Direction-looking is an action applying to one visible thing and requiring light. Understand "look [direction]" as direction-looking. </div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">Carry out direction-looking:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "You see nothing unusual in that direction." </div>
@@ -880,7 +880,7 @@ in other locations.</p>
 <p>Next, we’ll create a response when the player looks in a direction
 where we’ve placed some interesting scenery:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of direction-looking west in the Forest Path:\n\tsay &quot;There&apos;s a low stone wall off in the distance to the west.&quot;\nInstead of direction-looking east in By the Wall:\n\tsay &quot;To the east, a path meanders from north to south among the trees.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">Instead of direction-looking west in the Forest Path:</div>
+<div class="codeblock"><div class="codeline">Instead of direction-looking west in the Forest Path:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "There's a low stone wall off in the distance to the west."</div>
 <div class="codeline">Instead of direction-looking east in By the Wall:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "To the east, a path meanders from north to south among the trees."</div>
@@ -891,13 +891,13 @@ location? Ideally, we’d like it to be mentioned when the player looks in
 that direction. This requires a few more steps. Near the top of the code
 for the game, we do this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`A room has some text called the containing-name. The containing-name of a room is usually &quot;&quot;.\n`)"><span class="sym">⧉</span></button><div class="codeline">A room has some text called the containing-name. The containing-name of a room is usually "".</div>
+<div class="codeblock"><div class="codeline">A room has some text called the containing-name. The containing-name of a room is usually "".</div>
 </div>
 
 <p>To test the functionality we’re going to add, we’ll need an object
 large enough to be visible from a distance:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`A thing can be huge. A thing is usually not huge.\n\nThe beach ball is in Forest Path. The beach ball is huge. The description is &quot;Red and white.&quot; Understand &quot;red&quot; and &quot;white&quot; as the beach ball.\n`)"><span class="sym">⧉</span></button><div class="codeline">A thing can be huge. A thing is usually not huge.</div>
+<div class="codeblock"><div class="codeline">A thing can be huge. A thing is usually not huge.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">The beach ball is in Forest Path. The beach ball is huge. The description is "Red and white." Understand "red" and "white" as the beach ball.</div>
 </div>
@@ -905,7 +905,7 @@ large enough to be visible from a distance:</p>
 <p>Next, we’ll give our outdoor rooms containing-names, and add a
 function that will use this property:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The containing-name of the Forest Path is &quot;Lying on the path&quot;.\nThe containing-name of By the Wall is &quot;Not far from the wall&quot;.\n\nTo scrutinize (R - a room):\n\tlet L be a list of things;\n\trepeat with item running through things in R:\n\t\tif item is huge:\n\t\t\tadd item to L;\n\tif the number of entries in L &gt; 0:\n\t\tsay &quot; [The containing-name of R] you can see &quot;;\n\t\tsay &quot;[L with indefinite articles].&quot;;\n\totherwise:\n\t\tsay &quot;[line break]&quot;. \n`)"><span class="sym">⧉</span></button><div class="codeline">The containing-name of the Forest Path is "Lying on the path".</div>
+<div class="codeblock"><div class="codeline">The containing-name of the Forest Path is "Lying on the path".</div>
 <div class="codeline">The containing-name of By the Wall is "Not far from the wall".</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">To scrutinize (R - a room):</div>
@@ -923,7 +923,7 @@ function that will use this property:</p>
 <p>The final step is to revise the code for direction-looking so as to
 take advantage of the scrutinizing function:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of direction-looking west in the Forest Path:\n\tsay &quot;There&apos;s a low stone wall off in the distance to the west.[run paragraph on]&quot;;\n\tscrutinize By the Wall.\nInstead of direction-looking east in By the Wall:\n\tsay &quot;To the east, a path meanders from north to south among the trees.[run paragraph on]&quot;;\n\tscrutinize the Forest Path.\n`)"><span class="sym">⧉</span></button><div class="codeline">Instead of direction-looking west in the Forest Path:</div>
+<div class="codeblock"><div class="codeline">Instead of direction-looking west in the Forest Path:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "There's a low stone wall off in the distance to the west.[run paragraph on]";</div>
 <div class="codeline">&ensp;&ensp;&ensp;scrutinize By the Wall.</div>
 <div class="codeline">Instead of direction-looking east in By the Wall:</div>
@@ -953,7 +953,7 @@ which is part of the “Continuous Spaces and the Outdoors” page in the
 go into it here. The solution begins with some code that looks something
 like this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Great Outdoors is a region. The Forest Path and By the Wall are in the Great Outdoors.\n\nAfter deciding the scope of the player when the player is in the Great Outdoors:\n\trepeat with the way running through directions:\n\t\tlet next-room be the room the way from the location;\n\t\tif the next-room is a room:\n\t\t\tplace the next-room in scope.\n`)"><span class="sym">⧉</span></button><div class="codeline">The Great Outdoors is a region. The Forest Path and By the Wall are in the Great Outdoors.</div>
+<div class="codeblock"><div class="codeline">The Great Outdoors is a region. The Forest Path and By the Wall are in the Great Outdoors.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">After deciding the scope of the player when the player is in the Great Outdoors:</div>
 <div class="codeline">&ensp;&ensp;&ensp;repeat with the way running through directions:</div>
@@ -1008,7 +1008,7 @@ at.</p>
 the room that is its interior. This might easily happen with a one-room
 building such as a barn or hut. This won’t work:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Farmyard is a room. &quot;A muddy farmyard. A little red barn stands to the north.&quot;\n\nThe little red barn is scenery in the Farmyard. The description is &quot;The barn is freshly painted a cheerful bright red.&quot;\n\nLittle Red Barn is north of the Farmyard. &quot;In the barn you can see some stalls and some hay.&quot; [Error!]\n`)"><span class="sym">⧉</span></button><div class="codeline">The Farmyard is a room. "A muddy farmyard. A little red barn stands to the north."</div>
+<div class="codeblock"><div class="codeline">The Farmyard is a room. "A muddy farmyard. A little red barn stands to the north."</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">The little red barn is scenery in the Farmyard. The description is "The barn is freshly painted a cheerful bright red."</div>
 <div class="codeline">&thinsp;</div>
@@ -1019,7 +1019,7 @@ building such as a barn or hut. This won’t work:</p>
 things &ndash; a scenery object and then a room &ndash; using the same name. Here’s
 how to solve the problem:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The barn-exterior is scenery in the Farmyard. The description is &quot;The barn is freshly painted a cheerful bright red.&quot; Understand &quot;little&quot;, &quot;red&quot;, and &quot;barn&quot; as the barn-exterior. The printed name of the barn-exterior is &quot;little red barn&quot;.\n`)"><span class="sym">⧉</span></button><div class="codeline">The barn-exterior is scenery in the Farmyard. The description is "The barn is freshly painted a cheerful bright red." Understand "little", "red", and "barn" as the barn-exterior. The printed name of the barn-exterior is "little red barn".</div>
+<div class="codeblock"><div class="codeline">The barn-exterior is scenery in the Farmyard. The description is "The barn is freshly painted a cheerful bright red." Understand "little", "red", and "barn" as the barn-exterior. The printed name of the barn-exterior is "little red barn".</div>
 </div>
 
 <p>Now the scenery object has its own name for code purposes,
@@ -1036,7 +1036,7 @@ it’s easy to fix. While we’re at it, we’ll allow the player to use IN as
 a command, when in the Farmyard, in order to enter the little red
 barn:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of entering the barn-exterior:\n\ttry going north.\nInstead of going inside in the Farmyard:\n\ttry going north.\n`)"><span class="sym">⧉</span></button><div class="codeline">Instead of entering the barn-exterior:</div>
+<div class="codeblock"><div class="codeline">Instead of entering the barn-exterior:</div>
   <div class="codeline">&ensp;&ensp;&ensp;try going north.</div>
   <div class="codeline">&thinsp;</div>
 <div class="codeline">Instead of going inside in the Farmyard:</div>
@@ -1064,7 +1064,7 @@ you create a door between them. After creating the rooms, create the
 door, and tell Inform about its directions with respect to the two
 rooms:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Entry Hall is a room.\nThe Billiard Room is a room.\nThe oak door is a door. The oak door is north of the Billiard Room and south of the Entry Hall.\n`)"><span class="sym">⧉</span></button><div class="codeline">The Entry Hall is a room.</div>
+<div class="codeblock"><div class="codeline">The Entry Hall is a room.</div>
 <div class="codeline">The Billiard Room is a room.</div>
 <div class="codeline">The oak door is a door. The oak door is north of the Billiard Room and south of the Entry Hall.</div>
 </div>
@@ -1073,7 +1073,7 @@ rooms:</p>
 that extra sentence telling Inform that the door is a door. The
 following will compile, but it’s an error:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Entry Hall is a room.\nThe Billiard Room is a room.\nThe oak door is north of the Billiard Room and south of the Entry Hall. [Error!]\n`)"><span class="sym">⧉</span></button><div class="codeline">The Entry Hall is a room.</div>
+<div class="codeblock"><div class="codeline">The Entry Hall is a room.</div>
 <div class="codeline">The Billiard Room is a room.</div>
 <div class="codeline">The oak door is north of the Billiard Room and south of the Entry Hall. [Error!]</div>
 </div>
@@ -1120,7 +1120,7 @@ probably wouldn’t be openable: You’d want it to be permanently open. The
 reason to make it a door is so that it will be visible in both of the
 rooms that it connects. For instance:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The wooden bridge is a scenery door. The wooden bridge is south of the Meadow and north of the Forest Path. The wooden bridge is open and not openable. The description is &quot;It&apos;s a handsome old bridge. Curiously, there&apos;s no creek running beneath it.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">The wooden bridge is a scenery door. The wooden bridge is south of the Meadow and north of the Forest Path. The wooden bridge is open and not openable. The description is "It's a handsome old bridge. Curiously, there's no creek running beneath it."</div>
+<div class="codeblock"><div class="codeline">The wooden bridge is a scenery door. The wooden bridge is south of the Meadow and north of the Forest Path. The wooden bridge is open and not openable. The description is "It's a handsome old bridge. Curiously, there's no creek running beneath it."</div>
 </div>
 
 <p>It’s handy that Inform understands the command CROSS BRIDGE. If you
@@ -1129,14 +1129,14 @@ a synonym for ENTER, so you don’t need to code it yourself. But if you
 create a ladder using the door kind, you’ll need to write an Instead
 rule to handle CLIMB LADDER:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of climbing the rickety ladder:\n\ttry entering the rickety ladder.\n`)"><span class="sym">⧉</span></button><div class="codeline">Instead of climbing the rickety ladder:</div>
+<div class="codeblock"><div class="codeline">Instead of climbing the rickety ladder:</div>
 <div class="codeline">&ensp;&ensp;&ensp;try entering the rickety ladder.</div>
 </div>
 
 <p>Inform doors are unusual in a couple of ways. First, a door can’t be
 moved. If you write a rule like this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`After throwing the brass lever:\n\tnow the weird door is in the Cellar.\n`)"><span class="sym">⧉</span></button><div class="codeline">After throwing the brass lever:</div>
+<div class="codeblock"><div class="codeline">After throwing the brass lever:</div>
 <div class="codeline">&ensp;&ensp;&ensp;now the weird door is in the Cellar.</div>
 </div>
 
@@ -1173,7 +1173,7 @@ more interesting.</p>
 friendly for the player. If the player carries the correct key, the door
 will be unlocked</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The oak door is north of the Billiard Room and south of the Entry Hall. The oak door is a door. The oak door is scenery. The oak door is lockable and locked. The brass key unlocks the oak door.\n\nBefore going through the oak door:\n\tif the oak door is closed and the oak door is locked:\n\t\tif the player carries the brass key:\n\t\t\tsay &quot;(first unlocking the oak door with the brass key, then opening the door)[paragraph break]&quot;;\n\t\t\tnow the oak door is unlocked;\n\t\t\tnow the oak door is open.\n\nThe player carries the brass key.`)"><span class="sym">⧉</span></button><div class="codeline">The oak door is north of the Billiard Room and south of the Entry Hall. The oak door is a door. The oak door is scenery. The oak door is lockable and locked. The brass key unlocks the oak door.</div>
+<div class="codeblock"><div class="codeline">The oak door is north of the Billiard Room and south of the Entry Hall. The oak door is a door. The oak door is scenery. The oak door is lockable and locked. The brass key unlocks the oak door.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">Before going through the oak door:</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the oak door is closed and the oak door is locked:</div>
@@ -1219,7 +1219,7 @@ rather silly example. Let’s suppose we’ve already told Inform that the
 tiny key unlocks the gold amulet, but we also want to be able to use the
 banana as a key:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of unlocking the gold amulet with the banana:\n\tif the player does not carry the banana:\n\t\tsay &quot;You don&apos;t seem to be holding the banana.&quot;;\n\totherwise if the amulet is not locked:\n\t\tsay &quot;The gold amulet doesn&apos;t seem to be locked.&quot;;\n\totherwise:\n\t\tnow the amulet is not locked;\n\t\tsay &quot;You unlock the gold amulet with the banana.&quot;\n\n`)"><span class="sym">⧉</span></button><div class="codeline">Instead of unlocking the gold amulet with the banana:</div>
+<div class="codeblock"><div class="codeline">Instead of unlocking the gold amulet with the banana:</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the player does not carry the banana:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say "You don't seem to be holding the banana.";</div>
 <div class="codeline">&ensp;&ensp;&ensp;otherwise if the amulet is not locked:</div>
@@ -1251,7 +1251,7 @@ will pretend not to exist until something happens in the game that
 causes it to be revealed. For instance, if the door is disguised as oak
 wall paneling, this would work:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Include Secret Doors by Andrew Owen.\n\nThe Billiard Room is a room. &quot;Hand-rubbed oak paneling adds a warm glow above the broad green felt surface of the billiard table.&quot;\n\nThe Small Windowless Room is a room. &quot;It smells dusty in here, as if the secret door hasn&apos;t been opened in ages.&quot;\n\nThe oak door is north of the Billiard Room and south of the Small Windowless Room. The oak door is a secret door. \n\nThe oak wall paneling is scenery in the Billiard Room. The description is &quot;Richly carved oak paneling covers the north wall[if the oak door is open]. One of the panels has been opened; it’s actually a door[otherwise if the oak door is revealed]. One of the panels has an unusually wide seam around it[end if].&quot; Understand &quot;carved&quot; and &quot;panel&quot; as the paneling.\n\nAfter examining the oak wall paneling for the first time:\n\tnow the oak door is revealed;\n\tsay &quot;One of the panels has an unusually wide seam around it. On closer inspection, the panel proves to be a door!&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">Include Secret Doors by Andrew Owen.</div>
+<div class="codeblock"><div class="codeline">Include Secret Doors by Andrew Owen.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">The Billiard Room is a room. "Hand-rubbed oak paneling adds a warm glow above the broad green felt surface of the billiard table."</div>
 <div class="codeline">&thinsp;</div>
@@ -1305,7 +1305,7 @@ thought this might make an interesting puzzle, so I wrote it up. The
 example below shows how to use an After rule to affect what happens when
 the player travels from one room to another:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Corridor is a room. &quot;The corridor stretches east and west from here. A massive stone door stands invitingly open to the north.&quot;\n\nThe Dank Cell is a room. &quot;This cramped chamber smells of mold, and other things that are a lot less pleasant than mold. You can hear rats scurrying behind the walls. A massive stone door to the south is the only visible exit ... using the term &apos;exit&apos; loosely, as the door [one of]has just slammed shut with a sound suggestive of finality and doom[or]is firmly shut[stopping].&quot;\n\nThe massive stone door is a door. The massive stone door is scenery. The massive stone door is north of the Corridor and south of the Dank Cell. The description is &quot;It&apos;s quite an imposing-looking stone door.&quot; The massive stone door is open, lockable, and locked.\n\nInstead of closing the massive stone door:\n\tif the massive stone door is open:\n\t\tsay &quot;...but it looks so inviting! Why not just step through it and see what&apos;s on the other side?&quot;;\n\totherwise:\n\t\tsay &quot;It seems already to have closed itself without your lifting a finger.&quot;\n\nAfter going north from the Corridor:\n\tnow the massive stone door is closed;\n\tsay &quot;As you step through the stone door, it swings shut with a terrible loud BOOM!&quot;;\n\tcontinue the action.\n`)"><span class="sym">⧉</span></button><div class="codeline">The Corridor is a room. "The corridor stretches east and west from here. A massive stone door stands invitingly open to the north."</div>
+<div class="codeblock"><div class="codeline">The Corridor is a room. "The corridor stretches east and west from here. A massive stone door stands invitingly open to the north."</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">The Dank Cell is a room. "This cramped chamber smells of mold, and other things that are a lot less pleasant than mold. You can hear rats scurrying behind the walls. A massive stone door to the south is the only visible exit &hellip; using the term 'exit' loosely, as the door [one of]has just slammed shut with a sound suggestive of finality and doom[or]is firmly shut[stopping]."</div>
 <div class="codeline">&thinsp;</div>
@@ -1349,7 +1349,7 @@ to create a puzzle in which the player will be magically whisked from
 one room to another by taking some other action. This is easy to do. For
 example:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of rubbing the magic lamp:\n\tsay &quot;You are engulfed in a cloud of sweet-smelling pink smoke! When you emerge, coughing, you find that your surroundings have changed.&quot;;\n\tnow the player is in the Harem.\n`)"><span class="sym">⧉</span></button><div class="codeline">Instead of rubbing the magic lamp:</div>
+<div class="codeblock"><div class="codeline">Instead of rubbing the magic lamp:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "You are engulfed in a cloud of sweet-smelling pink smoke! When you emerge, coughing, you find that your surroundings have changed.";</div>
 <div class="codeline">&ensp;&ensp;&ensp;now the player is in the Harem.</div>
 </div>
@@ -1370,7 +1370,7 @@ with respect to whether they’re open or closed. Since Inform doesn’t
 understand “climb through”, we’ll also create a new action to let the
 player use the window:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Lab is a room. &quot;Welcome to the Test Lab. Many devious tests are conducted here. There&apos;s a wide window in the north wall.&quot;\n\nThe Porch is a room. &quot;There&apos;s a wide window in the south wall.&quot;\n\nThe wide window is a door. The wide window is scenery. The wide window is north of the Lab and south of the Porch.\n\nClimbing through is an action applying to one thing. Understand &quot;climb through [something]&quot;, &quot;climb in [something]&quot;, &quot;climb out [something]&quot;, and &quot;climb out of [something]&quot; as climbing through.\n\nCheck climbing through:\n\tif the noun is not a door:\n\t\tsay &quot;You can&apos;t climb through [a noun]!&quot; instead;\n\totherwise:\n\t\ttry entering the noun instead.\n`)"><span class="sym">⧉</span></button><div class="codeline">The Lab is a room. "Welcome to the Test Lab. Many devious tests are conducted here. There's a wide window in the north wall."</div>
+<div class="codeblock"><div class="codeline">The Lab is a room. "Welcome to the Test Lab. Many devious tests are conducted here. There's a wide window in the north wall."</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">The Porch is a room. "There's a wide window in the south wall."</div>
 <div class="codeline">&thinsp;</div>
@@ -1392,7 +1392,7 @@ whatever is on the far side of the window, and add an Understand
 directive that will give the player two more ways to look through the
 window.</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of searching the wide window:\n\tif the location is the Porch:\n\t\tsay &quot;There seems to be a laboratory in there, but you can&apos;t make out any details.&quot;;\n\totherwise:\n\t\tsay &quot;Through the window you can see the porch, but the view isn&apos;t good enough for you to make out any details.&quot;\n\nUnderstand &quot;look out of [something]&quot; and &quot;look out [something]&quot; as searching.\n`)"><span class="sym">⧉</span></button><div class="codeline">Instead of searching the wide window:</div>
+<div class="codeblock"><div class="codeline">Instead of searching the wide window:</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the location is the Porch:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say "There seems to be a laboratory in there, but you can't make out any details.";</div>
 <div class="codeline">&ensp;&ensp;&ensp;otherwise:</div>
@@ -1423,7 +1423,7 @@ such as a field, being told “You can’t go that way” is unrealistic and
 rather silly. Fortunately, it’s easy to write more interesting
 replacement messages:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of going nowhere from Forest Path:\n\tsay &quot;You take a few steps into the forest, but deciding it might not be safe, you return to the path.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">Instead of going nowhere from Forest Path:</div>
+<div class="codeblock"><div class="codeline">Instead of going nowhere from Forest Path:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "You take a few steps into the forest, but deciding it might not be safe, you return to the path."</div>
 </div>
 
@@ -1438,7 +1438,7 @@ has succeeded … in going nowhere.</p>
 output in response to UP or DOWN, which is not so sensible. We might
 customize our “You can’t go that way” messages further like this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of going up in Forest Path:\n\tsay &quot;The trees have no branches low enough for you to reach them.&quot;\n\nInstead of going down in Forest Path:\n\tsay &quot;There are no gaping holes or open mineshafts in the vicinity.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">Instead of going up in Forest Path:</div>
+<div class="codeblock"><div class="codeline">Instead of going up in Forest Path:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "The trees have no branches low enough for you to reach them."</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">Instead of going down in Forest Path:</div>
@@ -1453,7 +1453,7 @@ Path, Canyon View, and Haunted Grove are all in a region called Forest
 Area, we can write Instead rules that will apply across the entire
 region:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of going nowhere from the Forest Area:\n\tsay &quot;You take a few steps into the forest, but deciding it might not be safe, you return to the path.&quot;\n\t\nInstead of going up in the Forest Area:\n\tsay &quot;The trees have no branches low enough for you to reach them.&quot;\n\t\nInstead of going down in the Forest Area:\n\tsay &quot;There are no gaping holes or open mineshafts in the vicinity.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">Instead of going nowhere from the Forest Area:</div>
+<div class="codeblock"><div class="codeline">Instead of going nowhere from the Forest Area:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "You take a few steps into the forest, but deciding it might not be safe, you return to the path."</div>
 <div class="codeline">&ensp;&ensp;&ensp;</div>
 <div class="codeline">Instead of going up in the Forest Area:</div>
@@ -1471,7 +1471,7 @@ But writing a custom message can be used to give the player an
 in-the-game clue. Following the code about the secret door in the Doors
 section, above, you could add something like this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Before going through the oak door when the oak door is unrevealed:\n\tsay &quot;You bump your nose on the oak paneling. Odd -- you had somehow absent-mindedly thought there ought to be a door there.&quot;;\n\trule succeeds.\n`)"><span class="sym">⧉</span></button><div class="codeline">Before going through the oak door when the oak door is unrevealed:</div>
+<div class="codeblock"><div class="codeline">Before going through the oak door when the oak door is unrevealed:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "You bump your nose on the oak paneling. Odd -- you had somehow absent-mindedly thought there ought to be a door there.";</div>
 <div class="codeline">&ensp;&ensp;&ensp;rule succeeds.</div>
 </div>
@@ -1483,7 +1483,7 @@ the secret door before it’s revealed.</p>
 
 <p>Let’s suppose we’ve created a room that’s described like this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Cellar is down from the Kitchen. &quot;The low ceiling of this little room is festooned with cobwebs, and the floor is dirt. A rough doorway leads east, and the stairs up to the kitchen are built into the north wall.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">The Cellar is down from the Kitchen. "The low ceiling of this little room is festooned with cobwebs, and the floor is dirt. A rough doorway leads east, and the stairs up to the kitchen are built into the north wall."</div>
+<div class="codeblock"><div class="codeline">The Cellar is down from the Kitchen. "The low ceiling of this little room is festooned with cobwebs, and the floor is dirt. A rough doorway leads east, and the stairs up to the kitchen are built into the north wall."</div>
 </div>
 
 <p>Because we’ve said the Cellar is down from the Kitchen, Inform
@@ -1493,7 +1493,7 @@ mentions that the stairs are to the north. If the player should try to
 go north, though, she’ll be told, “You can’t go that way.” This is not
 too friendly, but it’s easy to fix:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of going north in the Cellar, try going up.\n`)"><span class="sym">⧉</span></button><div class="codeline">Instead of going north in the Cellar, try going up.</div>
+<div class="codeblock"><div class="codeline">Instead of going north in the Cellar, try going up.</div>
 </div>
 
 <p>By the way, Inform insists that we write this as “try going up”, not
@@ -1510,7 +1510,7 @@ that the chute looks a bit treacherous. (This example is similar to one
 of the first puzzles in Zork, by the way.) There are two ways to do this
 in Inform.</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Cellar is down from the Kitchen. &quot;The low ceiling of this little room is festooned with cobwebs, and the floor is dirt. A rough doorway leads east, and the stairs up to the kitchen are built into the north wall. In the southeast corner is a hole that looks wide enough to enter, but if you climb down it, there’s no guarantee you’ll be able to get back up.&quot;\n\nThe Spider-Infested Cavern is down from the Cellar. &quot;Spiders! Thousands of them!&quot; Up from the Spider-Infested Cavern is nowhere.\n`)"><span class="sym">⧉</span></button><div class="codeline">The Cellar is down from the Kitchen. "The low ceiling of this little room is festooned with cobwebs, and the floor is dirt. A rough doorway leads east, and the stairs up to the kitchen are built into the north wall. In the southeast corner is a hole that looks wide enough to enter, but if you climb down it, there’s no guarantee you’ll be able to get back up."</div>
+<div class="codeblock"><div class="codeline">The Cellar is down from the Kitchen. "The low ceiling of this little room is festooned with cobwebs, and the floor is dirt. A rough doorway leads east, and the stairs up to the kitchen are built into the north wall. In the southeast corner is a hole that looks wide enough to enter, but if you climb down it, there’s no guarantee you’ll be able to get back up."</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">The Spider-Infested Cavern is down from the Cellar. "Spiders! Thousands of them!" Up from the Spider-Infested Cavern is nowhere.</div>
 </div>
@@ -1519,7 +1519,7 @@ in Inform.</p>
 the up direction from the cavern leads nowhere. The other way to do it
 would be with an Instead rule:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Spider-Infested Cavern is down from the Cellar. &quot;Spiders! Thousands of them!&quot;\n\nInstead of going up in the Spider-Infested Cavern, say &quot;The hole is too steep for you to climb back up.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">The Spider-Infested Cavern is down from the Cellar. "Spiders! Thousands of them!"</div>
+<div class="codeblock"><div class="codeline">The Spider-Infested Cavern is down from the Cellar. "Spiders! Thousands of them!"</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">Instead of going up in the Spider-Infested Cavern, say "The hole is too steep for you to climb back up."</div>
 </div>
@@ -1538,7 +1538,7 @@ than straight. For instance, the room description might tell the player,
 going east, you might need to go north. Here’s how to create this type
 of connection:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Deeper in the Cellar is east of the Cellar. &quot;This little room smells awful.&quot;\nThe Cellar is north of Deeper in the Cellar.\nWest of Deeper in the Cellar is nowhere.\nSouth of the Cellar is nowhere.\n`)"><span class="sym">⧉</span></button><div class="codeline">Deeper in the Cellar is east of the Cellar. "This little room smells awful."</div>
+<div class="codeblock"><div class="codeline">Deeper in the Cellar is east of the Cellar. "This little room smells awful."</div>
 <div class="codeline">The Cellar is north of Deeper in the Cellar.</div>
 <div class="codeline">West of Deeper in the Cellar is nowhere.</div>
 <div class="codeline">South of the Cellar is nowhere.</div>
@@ -1557,14 +1557,14 @@ exit shows two exits on the status line, the player may get a little
 between rooms, see <a href="../examples/port_royal2.html">Example 7: Port Royal 2</a> in the Documentation. We
 can do it this way:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`East of the Cellar is north of Deeper in the Cellar.\n`)"><span class="sym">⧉</span></button><div class="codeline">East of the Cellar is north of Deeper in the Cellar.</div>
+<div class="codeblock"><div class="codeline">East of the Cellar is north of Deeper in the Cellar.</div>
 </div>
 
 <p>An even more twisty and confusing map connection is to have one of
 the exits of a room lead back into the same room. To do that, you would
 write something like this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`East of Deeper in the Cellar is Deeper in the Cellar.\n`)"><span class="sym">⧉</span></button><div class="codeline">East of Deeper in the Cellar is Deeper in the Cellar.</div>
+<div class="codeblock"><div class="codeline">East of Deeper in the Cellar is Deeper in the Cellar.</div>
 </div>
 
 <h4 id="hallways-with-lots-of-doors">Hallways with Lots of Doors</h4>
@@ -1590,7 +1590,7 @@ travel commands. If you give each door a distinctive appearance, you can
 invite the player to GO THROUGH DOOR 16 as a method of traveling. Here
 is an example that shows how to do precisely that:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Long Hallway is a room. &quot;The hallway runs from east to west. In the north wall are three doors, numbered 16, 17, and 18.&quot; North of the Hallway is nowhere.\n\nDoor 16 is scenery in the Hallway. &quot;To the door is nailed a brass number 16.&quot; Understand &quot;number&quot; as door 16\n\nDoor 17 is scenery in the Hallway. &quot;To the door is nailed a brass number 17.&quot; Understand &quot;number&quot; as door 17.\n\nDoor 18 is scenery in the Hallway. &quot;To the door is nailed a brass number 18.&quot; Understand &quot;number&quot; as door 18.\n\nRoom 16 is a room. &quot;You are now in the featureless Room 16 The door is to the south.&quot; South of Room 16 is the Hallway.\n\nRoom 17 is a room. &quot;You are now in the featureless Room 17. The door is to the south.&quot; South of Room 17 is the Hallway.\n\nRoom 18 is a room. &quot;You are now in the featureless Room 18. The door is to the south.&quot; South of Room 18 is the Hallway.\n\nInstead of entering Door 16:\n\tsay &quot;[command clarification break]&quot;;\n\tnow the player is in Room 16.\n\nInstead of entering Door 17:\n\tsay &quot;[command clarification break]&quot;;\n\tnow the player is in Room 17.\n\nInstead of entering Door 18:\n\tsay &quot;[command clarification break]&quot;;\n\tnow the player is in Room 18.\n\nInstead of going north in the Hallway:\n\tsay &quot;You can go through door 16, door 17, or door 18.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">The Long Hallway is a room. "The hallway runs from east to west. In the north wall are three doors, numbered 16, 17, and 18." North of the Hallway is nowhere.</div>
+<div class="codeblock"><div class="codeline">The Long Hallway is a room. "The hallway runs from east to west. In the north wall are three doors, numbered 16, 17, and 18." North of the Hallway is nowhere.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">Door 16 is scenery in the Hallway. "To the door is nailed a brass number 16." Understand "number" as door 16</div>
 <div class="codeline">&thinsp;</div>
@@ -1648,7 +1648,7 @@ the player tries the command UP before the Tree House has been visited,
 the only result will be a nudge (“You gaze speculatively&hellip;”) Once the
 tree has been climbed, however, the UP command will work.</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Forest Path is a room. &quot;Tall old trees surround you. That old oak tree, for instance.&quot;\n\nThe Tree House is a room. &quot;What an amazing view!&quot;\n\nThe old oak tree is scenery in the Forest Path. The description is &quot;It&apos;s a sturdy old tree.&quot;\n\nInstead of going up in the Forest Path:\n\tif the Tree House is unvisited:\n\t\tsay &quot;You gaze speculatively at the old oak tree. It looks as if it might be climbable.&quot;;\n\totherwise:\n\t\tcontinue the action.\n\nInstead of climbing the old oak tree:\n\tchange the up exit of the Forest Path to the Tree House;\n\tchange the down exit of the Tree House to the Forest Path;\n\tsay &quot;You clamber up the tree...&quot;;\n\tnow the player is in the Tree House.\n`)"><span class="sym">⧉</span></button><div class="codeline">The Forest Path is a room. "Tall old trees surround you. That old oak tree, for instance."</div>
+<div class="codeblock"><div class="codeline">The Forest Path is a room. "Tall old trees surround you. That old oak tree, for instance."</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">The Tree House is a room. "What an amazing view!"</div>
 <div class="codeline">&thinsp;</div>
@@ -1677,7 +1677,7 @@ room you’re in. I also included  <a href="https://github.com/i7/extensions/blo
 current exits in the status line. Notice that the status line will be
 updated each time you press a button.</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Include Exit Lister by Eric Eve.\n\nThe Living Room is a room. &quot;You can definitely go east here. You may or may not be able to go south.&quot;\n\nThe Kitchen is south of the Living Room. &quot;You can definitely go east here. You may or may not be able to go north.&quot;\n\nThe Bedroom is east of the Living Room. &quot;You can definitely go west here. You may or may not be able to go south.&quot;\n\nThe Bathroom is east of the Kitchen. &quot;You can definitely go west here. You may or may not be able to go north.&quot;\n\nThe floating button holder is a backdrop. It is everywhere. It is not scenery.\n\nDoes the player mean pushing the floating button holder: It is very unlikely.\n\nRule for writing a paragraph about the floating button holder:\n\tsay &quot;A button holder is floating in mid-air here. On it are a red button and a green button.&quot;\n\nThe red button is part of the floating button holder. The green button is part of the floating button holder.\n\nInstead of pushing the red button:\n\tchange the south exit of the Living Room to nowhere;\n\tchange the north exit of the Kitchen to nowhere;\n\tchange the south exit of the Bedroom to the Bathroom;\n\tchange the north exit of the Bathroom to the Bedroom;\n\tsay &quot;Living Room south is gone, Bedroom south is open.&quot;\n\nInstead of pushing the green button:\n\tchange the south exit of the Living Room to the Kitchen;\n\tchange the north exit of the Kitchen to the Living Room;\n\tchange the south exit of the Bedroom to nowhere;\n\tchange the north exit of the Bathroom to nowhere;\n\tsay &quot;Living Room south is open, Bedroom south is gone.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">Include Exit Lister by Eric Eve.</div>
+<div class="codeblock"><div class="codeline">Include Exit Lister by Eric Eve.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">The Living Room is a room. "You can definitely go east here. You may or may not be able to go south."</div>
 <div class="codeline">&thinsp;</div>
@@ -1728,7 +1728,7 @@ easily. This is because you can test what region the player is in, and
 do something with the information. For instance, after creating a region
 called Forest, you could do this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Every turn when in the Forest:\n\tsay &quot;[one of]A bird chirps.[or]You hear a soft rustling in the bushes.[or]A butterfly flits past you.[at random]&quot;.\n`)"><span class="sym">⧉</span></button><div class="codeline">Every turn when in the Forest:</div>
+<div class="codeblock"><div class="codeline">Every turn when in the Forest:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "[one of]A bird chirps.[or]You hear a soft rustling in the bushes.[or]A butterfly flits past you.[at random]".</div>
 </div>
 
@@ -1739,7 +1739,7 @@ that changes. For more on this topic, see “Text Insertions” in Chapter 8
 of the <em>Handbook</em>.) Creating a region and adding rooms to it is
 simple. You do it like this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Forest is a region. Forest Path, Haunted Grove, and Canyon View are in Forest.\n`)"><span class="sym">⧉</span></button><div class="codeline">Forest is a region. Forest Path, Haunted Grove, and Canyon View are in Forest.</div>
+<div class="codeblock"><div class="codeline">Forest is a region. Forest Path, Haunted Grove, and Canyon View are in Forest.</div>
 </div>
 
 <p>Once you’ve created a region, the Inform IDE will color the rooms of
@@ -1773,7 +1773,7 @@ in it. This can lead to hard-to-find bugs.</p>
 always using the word “Area” in the names of your regions. So I would
 edit the code above to read like this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Forest Area is a region. Forest Path, Haunted Grove, and Canyon View are in Forest Area.\n`)"><span class="sym">⧉</span></button><div class="codeline">Forest Area is a region. Forest Path, Haunted Grove, and Canyon View are in Forest Area.</div>
+<div class="codeblock"><div class="codeline">Forest Area is a region. Forest Path, Haunted Grove, and Canyon View are in Forest Area.</div>
 </div>
 
 <p>You can create one region that’s entirely within another region, but
@@ -1781,7 +1781,7 @@ Inform won’t let two regions overlap one another. When creating a region
 that’s contained in a larger region, it’s important to mention the rooms
 in only one region definition. The following won’t work:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Room1 is a room. Room2 is a room. Room3 is a room. Room4 is a room. Room5 is a room.\n\nThe Big Area is a region. Room1, Room2, Room3, Room4, and Room5 are in the Big Area.\n\nThe Little Area is a region. Room1, Room2, and Room3 are in the Little Area. [Error!]\n`)"><span class="sym">⧉</span></button><div class="codeline">Room1 is a room. Room2 is a room. Room3 is a room. Room4 is a room. Room5 is a room.</div>
+<div class="codeblock"><div class="codeline">Room1 is a room. Room2 is a room. Room3 is a room. Room4 is a room. Room5 is a room.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">The Big Area is a region. Room1, Room2, Room3, Room4, and Room5 are in the Big Area.</div>
 <div class="codeline">&thinsp;</div>
@@ -1790,7 +1790,7 @@ in only one region definition. The following won’t work:</p>
 
 <p>Here’s how to get the desired result:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Room1 is a room. Room2 is a room. Room3 is a room. Room4 is a room. Room5 is a room.\n\nThe Little Area is a region. Room1, Room2, and Room3 are in the Little Area.\n\nThe Big Area is a region. The Little Area, Room4, and Room5 are in the Big Area.\n`)"><span class="sym">⧉</span></button><div class="codeline">Room1 is a room. Room2 is a room. Room3 is a room. Room4 is a room. Room5 is a room.</div>
+<div class="codeblock"><div class="codeline">Room1 is a room. Room2 is a room. Room3 is a room. Room4 is a room. Room5 is a room.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">The Little Area is a region. Room1, Room2, and Room3 are in the Little Area.</div>
 <div class="codeline">&thinsp;</div>
@@ -1809,7 +1809,7 @@ or that change during the course of the game, the workaround is fairly
 simple: Don’t use defined regions at all. Instead, use properties. For
 example:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`A room can be cursed or uncursed. A room is usually uncursed.\n\nEvery turn when the player is in a cursed room:\n\tsay &quot;Oooh, scary!&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">A room can be cursed or uncursed. A room is usually uncursed.</div>
+<div class="codeblock"><div class="codeline">A room can be cursed or uncursed. A room is usually uncursed.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">Every turn when the player is in a cursed room:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "Oooh, scary!"</div>
@@ -1818,7 +1818,7 @@ example:</p>
 <p>At any point in the game, you can change a room from cursed to
 uncursed or vice-versa with a single line of code:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`now the Dormitory is uncursed.\n`)"><span class="sym">⧉</span></button><div class="codeline">now the Dormitory is uncursed.</div>
+<div class="codeblock"><div class="codeline">now the Dormitory is uncursed.</div>
 </div>
 
 <h3 id="backdrops">Backdrops</h3>
@@ -1843,7 +1843,7 @@ unusual because it can be in several places at once.</p>
 to create sky, ground, ceiling, floor, and so on only where they’re
 needed:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The sky is a backdrop. &quot;A clear and cloudless blue.&quot;\nThe sky is in the Great Outdoors.\n\nThe ground is a backdrop. &quot;It&apos;s rather dirty.”\nUnderstand &quot;dirt&quot; as the ground. The ground is in the Great Outdoors.\n`)"><span class="sym">⧉</span></button>  <div class="codeline">The sky is a backdrop. "A clear and cloudless blue."</div>
+<div class="codeblock">  <div class="codeline">The sky is a backdrop. "A clear and cloudless blue."</div>
   <div class="codeline">The sky is in the Great Outdoors.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">The ground is a backdrop. "It's rather dirty.”</div>
@@ -1872,7 +1872,7 @@ made the windowsill a part of the window.</p>
 created, for instance, some thick fog, when the player does something to
 cause the wind to blow, we can write:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`now the fog is nowhere;\n`)"><span class="sym">⧉</span></button><div class="codeline">now the fog is nowhere;</div>
+<div class="codeblock"><div class="codeline">now the fog is nowhere;</div>
 </div>
 
 <p>Removing a backdrop from certain rooms while leaving it in other
@@ -1883,7 +1883,7 @@ going to create some fog, we’ll allow rooms to be foggy or not foggy.
 We’ll also give the player a giant bellows. Pumping the bellows will
 dispel the fog, but only from the current room.</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`A room can be foggy or not foggy. A room is usually not foggy.\n\nThe Desolate Moor is a room. &quot;A gloomy treeless waste stretches out on all sides[if the fog is in the Moor], but you can&apos;t see very far, because the fog is closing in[otherwise]. You can see a path that extends north and south from here[end if].&quot; The Desolate Moor is foggy.\nA room can be foggy or not foggy. A room is usually not foggy.\n\nThe Desolate Moor is a room. &quot;A gloomy treeless waste stretches out on all sides[if the fog is in the Moor], but you can&apos;t see very far, because the fog is closing in[otherwise]. You can see a path that extends north and south from here[end if].&quot; The Desolate Moor is foggy.\n\nThe Haunted Grove is north of the Desolate Moor. &quot;Thin, widely spaced trees of a mournful character surround you[if the fog is in the Grove]. It&apos;s difficult to see where you might go from here, because the fog presses close among the trees[otherwise]. A path leads south out of the grove[end if].&quot; The Haunted Grove is foggy.\n\nThe Bog is south of the Desolate Moor. &quot;The ground here is quite moist[if the fog is in the Bog], and the fog is thicker[otherwise]. A path extends out of the bog to the north[end if].&quot; The Bog is foggy.\n\nThe thick gray fog is a backdrop. The description is &quot;Tendrils of gray fog drift across the land.&quot;\n\nWhen play begins:\n\tmove the fog backdrop to all foggy rooms.\n\nThe player carries some giant bellows. The indefinite article of the giant bellows is &quot;a&quot;.\n\nPumping is an action applying to one thing. Understand &quot;pump [something]&quot; as pumping.\nCheck pumping:\n\tsay &quot;[The noun] [are] not something you can pump.&quot;\n\t\nInstead of pumping the giant bellows:\n\tif the location is foggy:\n\t\tsay &quot;As you pump the bellows with great vigor, the fog blows away!&quot;;\n\totherwise:\n\t\tsay &quot;You&apos;ve already dispelled the fog here.&quot;;\n\tnow the location is not foggy;\n\tupdate backdrop positions.\n`)"><span class="sym">⧉</span></button><div class="codeline">A room can be foggy or not foggy. A room is usually not foggy.</div>
+<div class="codeblock"><div class="codeline">A room can be foggy or not foggy. A room is usually not foggy.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">The Desolate Moor is a room. "A gloomy treeless waste stretches out on all sides[if the fog is in the Moor], but you can't see very far, because the fog is closing in[otherwise]. You can see a path that extends north and south from here[end if]." The Desolate Moor is foggy.</div>
 <div class="codeline">A room can be foggy or not foggy. A room is usually not foggy.</div>
@@ -1960,7 +1960,7 @@ glows in the dark and can be persuaded to follow you.</p>
 <p>To create an object in Inform that provides light, all you need to do
 is say that it does:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`now the torch is lit;\n`)"><span class="sym">⧉</span></button><div class="codeline">now the torch is lit;</div>
+<div class="codeblock"><div class="codeline">now the torch is lit;</div>
 </div>
 
 <p>In a real game, you might want the torch to burn out after a fixed
@@ -1968,7 +1968,7 @@ number of moves, making a timed puzzle. Or finding the matches with
 which to light the torch might be a separate puzzle. If the object is
 lit from the start of the game, you’d do it this way:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The ghost is a person. The ghost is lit.\n`)"><span class="sym">⧉</span></button><div class="codeline">The ghost is a person. The ghost is lit.</div>
+<div class="codeblock"><div class="codeline">The ghost is a person. The ghost is lit.</div>
 </div>
 
 <p>But what if the player is in a dark room, and you want her to be able
@@ -1987,7 +1987,7 @@ we’re calling the Library when it’s dark, because otherwise the player
 will have no idea that there’s a light switch in the room. “Guess what
 you can do in a dark room” is a very unfair type of puzzle.</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Library is a room. &quot;Thousands of books line the shelves. An old-fashioned lamp with a green lampshade sits on the table. Mounted on the wall beside the door is a light switch.&quot; The Library is dark.\n\nThe oak table is a supporter in the Library. The old lamp is on the table.\n\nThe light-switch is a device in the Library. The light-switch is scenery. Understand &quot;light&quot; and &quot;switch&quot; as the light-switch.\n\nInstead of switching on the light-switch:\n\tnow the lamp is lit;\n\tsay &quot;By groping on the wall near the door, you find a light switch. Click -- the lamp goes on.&quot;\n\nInstead of switching off the light-switch:\n\tnow the lamp is not lit.\n\nRule for printing the announcement of darkness:\n\tif the location is the Library:\n\t\tsay &quot;Click -- the room is plunged into inky darkness.&quot; instead;\n\totherwise:\n\t\tsay &quot;It is now pitch dark in here!&quot;\n\nInstead of switching off the old lamp:\n\ttry switching off the light-switch.\n\nAfter deciding the scope of the player when the location is the Library:\n\tplace the light-switch in scope.\n\nLibrary darkness count is a number that varies. Library darkness count is 0.\n\nRule for printing the description of a dark room:\n\tif the location is the Library and the library darkness count is greater than 0:\n\t\tsay &quot;You can&apos;t see a thing -- but as you grope around in the darkness, your fingers touch a switch on the wall.&quot;;\n\totherwise:\n\t\tincrease the library darkness count by 1;\n\t\tsay &quot;It is pitch dark, and you can&apos;t see a thing.&quot;\n\nTest me with &quot;look / switch switch&quot;.\n`)"><span class="sym">⧉</span></button><div class="codeline">The Library is a room. "Thousands of books line the shelves. An old-fashioned lamp with a green lampshade sits on the table. Mounted on the wall beside the door is a light switch." The Library is dark.</div>
+<div class="codeblock"><div class="codeline">The Library is a room. "Thousands of books line the shelves. An old-fashioned lamp with a green lampshade sits on the table. Mounted on the wall beside the door is a light switch." The Library is dark.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">The oak table is a supporter in the Library. The old lamp is on the table.</div>
 <div class="codeline">&thinsp;</div>
@@ -2049,7 +2049,7 @@ everywhere. If your game includes a backdrop that the player may want to
 smell, you’ll need to do a little extra work. Here’s how to create a
 backdrop that can be smelled even in a dark room:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Forest is a room. &quot;All around you stretches the Great Northern Forest. To the east is a cave.&quot;\n\nThe Cave is east of the Forest. The Cave is a dark room.\n\nThe air is a backdrop. It is everywhere. The description of the air is &quot;You can&apos;t see the air!&quot;\n\nInstead of smelling the air:\n\tif the player is in the Cave:\n\t\tsay &quot;Dank and foul.&quot;;\n\totherwise:\n\t\tsay &quot;Fresh.&quot;\n\nAfter deciding the scope of the player when in darkness:\n\tplace the air in scope.\n`)"><span class="sym">⧉</span></button><div class="codeline">The Forest is a room. "All around you stretches the Great Northern Forest. To the east is a cave."</div>
+<div class="codeblock"><div class="codeline">The Forest is a room. "All around you stretches the Great Northern Forest. To the east is a cave."</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">The Cave is east of the Forest. The Cave is a dark room.</div>
 <div class="codeline">&thinsp;</div>
@@ -2077,7 +2077,7 @@ Internally, in your code, each of your rooms has to have a unique name
 of its own. But it’s easy enough to give several rooms the same printed
 name and description:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Land1 is a room. &quot;The landscape stretches out to the horizon on all sides.&quot; The printed name of Land1 is &quot;Landscape&quot;. \n\nLand2 is south of Land1. &quot;The landscape stretches out to the horizon on all sides.&quot; The printed name of Land2 is &quot;Landscape&quot;. \n\nLand3 is west of Land1. &quot;The landscape stretches out to the horizon on all sides.&quot; The printed name of Land3 is &quot;Landscape&quot;.\n`)"><span class="sym">⧉</span></button><div class="codeline">Land1 is a room. "The landscape stretches out to the horizon on all sides." The printed name of Land1 is "Landscape". </div>
+<div class="codeblock"><div class="codeline">Land1 is a room. "The landscape stretches out to the horizon on all sides." The printed name of Land1 is "Landscape". </div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">Land2 is south of Land1. "The landscape stretches out to the horizon on all sides." The printed name of Land2 is "Landscape". </div>
 <div class="codeline">&thinsp;</div>
@@ -2107,7 +2107,7 @@ the top of a tree?</p>
 
 <p>Creating a floorless room turns out to be very easy:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`A floorless room is a kind of room. A floorless room has a room called the drop-location.\n\nThe Forest Path is a room. &quot;Tall old trees surround you. That magnificent oak, for instance.&quot;\n\nThe old oak tree is scenery in Forest Path. &quot;Plenty of low-hanging branches. You could probably climb it.&quot;\n\nInstead of climbing the old oak tree:\n\ttry going up.\n\nTop of the Oak Tree is up from the Forest Path. &quot;The view from here is inspiring!&quot; Top of the Oak Tree is a floorless room. The drop-location of Top of the Oak Tree is Forest Path.\n\nAfter dropping something in a floorless room (called F):\n\tmove the noun to the drop-location of F;\n\tsay &quot;[The noun] drop[s] out of sight.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">A floorless room is a kind of room. A floorless room has a room called the drop-location.</div>
+<div class="codeblock"><div class="codeline">A floorless room is a kind of room. A floorless room has a room called the drop-location.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">The Forest Path is a room. "Tall old trees surround you. That magnificent oak, for instance."</div>
 <div class="codeline">&thinsp;</div>
@@ -2148,7 +2148,7 @@ unvisited. What’s interesting is that a room is marked as visited only
 This fact allows us to change the room description after the first time
 the player reads it:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Throne Room is north of the Entry Hall. &quot;This high-vaulted chamber is grandiose in the extreme. [if unvisited]Your first sight of its magnificence quite takes your breath away. [end if]Each of the dozens of richly woven tapestries lining the walls surely cost more than all of the shabby hovels and mangy livestock in the humble village where you were born.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">The Throne Room is north of the Entry Hall. "This high-vaulted chamber is grandiose in the extreme. [if unvisited]Your first sight of its magnificence quite takes your breath away. [end if]Each of the dozens of richly woven tapestries lining the walls surely cost more than all of the shabby hovels and mangy livestock in the humble village where you were born."</div>
+<div class="codeblock"><div class="codeline">The Throne Room is north of the Entry Hall. "This high-vaulted chamber is grandiose in the extreme. [if unvisited]Your first sight of its magnificence quite takes your breath away. [end if]Each of the dozens of richly woven tapestries lining the walls surely cost more than all of the shabby hovels and mangy livestock in the humble village where you were born."</div>
 </div>
 
 <p>Here, the sentence about the view taking your breath away will appear
@@ -2171,7 +2171,7 @@ in the game’s output as “Ruins of the Kitchen”. This is easy. As part of
 the code that produces the explosion (whatever that might be), we write
 this:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`now the printed name of the Kitchen is &quot;Ruins of the Kitchen&quot;;\n\nnow the description of the Kitchen is &quot;About five tons of icky cake batter have splattered everywhere!&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">now the printed name of the Kitchen is "Ruins of the Kitchen";</div>
+<div class="codeblock"><div class="codeline">now the printed name of the Kitchen is "Ruins of the Kitchen";</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">now the description of the Kitchen is "About five tons of icky cake batter have splattered everywhere!"</div>
 </div>
@@ -2187,7 +2187,7 @@ prerogatives, you can get rid of brief and superbrief modes entirely,
 forcing the player to see the complete room description each time a room
 is entered. Here’s how to do it:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Use full-length room descriptions.\nUnderstand the command &quot;brief&quot; as something new.\nUnderstand the command &quot;superbrief&quot; as something new.\n\nMode-change-refusing is an action out of world, applying to nothing. Understand &quot;brief&quot; and &quot;superbrief&quot; as mode-change-refusing.\n\nCarry out mode-change-refusing:\n\tsay &quot;Sorry -- this game is always in verbose mode.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">Use full-length room descriptions.</div>
+<div class="codeblock"><div class="codeline">Use full-length room descriptions.</div>
 <div class="codeline">Understand the command "brief" as something new.</div>
 <div class="codeline">Understand the command "superbrief" as something new.</div>
 <div class="codeline">&thinsp;</div>
@@ -2209,7 +2209,7 @@ more detail in the section on “Text Insertions” in Chapter 9 of the
 <em>Handbook</em>, “Phrasing &amp; Punctuation,” but here’s an example
 of each technique to get you started:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Bog is south of the Desolate Moor. &quot;The ground here is quite moist[if the fog is in the Bog], and the fog is thicker[otherwise]. A path extends out of the bog to the north[end if].&quot;\n\nThe Sunlit Clearing is east of the Bog. &quot;Sunlight streams down into this charming and cheerful space. [one of]Butterflies flit about you[or]A chipmunk scampers past[or]Songbirds twitter in the trees[at random].&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">The Bog is south of the Desolate Moor. "The ground here is quite moist[if the fog is in the Bog], and the fog is thicker[otherwise]. A path extends out of the bog to the north[end if]."</div>
+<div class="codeblock"><div class="codeline">The Bog is south of the Desolate Moor. "The ground here is quite moist[if the fog is in the Bog], and the fog is thicker[otherwise]. A path extends out of the bog to the north[end if]."</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">The Sunlit Clearing is east of the Bog. "Sunlight streams down into this charming and cheerful space. [one of]Butterflies flit about you[or]A chipmunk scampers past[or]Songbirds twitter in the trees[at random]."</div>
 </div>
@@ -2237,7 +2237,7 @@ with them will give you plenty of ideas to experiment with.</p>
 <p>Let’s look at a couple of ways to control the way objects are
 mentioned. We’ll start with this code:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Use the serial comma.\n\nThe Living Room is a room. &quot;Your comfy living room.&quot;\n\nThe paper clip is in the Living Room.\n\nBuffy the Labrador retriever is a female animal in the Living Room.\n\nThe sugar candy doll house is in the Living Room.\n`)"><span class="sym">⧉</span></button><div class="codeline">Use the serial comma.</div>
+<div class="codeblock"><div class="codeline">Use the serial comma.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">The Living Room is a room. "Your comfy living room."</div>
 <div class="codeline">&thinsp;</div>
@@ -2271,7 +2271,7 @@ and scenery can we write a description that doesn’t start with the
 phrase “The description is”. So Buffy has, as yet, no description; she
 only has an initial appearance:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Buffy the Labrador retriever is a female animal in the Living Room.\n&quot;Buffy the Labrador retriever is lounging here, shedding hair all over the place.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">Buffy the Labrador retriever is a female animal in the Living Room.</div>
+<div class="codeblock"><div class="codeline">Buffy the Labrador retriever is a female animal in the Living Room.</div>
 <div class="codeline">"Buffy the Labrador retriever is lounging here, shedding hair all over the place."</div>
 </div>
 
@@ -2299,7 +2299,7 @@ scenery, it won’t be mentioned as part of the list of objects in the
 complete room description, so we’ll want to add a bit to the room
 description property itself:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Living Room is a room. &quot;Your comfy living room, complete with a falling-apart coffee table from Particle Board Heaven.&quot;\n\nThe coffee table is a scenery supporter in the Living Room. The description is &quot;You really ought to replace it with something more upscale.&quot;\n`)"><span class="sym">⧉</span></button><div class="codeline">The Living Room is a room. "Your comfy living room, complete with a falling-apart coffee table from Particle Board Heaven."</div>
+<div class="codeblock"><div class="codeline">The Living Room is a room. "Your comfy living room, complete with a falling-apart coffee table from Particle Board Heaven."</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">The coffee table is a scenery supporter in the Living Room. The description is "You really ought to replace it with something more upscale."</div>
 </div>
@@ -2309,7 +2309,7 @@ listed in the room. But if we make one more change, we’ll see something
 new in the output. We’re going to put the paper clip on the coffee
 table:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The paper clip is on the coffee table.\n`)"><span class="sym">⧉</span></button><div class="codeline">The paper clip is on the coffee table.</div>
+<div class="codeblock"><div class="codeline">The paper clip is on the coffee table.</div>
 </div>
 
 <p>This changes the output significantly:</p>
@@ -2349,7 +2349,7 @@ this would be dull:</p>
 using the printing a locale paragraph about activity (see <a href="../WI_18.html#section_9">WI 18.28: Printing a locale
 paragraph about</a>).</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Rule for printing a locale paragraph about the coffee table when the Etruscan figurine is on the coffee table and the number of things on the coffee table is 1:\n\tnow the Etruscan figurine is mentioned;\n\tsay &quot;On the coffee table you espy the priceless Etruscan figurine Mandy has been raving about!&quot;;\n\tcontinue the activity. \n`)"><span class="sym">⧉</span></button><div class="codeline">Rule for printing a locale paragraph about the coffee table when the Etruscan figurine is on the coffee table and the number of things on the coffee table is 1:</div>
+<div class="codeblock"><div class="codeline">Rule for printing a locale paragraph about the coffee table when the Etruscan figurine is on the coffee table and the number of things on the coffee table is 1:</div>
 <div class="codeline">&ensp;&ensp;&ensp;now the Etruscan figurine is mentioned;</div>
 <div class="codeline">&ensp;&ensp;&ensp;say "On the coffee table you espy the priceless Etruscan figurine Mandy has been raving about!";</div>
 <div class="codeline">&ensp;&ensp;&ensp;continue the activity. </div>
@@ -2361,7 +2361,7 @@ still standing in solitary splendor on the coffee table. In that case,
 create a truth state (a true-false variable) that will shut off the
 special output after its first occurrence:</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Figurine-mentioned is a truth state that varies. Figurine-mentioned is false.\nRule for printing a locale paragraph about the coffee table when the Etruscan figurine is on the coffee table and figurine-mentioned is false:\n\tnow the Etruscan figurine is mentioned;\n\tnow figurine-mentioned is true;\n\tsay &quot;On the coffee table you espy the priceless Etruscan figurine Mandy has been raving about!&quot;;\n\tcontinue the activity.\n`)"><span class="sym">⧉</span></button><div class="codeline">Figurine-mentioned is a truth state that varies. Figurine-mentioned is false.</div>
+<div class="codeblock"><div class="codeline">Figurine-mentioned is a truth state that varies. Figurine-mentioned is false.</div>
 <div class="codeline">Rule for printing a locale paragraph about the coffee table when the Etruscan figurine is on the coffee table and figurine-mentioned is false:</div>
 <div class="codeline">&ensp;&ensp;&ensp;now the Etruscan figurine is mentioned;</div>
 <div class="codeline">&ensp;&ensp;&ensp;now figurine-mentioned is true;</div>
