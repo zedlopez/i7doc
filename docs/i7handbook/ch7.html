@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Inform 7 Handbook</title>
+<script src="../i7doc.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,375;0,400;0,500;0,700;1,375;1,400;1,500;1,700&family=Source+Sans+Pro:ital,wght@0,350;0,400;0,550;0,700;1,350;1,400;1,550;1,700&display=swap" rel="stylesheet"> 
+<link rel="stylesheet" href="../i7doc.css">
+<link rel="stylesheet" href="i7handbook.css">
+  </head>
+  <body>
+    <header>
+      <h1 id="inform7-handbook">Inform 7 Handbook</h1>
+      <h2>by Jim Aikin</h2>
+    </header>
+    <main>
+<h2 id="chapter-7-winning-losing">Chapter 7: Winning &amp; Losing</h2>
+
+<p>Inform has no built-in concept of “winning” or “losing” – it’s up to you
+to define how your game will end. To end the game, put the phrase “end
+the story” in a rule somewhere – perhaps like this:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Forest is a room. &quot;Tall trees stand on all sides.&quot;\n\nThe gold crown is in the Forest. The description is &quot;The crown is studded with sparkling jewels!&quot;\n\nAfter taking the crown:\n\tend the story saying “You have won!”\n\nThe player carries a cyanide pill. The cyanide pill is edible.\n\nAfter eating the cyanide pill:\n\tend the story saying “Alas, you have died.”`)"><span class="sym">⧉</span></button>
+<div class="codeline">The Forest is a room. &quot;Tall trees stand on all sides.&quot;</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">The gold crown is in the Forest. The description is &quot;The crown is studded with sparkling jewels!&quot;</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">After taking the crown:</div>
+<div class="codeline">&ensp;&ensp;&ensp;end the story saying “You have won!”</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">The player carries a cyanide pill. The cyanide pill is edible.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">After eating the cyanide pill:</div>
+<div class="codeline">&ensp;&ensp;&ensp;end the story saying “Alas, you have died.”</div>
+</div>
+<p>An After rule is a good place to end the game, because it gives Inform a
+chance to make sure the action actually took place before ending the
+game.</p>
+
+<p>If you don’t add your own text to the “end the story” command, Inform
+will simply print out “*** The End ***. It’s usually a good idea
+to write a line immediately before the “end the story” line, in order to
+describe what the player has done to end the game before officially
+ending it. We might revise our code like this:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`After taking the crown:\n\tsay &quot;At last! You&apos;ve found the gold crown you&apos;ve been seeking!&quot;;\n\tend the story saying “You have won!”\n\nAfter eating the cyanide pill:\n\tsay &quot;Moments after ingesting the pill, you begin to feel very, very ill.&quot;;\n\tend the story saying “Alas, you have died.”`)"><span class="sym">⧉</span></button>
+<div class="codeline">After taking the crown:</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;At last! You&apos;ve found the gold crown you&apos;ve been seeking!&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;end the story saying “You have won!”</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">After eating the cyanide pill:</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Moments after ingesting the pill, you begin to feel very, very ill.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;end the story saying “Alas, you have died.”</div>
+</div>
+<p>This is fine as far as it goes, but sometimes the end of a game calls
+for something less drastic than the death of the player character.
+Depending on the story, maybe the game should detect that the player is
+giving up too soon. In that case, you could do this:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`After taking the crown:\n\tsay &quot;At last! You&apos;ve found the gold crown you&apos;ve been seeking!&quot;;\n\tend the story saying “You have won!”\n\nAfter eating the cyanide pill:\n\tsay &quot;Moments after ingesting the pill, you begin to feel very, very ill.&quot;;\n\tend the story saying “Alas, you have died.”\n\nThis is fine as far as it goes, but sometimes the end of a game calls for something less drastic than the death of the player character. Depending on the story, maybe the game should detect that the player is giving up too soon. In that case, you could do this:\n\nInstead of going north in the Forest:\n\tsay &quot;As you wander back down the mountainside toward town, you feel a keen and lingering sense of regret.&quot;;\n\tend the story saying &quot;You have missed the point entirely!&quot;`)"><span class="sym">⧉</span></button>
+<div class="codeline">After taking the crown:</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;At last! You&apos;ve found the gold crown you&apos;ve been seeking!&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;end the story saying “You have won!”</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">After eating the cyanide pill:</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Moments after ingesting the pill, you begin to feel very, very ill.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;end the story saying “Alas, you have died.”</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">This is fine as far as it goes, but sometimes the end of a game calls for something less drastic than the death of the player character. Depending on the story, maybe the game should detect that the player is giving up too soon. In that case, you could do this:</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Instead of going north in the Forest:</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;As you wander back down the mountainside toward town, you feel a keen and lingering sense of regret.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;end the story saying &quot;You have missed the point entirely!&quot;</div>
+</div>
+<p>After the phrase “end the story saying”, you can give whatever message
+you like. This will appear, surrounded by the rows of asterisks, when
+the game ends.</p>
+
+<p>Oddly enough, “end the story” is a phrase that <em>must</em> include the word
+“the”. More often than not, Inform strips out “the” when compiling, but
+here it’s required.</p>
+
+<p>In <a href="../WI_9.html#section_4">WI 9.4: When play ends</a>, a distinction is
+made between “end the story” and “end the story finally.” I haven’t been
+able to figure out exactly what the difference is. I suggest just using
+“end the story” without worrying about “finally.”</p>
+
+<h3 id="a-word-about-fairness">A Word About Fairness</h3>
+
+<p>In the early days of interactive fiction, numerous games were released
+that would kill the player without warning. That was part of the fun (?)
+– when you opened a door, maybe an ogre would jump out at you and hit
+you with his club, and the game was over. If you had been smart enough
+to save your game position not too long before, you could restore the
+saved game and try to be more careful about the ogre the second time. If
+you hadn’t been smart, you might have to spend hours getting back to
+that game position again.</p>
+
+<p>Today, many players and authors feel that this type of story event is
+more annoying than fun. The trend is to give the player some sort of
+advance warning, which might be subtle or obvious, when the player
+character is about to get in a dangerous spot. “Dark red stains have
+seeped into the floorboards around the door” in the room description
+would be a good way to warn the player that opening the door could be
+dangerous, and that looking around for a way to do it cautiously would
+be a good idea.</p>
+
+<p>It’s all too easy to write a game, even without meaning to, in such a
+way that the player can make the game unwinnable. For instance, the
+player may need to give the chocolate biscuit to the elf so that the elf
+will be willing to part with the silver key … but the biscuit might be
+edible, and the player might have eaten it a hundred moves before
+meeting the elf. Another example: Maybe the player can’t return to a
+region of the map after leaving it. A rope bridge might have fallen the
+first time the player crossed it, leaving no way to get back across the
+canyon. If the player dropped the gold key on the far side of the
+bridge, she won’t be able to go back and get it. If the gold key is
+required to open something that’s on <em>this</em> side of the canyon, the game
+has become unwinnable.</p>
+
+<p>You need to think carefully about where in your story this type of
+problem can arise, and decide how you want to handle it. Drawing a
+diagram of the flow of the story – of the puzzle structure, in other
+words – may be helpful.</p>
+
+<p>One way to handle the situation is to simply not allow the player to do
+anything that would make the game unwinnable. If the chocolate biscuit
+will be needed later, write something like this:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of eating the chocolate biscuit, say &quot;It&apos;s a mouth-watering treat, no doubt, but you decide to save it for later.&quot;`)"><span class="sym">⧉</span></button>
+<div class="codeline">Instead of eating the chocolate biscuit, say &quot;It&apos;s a mouth-watering treat, no doubt, but you decide to save it for later.&quot;</div>
+</div>
+<p>It can be a chore to come up with sensible-sounding reasons why the
+player character wouldn’t do something, if it seems a perfectly natural
+thing to want to do. After all, the player can’t read your mind, and
+doesn’t know what actions or objects will later be needed to win the
+game. For variety, I sometimes allow the player to do something that
+will turn out to make the game unwinnable, but then add an immediate
+message giving a broad hint (which the player is free to ignore) that
+that was probably a stupid thing to do:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`After eating the chocolate biscuit:\n\tsay &quot;You chow down on the delicious biscuit and lick the last of the chocolate from your fingers. Afterward, though, you start to worry. Maybe you shouldn’t have indulged your gluttonous impulses quite so casually.&quot;;\n\trule succeeds.`)"><span class="sym">⧉</span></button>
+<div class="codeline">After eating the chocolate biscuit:</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You chow down on the delicious biscuit and lick the last of the chocolate from your fingers. Afterward, though, you start to worry. Maybe you shouldn’t have indulged your gluttonous impulses quite so casually.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;rule succeeds.</div>
+</div>
+<p>The player who reads this will probably be smart enough to UNDO the
+latest action, thereby retrieving the chocolate biscuit.</p>
+
+<h3 id="keeping-score">Keeping Score</h3>
+
+<p>In a game whose story is serious in tone, awarding points might seem too
+frivolous, so you might want to use no scoring. Inform allows the
+author, however, to give the player points for doing certain actions. A
+way to do this is explained in <a href="../WI_9.html#section_2">WI 9.2: Awarding
+points</a>. The first step is to put this line near
+the top of your source code, along with whatever other Use or Include
+options you’ve selected:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Use scoring.`)"><span class="sym">⧉</span></button>
+<div class="codeline">Use scoring.</div>
+</div>
+<p>Among its other effects, this line will cause the current score to be
+displayed alongside the turn count in the banner at the top of the game
+window. Normally, you would award points in an After rule, like this:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`After taking the gold crown for the first time:\n\tincrease the score by 10;\n\tsay &quot;Ah, you&apos;ve finally gotten your hands on it!&quot;`)"><span class="sym">⧉</span></button>
+<div class="codeline">After taking the gold crown for the first time:</div>
+<div class="codeline">&ensp;&ensp;&ensp;increase the score by 10;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Ah, you&apos;ve finally gotten your hands on it!&quot;</div>
+</div>
+<p>Unless we include “continue the action” at the end of the After rule,
+the After rule will halt the action processing <em>before</em> the Report rule
+has a chance to tell the player that taking the gold crown has
+succeeded. So if you’re not going to print out a message of your own
+when awarding points, you’ll want to add the line “continue the action”
+after awarding the points. This will cause the Report rule to report
+“Taken”, “You put the bulb in the socket”, or whatever.</p>
+
+<p>When awarding points, you should get in the habit of always including
+the phrase “for the first time” in the rule that awards the points. If
+you forget to do this, the player will be able to rack up a huge score
+by performing the same action over and over!</p>
+
+<p>Having explained that, however, I’m now going to suggest that you not do
+it that way. The reason is because the phrase “for the first time”
+applies only the first time the player <em>attempts</em> to do something,
+whether or not it succeeds. So if the gold crown is in a locked
+transparent display case and the player tries TAKE CROWN while the case
+is still locked, no points will be awarded, but later, when the case is
+unlocked, taking the crown still won’t award any points, because now
+it’s not the first time the action has been attempted.</p>
+
+<p>It’s much safer to use one of Inform’s built-in properties, <strong>handled,</strong>
+to check whether points should be awarded:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`After taking the gold crown when the gold crown is not handled:`)"><span class="sym">⧉</span></button>
+<div class="codeline">After taking the gold crown when the gold crown is not handled:</div>
+</div>
+<p>Use “for the first time” to award points <em>only</em> when you can be sure
+that the action will succeed the first time the player attempts it.</p>
+
+<p><a href="../examples/mutts_adventure.html">Example 136: Mutt's Adventure</a> and
+<a href="../examples/no_place_like_home.html">Example 137: No Place Like Home</a>
+show other ways of awarding points. <a href="../WI_9.html#section_3">WI 9.3: Introducing tables:
+rankings</a> shows how to create a table of
+rankings that will tell the player how well he or she is doing. This
+feature was popular in early IF games, and some authors still enjoy
+using it.</p>
+
+<p>Inform doesn’t insist that the number of points awarded for an action be
+constant. If you like, you can do this:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`crown-points is a number that varies. crown-points is 10.\n\nAfter taking the gold crown when the gold crown is not handled:\n\tincrease the score by crown-points;\n\tsay &quot;Ah, you&apos;ve finally got your hands on it!&quot;`)"><span class="sym">⧉</span></button>
+<div class="codeline">crown-points is a number that varies. crown-points is 10.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">After taking the gold crown when the gold crown is not handled:</div>
+<div class="codeline">&ensp;&ensp;&ensp;increase the score by crown-points;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Ah, you&apos;ve finally got your hands on it!&quot;</div>
+</div>
+<p>If you’ve set it up this way, you can vary the number of points the
+player will gain for taking the crown depending on what else has
+happened in the game. You can even award a negative number of points,
+thus reducing the player’s overall score. In my first game, “Not Just an
+Ordinary Ballerina” (which was written in Inform 6, not Inform 7), I set
+up a system that would reduce the number of points the player could gain
+by solving each puzzle based on the number of hints the player had
+consulted about that puzzle. The only way to get the maximum score for
+winning the game was never to consult the hints. This was meant to give
+players an incentive to use their ingenuity rather than relying on the
+hints.</p>
+
+<p>If your game has scoring, it’s a good idea to keep a list somewhere of
+how many points are being awarded for each scored action. Add up the
+total possible score. Near the top of your source code, tell Inform the
+maximum score, as suggested on <a href="../WI_9.html#section2">WI 9.2: Awarding
+Points</a>:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The maximum score is 12.`)"><span class="sym">⧉</span></button>
+<div class="codeline">The maximum score is 12.</div>
+</div>
+<h4 id="a-treasure-chest">A Treasure Chest</h4>
+
+<p>Awarding points when an object is picked up or a room entered is the
+usual thing to do in a game. But some classic games require that the
+player put the objects that have been found in a treasure chest or
+trophy case. Awarding points for this action is slightly tricky, because
+the treasure chest might be a closed openable container. If it happens
+to be closed the first time the player tries to put a given treasure
+into it, the points will never be awarded. Consider this code:</p>
+
+<p>The Lab is a room.</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`After inserting the fish into the trunk:\n\tif the fish is in the trunk for the first time:\n\t	increase the score by 1;\n\tcontinue the action.`)"><span class="sym">⧉</span></button>
+<div class="codeline">After inserting the fish into the trunk:</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the fish is in the trunk for the first time:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;increase the score by 1;</div>
+<div class="codeline">&ensp;&ensp;&ensp;continue the action.</div>
+</div>
+<p>That certainly looks as if it should work. But here’s the output:</p>
+
+<blockquote>
+  <p><span class="command">put fish in trunk</span> <br />
+The old shipping trunk is closed. <br />
+ <br />
+<span class="command">open trunk</span> <br />
+You open the old shipping trunk. <br />
+ <br />
+<span class="command">put fish in trunk</span> <br />
+You put the fish into the old shipping trunk. <br />
+ <br />
+<span class="command">score</span> <br />
+You have so far scored 0 out of a possible 0, in 4 turns.</p>
+</blockquote>
+
+<p>No points were awarded for putting the fish in the trunk, because the
+first time the player tried it, the trunk was closed. Here’s the correct
+way to write the After rule:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`After inserting the fish into the trunk:\n\tif the fish is in the trunk for the first time:\n\t	increase the score by 1;\n\tcontinue the action.`)"><span class="sym">⧉</span></button>
+<div class="codeline">After inserting the fish into the trunk:</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the fish is in the trunk for the first time:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;increase the score by 1;</div>
+<div class="codeline">&ensp;&ensp;&ensp;continue the action.</div>
+</div>
+<p>But wait … what if we want the player to be awarded points only while
+the treasure <em>remains</em> in the treasure chest? This requires a slightly
+different approach. What we need to do is award a point each time the
+treasure is successfully inserted into the treasure chest, and also
+subtract a point each time the treasure is taken out of the chest. To
+subtract a point, just increase the score by -1. Here’s one way to do
+that, using the example of the fish and the old trunk, as before:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`After inserting the fish into the trunk:\n\tif the fish is in the trunk:\n\t	increase the score by 1;\n\tcontinue the action.\n\nInstead of taking the fish:\n\tif the fish is in the trunk:\n\t	decrease the score by 1;\n\tcontinue the action.`)"><span class="sym">⧉</span></button>
+<div class="codeline">After inserting the fish into the trunk:</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the fish is in the trunk:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;increase the score by 1;</div>
+<div class="codeline">&ensp;&ensp;&ensp;continue the action.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Instead of taking the fish:</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the fish is in the trunk:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;decrease the score by 1;</div>
+<div class="codeline">&ensp;&ensp;&ensp;continue the action.</div>
+</div>
+<p>This use of an Instead rule assumes that there are no active Check rules
+that would subsequently prevent the taking of the fish; Instead runs
+before Check in the action processing. In most cases it should work for
+you.</p>
+
+<h3 id="achievements">Achievements</h3>
+
+<p>Some authors feel that keeping a numerical score trivializes a serious
+game, or isn’t interesting from a literary standpoint. Even so, it would
+be nice to let the player know what kind of progress he or she is
+making. Instead of producing a numerical score in response to the SCORE
+command, we can give the player a list of achievements. To do this,
+we’ll use a table. Tables are one of Inform’s more advanced features,
+and the syntax for using them is not entirely intuitive. At the end of
+this example, so as to give you a better grasp of tables, we’ll take a
+look at how the code works.</p>
+
+<p>We’re going to create a game with three achievements – picking up a
+ruby, taking off some goggles (which are being worn), and putting a
+guppy back in the fish tank. These are listed in the Table of
+Achievements. The table has three columns: object, achievement, and
+flag. In the object column, we’ll enter the name of the object that is
+being handled when the achievement happens. In the achievement column is
+some text describing the achievement. The flag column contains a number;
+this starts out as 0, but we’ll change it to 1 when the player
+accomplishes the achievement.</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Living Room is a room. The guppy is here. The ruby is here. The player wears some goggles.\n\nThe fish tank is an open container in the Living room.\n\nAfter taking the ruby when the ruby is not handled:\n\tchoose the row with an object of ruby in the Table of Achievements;\n\tnow the flag entry is 1;\n\tcontinue the action.\n\nAfter taking off the goggles:\n\tchoose the row with an object of goggles in the Table of Achievements;\n\tnow the flag entry is 1;\n\tcontinue the action.\n\nAfter inserting the guppy into the fish tank:\n\tchoose the row with an object of guppy in the Table of Achievements;\n\tnow the flag entry is 1;\n\tcontinue the action.\n\nTable of Achievements\nobject      achievement            flag\nruby      &quot;picked up the ruby&quot;         0\ngoggles   &quot;removed the goggles&quot;      0\nguppy      &quot;put the guppy back in the tank&quot;   0\n\nThis is the new announce the score rule:\n\tlet flag-count be 0;\n\trepeat with N running from 1 to the number of rows in the Table of Achievements:\n\t	choose row N in the Table of Achievements;\n\t	if the flag entry is 1:\n\t		increase the flag-count by 1;\n\tif the flag-count is 0:\n\t	say &quot;You haven&apos;t done anything notable yet.&quot;;\n\totherwise:\n\t	let total-flag-count be flag-count;\n\t	say &quot;So far you have [run paragraph on]&quot;;\n\t	repeat with N running from 1 to the number of rows in the Table of Achievements:\n\t		choose row N in the Table of Achievements;\n\t		if the flag entry is 1:\n\t			say &quot;[achievement entry][run paragraph on]&quot;;\n\t			decrease the flag-count by 1;\n\t			if the flag-count is 0:\n\t				say &quot;.&quot;;\n\t				rule succeeds;\n\t			otherwise if the flag-count is 1:\n\t				if the total-flag-count is 2:\n\t					say &quot; and [run paragraph on]&quot;;\n\t				otherwise:\n\t					say &quot;, and [run paragraph on]&quot;;\n\t			otherwise:\n\t				say &quot;, [run paragraph on]&quot;.\n\nThe new announce the score rule is listed instead of the announce the score rule in the carry out requesting the score rulebook.\n\nTest me with “put guppy in tank / score / take ruby / score / take off goggles / score”.`)"><span class="sym">⧉</span></button>
+<div class="codeline">The Living Room is a room. The guppy is here. The ruby is here. The player wears some goggles.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">The fish tank is an open container in the Living room.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">After taking the ruby when the ruby is not handled:</div>
+<div class="codeline">&ensp;&ensp;&ensp;choose the row with an object of ruby in the Table of Achievements;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the flag entry is 1;</div>
+<div class="codeline">&ensp;&ensp;&ensp;continue the action.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">After taking off the goggles:</div>
+<div class="codeline">&ensp;&ensp;&ensp;choose the row with an object of goggles in the Table of Achievements;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the flag entry is 1;</div>
+<div class="codeline">&ensp;&ensp;&ensp;continue the action.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">After inserting the guppy into the fish tank:</div>
+<div class="codeline">&ensp;&ensp;&ensp;choose the row with an object of guppy in the Table of Achievements;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the flag entry is 1;</div>
+<div class="codeline">&ensp;&ensp;&ensp;continue the action.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Table of Achievements</div>
+<div class="codeline">object      achievement            flag</div>
+<div class="codeline">ruby      &quot;picked up the ruby&quot;         0</div>
+<div class="codeline">goggles   &quot;removed the goggles&quot;      0</div>
+<div class="codeline">guppy      &quot;put the guppy back in the tank&quot;   0</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">This is the new announce the score rule:</div>
+<div class="codeline">&ensp;&ensp;&ensp;let flag-count be 0;</div>
+<div class="codeline">&ensp;&ensp;&ensp;repeat with N running from 1 to the number of rows in the Table of Achievements:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;choose row N in the Table of Achievements;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the flag entry is 1:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;increase the flag-count by 1;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the flag-count is 0:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;You haven&apos;t done anything notable yet.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;let total-flag-count be flag-count;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;So far you have [run paragraph on]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;repeat with N running from 1 to the number of rows in the Table of Achievements:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;choose row N in the Table of Achievements;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the flag entry is 1:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[achievement entry][run paragraph on]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;decrease the flag-count by 1;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the flag-count is 0:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;rule succeeds;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;otherwise if the flag-count is 1:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the total-flag-count is 2:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot; and [run paragraph on]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;, and [run paragraph on]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;, [run paragraph on]&quot;.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">The new announce the score rule is listed instead of the announce the score rule in the carry out requesting the score rulebook.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Test me with “put guppy in tank / score / take ruby / score / take off goggles / score”.</div>
+</div>
+<p>The heavy lifting in this example is done by the new announce the score
+rule, which replaces the announce the score rule (one of the Standard
+Rules). The new rule does two things. First, it uses a loop (“repeat
+with N running from 1…”) to count the number of achievements the player
+has so far done. Each time it finds a row where the flag is 1, it
+increases the flag-count. Then it prints out a message. If the
+flag-count is still zero, nothing has been accomplished, so the rule
+will say so and stop.</p>
+
+<p>If the flag-count is at least 1, that means the player has done
+something. In this case we start the printout by saying, “So far you
+have [run paragraph on]”. Then we go through the Table of Achievements
+again, looking for and listing achievements. As we go, we decrease the
+flag-count – but we’ve taken the precaution of storing it in
+total-flag-count before the process starts. This is so we’ll know
+whether the list is exactly two items long, or whether it’s longer. If
+it’s exactly two items long, we want to print “ and ” between them, but
+if it’s three or more items long, we want to print “, and ” between the
+last two. This is the serial comma. If you’re not using the <a href="#Ref_serial_comma">serial
+comma</a> in your game, you can omit the lines that use
+total-flag-count.</p>
+
+<p>For more ways to report scoring, see the examples in <a href="../RB_11.html#section4">RB 11.4:
+Scoring</a>.</p>
+
+
+</main>
+<footer>
+  <p><em>The Inform 7 Handbook</em> is copyright &copy; 2015 by Jim Aikin, and released under a <a href="https://creativecommons.org/licenses/by-nc/1.0/legalcode">CC-BY-NC 1.0 license</a>.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,2256 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Inform 7 Handbook</title>
+<script src="../i7doc.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,375;0,400;0,500;0,700;1,375;1,400;1,500;1,700&family=Source+Sans+Pro:ital,wght@0,350;0,400;0,550;0,700;1,350;1,400;1,550;1,700&display=swap" rel="stylesheet"> 
+<link rel="stylesheet" href="../i7doc.css">
+<link rel="stylesheet" href="i7handbook.css">
+  </head>
+  <body>
+    <header>
+      <h1 id="inform7-handbook">Inform 7 Handbook</h1>
+      <h2>by Jim Aikin</h2>
+    </header>
+    <main>
+<h2 id="appendix-c-short-sample-games">Appendix C: Short Sample Games</h2>
+
+<h3 id="sample-games">Sample Games</h3>
+
+<p>In this appendix you’ll find a few miniature games that illustrate
+various techniques. These games are a bit too complex to fit well within
+the main flow of the <em>Handbook,</em> so they’re gathered here instead, in no
+particular order.</p>
+
+<h3 id="flea-market">Flea Market</h3>
+
+<p>We’ll start with a simple scenario that was suggested by Jay in a post
+on the newsgroup rec.arts.int-fiction, back in the day when it was still
+a go-to place for IF info. Jay’s goal was to make NPCs respond at random
+to items carried by the player. Each time the player takes inventory,
+one of the other shoppers in the flea market will notice some random
+thing the player carries, and comment on it.</p>
+
+<p>This example illustrates four techniques: calling a function, creating a
+definition, using what computer programmers call a <em>switch</em> statement,
+and using a while loop.</p>
+
+<p>Inform’s switch statement (see <a href="../WI_11.html#section_8">WI 11.8:
+Otherwise</a>) <span id="Ref_switch_statement" class="anchor"></span>uses a double hyphen to indicate the various entries in
+the switch block. Only one of the lines in a switch block will be run at
+any given time. (A note to programmers: Inform doesn’t require break
+statements in switch statements.) In this case, we enter the switch
+block by selecting a random number between 1 and 5 and then choosing a
+say statement based on the value of the random number.</p>
+
+<p>We’re creating a function (“To say the desire”) and passing it two
+arguments – a person and a thing. Within the function, we refer to the
+person as P and the thing as J. There’s nothing special about these
+symbols; we could just as easily have written “To say the desire of
+(dude - a person) for (stuff - a thing)” and then referred to “[dude]”
+and “[stuff]” in the say statements.</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`To say the desire of (P - a person) for (J - a thing): \n\tif a random number from 1 to 5 is: \n\t-- 1: say &quot;&apos;Gee, I&apos;d sure like to have a [J] like that,&apos; [P] remarks.&quot;; \n\t-- 2: say &quot;&apos;That&apos;s sure a swell-looking [J],&apos; says [P].&quot;; \n\t-- 3: say &quot;[P] edges closer to you and says wistfully, &apos;I&apos;ve been looking for years for a [J].&apos;&quot;; \n\t-- 4: say &quot;[P] hovers over you covetously. &apos;Say, were there more [J]s where you found that?&apos;&quot;; \n\t-- 5: say &quot;&apos;Wow, that&apos;s a really nice [J],&apos; [P] says enviously.&quot; \n\nAfter taking inventory: \n\tif nothing is held by the player or the player is alone: \n\t	rule succeeds; \n\totherwise: \n\t	let shopper be the player; \n\t	while shopper is the player: \n\t		let shopper be a random person in the location; \n\t	let junk be a random thing held by the player; \n\t	say &quot;[the desire of shopper for junk]&quot;. \n\nDefinition: a person (called P) is alone if the number of persons in the location of P is 1.`)"><span class="sym">⧉</span></button>
+<div class="codeline">To say the desire of (P - a person) for (J - a thing): </div>
+<div class="codeline">&ensp;&ensp;&ensp;if a random number from 1 to 5 is: </div>
+<div class="codeline">&ensp;&ensp;&ensp;-- 1: say &quot;&apos;Gee, I&apos;d sure like to have a [J] like that,&apos; [P] remarks.&quot;; </div>
+<div class="codeline">&ensp;&ensp;&ensp;-- 2: say &quot;&apos;That&apos;s sure a swell-looking [J],&apos; says [P].&quot;; </div>
+<div class="codeline">&ensp;&ensp;&ensp;-- 3: say &quot;[P] edges closer to you and says wistfully, &apos;I&apos;ve been looking for years for a [J].&apos;&quot;; </div>
+<div class="codeline">&ensp;&ensp;&ensp;-- 4: say &quot;[P] hovers over you covetously. &apos;Say, were there more [J]s where you found that?&apos;&quot;; </div>
+<div class="codeline">&ensp;&ensp;&ensp;-- 5: say &quot;&apos;Wow, that&apos;s a really nice [J],&apos; [P] says enviously.&quot; </div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">After taking inventory: </div>
+<div class="codeline">&ensp;&ensp;&ensp;if nothing is held by the player or the player is alone: </div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;rule succeeds; </div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise: </div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;let shopper be the player; </div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;while shopper is the player: </div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;let shopper be a random person in the location; </div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;let junk be a random thing held by the player; </div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[the desire of shopper for junk]&quot;. </div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Definition: a person (called P) is alone if the number of persons in the location of P is 1.</div>
+</div>
+<p>The After rule causes nothing to happen if the player is alone or is
+carrying nothing. Before entering the while statement in the After rule,
+we define a variable called shopper, and give it the value of the
+player. When the while statement starts, shopper is the player. The
+while statement is a loop. It will execute over and over, randomly
+picking one person after another in the location, until the person it
+picks is <em>not</em> the player. This is what we want; if the shopper is still
+the player, the output of the switch statement will be something like,
+“yourself edges closer to you and says wistfully…”. Once the shopper is
+not yourself, the condition (while shopper is the player) becomes false,
+the loop ends, and the rest of the After rule runs. The rule chooses a
+random thing held by the player, combines it with the randomly chosen
+NPC, and says the desire of the random person for the random thing.</p>
+
+<p>The definition is simple: We need to tell Inform what we mean by
+“alone,” because the “After taking inventory” rule needs to check this.
+Can you see what will happen if the “After taking inventory” rule
+doesn’t include the condition “if … the player is alone”? If the player
+ever takes inventory when no one else is in the location, the rule will
+go into an endless loop. The while statement will keep trying forever to
+find an NPC in the location, but it will always end up choosing the
+player.</p>
+
+<p>Here’s the rest of the game:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Flea Market is a room. &quot;All manner of things are for sale here, lined up in rows on folding tables.&quot; \n\nA folding table is a supporter in the Flea Market. On the table are a replica Maltese Falcon, a phallic fertility statue of Aziz, a 1956 Ford carburetor, a headless Barbie doll, and a broken Pez dispenser.\n\nWanda is a woman in the Flea Market. \nJulianne is a woman in the Flea Market. \nChrissie is a woman in the Flea Market. \n\nThe Parking Lot is north of the Flea Market. &quot;Your car is parked here.&quot;\n\nTest me with &quot;i / take pez and ford and falcon and doll / i / i / i / i / n / i&quot;.`)"><span class="sym">⧉</span></button>
+<div class="codeline">The Flea Market is a room. &quot;All manner of things are for sale here, lined up in rows on folding tables.&quot; </div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">A folding table is a supporter in the Flea Market. On the table are a replica Maltese Falcon, a phallic fertility statue of Aziz, a 1956 Ford carburetor, a headless Barbie doll, and a broken Pez dispenser.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Wanda is a woman in the Flea Market. </div>
+<div class="codeline">Julianne is a woman in the Flea Market. </div>
+<div class="codeline">Chrissie is a woman in the Flea Market. </div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">The Parking Lot is north of the Flea Market. &quot;Your car is parked here.&quot;</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Test me with &quot;i / take pez and ford and falcon and doll / i / i / i / i / n / i&quot;.</div>
+</div>
+<p>Since we don’t know what the player may be carrying or who may be in the
+location, we pretty much have to choose NPCs and held items at random.
+However, when items are selected at random, Inform will sometimes select
+the same item several times in a row. This can result in a repeating
+output, which will make the game seem wooden – but in a real game there
+might be only one NPC in the location, or the player might be carrying
+only one item, so repetition is not avoidable. If you’d prefer to
+minimize the repetition, you can at least step through the list of
+entries in the “To say the desire” rule in a repeating order, like this:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The desire-index is a number that varies. The desire-index is 0.\n\nTo say the desire of (P - a person) for (J - a thing): \n\tincrease the desire-index by 1;\n\tif the desire-index is greater than 5:\n\t	now the desire-index is 1;\n\tif the desire-index is: \n\t-- 1: say &quot;&apos;Gee, I&apos;d sure like to have a [J] like that,&apos; [P] remarks.&quot;; \n\t-- 2: say &quot;&apos;That&apos;s sure a swell-looking [J],&apos; says [P].&quot;; \n\t-- 3: say &quot;[P] edges closer to you and says wistfully, &apos;I&apos;ve been \nlooking for years for a [J].&apos;&quot;; \n\t-- 4: say &quot;[P] hovers over you covetously. &apos;Say, were there more [J]s where you found that?&apos;&quot;; \n\t-- 5: say &quot;&apos;Wow, that&apos;s a really nice [J],&apos; [P] says enviously.&quot;`)"><span class="sym">⧉</span></button>
+<div class="codeline">The desire-index is a number that varies. The desire-index is 0.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">To say the desire of (P - a person) for (J - a thing): </div>
+<div class="codeline">&ensp;&ensp;&ensp;increase the desire-index by 1;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the desire-index is greater than 5:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the desire-index is 1;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the desire-index is: </div>
+<div class="codeline">&ensp;&ensp;&ensp;-- 1: say &quot;&apos;Gee, I&apos;d sure like to have a [J] like that,&apos; [P] remarks.&quot;; </div>
+<div class="codeline">&ensp;&ensp;&ensp;-- 2: say &quot;&apos;That&apos;s sure a swell-looking [J],&apos; says [P].&quot;; </div>
+<div class="codeline">&ensp;&ensp;&ensp;-- 3: say &quot;[P] edges closer to you and says wistfully, &apos;I&apos;ve been </div>
+<div class="codeline">looking for years for a [J].&apos;&quot;; </div>
+<div class="codeline">&ensp;&ensp;&ensp;-- 4: say &quot;[P] hovers over you covetously. &apos;Say, were there more [J]s where you found that?&apos;&quot;; </div>
+<div class="codeline">&ensp;&ensp;&ensp;-- 5: say &quot;&apos;Wow, that&apos;s a really nice [J],&apos; [P] says enviously.&quot;</div>
+</div>
+<p>Here, we’ve created a global variable (desire-index). It’s global so
+that it will persist throughout the game; a local variable within a rule
+will be destroyed when the rule finishes. We then increase the
+desire-index by 1 each time the rule runs and check to see if it has
+gone past 5. If so, we reset it to 1. Now the five statements will be
+used in the order shown, over and over (but with random people and
+random things).</p>
+
+<h3 id="mr-potato-head">Mr Potato Head</h3>
+
+<p>The next example game illustrates several useful points. First, it shows
+how to make parts that can be attached to or detached from an object.
+(In this case, the object is the ever-obliging Mr Potato Head.)</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Potato Factory is a room.\n\nMr Potato Head is a man in the Factory. The description is &quot;Mr Potato head is big and round and brown[attachment-list].&quot;\n\nTo say attachment-list: \n\tlet count be 0; \n\trepeat with item running through things that are a part of Mr Potato Head:\n\t	increase count by 1; \n\tif count is 0: \n\t	do nothing; \n\totherwise: \n\t	if the lips are part of Mr Potato Head:\n\t		increase count by 1;\n\t	say &quot;. Adding an attractive facial character to Mr Potato Head [if count is greater than 1]are[otherwise]is[end if] [a list of things that are part of Mr Potato Head]&quot;.`)"><span class="sym">⧉</span></button>
+<div class="codeline">The Potato Factory is a room.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Mr Potato Head is a man in the Factory. The description is &quot;Mr Potato head is big and round and brown[attachment-list].&quot;</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">To say attachment-list: </div>
+<div class="codeline">&ensp;&ensp;&ensp;let count be 0; </div>
+<div class="codeline">&ensp;&ensp;&ensp;repeat with item running through things that are a part of Mr Potato Head:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;increase count by 1; </div>
+<div class="codeline">&ensp;&ensp;&ensp;if count is 0: </div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;do nothing; </div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise: </div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the lips are part of Mr Potato Head:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;increase count by 1;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;. Adding an attractive facial character to Mr Potato Head [if count is greater than 1]are[otherwise]is[end if] [a list of things that are part of Mr Potato Head]&quot;.</div>
+</div>
+<p>The point of the “say attachment-list” code is that we want to append a
+list of Mr Potato Head’s features to his description. Just to make
+things slightly more interesting, the lips are plural-named, so if the
+lips are part of Mr Potato Head we need to increase the count by 1 in
+order to print out “are” rather than “is” if the lips are the only
+feature that has been attached.</p>
+
+<p>Next, we’ll create some facial attachments, and also an irrelevant item
+(the banana) for testing purposes.</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`A facial attachment is a kind of thing. The nose is a facial attachment. The left eye is a facial attachment. The right eye is a facial attachment. Some lips are a facial attachment. \n\nThe player carries the nose. The player carries the left eye. The player carries the right eye. The player carries the lips.\n\nThe player carries a banana.\n\nThe command the player is most likely to try is of the form PUT NOSE ON MR POTATO HEAD. But as far as Inform is concerned, putting it on is a different action from tying it to, so we need to redirect the putting it on action using an Instead rule. The next Instead rule handles both the error-checking for the adding of facial attachments, and the action.\n\nInstead of putting something on Mr Potato Head: \n\ttry tying the noun to Mr Potato Head.\n\nInstead of tying something to Mr Potato Head: \n\tif the noun is not a facial attachment:\n\t	say &quot;That&apos;s not something you can attach to Mr Potato Head.&quot;;\n\totherwise if the noun is part of Mr Potato Head:\n\t	say &quot;[The noun] [are] already attached to Mr Potato Head.&quot;;\n\totherwise:\n\t	now the noun is part of Mr Potato Head; \n\t	say &quot;You attach [the noun] to Mr Potato Head.&quot;`)"><span class="sym">⧉</span></button>
+<div class="codeline">A facial attachment is a kind of thing. The nose is a facial attachment. The left eye is a facial attachment. The right eye is a facial attachment. Some lips are a facial attachment. </div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">The player carries the nose. The player carries the left eye. The player carries the right eye. The player carries the lips.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">The player carries a banana.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">The command the player is most likely to try is of the form PUT NOSE ON MR POTATO HEAD. But as far as Inform is concerned, putting it on is a different action from tying it to, so we need to redirect the putting it on action using an Instead rule. The next Instead rule handles both the error-checking for the adding of facial attachments, and the action.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Instead of putting something on Mr Potato Head: </div>
+<div class="codeline">&ensp;&ensp;&ensp;try tying the noun to Mr Potato Head.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Instead of tying something to Mr Potato Head: </div>
+<div class="codeline">&ensp;&ensp;&ensp;if the noun is not a facial attachment:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;That&apos;s not something you can attach to Mr Potato Head.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise if the noun is part of Mr Potato Head:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[The noun] [are] already attached to Mr Potato Head.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the noun is part of Mr Potato Head; </div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;You attach [the noun] to Mr Potato Head.&quot;</div>
+</div>
+<p>In creating our new detaching it from action, we also need to consider
+that the player’s most likely command is simply TAKE NOSE. The parser’s
+default response would be, “That seems to be a part of Mr Potato Head.”
+Inform very sensibly doesn’t let the player go around removing the parts
+of things. So we need another Instead rule to map TAKE NOSE onto the
+detaching it from action.</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Check detaching it from: \n\tif the noun is not part of the second noun: \n\t	say &quot;But [the noun] [are] not attached to [the second noun].&quot; instead;\n\totherwise if the noun is not a facial attachment:\n\t	say &quot;[The noun] [do] not appear to be detachable.&quot; instead. \n\nCarry out detaching it from: \n\tnow the player carries the noun. \n\nReport detaching it from: \n\tsay &quot;You detach [the noun] from [the second noun].&quot; \n\nInstead of taking something: \n\tif the noun is part of a thing (called the owner): \n\t	try detaching the noun from the owner instead; \n\totherwise: \n\t	continue the action.`)"><span class="sym">⧉</span></button>
+<div class="codeline">Check detaching it from: </div>
+<div class="codeline">&ensp;&ensp;&ensp;if the noun is not part of the second noun: </div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;But [the noun] [are] not attached to [the second noun].&quot; instead;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise if the noun is not a facial attachment:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[The noun] [do] not appear to be detachable.&quot; instead. </div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Carry out detaching it from: </div>
+<div class="codeline">&ensp;&ensp;&ensp;now the player carries the noun. </div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Report detaching it from: </div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You detach [the noun] from [the second noun].&quot; </div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Instead of taking something: </div>
+<div class="codeline">&ensp;&ensp;&ensp;if the noun is part of a thing (called the owner): </div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;try detaching the noun from the owner instead; </div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise: </div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;continue the action.</div>
+</div>
+<div data-custom-style="Normal">
+  <p>And finally, just for fun, we’ll add a victorious outcome to the game:</p>
+
+  <div class="codeblock">
+    <p><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Every turn:\n\tif the left eye is part of Mr Potato Head and the right eye is part of Mr Potato Head and the lips is part of Mr Potato Head and the nose is part of Mr Potato Head:\n\t\tsay &quot;'Oh, thank you!' cries Mr Potato Head. 'You've restored my faith in human nature!'&quot;;\n\t\tend the story saying “You have won!”\n`)"><span class="sym">⧉</span></button></p>
+    <div class="codeline">
+      <p>Every turn:</p>
+    </div>
+    <div class="codeline">
+      <p>   if the left eye is part of Mr Potato Head and the right eye is part
+of Mr Potato Head and the lips is part of Mr Potato Head and the nose is
+part of Mr Potato Head:</p>
+    </div>
+    <div class="codeline">
+      <p>      say “‘Oh, thank you!’ cries Mr Potato Head. ‘You’ve restored my
+faith in human nature!’”;</p>
+    </div>
+    <div class="codeline">
+      <p>      end the story saying “You have won!”</p>
+    </div>
+  </div>
+  <h3 id="a-dangerous-jewel-box">A Dangerous Jewel Box</h3>
+
+  <p>The next example shows a way of printing out a single message when the
+player tries to take several items and is prevented from doing so. There
+are three jewels in the jewel box, and if the box is in its dangerous
+state, we want the player character’s fingers to be zapped by an
+electric shock if he tries to get the jewels from the box. But what we
+don’t want is an output that looks like this:</p>
+
+  <div class="game-output">
+    <div class="command">
+      <p><span class="prompt">&gt;</span>take jewels</p>
+    </div>
+    <p>ruby: Zap! As your fingers near the jewel box, you recoil from a
+powerful electric shock.</p>
+
+    <p>diamond: Zap! As your fingers near the jewel box, you recoil from a
+powerful electric shock.</p>
+
+    <p>sapphire: Zap! As your fingers near the jewel box, you recoil from a
+powerful electric shock.</p>
+
+  </div>
+  <p>This would be silly, because the player character would naturally stop
+after being shocked the first time. Getting the output to read nicely
+turns out to be complicated, because there are many possible conditions
+that might occur in the game. The box might be safe rather than
+dangerous (this is handled in the example with the command TURN
+CARVING). The player might make the box safe, take two jewels, drop them
+on the floor, make the box dangerous again, and then try TAKE JEWELS.
+What should happen then?</p>
+
+  <p>The extension <a href="https://github.com/i7/extensions/blob/master/John%20Clemens/Consolidated%20Multiple%20Actions.i7x">Consolidated Multiple Actions by John Clemens</a>, which
+was recently updated by Emily Short for 6L38 compatibility, can handle
+this type of scenario – but it only works in Glulx games. If you don’t
+need or want all of its functionality, studying the code below will show
+you how to handle this type of situation.</p>
+
+  <p>The code below contains comments that explain its logic.</p>
+
+  <div class="codeblock">
+    <p><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Sultan's Treasure Room is a room. &quot;Awesome treasures surround you! To the north, an arch opens on a balcony.&quot;\n\n[To make sure the scoping works properly, we'll add a second room so the tester can carry a jewel or two elsewhere, drop them, and come back:]\nThe Balcony is north of the Treasure Room. &quot;From here you can see the entire city. The treasure room is back to the south.&quot;\n\nThe jewel box is an open container in the Treasure Room. &quot;A jewel box sits here, invitingly open. On the front of the box is an intricate ivory carving. In the box you can see [a list of things in the jewel box].&quot; The jewel box can be safe or dangerous. The jewel box has some text called the zap-message. The zap-message of the jewel box is &quot;Zap! As your fingers near the jewel box, you recoil from a powerful electric shock&quot;. The intricate ivory carving is part of the jewel box.\n\n[We can make the jewel box safe or dangerous with 'turn carving':]\nInstead of turning the carving:\n\tsay &quot;Click -- the carving rotates a quarter-turn to the [run paragraph on]&quot;;\n\tif the jewel box is dangerous:\n\t\tnow the jewel box is safe;\n\t\tsay &quot;left.&quot;;\n\totherwise:\n\t\tnow the jewel box is dangerous;\n\t\tsay &quot;right.&quot;\n\nA gem is a kind of thing. Understand &quot;jewel&quot; as a gem. Understand &quot;jewels&quot; and &quot;gems&quot; as the plural of gem.\n\nThe diamond is a gem in the jewel box. The ruby is a gem in the jewel box. The sapphire is a gem in the jewel box.\n\n[The box only protects jewels. The token can be taken from it at any time:]\nThe player carries a subway token.\n\n[Taking and removing from are separate actions, so we have to trap them both:]\t\nThis is the new announce items from multiple object lists rule:\n\tif the current item from the multiple object list is not nothing:\n\t\tif taking gems when the jewel box is dangerous:\n\t\t\tdo nothing;\n\t\telse if removing gems from the jewel box when the jewel box is dangerous:\n\t\t\tdo nothing;\n\t\telse:\n\t\t\tsay &quot;[current item from the multiple object list]: [run paragraph on]&quot;.\n\nThe new announce items from multiple object lists rule is listed instead of the announce items from multiple object lists rule in the action-processing rules.\n\nBefore taking gems:\n\tlet L be the multiple object list;\n\tlet N be the number of entries in L;\n\t[If the player is only trying to take one jewel, the length of the multiple object list will be 0:]\n\tif N is 0:\n\t\tif the noun is in the jewel box and the jewel box is dangerous:\n\t\t\tsay &quot;[zap-message of the jewel box].&quot; instead;\n\t\totherwise:\n\t\t\tcontinue the action;\n\t[Still here? Then either the player is trying to take several jewels or the jewel box is safe:]\n\tif the jewel box is safe:\n\t\tcontinue the action;\n\t[Okay, now we know the jewel box is dangerous, but we don't yet know whether any of the jewels the player aims to take are actually IN the jewel box ... so we'll set up a flag and a list:]\n\tlet danger-present be a truth state;\n\tlet danger-present be false;\n\tlet safe-list be a list of things;\n\tlet safe-list be {};\n\t[Now let's find out what the player is trying to take:]\n\trepeat with G running through gems:\n\t\tif G is listed in L:\n\t\t\tif G is in the jewel box:\n\t\t\t\tnow danger-present is true;\n\t\t\totherwise:\n\t\t\t\tadd G to the safe-list;\n\t[If none of the jewels the player is trying to take is in the dangerous box:]\n\tif danger-present is false:\n\t\tcontinue the action;\n\t[Now we know that at least one of the jewels in the multiple object list is in the dangerous box -- but maybe some of them aren't in the box. In that case, we're going to assume there is no other obstacle, such as inventory management, a greedy hyena, or the player wearing mittens, that would prevent their being picked up. We'll only check to make sure they're in the location:]\n\tif the number of entries in safe-list is not 0:\n\t\trepeat with item running through safe-list:\n\t\t\tif item is enclosed by the location and item is not carried by the player:\n\t\t\t\tnow the player carries item;\n\t\t\t\tsay &quot;[item]: Taken.&quot;;\n\ttruncate L to 1 entries; \n\talter the multiple object list to L; \n\tsay &quot;[zap-message of the jewel box].&quot; instead; \n\nTest me with &quot;put token in box / take token and ruby / take jewels / take diamond / turn carving / take diamond and ruby / turn carving / drop all / take jewels&quot;.\n`)"><span class="sym">⧉</span></button></p>
+    <div class="codeline">
+      <p>The Sultan’s Treasure Room is a room. “Awesome treasures surround you!
+To the north, an arch opens on a balcony.”</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>[To make sure the scoping works properly, we’ll add a second room so the
+tester can carry a jewel or two elsewhere, drop them, and come back:]</p>
+    </div>
+    <div class="codeline">
+      <p>The Balcony is north of the Treasure Room. “From here you can see the
+entire city. The treasure room is back to the south.”</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>The jewel box is an open container in the Treasure Room. “A jewel box
+sits here, invitingly open. On the front of the box is an intricate
+ivory carving. In the box you can see [a list of things in the jewel
+box].” The jewel box can be safe or dangerous. The jewel box has some
+text called the zap-message. The zap-message of the jewel box is “Zap!
+As your fingers near the jewel box, you recoil from a powerful electric
+shock”. The intricate ivory carving is part of the jewel box.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>[We can make the jewel box safe or dangerous with ‘turn carving’:]</p>
+    </div>
+    <div class="codeline">
+      <p>Instead of turning the carving:</p>
+    </div>
+    <div class="codeline">
+      <p>   say “Click – the carving rotates a quarter-turn to the [run
+paragraph on]”;</p>
+    </div>
+    <div class="codeline">
+      <p>   if the jewel box is dangerous:</p>
+    </div>
+    <div class="codeline">
+      <p>      now the jewel box is safe;</p>
+    </div>
+    <div class="codeline">
+      <p>      say “left.”;</p>
+    </div>
+    <div class="codeline">
+      <p>   otherwise:</p>
+    </div>
+    <div class="codeline">
+      <p>      now the jewel box is dangerous;</p>
+    </div>
+    <div class="codeline">
+      <p>      say “right.”</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>A gem is a kind of thing. Understand “jewel” as a gem. Understand
+“jewels” and “gems” as the plural of gem.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>The diamond is a gem in the jewel box. The ruby is a gem in the jewel
+box. The sapphire is a gem in the jewel box.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>[The box only protects jewels. The token can be taken from it at any
+time:]</p>
+    </div>
+    <div class="codeline">
+      <p>The player carries a subway token.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>[Taking and removing from are separate actions, so we have to trap them
+both:]   </p>
+    </div>
+    <div class="codeline">
+      <p>This is the new announce items from multiple object lists rule:</p>
+    </div>
+    <div class="codeline">
+      <p>   if the current item from the multiple object list is not nothing:</p>
+    </div>
+    <div class="codeline">
+      <p>      if taking gems when the jewel box is dangerous:</p>
+    </div>
+    <div class="codeline">
+      <p>         do nothing;</p>
+    </div>
+    <div class="codeline">
+      <p>      else if removing gems from the jewel box when the jewel box is
+dangerous:</p>
+    </div>
+    <div class="codeline">
+      <p>         do nothing;</p>
+    </div>
+    <div class="codeline">
+      <p>      else:</p>
+    </div>
+    <div class="codeline">
+      <p>         say “[current item from the multiple object list]: [run
+paragraph on]”.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>The new announce items from multiple object lists rule is listed instead
+of the announce items from multiple object lists rule in the
+action-processing rules.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>Before taking gems:</p>
+    </div>
+    <div class="codeline">
+      <p>   let L be the multiple object list;</p>
+    </div>
+    <div class="codeline">
+      <p>   let N be the number of entries in L;</p>
+    </div>
+    <div class="codeline">
+      <p>   [If the player is only trying to take one jewel, the length of the
+multiple object list will be 0:]</p>
+    </div>
+    <div class="codeline">
+      <p>   if N is 0:</p>
+    </div>
+    <div class="codeline">
+      <p>      if the noun is in the jewel box and the jewel box is dangerous:</p>
+    </div>
+    <div class="codeline">
+      <p>         say “[zap-message of the jewel box].” instead;</p>
+    </div>
+    <div class="codeline">
+      <p>      otherwise:</p>
+    </div>
+    <div class="codeline">
+      <p>         continue the action;</p>
+    </div>
+    <div class="codeline">
+      <p>   [Still here? Then either the player is trying to take several jewels
+or the jewel box is safe:]</p>
+    </div>
+    <div class="codeline">
+      <p>   if the jewel box is safe:</p>
+    </div>
+    <div class="codeline">
+      <p>      continue the action;</p>
+    </div>
+    <div class="codeline">
+      <p>   [Okay, now we know the jewel box is dangerous, but we don’t yet know
+whether any of the jewels the player aims to take are actually IN the
+jewel box … so we’ll set up a flag and a list:]</p>
+    </div>
+    <div class="codeline">
+      <p>   let danger-present be a truth state;</p>
+    </div>
+    <div class="codeline">
+      <p>   let danger-present be false;</p>
+    </div>
+    <div class="codeline">
+      <p>   let safe-list be a list of things;</p>
+    </div>
+    <div class="codeline">
+      <p>   let safe-list be {};</p>
+    </div>
+    <div class="codeline">
+      <p>   [Now let’s find out what the player is trying to take:]</p>
+    </div>
+    <div class="codeline">
+      <p>   repeat with G running through gems:</p>
+    </div>
+    <div class="codeline">
+      <p>      if G is listed in L:</p>
+    </div>
+    <div class="codeline">
+      <p>         if G is in the jewel box:</p>
+    </div>
+    <div class="codeline">
+      <p>            now danger-present is true;</p>
+    </div>
+    <div class="codeline">
+      <p>         otherwise:</p>
+    </div>
+    <div class="codeline">
+      <p>            add G to the safe-list;</p>
+    </div>
+    <div class="codeline">
+      <p>   [If none of the jewels the player is trying to take is in the
+dangerous box:]</p>
+    </div>
+    <div class="codeline">
+      <p>   if danger-present is false:</p>
+    </div>
+    <div class="codeline">
+      <p>      continue the action;</p>
+    </div>
+    <div class="codeline">
+      <p>   [Now we know that at least one of the jewels in the multiple object
+list is in the dangerous box – but maybe some of them aren’t in the
+box. In that case, we’re going to assume there is no other obstacle,
+such as inventory management, a greedy hyena, or the player wearing
+mittens, that would prevent their being picked up. We’ll only check to
+make sure they’re in the location:]</p>
+    </div>
+    <div class="codeline">
+      <p>   if the number of entries in safe-list is not 0:</p>
+    </div>
+    <div class="codeline">
+      <p>      repeat with item running through safe-list:</p>
+    </div>
+    <div class="codeline">
+      <p>         if item is enclosed by the location and item is not carried by
+the player:</p>
+    </div>
+    <div class="codeline">
+      <p>            now the player carries item;</p>
+    </div>
+    <div class="codeline">
+      <p>            say “[item]: Taken.”;</p>
+    </div>
+    <div class="codeline">
+      <p>   truncate L to 1 entries;</p>
+    </div>
+    <div class="codeline">
+      <p>   alter the multiple object list to L;</p>
+    </div>
+    <div class="codeline">
+      <p>   say “[zap-message of the jewel box].” instead;</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>Test me with “put token in box / take token and ruby / take jewels /
+take diamond / turn carving / take diamond and ruby / turn carving /
+drop all / take jewels”.</p>
+    </div>
+  </div>
+  <p>The heavy lifting is done by the “Before taking gems” rule. Note that if
+one or more gems are available for taking, this rule has to handle the
+process manually. It can’t include, near the end, the line “try taking
+item”, because that will cause Inform to try running the entire rule
+again. It will produce a loop, which will result in a run-time error.</p>
+
+  <h3 id="the-omega-machine">The Omega Machine</h3>
+
+  <p>This sophisticated example showed up back in 2009 on the IntFiction
+forum. The author, who goes by the handle SJ_43, was responding to <a href="https://intfiction.org/t/i7-giving-orders-to-a-device-format-is-name-order/677">a
+question from someone named Eudoxia about how to make a device that the
+player can give commands to</a> – for instance, a command like COMPUTER,
+CHECK THE STABILIZERS. The game below doesn’t implement anything quite
+that complicated, but it provides a framework with which you could
+easily do it. The sneaky Inform 6 trick in this code is the line,
+“Include (- has talkable, -) when defining a computer.” The parentheses
+and dashes are used (as described in <a href="#what-does-inform-6-have-to-do-with-inform-7">What Does Inform 6 Have to Do with
+Inform 7</a>) to drop the
+code out of I7 and down into I6. “has talkable” is I6 code that means,
+more or less, “This is an object the player may want to be able to talk
+to.”</p>
+
+  <p>Note that the Default Messages extension may change or not be compatible
+with a future version of Inform 7. It’s used here to create a special
+error message for devices of the computer kind.</p>
+
+  <p>I’ve customized SJ_43’s code by adding some calendar messages for
+Omega. In a real game, you’d probably want to store such messages in a
+table, so as to be able to refer to different messages at different
+points in the game.</p>
+
+  <div class="codeblock">
+    <p><button class="copycode" title="Copy to clipboard" onclick="copyCode(`A computer is a kind of device.\nInclude (- has talkable, -) when defining a computer.\n\nChecking for mail is an action applying to nothing.\nUnderstand &quot;mail&quot;, &quot;display mail&quot;, and &quot;show mail&quot; as checking for mail.\n\nCheck an actor checking for mail:\n\tunless the actor is a computer, stop the action.\n\nCarry out a computer checking for mail:\n\tsay &quot;'You have no messages.'&quot;\n\nDisplaying the calendar is an action applying to nothing.\nUnderstand &quot;calendar&quot;, &quot;display calendar&quot;, and &quot;show calendar&quot; as displaying the calendar.\n\nCheck an actor displaying the calendar:\n\tunless the actor is a computer, stop the action.\n\nChecking for mail is doing computer stuff. Displaying the calendar is doing computer stuff.\nPersuasion rule for asking a computer to try doing computer stuff: persuasion succeeds.\n\nInstead of doing computer stuff, say &quot;That command is for computers only.&quot;\n\nInstead of a switched off computer (called comp) doing something:\n\tsay error message for the comp;\n\trule succeeds.\n\nAsking a computer about something is computer conversation.\nTelling a computer about something is computer conversation.\nAsking a computer for something is computer conversation.\nInstead of computer conversation, say &quot;You can only do that to something animate.&quot;\nInstead of answering a computer that something, say error message for the noun.\n\nTo say error message for (comp - a computer): \n\tif comp is switched on, say &quot;'Does not compute!'&quot;;\n\totherwise say &quot;[The comp] is currently switched off.&quot;\n\nThe Lab is a room. Omega is a computer in the Lab. Understand &quot;pda&quot; as Omega. The description of omega is &quot;Your trusty handeheld pda.  The chrome-plated device is voice-activated, and no batteries are necessary since it has a built-in microfusion reactor.&quot;\n\nCarry out Omega displaying the calendar:\n\tsay &quot;[one of]'You're late for your appointment with the white rabbit!' says Omega[or]'Time for a flu shot!' says Omega[or]'I'm afraid I can't do that, Dave,' says Omega[or]'No appointments today,' says Omega[stopping].&quot;;\n\trule succeeds.\n\nTest me with &quot;take omega / omega, mail / turn on omega / omega, mail / omega, calendar / g / g / omega, sing / mail&quot;.\n`)"><span class="sym">⧉</span></button></p>
+    <div class="codeline">
+      <p>A computer is a kind of device.</p>
+    </div>
+    <div class="codeline">
+      <p>Include (- has talkable, -) when defining a computer.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>Checking for mail is an action applying to nothing.</p>
+    </div>
+    <div class="codeline">
+      <p>Understand “mail”, “display mail”, and “show mail” as checking for mail.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>Check an actor checking for mail:</p>
+    </div>
+    <div class="codeline">
+      <p>   unless the actor is a computer, stop the action.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>Carry out a computer checking for mail:</p>
+    </div>
+    <div class="codeline">
+      <p>   say “‘You have no messages.’”</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>Displaying the calendar is an action applying to nothing.</p>
+    </div>
+    <div class="codeline">
+      <p>Understand “calendar”, “display calendar”, and “show calendar” as
+displaying the calendar.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>Check an actor displaying the calendar:</p>
+    </div>
+    <div class="codeline">
+      <p>   unless the actor is a computer, stop the action.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>Checking for mail is doing computer stuff. Displaying the calendar is
+doing computer stuff.</p>
+    </div>
+    <div class="codeline">
+      <p>Persuasion rule for asking a computer to try doing computer stuff:
+persuasion succeeds.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>Instead of doing computer stuff, say “That command is for computers
+only.”</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>Instead of a switched off computer (called comp) doing something:</p>
+    </div>
+    <div class="codeline">
+      <p>   say error message for the comp;</p>
+    </div>
+    <div class="codeline">
+      <p>   rule succeeds.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>Asking a computer about something is computer conversation.</p>
+    </div>
+    <div class="codeline">
+      <p>Telling a computer about something is computer conversation.</p>
+    </div>
+    <div class="codeline">
+      <p>Asking a computer for something is computer conversation.</p>
+    </div>
+    <div class="codeline">
+      <p>Instead of computer conversation, say “You can only do that to something
+animate.”</p>
+    </div>
+    <div class="codeline">
+      <p>Instead of answering a computer that something, say error message for
+the noun.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>To say error message for (comp - a computer):</p>
+    </div>
+    <div class="codeline">
+      <p>   if comp is switched on, say “‘Does not compute!’”;</p>
+    </div>
+    <div class="codeline">
+      <p>   otherwise say “[The comp] is currently switched off.”</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>The Lab is a room. Omega is a computer in the Lab. Understand “pda” as
+Omega. The description of omega is “Your trusty handeheld pda. The
+chrome-plated device is voice-activated, and no batteries are necessary
+since it has a built-in microfusion reactor.”</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>Carry out Omega displaying the calendar:</p>
+    </div>
+    <div class="codeline">
+      <p>   say “[one of]’You’re late for your appointment with the white
+rabbit!’ says Omega[or]’Time for a flu shot!’ says Omega[or]’I’m afraid
+I can’t do that, Dave,’ says Omega[or]’No appointments today,’ says
+Omega[stopping].”;</p>
+    </div>
+    <div class="codeline">
+      <p>   rule succeeds.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>Test me with “take omega / omega, mail / turn on omega / omega, mail /
+omega, calendar / g / g / omega, sing / mail”.</p>
+    </div>
+  </div>
+  <h3 id="the-lurking-critter">The Lurking Critter</h3>
+
+  <p>This example, which was inspired by an answer that Mike Gentry gave on
+the newsgroup to a question from S. John Ross, is included principally
+to show a way of changing the state of an object (the sword) and of
+reporting that change in certain conditions – namely, if the player is
+carrying the sword. The idea that the sword glows if the lurking critter
+is nearby is borrowed from Zork.</p>
+
+  <p>We’ll start by creating a checkerboard-like matrix of 16 rooms. This
+matrix is at least mildly interesting in that the room connections cross
+one another without intersecting. That is, you can go southeast from
+Room1 to Room6, or southwest from Room2 to Room5, but the two paths are
+independent. (Maybe there are arched stone bridges.) Both the player and
+the lurking critter can move diagonally from room to room as well as
+orthogonally. The critter will move at random, but only 50% of the time.</p>
+
+  <div class="codeblock">
+    <p><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Room1 is a room. Room2 is east of Room1. Room3 is east of Room2. Room4 is east of Room3.\n\nRoom5 is south of Room1. Room6 is east of Room5 and south of Room2. Room7 is east of Room6 and south of Room3. Room8 is east of Room7 and south of Room4.\n\nRoom9 is south of Room5. Room10 is east of Room9 and south of Room6. Room11 is east of Room10 and south of Room7. Room12 is east of Room11 and south of Room8.\n\nRoom13 is south of Room9. Room14 is east of Room13 and south of Room10. Room15 is east of Room14 and south of Room11. Room16 is east of Room15 and south of Room12. \n\nRoom5 is southwest of Room2. Room6 is southwest of Room3 and southeast of Room1. Room7 is southwest of Room4 and southeast of Room2. Room8 is southeast of Room3.\n\nRoom9 is southwest of Room6. Room10 is southwest of Room7 and southeast of Room5. Room11 is southwest of Room8 and southeast of Room6. Room12 is southeast of Room7.\n\nRoom13 is southwest of Room10. Room14 is southwest of Room11 and southeast of Room9. Room15 is southwest of Room12 and southeast of Room10. Room16 is southeast of Room11.\n\nThe lurking critter is a man in Room4.\n\nBrightness is a kind of value. The brightnesses are glowing brightly, glowing faintly, and glowless.\n\nThe player carries a sword. The sword has a brightness. The brightness of the sword is glowless. The description is &quot;A trusty critter-sensing weapon[if the brightness of the sword is glowing faintly]. It's glowing faintly[otherwise if the brightness of the sword is glowing brightly]. It's glowing brightly[end if].&quot;\n`)"><span class="sym">⧉</span></button></p>
+    <div class="codeline">
+      <p>Room1 is a room. Room2 is east of Room1. Room3 is east of Room2. Room4
+is east of Room3.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>Room5 is south of Room1. Room6 is east of Room5 and south of Room2.
+Room7 is east of Room6 and south of Room3. Room8 is east of Room7 and
+south of Room4.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>Room9 is south of Room5. Room10 is east of Room9 and south of Room6.
+Room11 is east of Room10 and south of Room7. Room12 is east of Room11
+and south of Room8.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>Room13 is south of Room9. Room14 is east of Room13 and south of Room10.
+Room15 is east of Room14 and south of Room11. Room16 is east of Room15
+and south of Room12.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>Room5 is southwest of Room2. Room6 is southwest of Room3 and southeast
+of Room1. Room7 is southwest of Room4 and southeast of Room2. Room8 is
+southeast of Room3.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>Room9 is southwest of Room6. Room10 is southwest of Room7 and southeast
+of Room5. Room11 is southwest of Room8 and southeast of Room6. Room12 is
+southeast of Room7.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>Room13 is southwest of Room10. Room14 is southwest of Room11 and
+southeast of Room9. Room15 is southwest of Room12 and southeast of
+Room10. Room16 is southeast of Room11.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>The lurking critter is a man in Room4.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>Brightness is a kind of value. The brightnesses are glowing brightly,
+glowing faintly, and glowless.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>The player carries a sword. The sword has a brightness. The brightness
+of the sword is glowless. The description is “A trusty critter-sensing
+weapon[if the brightness of the sword is glowing faintly]. It’s glowing
+faintly[otherwise if the brightness of the sword is glowing brightly].
+It’s glowing brightly[end if].”</p>
+    </div>
+  </div>
+  <p>This next definition is used, rather than the library’s default
+terminology, “adjacent room,” because room adjacency isn’t considered to
+exist if two rooms are separated by a door. You might want to add doors
+to your game.</p>
+
+  <div class="codeblock">
+    <p><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Definition: a room is neighboring if the number of moves from it to\nthe location is 1.\n`)"><span class="sym">⧉</span></button></p>
+    <div class="codeline">
+      <p>Definition: a room is neighboring if the number of moves from it to</p>
+    </div>
+    <div class="codeline">
+      <p>the location is 1.</p>
+    </div>
+  </div>
+  <p>And finally, we’ll move the critter (maybe) and adjust the sword-glow:</p>
+
+  <div class="codeblock">
+    <p><button class="copycode" title="Copy to clipboard" onclick="copyCode(`To adjust sword-glow to (b - a brightness):\n\tlet current glow be the brightness of the sword;\n\tnow the brightness of the sword is b;\n\tif b is the current glow:\n\t\tdo nothing;\n\totherwise if b is glowless:\n\t\tif the player carries the sword:\n\t\t\tsay &quot;Your sword is no longer glowing.&quot;;\n\totherwise if b is glowing faintly:\n\t\tif the player carries the sword:\n\t\t\tsay &quot;Your sword glows with a faint blue glow.&quot;;\n\totherwise:\n\t\tif the player carries the sword:\n\t\t\tsay &quot;Your sword is glowing brightly.&quot;\n`)"><span class="sym">⧉</span></button></p>
+    <div class="codeline">
+      <p>To adjust sword-glow to (b - a brightness):</p>
+    </div>
+    <div class="codeline">
+      <p>   let current glow be the brightness of the sword;</p>
+    </div>
+    <div class="codeline">
+      <p>   now the brightness of the sword is b;</p>
+    </div>
+    <div class="codeline">
+      <p>   if b is the current glow:</p>
+    </div>
+    <div class="codeline">
+      <p>      do nothing;</p>
+    </div>
+    <div class="codeline">
+      <p>   otherwise if b is glowless:</p>
+    </div>
+    <div class="codeline">
+      <p>      if the player carries the sword:</p>
+    </div>
+    <div class="codeline">
+      <p>         say “Your sword is no longer glowing.”;</p>
+    </div>
+    <div class="codeline">
+      <p>   otherwise if b is glowing faintly:</p>
+    </div>
+    <div class="codeline">
+      <p>      if the player carries the sword:</p>
+    </div>
+    <div class="codeline">
+      <p>         say “Your sword glows with a faint blue glow.”;</p>
+    </div>
+    <div class="codeline">
+      <p>   otherwise:</p>
+    </div>
+    <div class="codeline">
+      <p>      if the player carries the sword:</p>
+    </div>
+    <div class="codeline">
+      <p>         say “Your sword is glowing brightly.”</p>
+    </div>
+  </div>
+  <h3 id="restraints">Restraints</h3>
+
+  <p>Preventing the player from performing certain actions in certain
+situations is a standard type of puzzle. For instance, if the player is
+wearing handcuffs, picking things up (that is, using the TAKE or GET
+command) probably shouldn’t work. I’ll leave it up to your imagination
+to figure out how the player character might be able to remove a pair of
+handcuffs while unable to pick up the key. In the example below, a
+simple workaround is used – the player is allowed to pick up the key,
+but nothing else.</p>
+
+  <p><a href="https://intfiction.org/t/action-names/678">The Restraints example was posted by Zeborah on IntFiction</a> and then
+revised by me with a little help from Mike Tarbert, provides a
+general-purpose way to intercept actions depending on what sort of
+restraint the PC is wearing. It uses a table to correlate actions with
+restraints.</p>
+
+  <div class="codeblock">
+    <p><button class="copycode" title="Copy to clipboard" onclick="copyCode(`A restraint is a kind of thing. A restraint is usually wearable. The blindfold, the gag, the ball-and-chain, and some handcuffs are restraints.\n\nInstead of doing something when the player wears a restraint:\n\trepeat through the Table of Restricted Movements:\n\t\tif the player wears the restraint entry:\n\t\t\tlet impulses be a list of action names;\n\t\t\tlet impulses be the movement entry;\n\t\t\tif the action name part of the current action is listed in impulses:\n\t\t\t\tsay &quot;You have no hope of [the current action] while wearing [the restraint entry].&quot; instead;\n\tcontinue the action.\n\nThe handcuffs can be locked or unlocked. The handcuffs are locked.\n\nInstead of locking the handcuffs with the small iron key:\n\tif the handcuffs are locked:\n\t\tsay &quot;They're already locked.&quot;;\n\totherwise if the player does not carry the small iron key:\n\t\tsay &quot;You don't seem to have the key.&quot;;\n\totherwise:\n\t\tnow the handcuffs are locked;\n\t\tsay &quot;You lock the handcuffs with the small iron key.&quot;\n\nInstead of taking off the handcuffs:\n\tif the handcuffs are locked:\n\t\tsay &quot;The handcuffs seem to be locked.&quot;;\n\totherwise:\n\t\tnow the player carries the handcuffs;\n\t\tsay &quot;You remove the handcuffs.&quot;\n\nInstead of wearing the handcuffs:\n\tif the handcuffs are worn:\n\t\tsay &quot;You're already wearing the handcuffs.&quot;;\n\totherwise if the handcuffs are locked:\n\t\tsay &quot;You'll need to unlock the handcuffs before you can put them on.&quot;;\n\totherwise:\n\t\tnow the player wears the handcuffs;\n\t\tsay &quot;You put on the handcuffs.&quot;\n\nInstead of unlocking the handcuffs with the small iron key:\n\tif the handcuffs are unlocked:\n\t\tsay &quot;But they're not locked!&quot;;\n\totherwise if the player does not carry the small iron key:\n\t\tsay &quot;You don't seem to have the key.&quot;;\n\totherwise:\n\t\tnow the handcuffs are unlocked;\n\t\tsay &quot;It's awkward, but you manage to insert the key in the keyhole and turn it. Now the handcuffs are unlocked.&quot;\n\nInstead of taking the small iron key when the player wears the handcuffs:\n\tnow the player carries the small iron key;\n\tsay &quot;You manage to pick up the key, even though you're wearing handcuffs.&quot;\n\nInstead of opening the tool chest when the player wears the handcuffs:\n\tif the tool chest is open:\n\t\tsay &quot;It's already open.&quot;;\n\totherwise:\n\t\tnow the tool chest is open;\n\t\tsay &quot;It's awkward, but you manage to open the tool chest while wearing the handcuffs.&quot;\n\nThe Dungeon is a room. &quot;A dank and dismal dungeon. You can go north.&quot;\n\nThe Dismal Crypt is north of the Dungeon. &quot;The walls of the crypt are oozing...&quot;\n\nThe player wears the ball-and-chain and the handcuffs.\n\nThe tool chest is an openable container in the Dungeon. The tool chest is closed. The blindfold and gag are in the tool chest. The small iron key is in the tool chest.\n\n[Due to a bug in the Inform compiler, we have to split the list of actions that you can’t take while wearing the handcuffs into three separate rows in the table:]\n\nTable of Restricted Movements\nrestraint\tmovement\nball-and-chain\t{going action, jumping action, entering action, exiting action, getting off action, climbing action}\ngag\t{eating action, kissing action, answering it that action, telling it about action, asking it about action, asking it for action, saying yes action, saying no action, tasting action, saying sorry action}\nhandcuffs\t{taking action, removing it from action, taking off action, dropping action, putting it on action, inserting it into action, searching action, touching action}\nhandcuffs\t{waving action, pulling action, pushing action, turning action, squeezing action, eating action, consulting it about action, locking it with action, unlocking it with action, switching on action, switching off action}\nhandcuffs\t{opening action, closing action, wearing action, attacking action, showing it to action, throwing it at action, cutting action, tying it to action, drinking action, swinging action, rubbing action, setting it to action}\nblindfold\t{looking action, searching action, examining action}\n\nTest me with &quot;n / remove ball-and-chain / remove handcuffs / open chest / unlock handcuffs with key / remove handcuffs / remove ball-and-chain / n&quot;.\n`)"><span class="sym">⧉</span></button></p>
+    <div class="codeline">
+      <p>A restraint is a kind of thing. A restraint is usually wearable. The
+blindfold, the gag, the ball-and-chain, and some handcuffs are
+restraints.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>Instead of doing something when the player wears a restraint:</p>
+    </div>
+    <div class="codeline">
+      <p>   repeat through the Table of Restricted Movements:</p>
+    </div>
+    <div class="codeline">
+      <p>      if the player wears the restraint entry:</p>
+    </div>
+    <div class="codeline">
+      <p>         let impulses be a list of action names;</p>
+    </div>
+    <div class="codeline">
+      <p>         let impulses be the movement entry;</p>
+    </div>
+    <div class="codeline">
+      <p>         if the action name part of the current action is listed in
+impulses:</p>
+    </div>
+    <div class="codeline">
+      <p>            say “You have no hope of [the current action] while wearing
+[the restraint entry].” instead;</p>
+    </div>
+    <div class="codeline">
+      <p>   continue the action.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>The handcuffs can be locked or unlocked. The handcuffs are locked.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>Instead of locking the handcuffs with the small iron key:</p>
+    </div>
+    <div class="codeline">
+      <p>   if the handcuffs are locked:</p>
+    </div>
+    <div class="codeline">
+      <p>      say “They’re already locked.”;</p>
+    </div>
+    <div class="codeline">
+      <p>   otherwise if the player does not carry the small iron key:</p>
+    </div>
+    <div class="codeline">
+      <p>      say “You don’t seem to have the key.”;</p>
+    </div>
+    <div class="codeline">
+      <p>   otherwise:</p>
+    </div>
+    <div class="codeline">
+      <p>      now the handcuffs are locked;</p>
+    </div>
+    <div class="codeline">
+      <p>      say “You lock the handcuffs with the small iron key.”</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>Instead of taking off the handcuffs:</p>
+    </div>
+    <div class="codeline">
+      <p>   if the handcuffs are locked:</p>
+    </div>
+    <div class="codeline">
+      <p>      say “The handcuffs seem to be locked.”;</p>
+    </div>
+    <div class="codeline">
+      <p>   otherwise:</p>
+    </div>
+    <div class="codeline">
+      <p>      now the player carries the handcuffs;</p>
+    </div>
+    <div class="codeline">
+      <p>      say “You remove the handcuffs.”</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>Instead of wearing the handcuffs:</p>
+    </div>
+    <div class="codeline">
+      <p>   if the handcuffs are worn:</p>
+    </div>
+    <div class="codeline">
+      <p>      say “You’re already wearing the handcuffs.”;</p>
+    </div>
+    <div class="codeline">
+      <p>   otherwise if the handcuffs are locked:</p>
+    </div>
+    <div class="codeline">
+      <p>      say “You’ll need to unlock the handcuffs before you can put them
+on.”;</p>
+    </div>
+    <div class="codeline">
+      <p>   otherwise:</p>
+    </div>
+    <div class="codeline">
+      <p>      now the player wears the handcuffs;</p>
+    </div>
+    <div class="codeline">
+      <p>      say “You put on the handcuffs.”</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>Instead of unlocking the handcuffs with the small iron key:</p>
+    </div>
+    <div class="codeline">
+      <p>   if the handcuffs are unlocked:</p>
+    </div>
+    <div class="codeline">
+      <p>      say “But they’re not locked!”;</p>
+    </div>
+    <div class="codeline">
+      <p>   otherwise if the player does not carry the small iron key:</p>
+    </div>
+    <div class="codeline">
+      <p>      say “You don’t seem to have the key.”;</p>
+    </div>
+    <div class="codeline">
+      <p>   otherwise:</p>
+    </div>
+    <div class="codeline">
+      <p>      now the handcuffs are unlocked;</p>
+    </div>
+    <div class="codeline">
+      <p>      say “It’s awkward, but you manage to insert the key in the keyhole
+and turn it. Now the handcuffs are unlocked.”</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>Instead of taking the small iron key when the player wears the
+handcuffs:</p>
+    </div>
+    <div class="codeline">
+      <p>   now the player carries the small iron key;</p>
+    </div>
+    <div class="codeline">
+      <p>   say “You manage to pick up the key, even though you’re wearing
+handcuffs.”</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>Instead of opening the tool chest when the player wears the handcuffs:</p>
+    </div>
+    <div class="codeline">
+      <p>   if the tool chest is open:</p>
+    </div>
+    <div class="codeline">
+      <p>      say “It’s already open.”;</p>
+    </div>
+    <div class="codeline">
+      <p>   otherwise:</p>
+    </div>
+    <div class="codeline">
+      <p>      now the tool chest is open;</p>
+    </div>
+    <div class="codeline">
+      <p>      say “It’s awkward, but you manage to open the tool chest while
+wearing the handcuffs.”</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>The Dungeon is a room. “A dank and dismal dungeon. You can go north.”</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>The Dismal Crypt is north of the Dungeon. “The walls of the crypt are
+oozing…”</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>The player wears the ball-and-chain and the handcuffs.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>The tool chest is an openable container in the Dungeon. The tool chest
+is closed. The blindfold and gag are in the tool chest. The small iron
+key is in the tool chest.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>[Due to a bug in the Inform compiler, we have to split the list of
+actions that you can’t take while wearing the handcuffs into three
+separate rows in the table:]</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>Table of Restricted Movements</p>
+    </div>
+    <div class="codeline">
+      <p>restraint   movement</p>
+    </div>
+    <div class="codeline">
+      <p>ball-and-chain   {going action, jumping action, entering action, exiting
+action, getting off action, climbing action}</p>
+    </div>
+    <div class="codeline">
+      <p>gag   {eating action, kissing action, answering it that action, telling
+it about action, asking it about action, asking it for action, saying
+yes action, saying no action, tasting action, saying sorry action}</p>
+    </div>
+    <div class="codeline">
+      <p>handcuffs   {taking action, removing it from action, taking off action,
+dropping action, putting it on action, inserting it into action,
+searching action, touching action}</p>
+    </div>
+    <div class="codeline">
+      <p>handcuffs   {waving action, pulling action, pushing action, turning
+action, squeezing action, eating action, consulting it about action,
+locking it with action, unlocking it with action, switching on action,
+switching off action}</p>
+    </div>
+    <div class="codeline">
+      <p>handcuffs   {opening action, closing action, wearing action, attacking
+action, showing it to action, throwing it at action, cutting action,
+tying it to action, drinking action, swinging action, rubbing action,
+setting it to action}</p>
+    </div>
+    <div class="codeline">
+      <p>blindfold   {looking action, searching action, examining action}</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>Test me with “n / remove ball-and-chain / remove handcuffs / open chest
+/ unlock handcuffs with key / remove handcuffs / remove ball-and-chain /
+n”.</p>
+    </div>
+  </div>
+  <p>This example takes advantage of the fact that when the Inform compiler
+builds rulebooks, it lists more specific rules ahead of more general
+rules. The Instead rules for the tool chest, key, and handcuffs will be
+listed before the general-purpose Instead rule, so they’ll allow the
+player to solve the puzzle by opening the chest, picking up the key, and
+then unlocking the handcuffs.</p>
+
+  <p>The example also shows how to use a table containing list entries, and
+how to use the phrase “action-name part of the current action,” which is
+not a syntax mentioned elsewhere in this <em>Handbook</em> (nor, for that
+matter, in <em>Writing with Inform</em>). It’s a useful syntax to know. For
+instance, if the current action is “going north”, the action-name part
+of the action is “going”.</p>
+
+  <p>After removing the handcuffs, you can experiment further with this
+example by wearing the blindfold and trying to examine things, or by
+adding an NPC, wearing the gag, and then trying to talk to the NPC.</p>
+
+  <h3 id="broken-eggs">Broken Eggs</h3>
+
+  <p>This next example was originally written by Jason Travis and posted in
+the newsgroup, in response to a question from Rob Cowell about how to
+break a box full of eggs when the box was dropped. I’ve expanded the
+example quite a bit. It shows how to handle a collection of
+indistinguishable objects (the eggs) when any individual egg can be
+either broken or unbroken.</p>
+
+  <p>First, we’ll set up the game and let Inform know that an egg is a kind
+of thing. We’ll add some code that will allow eggs to be broken or
+unbroken. Note the use of a couple of “before printing” rules to let the
+player know what sort of egg is being mentioned. This is a handy
+alternative to changing the printed name of an egg object when the egg
+itself is in the process of getting broken.</p>
+
+  <div class="codeblock">
+    <p><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Humpty Dumpty Doesn't Live Here&quot; by Jason Travis &amp; Jim Aikin\n\nThe story headline is &quot;A heart-rending tale of clumsiness and its irreversble consequences,&quot;\n \nThe Kitchen is a room. &quot;A well-appointed kitchen with all sorts of things you really don't need to interact with.&quot; \n\nAn egg is a kind of thing. An egg can be unbroken or broken. An egg is usually unbroken. The description is &quot;[if unbroken]Ovoid and whitish.[otherwise]Yolk and other stuff grotesquely splashed in an interesting pattern among various sharp bits of shell.&quot; \n\nUnderstand the unbroken property as describing an egg.\n\nUnderstand &quot;sharp&quot;, &quot;bits&quot;, &quot;shell&quot;, &quot;yellow&quot;, and &quot;yolk&quot; as broken. Understand &quot;whole&quot;, &quot;white&quot;, &quot;whitish&quot;, &quot;ovoid&quot;, and &quot;fresh&quot; as unbroken.\n\nBefore printing the name of a broken egg, say &quot;broken &quot;. \n\nBefore printing the plural name of a broken egg, say &quot;broken &quot;.\n`)"><span class="sym">⧉</span></button></p>
+    <div class="codeline">
+      <p>“Humpty Dumpty Doesn’t Live Here” by Jason Travis &amp; Jim Aikin</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>The story headline is “A heart-rending tale of clumsiness and its
+irreversble consequences,”</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>The Kitchen is a room. “A well-appointed kitchen with all sorts of
+things you really don’t need to interact with.”</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>An egg is a kind of thing. An egg can be unbroken or broken. An egg is
+usually unbroken. The description is “[if unbroken]Ovoid and
+whitish.[otherwise]Yolk and other stuff grotesquely splashed in an
+interesting pattern among various sharp bits of shell.”</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>Understand the unbroken property as describing an egg.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>Understand “sharp”, “bits”, “shell”, “yellow”, and “yolk” as broken.
+Understand “whole”, “white”, “whitish”, “ovoid”, and “fresh” as
+unbroken.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>Before printing the name of a broken egg, say “broken “.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>Before printing the plural name of a broken egg, say “broken “.</p>
+    </div>
+  </div>
+  <p>We don’t want the player carrying around broken eggs, so we’ll get rid
+of them if the player tries to take them. This next bit of code
+illustrates the use of the word “called” to create a reference (BE) that
+we can use while writing the Instead rule. In this case, we could just
+as easily skip the “called” reference and say “remove the noun from
+play”, but “called” is a handy bit of syntax to know, so we’ll use it
+here.</p>
+
+  <div class="codeblock">
+    <p><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of taking a broken egg (called BE): \n\tsay &quot;You spend a good deal of time cleaning it up, throwing the gooey \ndebris into the trash.&quot;; \n\tremove BE from play. \n`)"><span class="sym">⧉</span></button></p>
+    <div class="codeline">
+      <p>Instead of taking a broken egg (called BE):</p>
+    </div>
+    <div class="codeline">
+      <p>   say “You spend a good deal of time cleaning it up, throwing the gooey</p>
+    </div>
+    <div class="codeline">
+      <p>debris into the trash.”;</p>
+    </div>
+    <div class="codeline">
+      <p>   remove BE from play.</p>
+    </div>
+  </div>
+  <p>Next, we need a box with some eggs in it. Note the use of the text
+substitution “[box-contents]”. This lets us write a whole To say rule
+that will mention the eggs in the box if there are any. By default,
+Inform doesn’t list the contents of an open container when the container
+is examined. But since broken eggs are highly noticeable, we’ll tack a
+list of things in the eggbox onto the description. The carry out rule
+for examining the eggbox causes Inform not to print out an extra line
+repeating the contents of the box. This is not strictly necessary; we
+could let Inform do this for us. But it would make the list of contents
+into a separate paragraph. The code below tucks the list of contents
+neatly into the end of the main paragraph.</p>
+
+  <div class="codeblock">
+    <p><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The eggbox is a closed openable container in Kitchen. The description is &quot;It is made of recycled paper, and is decorated with a garish cartoon showing a line of happy chickens with their wings wrapped across one another's shoulders as they dance the can-can[box-contents].&quot; The eggbox contains six eggs. Understand &quot;box&quot;, &quot;recycled&quot;, &quot;paper&quot;, &quot;happy&quot;, &quot;chickens&quot;, and &quot;carton&quot; as the eggbox.\n\nCarry out examining the eggbox:\n\tsay &quot;[description of the eggbox][line break]&quot;;\n\trule succeeds.\n\nTo say box-contents:\n\tif the eggbox is closed:\n\t\tdo nothing;\n\totherwise if the number of things in the eggbox is 0:\n\t\tdo nothing;\n\totherwise:\n\t\tsay &quot;. In the box you can see [a list of things in the eggbox]&quot;.\n`)"><span class="sym">⧉</span></button></p>
+    <div class="codeline">
+      <p>The eggbox is a closed openable container in Kitchen. The description is
+“It is made of recycled paper, and is decorated with a garish cartoon
+showing a line of happy chickens with their wings wrapped across one
+another’s shoulders as they dance the can-can[box-contents].” The eggbox
+contains six eggs. Understand “box”, “recycled”, “paper”, “happy”,
+“chickens”, and “carton” as the eggbox.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>Carry out examining the eggbox:</p>
+    </div>
+    <div class="codeline">
+      <p>   say “[description of the eggbox][line break]”;</p>
+    </div>
+    <div class="codeline">
+      <p>   rule succeeds.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>To say box-contents:</p>
+    </div>
+    <div class="codeline">
+      <p>   if the eggbox is closed:</p>
+    </div>
+    <div class="codeline">
+      <p>      do nothing;</p>
+    </div>
+    <div class="codeline">
+      <p>   otherwise if the number of things in the eggbox is 0:</p>
+    </div>
+    <div class="codeline">
+      <p>      do nothing;</p>
+    </div>
+    <div class="codeline">
+      <p>   otherwise:</p>
+    </div>
+    <div class="codeline">
+      <p>      say “. In the box you can see [a list of things in the eggbox]”.</p>
+    </div>
+  </div>
+  <p>Now it’s time to break some eggs. The first part is easy. If the player
+uses the command DROP EGG, something bad will happen. We’ll break the
+egg in an After rule because we want to make sure the dropping action
+has been successfully carried out. If we used an Instead rule, we’d have
+to move the broken egg to the floor of the room manually, because the
+Instead rule would bypass Inform’s normal handling of the DROP action.
+We’d also have to make sure the player was actually carrying the egg,
+for the same reason. With an After rule, our code can be simpler and
+less error-prone.</p>
+
+  <p>The consequences of dropping the eggbox are more complicated. We’re
+going to assume that if the eggbox is closed, the eggs in it won’t break
+when the box is dropped. (Kids – don’t try this at home!) If the box is
+open, the eggs in it will break. But what if the box contains both some
+broken eggs and some unbroken ones? That could happen, for instance, if
+the player uses the commands OPEN BOX, TAKE EGG, DROP BOX, PUT EGG IN
+BOX, TAKE BOX. At this point the box would contain (probably) some
+broken eggs and an unbroken one.</p>
+
+  <div class="codeblock">
+    <p><button class="copycode" title="Copy to clipboard" onclick="copyCode(`After dropping an egg (called E): \n\tnow E is broken; \n\tsay &quot;The egg tumbles to the floor in slow motion, breaking apart spectacularly. Somewhere in the distance you hear the forlorn cluck-cluck-cluck of a mother hen.&quot; \n\nAfter dropping the eggbox: \n\tif the eggbox is closed: \n\t\tif the eggbox does not contain an egg: \n\t\t\tsay &quot;The empty box skitters across the floor.&quot;; \n\t\totherwise if the eggbox contains a broken egg:\n\t\t\tsay &quot;The eggbox makes a sort of squishy, sloshing sound as it hits the floor.&quot;;\n\t\totherwise: \n\t\t\tsay &quot;You hear [the number of eggs in the eggbox in words] egg[s] jouncing around safely in the carton.&quot;;  \n\totherwise: \n\t\tif the eggbox does not contain an egg: \n\t\t\tsay &quot;The empty box thunks hollowly on the floor.&quot;; \n\t\totherwise if the eggbox contains an unbroken egg:\n\t\t\tsay &quot;Whoops! Broken [run paragraph on]&quot;;\n\t\t\tif the number of unbroken eggs in the eggbox is greater than 1:\n\t\t\t\tsay &quot;eggs.&quot;;\n\t\t\totherwise:\n\t\t\t\tsay &quot;egg.&quot;;\n\t\t\tnow every egg in the eggbox is broken; \n\t\totherwise:\n\t\t\tlet N be the number of broken eggs in the eggbox;\n\t\t\tsay &quot;The broken egg[if N is greater than 1]s slosh[otherwise] sloshes[end if] around viscously in the eggbox as it hits the floor.&quot; \n`)"><span class="sym">⧉</span></button></p>
+    <div class="codeline">
+      <p>After dropping an egg (called E):</p>
+    </div>
+    <div class="codeline">
+      <p>   now E is broken;</p>
+    </div>
+    <div class="codeline">
+      <p>   say “The egg tumbles to the floor in slow motion, breaking apart
+spectacularly. Somewhere in the distance you hear the forlorn
+cluck-cluck-cluck of a mother hen.”</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>After dropping the eggbox:</p>
+    </div>
+    <div class="codeline">
+      <p>   if the eggbox is closed:</p>
+    </div>
+    <div class="codeline">
+      <p>      if the eggbox does not contain an egg:</p>
+    </div>
+    <div class="codeline">
+      <p>         say “The empty box skitters across the floor.”;</p>
+    </div>
+    <div class="codeline">
+      <p>      otherwise if the eggbox contains a broken egg:</p>
+    </div>
+    <div class="codeline">
+      <p>         say “The eggbox makes a sort of squishy, sloshing sound as it
+hits the floor.”;</p>
+    </div>
+    <div class="codeline">
+      <p>      otherwise:</p>
+    </div>
+    <div class="codeline">
+      <p>         say “You hear [the number of eggs in the eggbox in words]
+egg[s] jouncing around safely in the carton.”;</p>
+    </div>
+    <div class="codeline">
+      <p>   otherwise:</p>
+    </div>
+    <div class="codeline">
+      <p>      if the eggbox does not contain an egg:</p>
+    </div>
+    <div class="codeline">
+      <p>         say “The empty box thunks hollowly on the floor.”;</p>
+    </div>
+    <div class="codeline">
+      <p>      otherwise if the eggbox contains an unbroken egg:</p>
+    </div>
+    <div class="codeline">
+      <p>         say “Whoops! Broken [run paragraph on]”;</p>
+    </div>
+    <div class="codeline">
+      <p>         if the number of unbroken eggs in the eggbox is greater than 1:</p>
+    </div>
+    <div class="codeline">
+      <p>            say “eggs.”;</p>
+    </div>
+    <div class="codeline">
+      <p>         otherwise:</p>
+    </div>
+    <div class="codeline">
+      <p>            say “egg.”;</p>
+    </div>
+    <div class="codeline">
+      <p>         now every egg in the eggbox is broken;</p>
+    </div>
+    <div class="codeline">
+      <p>      otherwise:</p>
+    </div>
+    <div class="codeline">
+      <p>         let N be the number of broken eggs in the eggbox;</p>
+    </div>
+    <div class="codeline">
+      <p>         say “The broken egg[if N is greater than 1]s slosh[otherwise]
+sloshes[end if] around viscously in the eggbox as it hits the floor.”</p>
+    </div>
+  </div>
+  <p>Studying this After rule may help you see how to structure blocks of
+code. The outermost if-test is “if the eggbox is closed … otherwise”.
+Within each of these blocks, we test whether the eggbox does not contain
+an egg, and deal with that possibility. And so on.</p>
+
+  <p>The use of “[run paragraph on]” and “let N be the number…” is also
+worth a quick look, if you’re not familiar with these tools.</p>
+
+  <h3 id="indoors-outdoors">Indoors &amp; Outdoors</h3>
+
+  <p>Inform’s built-in library creates rooms in a basic way. They have no
+walls, floor, or ceiling. If outdoors, they have no ground or sky. Such
+objects can easily be created as backdrops. A more serious limitation is
+that even outdoor rooms are, by default, “sealed containers.” You can’t
+look from one outdoor room into another and see anything that’s there.</p>
+
+  <p>My first thought was to bundle the example game below as an extension,
+in order to provide these features and a few others for anyone who might
+find them useful. But I suspect authors will almost always want to
+customize the implementation in various ways. Since none of the code in
+the example game is tucked away in an extension, you can easily copy it
+into your own game and modify it as needed.</p>
+
+  <p>If you want to write a realistic outdoor setting, spend some time
+studying <a href="../RB_3.html#section_p">RB 3.4: Continuous Spaces and the
+Outdoors</a>. The examples in that section
+illustrate some useful techniques. For the present example, we’re going
+to implement both outdoor and indoor rooms. We’ll start by creating some
+backdrops and a couple of kinds of room. (Note that to use this code,
+you will usually need to add a few extra words to each of your existing
+room definitions, to tell Inform whether the new room is an indoor room
+or an outdoor room.)</p>
+
+  <p>We need a special “check taking” rule for the sky, because by default
+Inform will respond to the player’s attempt to take a backdrop by saying
+“That’s hardly portable.” This response works fine for walls, floor,
+ceiling, and ground, but not for the sky.</p>
+
+  <div class="codeblock">
+    <p><button class="copycode" title="Copy to clipboard" onclick="copyCode(`An outdoor room is a kind of room. An indoor room is a kind of room.\n\nThe sky is a backdrop. The description is &quot;A bright and cloudless blue.&quot;\n\nCheck taking the sky:\n\tsay &quot;You can't touch the sky.&quot;;\n\trule fails.\n\nThe ground is a backdrop. The description is &quot;The ground is a bit uneven.&quot; Understand &quot;uneven&quot; as the ground.\nThe ceiling is a backdrop. The description is &quot;A few cobwebs up there.&quot; Understand &quot;cobwebs&quot; as the ceiling.\nThe floor is a backdrop. The description is &quot;The floor is flat and level.&quot;\n\nA backdrop has a direction called wall-direction. The wall-direction of a backdrop is usually up.\n\nA wall is a kind of backdrop.\nThe east wall is a wall. The wall-direction of the east wall is east.\nThe north wall is a wall. The wall-direction of the north wall is north.\nThe south wall is a wall. The wall-direction of the south wall is south.\nThe west wall is a wall. The wall-direction of the west wall is west.\nThe description of a wall is &quot;It's vertical.&quot; Understand &quot;walls&quot; as the plural of a wall.\n\nA corner is a kind of backdrop.\nThe northeast corner is a corner. The wall-direction of the northeast corner is northeast.\nThe northwest corner is a corner. The wall-direction of the northwest corner is northwest.\nThe southeast corner is a corner. The wall-direction of the southeast corner is southeast.\nThe southwest corner is a corner. The wall-direction of the southwest corner is southwest.\nThe description of a corner is &quot;Two walls join here at right angles.&quot; Understand &quot;corners&quot; as the plural of a corner.\n`)"><span class="sym">⧉</span></button></p>
+    <div class="codeline">
+      <p>An outdoor room is a kind of room. An indoor room is a kind of room.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>The sky is a backdrop. The description is “A bright and cloudless blue.”</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>Check taking the sky:</p>
+    </div>
+    <div class="codeline">
+      <p>   say “You can’t touch the sky.”;</p>
+    </div>
+    <div class="codeline">
+      <p>   rule fails.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>The ground is a backdrop. The description is “The ground is a bit
+uneven.” Understand “uneven” as the ground.</p>
+    </div>
+    <div class="codeline">
+      <p>The ceiling is a backdrop. The description is “A few cobwebs up there.”
+Understand “cobwebs” as the ceiling.</p>
+    </div>
+    <div class="codeline">
+      <p>The floor is a backdrop. The description is “The floor is flat and
+level.”</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>A backdrop has a direction called wall-direction. The wall-direction of
+a backdrop is usually up.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>A wall is a kind of backdrop.</p>
+    </div>
+    <div class="codeline">
+      <p>The east wall is a wall. The wall-direction of the east wall is east.</p>
+    </div>
+    <div class="codeline">
+      <p>The north wall is a wall. The wall-direction of the north wall is north.</p>
+    </div>
+    <div class="codeline">
+      <p>The south wall is a wall. The wall-direction of the south wall is south.</p>
+    </div>
+    <div class="codeline">
+      <p>The west wall is a wall. The wall-direction of the west wall is west.</p>
+    </div>
+    <div class="codeline">
+      <p>The description of a wall is “It’s vertical.” Understand “walls” as the
+plural of a wall.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>A corner is a kind of backdrop.</p>
+    </div>
+    <div class="codeline">
+      <p>The northeast corner is a corner. The wall-direction of the northeast
+corner is northeast.</p>
+    </div>
+    <div class="codeline">
+      <p>The northwest corner is a corner. The wall-direction of the northwest
+corner is northwest.</p>
+    </div>
+    <div class="codeline">
+      <p>The southeast corner is a corner. The wall-direction of the southeast
+corner is southeast.</p>
+    </div>
+    <div class="codeline">
+      <p>The southwest corner is a corner. The wall-direction of the southwest
+corner is southwest.</p>
+    </div>
+    <div class="codeline">
+      <p>The description of a corner is “Two walls join here at right angles.”
+Understand “corners” as the plural of a corner.</p>
+    </div>
+  </div>
+  <p>Defining some of the directions as diagonal will become important if the
+player tries LOOK NORTHEAST, for instance, while indoors. We want to
+refer to the corner of the room, not to a wall (since most likely there
+will be two walls meeting in the northeast). Having taken care of that
+detail, we create a pair of regions, in order to put the backdrops in
+them.</p>
+
+  <p>A limitation of Inform, which may come into play if you try adapting the
+code in this example for use in your game, is that regions can’t
+overlap. (The basic way of handling region definitions is explained in
+<a href="#regions">Regions</a>.) Because of this limitation, if you use the code
+below you won’t be able to include both an indoor room and an outdoor
+room in any of the regions you might want to define in your game. Indoor
+rooms are in the Great Indoors region and outdoor rooms in the Great
+Outdoors region.</p>
+
+  <div class="codeblock">
+    <p><button class="copycode" title="Copy to clipboard" onclick="copyCode(`A direction can be orthogonal or diagonal. A direction is usually orthogonal. Northwest is diagonal. Southwest is diagonal. Northeast is diagonal. Southeast is diagonal.\n\nThe Great Outdoors is a region. All outdoor rooms are in the Great Outdoors.\nThe Great Indoors is a region. All indoor rooms are in the Great Indoors.\n\nThe sky is in the Great Outdoors. The ground is in the Great Outdoors.\n\nThe floor is in the Great Indoors. The ceiling is in the Great Indoors. The east wall is in the Great Indoors. The north wall is in the Great Indoors. The west wall is in the Great Indoors. The south wall is in the Great Indoors.\n\nThe northeast corner is in the Great Indoors. The northwest corner is in the Great Indoors. The southeast corner is in the Great Indoors. The southwest corner is in the Great Indoors.\n`)"><span class="sym">⧉</span></button></p>
+    <div class="codeline">
+      <p>A direction can be orthogonal or diagonal. A direction is usually
+orthogonal. Northwest is diagonal. Southwest is diagonal. Northeast is
+diagonal. Southeast is diagonal.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>The Great Outdoors is a region. All outdoor rooms are in the Great
+Outdoors.</p>
+    </div>
+    <div class="codeline">
+      <p>The Great Indoors is a region. All indoor rooms are in the Great
+Indoors.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>The sky is in the Great Outdoors. The ground is in the Great Outdoors.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>The floor is in the Great Indoors. The ceiling is in the Great Indoors.
+The east wall is in the Great Indoors. The north wall is in the Great
+Indoors. The west wall is in the Great Indoors. The south wall is in the
+Great Indoors.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>The northeast corner is in the Great Indoors. The northwest corner is in
+the Great Indoors. The southeast corner is in the Great Indoors. The
+southwest corner is in the Great Indoors.</p>
+    </div>
+  </div>
+  <p>Next, we’ll add some code to let the player use commands of the form
+LOOK EAST. This type of command will do one thing if the player is in an
+indoor room (it will examine a wall) and another if the player is in an
+outdoor room (it will use the new direction-looking action that we’re
+about to define).</p>
+
+  <p>Note the use of the “listed instead of” line below to replace a default
+library rule with our own version. The library’s default just prints out
+a message, but we need more nuance.</p>
+
+  <div class="codeblock">
+    <p><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Carry out examining (this is the new examine directions rule):\n\tif the noun is a direction:\n\t\tif the location is an indoor room:\n\t\t\trepeat with item running through backdrops in the location:\n\t\t\t\tif the wall-direction of item is the noun:\n\t\t\t\t\ttry examining item instead;\n\t\totherwise:\n\t\t\ttry direction-looking the noun instead;\n\totherwise:\n\t\tcontinue the action.\n\nThe new examine directions rule is listed instead of the examine directions rule in the carry out examining rulebook.\n\nLooking toward is an action applying to one visible thing. Understand &quot;look toward [any room]&quot; as looking toward. \n\nChosen direction is a direction that varies.\n\nCheck looking toward:\n\tif the noun is the location:\n\t\ttry looking instead;\n\totherwise if the noun is not neighboring:\n\t\tsay &quot;You can't see that far.&quot; instead.\n\nCarry out looking toward:\n\tnow the chosen direction is the best route from the location to the noun;\n\ttry direction-looking the chosen direction instead.\n\nDirection-looking is an action applying to one visible thing and requiring light. Understand &quot;look [direction]&quot; as direction-looking.\n\nCarry out direction-looking:\n\tlet D be the noun;\n\tif the location is an indoor room:\n\t\tif D is inside or D is outside:\n\t\t\tsay &quot;You see nothing unusual.&quot;;\n\t\totherwise if D is up:\n\t\t\ttry examining the ceiling instead;\n\t\totherwise if D is down:\n\t\t\ttry examining the floor instead;\n\t\totherwise if D is diagonal:\n\t\t\tsay &quot;The [D] corner of the room is an ordinary corner.&quot;;\n\t\totherwise:\n\t\t\tsay &quot;The [D] wall looks like a wall.&quot;;\n\totherwise:\n\t\tlet R be the room D from the location;\n\t\tif R is a room:\n\t\t\tassemble the huge-list for R;\n\t\totherwise:\n\t\t\tnow the huge-list is {};\n\t\tif the number of entries in huge-list is 0:\n\t\t\tsay &quot;You see nothing unusual in that direction.&quot;;\n\t\totherwise:\t\t\t\n\t\t\tsay &quot;Looking [D], you can see [huge-list with indefinite articles].&quot;\n`)"><span class="sym">⧉</span></button></p>
+    <div class="codeline">
+      <p>Carry out examining (this is the new examine directions rule):</p>
+    </div>
+    <div class="codeline">
+      <p>   if the noun is a direction:</p>
+    </div>
+    <div class="codeline">
+      <p>      if the location is an indoor room:</p>
+    </div>
+    <div class="codeline">
+      <p>         repeat with item running through backdrops in the location:</p>
+    </div>
+    <div class="codeline">
+      <p>            if the wall-direction of item is the noun:</p>
+    </div>
+    <div class="codeline">
+      <p>               try examining item instead;</p>
+    </div>
+    <div class="codeline">
+      <p>      otherwise:</p>
+    </div>
+    <div class="codeline">
+      <p>         try direction-looking the noun instead;</p>
+    </div>
+    <div class="codeline">
+      <p>   otherwise:</p>
+    </div>
+    <div class="codeline">
+      <p>      continue the action.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>The new examine directions rule is listed instead of the examine
+directions rule in the carry out examining rulebook.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>Looking toward is an action applying to one visible thing. Understand
+“look toward [any room]” as looking toward.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>Chosen direction is a direction that varies.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>Check looking toward:</p>
+    </div>
+    <div class="codeline">
+      <p>   if the noun is the location:</p>
+    </div>
+    <div class="codeline">
+      <p>      try looking instead;</p>
+    </div>
+    <div class="codeline">
+      <p>   otherwise if the noun is not neighboring:</p>
+    </div>
+    <div class="codeline">
+      <p>      say “You can’t see that far.” instead.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>Carry out looking toward:</p>
+    </div>
+    <div class="codeline">
+      <p>   now the chosen direction is the best route from the location to the
+noun;</p>
+    </div>
+    <div class="codeline">
+      <p>   try direction-looking the chosen direction instead.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>Direction-looking is an action applying to one visible thing and
+requiring light. Understand “look [direction]” as direction-looking.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>Carry out direction-looking:</p>
+    </div>
+    <div class="codeline">
+      <p>   let D be the noun;</p>
+    </div>
+    <div class="codeline">
+      <p>   if the location is an indoor room:</p>
+    </div>
+    <div class="codeline">
+      <p>      if D is inside or D is outside:</p>
+    </div>
+    <div class="codeline">
+      <p>         say “You see nothing unusual.”;</p>
+    </div>
+    <div class="codeline">
+      <p>      otherwise if D is up:</p>
+    </div>
+    <div class="codeline">
+      <p>         try examining the ceiling instead;</p>
+    </div>
+    <div class="codeline">
+      <p>      otherwise if D is down:</p>
+    </div>
+    <div class="codeline">
+      <p>         try examining the floor instead;</p>
+    </div>
+    <div class="codeline">
+      <p>      otherwise if D is diagonal:</p>
+    </div>
+    <div class="codeline">
+      <p>         say “The [D] corner of the room is an ordinary corner.”;</p>
+    </div>
+    <div class="codeline">
+      <p>      otherwise:</p>
+    </div>
+    <div class="codeline">
+      <p>         say “The [D] wall looks like a wall.”;</p>
+    </div>
+    <div class="codeline">
+      <p>   otherwise:</p>
+    </div>
+    <div class="codeline">
+      <p>      let R be the room D from the location;</p>
+    </div>
+    <div class="codeline">
+      <p>      if R is a room:</p>
+    </div>
+    <div class="codeline">
+      <p>         assemble the huge-list for R;</p>
+    </div>
+    <div class="codeline">
+      <p>      otherwise:</p>
+    </div>
+    <div class="codeline">
+      <p>         now the huge-list is {};</p>
+    </div>
+    <div class="codeline">
+      <p>      if the number of entries in huge-list is 0:</p>
+    </div>
+    <div class="codeline">
+      <p>         say “You see nothing unusual in that direction.”;</p>
+    </div>
+    <div class="codeline">
+      <p>      otherwise:         </p>
+    </div>
+    <div class="codeline">
+      <p>         say “Looking [D], you can see [huge-list with indefinite
+articles].”</p>
+    </div>
+  </div>
+  <p>The code above uses a list (a global variable) called the huge-list,
+which we’ll create in the next section. The huge-list is not a permanent
+thing; we’ll assemble it dynamically each time it needs to be used.
+We’ll do this by checking for huge things. A huge thing, as you might
+imagine, is something that’s big enough to see from a distance when
+outdoors. Nothing in the game will be huge unless the author says it is.</p>
+
+  <p>Things that are huge will need to be added to scope in every turn when
+the player is in an outdoor room. This will assure that the player can
+refer to them in commands.</p>
+
+  <div class="codeblock">
+    <p><button class="copycode" title="Copy to clipboard" onclick="copyCode(`A thing can be huge. A thing is usually not huge.\n\nDefinition: a room is neighboring if the number of moves from it to the location is 1.\n\nAfter deciding the scope of the player when the location is an outdoor room:\n\tassemble the huge-list;\n\trepeat with item running through huge-list:\n\t\tplace item in scope.\n\nThe huge-list is a list of things that varies. The huge-list is {}.\n\nTo assemble the huge-list:\n\tnow the huge-list is {};\n\tlet room-inv be a list of things;\n\trepeat with R running through neighboring rooms:\n\t\tnow room-inv is {};\n\t\trepeat with item running through things in R:\n\t\t\tadd item to room-inv;\n\t\trepeat with item running through room-inv:\n\t\t\tif item is huge:\n\t\t\t\tadd item to huge-list.\n\nTo assemble the huge-list for (R - a room):\n\tnow the huge-list is {};\n\tlet room-inv be a list of things;\n\trepeat with item running through things in R:\n\t\tadd item to room-inv;\n\trepeat with item running through room-inv:\n\t\tif item is huge:\n\t\t\tadd item to huge-list.\n\nInstead of examining a huge thing:\n\tif the noun is not in the location:\n\t\tsay &quot;[The noun] [are] too far away for you to make out any detail.&quot;;\n\totherwise:\n\t\tcontinue the action.\n\nBefore doing anything other than examining with a huge thing:\n\tif the noun is not enclosed by the location:\n\t\tsay &quot;[The noun] [are] too far away.&quot;;\n\t\trule fails;\n\totherwise:\n\t\tcontinue the action.\n`)"><span class="sym">⧉</span></button></p>
+    <div class="codeline">
+      <p>A thing can be huge. A thing is usually not huge.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>Definition: a room is neighboring if the number of moves from it to the
+location is 1.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>After deciding the scope of the player when the location is an outdoor
+room:</p>
+    </div>
+    <div class="codeline">
+      <p>   assemble the huge-list;</p>
+    </div>
+    <div class="codeline">
+      <p>   repeat with item running through huge-list:</p>
+    </div>
+    <div class="codeline">
+      <p>      place item in scope.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>The huge-list is a list of things that varies. The huge-list is {}.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>To assemble the huge-list:</p>
+    </div>
+    <div class="codeline">
+      <p>   now the huge-list is {};</p>
+    </div>
+    <div class="codeline">
+      <p>   let room-inv be a list of things;</p>
+    </div>
+    <div class="codeline">
+      <p>   repeat with R running through neighboring rooms:</p>
+    </div>
+    <div class="codeline">
+      <p>      now room-inv is {};</p>
+    </div>
+    <div class="codeline">
+      <p>      repeat with item running through things in R:</p>
+    </div>
+    <div class="codeline">
+      <p>         add item to room-inv;</p>
+    </div>
+    <div class="codeline">
+      <p>      repeat with item running through room-inv:</p>
+    </div>
+    <div class="codeline">
+      <p>         if item is huge:</p>
+    </div>
+    <div class="codeline">
+      <p>            add item to huge-list.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>To assemble the huge-list for (R - a room):</p>
+    </div>
+    <div class="codeline">
+      <p>   now the huge-list is {};</p>
+    </div>
+    <div class="codeline">
+      <p>   let room-inv be a list of things;</p>
+    </div>
+    <div class="codeline">
+      <p>   repeat with item running through things in R:</p>
+    </div>
+    <div class="codeline">
+      <p>      add item to room-inv;</p>
+    </div>
+    <div class="codeline">
+      <p>   repeat with item running through room-inv:</p>
+    </div>
+    <div class="codeline">
+      <p>      if item is huge:</p>
+    </div>
+    <div class="codeline">
+      <p>         add item to huge-list.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>Instead of examining a huge thing:</p>
+    </div>
+    <div class="codeline">
+      <p>   if the noun is not in the location:</p>
+    </div>
+    <div class="codeline">
+      <p>      say “[The noun] [are] too far away for you to make out any
+detail.”;</p>
+    </div>
+    <div class="codeline">
+      <p>   otherwise:</p>
+    </div>
+    <div class="codeline">
+      <p>      continue the action.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>Before doing anything other than examining with a huge thing:</p>
+    </div>
+    <div class="codeline">
+      <p>   if the noun is not enclosed by the location:</p>
+    </div>
+    <div class="codeline">
+      <p>      say “[The noun] [are] too far away.”;</p>
+    </div>
+    <div class="codeline">
+      <p>      rule fails;</p>
+    </div>
+    <div class="codeline">
+      <p>   otherwise:</p>
+    </div>
+    <div class="codeline">
+      <p>      continue the action.</p>
+    </div>
+  </div>
+  <p>Next, we’ll implement floorless rooms (more or less in the manner
+discussed in <a href="#floorless-rooms">Floorless Rooms</a>). The reason for
+including floorless rooms in the example will become apparent in a
+moment.</p>
+
+  <div class="codeblock">
+    <p><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Limbo is a room. [Because this is the first room mentioned, we will soon have to make sure the player character starts the game in the Living Room.]\n\nA room can be floorless. A room is usually not floorless. A room has a room called the drop zone. The drop zone of a room is usually Limbo.\n\nAfter dropping something in a floorless room (called R):\n\tlet DZ be the drop zone of R;\n\tmove the noun to DZ;\n\tsay &quot;[The noun] plummets down out of sight.&quot;\n`)"><span class="sym">⧉</span></button></p>
+    <div class="codeline">
+      <p>Limbo is a room. [Because this is the first room mentioned, we will soon
+have to make sure the player character starts the game in the Living
+Room.]</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>A room can be floorless. A room is usually not floorless. A room has a
+room called the drop zone. The drop zone of a room is usually Limbo.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>After dropping something in a floorless room (called R):</p>
+    </div>
+    <div class="codeline">
+      <p>   let DZ be the drop zone of R;</p>
+    </div>
+    <div class="codeline">
+      <p>   move the noun to DZ;</p>
+    </div>
+    <div class="codeline">
+      <p>   say “[The noun] plummets down out of sight.”</p>
+    </div>
+  </div>
+  <p>The final facet of this example is to let the player throw things from
+one room into another (but only when outdoors). First we’ll add a few
+more vocabulary words as synonyms for “drop”. We really only want these
+words to be used in the new direction-throwing action, but if we don’t
+add them to the drop action, Inform will respond to the command TOSS THE
+BALL by saying “What do you want to toss the ball?” This would be ugly.</p>
+
+  <p>Note also that if there’s any reason in the game why the player won’t be
+allowed to drop things – such as being tied up – the game’s code will
+need to prevent direction-throwing in that circumstance as well. If you
+omit this step, the player will have an unintended way to drop things,
+by typing something like THROW RABID GERBIL EAST.</p>
+
+  <div class="codeblock">
+    <p><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Understand &quot;hurl [something]&quot;, &quot;toss [something]&quot;, and &quot;pitch [something]&quot; as dropping.\n\nUnderstand &quot;upward&quot; as up.\nUnderstand &quot;downward&quot; as down.\nUnderstand &quot;eastward&quot; as east.\nUnderstand &quot;westward&quot; as west.\nUnderstand &quot;northward&quot; as north.\nUnderstand &quot;southward&quot; as south.\n\nDirection-throwing is an action applying to one thing and one visible thing and requiring light. Understand &quot;throw [something] [direction]&quot;, &quot;hurl [something] [direction]&quot;, &quot;pitch [something] [direction]&quot;, and &quot;toss [something] [direction]&quot; as direction-throwing.\n\nTo bounce is a verb. [Here, we add some verbs so we can use them in brackets in the say statements in the rules we’re about to define. This will let Inform decide if the verb should be plural or singular in form.]\n\nTo come (he comes, they come, he came) is a verb.\n\n[We're not going to let you throw things through a door from one room to another, on the theory that your aim isn't very good:]\n\nCheck direction-throwing:\n\tif the player does not carry the noun:\n\t\tsay &quot;You can't throw something you're not holding.&quot; instead;\n\totherwise if the noun is huge:\n\t\tsay &quot;[The noun] [are] too heavy to throw.&quot; instead;\n\totherwise if the location is not an outdoor room:\n\t\tsay &quot;[The noun] [bounce] off the wall and [come] to rest on the floor.&quot;;\n\t\tmove the noun to the location;\n\t\trule succeeds;\n\totherwise:\n\t\tlet D be the second noun;\n\t\tif the room D from the location is nowhere:\n\t\t\ttry dropping the noun instead.\n`)"><span class="sym">⧉</span></button></p>
+    <div class="codeline">
+      <p>Understand “hurl [something]”, “toss [something]”, and “pitch
+[something]” as dropping.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>Understand “upward” as up.</p>
+    </div>
+    <div class="codeline">
+      <p>Understand “downward” as down.</p>
+    </div>
+    <div class="codeline">
+      <p>Understand “eastward” as east.</p>
+    </div>
+    <div class="codeline">
+      <p>Understand “westward” as west.</p>
+    </div>
+    <div class="codeline">
+      <p>Understand “northward” as north.</p>
+    </div>
+    <div class="codeline">
+      <p>Understand “southward” as south.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>Direction-throwing is an action applying to one thing and one visible
+thing and requiring light. Understand “throw [something] [direction]”,
+“hurl [something] [direction]”, “pitch [something] [direction]”, and
+“toss [something] [direction]” as direction-throwing.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>To bounce is a verb. [Here, we add some verbs so we can use them in
+brackets in the say statements in the rules we’re about to define. This
+will let Inform decide if the verb should be plural or singular in
+form.]</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>To come (he comes, they come, he came) is a verb.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>[We’re not going to let you throw things through a door from one room to
+another, on the theory that your aim isn’t very good:]</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>Check direction-throwing:</p>
+    </div>
+    <div class="codeline">
+      <p>   if the player does not carry the noun:</p>
+    </div>
+    <div class="codeline">
+      <p>      say “You can’t throw something you’re not holding.” instead;</p>
+    </div>
+    <div class="codeline">
+      <p>   otherwise if the noun is huge:</p>
+    </div>
+    <div class="codeline">
+      <p>      say “[The noun] [are] too heavy to throw.” instead;</p>
+    </div>
+    <div class="codeline">
+      <p>   otherwise if the location is not an outdoor room:</p>
+    </div>
+    <div class="codeline">
+      <p>      say “[The noun] [bounce] off the wall and [come] to rest on the
+floor.”;</p>
+    </div>
+    <div class="codeline">
+      <p>      move the noun to the location;</p>
+    </div>
+    <div class="codeline">
+      <p>      rule succeeds;</p>
+    </div>
+    <div class="codeline">
+      <p>   otherwise:</p>
+    </div>
+    <div class="codeline">
+      <p>      let D be the second noun;</p>
+    </div>
+    <div class="codeline">
+      <p>      if the room D from the location is nowhere:</p>
+    </div>
+    <div class="codeline">
+      <p>         try dropping the noun instead.</p>
+    </div>
+  </div>
+  <p>If the direction-throwing action hasn’t been stopped by the check rule,
+we know (a) that the player is carrying the noun, (b) that the noun is
+small enough to throw, (c) that the player is outdoors, and (d) that
+there is a room in that direction, to which the noun can be thrown.</p>
+
+  <p>The carry out rule, below, moves the thrown object off into whatever
+room exists in the direction the player has thrown the object – unless
+the room in that direction is floorless. If the destination is
+floorless, the thrown object will instead end up in the drop zone of the
+floorless room.</p>
+
+  <p>The report rule checks to see where the noun has landed. If the player
+has tried to throw it up into a tree (a floorless room), it will by this
+time have landed somewhere else. This would most likely be the room the
+player is in (if she’s standing at the base of the tree) – but that’s
+not guaranteed. The player could be out on the limb of a tree and throw
+something south, toward the main part of the tree, thus causing it to
+drop to the ground below.</p>
+
+  <div class="codeblock">
+    <p><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Carry out direction-throwing:\n\tlet D be the second noun;\n\tlet R be the room D from the location;\n\tif R is floorless:\n\t\tlet DZ be the drop zone of R;\n\t\tnow the noun is in DZ;\n\totherwise:\n\t\tnow the noun is in R.\n\nTo sail is a verb. To land is a verb.\n\nTo fall (he falls, they fall, he fell, it is fallen) is a verb.\n\nReport direction-throwing:\n\tif the noun is in the location:\n\t\tsay &quot;You throw [the noun], and [regarding the noun][they] [sail] away through the air, but a moment later [they] [fall] back and [land] beside you.&quot;;\n\totherwise:\n\t\tsay &quot;You hurl [the noun] [second noun], and [regarding the noun][they] [sail] away out of sight.&quot;\n`)"><span class="sym">⧉</span></button></p>
+    <div class="codeline">
+      <p>Carry out direction-throwing:</p>
+    </div>
+    <div class="codeline">
+      <p>   let D be the second noun;</p>
+    </div>
+    <div class="codeline">
+      <p>   let R be the room D from the location;</p>
+    </div>
+    <div class="codeline">
+      <p>   if R is floorless:</p>
+    </div>
+    <div class="codeline">
+      <p>      let DZ be the drop zone of R;</p>
+    </div>
+    <div class="codeline">
+      <p>      now the noun is in DZ;</p>
+    </div>
+    <div class="codeline">
+      <p>   otherwise:</p>
+    </div>
+    <div class="codeline">
+      <p>      now the noun is in R.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>To sail is a verb. To land is a verb.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>To fall (he falls, they fall, he fell, it is fallen) is a verb.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>Report direction-throwing:</p>
+    </div>
+    <div class="codeline">
+      <p>   if the noun is in the location:</p>
+    </div>
+    <div class="codeline">
+      <p>      say “You throw [the noun], and [regarding the noun][they] [sail]
+away through the air, but a moment later [they] [fall] back and [land]
+beside you.”;</p>
+    </div>
+    <div class="codeline">
+      <p>   otherwise:</p>
+    </div>
+    <div class="codeline">
+      <p>      say “You hurl [the noun] [second noun], and [regarding the
+noun][they] [sail] away out of sight.”</p>
+    </div>
+  </div>
+  <p>And here’s an entirely pointless scenario with a few rooms and objects,
+which you can use to test the example. You can try throwing things in
+various directions while indoors or outdoors, looking various directions
+while indoors and outdoors, and examining huge things that are far away.</p>
+
+  <div class="codeblock">
+    <p><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Living Room is an indoor room. &quot;The front door is north, the kitchen south.&quot;\n\nThe player is in the Living Room. The player carries some galoshes.\n\nThe Kitchen is south of the Living Room. The Kitchen is an indoor room. &quot;Not much here. You can go north.&quot;\n\nThe Yard is an outdoor room. The yard is north of the Living Room. &quot;The lawn wants cutting. The front door is south, and the hill is east.&quot;\n\nThe Hill is an outdoor room. The Hill is east of the Yard. &quot;From the top of the hill, you can see back west into the yard. There's a tree here you could climb.&quot;\n\nThe buffalo is in the Hill. The buffalo is huge. The description of the buffalo is &quot;Big and brown.&quot; [Absurdly, the buffalo can be picked up and carried around. This makes it easy to try throwing huge things and so forth.]\n\nThe cabbage is in the Hill.\n\nThe ferris wheel is in the Hill. The ferris wheel is huge. It is fixed in place. The description of the ferris wheel is &quot;Big and round.&quot;\n\nThe Treetop is a floorless outdoor room. &quot;You're surrounded by leaves.&quot; The Treetop is up from the Hill. The drop zone of the Treetop is the Hill.\n\nThe Treetop is a floorless outdoor room. &quot;You're surrounded by leaves.&quot; The Treetop is up from the Hill. The drop zone of the Treetop is the Hill.\n`)"><span class="sym">⧉</span></button></p>
+    <div class="codeline">
+      <p>The Living Room is an indoor room. “The front door is north, the kitchen
+south.”</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>The player is in the Living Room. The player carries some galoshes.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>The Kitchen is south of the Living Room. The Kitchen is an indoor room.
+“Not much here. You can go north.”</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>The Yard is an outdoor room. The yard is north of the Living Room. “The
+lawn wants cutting. The front door is south, and the hill is east.”</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>The Hill is an outdoor room. The Hill is east of the Yard. “From the top
+of the hill, you can see back west into the yard. There’s a tree here
+you could climb.”</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>The buffalo is in the Hill. The buffalo is huge. The description of the
+buffalo is “Big and brown.” [Absurdly, the buffalo can be picked up and
+carried around. This makes it easy to try throwing huge things and so
+forth.]</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>The cabbage is in the Hill.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>The ferris wheel is in the Hill. The ferris wheel is huge. It is fixed
+in place. The description of the ferris wheel is “Big and round.”</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>The Treetop is a floorless outdoor room. “You’re surrounded by leaves.”
+The Treetop is up from the Hill. The drop zone of the Treetop is the
+Hill.</p>
+    </div>
+    <div class="codeline">
+      <p> </p>
+    </div>
+    <div class="codeline">
+      <p>The Treetop is a floorless outdoor room. “You’re surrounded by leaves.”
+The Treetop is up from the Hill. The drop zone of the Treetop is the
+Hill.</p>
+    </div>
+  </div>
+</div>
+
+
+</main>
+<footer>
+  <p><em>The Inform 7 Handbook</em> is copyright &copy; 2015 by Jim Aikin, and released under a <a href="https://creativecommons.org/licenses/by-nc/1.0/legalcode">CC-BY-NC 1.0 license</a>.</p>
+</footer>
+</body>
+</html>
