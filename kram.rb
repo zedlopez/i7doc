@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
+# markdown -> html
+
 require 'i7/template'
 #require 'redcarpet'
 require 'kramdown'
@@ -7,27 +9,7 @@ require 'kramdown-parser-gfm'
 require 'ostruct'
 require 'htmlentities'
 
-filename = ARGV.shift
-dirname = File.dirname(filename)
-basename = File.basename(filename, '.md')
-output_filename = File.join(dirname, basename + '.md.html')
 
-puts output_filename
-
-markdown_source = File.read(filename, encoding: "UTF-8")
-
-# class Conf
-#   def self.[](x)
-#     @h[x.to_sym]
-#   end
-#   def self.[]=(x,y)
-#     @h ||= {}
-#     @h[x.to_sym]=y
-#   end
-#   def self.method_missing(m, *args)
-#     @h[m]
-#   end
-# end
 Conf = OpenStruct.new
 Conf.tmpl = 'i7/tmpl'
 
@@ -69,6 +51,19 @@ module Kramdown
 end
 
 $html_ent = HTMLEntities.new  
+
+
+Dir['*.md'].each do |filename|
+
+basename = File.basename(filename, '.md')
+output_filename = File.join("docs/i7handbook", basename + '.md.html')
+markdown_source = File.read(filename, encoding: "UTF-8")
+
+
 html_fragment = Kramdown::Document.new(markdown_source, input: 'GFM', hard_wrap: false, parse_block_html: true).to_html5
 html = I7::Template[:i7handbook].render(html: html_fragment)
-File.open(output_filename, 'w', encoding: 'UTF-8') {|f| f.puts(html)}
+
+puts "writing #{output_filename}"
+#File.open(output_filename, 'w', encoding: 'UTF-8') {|f| f.puts(html)}
+
+end
