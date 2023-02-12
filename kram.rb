@@ -56,14 +56,14 @@ $html_ent = HTMLEntities.new
 Dir['*.md'].each do |filename|
 
 basename = File.basename(filename, '.md')
-output_filename = File.join("docs/i7handbook", basename + '.md.html')
+output_filename = File.join("docs/i7handbook", basename + '.html')
 markdown_source = File.read(filename, encoding: "UTF-8")
 
 
 html_fragment = Kramdown::Document.new(markdown_source, input: 'GFM', hard_wrap: false, parse_block_html: true).to_html5
 html = I7::Template[:i7handbook].render(html: html_fragment)
 
-puts "writing #{output_filename}"
-#File.open(output_filename, 'w', encoding: 'UTF-8') {|f| f.puts(html)}
+#puts "writing #{output_filename}"
+File.open(output_filename, 'w', encoding: 'UTF-8') {|f| f.puts(html)}
 
 end
