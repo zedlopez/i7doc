@@ -86,7 +86,7 @@ player.</p>
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Flea Market is a room. &quot;All manner of things are for sale here, lined up in rows on folding tables.&quot; \n\nA folding table is a supporter in the Flea Market. On the table are a replica Maltese Falcon, a phallic fertility statue of Aziz, a 1956 Ford carburetor, a headless Barbie doll, and a broken Pez dispenser.\n \nWanda is a woman in the Flea Market. \nJulianne is a woman in the Flea Market. \nChrissie is a woman in the Flea Market. \n\nThe Parking Lot is north of the Flea Market. &quot;Your car is parked here.&quot;\n\nTest me with &quot;i / take pez and ford and falcon and doll / i / i / i / i / n / i&quot;. \n`)"><span class="sym">⧉</span></button><div class="codeline">The Flea Market is a room. "All manner of things are for sale here, lined up in rows on folding tables." </div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">A folding table is a supporter in the Flea Market. On the table are a replica Maltese Falcon, a phallic fertility statue of Aziz, a 1956 Ford carburetor, a headless Barbie doll, and a broken Pez dispenser.</div>
-<div class="codeline"> </div>
+<div class="codeline">&thinsp;</div>
 <div class="codeline">Wanda is a woman in the Flea Market. </div>
 <div class="codeline">Julianne is a woman in the Flea Market. </div>
 <div class="codeline">Chrissie is a woman in the Flea Market. </div>
@@ -137,20 +137,20 @@ shows how to make parts that can be attached to or detached from an
 object. (In this case, the object is the ever-obliging Mr Potato
 Head.)</p>
 
-<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Potato Factory is a room. \n\nMr Potato Head is a man in the Factory. The description is &quot;Mr Potato head is big and round and brown[attachment-list].&quot;\n \nTo say attachment-list: \n\tlet count be 0; \n\trepeat with item running through things that are a part of Mr Potato Head: \n\t\tincrease count by 1; \n\tif count is 0: \n\t\tdo nothing; \n\totherwise: \n\t\tif the lips are part of Mr Potato Head:\n\t\t\tincrease count by 1;\n\t\tsay &quot;. Adding an attractive facial character to Mr Potato Head [if count is greater than 1]are[otherwise]is[end if] [a list of things that are part of Mr Potato Head]&quot;. \n`)"><span class="sym">⧉</span></button><div class="codeline">The Potato Factory is a room. </div>
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Potato Factory is a room. \n\nMr Potato Head is a man in the Factory. The description is &quot;Mr Potato head is big and round and brown[attachment-list].&quot;\n \nTo say attachment-list: \n\tlet count be 0; \n\trepeat with item running through things that are a part of Mr Potato Head: \n\t\tincrease count by 1; \n\tif count is 0: \n\t\tdo nothing; \n\totherwise: \n\t\tif the lips are part of Mr Potato Head:\n\t\t\tincrease count by 1;\n\t\tsay &quot;. Adding an attractive facial character to Mr Potato Head [if count is greater than 1]are[otherwise]is[end if] [a list of things that are part of Mr Potato Head]&quot;. \n`)"><span class="sym">⧉</span></button><div class="codeline">The Potato Factory is a room.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">Mr Potato Head is a man in the Factory. The description is "Mr Potato head is big and round and brown[attachment-list]."</div>
-<div class="codeline"> </div>
+<div class="codeline">&thinsp;</div>
 <div class="codeline">To say attachment-list: </div>
 <div class="codeline">&ensp;&ensp;&ensp;let count be 0; </div>
-<div class="codeline">&ensp;&ensp;&ensp;repeat with item running through things that are a part of Mr Potato Head: </div>
+<div class="codeline">&ensp;&ensp;&ensp;repeat with item running through things that are a part of Mr Potato Head:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;increase count by 1; </div>
 <div class="codeline">&ensp;&ensp;&ensp;if count is 0: </div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;do nothing; </div>
 <div class="codeline">&ensp;&ensp;&ensp;otherwise: </div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the lips are part of Mr Potato Head:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;increase count by 1;</div>
-<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say ". Adding an attractive facial character to Mr Potato Head [if count is greater than 1]are[otherwise]is[end if] [a list of things that are part of Mr Potato Head]". </div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say ". Adding an attractive facial character to Mr Potato Head [if count is greater than 1]are[otherwise]is[end if] [a list of things that are part of Mr Potato Head]".</div>
 </div>
 
 <p>The point of the “say attachment-list” code is that we want to append
@@ -610,16 +610,16 @@ itself is in the process of getting broken.</p>
 <div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`&quot;Humpty Dumpty Doesn&apos;t Live Here&quot; by Jason Travis & Jim Aikin\n\nThe story headline is &quot;A heart-rending tale of clumsiness and its irreversble consequences,&quot;\n \nThe Kitchen is a room. &quot;A well-appointed kitchen with all sorts of things you really don&apos;t need to interact with.&quot; \n\nAn egg is a kind of thing. An egg can be unbroken or broken. An egg is usually unbroken. The description is &quot;[if unbroken]Ovoid and whitish.[otherwise]Yolk and other stuff grotesquely splashed in an interesting pattern among various sharp bits of shell.&quot; \n\nUnderstand the unbroken property as describing an egg.\n\nUnderstand &quot;sharp&quot;, &quot;bits&quot;, &quot;shell&quot;, &quot;yellow&quot;, and &quot;yolk&quot; as broken. Understand &quot;whole&quot;, &quot;white&quot;, &quot;whitish&quot;, &quot;ovoid&quot;, and &quot;fresh&quot; as unbroken.\n\nBefore printing the name of a broken egg, say &quot;broken &quot;. \n\nBefore printing the plural name of a broken egg, say &quot;broken &quot;.\n`)"><span class="sym">⧉</span></button><div class="codeline">"Humpty Dumpty Doesn't Live Here" by Jason Travis & Jim Aikin</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">The story headline is "A heart-rending tale of clumsiness and its irreversble consequences,"</div>
-<div class="codeline"> </div>
+<div class="codeline">&thinsp;</div>
 <div class="codeline">The Kitchen is a room. "A well-appointed kitchen with all sorts of things you really don't need to interact with." </div>
 <div class="codeline">&thinsp;</div>
-<div class="codeline">An egg is a kind of thing. An egg can be unbroken or broken. An egg is usually unbroken. The description is "[if unbroken]Ovoid and whitish.[otherwise]Yolk and other stuff grotesquely splashed in an interesting pattern among various sharp bits of shell." </div>
+<div class="codeline">An egg is a kind of thing. An egg can be unbroken or broken. An egg is usually unbroken. The description is "[if unbroken]Ovoid and whitish.[otherwise]Yolk and other stuff grotesquely splashed in an interesting pattern among various sharp bits of shell."</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">Understand the unbroken property as describing an egg.</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">Understand "sharp", "bits", "shell", "yellow", and "yolk" as broken. Understand "whole", "white", "whitish", "ovoid", and "fresh" as unbroken.</div>
 <div class="codeline">&thinsp;</div>
-<div class="codeline">Before printing the name of a broken egg, say "broken ". </div>
+<div class="codeline">Before printing the name of a broken egg, say "broken ".</div>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">Before printing the plural name of a broken egg, say "broken ".</div>
 </div>
@@ -1054,3 +1054,4 @@ are far away.</p>
 <div class="codeline">&thinsp;</div>
 <div class="codeline">The Treetop is a floorless outdoor room. "You're surrounded by leaves." The Treetop is up from the Hill. The drop zone of the Treetop is the Hill.</div>
 </div>
+

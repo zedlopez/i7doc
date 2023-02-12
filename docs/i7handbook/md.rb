@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 #TODO
+# lists
 # addenda
 # sidebar
 # sup
@@ -13,9 +14,9 @@
 require 'nokogiri'
 
 lines = ARGF.to_a
-lines.unshift('<html>')
-lines.push('</html>')
-doc = Nokogiri::HTML(lines.join, nil, 'utf-8', Nokogiri::XML::ParseOptions::NOENT)
+#lines.unshift('<html>')
+#lines.push('</html>')
+doc = Nokogiri::HTML5.fragment(lines.join, 'utf-8')#, Nokogiri::XML::ParseOptions::NOENT)
 
 $divs_to_pass = %w{addendum sidebar game-output}
 
@@ -42,6 +43,7 @@ def traverse(node)
         print " "
       elsif child.name == "div"
         puts "```" if child.attr(:class) == "codeblock"
+        puts %Q{{::options parse_block_html="false" /}} if child.attr(:class) == "game-output"
         puts %Q{<div class="#{child.attr(:class)}">} if $divs_to_pass.member?(child.attr(:class))
       elsif child.name == "b" or child.name == "strong"
         print "**"
@@ -70,31 +72,17 @@ def traverse(node)
         print newline
       elsif child.parent.name == "a"
         print "[#{content}](#{child.parent.attr(:href)})"
-      # elsif within(child, "game-output")
-      #   if child.parent.attr(:class) == "game-output" and !content.match(/\S/)
-      #     next if child.parent.children.first == child
-      #     next if child.parent.children.last == child
-      #   end
-      #   next unless content.match(/\S/)
-      #   next if child.parent.attr(:class) == 'prompt'
-      #   print "> "
-      #   if (child.parent.name == "p" and child.parent.attr(:class) == "bold")
-      #     print "**#{content}**\n>\n"
-      #   else
-      #     print "&gt; " if child.previous and child.previous.attr(:class) == "prompt"
-      #     print content.gsub(/\n/," ")
-      #   end
-      #   puts
       else
         print content
       end
     end
     if $divs_to_pass.member?(child.attr(:class))
-      puts "</div>"
+      puts "\n</div>"
     elsif child.attr(:class) == "codeblock"
       puts unless child.children.last and child.children.last.text? and child.children.last.content.match(/\n\Z/)
       puts "```"
     end
+    puts %Q{{::options parse_block_html="false" /}} if child.attr(:class) == "game-output"
     print "*" if child.name == "i" or child.name == "em"
     print "**" if child.name == "b" or child.name == "strong"
   end
