@@ -36,6 +36,7 @@
 <li><a class="raw" href="#its-not-just-text">It's Not Just Text</a></li>
 <li><a class="raw" href="#precisely-one-spoon-unit-of-sugar">Precisely One Spoon-unit of
 <li><a class="raw" href="#backstage-activities">Backstage Activities</a></li>
+    <ul><li><a class="raw" href="#activities-looking">Looking</a></li></ul>
 <li><a class="raw" href="#testing-commands">Testing Commands</a></li>
 <li><a class="raw" href="#times-turns-and-tenses">Times, Turns, and Tenses</a></li>
 <li><a class="raw" href="#swapping-headings">Swapping Headings</a></li>
@@ -3167,7 +3168,7 @@ activity's name allows no leeway in its wording.</p>
 
 <p>Explanations of each activity, and its general category, follow.</p>
 
-<p><strong>Prose Generation.</strong> This may be a heavy label for what
+<p><h3 id="activities-prose-generation">Prose Generation.</h3> This may be a heavy label for what
 is essentially just outputting the contents of text properties, but they
 are some of the most important library events in Inform. The current
 contents of these rulebooks in a given work are listed in the "How
@@ -3221,7 +3222,7 @@ and is otherwise insignificant.</p>
 <p>(The multiple activities belonging to <em>looking</em> are in their
 own section further down.)</p>
 
-<p><strong>Parsing Input.</strong> Doing a good job with these
+<p><h3 id="activities-parsing-input">Parsing Input.</h3> Doing a good job with these
 activities can make or break a game. The contents of all these rulebooks
 are listed in the "How Commands are Understood" section of the Rules tab
 of the Index.</p>
@@ -3320,7 +3321,7 @@ person (or whatever) to be invisible.</p>
 <div class="codeline"><strong>For deciding the concealed possessions</strong> of the secret assassin when the particular possession is the dagger: yes.</div>
 </div>
 
-<p><strong>Taking.</strong> This action is the most common action to
+<p><h3 id="activities-taking">Taking.</h3> This action is the most common action to
 cause a change in world-state. In the text adventure days, it was
 fashionable to simulate the physical world to such a degree that one had
 to open doors before going through them, unlock doors before opening
@@ -3335,7 +3336,7 @@ bugging players long enough that the library provides for it.</p>
 then TAKE won't automatically be done. This rulebook is listed in the
 Index's Rules tab, at the bottom of "How Commands are Understood."</p>
 
-<p><strong>System level.</strong> These events bookend the game and are
+<p><h3 id="activities-system-level">System level.</h3> These events bookend the game and are
 rarely needed. But they occur in places that user-created code would be
 hard-pressed to get into had the library not specifically exposed them,
 so it's just as well that they're offered.</p>
@@ -3364,7 +3365,7 @@ command AMUSING at the game over prompt.</p>
 <p><em>Starting the virtual machine.</em> Multimedia or specific VM
 interpreters may need this early event, but that's about it.</p>
 
-<p><strong>Looking.</strong> This slightly-recursive action does the
+<p><h3 id="activities-looking">Looking.</h3> This slightly-recursive action does the
 most prose generation of anything in Inform. In text adventures of old,
 <em>looking</em> was your primary vehicle for delivering important
 information. Nowadays <em>scenes</em> can carry much of that weight, but
@@ -3517,7 +3518,7 @@ you-can-also-see line of a room description. This activity allows
 changing these parenthetical messages. (With the Default Messages
 extension, these are library messages 101 through 107.)</p>
 
-<p><strong>Darkness.</strong> Like bottomless pits in platformers,
+<p><h3 id="activity-darkness">Darkness.</h3> Like bottomless pits in platformers,
 darkness has been one of the commonest tropes in text adventures,
 stretching back to its earliest caving days. While in 2010 darkness can
 be simulated with a single <em>instead</em> rule, the library has always
@@ -3546,7 +3547,7 @@ activity is called.</p>
 <p><em>Printing the announcement of light.</em> Performs try
 looking.</p>
 
-<p><strong>New Activities.</strong> Occasionally we wish to create an
+<p><h3 id="new-activities">New Activities.</h3> Occasionally we wish to create an
 activity of our own. Extensions tend to find this useful more often than
 game-specific code, but if some kind of complex interaction is
 complicated enough, or is worthy of altering narration via
