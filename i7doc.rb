@@ -7,6 +7,9 @@
 
 # remglk and status line updates
 
+# manage fn needs to handle this case:
+# ^^{paragraph –– writing a paragraph about+activity+}
+
 # add link to plain text version (the generated .i7)
 # include comment in plain text with original filename
 
@@ -224,6 +227,7 @@ numwords = %w{one two three four five six seven eight nine ten eleven twelve}
 $nummap = Hash[numwords.map.with_index {|s,i| [(i+1).to_s,s]}]
 
 def keysort(str)
+  return "(* *)" if str.match(/\{\s+\}/)
   return str if ["a / an / the","an / a / the","the / a / an", '"'].member?(str)
   words = str.downcase.sub(/ü/,'u').sub(/è/,'e').sub(/\A(a|an|the)\s+/,'').split(/\s+/)
   words[0] = $nummap[words[0]] if $nummap.key?(words[0])
@@ -258,6 +262,12 @@ def manage(m, target, caret_count, payload)
   print_it = (caret_count == 1)
   reflist = payload.split(/\s*<--\s*/)
   firstmost = reflist.shift
+#  puts firstmost if firstmost.match(/paragraph/i)
+#  puts firstmost.chars.map {|c| "#{c}|#{c.ord}"}.join("|") if firstmost.match(/paragraph/i)
+#  puts '!' if firstmost.match(/\s--\s/)
+  firstmost.gsub!(/\s\-\-\s/,': ')
+#  puts firstmost if firstmost.match(/paragraph/i)
+
   firstmost, explicit_sortby = firstmost.split(/\s*-->\s*/)
   parts = firstmost.split(/\s*:\s*/).map {|x| x.gsub(/\\(\d+)/) {|m| $1.to_i.chr } }
   current = Conf.gi
@@ -359,6 +369,7 @@ end
 
 def mung(line, vol, chapter, section, type: :text)
   target = [ vol, chapter, section ]
+  line.gsub!(/\u2013/,'-')
   line = line.gsub(/&gt;/,'>').gsub(/&lt;/,'<')
   line.gsub!(/([\^]+)\{([^}]+)\}/) { |m| manage(m, target, $1.length, $2) }
   line.gsub(/<b>/,'«b»').gsub(/<\/b>/,'«/b»').gsub(/<i>/,'«i»').gsub(/<\/i>/,'«/i»')
@@ -397,6 +408,8 @@ def htmlify(line, type: :text, level: 0)
   #   end
   #   line = newline.join
   # end
+puts line if line.match(/\u8211/)
+  
   line = CGI::escapeHTML(line)
   line.gsub!(%r{///(?:([^:]+):)?(.+?)///}) do |m|
     result= %Q{«img src="#{level.zero? ? ['doc_images',$2].join('/') : [(['..']*level),'doc_images',$2].join("/")}"}
@@ -405,18 +418,25 @@ def htmlify(line, type: :text, level: 0)
   end
   line = line.gsub(/«/,'<').gsub(/»/,'>').gsub(/<b>/,'<strong>').gsub(/<\/b>/,'</strong>').gsub('<i>','<em>').gsub(/<\/i>/,'</em>')
   Conf.text_subs.each_pair { |regexp, subst| line.gsub!(regexp, subst.to_s) }
-#  if false
+  if false
   Conf.books.each_pair do |vol,book|
     book[:chapters].keys.sort.each do |chapter_num|
       chapter = book[:chapters][chapter_num]
       line.gsub!(%r{(#{chapter[:name]}\s+chapter|chapter\s+on\s+"?#{chapter[:name]}"?)}i) {|m| %Q{<a href="#{target_chapter(vol, chapter[:chapter_num])}">#{$1}</a>} }
     end
   end
-#  end
+  end
   line.gsub!(/-&gt;/,'&rarr;') if type == :defn
+  line.gsub!(/\u2013/,'-')
   if type == :text
-    line.gsub!(/\.\.\./,'&hellip;')
-    line.gsub!(/(\s+)--?(\s+)/) {|m| "#{$1}&ndash;#{$2}" }
+    unless line.empty?
+      lparts = line.split(/\}/)
+      lastpart = lparts.pop
+      lastpart.gsub!(/\.\.\./,'&hellip;')
+#      lastpart.gsub!(/(\s+)--?(\s+)/) {|m| "#{$1}&ndash;#{$2}" }
+      lparts << lastpart
+      line = lparts.join('}')
+    end
   end
   line
 end
@@ -618,9 +638,14 @@ def print_bar(f, alpha)
     f.print '</div></div>'
 end
 
-def print_index_entry(f, k, h, level, monolithic = false)
+def print_index_entry(f, k, h, level, monolithic = false, code = false)
   text, cat = *k
-  return if cat == 'relcat' or cat == 'propcat'
+  return if cat == 'relcat' or cat == 'propcat' or cat == 'activitycat'
+  if code
+    unless $cat_hash[cat][:bracketed]
+      return unless %w{ source ofsource useopt kind relverb glob actvar const token activitycat descactivity }.member?(cat)
+    end
+  end
   if level == 0
     alpha = Conf.gi[k][:sortby][0][0]
     print_bar(f, alpha) if Conf.index_bar[alpha] == h[:tag]
@@ -669,7 +694,7 @@ def print_index_entry(f, k, h, level, monolithic = false)
   end
 end
 
-def print_index(f, monolithic = false)
+def print_index(f, monolithic = false, code = false)
   f.puts '<div id="general-index">'
   Conf.gi.keys.sort_by {|k| Conf.gi[k][:sortby] }.each do |k|
     primary = Conf.gi[k][:sortby][0][0]
@@ -681,7 +706,7 @@ def print_index(f, monolithic = false)
   end
   print_bar(f, nil)
   Conf.gi.keys.sort_by {|k| Conf.gi[k][:sortby] }.each do |k|
-    print_index_entry(f, k, Conf.gi[k], 0, monolithic)
+    print_index_entry(f, k, Conf.gi[k], 0, monolithic, code)
   end
   f.puts "</div>"
 end
@@ -1396,7 +1421,9 @@ def output_chapter_toc(f, vol, chapter)
   chapter[:sections].keys.sort_by(&:to_i).each do |section_num|
     f.puts %Q{<div class="section-row">}
     section = chapter[:sections][section_num]
-    f.puts %Q{<div class="section-chapter-num"><span class="sect-mark">§</span>#{chapter_num}.</div><div class="section-section-num">#{section_num}</div><div class="section-name-holder"><div class="section-name"><a href="#{target_anchor(vol, chapter_num, section_num)}">#{section[:name]}</a></div></div>}
+    f.print %Q{<div class="section-chapter-num">}
+    f.print %Q{<span class="chapter-num hidden">0</span>} if chapter_num < 10
+    f.puts %Q{<span class="sect-mark">§</span>#{chapter_num}.</div><div class="section-section-num">#{section_num}</div><div class="section-name-holder"><div class="section-name"><a href="#{target_anchor(vol, chapter_num, section_num)}">#{section[:name]}</a></div></div>}
     f.puts '</div>'
   end
   f.puts "</div>"
@@ -1423,12 +1450,12 @@ f.puts %Q{</div></div>}
       f.puts "<h2>#{book[:title]}</h2>"
       book[:chapters].keys.sort_by(&:to_i).each do |chapter_num|
         chapter = book[:chapters][chapter_num]
-        f.puts %Q{<details class="chapter-details"><summary class="toc-chapter"><span class="chapter-num">#{chapter_num}.</span> <span class="chapter-name">#{chapter[:name]}</span></summary>}
+        f.puts %Q{<details class="chapter-details"><summary class="toc-chapter"><span class="chapter-num">#{((chapter_num.to_i < 10) ? '<span class="hidden">0</span>' : '')}#{chapter_num}.</span> <span class="chapter-name">#{chapter[:name]}</span></summary>}
         f.puts %Q{<div class="section-block">}
         chapter[:sections].keys.sort_by(&:to_i).each do |section_num|
           f.puts %Q{<div class="section-row">}
           section = chapter[:sections][section_num]
-          f.puts %Q{<div class="section-chapter-num"><span class="sect-mark">§</span>#{chapter_num}.</div><div class="section-section-num">#{section_num}</div><div class="section-name-holder"><div class="section-name"><a href="#{target_anchor(vol, chapter_num, section_num)}">#{section[:name]}</a></div></div>}
+          f.puts %Q{<div class="section-chapter-num">#{((chapter_num.to_i < 10) ? '<span class="chapter-num hidden">0</span>' : '')}<span class="sect-mark">§</span>#{chapter_num}.</div><div class="section-section-num">#{section_num}</div><div class="section-name-holder"><div class="section-name"><a href="#{target_anchor(vol, chapter_num, section_num)}">#{section[:name]}</a></div></div>}
           f.puts '</div>'
           if (:rb == vol)
             if !section[:examples].empty?
@@ -1559,8 +1586,6 @@ def output_about
     f.puts"</body></html>"
   end
 end
-
-#    f.puts '<h2 class="colophon">Colophon</h2>'
     
 def output_general_index(monolithic = false)
   File.open(File.join(Conf.output_dir, 'general_index.html'), 'w') do |f|
@@ -1575,6 +1600,19 @@ def output_general_index(monolithic = false)
     footer(f, page: :general_index)
     f.puts"</body></html>"
   end
+  File.open(File.join(Conf.output_dir, 'code_index.html'), 'w') do |f|
+    title = 'Code Index'
+    html_head(f, title)
+    f.puts %Q{<body><header>}
+    nav(f, :general_index)
+    f.puts %Q{<div class="superheading"><div class="heading"><h1>#{title}</h1></div></div>}
+    f.puts %Q{</header><main id="general-index-page">}
+    print_index(f, monolithic, true)
+    f.puts '</main>'
+    footer(f, page: :general_index)
+    f.puts"</body></html>"
+  end
+
 end
 
 def footer(f, about = true, css: nil, level: 0, page: nil)
@@ -1665,6 +1703,9 @@ def read_indoc
                                                               end
                                                               end
                                                               $cat_hash['command'][:label] = 'command'
+#                                                              $cat_hash['sourcepart'][:bracketed] = true
+#                                                              $cat_hash['sourcepart'].delete(:unbracketed) if $cat_hash['sourcepart'].key?(:unbracketed)
+#                                                              pp $cat_hash
                                                               end
 
                                                               configure
