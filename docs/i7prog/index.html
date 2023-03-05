@@ -16,6 +16,7 @@
 
 <h2>Contents</h2>
 <ul class="contents" role="list">
+<li><a class="raw" href="#note-for-this-web-edition">Note for this web edition (2013)</a></li>
 <li><a class="raw" href="#inform-7-in-a-nutshell">Inform 7: In a Nutshell</a></li>
 <li><a class="raw" href="#the-firehose">The Firehose</a></li>
 <li><a class="raw" href="#class-and-prejudice">Class and Prejudice</a></li>
@@ -44,6 +45,36 @@
 <li><a class="raw" href="#ready">READY.</a></li>
 </ul>
 </heading>
+<h2 id="note-for-this-web-edition">Note for this web edition (2013)</h2>
+
+<p>There were numerous backwards-incompatible changes between Inform 7 8.5/6G60 and the subsequent version, Inform 7 9.1/6L02, rendering some parts of this wrong for 9.1/6L02 and later. Most notably:</p>
+
+<ul role="list">
+  <li>indexed text and text are no longer distinct kinds of value: a distinction remains under the hood, but conversion occurs automatically</li>
+  <li>procedural rules no longer exist</li>
+</ul>
+
+<p>Between 9.3/6M62 and 10.1, the only major backwards-incompatibility was with Inform 6 code inclusions: including code <code>before</code>, <code>after</code>, or <code>instead of</code> no longer works. Replacement occurs on a per identifier (global variable, array, function, constant) basis, not a per I6 Template section basis, and uses <code>replacing</code>.</p>
+
+<p>Detailed descriptions of changes can be found in:</p>
+
+<ul role="list">
+  <li><a href="https://github.com/ganelson/inform/blob/master/notes/release/9-1.md">9.1/6L02 release notes</a></li>
+  <li><a href="https://github.com/ganelson/inform/blob/master/notes/release/9-2.md">9.2/6L38 release notes</a></li>
+  <li><a href="https://github.com/ganelson/inform/blob/master/notes/release/9-3.md">9.3/6M62 release notes</a></li>
+  <li><a href="https://github.com/ganelson/inform/blob/master/notes/release/10-1-0.md">10.1 release notes</a></li>
+</ul>
+
+<p>Commentary and details regarding the changes from 8.5/6G60 to 9.1/6L02 can be found in:</p>
+
+<ul role="list">
+<li><a href="https://emshort.blog/2014/05/08/working-notes-on-updating-extensions-for-inform-6l02/">Working notes on updating extensions for Inform 6L02</a> on Emily Short's blog</li>
+<li><a href="https://intfiction.org/t/6l02-inform-6-code-replacement-list/6992">6L02 I6 code replacement</a></li>
+<li><a href="https://intfiction.org/t/rewriting-old-code-that-uses-plurality-by-emily-short/11730">Rewriting Code that uses Plurality</a></li>
+<li><a href="https://intfiction.org/t/compilation-problems-with-6l02/6809/7">Compilation problems with 6L02</a></li>
+<li><a href="https://www.gamedeveloper.com/programming/inform-7-substitutions-substituted">I7 Substitutions, Substituted</a> (also by Ron Newcomb)</li>
+</ul>    
+
 <h2 id="inform-7-in-a-nutshell">Inform 7: In a Nutshell</h2>
 <p>Inform 7 is a domain-specific language intended for authoring
 interactive fiction in the vein of Zork and Colossal Cave. Just as the
