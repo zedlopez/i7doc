@@ -1,0 +1,12 @@
+<div class="indexbar-holder"><div class="indexbar" id="indexbar_<%= alpha %>">
+<% 'a'.upto('z') do |letter| %>
+<% if letter == alpha %>
+<div class="indexletter indexcurrentletter"><%= letter.upcase %></div>
+<% elsif Conf.index_bar.key?(letter) %>
+<div class="indexletter"><a href="#indexbar_<%= letter %>"><%= letter.upcase %></a></div>
+<% else %>
+<%= letter.upcase %>
+<% end %>
+<% end %>
+</div>
+</div>

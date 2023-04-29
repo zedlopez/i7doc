@@ -13,8 +13,6 @@
 # add link to plain text version (the generated .i7)
 # include comment in plain text with original filename
 
-# ostruct for Conf
-
 # file:///home/zed/mine/i7doc/docs/examples/tilt3.html
 # copycode has no focus
 
@@ -36,6 +34,7 @@ require 'i7/template'
 require 'json'
 require 'charlock_holmes'
 require 'i18n'
+require 'yaml'
 I18n.config.available_locales = :en
 
 class UTF8 < File
@@ -67,53 +66,24 @@ class String
   end
 end
 
-class Conf
-  def self.[](x)
-    @h[x.to_sym]
-  end
-  def self.[]=(x,y)
-    @h ||= {}
-    @h[x.to_sym]=y
-  end
-  def self.method_missing(m, *args)
-    @h[m]
-  end
-end
+Conf = OpenStruct.new(YAML.load(File.read("i7doc.yml")))
 
+# non-output
 def configure
-  Conf[:default_inform_dir] = "/home/zed/mine/inform"
+  Conf.default_inform_dir = "/home/zed/mine/inform"
   informdir = ARGV.shift || Conf.default_inform_dir
-  Conf[:resource_dir] = File.join(informdir, 'resources')
-  Conf[:doc_dir] = File.join(Conf.resource_dir, 'Documentation')
-  Conf[:example_dir] = File.join(Conf.doc_dir, 'Examples')
-  Conf[:output_dir] = 'docs'
-  Conf[:example_output_dir] = File.join(Conf.output_dir, 'examples')
-  Conf[:volumes] = {}
-  Conf[:books] = {}
-  Conf[:section_names] = Hash.new {|h,k| h[k] = {} }
-  Conf[:chapter_names] = Hash.new {|h,k| h[k] = {} }
-  Conf[:defns] = {}
-  Conf[:omit_examples] = {}
-  Conf[:examples] = {}
-  Conf[:examples_by_num] = {}
-  Conf[:subnames] = Hash.new {|h,k| h[k] = {} }
-  Conf[:gi] = {}
-  Conf[:gi_by_tag] = {}
-  Conf[:gi_by_name] = {}
-  Conf[:index_bar] = {}
-  Conf[:testme_cmds] = {
-    "HintsOff" => [ 'test me', 'no', 'quit', 'y' ],
-    "Entrevaux" => [ 'test me', ' ', 'quit', 'y' ],
-    "Cloves" => ["insouciantly test me", "\quit defiantly", "y"],
-    "IgpayAtinlay" => ["test me"],
-    "Nudge" => ["test me", "y", "y"],
-    "Proposal" => ["yes", "test me", "quit", "y"],
-    "SP" => ["test me", ' ', "  test ad", ' ', "  test ending", "quit", "y"],
-    "Solitude" => ["y", "test me", "quit", "y"],
-    "Wight" => ["hint about wight", "y", "north", "get bar", "south", "open tomb", "get dagger", "south", "hint about wight", "y", "read inscription", "hint about wight", "y", "attack wight", "throw dagger at wight", "south", "quit", "y"],
-    "Rubies" => [ 'Exemplar', 'test me' ]
-  }
-  Conf[:text_subs] = 
+  Conf.resource_dir = File.join(informdir, 'resources')
+  Conf.doc_dir = File.join(Conf.resource_dir, 'Documentation')
+  Conf.example_dir = File.join(Conf.doc_dir, 'Examples')
+  Conf.example_output_dir = File.join(Conf.output_dir, 'examples')
+  %i{ section_names chapter_names subnames }.each {|x| Conf[x] = Hash.new {|h,k| h[k] = {} } }
+#  Conf.section_names = Hash.new {|h,k| h[k] = {} }
+#  Conf.chapter_names = Hash.new {|h,k| h[k] = {} }
+#  Conf.subnames = Hash.new {|h,k| h[k] = {} }
+  %i{ volumes books defns omit_examples examples examples_by_num gi gi_by_tag gi_by_name index_bar documented_at see }.each {|x| Conf[x] = {} }
+  Conf.table = []
+  Conf.syms = { left: '⬅', right: '⮕', up: '⬆', star: '★', downright: '↴', heavyright: '➜' }
+  Conf.text_subs = 
     { %r{ Click the heading of the example, or the example number, to reveal the text\.} => '',
       %r{(<strong>)?www.inform-fiction.org(</strong>)?} => %Q{<a href="https://inform-fiction.org">inform-fiction.org</a>},
       %r{(https://)?github.com/ganelson/inform} => %Q{<a href="https://github.com/ganelson/inform">github.com/ganelson/inform</a>},
@@ -137,26 +107,33 @@ def configure
       %r{\s+If you are reading this within the Inform application, you will see that the (Recipe Book|Writing with Inform) pages are on &quot;(yellow|white) paper&quot;, while the (Recipe Book|manual) is on &quot;(yellow|white) paper&quot;\.} => '',
       %r{\bi6\b}i => %Q{<span class="sc">i</span>6},
       %r{\bi7\b}i => %Q{<span class="sc">i</span>7},
-
     }
-#  Conf[:append] = { after: { rb: { }, wi: { }, ex: {} },
+#  Conf[:append = { after: { rb: { }, wi: { }, ex: {} },
 #                    fore: { rb: { }, wi: { }, ex: {} },
 #                  }
-  Conf[:xdir] = '/home/zed/inf7/y'
-  Conf[:table] = []
-  Conf[:tmpl] = 'i7/tmpl'
-  Conf[:skip_examples] = %w{ Floorplan Mapped MappedGreece Tilt3 Gas2 Garibaldi2 TrinityStatus }
-  Conf[:see] = {}
-  Conf[:navpages] = { toc: {name:"Contents", dest: 'index.html'},
-             examples: {name: "Examples", dest: 'examples/index.html' },
-             general_index: { name: "Index", dest: 'general_index.html' },
-             search: {name: "Search", dest: 'search.html' },
-                    }
-  Conf[:documented_at] = {}
+#  Conf.skip_examples = %w{ Floorplan Mapped MappedGreece Tilt3 Gas2 Garibaldi2 TrinityStatus }
+#  Conf.navpages] = { toc: {name:"Contents", dest: 'index.html'},
+#             examples: {name: "Examples", dest: 'examples/index.html' },
+#             general_index: { name: "Index", dest: 'general_index.html' },
+#             search: {name: "Search", dest: 'search.html' },
+#                    }
 #  ← → ↑ ⭱⬆ ⬅ ⮕ ⬆ ↓ ↴
-  Conf[:syms] = { left: '⬅', right: '⮕', up: '⬆', star: '★', downright: '↴', heavyright: '➜' }
+#  Conf[:testme_cmds] = {
+#    "HintsOff" => [ 'test me', 'no', 'quit', 'y' ],
+#    "Entrevaux" => [ 'test me', ' ', 'quit', 'y' ],
+#    "Cloves" => ["insouciantly test me", "\quit defiantly", "y"],
+#    "IgpayAtinlay" => ["test me"],
+#    "Nudge" => ["test me", "y", "y"],
+#    "Proposal" => ["yes", "test me", "quit", "y"],
+#    "SP" => ["test me", ' ', "  test ad", ' ', "  test ending", "quit", "y"],
+#    "Solitude" => ["y", "test me", "quit", "y"],
+#    "Wight" => ["hint about wight", "y", "north", "get bar", "south", "open tomb", "get dagger", "south", "hint about wight", "y", "read inscription", "hint about wight", "y", "attack wight", "throw dagger at wight", "south", "quit", "y"],
+#    "Rubies" => [ 'Exemplar', 'test me' ]
+  #  }
+
 end
 
+# non-output
 def prepare_output_dir
   FileUtils.mkdir_p(Conf.output_dir)
   FileUtils.cp_r(File.join(Conf.resource_dir, 'Imagery', 'doc_images'), Conf.output_dir)
@@ -169,6 +146,7 @@ def prepare_output_dir
   FileUtils.cp_r('interpreter', Conf.example_output_dir)
 end
 
+# non-output
 def scan_recipes
   rb_chapter_num = 0
   rb_section_num = 0
@@ -195,11 +173,13 @@ def scan_recipes
   end
 end
 
+# not output per se but returns html filename
 def target_anchor(*target)
   vol, ch, sect, monolith = *target
   monolith ? "#{vol}#{ch}_#{sect}" : "#{Conf.books[vol][:abbrev]}_#{ch}.html#section_#{sect}"
 end
 
+# output
 def print_target(*target)
   vol, ch, sect, monolith = *target
   target = target_anchor(vol, ch, sect, monolith)
@@ -234,7 +214,6 @@ def keysort(str)
   words.join(' ').gsub(/["\(\)]/,'')
 end
 
-
 $catmap = {}
 $rhash = {}
 
@@ -251,13 +230,15 @@ def target_pair(target, monolithic = false, label = nil)
   title = "#{Conf.books[vol][:chapters][ch][:name]} &gt; #{Conf.books[vol][:chapters][ch][:sections][sect][:name]}"
   [ dest, label, title ]
 end
-  
+
+# output
 def target_pair_link(target, monolithic = false, label = nil, level: 0)
   dest, label, title = *(target_pair(target, monolithic, label))
   dest = ((['..']*level) + [dest]).join('/')
   %Q{<a href="#{dest}" title="#{title}" class="index-link raw">#{label}</a>}
 end
 
+# non-output
 def manage(m, target, caret_count, payload)
   print_it = (caret_count == 1)
   reflist = payload.split(/\s*<--\s*/)
@@ -305,6 +286,7 @@ def manage(m, target, caret_count, payload)
   print_it ? (parts.empty? ? firstmost : parts.last) : ''
 end
 
+# non-output
 def index_see
   Conf[:see].each do |ref, taglist|
     current = Conf.gi
@@ -332,11 +314,12 @@ def index_see
   end
 end
 
+# output
 def sym(sym, i)
   %Q{<span class="sym">#{Conf.syms[:star] * i.to_i}</span>}
 end
 
-
+# output
 def replace_example(line, vol, monolithic = false, level: 0)
   result = []
   prev = nil
@@ -367,6 +350,7 @@ def replace_example(line, vol, monolithic = false, level: 0)
   result.join
 end
 
+# non-output
 def mung(line, vol, chapter, section, type: :text)
   target = [ vol, chapter, section ]
   line.gsub!(/\u2013/,'-')
@@ -375,14 +359,14 @@ def mung(line, vol, chapter, section, type: :text)
   line.gsub(/<b>/,'«b»').gsub(/<\/b>/,'«/b»').gsub(/<i>/,'«i»').gsub(/<\/i>/,'«/i»')
 end
 
-$hyph = {}
-File.open("local") do |f|
-  f.each_line do |l|
-    l.chomp!
-    p = l.split(/\|/);
-    $hyph[p[0]] = p[1].gsub(/-/,'­');
-  end
-end
+#$hyph = {}
+#File.open("local") do |f|
+#  f.each_line do |l|
+#    l.chomp!
+#    p = l.split(/\|/);
+#    $hyph[p[0]] = p[1].gsub(/-/,'­');
+#  end
+#end
 
 # shy: ­
 
@@ -441,6 +425,7 @@ puts line if line.match(/\u8211/)
   line
 end
 
+# output
 def phrase_defn(phrase, unbracketed = "neutral", bracketed = "neutral", omit: false)
   paren_level = 0
   open = {}
@@ -555,11 +540,12 @@ def read_rawtext(lines = [], filename = nil, vol = nil)
       container[:blocks] << { type: :end, content: "</div>" }
     # defn
     when /\A\{defn\s+([^\}]+)\}\s*(.*):?\s*/
-      id = $1
+      id = $1.to_sym
       defn_str = $2
       parenthesized = nil
       bolded = nil
       defn_type = id.start_with?('phs') ? "say phrase" : "phrase"
+      puts "** Dupe id #{id}" if Conf.defns.key?(id)
       Conf.defns[id] = { entry: [ vol, chapter_num, section_num], id: id, type: defn_type, list: [] }
       defn_str.split(/\s+&\s+/).each do |defn|
         phrase, *result = *(defn.split(/\s*\.\.\.\s*/))
@@ -606,18 +592,18 @@ def read_rawtext(lines = [], filename = nil, vol = nil)
     end
   end
   
-  return container, chapters, chapter_names, section_names, defns
+  return container, chapters, chapter_names, section_names
 end
 
+# non-output
 def first_pass
   Conf.volumes.each_pair do |vol, info|
     Conf.books[vol] = { abbrev: info[:abbrev], title: info[:title], fulltitle: info[:title] }
     chapters = Conf.books[vol][:chapters]
-    container, chapters, chapter_names, section_names, defns = read_rawtext([], File.join(Conf.doc_dir, info[:filename]), vol)
+    container, chapters, chapter_names, section_names = read_rawtext([], File.join(Conf.doc_dir, info[:filename]), vol)
     Conf.books[vol][:chapters] = chapters
     Conf.chapter_names[vol] = chapter_names
     Conf.section_names[vol] = section_names
-    Conf.defns = defns
 #    chapters.values.each {|ch| dest = target_chapter(vol, ch[:chapter_num]); Conf[:text_subs][%r{(#{ch[:name]}\s+chapter|chapter\s+on\s+#{ch[:name]})}i] = lambda { |m| %Q{<a href="">#{m[1]}</a>} } }
   end
   Conf.books[:rb][:title] = 'Recipe Book'
@@ -625,19 +611,23 @@ def first_pass
   
 end
 
-def print_bar(f, alpha)
-    alpha ||= ('a'.ord-1).chr
-    f.print %Q{<div class="indexbar-holder"><div class="indexbar" id="indexbar_#{alpha}">}
-    'a'.upto('z') do |letter|
-      if letter == alpha
-        f.print %Q{<div class="indexletter indexcurrentletter">#{letter.upcase}</div>}
-      else
-        f.print Conf.index_bar.key?(letter) ? %Q{<div class="indexletter"><a href="#indexbar_#{letter}">#{letter.upcase}</a></div>} : letter.upcase
-      end
-    end
-    f.print '</div></div>'
-end
 
+def index_bar_tmpl(alpha = ('a'.ord-1).chr)
+  I7::Template[:_bar].render(alpha: alpha)
+end  
+#    alpha ||= ('a'.ord-1).chr
+#    f.print %Q{<div class="indexbar-holder"><div class="indexbar" id="indexbar_#{alpha}">}
+#    'a'.upto('z') do |letter|
+#      if letter == alpha
+#        f.print %Q{<div class="indexletter indexcurrentletter">#{letter.upcase}</div>}
+#      else
+#        f.print Conf.index_bar.key?(letter) ? %Q{<div class="indexletter"><a href="#indexbar_#{letter}">#{letter.upcase}</a></div>} : letter.upcase
+#      end
+#    end
+#    f.print '</div></div>'
+#end
+
+# output
 def print_index_entry(f, k, h, level, monolithic = false, code = false)
   text, cat = *k
   return if cat == 'relcat' or cat == 'propcat' or cat == 'activitycat'
@@ -648,7 +638,8 @@ def print_index_entry(f, k, h, level, monolithic = false, code = false)
   end
   if level == 0
     alpha = Conf.gi[k][:sortby][0][0]
-    print_bar(f, alpha) if Conf.index_bar[alpha] == h[:tag]
+    f.print(index_bar_tmpl(alpha)) if Conf.index_bar[alpha] == h[:tag]
+#    print_bar(f, alpha) if Conf.index_bar[alpha] == h[:tag]
   end
   cat = 'sayphrase' if ((cat == 'phrase') and (text.start_with?('say')))
   f.print %Q{<div class="index-entry indent#{level}" id="index_#{h[:tag]}">}
@@ -694,6 +685,7 @@ def print_index_entry(f, k, h, level, monolithic = false, code = false)
   end
 end
 
+# output
 def print_index(f, monolithic = false, code = false)
   f.puts '<div id="general-index">'
   Conf.gi.keys.sort_by {|k| Conf.gi[k][:sortby] }.each do |k|
@@ -704,13 +696,14 @@ def print_index(f, monolithic = false, code = false)
       Conf.index_bar["#{primary}#{secundus}"] ||= Conf.gi[k][:tag] if secundus.match(/\A[a-z]*\Z/)
     end
   end
-  print_bar(f, nil)
+  f.print(index_bar_tmpl(nil)) # print_bar(f, nil)
   Conf.gi.keys.sort_by {|k| Conf.gi[k][:sortby] }.each do |k|
     print_index_entry(f, k, Conf.gi[k], 0, monolithic, code)
   end
   f.puts "</div>"
 end
 
+# non-output
 def canonical_example_name(str)
     canonized_name = I18n.transliterate(str.downcase.sub(/\A(?:an?|the)\s+/,'').gsub(/[-'!\.,\?]*/,'').sub(/:?\s+1\Z/,'').sub(/:?\s+(\d+)\Z/) {|m| $1 }.gsub(/\s+/,' ').gsub(/ /,'_'))
     case canonized_name
@@ -727,6 +720,7 @@ def canonical_example_name(str)
     end
 end
 
+# non-output
 def read_examples
   proceed = nil
   encountered_order = 0
@@ -784,6 +778,7 @@ def read_examples
   end
 end
 
+# non-output
 def run_examples
   FileUtils.rm("leaderboard.glkdata") if File.exist?("leaderboard.glkdata") # Rubies example
   suffix_syms = %i{ i7 i6 ulx out}
@@ -867,7 +862,7 @@ def run_examples
               result[:testme_output] = UTF8.readlines(fname.out)
             else
               testme_input = ((Conf.testme_cmds[basename] or [ "test me", "quit", "y" ]) + ['']).join("\n")
-              pp testme_input
+#              pp testme_input
               stdout, stderr, status = Open3.capture3("cheap-git #{fname.ulx}", stdin_data: testme_input)
               detection = CharlockHolmes::EncodingDetector.detect(stdout)
               begin
@@ -914,6 +909,7 @@ def run_examples
     end
 end
 
+# non-output
 def place_examples
   [ :wi, :rb ].each do |vol|
     Conf.examples.each_pair do |k,v|
@@ -948,6 +944,7 @@ def place_examples
   end
 end
 
+# output
 def print_table(f, codelines)
   return if Conf.table.empty?
   table = []
@@ -972,6 +969,7 @@ def print_table(f, codelines)
   Conf[:table] = []
 end
 
+# non-output
 def process_testme(lines)
   return nil if lines.blank?
   lines = lines.map(&:rstrip)
@@ -988,7 +986,7 @@ def process_testme(lines)
   end
 end
 
-
+# output 
 def print_blocks(f, blocks, vol = nil, chapter_num = nil, section_num = nil, monolithic = false, search = false, level: 0)
   testme_output = nil
   testme_block = nil
@@ -1104,6 +1102,7 @@ def print_blocks(f, blocks, vol = nil, chapter_num = nil, section_num = nil, mon
       end
     when :defn
       f.print %Q{<div class="defn" id="#{block[:id]}">}
+      block[:id] = block[:id].to_sym
       Conf.defns[block[:id]][:list].each.with_index do |defn,i|
         f.print '<div class="defnline">'
         f.print phrase_defn(defn[:phrase], "defn", "neutral")
@@ -1116,13 +1115,13 @@ def print_blocks(f, blocks, vol = nil, chapter_num = nil, section_num = nil, mon
     else
       # we shouldn't ever get here.
       f.print "<!-- "
-      pp block
       f.print "-->"
     end
     print_table(f, codelines)
   end
 end
 
+# not quite output but returns HTML
 def example_refs(example, vol, monolithic = false, level: 1)
   lb_vol, lb_chapter, lb_section = *example[:refs][vol]
   target = target_anchor(lb_vol, lb_chapter, lb_section, monolithic)
@@ -1130,6 +1129,7 @@ def example_refs(example, vol, monolithic = false, level: 1)
   return %Q{<a class="raw example-ref" href="#{(['..']*level + [target]).join('/')}" title="#{CGI.escapeHTML(Conf.books[vol][:chapters][lb_chapter][:name])} &gt; #{CGI.escapeHTML(Conf.books[vol][:chapters][lb_chapter][:sections][lb_section][:name])}"><span class="sc">#{Conf.books[vol][:abbrev].downcase}</span>&nbsp;#{[lb_chapter,lb_section].join('.')}</a>}, target, lb_vol, lb_chapter, lb_section
 end
 
+# output
 def numeric_examples(f, monolithic = false)
   have_printed_chapter = {}
   f.puts '<div class="example-index-table" id="numeric-examples">'
@@ -1162,6 +1162,8 @@ end
 # to behave as indoc, we should also be looking for '{*}"Example Name"' in the *body* of Writing with Inform and including those
 # in the alphabetical index of examples unless it's marked OMIT in (Recipes).txt. That would result in adding "Cave Entrance" and
 # "The Undertomb", the latter of which is already there as "The Undertomb 1".
+
+# output
 def nominal_examples(f)
   f.puts %Q{<h2>Examples by Name</h2>}# <div class="example-block">}
   alpha_index = {}
@@ -1200,7 +1202,7 @@ def nominal_examples(f)
 end
 
 
-
+# output, move font stuff to i7doc.yml
 def html_head(f, title, level: 0)
   f.puts '<!doctype html>'
   f.puts %Q{<html lang="en"><head><meta charset="utf-8">
@@ -1213,12 +1215,12 @@ def html_head(f, title, level: 0)
 </head>}
 end
 
-
+# output
 def nav(f, page = nil, level: 0)
   f.print '<nav>'
   el = []
   Conf.navpages.each_pair do |k,v|
-    el << ((k == page) ? "<strong>#{v[:name]}</strong>" : %Q{<a class="raw nav-el" href="#{((['..']*level)+[v[:dest]]).join('/')}">#{v[:name]}</a>})
+    el << ((k == page) ? "<strong>#{v["name"]}</strong>" : %Q{<a class="raw nav-el" href="#{((['..']*level)+[v["dest"]]).join('/')}">#{v["name"]}</a>})
   end
   el.each.with_index do|x,i|   f.print %Q{<div class="nav-el}
     f.print %Q{">#{x}</div>}
@@ -1233,6 +1235,7 @@ class Object
   end
 end
 
+# output
 def example_linkback(f, vol, example)
   f.print '<div class="linkback">'
   lb_vol, lb_chapter, lb_section = *example[:refs][vol]
@@ -1241,6 +1244,7 @@ def example_linkback(f, vol, example)
   f.puts '</div>'
 end
 
+# output
 def output_section_examples(f, vol, examples, monolithic = false)
   linkback_vol = Conf[:books].keys.find {|x| x != vol}
   f.puts '<div class="examples">'
@@ -1255,6 +1259,7 @@ def output_section_examples(f, vol, examples, monolithic = false)
   f.puts('</div>')
 end
 
+# output
 def output_section(f, vol, chapter_num, section_num, monolithic = false, search: true, level: 0)
   book = Conf.books[vol]
   section = book[:chapters][chapter_num][:sections][section_num]
@@ -1312,6 +1317,19 @@ def output_section(f, vol, chapter_num, section_num, monolithic = false, search:
     f.print '</p>'
     f.print '</div>'
   end
+  addendum = File.join("addenda", vol.to_s, chapter_num.to_s, "#{section_num}.md")
+  puts addendum
+  if File.exists?(addendum)
+#  if Conf.addenda[vol] and Conf.addenda[vol][chapter_num] and Conf.addenda[vol][chapter_num][section_num]
+    f.puts %Q{<div class="addendum"><div class="add-header">Addendum</div><div class="add-body">}
+#    f.print '</p>'
+#    f.puts Conf.addenda[vol][chapter_num][section_num].join("</p>\n<p>")
+    #    f.print '</p>'
+    f.puts(File.read(addendum))
+    f.print '</div></div>'
+  end    
+
+  
   if !section[:examples].blank?
     if (:rb == vol) and search
       f.puts %Q{<h4>Example#{(section[:examples].count > 1) ? 's' : ''}</h4>}
@@ -1334,6 +1352,7 @@ def output_section(f, vol, chapter_num, section_num, monolithic = false, search:
   f.puts '</article>'
 end
 
+# output
 def output_examples(monolithic = false)
   FileUtils.mkdir_p(Conf.example_output_dir)
   File.open(File.join(Conf.example_output_dir, 'index.html'), 'w') do |f|
@@ -1415,6 +1434,7 @@ def output_examples(monolithic = false)
   end
 end
 
+# output
 def output_chapter_toc(f, vol, chapter)
   chapter_num = chapter[:chapter_num]
   f.puts %Q{<div class="section-block">}
@@ -1432,7 +1452,7 @@ end
 #<h1 class="title">I<span style="letter-spacing: -.3rem;">nf</span>orm</h1>
 #<div class="subtitle">A <span style="letter-spacing: -.1rem;">De</span>sign <span style="letter-spacing: -.1rem;">Sy</span><span style="letter-spacing: -.05rem;"></span>stem <span style="letter-spacing: -.075rem;">f</span>or Inte<span style="letter-spacing: -.05rem;">rac</span>tive <span style="letter-spacing: -.15rem;">F</span>iction</div></div>}
 
-
+# output
 def output_toc(monolithic = false)
   title = "Inform 7 v10 documentation"
   filename = File.join(Conf.output_dir, "index.html")
@@ -1482,8 +1502,9 @@ f.puts %Q{</div></div>}
   
 end
 
+# output
 def output_search
-  File.open(File.join(Conf.output_dir, Conf.navpages[:search][:dest]), 'w') do |f|
+  File.open(File.join(Conf.output_dir, Conf.navpages["search"]["dest"]), 'w') do |f|
     html_head(f, "Inform 7 v10 Docs Search") 
     f.puts %Q{<body><header>#{nav(f, :search)}}
     f.puts %Q{<p class="search">The whole text of the documentation to be searched within your browser. The links jump back to the pages per chapter/example.</p>}
@@ -1501,6 +1522,7 @@ def output_search
 end
 
 
+# output
 def output_chapters
   Conf.books.each_pair do |vol,book|
     book[:chapters].keys.sort_by(&:to_i).each do |chapter_num|
@@ -1515,6 +1537,7 @@ def output_chapters
   end
 end
 
+# output
 def output_chapter(f, vol, chapter_num, monolithic = false, search: false)
   book = Conf.books[vol]
     chapter = book[:chapters][chapter_num]
@@ -1563,6 +1586,7 @@ def output_chapter(f, vol, chapter_num, monolithic = false, search: false)
     f.puts '</main>'
 end
 
+# output
 def output_about
   File.open(File.join(Conf.output_dir,"about.html"), 'w') do |f|
     title = "About this edition"
@@ -1586,7 +1610,8 @@ def output_about
     f.puts"</body></html>"
   end
 end
-    
+
+# output
 def output_general_index(monolithic = false)
   File.open(File.join(Conf.output_dir, 'general_index.html'), 'w') do |f|
     title = 'General Index'
@@ -1615,6 +1640,7 @@ def output_general_index(monolithic = false)
 
 end
 
+# output
 def footer(f, about = true, css: nil, level: 0, page: nil)
   f.print '<footer id="credits-footer"'
   f.print %Q{ class="#{css}"} if css
@@ -1627,7 +1653,7 @@ def footer(f, about = true, css: nil, level: 0, page: nil)
   f.puts "</footer>"
 end
 
-
+# non-output
 def write_borogove
   result = Hash.new {|h,k| h[k] = {
                        "compiler": "10.1.0",
@@ -1708,20 +1734,29 @@ def read_indoc
 #                                                              pp $cat_hash
                                                               end
 
+
                                                               configure
                                                               read_indoc
+#                                                              puts "first pass:"
                                                               first_pass
+#                                                              puts "index_see:"
                                                               index_see
+#                                                              puts "scan_recipes:"
                                                               scan_recipes
+#                                                              puts "read_examples:"
                                                               read_examples
+#                                                              puts "place_examples:"
                                                               place_examples
+#                                                              puts "run_examples:"
                                                               run_examples
                                                               # write_borogove
                                                               prepare_output_dir
-
+#                                                              puts "output_toc"
 
                                                               output_toc
+#                                                              puts "output_about"
                                                               output_about
+#                                                              puts "output_chapters"
                                                               output_chapters
                                                               output_examples
                                                               output_general_index

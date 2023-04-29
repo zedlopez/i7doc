@@ -1,32 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,600;1,400;1,600&family=Source+Sans+3:ital,wght@0,400;0,600;1,400;1,600&display=swap');
-@font-face { font-family: "Source Sans 3";
-             size-adjust: 109%;
-           }
-
-
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Symbols:wght@350..700&display=swap');
-
 @font-face {
-  font-family: "helveticas-adjusted";
-  src: local("Helvetica Neue"),
-       local("Arial Nova"),
-       local("Liberation Sans"),
-       local("Helvetica"),
-       local("Arial");
-  size-adjust: 105.2%;
-}
-
-@font-face {
-  font-family: "roboto-adjusted";
-  src: local("Roboto");
-  size-adjust: 104.4%;
+    font-family: "PublicSans";
+    src: local("Public Sans"), url("public_sans.ttf") format("truetype");
+    size-adjust: 109%;
 }
 
 :root {
     --width: 40rem;
     --mono: "Source Code Pro", ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Fira Mono", "Droid Sans Mono", "Liberation Mono", monospace;
-    --sans: "Source Sans 3", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Oxygen, Cantarell, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    --sym: "Noto Sans Symbol", "Source Sans 3", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Oxygen, Cantarell, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --sans: "PublicSans", "Source Sans 3", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Oxygen, Cantarell, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --sym: "PublicSans", "Noto Sans Symbol", "Source Sans 3", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Oxygen, Cantarell, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
       cursor: default;
   overflow-wrap: break-word; 
   -moz-tab-size: 4;
@@ -38,7 +20,7 @@
 
 @media not (prefers-color-scheme: dark) {
     :root {
-        --normal-weight: 400;
+        --normal-weight: 300;
         --bold-weight: 625;
         --mono-normal-weight: 400;
         --mono-bold-weight: 600;
@@ -68,7 +50,7 @@
 @supports (color-scheme: dark light) {
 @media screen and (prefers-color-scheme: dark) {
     :root {
-        --normal-weight: 300;
+        --normal-weight: 360;
         --bold-weight: 600;
         --mono-normal-weight: 325;
         --mono-bold-weight: 500;
@@ -110,7 +92,6 @@ html {
   vertical-align: baseline;
   font-weight: var(--normal-weight);
   font-family: var(--sans);
-  font-size: 18px;
 }
 
 body {
@@ -160,11 +141,11 @@ a:visited {color: var(--visited-link-color); }
 details summary {
     list-style: none;
 }
-details summary::before { content: '➜'; padding-right: .25em; font-size: .875em; vertical-align: top; font-family: var(--sym); font-style: normal;}
+details summary::before { content: '➜'; padding-right: .25em; font-size: .9375em; vertical-align: top; font-family: var(--sym); font-style: normal;}
 details[open] summary::before { content: '↴'; } 
 
-div.section-row::before { content: '➜'; visibility: hidden; font-size: .875em; }
-span.sym { font-family: var(--sym); font-style: normal; vertical-align: top; font-size: .875em; padding-top: -.25em; }
+div.section-row::before { content: '➜'; visibility: hidden; font-size: .9375em; }
+span.sym { font-family: var(--sym); font-style: normal; vertical-align: top; font-size: .9375em; padding-top: -.25em; }
 
 button, summary { cursor: pointer; }
 summary { border-radius: inherit; }
@@ -200,6 +181,8 @@ p + blockquote, blockquote + p, p + p { margin-top: 1em; }
 
 .example-body > p:last-child, article > p:last-child { margin-bottom: 1.5em; }
 
+.example-meta-desc > p { width: 100%; }
+
 p {
     line-height: calc(1ex / 0.32);
     width: 75ch;
@@ -227,7 +210,7 @@ pre, code, kbd, samp {
 pre {   overflow: auto; /* 3 */ }
 
 :where(small) {
-    font-size: 0.875em;
+    font-size: 0.9375em;
 }
 
 :where(svg:not([fill])) {
@@ -361,6 +344,7 @@ margin-bottom: 1rem; margin-top: 1rem;
 
 .defn-or { font-style: italic; text-align: center; padding: .25em; }
 div.defn + div.defn { margin-top: 1em; }
+.defn > p:last-child { margin-bottom: 1em; }
 
 span.defn { font-weight: var(--bold-weight); }
 span.neutral { font-weight: var(--normal-weight); font-style: normal; font-family: var(--sans); }
@@ -368,7 +352,8 @@ span.neutral { font-weight: var(--normal-weight); font-style: normal; font-famil
 .prev-subname { float: inline-start; display: inline-block; }
 .next-subname { float: inline-end; display: inline-block; }
 
-.footing {border-top: .1rem solid currentColor; display: grid; place-content: center; }
+.footing {border-top: .1rem solid currentColor; display: grid; place-content: center; padding-top: 1.5rem; }
+.footing > p { width: 100%; }
 p.about { text-align: center; font-weight: var(--bold-weight); }
 p.search { margin-top: 2em; }
 
@@ -623,6 +608,11 @@ summary + .section-block { margin-top: .5rem; }
 .section-title { margin-top: 2rem; margin-left: -1.75rem; display: table; }
 .section-title-row { display: table-row; }
 .section-title-link { display: table-cell; width: 1.75rem; vertical-align: middle; }
-a.permalink { visibility: hidden; }
-.section-title:hover a.permalink { font-size: 1.1em; visibility: visible; }
+/*a.permalink { visibility: hidden; }
+.section-title:hover a.permalink { font-size: 1.1em; visibility: visible; }*/
 h3.section-title-header { display: table-cell; }
+footer { padding-bottom: 3rem; }
+
+.addendum { border: .1rem solid currentColor; border-radius: 1rem; margin-top: 1rem; }
+.add-header { padding-left: 1rem; border-bottom: .1rem solid currentColor; border-radius: 1rem 1rem 0 0; background-color: var(--testme-bg-color); font-weight: bold; padding-top: .5rem; padding-bottom: .5rem; }
+.add-body { margin-top: 1rem; margin-bottom: 1rem; border-radius: 0 0 1rem 1rem; }

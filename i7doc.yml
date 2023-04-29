@@ -1,0 +1,82 @@
+---
+testme_cmds:
+  "HintsOff":
+    - test me
+    - no
+    - quit
+    - y
+  "Entrevaux":
+    - "test me"
+    - " "
+    - "quit"
+    - "y"
+  "Cloves":
+    - insouciantly test me
+    - \quit defiantly
+    - y
+  "IgpayAtinlay":
+    - test me
+  "Nudge":
+    - test me
+    - y
+    - y
+  "Proposal":
+    - yes
+    - test me
+    - quit
+    - y
+  "SP":
+    - test me", ' ', "  test ad", ' ', "  test ending
+    - quit
+    - y
+  "Solitude":
+    - y
+    - test me
+    - quit
+    - y
+  "Wight":
+    - hint about wight
+    - y
+    - north
+    - get bar
+    - south
+    - open tomb
+    - get dagger
+    - south
+    - hint about wight
+    - y
+    - read inscription
+    - hint about wight
+    - y
+    - attack wight
+    - throw dagger at wight
+    - south
+    - quit
+    - y
+  "Rubies":
+    - Exemplar
+    - test me
+skip_examples:
+  - Floorplan
+  - Mapped
+  - MappedGreece
+  - Tilt3
+  - Gas2
+  - Garibaldi2
+  - TrinityStatus
+navpages:
+  toc:
+    name: Contents
+    dest: index.html
+  examples:
+    name: Examples
+    dest: examples/index.html
+  general_index:
+    name: Index
+    dest: general_index.html
+  search:
+    name: Search
+    dest: search.html
+output_dir: docs
+xdir: /home/zed/inf7/y
+tmpl: i7/tmpl
