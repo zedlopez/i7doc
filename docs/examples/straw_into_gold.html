@@ -13,7 +13,7 @@
 <div class="superheading"><div class="heading"><h1>Straw Into Gold</h1><div class="subheading"><wbr><div class="ex-no">Example 305</div> ★★★</div></div>
 <div class="doc-navbar example-linkback"><div class="doc-navbar-left"><a class="raw nav-el" href="../WI_17.html#section_9" title="Understanding &gt; Understanding kinds of value"><div class="nav-arrow"><span class="sc">wi</span>&nbsp;17.9</div><div class="doc-navbar-text">Understanding kinds of value</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="../RB_2.html#section_1" title="Adaptive Prose &gt; Varying What Is Written"><div class="doc-navbar-text">Varying What Is Written</div><div class="nav-arrow"><span class="sc">rb</span>&nbsp;2.1</div></a></div></div>
 </div>
-<div class="example-meta-desc"><p>Creating a Rumpelstiltskin character who is always referred to as &quot;dwarf&quot;, &quot;guy&quot;, &quot;dude&quot;, or &quot;man&quot; &ndash; depending on which the player last used &ndash; until the first time the player refers to him as &quot;Rumpelstiltskin&quot;.</p></div>
+<div class="example-meta-desc"><p>Creating a Rumpelstiltskin character who is always referred to as &quot;dwarf&quot;, &quot;guy&quot;, &quot;dude&quot;, or &quot;man&quot; -- depending on which the player last used -- until the first time the player refers to him as &quot;Rumpelstiltskin&quot;.</p></div>
 <div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="down_in_oodville.html" title="Offering the player a choice of numbered options at certain times, without otherwise interfering with his ability to give regular commands."><div class="nav-arrow">⬅304. </div><div class="doc-navbar-text">Down in Oodville</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="misadventure.html" title="A going by name command which does respect movement rules, and accepts names of rooms as commands."><div class="doc-navbar-text">Misadventure</div><div class="nav-arrow">306.⮕</div></a></div></div>
 </header>
 <div class="example-body"><div class="play-example borogove"><a class="raw" href="https://snippets.borogove.app/inform7/v10ex305">Play/modify in Borogove</a></div>
@@ -25,7 +25,7 @@
 <div class="codeline">R-name is a kind of value. The R-names are dwarf, guy, dude, and man-thing. Rumpelstiltskin has an R-name. Understand &quot;[R-name]&quot; as Rumpelstiltskin.</div>
 </div><p>Our example is slightly complicated by the fact that &quot;man&quot; is a name already known to Inform, so we can&#39;t re-use it as a kind of value. This is possible to work around, though:</p>
 <div class="codeblock"><div class="codeline">Understand &quot;man&quot; as man-thing.</div>
-</div><p>Now we borrow from the <a href="WI_18.html">Activities chapter</a> to look at the exact wording of the player&#39;s command:</p>
+</div><p>Now we borrow from the Activities chapter to look at the exact wording of the player&#39;s command:</p>
 <div class="codeblock"><div class="codeline">After reading a command:</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the player&#39;s command includes &quot;[R-name]&quot;,</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the R-name of Rumpelstiltskin is the R-name understood;</div>

@@ -47,7 +47,7 @@
 </div>
 <article><div class="section-title"><div class="section-title-row"><div class="section-title-link"><a class="permalink raw" href="WI_22.html#section_1">&#128279;&ensp;</a></div><h3 class="section-title-header" id="section_1">WI <span class="sect-mark">§</span>22.1 A review of kinds</h3></div></div>
 <div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="WI_21.html#section_11" title="Variations: arrays, logs, queues, stacks, sets, sieves and rings"><div class="nav-arrow"><span class="sym">⬅</span>21.11</div><div class="doc-navbar-text">Variations: arrays, logs, queues, stacks, sets, sieves and rings</div></a></div><div class="doc-navbar-center"><a class="raw nav-el" href="#chapter_22"><div class="nav-arrow"><span class="sym">⬆</span>22.</div><div class="doc-navbar-text">Advanced Phrases</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="#section_2"><div class="doc-navbar-text">Descriptions as values</div><div class="nav-arrow">22.2<span class="sym">⮕</span></div></a></div></div></div>
-<p>Most of the time, what&#39;s created in an Inform source text will have a name which can be used as a value &ndash; sometimes openly so, sometimes not. In this book, we haven&#39;t gone out of our way to make that point, because there was no real need to do so. It&#39;s possible to make heavy use of rulebooks and write large-scale Inform projects without ever needing to use a rulebook&#39;s name as a value in its own right, for example. But if we want to create sophisticated extensions to Inform, or to use modern techniques such as functional and generic programming, we need to be fluent in the language of kinds.</p>
+<p>Most of the time, what&#39;s created in an Inform source text will have a name which can be used as a value - sometimes openly so, sometimes not. In this book, we haven&#39;t gone out of our way to make that point, because there was no real need to do so. It&#39;s possible to make heavy use of rulebooks and write large-scale Inform projects without ever needing to use a rulebook&#39;s name as a value in its own right, for example. But if we want to create sophisticated extensions to Inform, or to use modern techniques such as functional and generic programming, we need to be fluent in the language of kinds.</p>
 <p>Inform&#39;s language of kinds has four ingredients: base kinds, constructions, kind variables and kinds of kinds.</p>
 <p><strong>1. Base kinds.</strong> Inform provides the following base kinds for values:</p>
 <div class="codeblock"><div class="codeline">object, number, real number, time, truth state, text, snippet, Unicode character, action, scene, table name, equation name, use option, action name, figure name, sound name, external file, rulebook outcome, parser error</div>
@@ -99,7 +99,7 @@
 </article>
 <article><div class="section-title"><div class="section-title-row"><div class="section-title-link"><a class="permalink raw" href="WI_22.html#section_2">&#128279;&ensp;</a></div><h3 class="section-title-header" id="section_2">WI <span class="sect-mark">§</span>22.2 Descriptions as values</h3></div></div>
 <div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="#section_1" title="A review of kinds"><div class="nav-arrow"><span class="sym">⬅</span>22.1</div><div class="doc-navbar-text">A review of kinds</div></a></div><div class="doc-navbar-center"><a class="raw nav-el" href="#chapter_22"><div class="nav-arrow"><span class="sym">⬆</span>22.</div><div class="doc-navbar-text">Advanced Phrases</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="#section_3"><div class="doc-navbar-text">Phrases as values</div><div class="nav-arrow">22.3<span class="sym">⮕</span></div></a></div></div></div>
-<p>In the <a href="WI_6.html">chapter on Descriptions</a>, we saw that a description can be any source text which describes one or more objects: it might be as simple as &quot;the Corn Market&quot;, or as complicated as &quot;open containers which are in dark rooms&quot;. More or less the only restriction is that it must be unambiguous as to what counts and what does not: &quot;three containers&quot; is ambiguous as a description because it does not say which three.</p>
+<p>In the chapter on Descriptions, we saw that a description can be any source text which describes one or more objects: it might be as simple as &quot;the Corn Market&quot;, or as complicated as &quot;open containers which are in dark rooms&quot;. More or less the only restriction is that it must be unambiguous as to what counts and what does not: &quot;three containers&quot; is ambiguous as a description because it does not say which three.</p>
 <p>We&#39;ve now seen several interesting tricks with descriptions. In fact, if D is a description, then</p>
 <div class="codeblock"><div class="codeline">say &quot;You gaze mournfully at [the list of D].&quot;;</div>
 <div class="codeline">let the tally be the number of D;</div>
@@ -114,7 +114,7 @@
 <div class="codeline">&ensp;&ensp;&ensp;repeat with the item running through the collection:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;-- [The item].&quot;</div>
 </div><p>This makes &quot;enumerate lighted rooms&quot; run off a list of lighted rooms in a textual format different from the standard one produced by &quot;say the list of lighted rooms&quot;. Inside the definition, &quot;collection&quot; can be used wherever a description might be used: here, for instance, we use it as the range for the repeat loop. (That&#39;s only possible because the range is limited in size: Inform wouldn&#39;t have allowed us to range through, say, all texts.)</p>
-<p>Purely as a convenience, we can also write &quot;member of&quot; or &quot;members of&quot; in this context. For instance, in the enumerate definition, it would have been just as good to write &quot;&hellip;running through the members of the collection&hellip;&quot; in the repeat. (Similarly, we could write &quot;number of members of the collection&quot; or &quot;a random member of the collection&quot;, which looks grammatically tidier than writing &quot;number of the collection&quot; or &quot;random of the collection&quot; &ndash; though in fact both of these do work.)</p>
+<p>Purely as a convenience, we can also write &quot;member of&quot; or &quot;members of&quot; in this context. For instance, in the enumerate definition, it would have been just as good to write &quot;&hellip;running through the members of the collection&hellip;&quot; in the repeat. (Similarly, we could write &quot;number of members of the collection&quot; or &quot;a random member of the collection&quot;, which looks grammatically tidier than writing &quot;number of the collection&quot; or &quot;random of the collection&quot; - though in fact both of these do work.)</p>
 <p>Finally, it&#39;s sometimes useful in an abstract situation to test</p>
 <div class="defn" id="ph_valuematch"><div class="defnline"><span class="defn">if </span><span class="neutral">(value)</span><span class="defn"> matches </span><span class="neutral">(description of values)</span><span class="defn">:</span></div><p>This condition is true if the value matches the description; the kinds must be compatible, or Inform will issue a problem message. There is no point using this for cases where the description is given explicitly:</p>
 <div class="codeblock"><div class="codeline">if 4 matches even numbers, ...</div>
@@ -133,7 +133,7 @@
 <div class="codeblock"><div class="codeline">To decide which number is the square of (N - a number): ...</div>
 </div><p>has the kind &quot;phrase number -&gt; number&quot;. Brackets and commas are used if the phrase combines several values, so</p>
 <div class="codeblock"><div class="codeline">To decide which text is (T - text) repeated (N - a number) times: ...</div>
-</div><p>has the kind &quot;phrase (text, number) -&gt; text&quot;. The word &quot;nothing&quot; is used if there are no values in, or no value out &ndash; thus</p>
+</div><p>has the kind &quot;phrase (text, number) -&gt; text&quot;. The word &quot;nothing&quot; is used if there are no values in, or no value out - thus</p>
 <div class="codeblock"><div class="codeline">To decide which number is the magic target: ...</div>
 </div><p>has kind &quot;phrase nothing -&gt; number&quot;, and</p>
 <div class="codeblock"><div class="codeline">To dig (eastward - length) by (northward - length): ...</div>
@@ -141,8 +141,7 @@
 <p>But how are we to get at these values? The answer is that we need to give a phrase a name in order to do so. For example:</p>
 <div class="codeblock"><div class="codeline">To decide what number is double (N - a number) (this is doubling):</div>
 <div class="codeline">&ensp;&ensp;&ensp;decide on N plus N.</div>
-</div><p>This is the same syntax used to name rules, and the idea is the same. If we</p>
-<p>try &quot;showme doubling&quot;, the result is</p>
+</div><p>This is the same syntax used to name rules, and the idea is the same. If we try &quot;showme doubling&quot;, the result is</p>
 <div class="codeblock"><div class="codeline">phrase number -&gt; number: doubling</div>
 </div><p>The main thing we want to do with a phrase is to apply it. So:</p>
 <div class="codeblock"><div class="codeline">showme doubling applied to 2;</div>
@@ -176,7 +175,7 @@
 </div><p>then S is created holding the default phrase numbers -&gt; nothing, and if we then try it out with:</p>
 <div class="codeblock"><div class="codeline">apply S to 17;</div>
 </div><p>we will indeed find that nothing happens.</p>
-<p>The default value for &quot;phrase K -&gt; L&quot; is a phrase which, no matter what value of K it applies to, always produces the default value of L. (It&#39;s a sort of equivalent of the zero function in mathematics &ndash; indeed that&#39;s exactly what it is, if L is &quot;number&quot;.) So:</p>
+<p>The default value for &quot;phrase K -&gt; L&quot; is a phrase which, no matter what value of K it applies to, always produces the default value of L. (It&#39;s a sort of equivalent of the zero function in mathematics - indeed that&#39;s exactly what it is, if L is &quot;number&quot;.) So:</p>
 <div class="codeblock"><div class="codeline">let Q be a phrase numbers -&gt; times;</div>
 <div class="codeline">showme Q;</div>
 <div class="codeline">showme Q applied to 4;</div>
@@ -251,19 +250,19 @@
 </div><p>then the summing reduction of {3, 8, 4, 19, 7} is the number 41, obtained by</p>
 <div class="codeblock"><div class="codeline">(((3 + 8) + 4) + 19) + 7</div>
 </div><p>so that the summing phrase has been used four times.</p>
-</div><p>Is map/filter/reduce always a good idea? Devotees point out that almost any computation can be thought of in this way, and in systems where the work has to be distributed around multiple processors it can be a very powerful tool. (There are programming languages without loops where it&#39;s essentially the only tool.) At its best, it reads very elegantly: one assembles all of the tools needed &ndash; definitions of doubling, lengthy, spelling out, concatenation and so on &ndash; and then each actual task is expressed in a single line at the end.</p>
+</div><p>Is map/filter/reduce always a good idea? Devotees point out that almost any computation can be thought of in this way, and in systems where the work has to be distributed around multiple processors it can be a very powerful tool. (There are programming languages without loops where it&#39;s essentially the only tool.) At its best, it reads very elegantly: one assembles all of the tools needed - definitions of doubling, lengthy, spelling out, concatenation and so on - and then each actual task is expressed in a single line at the end.</p>
 <p>On the other hand, there are also times when this is a needlessly complicated disguise for what could more easily be done with a &quot;repeat&quot; loop, and also more efficiently since assembling and dismantling lists in memory does take some overhead time. So these list operations are not a panacea, but it&#39;s good to have them available.</p>
 </article>
 <article><div class="section-title"><div class="section-title-row"><div class="section-title-link"><a class="permalink raw" href="WI_22.html#section_6">&#128279;&ensp;</a></div><h3 class="section-title-header" id="section_6">WI <span class="sect-mark">§</span>22.6 Generic phrases</h3></div></div>
 <div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="#section_5" title="Map, filter and reduce"><div class="nav-arrow"><span class="sym">⬅</span>22.5</div><div class="doc-navbar-text">Map, filter and reduce</div></a></div><div class="doc-navbar-center"><a class="raw nav-el" href="#chapter_22"><div class="nav-arrow"><span class="sym">⬆</span>22.</div><div class="doc-navbar-text">Advanced Phrases</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="#section_7"><div class="doc-navbar-text">Kind variables</div><div class="nav-arrow">22.7<span class="sym">⮕</span></div></a></div></div></div>
 <p>The following looks quite innocent:</p>
 <div class="codeblock"><div class="codeline">To say (V - value) twice: say &quot;[V]. [V], I say!&quot;</div>
-</div><p>It&#39;s clear at a glance what this is intended to do, but at a second glance things aren&#39;t so straightforward. &quot;Value&quot; is not itself a kind &ndash; it&#39;s too big and unspecific. For instance, if we were to allow a variable to be just &quot;a value&quot;, we could freely set it to 12 one minute and to &quot;dahlias&quot; the next, and such a variable would be dangerous since we would never know what could safely be done with its contents. A phrase like this one is called &quot;generic&quot;, because it&#39;s not so much a single, actual phrase as a recipe to make phrases. (Inform automatically works out which kinds we need the phrase for, and creates a version of the phrase for those kinds.)</p>
+</div><p>It&#39;s clear at a glance what this is intended to do, but at a second glance things aren&#39;t so straightforward. &quot;Value&quot; is not itself a kind - it&#39;s too big and unspecific. For instance, if we were to allow a variable to be just &quot;a value&quot;, we could freely set it to 12 one minute and to &quot;dahlias&quot; the next, and such a variable would be dangerous since we would never know what could safely be done with its contents. A phrase like this one is called &quot;generic&quot;, because it&#39;s not so much a single, actual phrase as a recipe to make phrases. (Inform automatically works out which kinds we need the phrase for, and creates a version of the phrase for those kinds.)</p>
 <p>So &quot;value&quot; is not a kind, but a kind of kind. Inform has several of these:</p>
 <div class="codeblock"><div class="codeline">value, arithmetic value, enumerated value, sayable value</div>
 </div><p>These act as ways to say &quot;a value of any kind matching this can go here&quot;. For example, &quot;value&quot; is a way to say &quot;any kind at all&quot;; &quot;arithmetic value&quot; is any kind which arithmetic can be performed on (any kind with the little calculator icon in the Arithmetic part of the Kinds index); and so on. If we write:</p>
 <div class="codeblock"><div class="codeline">To double (V - arithmetic value): say &quot;[V times 2].&quot;</div>
-</div><p>the restriction to &quot;arithmetic value&quot; means that although &quot;double 3&quot;, &quot;double 6 kg&quot;, etc., would be matched, &quot;double the Entire Game&quot; would not &ndash; you can&#39;t perform arithmetic on scenes. Similarly, it would have been tidier to write:</p>
+</div><p>the restriction to &quot;arithmetic value&quot; means that although &quot;double 3&quot;, &quot;double 6 kg&quot;, etc., would be matched, &quot;double the Entire Game&quot; would not - you can&#39;t perform arithmetic on scenes. Similarly, it would have been tidier to write:</p>
 <div class="codeblock"><div class="codeline">To say (V - sayable value) twice: say &quot;[V]. [V], I say!&quot;</div>
 </div><p>because then Inform will make it clearer why &quot;say X twice&quot; won&#39;t work if X is one of those rare values which it can&#39;t say (an activity, for instance).</p>
 <p>The Kinds index shows which kinds match against which of these &quot;kinds of kind&quot;. For instance, it shows that &quot;time&quot;</p>
@@ -278,7 +277,7 @@
 <div class="codeblock"><div class="codeline">To decide which K is triple (original - arithmetic value of kind K):</div>
 <div class="codeline">&ensp;&ensp;&ensp;decide on 3 times the original.</div>
 </div><p>Here, K stands for any kind which matches &quot;arithmetic value&quot;. Inform supports exactly 26 of these symbols, which are written A to Z, but it&#39;s customary to use K and L. (They can be written in the plural if we like: e.g., &quot;list of Ks&quot;. But they must always use a capital letter: &quot;list of k&quot; is not allowed.)</p>
-<p>Each symbol we use has to be declared in exactly one of the bracketed ingredients for the phrase &ndash; here, the declaration is &quot;arithmetic value of kind K&quot;. That creates K and says that it has to be arithmetic; if we&#39;d just said &quot;value of kind K&quot;, it could have been anything. (Alternatively, we could use any of the kinds of kind in the previous section.)</p>
+<p>Each symbol we use has to be declared in exactly one of the bracketed ingredients for the phrase - here, the declaration is &quot;arithmetic value of kind K&quot;. That creates K and says that it has to be arithmetic; if we&#39;d just said &quot;value of kind K&quot;, it could have been anything. (Alternatively, we could use any of the kinds of kind in the previous section.)</p>
 <p>For a more ambitious example, here is one way to define the mapping operation described earlier in the chapter:</p>
 <div class="codeblock"><div class="codeline">To decide what list of L is (function - phrase K -&gt; value of kind L)</div>
 <div class="codeline">&ensp;&ensp;&ensp;applied to (original list - list of values of kind K):</div>
@@ -293,7 +292,7 @@
 <p>When a symbol occurs several times in the same definition, subtle differences can arise according to which appearance is the declaration. These are not quite the same:</p>
 <div class="codeblock"><div class="codeline">To hunt for (V - value of kind K) in (L - list of Ks): ...</div>
 <div class="codeline">To hunt for (V - K) in (L - list of values of kind K): ...</div>
-</div><p>The difference arises &ndash; though very rarely &ndash; if V has some different kind compared to the list entries, but which can be used as if it were of that kind. For example,</p>
+</div><p>The difference arises - though very rarely - if V has some different kind compared to the list entries, but which can be used as if it were of that kind. For example,</p>
 <div class="codeblock"><div class="codeline">hunt for the player&#39;s command in {&quot;take all&quot;, &quot;wait&quot;};</div>
 </div><p>Here V is a snippet, but L is a list of texts; and a snippet can be used in place of a text, but not vice versa. So this will match the second definition, because K is set to &quot;text&quot;, but it won&#39;t match the first, where K is set to &quot;snippet&quot;.</p>
 </article>
@@ -304,18 +303,18 @@
 <div class="codeline">&ensp;&ensp;&ensp;repeat with item running through Ks:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;There&#39;s [item].&quot;;</div>
 <div class="codeline">&ensp;&ensp;&ensp;say &quot;But the default is [default value of K].&quot;;</div>
-</div><p>Note that there&#39;s no hyphen, and no name for the bracketed token &ndash; it only sets K. We can then have, say:</p>
+</div><p>Note that there&#39;s no hyphen, and no name for the bracketed token - it only sets K. We can then have, say:</p>
 <div class="codeblock"><div class="codeline">assay colours;</div>
 <div class="codeline">assay vehicles;</div>
 </div><p>But &quot;assay texts&quot; would throw a problem message, because we can&#39;t repeat through all possible texts. For a different reason,</p>
 <div class="codeblock"><div class="codeline">assay open doors;</div>
-</div><p>would not be allowed &ndash; &quot;open doors&quot; is a description which applies to some doors and not others; it isn&#39;t a kind. It would make no sense to talk about &quot;default value of open door&quot;, for example.</p>
+</div><p>would not be allowed - &quot;open doors&quot; is a description which applies to some doors and not others; it isn&#39;t a kind. It would make no sense to talk about &quot;default value of open door&quot;, for example.</p>
 </article>
 <article><div class="section-title"><div class="section-title-row"><div class="section-title-link"><a class="permalink raw" href="WI_22.html#section_9">&#128279;&ensp;</a></div><h3 class="section-title-header" id="section_9">WI <span class="sect-mark">§</span>22.9 In what order?</h3></div></div>
 <div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="#section_8" title="Matching the names of kinds"><div class="nav-arrow"><span class="sym">⬅</span>22.8</div><div class="doc-navbar-text">Matching the names of kinds</div></a></div><div class="doc-navbar-center"><a class="raw nav-el" href="#chapter_22"><div class="nav-arrow"><span class="sym">⬆</span>22.</div><div class="doc-navbar-text">Advanced Phrases</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="#section_10"><div class="doc-navbar-text">Ambiguities</div><div class="nav-arrow">22.10<span class="sym">⮕</span></div></a></div></div></div>
 <p>Recall the definition:</p>
 <div class="codeblock"><div class="codeline">To slam shut (box - an open container): say &quot;With great panache, you slam shut [the box].&quot;.</div>
-</div><p>Suppose we then try to &quot;slam shut the wall safe&quot; at a time during play when the wall safe is already closed. An error message will then be printed during play, since there must be a mistake in the design. The combination of checking both when Inform builds the story file and then continuously when the story file is played guarantees that, in all cases, a varying item such as &quot;box&quot; in the definition of &quot;To slam shut (box &ndash; open container)&quot; always satisfies the condition laid down.</p>
+</div><p>Suppose we then try to &quot;slam shut the wall safe&quot; at a time during play when the wall safe is already closed. An error message will then be printed during play, since there must be a mistake in the design. The combination of checking both when Inform builds the story file and then continuously when the story file is played guarantees that, in all cases, a varying item such as &quot;box&quot; in the definition of &quot;To slam shut (box - open container)&quot; always satisfies the condition laid down.</p>
 <p>Instead suppose we also have the following definition:</p>
 <div class="codeblock"><div class="codeline">To slam shut (box - a container): say &quot;You are unable to slam shut [the box], which is already closed.&quot;.</div>
 </div><p>We now have two definitions of &quot;slam shut&quot;. Sometimes the box it&#39;s applied to will be closed, in which case only the second definition fits, and will be the one used. But if the box is open, both definitions fit. Which will happen? The rule is:</p>
@@ -338,7 +337,7 @@
 </div><p>could be construed as a usage of either of these cases:</p>
 <div class="codeblock"><div class="codeline">say the (something - a thing)</div>
 <div class="codeline">say (something - a thing)</div>
-</div><p>These of course have different effects &ndash; one produces the name with a definite article, the other just the name, so the difference is important.</p>
+</div><p>These of course have different effects - one produces the name with a definite article, the other just the name, so the difference is important.</p>
 <p>The rule here is that whichever possibility contains the most words, in this case &quot;say the (&hellip;)&quot;, takes precedence, because it&#39;s assumed to be a more specific form of the less wordy version.</p>
 </article>
 </section>

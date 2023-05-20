@@ -107,6 +107,7 @@ def configure
       %r{\s+If you are reading this within the Inform application, you will see that the (Recipe Book|Writing with Inform) pages are on &quot;(yellow|white) paper&quot;, while the (Recipe Book|manual) is on &quot;(yellow|white) paper&quot;\.} => '',
       %r{\bi6\b}i => %Q{<span class="sc">i</span>6},
       %r{\bi7\b}i => %Q{<span class="sc">i</span>7},
+      %r{"Reliques of Tolti-Aph" at the Inform website} => %Q{<a href="https://i7-examples.github.io/The-Reliques-of-Tolti-Aph/">The Reliques of Tolti-Aph</a>}
     }
 #  Conf[:append = { after: { rb: { }, wi: { }, ex: {} },
 #                    fore: { rb: { }, wi: { }, ex: {} },
@@ -176,15 +177,8 @@ end
 # not output per se but returns html filename
 def target_anchor(*target)
   vol, ch, sect, monolith = *target
-  monolith ? "#{vol}#{ch}_#{sect}" : "#{Conf.books[vol][:abbrev]}_#{ch}.html#section_#{sect}"
-end
-
-# output
-def print_target(*target)
-  vol, ch, sect, monolith = *target
-  target = target_anchor(vol, ch, sect, monolith)
-  target = "##{target}" if monolith
-  %Q{<a href="#{target}"><span class="sc">#{vol.to_s.upcase}</span>&nbsp;#{ch}.#{sect}</a>}
+  # "#{Conf.books[vol][:abbrev]}_#{ch}.html#section_#{sect}"
+  monolith ? "#{vol}#{ch}_#{sect}" : "#{File.join(vol.to_s, ch.to_s, "index.html")#{sect}}"
 end
 
 # ^^{kinds: default values of kinds <-- default properties of kinds}
@@ -206,6 +200,8 @@ end
 numwords = %w{one two three four five six seven eight nine ten eleven twelve}
 $nummap = Hash[numwords.map.with_index {|s,i| [(i+1).to_s,s]}]
 
+
+# TODO move { } to before 'a'
 def keysort(str)
   return "(* *)" if str.match(/\{\s+\}/)
   return str if ["a / an / the","an / a / the","the / a / an", '"'].member?(str)
@@ -220,12 +216,14 @@ $rhash = {}
 $cat_hash = { "phrase" => { label: 'phrase', bracketed: true, bracket_class: :phrase, unbracket_class: :neutral }, "say phrase" => { label: 'say phrase', bracketed: true, bracket_class: :sayphrase, unbracket_class: :neutral } }
 
 def target_chapter(vol, chapter_num, monolithic = false, label = nil, level: 0)
-  ((['..']*level) + [[ Conf.books[vol][:abbrev], chapter_num ].join('_')]).join('/') + '.html'
+  File.join(*(['..']*level) + [ File.join(vol.to_s, chapter_num.to_s, "index.html") ])
+#            [[ Conf.books[vol][:abbrev], chapter_num ].join('_')]).join('/') + '.html'
 end
 
 def target_pair(target, monolithic = false, label = nil)
   vol, ch, sect = *target
-  dest = monolithic ? "##{vol}#{ch}.#{sect}" : "#{Conf.books[vol][:abbrev]}_#{ch}.html#section_#{sect}"
+  dest = monolithic ? "##{vol}#{ch}.#{sect}" : target_anchor(vol, ch, sect)
+           # "#{Conf.books[vol][:abbrev]}_#{ch}.html#section_#{sect}"
   label ||= %Q{<span class="sc">#{vol.to_s}</span>&nbsp;#{ch}.#{sect}}
   title = "#{Conf.books[vol][:chapters][ch][:name]} &gt; #{Conf.books[vol][:chapters][ch][:sections][sect][:name]}"
   [ dest, label, title ]
@@ -336,7 +334,7 @@ def replace_example(line, vol, monolithic = false, level: 0)
       cname = canonical_example_name(word);
       if Conf.examples.key?(cname)
         example = Conf.examples[cname]
-        target = (monolithic ? "#example_#{cname}" : "examples/#{cname}.html")
+        target = (monolithic ? "#example_#{cname}" : File.join("examples",cname, index.html))
         result << %Q{<span class="example-name"><a href="#{target}" title="#{CGI.escapeHTML(example[:desc])}">#{htmlify(word, level: level)}</a></span> #{sym(:star, example[:stars])}}
       elsif orig.match(/(Writing with Inform|The Inform Recipe Book)/)
         target = ($1 == 'Writing with Inform') ? "wi" : "rb"
@@ -551,12 +549,13 @@ def read_rawtext(lines = [], filename = nil, vol = nil)
         phrase, *result = *(defn.split(/\s*\.\.\.\s*/))
         compact = phrase_defn(phrase, omit: true).sub(/:\Z/,'')
         h = { phrase: phrase, result: result.join('...'), sortby: [ keysort(compact), defn_type] }
-        Conf.defns[id][:list] << h
+        phrase_obj << h
+#        Conf.defns[id][:list] << h
         gi_key = [phrase, defn_type]
         Conf[:gi][gi_key] ||= { type: defn_type, sortby: [ keysort(compact), defn_type], targets: [] , see: [], tag: uid } 
         Conf[:gi_by_tag][Conf[:gi][gi_key][:tag]] = Conf[:gi][gi_key]
-        entry_target = Conf.defns[id][:entry]
-        Conf[:gi][gi_key][:targets] << entry_target 
+ #       entry_target = Conf.defns[id][:entry]
+        Conf[:gi][gi_key][:targets] << phrase_obj.entry
         Conf[:gi][gi_key][:id] = id
       end
       container[:blocks] << { type: :defn, id: id }
@@ -583,6 +582,7 @@ def read_rawtext(lines = [], filename = nil, vol = nil)
     block[:pastie].pop while !block[:pastie].empty? and !block[:pastie][-1].match(/\S/)
   end
   chapters.values.each do |chapter|
+    chapter[:last_section] = chapter[:sections].keys.max
     chapter[:sections].values.each do |section|
       section[:blocks].each do |block|
         next unless block[:type] == :code
@@ -602,6 +602,7 @@ def first_pass
     chapters = Conf.books[vol][:chapters]
     container, chapters, chapter_names, section_names = read_rawtext([], File.join(Conf.doc_dir, info[:filename]), vol)
     Conf.books[vol][:chapters] = chapters
+    Conf.books[vol][:last_chapter] = chapters.keys.max
     Conf.chapter_names[vol] = chapter_names
     Conf.section_names[vol] = section_names
 #    chapters.values.each {|ch| dest = target_chapter(vol, ch[:chapter_num]); Conf[:text_subs][%r{(#{ch[:name]}\s+chapter|chapter\s+on\s+#{ch[:name]})}i] = lambda { |m| %Q{<a href="">#{m[1]}</a>} } }
@@ -1149,7 +1150,8 @@ def numeric_examples(f, monolithic = false)
       f.puts %Q{<div class="example-index-row"><div class="example-index-cell"></div><div class="example-index-cell"></div><div class="example-index-cell">}
       f.puts %Q{<div class="numeric-example-list">}
       ex.each do |example|
-        target = monolithic ? "#example_#{example[:cname]}" : "#{example[:cname]}.html"
+        target = ((monolithic ? "#example_#{example[:cname]}" : File.join(example[:cname], "index.html")
+#                     "#{example[:cname]}.html"
         subzeroes = ("0" * (4 - example[:example_num].to_s.length))
         f.puts %Q{<div class="numeric-example-line"><span class="hidden numeric-example">#{subzeroes}</span><span class="numeric-example">#{example[:example_num]}. <a href="#{target}" title="#{CGI.escapeHTML(example[:desc])}">#{htmlify(example[:name])}</a></span> #{sym(:star, example[:stars])} #{example_refs(example, :rb, level: 1).first}</div>}
       end
@@ -1196,7 +1198,8 @@ def nominal_examples(f)
 #      secrets0= ((sect.to_s.length < 2) ? %Q{<span class="hidden">0</span>} : '')
       f.print %Q{<div class="example-index-cell"><div class="example-index-ref"><a class="raw" href="../#{target}"><div class="example-index-cell-part right">#{Conf.books[vol][:abbrev]} #{secretc0}#{ch}.</div><div class="example-index-cell-part left">#{sect}</div></a></div></div>}
     end
-    f.print %Q{<div class="example-index-cell"><span class="#{alpha_index[key][:real] ? 'example-index-name' : ''}"><a id="example-example-index-entry-#{alpha_index[key][:id]}" title="#{CGI.escapeHTML(example[:desc])}" href="#{example[:cname]}.html">#{htmlify(key)}#{example[:subtitle].blank? ? '' : ': <span class="example-index-subtitle">'+ example[:subtitle] + '</span>'}</a></span> <span class="sym">#{'★' * example[:stars]}</span></div></div>}
+    example_filename = File.join(example[:cname], "index.html")
+    f.print %Q{<div class="example-index-cell"><span class="#{alpha_index[key][:real] ? 'example-index-name' : ''}"><a id="example-example-index-entry-#{alpha_index[key][:id]}" title="#{CGI.escapeHTML(example[:desc])}" href="#{example_filename}">#{htmlify(key)}#{example[:subtitle].blank? ? '' : ': <span class="example-index-subtitle">'+ example[:subtitle] + '</span>'}</a></span> <span class="sym">#{'★' * example[:stars]}</span></div></div>}
   end
   f.puts '</div>'
 end
@@ -1250,13 +1253,35 @@ def output_section_examples(f, vol, examples, monolithic = false)
   f.puts '<div class="examples">'
   f.puts %Q{<h4>Example#{(examples.count > 1) ? 's' : ''}</h4>}
   examples.each do |example|
-    target = monolithic ? "#example_#{example[:cname]}" : "examples/#{example[:cname]}.html"
+    target = (monolithic ? "#example_#{example[:cname]}" : File.join("examples",example[:cname], "index.html"))
     zeroes = 3 - example[:example_num].to_s.length
     f.print %Q{<div class="example-short"><div class="example-short-num"><span class="hidden">#{"0"*zeroes}</span>#{ example[:example_num] }.</div><div class="example-short-name"><span class="example-short-name"><a href="#{target}">#{example[:name]}</a></span> <span class="sym">#{'★' * example[:stars]}</span></div></div>}
     f.puts %Q{<div class="example-short"><div class="example-short-num"><span class="hidden">000.</span></div><div class="example-short-name">#{htmlify(example[:desc])}</div></div>}
     example_linkback(f, linkback_vol, example)
   end
   f.puts('</div>')
+end
+
+def get_next_chapter(vol, ch)
+  return vol, (ch + 1) unless ch = Conf.books[vol][:last_chapter]
+  return :rb, 1 if vol == :rb
+end
+
+def get_prev_chapter(vol, ch)
+  return vol, (ch - 1) if ch > 1
+  return :wi, Conf.books[:wi][:last_chapter] if vol == :rb
+end
+
+def get_prev_section(vol, ch, sect)
+  return vol, ch, (sect - 1) if sect > 1
+  prev_vol, prev_ch = prev_chapter(vol, ch)
+  return prev_vol, prev_ch, Conf.books[prev_vol][prev_ch][:last_section] if prev_vol # unless ch == 1 and vol == :wi
+end
+
+def get_next_section(vol, ch, sect)
+  return vol, ch, sect + 1 unless sect = Conf.books[vol][ch][:last_section]
+  next_vol, next_ch = next_chapter(vol, ch)
+  return next_vol, next_ch, 1 if next_vol
 end
 
 # output
@@ -1269,25 +1294,41 @@ def output_section(f, vol, chapter_num, section_num, monolithic = false, search:
   f.puts '</h3></div></div>'
   navbar = []
   navbar << %Q{<div class="doc-navbar"><div class="doc-navbar-left">}
-  prev = nil
-  prev = book[:chapters][chapter_num][:sections][section_num-1] if section_num > 1
-  prev ||= book[:chapters][chapter_num-1][:sections][book[:chapters][chapter_num-1][:sections].keys.max] if chapter_num > 1
+  next_vol, next_ch, next_sect = get_next_section(vol, chapter_num, section_num)
+  prev_vol, prev_ch, prev_sect = get_prev_section(vol, chapter_num, section_num)
+#  prev = nil
+#  prev = book[:chapters][chapter_num][:sections][section_num-1] if section_num > 1
+#  prev ||= book[:chapters][chapter_num-1][:sections][book[:chapters][chapter_num-1][:sections].keys.max] if chapter_num > 1
 #  abbr = Conf.books[vol][:abbrev]
-  prev ||= Conf.books[:wi][:chapters][Conf.books[:wi][:chapters].keys.max][:sections][Conf.books[:wi][:chapters][Conf.books[:wi][:chapters].keys.max][:sections].keys.max] if vol == :rb
+  #  prev ||= Conf.books[:wi][:chapters][Conf.books[:wi][:chapters].keys.max][:sections][Conf.books[:wi][:chapters][Conf.books[:wi][:chapters].keys.max][:sections].keys.max] if vol == :rb
+  this_filename = File.join(abbr.to_s, chapter_num.to_s, "index.html")
+  if prev_ch
+    prev_filename = ((prev_vol == vol) ? File.join(prev_vol.to_s, prev_ch.to_s, "index.html") : File.join("..", prev_ch.to_s, "index.html"))
+    prev_section_target = ((prev_ch == ch) ? "##{prev_sect}" : "#{prev_filename}##{prev_sect}")
+  end
+  if next_ch
+    next_filename = ((next_vol == vol) ? File.join(next_vol.to_s, next_ch.to_s, "index.html") : File.join("..", next_ch.to_s, "index.html"))
+    next_section_target = ((next_ch == ch) ? "##{next_sect}" : "#{next_filename}##{next_sect}")
+  end
+
+  
   if !prev.blank?
     abbr = Conf.books[prev[:vol]][:abbrev]
     prefix = ((prev[:vol] == vol) ? '' : "#{Conf.books[Conf.books.keys.find {|x| x != vol}][:abbrev]} ")
-    dest = ((prev[:chapter_num] == chapter_num) ? "#section_#{prev[:section_num]}" : "#{abbr}_#{prev[:chapter_num]}.html#section_#{prev[:section_num]}")
-    navbar << %Q{<a class="raw nav-el" href="#{dest}" title="#{htmlify(prev[:name])}"><div class="nav-arrow"><span class="sym">#{Conf.syms[:left]}</span>#{prefix}#{prev[:chapter_num]}.#{prev[:section_num]}</div><div class="doc-navbar-text">#{htmlify(prev[:name])}</div></a>}
+    
+    dest = ((prev[:chapter_num] == chapter_num) ? "##{prev[:section_num]}" : prev_chapter_filename_w_section)
+              #"#{abbr}_#{prev[:chapter_num]}.html#section_#{prev[:section_num]}")
+    navbar << %Q{<a class="raw nav-el" href="#{dest}" title="#{htmlify(prev[:name])}"><div class="nav-arrow"><span class="sym">#{Conf.syms[:left]}</span>#{prefix}#{prev[:chapter_num]}.#{prev[:section_num]}</div><div class="doc-navbar-text">#{htmlify(prev[:name])}</div></a>OA}
   else
     navbar << %Q{<div>&thinsp;</div>}
   end
   navbar << '</div>'
-  dest = search ? "#{Conf.books[vol][:abbrev]}_#{chapter_num}.html" : "#chapter_#{chapter_num}"
+  dest = search ? chapter_filename : "#chapter_#{chapter_num}"
   navbar << %Q{<div class="doc-navbar-center"><a class="raw nav-el" href="#{dest}"><div class="nav-arrow"><span class="sym">#{Conf.syms[:up]}</span>#{chapter_num}.</div><div class="doc-navbar-text">#{book[:chapters][chapter_num][:name]}</div></a></div>}
   navbar << %Q{<div class="doc-navbar-right">}
   if book[:chapters][chapter_num][:sections].key?(section_num+1)
-    dest = search ? "#{Conf.books[vol][:abbrev]}_#{chapter_num}.html#section_#{section_num+1}" : "#section_#{section_num+1}"
+    # "#{Conf.books[vol][:abbrev]}_#{chapter_num}.html#section_#{section_num+1}"
+    dest = search ?  : "#section_#{section_num+1}"
     navbar << %Q{<a class="raw nav-el" href="#{dest}"><div class="doc-navbar-text">#{book[:chapters][chapter_num][:sections][section_num+1][:name]}</div><div class="nav-arrow">#{chapter_num}.#{section_num+1}<span class="sym">#{Conf.syms[:right]}</span></div></a></div>}
   elsif book[:chapters].key?(chapter_num+1)
     dest = "#{Conf.books[vol][:abbrev]}_#{chapter_num+1}.html"
@@ -1499,7 +1540,6 @@ f.puts %Q{</div></div>}
     footer(f, css: "toc-er", page: :toc)
     f.puts '</body></html>'
   end
-  
 end
 
 # output

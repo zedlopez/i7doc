@@ -1,6 +1,10 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8">
-<title>Inform 7 Handbook</title>
+    
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    
+
+    <title>Chapter 9: Phrasing  Punctuation</title>
 <script src="../i7doc.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,6 +18,2006 @@
       <h2>by Jim Aikin</h2>
     </header>
     <main>
+  <h2 id="chapter-9-phrasing-punctuation">Chapter 9: Phrasing &amp; Punctuation</h2>
+
+<p>In this chapter we’re going to look at the guidelines you’ll need to
+follow when writing your game in the Inform 7 language. Most programmers
+refer to what they write as “source code.” <em>Writing with Inform</em> refers
+to what you’ll be writing as the “source text,” but the only reason I
+can see for using this nonstandard term is to make Inform look less
+intimidating to the new author. What you’ll be writing will be source
+code, and that’s the term used in this book. (In fact, calling the code
+“source text” is potentially confusing, in that Inform has a data type
+called text, which is only one of the many components of the language.)</p>
+
+<p>If you’ve ever learned a traditional computer programming language, you
+may be surprised when you first look at the syntax of the Inform
+language. (“Syntax” is just a fancy word for how things are phrased and
+punctuated.) At first glance, Inform looks very little like a
+programming language; it looks like plain written English. Some of the
+sentences are a little forced, but English syntax is the foundation of
+Inform.</p>
+
+<p>This is an illusion – artful, but an illusion. Just like any other
+programming language, Inform has a compiler. And like any other
+compiler, the Inform compiler absolutely insists that your code be
+written in certain ways. The “natural language” user interface of Inform
+is not much more than skin-deep.</p>
+
+<p>The use of “natural language” for programming is both a blessing and a
+curse. It’s a blessing because if you don’t remember how to do some type
+of task, you can try writing it exactly the way you’d phrase it if you
+were speaking to a friend. Sometimes you’ll find the right phrase that
+way. Or not. Many phrases that are understood without trouble by native
+speakers of English are <em>not</em> understood by Inform. Sometimes there are
+three or four different ways to express a given concept that for a
+native English speaker would mean exactly the same thing, so you’re
+pretty much guaranteed to hit the target before very long. At other
+times, syntax that you might naturally expect to work, won’t, and you’ll
+have to hunt around in the Documentation to find the correct syntax.</p>
+
+<p>A second surprise, for expert programmers, may come from the sheer
+number of phrase constructions that are both allowed and needed by
+Inform. Inform is a language that’s rich in features. As you write
+interactive fiction, you’ll be dealing with innumerable specifics – odd
+connections between rooms, objects that need to behave in unexpected
+ways, in-game error messages that need to be customized due to the
+nature of the story, and so on. Interactive fiction is a mass of
+particulars; generalizations are hard to come by, and even harder to
+nail down. But let’s give it a shot.</p>
+
+<h3 id="types-of-source-text">Types of Source Text</h3>
+
+<p>There are three main kinds of writing in Inform. First, some of your
+writing will be between double quotation marks, “Like this.” There are
+two types of things that you put between quotation marks: what you want
+your game to print out to the computer screen (at some point or other)
+when the game is played, and words and phrases that you want Inform to
+understand when the player types them. Here’s a quick example that shows
+both of these types:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The will is on the end table. The description is &quot;A legal-looking piece of paper. You can&apos;t read what&apos;s on it, because it&apos;s upside down.&quot;\n  \nUnderstand &quot;legal&quot;, &quot;legal-looking&quot;, &quot;document&quot;, &quot;paper&quot;, &quot;piece&quot;, and\n&quot;piece of&quot; as the will.`)"><span class="sym">⧉</span></button>
+<div class="codeline">The will is on the end table. The description is &quot;A legal-looking piece of paper. You can&apos;t read what&apos;s on it, because it&apos;s upside down.&quot;</div>
+<div class="codeline">  </div>
+<div class="codeline">Understand &quot;legal&quot;, &quot;legal-looking&quot;, &quot;document&quot;, &quot;paper&quot;, &quot;piece&quot;, and</div>
+<div class="codeline">&quot;piece of&quot; as the will.</div>
+</div>
+<p>The sentence following “The description is” is output text. This is what
+the Inform game interpreter will print out in response to EXAMINE THE
+WILL. The words after “Understand” are different: They’re extra
+vocabulary words for the object whose main name is “will”. The word
+“will” can be used both by the player of the game when referring to this
+object, and by the author. However, only the player can call it a
+“document” or a “piece of paper.”</p>
+
+<p>The function of Understand rules is sometimes a bit difficult for new
+Inform authors to grasp, so let’s expand on the idea a bit. If you’ve
+used the code above to create an object called the will, you can <em>only</em>
+refer to it in your source code as “the will” (or just “will”). You
+can’t write rules such as this:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of examining the legal document: [Error!]`)"><span class="sym">⧉</span></button>
+<div class="codeline">Instead of examining the legal document: [Error!]</div>
+</div>
+<p>Why not? Because the compiler doesn’t know that this object can be
+called “legal document.” In your source code, it’s important always to
+refer to an object using the word or words you used to create it. A
+little later in this chapter, we’ll look at a gray area that affects
+this concept, but it’s an important concept to get straight. If you
+forget what you called an object, you can even end up creating a second
+object with almost the same name, which can lead to hard-to-find bugs in
+your code.</p>
+
+<p>The second type of thing you’ll write will be <em>comments</em>. Words and
+sentences that are <em>not</em> between quotation marks but are instead
+surrounded by square brackets, [Like this], are comments. When your
+game is compiled, the comments will be ignored. Adding comments to your
+code is highly recommended! A comment is a memo you write to yourself,
+in order to take notes about things you still need to add to the story
+or so that you’ll remember, six months from now, why your code is
+constructed in a certain way.</p>
+
+<p>As explained below in the section “Text Insertions,” however, square
+brackets have a completely different meaning when they’re <em>inside</em>
+double-quotes.</p>
+
+<p>Third, any writing that’s not between quotation marks and not surrounded
+by square brackets consists of instructions to the computer on how you
+want your game to operate – code, in other words.</p>
+
+<p>With some minor exceptions, which we’ll get to below, Inform does not
+care what you put between quotation marks. You can write amazing poetry,
+if you feel up to it, and become known as a writer of rare gifts. Or you
+can spell words wrong, use clumsy grammar, and indulge in sloppy
+punctuation. In the latter case, the people who play your game may think
+you’re careless or badly educated, but these mistakes won’t matter to
+Inform. Inform won’t even notice them. It will just say, “Oh, that’s the
+text that I’m supposed to print out now.” No problem.</p>
+
+<p>Text that’s neither a comment nor in quotes is a completely different
+matter. Inform will insist that you spell words correctly, that you
+follow certain rules for how phrases are worded, and that you use the
+right punctuation in every single line. Even a single mistake will stop
+Inform dead in its tracks. For instance, you might accidentally type a
+colon (:) instead of a semicolon (;) or vice-versa. This is easy to do,
+because they share a single computer key and look almost alike on the
+screen (especially when the screen is set to high resolution). But the
+colon and semicolon have completely different meanings to Inform. If you
+mix them up, when you click the Go! button to compile the game you’ll
+see nothing but Problem messages. See the previous discussion of a few
+<a href="#Ref_common_coding_problems">common coding problems</a>.</p>
+
+<p>In this chapter we’ll look at the main rules you need to follow when
+writing your source code. It’s not easy to set out a complete set of
+rules for you to follow, because there are so many different things you
+may want to do while writing interactive fiction. Inform has lots of
+features, some of which require special types of syntax.</p>
+
+<p>The I7 Documentation gives fairly complete explanations of the syntax,
+but it’s spread out in a lot of different places. Each type of syntax is
+discussed on the page where a feature that uses that syntax is
+introduced. In order to gather all of this information in one place,
+we’ll have to refer to some Inform features that you may not have run
+into. Don’t worry if you don’t understand every detail: This chapter is
+partly for you to refer to when you’re trying to figure out why Inform
+doesn’t want to compile your game.</p>
+
+<h3 id="text-insertions">Text Insertions</h3>
+
+<p>It’s extremely common for the game to need to make some decisions about
+what to print while the game is being played. The ways to do this are
+well described in <a href="../WI_5.html">Chapter 5 of <em>Writing with Inform</em>,
+“Text”</a>, but we’ll look at a couple of examples here.</p>
+
+<p>In our first example, a ceramic bowl can be broken or unbroken. If it’s
+broken, the description should obviously change. You can use square
+brackets to embed if/otherwise tests in the description of the bowl,
+like this:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The ceramic bowl is on the end table. The ceramic bowl can be broken\nor unbroken. The description is &quot;The delicate ceramic bowl is [if\nbroken]chipped and cracked[otherwise]a beautiful work of art[end if].&quot;\nUnderstand &quot;delicate&quot; as the ceramic bowl. Understand &quot;chipped&quot; and\n&quot;cracked&quot; as the ceramic bowl when the bowl is broken.`)"><span class="sym">⧉</span></button>
+<div class="codeline">The ceramic bowl is on the end table. The ceramic bowl can be broken</div>
+<div class="codeline">or unbroken. The description is &quot;The delicate ceramic bowl is [if</div>
+<div class="codeline">broken]chipped and cracked[otherwise]a beautiful work of art[end if].&quot;</div>
+<div class="codeline">Understand &quot;delicate&quot; as the ceramic bowl. Understand &quot;chipped&quot; and</div>
+<div class="codeline">&quot;cracked&quot; as the ceramic bowl when the bowl is broken.</div>
+</div>
+<p>I’ve also created an Understand sentence that adds “chipped” and
+“cracked” as vocabulary – but only when the bowl is broken. The main
+point of this example, though, is the insertion of “[if broken]”,
+“[otherwise]”, and “[end if]” in the description. (And by the way,
+Inform accepts “else” as a synonym for “otherwise.” Less typing.) Notice
+that the period that ends the sentence is <em>after</em> the [end if]. The
+period will always print out, no matter whether the bowl is broken or
+unbroken. This is the way I prefer to write if/otherwise/end if blocks
+in my games, but you can also do it this way:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The description is &quot;The delicate ceramic bowl is [if broken]chipped\nand cracked.[otherwise]a beautiful work of art.[end if]&quot;.`)"><span class="sym">⧉</span></button>
+<div class="codeline">The description is &quot;The delicate ceramic bowl is [if broken]chipped</div>
+<div class="codeline">and cracked.[otherwise]a beautiful work of art.[end if]&quot;.</div>
+</div>
+<p>Here, I’ve moved the period inside the if/otherwise text. So I also have
+to add a separate period <em>after</em> the close-quote, to let Inform know
+that the description sentence is finished. The advantage of doing it the
+first way is that the period just before the close-quote does double
+duty: Inform both prints it (because it’s part of the output text) and
+understands it as ending the sentence that begins “The description is”.</p>
+
+<p>When a period, question mark, or exclamation point falls at the very end
+of a text block, just before the closing quotation mark, Inform
+understands that the punctuation mark both ends the sentence within
+quotes <em>and</em> ends the larger context of the surrounding code. For
+example, here’s an error:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of ringing the bell:\n\tsay &quot;The bell produces only a dull thud.&quot;\n\tnow the butler is suspicious. [Error!]`)"><span class="sym">⧉</span></button>
+<div class="codeline">Instead of ringing the bell:</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;The bell produces only a dull thud.&quot;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the butler is suspicious. [Error!]</div>
+</div>
+<p>This code won’t compile. The problem is that the line beginning with
+“say” ends with a period. As a result, Inform thinks the Instead rule is
+finished – so the third line doesn’t seem (to the compiler) to belong to
+a rule at all. It’s just floating in code-space, not attached to
+anything. If we need to continue with more lines of code after a
+close-quote like this, we need to tack on a semicolon to tell the
+compiler that we’re not done yet:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of ringing the bell:\n\tsay &quot;The bell produces only a dull thud.&quot;;\n\tnow the butler is suspicious. [Now the code will compile, because we\nadded a semicolon.]`)"><span class="sym">⧉</span></button>
+<div class="codeline">Instead of ringing the bell:</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;The bell produces only a dull thud.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the butler is suspicious. [Now the code will compile, because we</div>
+<div class="codeline">added a semicolon.]</div>
+</div>
+<p>A tidy way to deal with this is to put the other parts of the rule
+<em>before</em> the quoted output text. If you get in the habit of doing this,
+you won’t need to worry about adding extra punctuation. Here’s how the
+revised rule would look:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of ringing the bell:\n\tnow the butler is suspicious;\n\tsay &quot;The bell produces only a dull thud.&quot;`)"><span class="sym">⧉</span></button>
+<div class="codeline">Instead of ringing the bell:</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the butler is suspicious;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;The bell produces only a dull thud.&quot;</div>
+</div>
+<p>But we were talking about text insertions, not about periods. You can
+string together several tests within a single block of output text by
+using “[otherwise if …]”, like this:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The ceramic bowl can be intact, chipped, or shattered. The\ndescription is &quot;The delicate ceramic bowl is [if intact]a beautiful work\nof art[otherwise if chipped]slightly damaged[otherwise]shattered into\nshards[end if].&quot;`)"><span class="sym">⧉</span></button>
+<div class="codeline">The ceramic bowl can be intact, chipped, or shattered. The</div>
+<div class="codeline">description is &quot;The delicate ceramic bowl is [if intact]a beautiful work</div>
+<div class="codeline">of art[otherwise if chipped]slightly damaged[otherwise]shattered into</div>
+<div class="codeline">shards[end if].&quot;</div>
+</div>
+<p>You’ll notice that we don’t have to tell Inform <em>what</em> object we’re
+asking “if intact” about. Inform knows that, by default, the object
+being examined is the one whose properties are being tested. We could
+test something entirely different, though, if we wanted to:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The description is &quot;[if the curator is in the location]The bowl looks\nquite valuable, but you don’t dare get close enough to give it a good\ninspection, not while the curator is hovering nearby, looking\nnervous[otherwise]The bowl is a Ming Dynasty vase, clearly worth\nmillions[end if].&quot;`)"><span class="sym">⧉</span></button>
+<div class="codeline">The description is &quot;[if the curator is in the location]The bowl looks</div>
+<div class="codeline">quite valuable, but you don’t dare get close enough to give it a good</div>
+<div class="codeline">inspection, not while the curator is hovering nearby, looking</div>
+<div class="codeline">nervous[otherwise]The bowl is a Ming Dynasty vase, clearly worth</div>
+<div class="codeline">millions[end if].&quot;</div>
+</div>
+<p>What we can’t do is embed one if-test inside another. This type of thing
+won’t work:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The description is &quot;[if intact][if the curator is in the location]You\ndon&apos;t want to appear too interested in the bowl while the curator is\nhovering about[end if]The bowl appears to be a priceless Ming Dynasty\nvase[otherwise if the bowl is chipped][if the curator is in the\nlocation] …&quot;. [Error!]`)"><span class="sym">⧉</span></button>
+<div class="codeline">The description is &quot;[if intact][if the curator is in the location]You</div>
+<div class="codeline">don&apos;t want to appear too interested in the bowl while the curator is</div>
+<div class="codeline">hovering about[end if]The bowl appears to be a priceless Ming Dynasty</div>
+<div class="codeline">vase[otherwise if the bowl is chipped][if the curator is in the</div>
+<div class="codeline">location] …&quot;. [Error!]</div>
+</div>
+<p>When you need to test several conditions at once while assembling an
+output text, the most convenient and reliable way to do it is to use a
+To Say statement. We might write a To Say statement for our ceramic bowl
+like this:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The ceramic bowl is on the end table. The ceramic bowl can be intact, chipped, or shattered. The description is &quot;[bowl-desc].&quot;\n\nTo say bowl-desc:\n\tif the bowl is intact:\n\t	if the curator is in the location:\n\t		say &quot;You don&apos;t want to appear too interested in the bowl while the curator is hovering about&quot;;\n\t	otherwise:\n\t		say &quot;The bowl appears to be a priceless Ming Dynasty vase&quot;;\n\totherwise if the bowl is chipped:\n\t	say &quot;The bowl is slightly chipped&quot;;\n\t	if the curator is in the location:\n\t		say &quot;, as you know only too well, having chipped it yourself. The curator is guarding it jealously&quot;;\n\totherwise:\n\t	say &quot;The bowl is shattered beyond repair&quot;.`)"><span class="sym">⧉</span></button>
+<div class="codeline">The ceramic bowl is on the end table. The ceramic bowl can be intact, chipped, or shattered. The description is &quot;[bowl-desc].&quot;</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">To say bowl-desc:</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the bowl is intact:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the curator is in the location:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;You don&apos;t want to appear too interested in the bowl while the curator is hovering about&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;The bowl appears to be a priceless Ming Dynasty vase&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise if the bowl is chipped:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;The bowl is slightly chipped&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the curator is in the location:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;, as you know only too well, having chipped it yourself. The curator is guarding it jealously&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;The bowl is shattered beyond repair&quot;.</div>
+</div>
+<p>Notice the slightly unusual way those “say” lines are formatted. None of
+them ends with a period inside the close-quote. This is because the
+period that ends the description is up above, in the description
+property for the ceramic bowl. When you use a To Say rule in this way,
+you need to be especially careful about where the period is that ends
+the last sentence. This is because Inform does some special output
+formatting when it hits the end of a quoted sentence or paragraph. If
+the period is in the wrong place, a blank line can disappear from the
+output, or an extra blank line can be added.</p>
+
+<p>You can put any word you want in double-quoted text using brackets, as
+shown above, and then write a To Say statement that will run when the
+bracketed word is reached. Hyphenated compound words, such as
+“bowl-desc”, are a good choice, because they’re unlikely to be used
+anywhere else in your code.</p>
+
+<p>Normally a To Say statement should always be called from within text
+that’s going to be printed out in the game. This type of thing is legal,
+but usually not a good idea:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`After attacking the ceramic bowl:\n\tsay &quot;[another-code-block]&quot;.\n\nTo say another-code-block:\n\tif the ceramic bowl is shattered:\n\t	[more code goes here…]`)"><span class="sym">⧉</span></button>
+<div class="codeline">After attacking the ceramic bowl:</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;[another-code-block]&quot;.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">To say another-code-block:</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the ceramic bowl is shattered:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;[more code goes here…]</div>
+</div>
+<p>Instead of using “say”, a better way to call a separate code block, if
+you need to do it, is just to create it using a To statement, like this:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`After attacking the ceramic bowl:\n\tsound the alarm.\n\nTo sound the alarm:\n\tif the ceramic bowl is shattered:\n\t	[more code goes here…]`)"><span class="sym">⧉</span></button>
+<div class="codeline">After attacking the ceramic bowl:</div>
+<div class="codeline">&ensp;&ensp;&ensp;sound the alarm.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">To sound the alarm:</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the ceramic bowl is shattered:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;[more code goes here…]</div>
+</div>
+<p>But there’s no requirement that the To Say rule actually print any text
+to the game’s output. Once in a while you may want to cause something to
+happen as part of a text output. Here’s a simple example – we’re going
+to adjust this NPC’s mood when you ask him to give you an object:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Alexander Button can be friendly, neutral, or hostile. Alexander Button is neutral.\n\nInstead of asking Alexander Button for the will:\n\tsay &quot;[Alexander-less-friendly]Alexander laughs at you.&quot;\n\nTo say Alexander-less-friendly:\n\tif Alexander is friendly:\n\t	now Alexander is neutral;\n\totherwise if Alexander is neutral:\n\t	now Alexander is hostile.`)"><span class="sym">⧉</span></button>
+<div class="codeline">Alexander Button can be friendly, neutral, or hostile. Alexander Button is neutral.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Instead of asking Alexander Button for the will:</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;[Alexander-less-friendly]Alexander laughs at you.&quot;</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">To say Alexander-less-friendly:</div>
+<div class="codeline">&ensp;&ensp;&ensp;if Alexander is friendly:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now Alexander is neutral;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise if Alexander is neutral:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now Alexander is hostile.</div>
+</div>
+<p>In this example, the text output “Alexander laughs at you” includes a
+call to a To Say rule that prints nothing. It has only one effect: it
+causes Alexander to become less friendly by adjusting one of his
+properties. In this case, you could get the same result using a To
+phrase, as shown earlier in this section, by adding a line like “crank
+up Alexander’s hostility” in the Instead rule – but there are times
+(such as when printing text that’s stored in a table) when using a To
+Say statement is really the best way to do it.</p>
+
+<h4 id="switchable-markup">Switchable Markup</h4>
+
+<p>As explained in <a href="../WI_5.html#section_9">WI 5.9</a>, you can switch bold
+and italic type on and off within the quoted text in a “say” statement.
+You might want to do this, for instance, to draw the player’s attention
+to items in a room description if the item can be examined or otherwise
+manipulated. This effect can be helpful to new players, but it can annoy
+experienced players. So we’d like to let the player switch it on or off.</p>
+
+<p>The extension called <a href="https://github.com/i7/extensions/blob/9.3/Aaron%20Reed/Keyword%20Interface.i7x">Keyword Interface by Aaron Reed</a> does this kind
+of thing, and a lot more besides. Here’s a simple way to do it without
+Keyword Interface, which may be all you need:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Using-bold is a truth state that varies. Using-bold is false.\n\nWhen play begins:\n\tsay &quot;Tip for new players: If you would like the game to highlight interesting objects in the room with [bold type]boldface type[roman type], use the &apos;bold on&apos; command. To stop using the effect, type &apos;bold off&apos;.&quot;\n\nTo say b:\n\tif using-bold is true:\n\t	say &quot;[bold type][run paragraph on]&quot;.\n\nTo say /b:\n\tsay &quot;[roman type][run paragraph on]&quot;.\n\nBolding is an action out of world applying to nothing. Understand &quot;bold&quot; and &quot;bold on&quot; and &quot;boldface&quot; and &quot;boldface on&quot; as bolding.\n\nCarry out bolding:\n\tnow using-bold is true;\n\tsay &quot;Bold type to highlight interesting objects switched on.&quot;\n\nUnbolding is an action out of world applying to nothing. Understand &quot;bold off&quot; and &quot;boldface off&quot; and &quot;no bold&quot; and &quot;no boldface&quot; and &quot;not bold&quot; as unbolding.\n\nCarry out unbolding:\n\tnow using-bold is false;\n\tsay &quot;Bold type highlighting switched off.&quot;\n\nThe Patio is a room. &quot;In the pavement is set a small iron [b]grate[/b].&quot;`)"><span class="sym">⧉</span></button>
+<div class="codeline">Using-bold is a truth state that varies. Using-bold is false.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">When play begins:</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Tip for new players: If you would like the game to highlight interesting objects in the room with [bold type]boldface type[roman type], use the &apos;bold on&apos; command. To stop using the effect, type &apos;bold off&apos;.&quot;</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">To say b:</div>
+<div class="codeline">&ensp;&ensp;&ensp;if using-bold is true:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[bold type][run paragraph on]&quot;.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">To say /b:</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;[roman type][run paragraph on]&quot;.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Bolding is an action out of world applying to nothing. Understand &quot;bold&quot; and &quot;bold on&quot; and &quot;boldface&quot; and &quot;boldface on&quot; as bolding.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Carry out bolding:</div>
+<div class="codeline">&ensp;&ensp;&ensp;now using-bold is true;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Bold type to highlight interesting objects switched on.&quot;</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Unbolding is an action out of world applying to nothing. Understand &quot;bold off&quot; and &quot;boldface off&quot; and &quot;no bold&quot; and &quot;no boldface&quot; and &quot;not bold&quot; as unbolding.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Carry out unbolding:</div>
+<div class="codeline">&ensp;&ensp;&ensp;now using-bold is false;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Bold type highlighting switched off.&quot;</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">The Patio is a room. &quot;In the pavement is set a small iron [b]grate[/b].&quot;</div>
+</div>
+<p>Now we would see:</p>
+
+<blockquote>
+  <p><strong>Patio</strong> <br />
+In the pavement is set a small iron grate. <br />
+ <br />
+<span class="command">bold on</span> <br />
+Bold type to highlight interesting objects switched on. <br />
+ <br />
+<span class="command">look</span> <br />
+<strong>Patio</strong> <br />
+In the pavement is set a small iron <span class="bold">grate</span>.</p>
+</blockquote>
+
+<p>The key to understanding this code is in the blocks that begin “To say
+b:” and “To say /b:” These test whether the truth state using-bold is
+true or false. Once we’ve set things up properly, we can use the text
+insertions “[b]” and “[/b]” to mark any item that we want
+highlighted with boldface type – and the player will be able to control
+the effect using a simple utility command.</p>
+
+<h4 id="quotes-within-quotes">Quotes Within Quotes</h4>
+
+<p>When you start writing NPC conversations, it’s easy to forget that the
+quotation marks surrounding your text won’t be printed out. This, for
+instance, is an error:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of asking Alexander Button for the will:\n\tsay &quot;I would never give it to you!&quot;`)"><span class="sym">⧉</span></button>
+<div class="codeline">Instead of asking Alexander Button for the will:</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;I would never give it to you!&quot;</div>
+</div>
+<p>Here’s the output:</p>
+
+<blockquote>
+  <p><span class="command">ask alexander for will</span> <br />
+I would never give it to you!</p>
+</blockquote>
+
+<p>This reads like a response from the parser (that is, from the game
+itself), not from Alexander. The correct way to do it is using single
+quotes within the double quotes, like this:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of asking Alexander Button for the will:\n\tsay &quot;&apos;I would never give it to you!&apos;&quot;`)"><span class="sym">⧉</span></button>
+<div class="codeline">Instead of asking Alexander Button for the will:</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;&apos;I would never give it to you!&apos;&quot;</div>
+</div>
+<p>This produces a better output:</p>
+
+<blockquote>
+  <p><span class="command">ask alexander for will</span> <br />
+"I would never give it to you!"</p>
+</blockquote>
+
+<p>Now the player can see that it’s Alexander talking. A better writing
+style would be to include a <em>dialog tag</em> in the text:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of asking Alexander Button for the will:\n\tsay &quot;&apos;I would never give it to you!&apos; he replies with a sneer.&quot;`)"><span class="sym">⧉</span></button>
+<div class="codeline">Instead of asking Alexander Button for the will:</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;&apos;I would never give it to you!&apos; he replies with a sneer.&quot;</div>
+</div>
+<p>As explained in <a href="../WI_2.html#section_3">WI 2.3 Punctuation</a>, Inform
+will automatically turn single quotes into double quotes when formatting
+its output. But this raises a potential problem – how to handle
+apostrophes. If an apostrophe is in the middle of a word, Inform will
+understand that it’s an apostrophe, and won’t turn it into a double
+quote when outputting the text:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of asking Alexander Button for the will:\n\nsay &quot;&apos;I&apos;d never give it to you!&apos; he replies with a sneer.&quot;`)"><span class="sym">⧉</span></button>
+<div class="codeline">Instead of asking Alexander Button for the will:</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">say &quot;&apos;I&apos;d never give it to you!&apos; he replies with a sneer.&quot;</div>
+</div>
+<p>Here, the word “I’d” will be printed correctly. But if the apostrophe is
+at the end of a word, as in some types of dialect and informal speech,
+Inform will get confused:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of asking Alexander Button for the will:\n\nsay &quot;&apos;I&apos;m not givin&apos; it to you!&apos; he replies with a sneer.&quot;\n[Error!]`)"><span class="sym">⧉</span></button>
+<div class="codeline">Instead of asking Alexander Button for the will:</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">say &quot;&apos;I&apos;m not givin&apos; it to you!&apos; he replies with a sneer.&quot;</div>
+<div class="codeline">[Error!]</div>
+</div>
+<p>This code will put a quotation mark after the word givin. To get an
+apostrophe into the output at the end of the word givin’, we have to put
+brackets around it:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of asking Alexander Button for the will:\n\nsay &quot;&apos;I&apos;m not givin[&apos;] it to you!&apos; he replies with a sneer.&quot;`)"><span class="sym">⧉</span></button>
+<div class="codeline">Instead of asking Alexander Button for the will:</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">say &quot;&apos;I&apos;m not givin[&apos;] it to you!&apos; he replies with a sneer.&quot;</div>
+</div>
+<div class="sidebar" id="extra-and-missing-blank-lines-in-output">
+  <h4 id="extra--missing-blank-lines-in-output">Extra &amp; Missing Blank Lines in Output</h4>
+
+  <p>A frequent problem for beginning Inform authors is that the game output
+has either too many blank lines in it, or not enough of them. The
+biggest cause of this is periods not being placed correctly at the ends
+of double-quoted text blocks. When you start inserting if-tests and
+alternate blocks into your text, this problem is more likely to show up.
+To avoid this situation, think logically, scrutinize your code, and test
+it under all of the conditions that can arise.</p>
+
+  <p>Three instructions are available to help you fiddle with the line breaks
+if you need to. You can use [line break], [paragraph break], or
+[run paragraph on]. All of these are worth knowing about. They’re
+discussed in <a href="../WI_5.html#section_8">WI 5.8</a>.</p>
+
+</div>
+
+<h3 id="breaking-up-paragraphs">Breaking Up Paragraphs</h3>
+
+<p>If you write a description (most likely, a room description) that runs
+on for several paragraphs, you can separate the paragraphs within a
+single double-quoted block by using two Return/Enter key presses, like
+this:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Desolate Moor is a room. &quot;A gloomy treeless waste stretches out\non all sides. A few rocky outcrops add an air of ancient menace.\n\nCloser to hand, a crumbling castle stands.&quot;`)"><span class="sym">⧉</span></button>
+<div class="codeline">The Desolate Moor is a room. &quot;A gloomy treeless waste stretches out</div>
+<div class="codeline">on all sides. A few rocky outcrops add an air of ancient menace.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Closer to hand, a crumbling castle stands.&quot;</div>
+</div>
+<p>When the game is played, there will be a standard paragraph break (that
+is, a blank line) before the sentence, “Closer to hand…”.</p>
+
+<p>Another way to get the same effect is with the text insertion
+“[paragraph break]”:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Desolate Moor is a room. &quot;A gloomy treeless waste stretches out on all sides. A few rocky outcrops add an air of ancient menace.[paragraph break]Closer to hand, a crumbling castle stands.&quot;`)"><span class="sym">⧉</span></button>
+<div class="codeline">The Desolate Moor is a room. &quot;A gloomy treeless waste stretches out on all sides. A few rocky outcrops add an air of ancient menace.[paragraph break]Closer to hand, a crumbling castle stands.&quot;</div>
+</div>
+<p>This is a better, safer way to break up multiple paragraphs when the
+text appears in tables and conversation responses. Note that there is no
+space after “break]”. We want the next paragraph to begin at the left
+margin. A space character in quoted text will always be printed.</p>
+
+<p>Speaking of the left margin, some authors would prefer to use book-style
+text, in which paragraphs are indented rather than being separated by
+vertical blank space. Most interactive fiction doesn’t use this style.
+If you want to do it (I don’t recommend it), here’s how:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Desolate Moor is a room. &quot;[tab]A gloomy treeless waste stretches\nout on all sides. A few rocky outcrops add an air of ancient\nmenace.[line break][tab]Closer to hand, a crumbling castle stands.&quot;\n\nTo say tab:\n\tsay &quot; &quot;.`)"><span class="sym">⧉</span></button>
+<div class="codeline">The Desolate Moor is a room. &quot;[tab]A gloomy treeless waste stretches</div>
+<div class="codeline">out on all sides. A few rocky outcrops add an air of ancient</div>
+<div class="codeline">menace.[line break][tab]Closer to hand, a crumbling castle stands.&quot;</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">To say tab:</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot; &quot;.</div>
+</div>
+<p>Occasionally you may need to write two separate “say” statements and
+have them printed together, without a paragraph break. In this case, the
+tool of choice is to end the first with “[run paragraph on]”. Here’s a
+handy little utility that illustrates the use of “[run paragraph on]”:
+If the player picks up something without having examined it, the
+description is automatically tacked onto the output after the word
+“Taken.”</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`A thing can be examined or unexamined.\nAfter taking something unexamined: \n\tsay &quot;Taken. [run paragraph on]&quot;; \n\ttry examining the noun.\nCarry out examining something: \n\tnow the noun is examined.`)"><span class="sym">⧉</span></button>
+<div class="codeline">A thing can be examined or unexamined.</div>
+<div class="codeline">After taking something unexamined: </div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Taken. [run paragraph on]&quot;; </div>
+<div class="codeline">&ensp;&ensp;&ensp;try examining the noun.</div>
+<div class="codeline">Carry out examining something: </div>
+<div class="codeline">&ensp;&ensp;&ensp;now the noun is examined.</div>
+</div>
+<p>This code creates a new property of all things, the property “examined”,
+and sets the property whenever a thing is examined. But the point of the
+example is this: If “[run paragraph on]” isn’t included, the
+description of the thing that’s picked up will be on a separate line. It
+will look more natural if it follows immediately after the word “Taken.”
+is printed. Try it both ways to see the results for yourself.</p>
+
+<h3 id="large-text-blocks">Large Text Blocks</h3>
+
+<p>Inform has an upper limit of about 3,000 characters on how much text can
+be included between quotation marks as a single chunk. You might run
+into this limit, for instance, while writing a long intro to your story
+(which many players frown on) or while writing an explanation for new
+players of how to play IF (a courteous and useful thing to do).</p>
+
+<p>The way to work around this limit is to create an object and give it
+several properties that are all blocks of text. Here’s the intro of my
+game “A Flustered Duck” – not the intro itself, but the structure I
+created to print it out:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`When play begins: say &quot;[intro-1 of the text-holder][intro-2 of the text-holder][intro-3 of the text-holder]&quot;.\n\nThe text-holder is a thing.\nThe text-holder has some text called intro-1.\nThe text-holder has some text called intro-2.\nThe text-holder has some text called intro-3.\n\nintro-1 of the text-holder is &quot;&apos;Elliott! Elliott! Where are you, boy?&apos; Granny Grabby&apos;s screeching voice rouses you from your pleasant, drowsy contemplation of a moth that has blundered into the barn and is flitting aimlessly about, trying to find its way back outdoors.”\n[...and so on...]`)"><span class="sym">⧉</span></button>
+<div class="codeline">When play begins: say &quot;[intro-1 of the text-holder][intro-2 of the text-holder][intro-3 of the text-holder]&quot;.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">The text-holder is a thing.</div>
+<div class="codeline">The text-holder has some text called intro-1.</div>
+<div class="codeline">The text-holder has some text called intro-2.</div>
+<div class="codeline">The text-holder has some text called intro-3.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">intro-1 of the text-holder is &quot;&apos;Elliott! Elliott! Where are you, boy?&apos; Granny Grabby&apos;s screeching voice rouses you from your pleasant, drowsy contemplation of a moth that has blundered into the barn and is flitting aimlessly about, trying to find its way back outdoors.”</div>
+<div class="codeline">[...and so on...]</div>
+</div>
+<h3 id="white-space">White Space</h3>
+
+<p>When you’re writing a game in Inform, does white space in your code
+matter? Sometimes yes, sometimes no. Because Inform is designed to look
+like “natural language,” its use of white space is a little trickier
+than in some other programming languages.</p>
+
+<p>Places where white space matters include around headings (see
+“Headings,” later in this chapter) and when you’re using Tab characters
+to organize tables and logical blocks of code (see “Indentation”).</p>
+
+<p>Each heading must have a blank line before it and a blank line after it.
+The line containing the story title and byline (on the first line of the
+Source file) must also have a blank line after it. The items within a
+table row must be separated by at least one Tab character, but you can
+add extra Tabs or more spaces if you like; they’ll just be ignored.</p>
+
+<p>When copying blocks of source code from one place to anotehr, such as to
+or from an email reader or a forum post being displayed in a Web
+browser, you need to be aware that some programs of this sort
+automatically turn Tabs into rows of spaces. The text will look the same
+on the screen – but if Inform is expecting a Tab, it won’t understand
+the text anymore!</p>
+
+<p>White space is preserved in double-quoted text when it is output to the
+screen during the game, so when you start adding conditional code within
+double-quoted text, you need to be careful to put spaces only where you
+want them. For instance, this is a text formatting mistake:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The description is &quot;The bowl is [if intact] a priceless treasure\n[otherwise] badly damaged [end if].&quot; [Mistake!]`)"><span class="sym">⧉</span></button>
+<div class="codeline">The description is &quot;The bowl is [if intact] a priceless treasure</div>
+<div class="codeline">[otherwise] badly damaged [end if].&quot; [Mistake!]</div>
+</div>
+<p>Can you see what will happen? It looks easier to read in the source
+code, because we’ve separated the [] blocks by putting spaces on both
+sides … but when the text is printed out in the game, there will be two
+spaces after “is” and a space before the final period. Technically, we
+might not call this a bug, since your game will run perfectly, but there
+will be extra spaces in the sentence that appears in the game.</p>
+
+<p>In writing source code, you definitely need to put white space around
+words. Borrowing from the example in the section on “Text Insertions,”
+above, this will work:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`To say bowl-desc:`)"><span class="sym">⧉</span></button>
+<div class="codeline">To say bowl-desc:</div>
+</div>
+<p>…but this obviously won’t:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Tosaybowl-desc:`)"><span class="sym">⧉</span></button>
+<div class="codeline">Tosaybowl-desc:</div>
+</div>
+<p>There’s no penalty for adding extra spaces, however. This will work,
+though there’s no reason to do it:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`To   say   bowl-desc :`)"><span class="sym">⧉</span></button>
+<div class="codeline">To   say   bowl-desc :</div>
+</div>
+<p>In some situations, you can insert one extra carriage return (an
+old-fashioned term, but still useful – it means, “you can start a new
+line at the left margin”), but not two returns. If there’s an empty
+line, Inform won’t like it. This will work:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`To say\nbowl-desc:`)"><span class="sym">⧉</span></button>
+<div class="codeline">To say</div>
+<div class="codeline">bowl-desc:</div>
+</div>
+<p>…but this won’t:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`To say\n\nbowl-desc:`)"><span class="sym">⧉</span></button>
+<div class="codeline">To say</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">bowl-desc:</div>
+</div>
+<p>In many other situations, white space doesn’t matter. As far as Inform
+is concerned, each sentence (that is, each block of code that ends with
+a period) stands on its own. You don’t even need to put a space after
+the period. And if the sentence is followed by a blank line, you don’t
+need to end the sentence with a period either. So these five ways of
+writing a pair of sentences are exactly the same, and all of them will
+work:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Painting is an action applying to nothing.Understand &quot;paint&quot; as painting. [No space after period]`)"><span class="sym">⧉</span></button>
+<div class="codeline">Painting is an action applying to nothing.Understand &quot;paint&quot; as painting. [No space after period]</div>
+</div>
+<p>or:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Painting is an action applying to nothing. Understand &quot;paint&quot; as painting. [Space after period.]`)"><span class="sym">⧉</span></button>
+<div class="codeline">Painting is an action applying to nothing. Understand &quot;paint&quot; as painting. [Space after period.]</div>
+</div>
+<p>or:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Painting is an action applying to nothing.\n\nUnderstand &quot;paint&quot; as painting.`)"><span class="sym">⧉</span></button>
+<div class="codeline">Painting is an action applying to nothing.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Understand &quot;paint&quot; as painting.</div>
+</div>
+<p>or:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Painting is an action applying to nothing.\n\nUnderstand &quot;paint&quot; as painting.`)"><span class="sym">⧉</span></button>
+<div class="codeline">Painting is an action applying to nothing.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Understand &quot;paint&quot; as painting.</div>
+</div>
+<p>or:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Painting is an action applying to nothing\n\nUnderstand &quot;paint&quot; as painting [No periods.]`)"><span class="sym">⧉</span></button>
+<div class="codeline">Painting is an action applying to nothing</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Understand &quot;paint&quot; as painting [No periods.]</div>
+</div>
+<p>But this won’t:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`[ doesn&apos;t work! ]\n\nPainting is an action applying to nothing\nUnderstand &quot;paint&quot; as painting`)"><span class="sym">⧉</span></button>
+<div class="codeline">[ doesn&apos;t work! ]</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Painting is an action applying to nothing</div>
+<div class="codeline">Understand &quot;paint&quot; as painting</div>
+</div>
+<p>If Inform doesn’t see a period and doesn’t see a blank line either, it
+thinks you’ve written one long continuous statement. As a result, it
+can’t compile the code.</p>
+
+<p>Blank lines can’t be used within code blocks, however. This won’t
+compile:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of looking when the location is the hall of mirrors:\n\n\tif the player is invisible:\n\n\t	say &quot;It feels weird to look in the mirrors and not see your handsome features reflected back.&quot; [Errors!]`)"><span class="sym">⧉</span></button>
+<div class="codeline">Instead of looking when the location is the hall of mirrors:</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the player is invisible:</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;It feels weird to look in the mirrors and not see your handsome features reflected back.&quot; [Errors!]</div>
+</div>
+<h3 id="objects-vs-rules">Objects vs. Rules</h3>
+
+<p>Many computer programming languages are firmly based on the idea of
+objects. Even if you’re creating something as abstract as an email
+program, every button or icon on the screen and every window that opens
+will probably be a separate object within the software. The technical
+definition of “object” doesn’t matter at the moment: You can just think
+of a software object as a bunch of related code.</p>
+
+<p>As you write with Inform, you’ll be creating lots of software objects.
+Usually these will correspond to objects in the model world. A tree, for
+instance, would almost always be modeled using an object. In fact, it
+would be a <em>thing,</em> which is a kind of object. But Inform is unusual in
+that it isn’t as object-oriented as many programming languages. If you
+have some experience programming in another language, you may be
+dismayed at first to find that some types of data can be created either
+as free-floating global values or as properties of objects.</p>
+
+<p>It really doesn’t matter which type of data you use, because all of the
+data properties of objects are public. They have global scope. (If
+you’ve never done any object-oriented programming, this paragraph will
+make no sense to you. Feel free to ignore it.) Also, objects in Inform
+don’t have methods. All functions are global, although they can be
+written in such a way as to apply only to one object.</p>
+
+<p>Instead of calling methods on objects, Inform uses rules and rulebooks.
+When you write rules in Inform, for the most part you can put them
+wherever you’d like in the source. When your game is compiled, Inform
+will collect all of the rules you’ve written and all of the rules in the
+extensions you’ve included, and assemble them all into rulebooks.</p>
+
+<p>When a rulebook is consulted during gameplay, Inform will proceed
+downward through the list of rules in the rulebook. When it finds a rule
+that applies to the current action, it will follow the rule. If the rule
+makes a decision (that is, if it ends with “rule succeeds”, “rule
+fails”, or “stop the action”), Inform will stop. Otherwise, it will
+continue on through the rulebook, and then perhaps proceed to other
+rulebooks in the action-processing sequence, as shown in <a href="../WI_12.html#section_2">WI
+12.2</a>.</p>
+
+<p>The rulebooks are constructed by the compiler according to certain
+principles. If you’re curious how this works, you should definitely read
+<a href="../WI_19.html">Chapter 19 of <em>Writing with Inform</em>, “Rulebooks”</a>.
+Basically, rules that are more specific will be listed earlier in the
+rulebook, while more general rules will be listed later. For instance, a
+game might have these two rules:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of inserting something into an open container:\n\t[…more code would go here…]\n\nInstead of inserting something into the coffee cup:\n\t[…more code…]`)"><span class="sym">⧉</span></button>
+<div class="codeline">Instead of inserting something into an open container:</div>
+<div class="codeline">&ensp;&ensp;&ensp;[…more code would go here…]</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Instead of inserting something into the coffee cup:</div>
+<div class="codeline">&ensp;&ensp;&ensp;[…more code…]</div>
+</div>
+<p>When Inform constructs the Instead rulebook, it will put the rule about
+inserting into the coffee cup <em>before</em> the rule about inserting into an
+open container, because the rule about the coffee cup is more specific –
+it relates only to one object, not to any container that has the open
+property. When the game is being played, the Instead rule for the coffee
+cup will be consulted first. It will (presumably) end with a default
+“rule fails”, so action processing will halt. The rule about inserting
+something into an open container will never be reached.</p>
+
+<p>As <a href="../WI_18.html#section_4">WI 18.4 Listing rules explicitly</a> explains,
+we can tinker with the ordering of the rules if we need to. We can tell
+Inform to put a rule first or last in a rulebook, or before or after
+some other specific rule (if the latter rule has a nam). If a rule has a
+name (and most of the rules in Inform’s Standard Rules have names), we
+can unlist them like this:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The can&apos;t exceed carrying capacity rule is not listed in any\nrulebook.`)"><span class="sym">⧉</span></button>
+<div class="codeline">The can&apos;t exceed carrying capacity rule is not listed in any</div>
+<div class="codeline">rulebook.</div>
+</div>
+<p>Or we can replace an existing rule with our own named rule, like this:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The new carrying capacity rule is listed instead of the can&apos;t exceed\ncarrying capacity rule in the check taking rulebook.`)"><span class="sym">⧉</span></button>
+<div class="codeline">The new carrying capacity rule is listed instead of the can&apos;t exceed</div>
+<div class="codeline">carrying capacity rule in the check taking rulebook.</div>
+</div>
+<p>If you need to figure out which rules (either the rules in the Inform
+library, or rules in an extension, or new rules that you’ve written) are
+causing a certain output in a situation in your game, use the RULES
+command and then inspect what happens when you give the command that
+causes that output. You can also open Inform’s Standard Rules using the
+Open Extension command in Inform’s File menu, and search for specific
+words – but whatever you do, <em>don’t edit this file!</em> The details of
+Inform’s Standard Rules have been worked out through years of deep
+thought, trial-and-error, and highly technical bug reports from
+experienced authors. Even small changes will quite likely cause bad
+things to happen.</p>
+
+<p>The only reason to open the Standard Rules, other than simple curiosity,
+would be to replace it. To do this, (1) copy the rule, (2) paste it into
+your code, (3) give it a new name, (4) edit it as needed in your code,
+and then (5) replace the old rule with your newly edited version using
+code like the line shown above. Doing this is safe, and it’s
+occasionally necessary, but it’s not something to try until you’ve
+learned a lot about Inform – and even then, it’s not something to do
+casually.</p>
+
+<p>Unfortunately for those who are curious about how the Standard Rules
+operate, some of them simply refer to underlying code in Inform 6, which
+is not to be found in the Standard Rules. The manner in which the Inform
+7 compiler uses Inform 6 code is not something we can reasonably get
+into in this <em>Handbook</em>, as it’s probably the most advanced topic in
+Inform programming.</p>
+
+<p>The Rules tab in the Index has some very nice tools for looking at the
+rules in your game. You can even remove many of the Standard Rules by
+clicking the “unlist” button, which will insert a line of code into your
+game. Again, this is not an action to take casually, as the result could
+be that your game misbehaves quite seriously in response to player
+input. But it’s a useful tool to have when you need it.</p>
+
+<h3 id="the-names-of-things-2">The Names of Things</h3>
+
+<p>When you create a thing in your model world, the name you give it is
+understood by both the compiler and the parser. Most of the time, this
+is a convenient feature. But once in a while you may want to override
+it. You can do this using the <span id="Ref_privately-named" class="anchor"></span><strong>privately-named</strong> and <strong>printed name</strong> properties. If
+you’ve read Chapter 2 of this Handbook, you may recall that we looked at
+a problem that can crop up if you try to name a room using a direction
+word. If you have a room called Hut, for instance, creating another room
+called South of the Hut is possible, as explained on <a href="../WI_3.html#section2">WI 3.2: Rooms and
+the map</a>, but it’s awkward.</p>
+
+<p>I prefer to do it this way:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`South of the Hut is Hut-South-Side. The printed name of Hut-South-Side is &quot;South of the Hut&quot;.`)"><span class="sym">⧉</span></button>
+<div class="codeline">South of the Hut is Hut-South-Side. The printed name of Hut-South-Side is &quot;South of the Hut&quot;.</div>
+</div>
+<p>This will work nicely, but if you do it this way, you’ll have to call
+the room Hut-South-Side each and every time you mention it in your code.</p>
+
+<p>While we’re at it, we’ll put a thing in this room:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The object22 is a privately-named thing in Hut-South-Side. The description is &quot;It&apos;s a beautiful little yellow flower.&quot; Understand &quot;beautiful&quot;, &quot;little&quot;, &quot;yellow&quot;, and &quot;flower&quot; as object22. The printed name of object22 is &quot;yellow flower&quot;.`)"><span class="sym">⧉</span></button>
+<div class="codeline">The object22 is a privately-named thing in Hut-South-Side. The description is &quot;It&apos;s a beautiful little yellow flower.&quot; Understand &quot;beautiful&quot;, &quot;little&quot;, &quot;yellow&quot;, and &quot;flower&quot; as object22. The printed name of object22 is &quot;yellow flower&quot;.</div>
+</div>
+<p>This object can’t be referred to by the player as “object22”, because
+it’s privately-named. In this case, there would be no reason not to
+simply call the object “yellow flower” in your own code. But in some
+situations, creating a privately-named object might be useful. If you do
+so, remember to also give it a printed name.</p>
+
+<p>As <a href="../WI_4.html#section10">WI 4.10: Conditions of things</a> shows, you
+can add variable output to a printed name. Here are two ways to do it,
+either of which might be useful in some situations:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The printed name of the ceramic bowl is &quot;[bowl-condition] ceramic bowl&quot;.\n\nThe printed name of the ceramic bowl is &quot;[if broken]broken [end if]ceramic bowl&quot;.`)"><span class="sym">⧉</span></button>
+<div class="codeline">The printed name of the ceramic bowl is &quot;[bowl-condition] ceramic bowl&quot;.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">The printed name of the ceramic bowl is &quot;[if broken]broken [end if]ceramic bowl&quot;.</div>
+</div>
+<h3 id="punctuation">Punctuation</h3>
+
+<p>Inform is fussy about punctuation, but you have some options. In
+conditional tests that have only one line, you can use a comma and then
+go right on in the same line rather than hitting a colon, a return, and
+adding another Tab indent. These two examples both work, and they do the
+same thing:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of taking the ceramic bowl:\n\tif the bowl is shattered, say &quot;What would be the point?&quot;;\n\totherwise continue the action.\n\nInstead of taking the ceramic bowl:\n\tif the bowl is shattered:\n\t	say &quot;What would be the point?&quot;;\n\totherwise:\n\t	continue the action.`)"><span class="sym">⧉</span></button>
+<div class="codeline">Instead of taking the ceramic bowl:</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the bowl is shattered, say &quot;What would be the point?&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise continue the action.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Instead of taking the ceramic bowl:</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the bowl is shattered:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;What would be the point?&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;continue the action.</div>
+</div>
+<p>Inform also lets us skip the indentation entirely and substitute the
+word “begin” followed by a semicolon:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of taking the ceramic bowl:\nif the bowl is shattered begin;\nsay &quot;What would be the point?&quot;;\notherwise;\ncontinue the action;\nend if.`)"><span class="sym">⧉</span></button>
+<div class="codeline">Instead of taking the ceramic bowl:</div>
+<div class="codeline">if the bowl is shattered begin;</div>
+<div class="codeline">say &quot;What would be the point?&quot;;</div>
+<div class="codeline">otherwise;</div>
+<div class="codeline">continue the action;</div>
+<div class="codeline">end if.</div>
+</div>
+<p>This example is organized using Inform’s semicolon syntax, which allows
+indents using Tabs, but doesn’t require them. (For more on this syntax,
+see the section on “Indenting,” later in this chapter.) Note that if
+we’re using the semicolon syntax, there is <em>no</em> comma after “if the bowl
+is shattered”, and we have to back out of any “if” test by saying “end
+if” when we’re done with it. In code that makes several if-tests, a
+block formatted this way may end with several “end if” statements in a
+row.</p>
+
+<p>If we’re using the semicolon syntax, as shown immediately above, Inform
+not only doesn’t care about indents, it doesn’t care whether we include
+carriage returns at all. We could just as easily write it this way
+(though it’s much harder for humans to read):</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of taking the ceramic bowl: if the bowl is shattered begin;\nsay &quot;What would be the point?&quot;; otherwise; continue the action; end\nif.`)"><span class="sym">⧉</span></button>
+<div class="codeline">Instead of taking the ceramic bowl: if the bowl is shattered begin;</div>
+<div class="codeline">say &quot;What would be the point?&quot;; otherwise; continue the action; end</div>
+<div class="codeline">if.</div>
+</div>
+<p>Of the four examples above, I prefer always to use the format in the
+second one. When I use a consistent format, it’s easier for me to spot
+mistakes.</p>
+
+<h3 id="assertions">Assertions</h3>
+
+<p>As explained in <a href="../WI_2.html#section1">WI 2.1: Creating the world</a>, an
+<em>assertion</em> is a statement about something – usually about something in
+the model world you’re creating. A lot of your writing in Inform will
+consist of assertions. Here are some assertions:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`A saucer is on the table. The saucer is a supporter. A teacup is on\nthe saucer.\n\nNorth of the Sandy Beach is the Rocky Cove.\n\nDavid is a man in the Living Room. David wears a leather vest and\ncarries a walking stick.\n\nEye-color is a kind of value. A person has an eye-color. The\neye-colors are blue, brown, and green.`)"><span class="sym">⧉</span></button>
+<div class="codeline">A saucer is on the table. The saucer is a supporter. A teacup is on</div>
+<div class="codeline">the saucer.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">North of the Sandy Beach is the Rocky Cove.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">David is a man in the Living Room. David wears a leather vest and</div>
+<div class="codeline">carries a walking stick.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Eye-color is a kind of value. A person has an eye-color. The</div>
+<div class="codeline">eye-colors are blue, brown, and green.</div>
+</div>
+<p>The phrase “a kind of value” has a special meaning to Inform. We’ll
+discuss that in the section “Values,” below. The reason to include it
+here is so you’ll see that some assertions are a little more abstract
+than others – they may be about forms of computer data that Inform will
+need to know, rather than about physical objects in the model world.</p>
+
+<p>The first thing to notice about assertions is that each assertion is a
+complete sentence. You don’t actually have to begin your sentences with
+capital letters – Inform doesn’t care about this. But it’s a good idea
+to get in the habit of writing Inform code so that it looks more or less
+like normal written English. (If you’re in the habit of texting in
+lower-case, using capitals may seem weird, but most forms of published
+writing require capitals.) An assertion can end either with a period or
+with a blank line of white space.</p>
+
+<p>The second thing to notice is that the verbs in assertions are in
+present tense. (“Tense” is a term that refers to whether the action in
+the sentence takes place in the past, present, or future.) We can’t do
+this:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`David was a man in the Living Room. David wore a leather vest and\ncarried a walking stick. [Errors!]`)"><span class="sym">⧉</span></button>
+<div class="codeline">David was a man in the Living Room. David wore a leather vest and</div>
+<div class="codeline">carried a walking stick. [Errors!]</div>
+</div>
+<p>Those verbs are in past tense, and Inform won’t understand them. Your
+printed output can be in the past tense if you like, but that requires a
+bit of extra programming; for details, see <a href="#story-tense-and-viewpoint">Story Tense and
+Viewpoint</a>.</p>
+
+<p>The third thing to notice is that when we’re writing assertions about
+physical objects, it’s a very good idea to start the sentence with “A,”
+“An,” or “The” in the normal way. (These words are called <em>articles.</em>)
+With some types of phrases, Inform won’t care whether you use articles
+or not. But when you’re first creating an object, Inform will notice
+whether you use an article. It will also notice whether you begin the
+name of the object with a capital letter.</p>
+
+<p>Here are three assertions that are very similar except for their use of
+articles and capital letters:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The spoon is on the table.\n\nKnife is on the table.\n\nA Plate is on the table.`)"><span class="sym">⧉</span></button>
+<div class="codeline">The spoon is on the table.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Knife is on the table.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">A Plate is on the table.</div>
+</div>
+<p>If we include these assertions in our game (after adding a table to the
+game, obviously), Inform will assume that Knife should always be
+capitalized and should never be given an article. That is, it will think
+Knife is a proper noun. It will assume that Plate should also be
+capitalized, but that an article should be used – because that’s what
+the assertions did. When the game gets around to constructing a list of
+the items on the table (Inform will do this automatically in certain
+situations), the game will print out the list like this:</p>
+
+<blockquote>
+  <p>On the table are a spoon, Knife, and a Plate.</p>
+</blockquote>
+
+<p>This is ugly. But far from being a defect in Inform, this behavior is a
+strong point. If you read <a href="../WI_3.html#section18">WI 3.18: Articles and proper
+names</a>, you’ll see how easy it is to create
+objects whose names will be printed out in various sensible ways. The
+moral of the story is simple: Inform 7 can do almost anything that you
+might want it to do – but it’s up to you to think carefully about what
+you want it to do, and then use the correct syntax when writing your
+code.</p>
+
+<h3 id="values">Values</h3>
+
+<p>Values in Inform are pretty much like what other computer programming
+languages call <em>variables</em>. <span id="Ref_variable" class="anchor"></span>And
+in fact, when we create a value we can either call it a variable, or say
+that it varies:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`X is a number variable.\n\nY is a number that varies.`)"><span class="sym">⧉</span></button>
+<div class="codeline">X is a number variable.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Y is a number that varies.</div>
+</div>
+<p>But as <a href="../WI_4.html#section8">WI 4.8: New value properties</a> and the
+following sections of Chapter 4 show, many of the values authors use in
+Inform programming are not numbers but words or even blocks of text:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`X is a text variable. X is &quot;Ugh.&quot;\n\nY is a text that varies. Y is &quot;Wow!&quot;`)"><span class="sym">⧉</span></button>
+<div class="codeline">X is a text variable. X is &quot;Ugh.&quot;</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Y is a text that varies. Y is &quot;Wow!&quot;</div>
+</div>
+<p>After creating the values above (X and Y), we can <em>initialize</em> them if
+we like by telling Inform what to store in the value at the start of the
+game. The statements “X is “Ugh.”” and “Y is “Wow!”” should be read as
+starting with an invisible “When play begins:”. They’re not permanent
+assignments – the data stored in X and Y can change during the game.
+What we can’t do is change the <em>kind</em> of data stored in the value.
+Elsewhere in our code, we could say “now X is “Okay, I guess…”.”, but we
+couldn’t say “now X is 17”, because that would attempt to turn X from a
+text into a number.</p>
+
+<p>What’s extremely interesting and useful for game design is that Inform’s
+word values can have properties. If you look at <a href="../WI_4.html#section9">WI
+4.9</a>, you’ll see these two statements:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Brightness is a kind of value. The brightnesses are guttering, weak,\nradiant, and blazing.\n\nA brightness can be adequate or inadequate. A brightness is usually\nadequate. Guttering is inadequate.`)"><span class="sym">⧉</span></button>
+<div class="codeline">Brightness is a kind of value. The brightnesses are guttering, weak,</div>
+<div class="codeline">radiant, and blazing.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">A brightness can be adequate or inadequate. A brightness is usually</div>
+<div class="codeline">adequate. Guttering is inadequate.</div>
+</div>
+<p>Why would you want to do this? Because now you can test whether the
+brightness of a thing is adequate:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`A lamp is a kind of thing. A lamp has a brightness. The brightness of\na lamp is usually radiant. The table lamp is a lamp.`)"><span class="sym">⧉</span></button>
+<div class="codeline">A lamp is a kind of thing. A lamp has a brightness. The brightness of</div>
+<div class="codeline">a lamp is usually radiant. The table lamp is a lamp.</div>
+</div>
+<p>Now we can write a test such as, “if the brightness of the table lamp is
+adequate”.</p>
+
+<p>Values that are lists of words can be changed explicitly (“now the
+brightness of the table lamp is weak;”), but you may occasionally want
+to change the value without knowing beforehand what it is – for example,
+if the player needs to set a furnace or a loudspeaker to a higher or
+lower level. When we do this, we have to be careful. First the syntax,
+then the explanation:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`now the brightness of the table lamp is the brightness after the\nbrightness of the table lamp;`)"><span class="sym">⧉</span></button>
+<div class="codeline">now the brightness of the table lamp is the brightness after the</div>
+<div class="codeline">brightness of the table lamp;</div>
+</div>
+<p>The reason this can be problematical is because Inform assumes that the
+named values are arranged in a circle. The brightness after radiant is
+blazing (which is fine), but the brightness after blazing is guttering.
+As a result, the player who turns up the lamp repeatedly may find that
+it suddenly stops producing light. This is not very desirable. To squash
+this kind of bug, we need to take a different approach. Continuing to
+work with the brightness of the table lamp, we might do something like
+this:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`To promote the brightness of (X - a thing):\n\tif the brightness of X is not blazing:\n\t	now the brightness of X is the brightness after the brightness of X.\n\nTo demote the brightness of (X - a thing):\n\tif the brightness of X is not guttering:\n\t	now the brightness of X is the brightness before the brightness of X.`)"><span class="sym">⧉</span></button>
+<div class="codeline">To promote the brightness of (X - a thing):</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the brightness of X is not blazing:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the brightness of X is the brightness after the brightness of X.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">To demote the brightness of (X - a thing):</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the brightness of X is not guttering:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the brightness of X is the brightness before the brightness of X.</div>
+</div>
+<p>Now we can safely boost the lamp’s brightness in our code by writing,
+“promote the brightness of the table lamp.” For more about this syntax,
+see <a href="../WI_11.html#section18">WI 11.18: the value after and the value
+before</a>.</p>
+
+<p>In addition to variable values, Inform includes what programmers call
+<em>boolean</em> values. A boolean variable can have only one of two possible
+values: It’s either true or false. Inform calls this type of variable a
+<strong>truth state</strong><span id="Ref_truth_state" class="anchor"></span>. Often it’s
+easier to use named value properties rather than truth states, but
+sometimes a truth state will do the job more succinctly. Here are two
+ways to accomplish pretty much the same thing:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The ceramic bowl can be broken or unbroken. The ceramic bowl is\nunbroken.\n\nThe ceramic bowl has a truth state called brokenness. The brokenness\nof the ceramic bowl is false.`)"><span class="sym">⧉</span></button>
+<div class="codeline">The ceramic bowl can be broken or unbroken. The ceramic bowl is</div>
+<div class="codeline">unbroken.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">The ceramic bowl has a truth state called brokenness. The brokenness</div>
+<div class="codeline">of the ceramic bowl is false.</div>
+</div>
+<p>If we do it the first way, we can later test “if the ceramic bowl is
+broken”. If we do it the second way, we need to test “if the brokenness
+of the ceramic bowl is true”. That’s a slightly more cumbersome way to
+phrase the code.</p>
+
+<p>In some programming languages, you could write, “if the brokenness of
+the ceramic bowl:”, and the language would understand that because
+brokenness has to be true or false, this if-test is sensible, and should
+be evaluated as either true or false. But Inform won’t do this. We have
+to write, “if the brokenness of the ceramic bowl is true:”.</p>
+
+<p>More information on values is found in <a href="../WI_8.html#section1">WI 8.1: Change of values that
+vary</a> and <a href="../WI_8.html#section4">WI 8.4: Change of either/or
+properties</a>.</p>
+
+<p>When you create a value and attach it to an object as a property of that
+object, you should always tell Inform what value to give the property at
+the start of the game. This is called <em>initializing</em> the value:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The drill bit is a thing. The drill bit has a number called length.\nThe length of the drill bit is 6.`)"><span class="sym">⧉</span></button>
+<div class="codeline">The drill bit is a thing. The drill bit has a number called length.</div>
+<div class="codeline">The length of the drill bit is 6.</div>
+</div>
+<p>(If you want to have the length be in inches, centimeters, or some other
+unit of measurement rather than just a number, consult <a href="../WI_15.html#section_8">WI 15.8
+Units</a>. You don’t actually have to initialize
+the value of a number, but if you don’t, your game may not work the way
+you expect it to.</p>
+
+<p>If you’re creating a kind of object – something that you’ll have several
+of in your game – you can give every instance of the kind the same
+property. Again, initializing the value is a good idea:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`A drill bit is a kind of thing. A drill bit has a number called\nlength. The length of a drill bit is 6.\n\nThe iron bit is a drill bit. The length of the iron bit is 4.`)"><span class="sym">⧉</span></button>
+<div class="codeline">A drill bit is a kind of thing. A drill bit has a number called</div>
+<div class="codeline">length. The length of a drill bit is 6.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">The iron bit is a drill bit. The length of the iron bit is 4.</div>
+</div>
+<p>Another way to do this is to create a kind of value and then give the
+object that kind of value:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Hardness is a kind of value. The hardnesses are hard and soft.\n\nA drill bit is a kind of thing. A drill bit has a hardness. The\nhardness of a drill bit is hard.`)"><span class="sym">⧉</span></button>
+<div class="codeline">Hardness is a kind of value. The hardnesses are hard and soft.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">A drill bit is a kind of thing. A drill bit has a hardness. The</div>
+<div class="codeline">hardness of a drill bit is hard.</div>
+</div>
+<p>This doesn’t prevent you from creating some particular drill bit with a
+hardness of soft; all the code above is really saying is that the
+hardness of a drill bit is <em>usually</em> hard (unless you happen to write
+something that changes it). Experienced Inform programmers use the word
+“usually” in this situation:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The hardness of a drill bit is usually hard.`)"><span class="sym">⧉</span></button>
+<div class="codeline">The hardness of a drill bit is usually hard.</div>
+</div>
+<p>You can say “The hardness of a drill bit is always hard.” The word
+“always” produces a constant value, one that can’t be changed elsewhere
+in your code.</p>
+
+<p>Temporary, local values can be created within code blocks. If you’re new
+to programming, you may not realize that these temporary values have
+meaning <em>only</em> within the code block where they’re defined. Once that
+block finishes, the value is thrown away. For instance, here’s some code
+borrowed from Chapter 5 of this book:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`After reading a command:\n\tlet T be text;\n\tlet T be the player&apos;s command;\n\t[… and so on …]`)"><span class="sym">⧉</span></button>
+<div class="codeline">After reading a command:</div>
+<div class="codeline">&ensp;&ensp;&ensp;let T be text;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let T be the player&apos;s command;</div>
+<div class="codeline">&ensp;&ensp;&ensp;[… and so on …]</div>
+</div>
+<p>The word “let” is used to create a temporary value (that is, a
+variable). Here, we’ve created a temporary value called T. In this
+situation, we don’t need to tell Inform that T is a value that varies;
+Inform understands that it will probably need to vary while the After
+rule is running. What you need to know is that T can’t be referred to
+anywhere else in your code. It exists only within this After rule. In
+fact, you can write many different rules that have values with the same
+name, such as “X” or “the nearby room”. This doesn’t produce a bug.</p>
+
+<p>Within the code block, you can manipulate the temporary value in
+whatever way you might like – but your manipulations will have an effect
+on the rest of the model world only if you write some code that causes
+them to. If you need to store a temporary value that you’ve created
+within a code block in order to be able to use it later on in some other
+part of the program, you can do so by creating a permanent variable as a
+storage space:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The drill bit has a number called length. The length of the drill bit is 4.\nInstead of drilling the hole:\n\tlet L be a number;\n\tlet L be the length of the drill bit;\n\t[…some other code here changes the temporary value L…]\n\tnow the length of the drill bit is L.`)"><span class="sym">⧉</span></button>
+<div class="codeline">The drill bit has a number called length. The length of the drill bit is 4.</div>
+<div class="codeline">Instead of drilling the hole:</div>
+<div class="codeline">&ensp;&ensp;&ensp;let L be a number;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let L be the length of the drill bit;</div>
+<div class="codeline">&ensp;&ensp;&ensp;[…some other code here changes the temporary value L…]</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the length of the drill bit is L.</div>
+</div>
+<p>Here’s an example of what can happen if you forget that a “let” value in
+a code block is temporary. The person who posted the question in the
+rec.arts.int-fiction newsgroup wanted to figure out how much money the
+player had in her wallet; and if there was enough money, to pay out some
+of it. Can you spot the bug in this code?</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`A dollar bill is a kind of thing. The description of a dollar bill is &quot;It&apos;s an ordinary greenback.&quot; Understand &quot;dollars&quot; as the plural of dollar bill. Understand &quot;greenback&quot; as a dollar bill.\n\nThe player carries a wallet. The wallet is an open container. In the wallet are 20 dollar bills. The description of the wallet is &quot;Leather, and rather the worse for wear.&quot;\n\nBribing is an action applying to one thing and requiring light. Understand &quot;bribe [someone]&quot; and &quot;pay off [someone]&quot; as bribing.\n\nInstead of bribing the inspector:\n\tif the player carries the wallet: \n\t	let d be the number of dollar bills contained in the wallet;\n\t	if d is less than 10: \n\t		say &quot;You don&apos;t have enough cash to bribe the inspector.&quot;; \n\t	otherwise: \n\t		change d to d minus 10; \n\t		say &quot;After bribing the inspector, you have [number of dollar bills contained in the wallet] dollars remaining.&quot;`)"><span class="sym">⧉</span></button>
+<div class="codeline">A dollar bill is a kind of thing. The description of a dollar bill is &quot;It&apos;s an ordinary greenback.&quot; Understand &quot;dollars&quot; as the plural of dollar bill. Understand &quot;greenback&quot; as a dollar bill.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">The player carries a wallet. The wallet is an open container. In the wallet are 20 dollar bills. The description of the wallet is &quot;Leather, and rather the worse for wear.&quot;</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Bribing is an action applying to one thing and requiring light. Understand &quot;bribe [someone]&quot; and &quot;pay off [someone]&quot; as bribing.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Instead of bribing the inspector:</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the player carries the wallet: </div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;let d be the number of dollar bills contained in the wallet;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if d is less than 10: </div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;You don&apos;t have enough cash to bribe the inspector.&quot;; </div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;otherwise: </div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;change d to d minus 10; </div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;After bribing the inspector, you have [number of dollar bills contained in the wallet] dollars remaining.&quot;</div>
+</div>
+<p>The output is this:</p>
+
+<blockquote>
+  <p><span class="command">bribe inspector</span> <br />
+After bribing the inspector, you have 20 dollars remaining.</p>
+</blockquote>
+
+<p>We’re told the inspector has been bribed to the tune of $10, but no
+money has actually left the wallet. The problem is that the code only
+manipulates the value of d, which is a temporary local variable. It
+never actually removes the dollar bill objects from the wallet. But in
+fact the problems with this code run a bit deeper. What if the player
+character has $20 available, but has already removed $12 from the wallet
+and is holding them in his or her hand, leaving only $8 in the wallet?
+In that case, the Instead rule will fail when it ought to succeed. And
+what if the player has $7 in hand and $8 in the wallet? We still need to
+extract $10, but we don’t initially know where the bills are located.</p>
+
+<p>We need to revise the Instead rule rather extensively. <span id="Ref_dollar_bill" class="anchor"></span>Using a little literary license
+just for fun, we might come up with the code below, which works as
+desired. Note that the actual handling of the dollar bills is done in
+repeat loops. See <a href="#loops">Loops</a> for more.</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of bribing the inspector:\n\tlet c be the number of dollar bills carried by the player;\n\tlet d be 0;\n\tif the player carries the wallet: \n\t	now d is the number of dollar bills contained in the wallet; \n\tlet total be d plus c;\n\tif total is 0:\n\t	say &quot;A hurried inventory [if the player carries the wallet]of your wallet [end if]reveals that you&apos;re flat broke. &apos;I would never resort to offering you a bribe,&apos; you say haughtily. But the inspector is unimpressed. &apos;In that case,&apos; he says, &apos;you&apos;ll be payin[&apos;] the city a hefty fine. That&apos;s how the game is played, guy.&apos;&quot;;\n\totherwise if total is less than 10:\n\t	if d is greater than 0:\n\t		[if the player has any money at all in the wallet, it will be removed and offered to the inspector, who will turn it down:]\n\t		repeat with X running from 1 to d:\n\t			let greenery be a random dollar bill in the wallet;\n\t			now the player carries greenery;\n\t		say &quot;You haul some money out of your wallet and hold it out [run paragraph on]&quot;;\n\t	otherwise:\n\t		say &quot;You hold out every dollar you have [run paragraph on]&quot;;\n\t	say &quot;to the inpector in a trembling hand, but he only favors you with a disgusted look. &apos;Not enough,&apos; he says. &apos;Not near enough.&apos;&quot;; \n\totherwise:\n\t	[We don&apos;t know whether the player has 10 or more dollars in hand, or whether some of the dollars need to be transferred from wallet to hand before being used -- all we know is that between the in-hand dollars and the wallet dollars, there are enough. So we&apos;ll start by adding to the in-hand dollars if we need to:]\n\t	if c is less than 10:\n\t		repeat with X running from c to 9: \n\t			[Yes, 9 is correct. If c is 7, for instance, we need 3 more, so we want the loop to run 3 times -- once with X being 7, once with it being 8, and finally with it being 9:]\n\t			let greenery be a random dollar bill in the wallet; \n\t			now the player carries greenery;\n\t		say &quot;You flip open your wallet. [run paragraph on]&quot;; \n\t	repeat with X running from 1 to 10:\n\t		let greenery be a random dollar bill carried by the player;\n\t		remove greenery from play;\n\t	say &quot;&apos;Would ten dollars be enough to have you ignore the bare wires, the cracks in the foundation, and the gaps in the pipe joints?&apos; you ask, holding out the cash. &apos;Oh, sure, heck, whatever,&apos; the inspector replies. In a moment the transaction is concluded. He makes a few careless check marks on his clipboard and moves away, humming a little tune. &apos;Pennies from Heaven,&apos; it sounds like.&quot;;\n\t	remove the inspector from play.`)"><span class="sym">⧉</span></button>
+<div class="codeline">Instead of bribing the inspector:</div>
+<div class="codeline">&ensp;&ensp;&ensp;let c be the number of dollar bills carried by the player;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let d be 0;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the player carries the wallet: </div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now d is the number of dollar bills contained in the wallet; </div>
+<div class="codeline">&ensp;&ensp;&ensp;let total be d plus c;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if total is 0:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;A hurried inventory [if the player carries the wallet]of your wallet [end if]reveals that you&apos;re flat broke. &apos;I would never resort to offering you a bribe,&apos; you say haughtily. But the inspector is unimpressed. &apos;In that case,&apos; he says, &apos;you&apos;ll be payin[&apos;] the city a hefty fine. That&apos;s how the game is played, guy.&apos;&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise if total is less than 10:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if d is greater than 0:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;[if the player has any money at all in the wallet, it will be removed and offered to the inspector, who will turn it down:]</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;repeat with X running from 1 to d:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;let greenery be a random dollar bill in the wallet;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the player carries greenery;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;You haul some money out of your wallet and hold it out [run paragraph on]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;You hold out every dollar you have [run paragraph on]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;to the inpector in a trembling hand, but he only favors you with a disgusted look. &apos;Not enough,&apos; he says. &apos;Not near enough.&apos;&quot;; </div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;[We don&apos;t know whether the player has 10 or more dollars in hand, or whether some of the dollars need to be transferred from wallet to hand before being used -- all we know is that between the in-hand dollars and the wallet dollars, there are enough. So we&apos;ll start by adding to the in-hand dollars if we need to:]</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if c is less than 10:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;repeat with X running from c to 9: </div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;[Yes, 9 is correct. If c is 7, for instance, we need 3 more, so we want the loop to run 3 times -- once with X being 7, once with it being 8, and finally with it being 9:]</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;let greenery be a random dollar bill in the wallet; </div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the player carries greenery;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;You flip open your wallet. [run paragraph on]&quot;; </div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;repeat with X running from 1 to 10:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;let greenery be a random dollar bill carried by the player;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;remove greenery from play;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;&apos;Would ten dollars be enough to have you ignore the bare wires, the cracks in the foundation, and the gaps in the pipe joints?&apos; you ask, holding out the cash. &apos;Oh, sure, heck, whatever,&apos; the inspector replies. In a moment the transaction is concluded. He makes a few careless check marks on his clipboard and moves away, humming a little tune. &apos;Pennies from Heaven,&apos; it sounds like.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;remove the inspector from play.</div>
+</div>
+<h3 id="arithmetic">Arithmetic</h3>
+
+<p>Traditionally, computer programming languages are well supplied with
+slick features for doing advanced mathematical calculations. Such
+calculations are very seldom needed in interactive fiction. Nonetheless,
+Inform has a surprising amount of power in this area, including the
+ability to use real numbers in scientific notation, to derive square
+roots, to utilize trigonometric functions such as sine and tangent, and
+so on. These features are explained in <a href="../WI_15.html">Chapter 15 of <em>Writing with
+Inform</em></a>.</p>
+
+<p>Most stories will only need to keep track of a few simple integers, for
+the purpose of counting things. The tool for this is the number
+variable.</p>
+
+<p>When we need to create and use a number variable (also known as “a
+number that varies”), we can do it globally, or we can attach it to an
+object as a property of that object. It’s pretty much up to you to
+choose which form you prefer. The first way (making it a global value)
+leads to easier typing, but programmers who have some experience in
+object-oriented languages sometimes prefer, as a matter of style, to
+attach data to objects. If you have several objects (such as a room full
+of clocks) that use similar number variables, attaching the variables to
+the objects as properties would definitely be the way to go. Here’s how
+to create a number using each of those methods:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`increase parrot-squawk-count by 1; [if it’s a global value]\n\nincrease the squawk-count of the parrot by 1; [if the number is a property of the object]`)"><span class="sym">⧉</span></button>
+<div class="codeline">increase parrot-squawk-count by 1; [if it’s a global value]</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">increase the squawk-count of the parrot by 1; [if the number is a property of the object]</div>
+</div>
+<p>(A note for experienced programmers: All of the properties of an Inform
+object are public. That is, they’re available to any other code in the
+game. It’s not possible to make a property private: Inform does not
+support data hiding. So the distinction between global variables and
+properties is purely one of personal style. There is no functional
+difference.)</p>
+
+<p>We can test the current value of a variable like this:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`if the squawk-count of the parrot is greater than 7:\n\tnow the parrot is dead.`)"><span class="sym">⧉</span></button>
+<div class="codeline">if the squawk-count of the parrot is greater than 7:</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the parrot is dead.</div>
+</div>
+<p>The syntax for these operations is outlined in <a href="../WI_15.html#section_5">WI 15.5
+Arithmetic</a>. Other tests that we can use
+include:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`if the squawk-count of the parrot is 7: […]\nif the squawk-count of the parrot is at least 7: […]\nif the squawk-count of the parrot is less than 7: […]\nif the squawk-count of the parrot is at most 7: […]`)"><span class="sym">⧉</span></button>
+<div class="codeline">if the squawk-count of the parrot is 7: […]</div>
+<div class="codeline">if the squawk-count of the parrot is at least 7: […]</div>
+<div class="codeline">if the squawk-count of the parrot is less than 7: […]</div>
+<div class="codeline">if the squawk-count of the parrot is at most 7: […]</div>
+</div>
+<p>Rather than write out words like “is at least,” we can for the most part
+use the familiar mathematical symbols. However, Inform doesn’t allow the
+use of = or == (the double equals sign) to test for equality. Testing
+for equality must use “is”. The latter three of the four tests above
+could be written as:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`if the squawk-count of the parrot &lt;= 7: […]\nif the squawk-count of the parrot &lt; 7: […]\nif the squawk-count of the parrot &lt;= 7: […]`)"><span class="sym">⧉</span></button>
+<div class="codeline">if the squawk-count of the parrot &lt;= 7: […]</div>
+<div class="codeline">if the squawk-count of the parrot &lt; 7: […]</div>
+<div class="codeline">if the squawk-count of the parrot &lt;= 7: […]</div>
+</div>
+<p><strong>Warning:</strong> If you’re compiling to .z5, .z6, or .z8, the largest
+numbers Inform can handle are a little over 30,000 (which should be
+plenty for counting parrot-squawks). If you need to use larger numbers,
+you’ll have to compile your game to Glulx.</p>
+
+<h3 id="doing-calculations">Doing Calculations</h3>
+
+<p>In a role-playing game (RPG), you may want to keep track of various
+characters’ strength and other characteristics. While the game is
+running, you may need to calculate things like their combat readiness
+based on various factors. The example below shows how this type of thing
+might be done. It uses Inform’s To Decide syntax to run calculations.</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`A person has a number called strength.\nA person has a number called luck.\nA person has a number called dexterity.\n\nTo decide what number is combat-adds of (p - a person):\n\tlet num be a number; [this will default to 0]\n\tlet num be num + the modifier of the strength of p;\n\tlet num be num + the modifier of the luck of p;\n\tlet num be num + the modifier of the dexterity of p;\n\tdecide on num.\n\n[Since the modifier formula is the same for each attribute, we can\ncreate a separate routine to calculate that and reuse it for each one.\nIf the base value (strength, luck, or dexterity) is greater than 12,\nwe’ll modify the combat-adds by adding the surplus to combat-adds. If\nit’s less than 9, we’ll subtract the difference from combat-adds:]\n\nTo decide what number is modifier of (n - a number):\n\tlet m be a number;\n\tif n &gt; 12, let m be n - 12;\n\tif n &lt; 9, let m be n - 9;\n\tdecide on m.\n\nTo say stats of (p - a person):\n\tsay &quot;Strength: [strength of p]; Luck: [luck of p]; Dexterity: [dexterity of p].&quot;;\n\tsay &quot;Combat Adds: [combat-adds of p].&quot;\n\n[Here&apos;s a generic dice-rolling routine:]\nTo decide what number is a (n - a number) d (m - a number) roll:\n\tlet tot be a number;\n\trepeat with loop running from 1 to n:\n\t	let x be a random number between 1 and m;\n\t	let tot be tot + x;\n\tdecide on tot.\n\nTo char-roll (p - a person):\n\tnow the strength of p is a 3 d 6 roll;\n\tnow the luck of p is a 3 d 6 roll;\n\tnow the dexterity of p is a 3 d 6 roll.\n\n[Purely for testing, the command JUMP will re-roll the player\ncharacter:]\nInstead of jumping:\n\tsay &quot;Re-rolling your character...&quot;;\n\tchar-roll the player.\n\nThe Lab is a room.\nWhen play begins:\n\tchar-roll the player;\n\tsay stats of the player.\n\nEvery turn: say stats of the player.\n\ntest me with &quot;jump / g / g / g&quot;.`)"><span class="sym">⧉</span></button>
+<div class="codeline">A person has a number called strength.</div>
+<div class="codeline">A person has a number called luck.</div>
+<div class="codeline">A person has a number called dexterity.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">To decide what number is combat-adds of (p - a person):</div>
+<div class="codeline">&ensp;&ensp;&ensp;let num be a number; [this will default to 0]</div>
+<div class="codeline">&ensp;&ensp;&ensp;let num be num + the modifier of the strength of p;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let num be num + the modifier of the luck of p;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let num be num + the modifier of the dexterity of p;</div>
+<div class="codeline">&ensp;&ensp;&ensp;decide on num.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">[Since the modifier formula is the same for each attribute, we can</div>
+<div class="codeline">create a separate routine to calculate that and reuse it for each one.</div>
+<div class="codeline">If the base value (strength, luck, or dexterity) is greater than 12,</div>
+<div class="codeline">we’ll modify the combat-adds by adding the surplus to combat-adds. If</div>
+<div class="codeline">it’s less than 9, we’ll subtract the difference from combat-adds:]</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">To decide what number is modifier of (n - a number):</div>
+<div class="codeline">&ensp;&ensp;&ensp;let m be a number;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if n &gt; 12, let m be n - 12;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if n &lt; 9, let m be n - 9;</div>
+<div class="codeline">&ensp;&ensp;&ensp;decide on m.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">To say stats of (p - a person):</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Strength: [strength of p]; Luck: [luck of p]; Dexterity: [dexterity of p].&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Combat Adds: [combat-adds of p].&quot;</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">[Here&apos;s a generic dice-rolling routine:]</div>
+<div class="codeline">To decide what number is a (n - a number) d (m - a number) roll:</div>
+<div class="codeline">&ensp;&ensp;&ensp;let tot be a number;</div>
+<div class="codeline">&ensp;&ensp;&ensp;repeat with loop running from 1 to n:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;let x be a random number between 1 and m;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;let tot be tot + x;</div>
+<div class="codeline">&ensp;&ensp;&ensp;decide on tot.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">To char-roll (p - a person):</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the strength of p is a 3 d 6 roll;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the luck of p is a 3 d 6 roll;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the dexterity of p is a 3 d 6 roll.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">[Purely for testing, the command JUMP will re-roll the player</div>
+<div class="codeline">character:]</div>
+<div class="codeline">Instead of jumping:</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Re-rolling your character...&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;char-roll the player.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">The Lab is a room.</div>
+<div class="codeline">When play begins:</div>
+<div class="codeline">&ensp;&ensp;&ensp;char-roll the player;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say stats of the player.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Every turn: say stats of the player.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">test me with &quot;jump / g / g / g&quot;.</div>
+</div>
+<p>Several things about this example are worth study. In the “Instead of
+jumping” rule, for instance, we have “char-roll the player.” This calls
+the block of code just before it, “To char-roll (p – a person)”. This is
+Inform’s standard way of creating new functions. Once the “To char-roll”
+code is created, we could char-roll any character in the game. But the
+compiler won’t let us char-roll anything other than a person. The
+char-roll code needs to be sent a person object, because only persons
+have strength, luck, and dexterity.</p>
+
+<p>In the odd-looking syntax, “now the strength of p is a 3 d 6 roll”, the
+dice-rolling routine rolls 3 dice that are 6-sided, adding the results
+to give a value somewhere between 3 and 18. This value is computed in
+the “To decide what number is a … roll” code block.</p>
+
+<h3 id="testing-conditions">Testing Conditions</h3>
+
+<p>Many of the examples in this book test conditions in the model world and
+produce a different result depending on the conditions. The keyword in
+each case is “if”. <a href="../WI_11.html#section_6">WI 11.6: If</a> explains how
+to create and test conditions. The point of testing a condition is for
+the game to make a decision about what to do next. If the condition is
+true, we want the game to do one thing; if the condition isn’t true, we
+want something different to happen. Here’s a simple example:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`if the sea is boiling hot:\n\tsay &quot;Look! Pigs with wings!&quot;`)"><span class="sym">⧉</span></button>
+<div class="codeline">if the sea is boiling hot:</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Look! Pigs with wings!&quot;</div>
+</div>
+<p>Two or more if-tests can be strung together in one line, like this:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`if the cat is on the couch and the catnip is on the couch and the dog is not on the couch:\n\tsay &quot;The cat goes a little crazy.&quot;`)"><span class="sym">⧉</span></button>
+<div class="codeline">if the cat is on the couch and the catnip is on the couch and the dog is not on the couch:</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;The cat goes a little crazy.&quot;</div>
+</div>
+<p>But in this type of construction, Inform insists that each phrase in the
+if-test be spelled out in full. The condition shown below makes perfect
+sense to a human reader, but the syntax is too complicated for Inform to
+understand:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`if the cat and the catnip are on the couch: [Error!]`)"><span class="sym">⧉</span></button>
+<div class="codeline">if the cat and the catnip are on the couch: [Error!]</div>
+</div>
+<h3 id="creating-new-phrases">Creating New Phrases</h3>
+
+<p>Sometimes you may need to have your game do several things at once. A
+good way to take care of this is to write what other programming
+languages would call a <em>function</em>. This feature of Inform is introduced
+in <a href="../WI_11.html#section2">WI 11.2</a> and <a href="../WI_11.html#section3">WI
+11.3</a>. Writing a function in Inform is easy –
+just use the word “To”, like this:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`To sound the alarm:\n\tnow the alarm horn is blasting;\n\tnow the burglar is frightened;\n\tnow the guard dog is awake;\n\t[…and so on…]`)"><span class="sym">⧉</span></button>
+<div class="codeline">To sound the alarm:</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the alarm horn is blasting;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the burglar is frightened;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the guard dog is awake;</div>
+<div class="codeline">&ensp;&ensp;&ensp;[…and so on…]</div>
+</div>
+<p>From anywhere else in your code, you can now sound the alarm, simply by
+telling Inform that that’s what you want to do:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`if the burglar carries the jewels:\n\tsound the alarm.`)"><span class="sym">⧉</span></button>
+<div class="codeline">if the burglar carries the jewels:</div>
+<div class="codeline">&ensp;&ensp;&ensp;sound the alarm.</div>
+</div>
+<p>The main reason to write a function of this sort would be if your game
+may need to sound the alarm from several different places in the code,
+in response to several different events. Rather than putting the “sound
+the alarm” code in several places, you can put it in just one place.
+This way, if you need to edit it later, you only need to make the change
+in one place, which is easier and also reduces the chance of introducing
+a bug into your game.</p>
+
+<p>If you need to, you can write a function that can be applied to any
+number of different objects in your game. Here’s a slightly artificial
+example that shows the syntax:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`To blast open (box - a container):\n\tnow the box is open;\n\tnow the box is not openable;\n\tnow the box is damaged;\n\tsay “Boom! You blast open [the box].”`)"><span class="sym">⧉</span></button>
+<div class="codeline">To blast open (box - a container):</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the box is open;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the box is not openable;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the box is damaged;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say “Boom! You blast open [the box].”</div>
+</div>
+<p>The word “box” in this example is a temporary name for some data (in
+this case, an object that is a container) that is sent to the “To blast
+open” phrase. In order to run this block of code, you would have to tell
+Inform what “box” will refer to. If your game includes an old trunk and
+a safe, for instance, you could write a line saying “blast open the old
+trunk” or “blast open the safe” in your code. When Inform calls the “To
+blast open” function in response to a line that reads “blast open the
+old trunk,” it will know that the old trunk is now the “box” being
+referred to, so it will operate exactly as if you had written “now the
+old trunk is open”, “now the old trunk is not openable”, and so on. At
+the end, the game will report, “Boom! You blast open the old trunk.”</p>
+
+<p>But if you mistakenly try to blast open something that isn’t a
+container, you’ll have a bug. It’s also important to note that the code
+above changes the property called “damaged” on the container. If you
+forget to create the property “damaged” for all of the containers in
+your game, the code above may cause a run-time error.</p>
+
+<p>Take another look at the syntax in the code above. To write a function
+that takes an argument (or two arguments, if you need to), you use
+parentheses, create a temporary name for the argument (“box”), then use
+a single hyphen with spaces around it, then tell Inform what kind of
+argument you’re planning to send to the function.</p>
+
+<h3 id="indenting">Indenting</h3>
+
+<p>Computer programmers (including Inform authors) often need to write
+blocks of code that will be run, line by line, in a certain order. Such
+blocks often need to branch based on whether a logical test is true or
+false. The keyword “if” is used in many programming languages, including
+Inform, to write a statement that will allow the code to branch. In
+pseudo-code, a short version look be something like this:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`if A, do X; \notherwise, do Y. [ pseudo-code; not valid ]`)"><span class="sym">⧉</span></button>
+<div class="codeline">if A, do X; </div>
+<div class="codeline">otherwise, do Y. [ pseudo-code; not valid ]</div>
+</div>
+<p>Here, “X” and “Y” would be entire lines or multiple lines of code. A
+more complex (and more realistic) example might look more like this:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`if A, do Q, R, and S;\notherwise, do X, Y, and Z. [ pseudo-code; not valid ]`)"><span class="sym">⧉</span></button>
+<div class="codeline">if A, do Q, R, and S;</div>
+<div class="codeline">otherwise, do X, Y, and Z. [ pseudo-code; not valid ]</div>
+</div>
+<p>Again, “Q,” “R,” “S,” and so on would be entire lines of code. In this
+situation, the compiler needs some way to understand which lines of code
+to group together into a block. Q, R, and S should be grouped together,
+and X, Y, and Z should be grouped together – but it would be horribly
+wrong to have all six grouped together!</p>
+
+<p>Two systems for organizing lines of code into blocks (groups of lines)
+are in common use. Some languages use indenting. Other languages don’t
+require indenting (though indenting can be used to make their source
+code easier to read). Languages that don’t use indenting usually put
+brackets or curly braces (like these {…} ) around blocks of code.</p>
+
+<p>The original release of Inform 7 used neither system. Instead, in
+keeping with the “natural language” idea, the keywords “begin” and “end”
+were used to set off code blocks. Here is an example (borrowed from
+Chapter 4 of this <em>Handbook</em>) using the syntax format that Inform
+originally provided:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Before taking the apple:\nif the player does not carry the apple begin;\nif the player carries the basket begin;\nif the apple is not in the basket begin;\nnow the apple is in the basket;\nsay &quot;You pick up the apple and put it in the basket.&quot;;\nrule succeeds;\nend if;\nend if;\nend if.`)"><span class="sym">⧉</span></button>
+<div class="codeline">Before taking the apple:</div>
+<div class="codeline">if the player does not carry the apple begin;</div>
+<div class="codeline">if the player carries the basket begin;</div>
+<div class="codeline">if the apple is not in the basket begin;</div>
+<div class="codeline">now the apple is in the basket;</div>
+<div class="codeline">say &quot;You pick up the apple and put it in the basket.&quot;;</div>
+<div class="codeline">rule succeeds;</div>
+<div class="codeline">end if;</div>
+<div class="codeline">end if;</div>
+<div class="codeline">end if.</div>
+</div>
+<p>This type of syntax can still be used in Inform, as noted briefly on <a href="../WI_11.html#section7">WI
+11.7: Begin and end</a>. And in fact, when you get
+error messages from the compiler you may still find a reference to
+“begin;”, even though you didn’t use “begin;”.</p>
+
+<p>As you can see, the internal logic of a block of code that ends with a
+string of “end if” lines can be hard for a human reader to follow. You
+can use indentation to make the code easier to read without changing the
+syntax in any way. Here is the same code with added white space (a big
+improvement).</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Before taking the apple:\n\tif the player does not carry the apple\n\tbegin;\n\t	if the player carries the basket\n\t	begin;\n\t		if the apple is not in the basket\n\t		begin;\n\t		now the apple is in the basket;\n\t		say &quot;You pick up the apple and put it in the basket.&quot;;\n\t		rule succeeds;\n\t		end if;\n\t	end if;\n\tend if.`)"><span class="sym">⧉</span></button>
+<div class="codeline">Before taking the apple:</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the player does not carry the apple</div>
+<div class="codeline">&ensp;&ensp;&ensp;begin;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the player carries the basket</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;begin;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the apple is not in the basket</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;begin;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the apple is in the basket;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;You pick up the apple and put it in the basket.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;rule succeeds;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;end if;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;end if;</div>
+<div class="codeline">&ensp;&ensp;&ensp;end if.</div>
+</div>
+<p>That white space might be either Tab keys or rows of spaces – it doesn’t
+matter, because the indenting is just to make the code easier for you to
+read. The compiler ignores it.</p>
+
+<p>On the other hand, if we’re going to use indentation to make the code
+easier to read, why not dispense with the “begin/end” keywords entirely?
+After Inform 7’s initial release, there was apparently a groundswell of
+support for the idea of letting Inform authors use indentation <em>instead</em>
+of “begin;” and “end if;”. This style of code formatting is sometimes
+referred to as Pythonesque, because it’s used in the popular Python
+programming language. Below is exactly the same code as in the example
+above, rewritten to use colons in place of “begin;”, and indenting to
+keep track of where each if block ends. Many Inform programmers today
+seem to prefer this method:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Before taking the apple:\n\tif the player does not carry the apple:\n\t	if the player carries the basket:\n\t		if the apple is not in the basket:\n\t			now the apple is in the basket;\n\t			say &quot;You pick up the apple and put it in the basket.&quot;;\n\t			rule succeeds.`)"><span class="sym">⧉</span></button>
+<div class="codeline">Before taking the apple:</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the player does not carry the apple:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the player carries the basket:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the apple is not in the basket:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the apple is in the basket;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;You pick up the apple and put it in the basket.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;rule succeeds.</div>
+</div>
+<p>The “end if” statements are no longer needed, but the indentation must
+be used as shown, and it must use Tab characters, not series of spaces.
+I find this much easier to read.</p>
+
+<div class="addendum">
+  <div class="add-header">
+    <p>Addendum</p>
+  </div>
+  <div class="add-body">
+    <blockquote class="quote">
+      <p>Why not dispense with the “begin/end” keywords if we’re going to use \
+indentation to make the code easier to read?</p>
+    </blockquote>
+
+    <p>I am so glad you asked. Among the reasons to both indent your code (with
+spaces) and use begin and end:</p>
+
+    <ul>
+      <li>Your code won’t fail mysteriously because somehow something got
+indented with spaces instead of a tab, a difference that’s invisible
+in the IDEs but crucial to the compiler.</li>
+      <li>Making indentation level syntactically significant creates
+a gratuitous opportunity for errors when moving some given block of code
+elsewhere.</li>
+      <li>Maintaining indentation is tedium that can and should be automated,
+such that maintaining the indentation takes neglible effort. With explicit
+beginnings and endings, it can be (in a programmer’s editor like Emacs or Vim).</li>
+      <li>The code could reliably be copy-pasted between applications.</li>
+      <li>Someone adapting a lengthy work with hundreds of Inform code snippets
+wouldn’t have a nightmare hand-editing nearly every one of them because
+the source material was an OpenDocument Text file without the tabs.
+        <ul>
+          <li>OK, that one might be specific to me.</li>
+        </ul>
+      </li>
+    </ul>
+
+    <p>Syntactically significant whitespace: a bad idea.</p>
+
+    <p>Syntactically significant <em>tab characters</em>: a much, much worse one.</p>
+
+    <p>But, alas, mine is a minority opinion in this modern world. The bad idea
+won.</p>
+
+  </div>
+</div>
+
+<p>I’ve found that newcomers to Inform authoring quite often don’t pay
+enough attention to how many indents (that is, how many Tab key presses)
+they need for a particular line of code. If the indenting is wrong, the
+compiler will get confused. To make matters worse, some email programs
+turn indents into strings of space characters. They look the same on the
+screen, but Inform requires Tabs, not spaces. So emailed code can get
+messed up, even if you’ve used standard copy-and-paste to paste the code
+into the email.</p>
+
+<p>The source code editor in the Inform IDE (the authoring program) formats
+each long paragraph with “hanging indents.” That is, each line of a
+paragraph after the first one is indented slightly. This is purely to
+make the code easier to read. The hanging indents have nothing to do
+with indenting code blocks to create organization, as shown above.
+They’re purely a way of making the code a bit easier to read on the
+screen. (Multi-line paragraphs in this Handbook don’t have hanging
+indents, so they won’t look exactly the way they will look in the IDE.)</p>
+
+<p>When do you indent? The rule is simple: <strong>After a colon, you indent by
+one more Tab than the line that ends with the colon.</strong></p>
+
+<p>Basically, a colon means “do the following action(s).” Following every
+colon is a list of one or more steps that you want Inform to take. We
+can call this list of steps a <em>block</em> of source code. The block of code
+should be indented by one more level (that is, one more Tab key) than
+the statement before it – the if-statement that had a colon at the end.
+Everything that is indented further than the line that ends with the
+colon is part of that block of code, so it will run if the if-statement
+(or some other colon-ended line, such as “Every turn:”) tells it to.
+When we return to the same level of indentation as the line that ended
+with the colon, we’re done with that inner block of code and ready to
+proceed with the next statement in the outer block.</p>
+
+<p>Yes, that description is hard to read. This diagram may help make the
+organization of code into outer and inner blocks easier to visualize.
+Each line in each of the colored blocks in that diagram is indented one
+Tab further than the lines in the block outside of it.</p>
+
+<div class="image-frame">
+  <p><img src="images/if_blocks.png" alt="" /></p>
+</div>
+
+<p>Here’s an example from a recent game of my own that may make this idea a
+little more real-world. If you don’t understand what’s going on here,
+you might want to look back at the section “Testing Conditions.” In that
+section, if statements are explained.</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of closing the eyes:\n\tif Elliott wears the black blindfold:\n\t	say &quot;Closing your eyes will make no difference. You&apos;re wearing a blindfold.&quot;;\n\totherwise if the location is a crystal room:\n\t	say &quot;You close your eyes for a moment against the dazzle of sunlight on crystal, but a moment later you bump into something and your eyes fly open again.&quot;;\n\totherwise:\n\t	say &quot;You close your eyes for a moment. Ah, how restful!&quot;`)"><span class="sym">⧉</span></button>
+<div class="codeline">Instead of closing the eyes:</div>
+<div class="codeline">&ensp;&ensp;&ensp;if Elliott wears the black blindfold:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;Closing your eyes will make no difference. You&apos;re wearing a blindfold.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise if the location is a crystal room:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;You close your eyes for a moment against the dazzle of sunlight on crystal, but a moment later you bump into something and your eyes fly open again.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;You close your eyes for a moment. Ah, how restful!&quot;</div>
+</div>
+<p>This Instead rule will run when the player types CLOSE EYES. The outer
+block of code in the rule begins with the colon at the end of the first
+line. There are three lines in the outer block of code. The first line
+begins “if Elliott wears…”, the second begins “otherwise if the
+location…”, and the third is “otherwise:”. These lines are indented with
+one Tab. After “if Elliott wears the black blindfold:”, we need to
+indent by two Tabs to create an inner block of code. This happens to
+have only one line in it, a say statement – but it could have many more
+lines.</p>
+
+<p>Note that the statement that begins “say “You close your eyes for a
+moment…” is only a single line as far as Inform is concerned. It happens
+to flow down onto the next line, but the fact that the next line isn’t
+indented doesn’t matter, because there’s no <em>carriage return</em> character
+before it. In the IDE, long lines like this have what’s called a
+“hanging indent,” which makes it easy to see that they’re all part of a
+single code statement.</p>
+
+<p>Nothing in the Instead rule shown above actually changes the model
+world; all it does is print out one of three different messages, all of
+which are more or less equivalent to saying, “You can try that, but it
+won’t do any good.” But if the rule also included a line like “now the
+blindfold is transparent;” the organization of the code into outer and
+inner blocks would be the same.</p>
+
+<h4 id="too-many-indents">Too Many Indents</h4>
+
+<p>If you’re writing an extremely complex, embedded set of if-tests, it’s
+easy to lose track of where you are in the logical structure. In this
+case, you’ll probably want to reorganize your code in some other way, so
+as to make it easier to read and debug.</p>
+
+<p>There are several ways to reduce the number of indentation levels. For
+instance, these two Instead rules are functionally identical, but one
+uses two indent levels, while the other uses only one:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of eating the pretzel:\n\tif the pretzel is salty:\n\t	say &quot;Recognizing that the salt is the best part, you pause and lick off the salt first.&quot;;\n\t	now the pretzel is not salty;\n\totherwise:\n\t	continue the action.\n\nInstead of eating a salty pretzel:\n\tsay &quot;Recognizing that the salt is the best part, you pause and lick off the salt first.&quot;;\n\tnow the pretzel is not salty.`)"><span class="sym">⧉</span></button>
+<div class="codeline">Instead of eating the pretzel:</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the pretzel is salty:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;Recognizing that the salt is the best part, you pause and lick off the salt first.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the pretzel is not salty;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;continue the action.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Instead of eating a salty pretzel:</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Recognizing that the salt is the best part, you pause and lick off the salt first.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the pretzel is not salty.</div>
+</div>
+<p>If you need to perform a number of operations (such as changing various
+values) within a block of code, you can reduce the indentation by using
+a To statement. Here’s a quick example that expands slightly on a few
+lines that appeared earlier in the Handbook<em>:</em></p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`After attacking the ceramic bowl:\n\tif the guard is in the location:\n\t	if the guard is awake:\n\t		sound the alarm;\n\t	otherwise:\n\t		[more code goes here…]\n\nTo sound the alarm:\n\tif the ceramic bowl is shattered:\n\t	[more code goes here…]`)"><span class="sym">⧉</span></button>
+<div class="codeline">After attacking the ceramic bowl:</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the guard is in the location:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the guard is awake:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;sound the alarm;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;[more code goes here…]</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">To sound the alarm:</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the ceramic bowl is shattered:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;[more code goes here…]</div>
+</div>
+<p>The line “if the ceramic bowl is shattered” has only one indent, because
+it’s in a separate block of code. If it were embedded after “if the
+guard is awake” in the “After attacking the guard” rule, it would have
+three indents.</p>
+
+<h3 id="headings">Headings</h3>
+
+<p>Another difference between Inform and traditional programming languages
+is that, with some important exceptions, Inform doesn’t care where you
+place rules and assertions. If you want to mix up your source code,
+leaving related bits strewn out all over everywhere, Inform will let
+you. If you’re working on the section of the story that has to do with
+the swords, and you suddenly realize that you need to make sure the men
+in the tower are wearing chain mail, you can just hit a couple of
+Returns to start a new paragraph and create the chain mail on the spot.
+There’s no need to go find the men in the tower (they could be five
+hundred lines earlier or later in the file) and put the chain mail in
+their part of the code.</p>
+
+<p>This is bad programming practice, though. It’s much better to keep
+related code together. Inform’s Index World tab will help you find
+everything in your code, no matter where it is. But if you create your
+own organization, the writing will go more smoothly, and you’ll end up
+with fewer bugs.</p>
+
+<p>The natural and normal way to do this is by writing headings (as
+explained in <a href="../WI_2.html#section5">WI 2.5: Headings</a>) and putting all
+of the code for some specific thing below a single heading. For
+instance, the chapter on the wizard might include a section called
+“Conversations with the Wizard.”</p>
+
+<p>The larger your game is, the more important it will become to use
+headings in this manner. In most programming languages, you can put
+various parts of the code in separate files on your hard drive. Inform
+doesn’t allow this, because it’s designed around the idea that what
+you’re writing is a story or book, which would naturally be one
+continuous block of text.</p>
+
+<p>Using headings within a single file is almost as convenient as
+organizing your program in multiple files, and it has some advantages
+too. After you’ve compiled your game, the Index Contents tab will
+display an outline of the source code, listing all of the headings.
+There’s also a Contents tab in the Source pane. This makes it easy to
+move around in a large file – just click on the heading, and the Source
+pane will jump to it. (If you’ve added code since the last time you
+compiled, this mechanism may not work perfectly. Click the Go! button
+and then look at the Contents page of the Index again.)</p>
+
+<p>How you organize the code and give headings to the various sections is
+almost entirely up to you. The only requirement is that each heading be
+on a line by itself, with a blank line before it and another blank line
+after it.</p>
+
+<p>Inform recognizes five words as headings: volume, book, part, chapter,
+and section. When the Index is being constructed, these five headings
+are considered <em>hierarchical</em>, which is just a fancy way of saying that
+a volume is bigger than a book, a book is bigger than a part, and so on.
+But you can ignore the hierarchy if you like, and give sections headings
+in whatever order you like. A well organized outline might look like
+this:</p>
+
+<ul>
+  <li>Book 1 – The Courtyard
+    <ul>
+      <li>Part 1 – The Courtyard Room Itself</li>
+      <li>Part 2 – Scenery in the Courtyard</li>
+      <li>Part 3 – The Guard
+        <ul>
+          <li>Chapter 1 – The Guard Himself</li>
+          <li>Chapter 2 – Conversations with the Guard</li>
+          <li>Chapter 3 – Being Chased by the Guard</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Book 2 – The Dining Hall</li>
+</ul>
+
+<p>…and so on.</p>
+
+<p>Many Inform programmers prefer to number their volumes, books, parts,
+and so on, as shown above. But the numbers don’t have to be in order,
+and numbering is not even required. All that’s required is that there be
+<em>something</em> after the heading word. If you just type Chapter and then
+forget to put anything after it, the compiler will complain. (Also, you
+can’t put a period or colon immediately after a heading word.)</p>
+
+<p>Giving each heading a name is a very good idea. This will help you
+understand what you’re seeing in the Index.</p>
+
+<p>One of my students put a bunch of related material in a single chapter
+and then asked, “How can I tell Inform, ‘Chapter 3 starts now’?” This is
+a very reasonable question, but the answer is – you can’t. The headings
+are strictly a way to organize your source code. They have no effect
+whatever on what happens when the game is being played. To switch to a
+new set of circumstances at a certain point in the game, you need to use
+scenes, as explained in Chapter 8 of this <em>Handbook</em> and <a href="../WI_10.html">WI Chapter 10:
+Scenes</a>.</p>
+
+<h3 id="loops">Loops</h3>
+
+<p>Sometimes a computer program needs to perform a certain operation over
+and over. If it needs to do the same operation 50 times, there’s no
+sense in writing out the same block of code 50 times. Instead, we write
+it out once and then execute it over and over until we’re done. The
+process of doing this is called a loop.</p>
+
+<p>Loops are used less in interactive fiction than in many other types of
+programming, but they definitely have their uses. The basic syntax for
+how to use loops is in <a href="../WI_11.html#section_9">WI 11.9: While</a>, <a href="../WI_11.html#section_10">WI
+11.10 Repeat</a>, and <a href="../WI_11#section_11">WI 11.11 Repeat running
+through</a>. We’ve already seen loops a few times in
+the <em>Handbook,</em> for instance in the <a href="#Ref_dollar_bill">dollar bill
+example</a>, where the loop was used to move a bunch of
+dollar bills. Here’s a more straightforward example.</p>
+
+<p>Let’s suppose you have a set of rooms in a region called the Underground
+Area, and let’s suppose the player has just thrown a circuit breaker
+that plunges the entire Underground Area into darkness. In that case,
+you could write a routine in which you manually list each room in the
+Underground Area and make it not lit – but it would be easier, and less
+likely to introduce errors, if you write a routine that automatically
+loops through all of the rooms in the Underground Area and makes them
+dark, like this:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Carry out switching off the circuit breaker:\n\trepeat with R running through rooms in the Underground Area:\n\t	now R is not lit;\n\tcontinue the action.\n\nCarry out switching on the circuit breaker:\n\trepeat with R running through rooms in the Underground Area:\n\t	now R is lit;\n\tcontinue the action.`)"><span class="sym">⧉</span></button>
+<div class="codeline">Carry out switching off the circuit breaker:</div>
+<div class="codeline">&ensp;&ensp;&ensp;repeat with R running through rooms in the Underground Area:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now R is not lit;</div>
+<div class="codeline">&ensp;&ensp;&ensp;continue the action.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Carry out switching on the circuit breaker:</div>
+<div class="codeline">&ensp;&ensp;&ensp;repeat with R running through rooms in the Underground Area:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now R is lit;</div>
+<div class="codeline">&ensp;&ensp;&ensp;continue the action.</div>
+</div>
+<p>In these two Carry Out rules, we’re using the temporary variable R to
+refer to a room. (We could just as easily have called it Freddie – the
+use of R to mean “room” is not special.) The loop is created by the word
+“repeat”. To execute the loop, Inform first makes a list of the rooms in
+the Underground Area and then runs the code for the loop (which in this
+case consists of the single line “now R is not lit”) a number of time.
+Each time Inform goes through the loop, the variable R refers to a
+different room. So the loop has the effect of turning off the lights in
+each room in the Underground Area, one by one. When it gets to the end
+of the list of rooms in the Underground Area, the loop stops.</p>
+
+<p>Here’s a slightly more complete example that uses a while loop. Inform
+provides no command with which the player can empty out a container, so
+we’ll create one. We’ll also give the player a container that can be
+emptied.</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The player carries a basket.\nA spool is in the basket.\nA squirrel is in the basket.\nA pencil is in the basket.\nA banana is in the basket.\n\nEmptying is an action applying to one thing.\nUnderstand &quot;empty [something]&quot; as emptying.\n\nCheck emptying:\n\tif the noun is not a container:\n\t	say &quot;That&apos;s not something you can empty.&quot; instead;\n\telse if the noun is not open:\n\t	say “You’ll need to open [the noun] first.” instead;\n\telse if nothing is in the noun:\n\t	say &quot;There&apos;s nothing in [the noun].&quot; instead.\n\nCarry out emptying:\n\tlet R be a random thing in the noun;\n\twhile R is not nothing:\n\t	move R to the location;\n\t	now R is a random thing in the noun.\n\nReport emptying:\n\tsay &quot;You dump out the contents of [the noun] onto the floor.&quot;\n\nTest me with &quot;x basket / empty basket / l / empty basket / empty pencil&quot;.`)"><span class="sym">⧉</span></button>
+<div class="codeline">The player carries a basket.</div>
+<div class="codeline">A spool is in the basket.</div>
+<div class="codeline">A squirrel is in the basket.</div>
+<div class="codeline">A pencil is in the basket.</div>
+<div class="codeline">A banana is in the basket.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Emptying is an action applying to one thing.</div>
+<div class="codeline">Understand &quot;empty [something]&quot; as emptying.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Check emptying:</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the noun is not a container:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;That&apos;s not something you can empty.&quot; instead;</div>
+<div class="codeline">&ensp;&ensp;&ensp;else if the noun is not open:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say “You’ll need to open [the noun] first.” instead;</div>
+<div class="codeline">&ensp;&ensp;&ensp;else if nothing is in the noun:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;There&apos;s nothing in [the noun].&quot; instead.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Carry out emptying:</div>
+<div class="codeline">&ensp;&ensp;&ensp;let R be a random thing in the noun;</div>
+<div class="codeline">&ensp;&ensp;&ensp;while R is not nothing:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;move R to the location;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now R is a random thing in the noun.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Report emptying:</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You dump out the contents of [the noun] onto the floor.&quot;</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Test me with &quot;x basket / empty basket / l / empty basket / empty pencil&quot;.</div>
+</div>
+<p>The loop is in the Carry Out Emptying rule. (The check rule makes sure
+that the object the player wants to empty is a container, that it’s
+open, and that it’s not empty already.) We first create a temporary
+variable, R, and assign its value to something or other in the container
+(we don’t care what). We have to do this before we enter the while loop,
+so that Inform will know what R refers to. After moving R to the
+location, we make R stand for something else, and then we return to the
+top of the loop. As long as R is something (an object), the loop will
+continue to cycle. But if the container is now empty, R has become
+nothing, so the loop terminates.</p>
+
+
+</main>
+<footer>
+  <p><em>The Inform 7 Handbook</em> is copyright &copy; 2015 by Jim Aikin, and released under a <a href="https://creativecommons.org/licenses/by-nc/1.0/legalcode">CC-BY-NC 1.0 license</a>.</p>
+</footer>
+  </body>
+</html>
+
+
+<!doctype html>
+<title>Inform 7 Handbook</title>
+<script src="../i7doc.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,375;0,400;0,500;0,700;1,375;1,400;1,500;1,700&family=Source+Sans+Pro:ital,wght@0,350;0,400;0,550;0,700;1,350;1,400;1,550;1,700&display=swap" rel="stylesheet"> 
+<link rel="stylesheet" href="../i7doc.css">
+<link rel="stylesheet" href="i7handbook.css">
+  </head>
+  <body>
 <h2 id="chapter-9-phrasing-punctuation">Chapter 9: Phrasing &amp; Punctuation</h2>
 
 <p>In this chapter we’re going to look at the guidelines you’ll need to

@@ -1,6 +1,10 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8">
-<title>Inform 7 Handbook</title>
+    
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    
+
+    <title>Chapter 5: Creating Characters</title>
 <script src="../i7doc.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,6 +18,1668 @@
       <h2>by Jim Aikin</h2>
     </header>
     <main>
+  <h2 id="chapter-5-creating-characters">Chapter 5: Creating Characters</h2>
+
+<p>Stories are about people. Because interactive fiction is a form of
+storytelling, it’s almost inevitable that you’ll want to include a few
+people in your game. A story with no people in it probably won’t be very
+interesting or fun – at least not for very long. If your players can’t
+do anything but wander around picking up treasures and fighting off
+monsters, before too long they’ll start to get bored. Besides, even a
+monster is a person, loosely speaking.</p>
+
+<p>Using Inform, you can add people (or talking animals, or whatever sort
+of odd characters you’d like) to the games you write. Creating lifelike
+characters is an important skill to learn, and it may be the most
+complicated part of writing IF. In this chapter we’ll cover the basics
+of creating characters and also look at a few advanced techniques that
+you’ll probably want to use as your story develops.</p>
+
+<p>Programming a non-player character (the abbreviation “NPC” is used
+throughout the interactive fiction community to refer to a non-player
+character) is complicated because people are complicated. Think about
+the differences between interacting with your Uncle Fred and interacting
+with a bowling ball. Uncle Fred does things on his own – that is, he
+initiates activities. A bowling ball doesn’t. Uncle Fred may observe you
+and comment on something you’re doing. A bowling ball won’t. Uncle Fred
+may respond to you differently depending on whether he’s happy or sad,
+or on whether he’s upset with you. A bowling ball will respond exactly
+the same whether it’s red or black or zebra-striped. (If it’s lopsided,
+all bets are off.)</p>
+
+<p>The ways that people interact with one another are also complicated:
+Uncle Fred might respond differently if you shout or whisper, but a
+bowling ball won’t. To make matters worse, shouting and whispering are
+not modeled in most IF conversation systems.</p>
+
+<p>Whoever plays your game will naturally hope (or worse, expect) that the
+player character will be able to interact with other characters the same
+way the player herself would interact with a real person. Sadly, that
+degree of realism is just about impossible to achieve using today’s
+interactive fiction programming tools. The parser is designed to accept
+in puts in the form &lt;VERB&gt; &lt;NOUN&gt; &lt;PREPOSITION&gt;
+&lt;NOUN&gt;. Anything more complicated is not likely to work well. The
+only wrinkle that is usually added to this system is that the player may
+be able to give commands to an NPC. The syntax for this begins with the
+name (or other identifier, such as “dragon” or “frog”) of the NPC, then
+a comma, then the usual syntax. For instance, BOB, PUT THE BOMB ON THE
+TABLE.</p>
+
+<p>Why not design a parser that will accept more complex interactions with
+NPCs? This turns out to be a difficult problem in computer science.
+Various people have tried it, but so far, the results have not been
+inspiring. Technically, it’s possible to write a game that will respond
+to whatever complicated player inputs you’d like. If you want your game
+to respond to ASK EMILY WHETHER EMILE’S DOG IS STILL TOO SICK TO HUNT
+FOR THE SQUIRREL, you can do it using the “after reading a command”
+activity, as explained in <a href="../WI_18.html#section_33">WI 18.33: Reading a
+command</a>. But there are several problems with
+this type of trick, including the problem of letting the player know
+that such a complex input is possible. I don’t recommend that authors go
+down that road in their first or second game.</p>
+
+<p>Even while sticking within the limitations of “normal” IF programming,
+we can employ various tricks to make our characters seem more real. The
+characters may be just the software equivalent of cardboard, but players
+will enjoy meeting and talking with them.</p>
+
+<p>Before we start talking about specific programming techniques, we need
+to talk about how you might want to use characters in your interactive
+story. What roles or functions might they take on?</p>
+
+<div class="sidebar" id="believeable-characters">
+  <h4 id="believable-characters">Believable Characters</h4>
+
+  <p>Characters will seem more believable if the player’s interaction with
+them is limited. This could be because the NPC plays a limited role in
+the story, or does not know the PC (player character): It’s a lot easier
+to make a guard believable than a girlfriend! You can also limit the
+interaction with a character by moving the character onstage and
+offstage again quickly. Characters who have a single-minded obsession
+with one thing (for instance, a king who only cares about whether you’re
+a spy) are easier to create than characters who are just hanging out.
+But the latter sort (Emily Short’s Galatea, from the game of the same
+name) can be vivid and memorable.</p>
+
+</div>
+
+<h3 id="overview">Overview</h3>
+
+<p>To begin with, your players will probably want to be able to talk to the
+other characters. There are several ways to set up a conversation
+system. Each method has advantages, and also weaknesses, as we’ll see.</p>
+
+<p>One common reason to want to have a conversation with a character is to
+try to learn something useful. If you’re writing a game about criminals,
+for instance, ASK POLICEMAN ABOUT BURGLAR might be an important command
+for the player to try. Another reason to have a conversation is because
+you hope to cause the character to do something. If the player types
+TELL POLICEMAN ABOUT BURGLAR, the policeman might rush off to arrest the
+burglar – a real change in the world of the story that won’t take place
+unless the player gives that command.</p>
+
+<p>The player character may need help doing something, and may want to ask
+another character for help. For instance, a player character who has
+only normal strength might want to enlist the aid of a weight-lifter to
+move a boulder. So the player may need a way to give instructions to
+other characters. ASK REGINALD TO LIFT THE BOULDER could be an important
+part of the game.</p>
+
+<p>Characters may have possessions that the player needs. One common type
+of instruction is to ask for an object. If you ASK MARY FOR DIAMOND
+NECKLACE, she might refuse to part with it, or she might give it to you,
+depending on how the game is written.</p>
+
+<p>Some characters are stationary – they’re always in one room. Other
+characters may wander around the map. They may follow the PC, or run
+away when the PC approaches.</p>
+
+<p>Characters will sometimes carry out simple tasks on their own, such as
+stealing things from the player or even killing the player.</p>
+
+<p>When a character is in the same room as the player, the character may
+seem more lifelike if it’s carrying out some sort of “stage business,”
+engaging in a minor activity every turn, or once every few turns, just
+to remind the player that there’s someone else in the room. If the
+character is doing this type of stage business, nothing is likely to
+change in the room (although it could – the butler might be polishing
+the silverware for 20 turns, and at the end of that time the description
+of the silverware might change to say that it’s spotless and shining).
+All that usually happens is that the game prints out a brief message
+describing a nonexistent action.</p>
+
+<p>If your story takes place in a world where there’s lots of fighting
+(swordfights or laser guns, your choice!), you may want the player to
+engage in hand-to-hand combat with other characters.</p>
+
+<p>Groups of characters require special handling. If your player character
+is facing a crowd of angry villagers armed with torches and pitchforks,
+you probably don’t want to create a hundred different villager
+characters. For one thing, it’s a lot of work, and you won’t gain much
+in terms of realism or a more dramatic story. A better method will
+usually be to create a single “crowd” object (which might not be a
+person at all, as far as Inform is concerned) and then create a single
+“spokesperson” man or woman, an actual Inform NPC object, who will
+engage in any conversation or other activities. On the other hand, if
+you’re writing an Agatha Christie type of murder mystery, you may want
+to have as many as six or seven individual characters (the suspects) all
+sitting around in the drawing room at the same time. Inform provides
+some fascinating tools with which to allow these characters to relate to
+one another. (See <a href="#relations">Relations</a>.)</p>
+
+<h3 id="the-player-character">The Player Character</h3>
+
+<p>Pleasantly little needs to be said about creating the player character
+(PC). Your PC can have any identity you might like, from a mile-high
+evil robot to a small, cuddly bunny rabbit. Or the PC could be a sort of
+blank – a shadow character that the actual player can project his or her
+own personality into.</p>
+
+<p>To start creating a PC, all you need to do is write a description:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The description of the player is &quot;In the absence of a mirror, you&apos;re\nnot quite sure what you look like today.&quot;`)"><span class="sym">⧉</span></button>
+<div class="codeline">The description of the player is &quot;In the absence of a mirror, you&apos;re</div>
+<div class="codeline">not quite sure what you look like today.&quot;</div>
+</div>
+<p>In games that are puzzle-oriented rather than people-oriented, that may
+be all you need to do. Depending on the character you’ve chosen, though,
+you may want to write non-standard messages for situations in which the
+PC either does something, or doesn’t. For instance, your PC might be
+very timid. In that case, the PC would naturally hesitate to do certain
+things that another PC might have no trouble doing:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of taking the spider, say &quot;You can&apos;t bring yourself even to\nget near it.&quot;`)"><span class="sym">⧉</span></button>
+<div class="codeline">Instead of taking the spider, say &quot;You can&apos;t bring yourself even to</div>
+<div class="codeline">get near it.&quot;</div>
+</div>
+<p>At the other extreme, the PC might be rambunctious, ill-mannered, or
+just plain evil. He might enjoy breaking things, for instance. This fact
+could lead you to write code like this:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Some dishes are in the Lab. The dishes can be broken or unbroken. The dishes are unbroken. The printed name of the dishes is &quot;[if broken]broken [end if]dishes&quot;. Understand &quot;broken&quot; as the dishes when the dishes are broken.\n\nInstead of attacking the dishes:\n\tif the dishes are broken:\n\t	say &quot;You already took care of that little chore.&quot;;\n\totherwise:\n\t	now the dishes are broken;\n\t	say &quot;You smash the dishes with gusto!&quot;`)"><span class="sym">⧉</span></button>
+<div class="codeline">Some dishes are in the Lab. The dishes can be broken or unbroken. The dishes are unbroken. The printed name of the dishes is &quot;[if broken]broken [end if]dishes&quot;. Understand &quot;broken&quot; as the dishes when the dishes are broken.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Instead of attacking the dishes:</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the dishes are broken:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;You already took care of that little chore.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the dishes are broken;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;You smash the dishes with gusto!&quot;</div>
+</div>
+<p>The point of this code is to respond to the command BREAK THE DISHES
+with the line, “You smash the dishes with gusto!” Customizing Inform’s
+standard outputs is a simple way of giving a specific character to the
+PC.</p>
+
+<p>In the early days of interactive fiction, a number of games were
+released in which the PC changed identity during the course of the game
+– essentially, switching from one body to another. This isn’t done too
+often anymore, but if you want to do it, it isn’t difficult. All you
+need is a couple of lines of code. In the silly little example below,
+we’ll use pressing a button to cause the PC to swap bodies with an NPC.
+In a real game, you might use a magical device of some sort, or have the
+PC wake up from a dream and discover that she’s really someone else.</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Test Lab is a room. &quot;Many devious tests are conducted here.&quot;\n\nBingo is an animal in the Lab. The description is &quot;[if the player is Bingo]You are[otherwise]Bingo is[end if] a peppy-looking cocker spaniel.&quot;\n\nBob is a man in the Lab. The description is &quot;[if the player is Bob]You are[otherwise]Bob is[end if] a heavyset, muscular man.&quot;\n\nThe player is Bob.\n\nLinda is a woman in the Lab. The description is &quot;[if the player is Linda]You are[otherwise]Linda is[end if] a sultry and curvaceous beauty.&quot;\n\nThe red button is in the Lab.\n\nInstead of pushing the red button:\n\tif the player is Bob:\n\t	now the player is Linda;\n\t	say &quot;A strange tingly feeling overtakes you. You feel much more feminine than before.&quot;;\n\totherwise if the player is Linda:\n\t	now the player is Bingo;\n\t	say &quot;Your head spins. When you recover, things seem to have changed. The world is larger, and you&apos;re covered with fur.&quot;;\n\totherwise:\n\t	now the player is Bob;\n\t	say &quot;You feel odd for a moment Yes, you&apos;re human again, and muscular, and male.&quot;`)"><span class="sym">⧉</span></button>
+<div class="codeline">The Test Lab is a room. &quot;Many devious tests are conducted here.&quot;</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Bingo is an animal in the Lab. The description is &quot;[if the player is Bingo]You are[otherwise]Bingo is[end if] a peppy-looking cocker spaniel.&quot;</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Bob is a man in the Lab. The description is &quot;[if the player is Bob]You are[otherwise]Bob is[end if] a heavyset, muscular man.&quot;</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">The player is Bob.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Linda is a woman in the Lab. The description is &quot;[if the player is Linda]You are[otherwise]Linda is[end if] a sultry and curvaceous beauty.&quot;</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">The red button is in the Lab.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Instead of pushing the red button:</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the player is Bob:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the player is Linda;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;A strange tingly feeling overtakes you. You feel much more feminine than before.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise if the player is Linda:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the player is Bingo;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;Your head spins. When you recover, things seem to have changed. The world is larger, and you&apos;re covered with fur.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the player is Bob;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;You feel odd for a moment Yes, you&apos;re human again, and muscular, and male.&quot;</div>
+</div>
+<p>In a real game, many other messages and rules would have to test whether
+the player is Bob, Linda, or Bingo, and change the results of the
+player’s commands based on the PC’s identity.</p>
+
+<h3 id="creating-an-npc">Creating an NPC</h3>
+
+<p>Creating a new non-player character is easy. Assuming we’ve created a
+room called the Billiard Room, we can then write:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Troy is a man in the Billiard Room. The description is “Troy looks\ndevilishly handsome in his tuxedo, but you’re not sure you trust him.”\nTroy is wearing a tuxedo.`)"><span class="sym">⧉</span></button>
+<div class="codeline">Troy is a man in the Billiard Room. The description is “Troy looks</div>
+<div class="codeline">devilishly handsome in his tuxedo, but you’re not sure you trust him.”</div>
+<div class="codeline">Troy is wearing a tuxedo.</div>
+</div>
+<p>The assertion, “Troy is wearing a tuxedo” both creates an object (the
+tuxedo) and lets Inform know that the tuxedo is wearable. (If you
+actually want the player to wear the tuxedo at some point in the story,
+you’ll have to write some code for getting it away from Troy. By
+default, characters won’t let go of things they’re wearing or carrying.)</p>
+
+<p>In fact, the sentence “Troy is wearing a tuxedo” lets Inform know that
+Troy is a person, because only people and animals can wear things. By
+default, an object that you say is wearing something will be male and a
+person, not an animal. So we can delete the words “a man” in the code
+above and get exactly the same result. I suggest always saying that an
+NPC is a man or a woman, however, because if you should later change
+your mind about having the NPC wear something and delete the sentence
+about the tuxedo, the NPC will no longer be a man, just a thing.</p>
+
+<p>If you use this code in a game, you’ll find that when the player enters
+the billiard room, the game reports, “You can see Troy here.” As you’ll
+recall from Chapter 3, we can improve the output by giving the Troy
+object an initial appearance<em>.</em> The initial appearance is formatted
+exactly like a room description – it appears immediately after we create
+Troy, and is written as a double-quoted sentence that stands by itself.
+The sentence below that begins, “Troy is leaning nonchalantly” is an
+initial appearance.</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Troy is a man in the Billiard Room. “Troy is leaning nonchalantly\nagainst a corner of the billiard table, pretending not to notice you.”\nThe description is “Troy looks devilishly handsome in his tuxedo, but\nyou’re not sure you trust him.” Troy is wearing a tuxedo.`)"><span class="sym">⧉</span></button>
+<div class="codeline">Troy is a man in the Billiard Room. “Troy is leaning nonchalantly</div>
+<div class="codeline">against a corner of the billiard table, pretending not to notice you.”</div>
+<div class="codeline">The description is “Troy looks devilishly handsome in his tuxedo, but</div>
+<div class="codeline">you’re not sure you trust him.” Troy is wearing a tuxedo.</div>
+</div>
+<p>Now, when the player enters the billiard room, the room description will
+include, instead of the boring line “You can see Troy here,” the much
+more colorful line, “Troy is leaning nonchalantly against a corner of
+the billiard table, pretending not to notice you.” I’d recommend always
+giving an NPC an initial appearance.</p>
+
+<p>At present, Troy doesn’t do much. But even at this stage, Inform
+understands that a person is different from most other types of objects.
+Here’s a transcript of what can happen in the billiard room with no more
+code for Troy than what we’ve written above:</p>
+
+<blockquote>
+  <p><span class="command">kiss troy</span> <br />
+Troy might not like that. <br />
+ <br />
+<span class="command">kiss tuxedo</span> <br />
+You can only do that to something animate. <br />
+ <br />
+<span class="command">take troy</span> <br />
+I don't suppose Troy would care for that. <br />
+ <br />
+<span class="command">take tuxedo</span> <br />
+That seems to belong to Troy.</p>
+</blockquote>
+
+<p>As you can see, Inform automatically understands that kissing is
+something that the player character can do to people (or to animals),
+but not to inanimate objects. If we try to take a person, the default
+error message prevents it – and if we try to take something that a
+person is wearing or carrying, we get a different error message.</p>
+
+<p>Incidentally, if you need the player to be able to kiss an inanimate
+object – perhaps you’ve created the Pope as a character, and the player
+is expected to kiss the Pope’s ring – you’ll find that a simple Instead
+rule won’t do the job. A Before rule won’t work either. This is because
+the Inform library defines the kissing action more or less like this:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Understand “kiss [someone]” as kissing.`)"><span class="sym">⧉</span></button>
+<div class="codeline">Understand “kiss [someone]” as kissing.</div>
+</div>
+<p>The grammar token “[someone]” won’t match an inanimate object; it will
+only match a person. So an Instead or Before rule will never have a
+chance to get into the act: the command KISS RING will be rejected by
+the game’s parser. The same thing happens, by the way, with the GIVE TO
+and SHOW TO actions, though those are less likely to cause problems,
+because it’s hard to think of a reason why you would want the player to
+be able to show or give something to an inanimate object!</p>
+
+<p>We’ll borrow a bit from Chapter 4 of the <em>Handbook</em>, “Actions,” and show
+how to make it possible to kiss something inanimate. We don’t need to
+define a separate kissing action for inanimate things – all we need to
+do is add a grammar line and define a default “you can’t do that”
+message:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Understand &quot;kiss [something]&quot; as kissing.\n\nInstead of kissing something which is not a person:\n\tsay &quot;[The noun] [don&apos;t] look very sanitary.&quot;`)"><span class="sym">⧉</span></button>
+<div class="codeline">Understand &quot;kiss [something]&quot; as kissing.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Instead of kissing something which is not a person:</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;[The noun] [don&apos;t] look very sanitary.&quot;</div>
+</div>
+<p>Now we can write an instead rule that will allow the player to pay
+osculatory obeisance to Troy’s tuxedo:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of kissing the tuxedo:\n\tsay &quot;Troy graciously allows you to kiss his tuxedo.&quot;`)"><span class="sym">⧉</span></button>
+<div class="codeline">Instead of kissing the tuxedo:</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Troy graciously allows you to kiss his tuxedo.&quot;</div>
+</div>
+<p>The distinction between “[someone]” and “[something]” is worth
+mentioning because it allows us to write new actions that will also
+apply only to people. For instance, we might want the player to be able
+to flatter other characters. Causing the flattery to affect the
+character would take a bit more code, but we can create a basic
+flattering action like this:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Flattering is an action applying to one thing. Understand &quot;flatter [someone]&quot; and &quot;praise [someone]&quot; as flattering.\n\nCheck flattering:\n\t	say &quot;[The noun] blushes modestly.&quot;\n\nInstead of flattering Troy:\n\tsay &quot;Troy grins at you. &apos;Well, sure. Anything nice you say about me, I gotta believe you mean it.&apos;&quot;`)"><span class="sym">⧉</span></button>
+<div class="codeline">Flattering is an action applying to one thing. Understand &quot;flatter [someone]&quot; and &quot;praise [someone]&quot; as flattering.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Check flattering:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[The noun] blushes modestly.&quot;</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Instead of flattering Troy:</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Troy grins at you. &apos;Well, sure. Anything nice you say about me, I gotta believe you mean it.&apos;&quot;</div>
+</div>
+<p>Now the player can flatter any character in the game, thereby producing
+the response in the Check rule above. But flattering Troy will produce a
+different response, and the parser won’t let the player flatter
+inanimate objects. Care is required when writing default responses,
+however, because an animal will match the grammar token “[someone]”.
+If you’ve got a talking tortoise in your game, you don’t want the
+tortoise blushing modestly when flattered!</p>
+
+<p>If you have several male characters in your game, you can handle this
+for all of them at once by writing:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Understand &quot;man&quot; as a man.`)"><span class="sym">⧉</span></button>
+<div class="codeline">Understand &quot;man&quot; as a man.</div>
+</div>
+<div class="sidebar" id="man-and-woman">
+  <h4 id="man--woman">“Man” &amp; “Woman”</h4>
+
+  <p>If you create an NPC by saying, for instance, “Troy is a man,” the
+parser won’t understand the word “man” as referring to Troy. This is
+because the name of a kind is not understood as referring to specific
+objects of that kind unless you say it is. You have to add the
+vocabulary by hand:</p>
+
+  <div class="codeblock">
+    <p><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Troy is a man in the Billiard Room. Understand &quot;man&quot; as Troy.\n`)"><span class="sym">⧉</span></button></p>
+    <div class="codeline">
+      <p>Troy is a man in the Billiard Room. Understand “man” as Troy.</p>
+    </div>
+  </div>
+</div>
+
+<h3 id="mr.-mrs.">Mr. &amp; Mrs.</h3>
+
+<p>In the U.S., we always put a period after abbreviations like Mr., Mrs.,
+Ms., and Dr. In Britain no periods are used. But even if Graham Nelson
+weren’t British, the period has some uses in Inform that would make it
+tricky to handle those abbreviations.</p>
+
+<p>In source text, Inform understands the period as being the end of a
+sentence. So you can’t create a character this way:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Mrs. Smith is a woman in the drawing room. [Error!]`)"><span class="sym">⧉</span></button>
+<div class="codeline">Mrs. Smith is a woman in the drawing room. [Error!]</div>
+</div>
+<p>Inform will think “Mrs” is a separate sentence – a sentence that makes
+no sense. The solution is to leave out the period when creating Mrs.
+Smith:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Mrs Smith is a woman in the Drawing Room. &quot;Mrs. Smith is a stout\nwoman of mature years.&quot; Understand &quot;stout&quot; and &quot;woman&quot; as Mrs Smith.`)"><span class="sym">⧉</span></button>
+<div class="codeline">Mrs Smith is a woman in the Drawing Room. &quot;Mrs. Smith is a stout</div>
+<div class="codeline">woman of mature years.&quot; Understand &quot;stout&quot; and &quot;woman&quot; as Mrs Smith.</div>
+</div>
+<p>You can refer to her as “Mrs. Smith” in the description, or in any other
+output text that you write, but as far as Inform is concerned, she’s Mrs
+Smith. To fix this, we need a special rule:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Rule for printing the name of Mrs Smith: say &quot;Mrs. Smith&quot;.`)"><span class="sym">⧉</span></button>
+<div class="codeline">Rule for printing the name of Mrs Smith: say &quot;Mrs. Smith&quot;.</div>
+</div>
+<p>One problem remains: If the player types X MRS. SMITH, the parser won’t
+know what the player means. Inform won’t allow periods to be used in
+Understand text, so we can’t do this:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Understand &quot;stout&quot;, &quot;woman&quot;, and &quot;Mrs.&quot; as Mrs Smith. [Error!]`)"><span class="sym">⧉</span></button>
+<div class="codeline">Understand &quot;stout&quot;, &quot;woman&quot;, and &quot;Mrs.&quot; as Mrs Smith. [Error!]</div>
+</div>
+<p>Also, if the player types a command that includes a period, the parser
+will understand it as two separate commands. For example, the player can
+move quickly from room to room (assuming she knows the route) like this:</p>
+
+<blockquote>
+  <p><span class="command">n. e. n. nw</span></p>
+</blockquote>
+
+<p>As far as the parser is concerned, those are four separate commands.
+This is a handy feature found in most modern IF interpreters. In the
+example above, X MRS. SMITH would produce the description of an object
+whose name includes the word “Mrs”, because the parser would understand
+the first command as X MRS – but SMITH would look to the parser like a
+separate command, one that is not likely to be understood. To prevent
+this, we have to use an advanced feature of Inform – the “after reading
+a command” activity. As soon as the player hits the Return/Enter key to
+issue a command, we’re going to look for an input that matches “MRS.”
+and replace it with “MRS” before the parser gets a chance to process it.
+While we’re at it, we’ll fix the other common abbreviations too:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`After reading a command:\n\tlet T be text;\n\tlet T be the player&apos;s command;\n\treplace the regular expression &quot;mrs\.&quot; in T with &quot;mrs&quot;;\n\treplace the regular expression &quot;mr\.&quot; in T with &quot;mr&quot;;\n\treplace the regular expression &quot;ms\.&quot; in T with &quot;ms&quot;;\n\treplace the regular expression &quot;dr\.&quot; in T with &quot;dr&quot;;\n\tchange the text of the player&apos;s command to T.`)"><span class="sym">⧉</span></button>
+<div class="codeline">After reading a command:</div>
+<div class="codeline">&ensp;&ensp;&ensp;let T be text;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let T be the player&apos;s command;</div>
+<div class="codeline">&ensp;&ensp;&ensp;replace the regular expression &quot;mrs\.&quot; in T with &quot;mrs&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;replace the regular expression &quot;mr\.&quot; in T with &quot;mr&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;replace the regular expression &quot;ms\.&quot; in T with &quot;ms&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;replace the regular expression &quot;dr\.&quot; in T with &quot;dr&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;change the text of the player&apos;s command to T.</div>
+</div>
+<p>I’m not going to try to explain every line in that code, because regular
+expressions are an advanced topic, not something we’ll explore in detail
+in the <em>Handbook</em>. If you’re curious, you can learn more by reading <a href="../WI_20.html">WI
+Chapter 20: Advanced Text</a>. If you don’t have the
+patience for that, just copy the code above exactly, and it will do the
+job. (If you’re retyping it, don’t skip the backslash characters before
+the periods, or skip the hard-to-see periods themselves.)</p>
+
+<p><a href="https://github.com/ganelson/inform/blob/master/inform7/Internal/Extensions/Emily%20Short/Punctuation%20Removal.i7x">Punctuation Removal by Emily Short</a> is an extension providing simple
+way of getting rid of the periods in the player’s input. This extension,
+which is bundled with Inform, allows us to skip typing the messy code
+above, and simply write:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Include Punctuation Removal by Emily Short.\n\nAfter reading a command:\n\tresolve punctuated titles.`)"><span class="sym">⧉</span></button>
+<div class="codeline">Include Punctuation Removal by Emily Short.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">After reading a command:</div>
+<div class="codeline">&ensp;&ensp;&ensp;resolve punctuated titles.</div>
+</div>
+<p>Punctuation Removal can do several other useful tricks. You’ll find it
+in the Extensions tab in the IDE.</p>
+
+<h3 id="conversations-part-i-talk-to">Conversations, Part I: talk to</h3>
+
+<p>The easiest way to let your players talk to NPCs is by creating a “talk
+to” action. Here’s a code sample that will produce a simple
+conversation:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Talking to is an action applying to one visible thing. Understand &quot;talk to [someone]&quot; or “converse with [someone]” as talking to.\n\nCheck talking to: say &quot;[The noun] doesn&apos;t reply.&quot;\n\nInstead of talking to Troy:\n\tsay &quot;[one of]&apos;Hi, there,&apos; you say confidently.[paragraph break]&apos;What&apos;s happening?&apos; he replies casually.[or]&apos;I&apos;ve been meaning to ask you about that tuxedo,&apos; you comment. &apos;Where did you get it?&apos;[paragraph break]&apos;My tailor is quite exclusive,&apos; Troy replies, inspecting his cuff. &apos;He would never consent to clothe riffraff like you.&apos;[or]&apos;You really are a stuck-up snob, aren&apos;t you?&apos; you say hotly.[paragraph break]Troy laughs heartily. &apos;I was just yanking your chain. I bought it at Macy&apos;s for $60 at a clearance sale. I&apos;ll give it to you if you like.&apos;[or]You decide against talking any further with Troy right now.[stopping]&quot;.`)"><span class="sym">⧉</span></button>
+<div class="codeline">Talking to is an action applying to one visible thing. Understand &quot;talk to [someone]&quot; or “converse with [someone]” as talking to.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Check talking to: say &quot;[The noun] doesn&apos;t reply.&quot;</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Instead of talking to Troy:</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;[one of]&apos;Hi, there,&apos; you say confidently.[paragraph break]&apos;What&apos;s happening?&apos; he replies casually.[or]&apos;I&apos;ve been meaning to ask you about that tuxedo,&apos; you comment. &apos;Where did you get it?&apos;[paragraph break]&apos;My tailor is quite exclusive,&apos; Troy replies, inspecting his cuff. &apos;He would never consent to clothe riffraff like you.&apos;[or]&apos;You really are a stuck-up snob, aren&apos;t you?&apos; you say hotly.[paragraph break]Troy laughs heartily. &apos;I was just yanking your chain. I bought it at Macy&apos;s for $60 at a clearance sale. I&apos;ll give it to you if you like.&apos;[or]You decide against talking any further with Troy right now.[stopping]&quot;.</div>
+</div>
+<p>The most interesting thing about this code is what happens in the long
+“say” block. This is set up to give Inform some alternative outputs. The
+structure looks like this: “[one
+of]…[or]…[or]…[or]…[stopping]”. This structure is covered down
+near the bottom of <a href="../WI_5.html#section_7">WI 5.7: Text with random
+alternatives</a>; also see <a href="#text-insertions">Text
+Insertions</a>.</p>
+
+<p>When you use this type of code, the player can type TALK TO TROY, read
+the first response (up to “[or]”), then type AGAIN (or just G) to read
+the second response, and so on. The last response (the one just before
+“[stopping]” should always be used to indicate to the player that
+there’s nothing further to be gained by trying to talk to the character.
+Note also the use of “[paragraph break]” for the outputs that are
+separated into paragraphs. The output will look like this:</p>
+
+<blockquote>
+  <p><span class="command">talk to troy</span> <br />
+"Hi, there," you say confidently. <br />
+"What's happening?" he replies casually. <br />
+ <br />
+<span class="command">g</span> <br />
+"I've been meaning to ask you about that tuxedo," you comment. <br />
+"Where did you get it?" <br />
+"My tailor is quite exclusive," Troy replies, inspecting his cuff. <br />
+"He would never consent to clothe riffraff like you." <br />
+ <br />
+<span class="command">g</span> <br />
+"You really are a stuck-up snob, aren't you?" you say hotly. <br />
+Troy laughs heartily. "I was just yanking your chain. I bought it at <br />
+Macy's for $60 at a clearance sale. I'll give it to you if you <br />
+like." <br />
+ <br />
+<span class="command">g</span> <br />
+You decide against talking any further with Troy right now.</p>
+</blockquote>
+
+<p>The good thing about a talk to conversation system is that it’s easy to
+set up. The bad thing is that it’s quite limited. If the player wants to
+ask or tell the character about three or four different things that may
+be significant to the story, a talk to system may not do the job. It’s
+possible to set up a TALK TO system with logic tests in the Instead rule
+– tests such as “if the cellar has not been visited” could produce two
+different streams of conversation depending on whether the cellar has
+been visited. But if the conversation is going to move the story
+forward, it’s up to the player to use the AGAIN command several times in
+order to make sure the conversation is finished, and then perhaps start
+a new conversation later.</p>
+
+<p>Another problem is that if the player should try TALK TO TROY only
+twice, go to a different room, return a hundred turns later, and try
+TALK TO TROY again, the conversation will continue as if there had been
+no interruption. This is not realistic.</p>
+
+<p>One easy way to make TALK TO work more flexibly uses Inform’s scenes
+feature (see Chapter 7 of the <em>Handbook</em>):</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of talking to Troy during Cocktail Hour:`)"><span class="sym">⧉</span></button>
+<div class="codeline">Instead of talking to Troy during Cocktail Hour:</div>
+</div>
+<p>A different but also handy use for the TALK TO command might be to have
+your game print out some suggested topics for conversation. This use of
+the TALK TO command doesn’t produce any actual conversation; the
+conversation would occur in an ASK ABOUT or TELL ABOUT command, which is
+the subject of the next section.</p>
+
+<blockquote>
+  <p><span class="command">talk to bishop</span> <br />
+You could ask the bishop about the crypt, about the impending <br />
+eclipse, or about the Uzi he’s carrying.</p>
+</blockquote>
+
+<p>This list of possible topics can be fixed, or you can write some code
+that will put it together while the game is being played. After the
+player has asked about the crypt, for instance, this topic might
+disappear from the list of suggested topics, that topic being exhausted.
+An extension called <a href="https://github.com/i7/extensions/blob/10.1/Eric%20Eve/Conversation%20Suggestions-v6.i7x">Conversation Suggestions by Eric Eve</a> will give
+you a framework for setting up topic suggestion lists of this sort.
+(Note that Conversation Suggestions is not compatible with the simple
+TALK TO code suggested above.)</p>
+
+<h3 id="conversations-part-ii-asktellgiveshow">Conversations, Part II: ask/tell/give/show</h3>
+
+<p>Personally, I favor the ask/tell/give/show conversation system. (Other
+game authors disagree.) I feel it gives a good compromise between
+realism and challenging the player to figure out what’s important and
+therefore worth having a conversation about.</p>
+
+<p>This system is based on five commands:</p>
+
+<p>ASK NPC ABOUT X</p>
+
+<p>TELL NPC ABOUT X</p>
+
+<p>SHOW X TO NPC</p>
+
+<p>GIVE X TO NPC</p>
+
+<p>ASK NPC FOR X</p>
+
+<p>The give to, show to, and ask for actions are included in Inform. To use
+them in their basic form, all you need to do is write a few Instead
+rules. The ask about and tell about actions are included in Inform in a
+limited way: You can ask about or tell about topics (which are just
+strings of text), but not about objects that exist in the game unless
+you set up topics that have the same vocabulary as the objects. We’ll
+take a close look at all of these commands, and show ways to make them
+more flexible.</p>
+
+<p>The simplest command to add to your game is give to. Continuing the
+earlier example game, with Troy in the Billiard Room, we can do this:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The player carries a plum.\n\nIn the Billiard Room is a hammer.\n\nInstead of giving the plum to Troy:\n\tsay &quot;Troy inspects the plum carefully, accepts it, and pops it into his mouth.&quot;;\n\tremove the plum from play.\n\nInstead of giving something to Troy:\n\tsay &quot;Troy sneers at you. &apos;I&apos;m not interested,&apos; he says coldly.&quot;`)"><span class="sym">⧉</span></button>
+<div class="codeline">The player carries a plum.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">In the Billiard Room is a hammer.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Instead of giving the plum to Troy:</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Troy inspects the plum carefully, accepts it, and pops it into his mouth.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;remove the plum from play.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Instead of giving something to Troy:</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Troy sneers at you. &apos;I&apos;m not interested,&apos; he says coldly.&quot;</div>
+</div>
+<p>If you add this code to your game, you’ll discover a couple of things.
+First, Troy will eat the plum, but will sneer at any other gift you may
+offer. (And incidentally, Inform knows that “offer” is a synonym for
+“give”.) Second, if you try GIVE HAMMER TO TROY, the parser will cause
+you to pick up the hammer first before the giving action is attempted.
+This is called implicit taking. It’s a handy feature, because it saves
+the player a bit of trouble: You don’t need to PICK UP THE HAMMER first
+before giving it to Troy. (See <a href="#action-processing-summary">Action Processing
+Summary</a> to learn a bit more about implicit
+actions.)</p>
+
+<p>If the implicit taking fails (for instance, if you try to give an NPC a
+canary when the canary is in a locked cage), the giving action will
+never be attempted. Inform assumes that the PC can only give something
+to an NPC while actually holding it.</p>
+
+<p>This makes sense for the giving action (though you’d need to write some
+extra code in order to allow the player to give an NPC a poisonous snake
+while the snake is curled up inside a cage). But the same condition
+applies to the showing action, and here it makes a bit less sense. What
+if I want to show an NPC the beautiful sunset? By default, Inform will
+try to have the player take the sunset first, and of course that won’t
+work.</p>
+
+<p>We can get around this limitation by writing a Before rule (instead of
+an Instead rule), like this:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Before showing the tuxedo to Troy:\n\tsay &quot;&apos;Yes,&apos; he replies sarcastically. &apos;I&apos;ve already noticed that I&apos;m\nwearing it.&apos;&quot; instead.`)"><span class="sym">⧉</span></button>
+<div class="codeline">Before showing the tuxedo to Troy:</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;&apos;Yes,&apos; he replies sarcastically. &apos;I&apos;ve already noticed that I&apos;m</div>
+<div class="codeline">wearing it.&apos;&quot; instead.</div>
+</div>
+<p>Now you can show the tuxedo to Troy without having the parser try to
+have you take the tuxedo (which of course Troy won’t let you have).</p>
+
+<h4 id="topics-of-conversation">Topics of Conversation</h4>
+
+<p>Inform’s default handling of ASK ABOUT and TELL ABOUT is good in one
+way, but bad in another way. These commands are implemented so as to
+handle topics, but they don’t know about objects in the game. Let’s
+suppose we want the player to be able to ask Troy about that interesting
+tuxedo. Here’s the basic way to do it:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of asking Troy about &quot;tuxedo&quot;:\n\tsay &quot;&apos;Oh, you&apos;ve noticed my tuxedo,&apos; he replies. &apos;I&apos;m rather fond of\nit.&apos;&quot;`)"><span class="sym">⧉</span></button>
+<div class="codeline">Instead of asking Troy about &quot;tuxedo&quot;:</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;&apos;Oh, you&apos;ve noticed my tuxedo,&apos; he replies. &apos;I&apos;m rather fond of</div>
+<div class="codeline">it.&apos;&quot;</div>
+</div>
+<p>This is fine as far as it goes. The good news is, we can ask Troy about
+abstract topics, such as the meaning of life, using exactly the same
+syntax. The meaning of life doesn’t have to be an actual object in our
+model world. The disadvantage is that the parser will only match the
+<em>exact</em> word or words in the topic. A quick look at the output will show
+why this can be a big problem:</p>
+
+<blockquote>
+  <p><span class="command">ask troy about tuxedo</span> <br />
+"Oh, you've noticed my tuxedo," he replies. "I'm fond of it." <br />
+ <br />
+<span class="command">ask troy about the tuxedo</span> <br />
+There is no reply.</p>
+</blockquote>
+
+<p>The Instead rule above didn’t include “the tuxedo” as a text, and Inform
+has no idea that the topic “the tuxedo” is the same as the topic
+“tuxedo.” Topics are not handled with the same kind of automatic
+intelligence as objects, because it wouldn’t be practical for the parser
+to do so.</p>
+
+<p>We can get around this limitation in a couple of ways. First, we can do
+it by letting Inform know about all of the ways we think the player
+might refer to the tuxedo. But it quickly gets a bit awkward:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Understand &quot;tuxedo&quot;, &quot;the tuxedo&quot;, &quot;his tuxedo&quot;, &quot;suit&quot;, &quot;the suit&quot;,\nand &quot;his suit&quot; as &quot;[tuxedo]&quot;.\n\nInstead of asking Troy about &quot;[tuxedo]&quot;:\n\tsay &quot;&apos;Oh, you&apos;ve noticed my tuxedo,&apos; he replies. &apos;I&apos;m rather fond of\nit.&apos;&quot;`)"><span class="sym">⧉</span></button>
+<div class="codeline">Understand &quot;tuxedo&quot;, &quot;the tuxedo&quot;, &quot;his tuxedo&quot;, &quot;suit&quot;, &quot;the suit&quot;,</div>
+<div class="codeline">and &quot;his suit&quot; as &quot;[tuxedo]&quot;.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Instead of asking Troy about &quot;[tuxedo]&quot;:</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;&apos;Oh, you&apos;ve noticed my tuxedo,&apos; he replies. &apos;I&apos;m rather fond of</div>
+<div class="codeline">it.&apos;&quot;</div>
+</div>
+<p>Here we’ve created a new grammar token, “[tuxedo]”, and provided an
+understand rule that spells out the words and phrases we want the player
+to be able to use. But of course, the careful author will already have
+given a vocabulary list to the tuxedo itself:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Troy is wearing a tuxedo. The description of the tuxedo is &quot;Troy&apos;s\ntuxedo is a handsome bit of custom tailoring.&quot; Understand &quot;Troy&apos;s&quot;,\n&quot;handsome&quot;, &quot;custom&quot;, &quot;tailoring&quot;, &quot;suit&quot;, and &quot;attire&quot; as the\ntuxedo.`)"><span class="sym">⧉</span></button>
+<div class="codeline">Troy is wearing a tuxedo. The description of the tuxedo is &quot;Troy&apos;s</div>
+<div class="codeline">tuxedo is a handsome bit of custom tailoring.&quot; Understand &quot;Troy&apos;s&quot;,</div>
+<div class="codeline">&quot;handsome&quot;, &quot;custom&quot;, &quot;tailoring&quot;, &quot;suit&quot;, and &quot;attire&quot; as the</div>
+<div class="codeline">tuxedo.</div>
+</div>
+<p>Wouldn’t it be nice if we could use that same vocabulary list while
+asking or telling Troy about the tuxedo? Inform lets us do this, and
+with only a bit more work. We need to create two new actions, quizzing
+it about and informing it about. These will use the same command words
+(ask and tell) as Inform’s built-in actions, but we’ll set them up to
+respond to “[something]”, that is, an in-game object, instead of an
+abstract topic.</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Quizzing it about is an action applying to two things. Understand &quot;ask [someone] about [something]&quot; and &quot;quiz [someone] about [something]&quot; as quizzing it about.\n\nCheck quizzing it about:\n\tsay &quot;[The noun] shrugs unhelpfully.&quot;\n\nInforming it about is an action applying to two things. Understand &quot;tell [someone] about [something]&quot; and &quot;inform [someone] about [something]&quot; as informing it about.\n\nCheck informing it about:\n\tsay &quot;&apos;That&apos;s interesting,&apos; [the noun] says, stifling a yawn.&quot;\n\nInstead of quizzing Troy about the tuxedo:\n\tsay &quot;&apos;Oh, you&apos;ve noticed my tuxedo,&apos; he replies. &apos;I&apos;m rather fond of it.&apos;&quot;`)"><span class="sym">⧉</span></button>
+<div class="codeline">Quizzing it about is an action applying to two things. Understand &quot;ask [someone] about [something]&quot; and &quot;quiz [someone] about [something]&quot; as quizzing it about.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Check quizzing it about:</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;[The noun] shrugs unhelpfully.&quot;</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Informing it about is an action applying to two things. Understand &quot;tell [someone] about [something]&quot; and &quot;inform [someone] about [something]&quot; as informing it about.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Check informing it about:</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;&apos;That&apos;s interesting,&apos; [the noun] says, stifling a yawn.&quot;</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Instead of quizzing Troy about the tuxedo:</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;&apos;Oh, you&apos;ve noticed my tuxedo,&apos; he replies. &apos;I&apos;m rather fond of it.&apos;&quot;</div>
+</div>
+<p>Notice that we’ve changed the Instead rule so that it now applies to the
+quizzing it about action, not to the built-in asking it about action.
+Now the player can ask and tell any character about any object in the
+model world, and use or not use THE in the input.</p>
+
+<p>But there’s still one big limitation we have to be aware of: The grammar
+token “[something]” will only match things that are visible in the
+room – that is, objects that are in scope. If we want to be able to ask
+and tell characters about objects that are not present, we need to
+change “[something]” in the grammar for our new actions to “[any
+thing]”. We also need to change the definitions of our actions so that
+instead of applying to two things, they apply to one thing and one
+visible thing.</p>
+
+<p>The reason for the latter change may not be obvious, but if you try
+editing your code to refer to “[any thing]” but don’t change “thing”
+to “visible thing”, you’ll see that the action doesn’t work properly.
+<strong>Important concept:</strong> Technically, “a thing” is shorthand for “a
+currently visible, touchable thing”. That’s what you’ll be typing most
+often, so Inform lets you save a little typing. But when you say
+“visible thing,” Inform understands that you’re referring to something
+that’s visible somewhere or other in the world, whether or not it’s
+touchable. This may seem backwards, because – well, it <em>is</em> backwards.</p>
+
+<p>Here are the final versions of our new actions:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Quizzing it about is an action applying to one thing and one visible thing.\nUnderstand &quot;ask [someone] about [any thing]&quot; and &quot;quiz [someone] about [any thing]&quot; as\nquizzing it about.\n\nInforming it about is an action applying to one thing and one visible\nthing. Understand &quot;tell [someone] about [any thing]&quot; and &quot;inform\n[someone] about [any thing]&quot; as informing it about.`)"><span class="sym">⧉</span></button>
+<div class="codeline">Quizzing it about is an action applying to one thing and one visible thing.</div>
+<div class="codeline">Understand &quot;ask [someone] about [any thing]&quot; and &quot;quiz [someone] about [any thing]&quot; as</div>
+<div class="codeline">quizzing it about.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Informing it about is an action applying to one thing and one visible</div>
+<div class="codeline">thing. Understand &quot;tell [someone] about [any thing]&quot; and &quot;inform</div>
+<div class="codeline">[someone] about [any thing]&quot; as informing it about.</div>
+</div>
+<p>Using this code, we can let the player ask characters about any object
+in the model world. We can also create, if we like, offstage things that
+can be used for conversation. These things don’t need to be anywhere in
+the model world, and they don’t need any properties other than their
+vocabulary:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Weather is a thing. Understand &quot;clouds&quot;, &quot;rain&quot;, and &quot;wind&quot; as\nweather.`)"><span class="sym">⧉</span></button>
+<div class="codeline">Weather is a thing. Understand &quot;clouds&quot;, &quot;rain&quot;, and &quot;wind&quot; as</div>
+<div class="codeline">weather.</div>
+</div>
+<p>But the idea of talking to an NPC about something that’s not in scope
+raises a new complication: What if the NPC has never seen the object and
+thus knows nothing about it? For that matter, what if the player
+character has never seen the object (or at least, not in this particular
+run-through of your game) and thus doesn’t officially know that it
+exists? To deal with these questions, we need a way to track characters’
+knowledge.</p>
+
+<p>Fortunately, there’s already an extension package that does some of the
+heavy lifting for us. Now that you’ve learned the basics of how to
+create an ask/tell/give/show conversation system, you can forget about
+the details unless you happen to need them for some reason. Download and
+install <a href="https://github.com/i7/extensions/blob/10.1/Eric%20Eve/Conversation%20Responses-v7.i7x">Conversation Responses by Eric Eve</a>. This extension provides
+a simpler way to write conversation topics. It also lets you write
+greetings and farewells.</p>
+
+<p>I also like <a href="https://github.com/i7/extensions/blob/10.1/Eric%20Eve/Conversational%20Defaults-v3.i7x">Eric Eve’s Conversational Defaults</a> (which requires
+<a href="https://github.com/i7/extensions/blob/10.1/Eric%20Eve/Conversation%20Framework-v12.i7x">Conversation Framework by Eric Eve</a>, so you’ll need to download and
+install that too, along with <a href="https://github.com/ganelson/inform/blob/master/inform7/Internal/Extensions/Eric%20Eve/Epistemology.i7x">Epistemology by Eric Eve</a>, which tracks
+what the player character knows about). Conversational Defaults makes it
+easier to set up default responses, which will be printed out in the
+game when you haven’t written a response for a specific ask or tell
+action. With only a little effort, you can use Conversational Defaults
+to make your characters seem somewhat more lifelike than if the player
+only encountered the standard line, “There is no reply.” With
+Conversational Defaults, we can give an NPC a bunch of possible outputs
+when he or she doesn’t have a real response, and instruct Inform to
+select a response at random. Here’s a short sample game that shows how
+to do this:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Include Conversational Defaults by Eric Eve.\n\nThe Test Lab is a room. The description is &quot;Many devious tests are conducted here.&quot;\n\nThe zombie is a man in the Lab. &quot;There&apos;s a dead guy sort of standing here. A zombie, from the look of him.&quot; The description is &quot;The zombie looks really ill. Really, really ill.&quot; Understand &quot;dead&quot;, &quot;guy&quot;, &quot;man&quot;, and &quot;ill&quot; as the zombie.\n\ndefault ask-tell response for the zombie:\n\tsay &quot;[one of]The zombie shrugs minimally[or]The zombie scratches his cheek and grunts unintelligibly[or]&apos;I can&apos;t remember hardly anything,&apos; the zombie says[or]The zombie only leers at you menacingly for a moment before sliding back into his usual morose lethargy[at random].&quot;`)"><span class="sym">⧉</span></button>
+<div class="codeline">Include Conversational Defaults by Eric Eve.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">The Test Lab is a room. The description is &quot;Many devious tests are conducted here.&quot;</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">The zombie is a man in the Lab. &quot;There&apos;s a dead guy sort of standing here. A zombie, from the look of him.&quot; The description is &quot;The zombie looks really ill. Really, really ill.&quot; Understand &quot;dead&quot;, &quot;guy&quot;, &quot;man&quot;, and &quot;ill&quot; as the zombie.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">default ask-tell response for the zombie:</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;[one of]The zombie shrugs minimally[or]The zombie scratches his cheek and grunts unintelligibly[or]&apos;I can&apos;t remember hardly anything,&apos; the zombie says[or]The zombie only leers at you menacingly for a moment before sliding back into his usual morose lethargy[at random].&quot;</div>
+</div>
+<p>The effect we’re creating above – having the zombie give a variety of
+different “non-responses” when asked or told about something for which
+the author hasn’t written a real response – goes a long way toward
+making an NPC seem a bit more real.</p>
+
+<p>If your story needs a lot of conversation, you might also want to
+consider the extension <a href="https://github.com/i7/extensions/blob/10.1/Chris%20Conley/Threaded%20Conversation-v9.i7x">Threaded Conversation by Chris Conley</a>. This
+is a complex and sophisticated package based on earlier work by Emily
+Short. Among other things, it provides a method for the author to
+suggest topics of conversation to the player during the story, in a
+smooth and context-sensitive way. For instance, the story might suggest,
+“You could ask Dave about the lighthouse or the police van.” After the
+player has asked Dave about the lighthouse, it would disappear from the
+suggestions, leaving only the police van – unless some new topic had
+been revealed by Dave’s reply about the lighthouse, in which case the
+next conversation prompt might be, “You could ask about the police van
+or the flying reptiles.”</p>
+
+<h3 id="conversations-part-iii-character-knowledge">Conversations, Part III: Character Knowledge</h3>
+
+<p>During the course of a game, an NPC might learn something, and what the
+NPC knows might change how he or she responds during a conversation. For
+instance, let’s suppose the PC has witnessed Aunt Mary’s house burning
+down, and is now in conversation (in a different location) with Uncle
+Jack. Uncle Jack won’t know about the fire until the player tells him –
+so the command ASK JACK ABOUT MARY might need two different outputs,
+depending on whether or not Uncle Jack knows that Aunt Mary is now
+without a home.</p>
+
+<p><a href="https://github.com/ganelson/inform/blob/master/inform7/Internal/Extensions/Eric%20Eve/Epistemology.i7x">Epistemology by Eric Eve</a> won’t take care of this for us, because
+it’s intended to track what the PC knows, not what an NPC knows. In this
+example, though, we’re going to use Conversation Responses by Eric Eve.
+Conversation Responses includes Epistemology, which is convenient for
+this example, because the player can’t ASK JACK ABOUT MARY unless the
+player has previously seen or is familiar with the Aunt Mary object.
+Both the “seen” and “familiar” properties are defined in Epistemology.</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Include Conversation Responses by Eric Eve.\n\nAunt Mary is a woman. Aunt Mary is familiar.\n\nThe fire is a thing. The fire is familiar. Understand &quot;blaze&quot; and &quot;conflagration&quot; as the fire.\n\nThe Living Room is a room.\n\nUncle Jack is a man in the Living Room.\n\nJack-knows-about-fire is a truth state that varies. Jack-knows-about-fire is false.\n\nResponse of Jack when asked about the fire:\n\tif Jack-knows-about-fire is false:\n\t	say &quot;&apos;Have you heard about the fire?&apos; you ask.[paragraph break]&apos;My goodness, no!&apos; he replies. &apos;Tell me about it!&apos;&quot;;\n\totherwise:\n\t	say &quot;&apos;I only know what you told me,&apos; he says.&quot;\n\nResponse of Jack when told about the fire:\n\tif Jack-knows-about-fire is false:\n\t	say &quot;&apos;I saw Aunt Mary&apos;s house burn down,&apos; you tell Uncle Jack.[paragraph break]&apos;Oh, no!&apos; he cries. &apos;All those lovely antiques, burnt to a crisp!&apos;&quot;;\n\t	now Jack-knows-about-fire is true;\n\totherwise:\n\t	say &quot;&apos;I already told you about the fire, didn&apos;t I?&apos; you say.[paragraph break]&apos;Yes, yes,&apos; Uncle Jack says, shaking his head sadly.&quot;\n\nResponse of Jack when asked-or-told about Mary:\n\tif Jack-knows-about-fire is true:\n\t	say &quot;&apos;What do you suppose will happen to Aunt Mary now?&apos; you ask.[paragraph break]&apos;I guess she&apos;ll have to move in with her daughter,&apos; Uncle Jack replies.&quot;;\n\totherwise:\n\t	say &quot;&apos;Isn&apos;t it too bad about Aunt Mary?&apos; you comment.[paragraph break]&apos;My goodness,&apos; Jack exclaims. &apos;Did something happen?&apos;[paragraph break]&apos;Yes, her house burnt down,&apos; you tell him.&quot;;\n\t	now Jack-knows-about-fire is true.`)"><span class="sym">⧉</span></button>
+<div class="codeline">Include Conversation Responses by Eric Eve.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Aunt Mary is a woman. Aunt Mary is familiar.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">The fire is a thing. The fire is familiar. Understand &quot;blaze&quot; and &quot;conflagration&quot; as the fire.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">The Living Room is a room.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Uncle Jack is a man in the Living Room.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Jack-knows-about-fire is a truth state that varies. Jack-knows-about-fire is false.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Response of Jack when asked about the fire:</div>
+<div class="codeline">&ensp;&ensp;&ensp;if Jack-knows-about-fire is false:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;&apos;Have you heard about the fire?&apos; you ask.[paragraph break]&apos;My goodness, no!&apos; he replies. &apos;Tell me about it!&apos;&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;&apos;I only know what you told me,&apos; he says.&quot;</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Response of Jack when told about the fire:</div>
+<div class="codeline">&ensp;&ensp;&ensp;if Jack-knows-about-fire is false:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;&apos;I saw Aunt Mary&apos;s house burn down,&apos; you tell Uncle Jack.[paragraph break]&apos;Oh, no!&apos; he cries. &apos;All those lovely antiques, burnt to a crisp!&apos;&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now Jack-knows-about-fire is true;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;&apos;I already told you about the fire, didn&apos;t I?&apos; you say.[paragraph break]&apos;Yes, yes,&apos; Uncle Jack says, shaking his head sadly.&quot;</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Response of Jack when asked-or-told about Mary:</div>
+<div class="codeline">&ensp;&ensp;&ensp;if Jack-knows-about-fire is true:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;&apos;What do you suppose will happen to Aunt Mary now?&apos; you ask.[paragraph break]&apos;I guess she&apos;ll have to move in with her daughter,&apos; Uncle Jack replies.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;&apos;Isn&apos;t it too bad about Aunt Mary?&apos; you comment.[paragraph break]&apos;My goodness,&apos; Jack exclaims. &apos;Did something happen?&apos;[paragraph break]&apos;Yes, her house burnt down,&apos; you tell him.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now Jack-knows-about-fire is true.</div>
+</div>
+<p>In this example I’ve created Jack-knows-about-fire as a truth state that
+varies. In a game where the software needs to keep track of an NPC’s
+knowledge on a variety of subjects, keeping the data in a table (see
+<a href="#tables">Tables</a>) might be easier.</p>
+
+<p>If you study this code for a minute, the way it works should become
+clear. The player can ask or tell Jack about the fire. The player can
+either ask or tell Jack about Mary. These conversations test whether
+Jack-knows-about-fire is true. If it’s false, Jack’s response is
+different. If the player tries asking Jack about the fire before Jack
+knows about it, Jack will ask for more information.</p>
+
+<h3 id="conversations-part-iv-menu-based-conversation">Conversations, Part IV: Menu-Based Conversation</h3>
+
+<p>In a menu-based conversation, the player who starts talking with an NPC
+is presented with a menu of options, and selects one of the responses by
+number. The output might look something like this:</p>
+
+<blockquote>
+  <p><span class="command">talk to madelyn</span> <br />
+You could: <br />
+[1] compliment Madelyn on her hair. <br />
+[2] complain that the gunfire in the street kept you awake all <br />
+night. <br />
+[3] ask Madelyn why Uncle Jack was sent to prison. <br />
+[4] say goodbye. <br />
+ <br />
+<span class="command">1</span> <br />
+“You have really lovely hair,” you tell Madelyn. <br />
+“Do you like it?” she replies, patting a stray strand into place. <br />
+“I’m not sure avocado green is really a good color on me.”</p>
+</blockquote>
+
+<p>By typing a “1” at the prompt, the player selects the first item in the
+conversation menu. What usually happens is that after the output of item
+1 is printed, the menu comes back again, but now with item 1 removed.
+Eventually, there will be nothing left in the menu except “say goodbye.”
+The player will select that item, read the output, and the conversation
+is finished.</p>
+
+<p>One advantage of this type of conversation system is that it can read in
+a more realistic way than bare commands like TELL MADELYN ABOUT HAIR and
+ASK MADELYN ABOUT UNCLE JACK. Another advantage is that the player is
+automatically directed toward topics of conversation that may be
+interesting or important to the story. But there are two problems.
+First, setting up this type of conversation system is not quite as easy
+as creating an ask/tell system. Second, the player will most likely just
+go through all of the possible topics one by one to see what they say.
+This process is called “the lawnmower effect,” because it turns the
+game-play into a rather boring mechanical process of mowing down
+everything on the menu.</p>
+
+<p>If you look in <a href="../RB_7.html#section_8">RB 7.8: Saying Complicated
+Things</a>, you’ll find several examples of
+conversational systems. <a href="../examples/sweeney.html">Example 282: Sweeney</a>
+provides a hybrid system in which the player can ask or tell about
+topics, but will sometimes be prompted with a numbered list of items.
+The Recipe Book doesn’t give an example of a full menu-based
+conversation system, reporting that “they can be long-winded to set up,
+and therefore none are exemplified here, but several have been released
+as extensions for Inform.” <a href="https://github.com/i7/extensions/blob/10.1/Michael%20Martin/Quip-Based%20Conversation-v5.i7x">Quip-Based Conversation by Michael
+Martin</a> is an example of this approach.</p>
+
+<h3 id="giving-orders-to-characters">Giving Orders to Characters</h3>
+
+<p>The standard command that players can use to give orders to NPCs is in
+the form BOB, EAT THE PANCAKE. The NPC’s name is what grammarians call a
+“noun of address,” and is followed by a comma. If you want your game to
+respond to the alternate forms ASK BOB TO EAT THE PANCAKE and TELL BOB
+TO EAT THE PANCAKE, one easy way to do it is with an “after reading a
+command” rule. This type of rule intercepts the player’s input before it
+reaches the parser. You can change the player’s input in whatever way
+you like. This could be a sneaky way of creating an infuriatingly
+difficult puzzle, but here we’ll use it in a more friendly way:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`After reading a command:\n\tlet T be text;\n\tlet T be the player&apos;s command;\n\treplace the regular expression &quot;tell bob to&quot; in T with &quot;bob,&quot;;\n\treplace the regular expression &quot;ask bob to&quot; in T with &quot;bob,&quot;;\n\tchange the text of the player&apos;s command to T.`)"><span class="sym">⧉</span></button>
+<div class="codeline">After reading a command:</div>
+<div class="codeline">&ensp;&ensp;&ensp;let T be text;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let T be the player&apos;s command;</div>
+<div class="codeline">&ensp;&ensp;&ensp;replace the regular expression &quot;tell bob to&quot; in T with &quot;bob,&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;replace the regular expression &quot;ask bob to&quot; in T with &quot;bob,&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;change the text of the player&apos;s command to T.</div>
+</div>
+<p>The main thing to be aware of here is that if your NPC can be referred
+to as “Bob”, “Uncle Bob”, “Uncle”, or “man”, the After Reading a Command
+rule needs to process <em>all</em> of those possible inputs separately, because
+the parser hasn’t yet had a chance to figure out what object the
+player’s command is referring to. The words “man” and “woman” will be
+especially sticky, because you might have several different NPCs in your
+game that can be referred to as “man” or “woman”.</p>
+
+<p>Inform won’t let you rewrite the rule so that it reads “After reading a
+command in the presence of Bob”. But you can do it this way:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`After reading a command:\n\tlet T be text;\n\tlet T be the player&apos;s command;\n\tif Bob is in the location:\n\t	replace the regular expression &quot;tell bob to&quot; in T with &quot;bob,&quot;;\n\t	replace the regular expression &quot;ask bob to&quot; in T with &quot;bob,&quot;;\n\t	replace the regular expression &quot;tell man to&quot; in T with &quot;man,&quot;;\n\t	[…and so on for any other words that can refer to Bob…]\n\tchange the text of the player&apos;s command to T.`)"><span class="sym">⧉</span></button>
+<div class="codeline">After reading a command:</div>
+<div class="codeline">&ensp;&ensp;&ensp;let T be text;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let T be the player&apos;s command;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if Bob is in the location:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;replace the regular expression &quot;tell bob to&quot; in T with &quot;bob,&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;replace the regular expression &quot;ask bob to&quot; in T with &quot;bob,&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;replace the regular expression &quot;tell man to&quot; in T with &quot;man,&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;[…and so on for any other words that can refer to Bob…]</div>
+<div class="codeline">&ensp;&ensp;&ensp;change the text of the player&apos;s command to T.</div>
+</div>
+<p>Now the player can give orders to an NPC using a variety of normal
+phrases. But there’s a better way, which was suggested by Emily Short.
+This uses Inform’s ability to match regular expressions – frankly not a
+topic that belongs in a handbook for new authors. (If you’re curious,
+have a look at <a href="../WI_20.html#section_6">WI 20.6 Regular expression
+matching</a>. The code below will handle giving
+orders to all of the characters in your game:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`After reading a command: \n\tlet N be  text; \n\tlet N be the player&apos;s command; \n\treplace the regular expression &quot;\b(ask|tell|order) (.+?) to (.+)&quot; in N with &quot;\2, \3&quot;; \n\tchange the text of the player&apos;s command to N.`)"><span class="sym">⧉</span></button>
+<div class="codeline">After reading a command: </div>
+<div class="codeline">&ensp;&ensp;&ensp;let N be  text; </div>
+<div class="codeline">&ensp;&ensp;&ensp;let N be the player&apos;s command; </div>
+<div class="codeline">&ensp;&ensp;&ensp;replace the regular expression &quot;\b(ask|tell|order) (.+?) to (.+)&quot; in N with &quot;\2, \3&quot;; </div>
+<div class="codeline">&ensp;&ensp;&ensp;change the text of the player&apos;s command to N.</div>
+</div>
+<p>But by default, NPCs will refuse to follow orders. If you want an NPC to
+obey the player, you need to write a <strong>persuasion rule</strong>, as explained
+in <a href="../WI_12.html#section_4">WI 12.4: Persuasion</a>. A persuasion rule can
+be as specific or as broad as you like – you can have all NPCs obey
+orders, or only have one NPC obey one specific order. Here’s how to do
+it with two specific actions. We’re going to allow Uncle Jack to take
+the jewels or give them to the player:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Persuasion rule for asking Uncle Jack to try taking the jewels:\n\tpersuasion succeeds.\nPersuasion rule for asking Uncle Jack to try giving the jewels to the player:\n\tpersuasion succeeds.\n\nInstead of Uncle Jack giving the jewels to the player:\n\tnow the player carries the jewels;\n\tsay &quot;Jack hands you the jewels.&quot;;\n\trule succeeds.`)"><span class="sym">⧉</span></button>
+<div class="codeline">Persuasion rule for asking Uncle Jack to try taking the jewels:</div>
+<div class="codeline">&ensp;&ensp;&ensp;persuasion succeeds.</div>
+<div class="codeline">Persuasion rule for asking Uncle Jack to try giving the jewels to the player:</div>
+<div class="codeline">&ensp;&ensp;&ensp;persuasion succeeds.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Instead of Uncle Jack giving the jewels to the player:</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the player carries the jewels;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Jack hands you the jewels.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;rule succeeds.</div>
+</div>
+<p>This code assumes that the jewels are in scope. (Perhaps Uncle Jack is
+already carrying them.) If you need an NPC to give the player something
+that has only been talked about, but that isn’t in the room at the
+moment, you have a slightly more complex problem. The easy way to deal
+with this is to have the NPC carry the object, but make it a concealed
+possession, as explained in <a href="../WI_3.html#section_24">WI 3.24
+Concealment</a>:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Troy is a man in the Billiard Room. Troy carries a banana.\n\nRule for deciding the concealed possessions of Troy: if the particular possession is the banana, yes; otherwise no.\n\nPersuasion rule for asking Troy to try giving the banana to the player:\n\tpersuasion succeeds.\n\nInstead of Troy giving the banana to the player:\n\tsay &quot;Troy gives you the banana.&quot;;\n\tnow the player carries the banana;\n\trule succeeds.`)"><span class="sym">⧉</span></button>
+<div class="codeline">Troy is a man in the Billiard Room. Troy carries a banana.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Rule for deciding the concealed possessions of Troy: if the particular possession is the banana, yes; otherwise no.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Persuasion rule for asking Troy to try giving the banana to the player:</div>
+<div class="codeline">&ensp;&ensp;&ensp;persuasion succeeds.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Instead of Troy giving the banana to the player:</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Troy gives you the banana.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the player carries the banana;</div>
+<div class="codeline">&ensp;&ensp;&ensp;rule succeeds.</div>
+</div>
+<p>When the banana is concealed, the player won’t be able to X BANANA, but
+the banana will still be in scope, so TROY, GIVE ME THE BANANA will work
+as expected.</p>
+
+<h3 id="giving-orders-that-involve-going-elsewhere">Giving Orders that Involve Going Elsewhere</h3>
+
+<p>At times, you might want the player to be able to give an NPC an order
+that requires going somewhere else and doing something there. The basic
+difficulty in this case is, in effect, that once the NPC has gone
+somewhere else, he or she can’t “hear” the player character. A secondary
+difficulty, which will arise once we solve the first one, is that when
+the NPC is carrying out an action in a different location, the parser
+will report it to the player, even though the NPC is invisible. The
+solution to the latter requires the extension called <a href="https://github.com/i7/extensions/blob/10.1/Ron%20Newcomb/Scope%20Control-v2.i7x">Scope Control by
+Ron Newcomb</a>. (Ron also contributed to the development of this
+example.)</p>
+
+<p>Here’s a simple game in which the player can order Jeeves the butler to
+go somewhere else and do something – specifically, go north, get the
+cheese, and then go south again.</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Include Scope Control by Ron Newcomb.\n\nThe Dining Room is a room. The Kitchen is north of the Dining Room. \nJeeves is a man in the Dining Room. There is a cheese in the Kitchen. \n\nA persuasion rule for asking someone to try doing something: \n\tpersuasion succeeds. \n\nThe block giving rule is not listed in the check giving it to rules. \n\nThe subject is a person that varies. \n\nBefore asking someone to try doing something:\n\tnow the subject is the person asked. \n\nBefore reading a command: now the subject is the player. \n\nAfter deciding the scope of the player while parsing for persuasion: \n\tplace the subject in scope. \n\nUnsuccessful attempt by someone doing something when the location of the actor is not the location: \n\tdo nothing. \n\nBefore answering someone that something when the location of the noun is not the location, stop the action. \n\nTest me with &quot;Jeeves, n then get cheese then s then give me the cheese&quot;.`)"><span class="sym">⧉</span></button>
+<div class="codeline">Include Scope Control by Ron Newcomb.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">The Dining Room is a room. The Kitchen is north of the Dining Room. </div>
+<div class="codeline">Jeeves is a man in the Dining Room. There is a cheese in the Kitchen. </div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">A persuasion rule for asking someone to try doing something: </div>
+<div class="codeline">&ensp;&ensp;&ensp;persuasion succeeds. </div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">The block giving rule is not listed in the check giving it to rules. </div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">The subject is a person that varies. </div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Before asking someone to try doing something:</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the subject is the person asked. </div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Before reading a command: now the subject is the player. </div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">After deciding the scope of the player while parsing for persuasion: </div>
+<div class="codeline">&ensp;&ensp;&ensp;place the subject in scope. </div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Unsuccessful attempt by someone doing something when the location of the actor is not the location: </div>
+<div class="codeline">&ensp;&ensp;&ensp;do nothing. </div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Before answering someone that something when the location of the noun is not the location, stop the action. </div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Test me with &quot;Jeeves, n then get cheese then s then give me the cheese&quot;.</div>
+</div>
+<p>In a real game, we probably wouldn’t want to use such a sweeping
+persuasion rule. The variable called “the subject” is changed to Jeeves
+when the player gives Jeeves an order. Then the subject is placed in
+scope. As a result, Jeeves will “hear” all of the orders even when he’s
+in a different room. The two last rules (Unsuccessful attempt and Before
+answering someone) prevent Jeeves’ actions from being reported if he’s
+in a different room.</p>
+
+<h3 id="moving-characters-around">Moving Characters Around</h3>
+
+<p>People don’t always stay in one place. In the real world, people do
+sometimes stay put for long periods of time – for instance, the
+librarian sitting behind her desk, who won’t leave for hours. Other
+times, though, people move from one place to another. There are several
+ways to imitate that behavior in interactive fiction.</p>
+
+<p>A classic effect in the early days of IF was to have an NPC wander at
+random around the map. This isn’t very realistic, because people usually
+have reasons for going places, but at least it adds a little variety to
+the game. An example of an NPC who might be expected to behave this way
+would be a butler moving from room to room in a large mansion.</p>
+
+<p>In the simple example below, we’ll create a square 3x3 grid of rooms and
+then create an NPC who wanders at random. If you can’t tell from the
+code what the map will look like, switch to the Index World tab after
+compiling the game.</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`A boring room is a kind of room. The description of a boring room is usually &quot;Not much to see or do here.&quot;\n\nRoom 1 is a boring room. Room 2 is a boring room. Room 3 is a boring room. Room 4 is a boring room. Room 5 is a boring room. Room 6 is a boring room. Room 7 is a boring room. Room 8 is a boring room. Room 9 is a boring room.\n\nRoom 4 is south of room 1. Room 7 is south of room 4.\n\nRoom 2 is east of room 1. Room 3 is east of Room 2.\n\nRoom 5 is east of Room 4 and south of Room 2. Room 6 is east of Room 5 and south of Room 3. Room 8 is east of Room 7 and south of Room 5. Room 9 is east of Room 8 and south of Room 6.\n\nBob is a man in Room 3.\n\nEvery turn:\n\tlet D be a random direction;\n\ttry Bob going D.`)"><span class="sym">⧉</span></button>
+<div class="codeline">A boring room is a kind of room. The description of a boring room is usually &quot;Not much to see or do here.&quot;</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Room 1 is a boring room. Room 2 is a boring room. Room 3 is a boring room. Room 4 is a boring room. Room 5 is a boring room. Room 6 is a boring room. Room 7 is a boring room. Room 8 is a boring room. Room 9 is a boring room.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Room 4 is south of room 1. Room 7 is south of room 4.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Room 2 is east of room 1. Room 3 is east of Room 2.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Room 5 is east of Room 4 and south of Room 2. Room 6 is east of Room 5 and south of Room 3. Room 8 is east of Room 7 and south of Room 5. Room 9 is east of Room 8 and south of Room 6.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Bob is a man in Room 3.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Every turn:</div>
+<div class="codeline">&ensp;&ensp;&ensp;let D be a random direction;</div>
+<div class="codeline">&ensp;&ensp;&ensp;try Bob going D.</div>
+</div>
+<p>As a result of the Every Turn rule, Bob will try going some direction or
+other in every turn, but if no room exists in the random direction, the
+“try” statement will fail. Bob will stay where he is. If the player is
+in a room when Bob arrives, the game will report the fact. Likewise, if
+Bob and the player are in the same room, the game will report when Bob
+succeeds in leaving. The output might look like this:</p>
+
+<blockquote>
+  <p><strong>Room 5</strong> <br />
+You can see Bob here. <br />
+Bob goes south. <br />
+ <br />
+<span class="command">z</span> <br />
+Time passes. <br />
+ <br />
+<span class="command">z</span> <br />
+Time passes. <br />
+Bob arrives from the south.</p>
+</blockquote>
+
+<p>This is okay as far as it goes, but the outputs (“Bob goes south” and
+“Bob arrives from the south”) are not very interesting. If you turn on
+rules reporting using the RULES command, you’ll learn that these outputs
+are coming from the “describe room gone into rule.” You can’t find this
+rule by searching <em>Writing with Inform</em>. Nor is it visible in the Index
+Rules area. However, you can find it by going to File/Open
+Extension/Graham Nelson/Standard Rules. It’s more than 60 lines long.</p>
+
+<p>Replacing the entire rule would require quite a bit of tinkering; I
+wouldn’t want to try it, because I’d probably end up adding bugs. If all
+we really want is to make your characters’ arrivals and departures a
+little more interesting, here’s a simple way to do it. Note that this
+doesn’t handle complex situations, such as when the NPC is in a vehicle.</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Report someone (called the traveler) going:\n\tif the traveler is in the location:\n\t	say &quot;[one of]Here comes old [actor] again[or][The actor] saunters up to you[or]The ominous creaking of floorboards announces the arrival of [the actor][at random].&quot; instead;\n\totherwise:\n\t	say &quot;[one of]At the sound of a thin scream in the distance, [the actor] dashes away[or]You suddenly notice that [the actor] has wandered off somewhere[or][The actor] evaporates in a thin puff of acrid smoke[at random].&quot; instead.`)"><span class="sym">⧉</span></button>
+<div class="codeline">Report someone (called the traveler) going:</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the traveler is in the location:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[one of]Here comes old [actor] again[or][The actor] saunters up to you[or]The ominous creaking of floorboards announces the arrival of [the actor][at random].&quot; instead;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[one of]At the sound of a thin scream in the distance, [the actor] dashes away[or]You suddenly notice that [the actor] has wandered off somewhere[or][The actor] evaporates in a thin puff of acrid smoke[at random].&quot; instead.</div>
+</div>
+<p>This code doesn’t tell the player which direction the character arrives
+from or departs to; that would require more tinkering. But now we have a
+way to add a little variety to the output.</p>
+
+<p><a href="../RB_7.html#section_13">RB 7.13</a> provides several examples of
+different ways to move NPCs around. Possibly the most interesting of
+these is shown in <a href="../examples/latris_theon.html">Example 185, “Latris
+Theon”</a>. Inform includes a path-finding
+algorithm – a built-in procedure that will allow an NPC to calculate the
+best route from his or her current location to any other location.
+Applying this to the example given earlier is not difficult: Replace the
+last two blocks (“Bob is in Room 3” and the Every Turn rule) with the
+following code:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Bob is a man in Room 3. The destination of Bob is Room 3. Persuasion rule for asking Bob to try going vaguely: persuasion succeeds.\n\nEvery turn when the destination of Bob is not the location of Bob:\n\tlet the right direction be the best route from the location of Bob to the destination of Bob;\n\ttry Bob going the right direction.\n\nA person has a room called destination.\n\nUnderstand &quot;go to [any room]&quot; as going vaguely.\n\nGoing vaguely is an action applying to one visible thing.\n\nCarry out someone going vaguely: \n    change the destination of the person asked to the noun.\n\nReport someone going vaguely: \n    say &quot;[The person asked] looks amused, but accepts the commission to go to [the noun].&quot;\n\nCarry out going vaguely: \n    say &quot;You&apos;re too thoroughly lost.&quot;`)"><span class="sym">⧉</span></button>
+<div class="codeline">Bob is a man in Room 3. The destination of Bob is Room 3. Persuasion rule for asking Bob to try going vaguely: persuasion succeeds.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Every turn when the destination of Bob is not the location of Bob:</div>
+<div class="codeline">&ensp;&ensp;&ensp;let the right direction be the best route from the location of Bob to the destination of Bob;</div>
+<div class="codeline">&ensp;&ensp;&ensp;try Bob going the right direction.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">A person has a room called destination.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Understand &quot;go to [any room]&quot; as going vaguely.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Going vaguely is an action applying to one visible thing.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Carry out someone going vaguely: </div>
+<div class="codeline">    change the destination of the person asked to the noun.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Report someone going vaguely: </div>
+<div class="codeline">    say &quot;[The person asked] looks amused, but accepts the commission to go to [the noun].&quot;</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Carry out going vaguely: </div>
+<div class="codeline">    say &quot;You&apos;re too thoroughly lost.&quot;</div>
+</div>
+<p>We’ve done a few new things here. First, “A person has a room called
+destination.” Since Bob is a person, he now has a destination. Initially
+we make his destination Room 3, so he’s happy to stay where he is. He’s
+no longer going to wander around at random. Next, we include a
+persuasion rule, so that Bob will respond to an order to go vaguely.
+(The persuasion rule will cause BOB, GO TO ROOM 7 to work the way we’d
+like it to.) The rest of the new code is directly copied from “Latris
+Theon.”</p>
+
+<p>Notice also the difference between the two Carry Out rules. One applies
+to <em>someone</em> going vaguely (in other words, not the player character),
+while the other applies to the PC.</p>
+
+<p><a href="../examples/odyssey.html">Example 274, “Odyssey”</a> is in the same
+section of the <em>Recipe Book</em>. This shows how to move an NPC along a
+route that we’ve created in advance. The NPC’s travel will be
+interrupted temporarily if the player chooses to interact with her. One
+refinement I’d suggest adding to this example, if you try it out, would
+be to define a scene called Athena Traveling. (See <a href="#scenes">Scenes</a> and
+<a href="../WI_10.html">Chapter 10 of <em>Writing with Inform</em>, Scenes</a>.) I would
+then change the Every Turn rule like this:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Every turn when Athena Traveling is happening:\n\tif Athena is active:`)"><span class="sym">⧉</span></button>
+<div class="codeline">Every turn when Athena Traveling is happening:</div>
+<div class="codeline">&ensp;&ensp;&ensp;if Athena is active:</div>
+</div>
+<p>This will allow you to keep Athena (or whatever NPC you’re using) in one
+place until some specific event occurs. For instance, you might do this:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Athena Traveling is a scene. Athena Traveling begins when the player\ncarries the laurel wreath.`)"><span class="sym">⧉</span></button>
+<div class="codeline">Athena Traveling is a scene. Athena Traveling begins when the player</div>
+<div class="codeline">carries the laurel wreath.</div>
+</div>
+<p>Now Athena will stay put (perhaps lurking in her temple) until the
+player picks up the laurel wreath. When that happens, she’ll set out on
+her journey.</p>
+
+<p>The extension called <a href="https://github.com/i7/archive/blob/master/Michael%20Callaghan/Patrollers.i7x">Patrollers by Michael Callaghan</a> provides some
+extra tools with which to write NPCs who move from place to place.</p>
+
+<h3 id="characters-who-follow-the-player">Characters Who Follow the Player</h3>
+
+<p>Writing a character who will find the player and then follow the player
+around like a faithful puppy is not difficult. <a href="../examples/van_helsing.html">Example 39, “Van
+Helsing”</a> (again from <a href="../RB_7.html#section_13">RB
+7.13</a>) shows how to do it. We can adapt this
+code slightly to the example above by getting rid of the code that
+allows the player to order Bob around, replacing it with this:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Bob is a man in Room 3.\n\nEvery turn:\n\tif the location of Bob is not the location of the player:\n\t	let the way be the best route from the location of Bob to the location of the player;\n\t	try Bob going the way;\n\totherwise:\n\t	say &quot;&apos;Hey, I&apos;m bored,&apos; Bob says. &apos;Let&apos;s go for a ramble.&apos;&quot;`)"><span class="sym">⧉</span></button>
+<div class="codeline">Bob is a man in Room 3.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Every turn:</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the location of Bob is not the location of the player:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;let the way be the best route from the location of Bob to the location of the player;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;try Bob going the way;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;&apos;Hey, I&apos;m bored,&apos; Bob says. &apos;Let&apos;s go for a ramble.&apos;&quot;</div>
+</div>
+<p>The same suggestion I gave for the “Odyssey” example (just above)
+applies here. You probably don’t want Bob following the player from the
+very beginning of the game. To make Bob behave in a way that fits your
+story, you would need to define a Scene, and then say “Every turn when
+Too-Friendly-Bob is happening”. Then write a sentence that defines when
+Too-Friendly-Bob begins.</p>
+
+<p><a href="https://github.com/i7/extensions/blob/10.1/Emily%20Short/Simple%20Followers-v7.i7x">Simple Followers by Emily Short</a> provides easy ways to create NPCs
+who will follow the player (or other NPCs) and will start or stop
+following on command. However, this extension doesn’t work the other
+way: it doesn’t let the player follow characters who have left the room.</p>
+
+<h3 id="characters-the-player-can-follow">Characters the Player Can Follow</h3>
+
+<p>There are at least two ways (and maybe more) to set up a game so that
+the player needs to follow another character. First, the NPC may be
+standing in the room, saying, “Come on, follow me!” or something of the
+sort, in which case the command FOLLOW BOB would likely be implemented
+so as to move both the PC and the NPC to whatever room the NPC has in
+mind. Second, the NPC may just have left the room, and the player may
+now be wanting to follow the NPC to see whither he is bound.</p>
+
+<p>The second situation is trickier than the first. This is because of the
+way Inform handles scope. As explained in the <a href="#Ref_scope">previous discussion of
+scope</a>, the player can normally only refer to objects that
+are in the same room (and also visible – an object in a closed container
+is invisible, for instance, unless the container is transparent). If the
+NPC has left the room, he won’t be in scope, so FOLLOW BOB will produce
+the unhelpful output “You can’t see any such thing.” Well, duh – that
+was why I wanted to follow him!</p>
+
+<p><a href="../examples/actaeon.html">Example 302, “Actaeon”</a> (from <a href="../RB_7.html#section_13">RB
+7.13</a>), shows how to allow the PC to follow an
+NPC who has left the room. This example is easy to customize, but it’s
+worth including some of the code here to point out a couple of features.
+We’ll start with the setup from <a href="#Ref_boring_bob">Boring Bob</a>, in which
+Bob is meandering around a featureless grid of nine rooms. This time,
+though, we’ll start him in Room 1, so the player can start following him
+immediately.</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Bob is a man in Room 1.\n\nEvery turn:\n\tlet current location be the location of Bob;\n\tlet next location be a random room which is adjacent to the current location;\n\tif Bob is visible, say &quot;Bob saunters off toward [the next location].&quot;;\n\tmove Bob tidily to next location;\n\tif Bob is visible, say &quot;Bob saunters in from [the current location].&quot;\n\nFollowing is an action applying to one visible thing. Understand &quot;follow [any person]&quot;, &quot;chase [any person]&quot;, and &quot;pursue [any person]&quot; as following.\n\nA person has a room called last location.\n\nCheck following:\n\tif the noun is the player:\n\t	say &quot;You run around in circles briefly, but there doesn&apos;t seem to be much point in that, so you stop.&quot; instead;\n\tif the noun is visible, say &quot;[The noun] is right here.&quot; instead;\n\tif the last location of the noun is not the location, say &quot;It&apos;s not clear where [the noun] has gone.&quot; instead.\n\nCarry out following:\n\tlet the destination be the location of the noun;\n\tif the destination is not a room, say &quot;[The noun] has gone where no one can follow.&quot; instead;\n\tlet aim be the best route from the location to the destination;\n\tsay &quot;(heading [aim])[line break]&quot;;\n\ttry going aim.\n\nTo move (pawn - a person) tidily to (target - a room):\n\tnow the last location of the pawn is the holder of the pawn;\n\tmove the pawn to the target.`)"><span class="sym">⧉</span></button>
+<div class="codeline">Bob is a man in Room 1.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Every turn:</div>
+<div class="codeline">&ensp;&ensp;&ensp;let current location be the location of Bob;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let next location be a random room which is adjacent to the current location;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if Bob is visible, say &quot;Bob saunters off toward [the next location].&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;move Bob tidily to next location;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if Bob is visible, say &quot;Bob saunters in from [the current location].&quot;</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Following is an action applying to one visible thing. Understand &quot;follow [any person]&quot;, &quot;chase [any person]&quot;, and &quot;pursue [any person]&quot; as following.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">A person has a room called last location.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Check following:</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the noun is the player:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;You run around in circles briefly, but there doesn&apos;t seem to be much point in that, so you stop.&quot; instead;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the noun is visible, say &quot;[The noun] is right here.&quot; instead;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the last location of the noun is not the location, say &quot;It&apos;s not clear where [the noun] has gone.&quot; instead.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Carry out following:</div>
+<div class="codeline">&ensp;&ensp;&ensp;let the destination be the location of the noun;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the destination is not a room, say &quot;[The noun] has gone where no one can follow.&quot; instead;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let aim be the best route from the location to the destination;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;(heading [aim])[line break]&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;try going aim.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">To move (pawn - a person) tidily to (target - a room):</div>
+<div class="codeline">&ensp;&ensp;&ensp;now the last location of the pawn is the holder of the pawn;</div>
+<div class="codeline">&ensp;&ensp;&ensp;move the pawn to the target.</div>
+</div>
+<p>If you look at the Every Turn rule here, or just try it out in a test
+game, you’ll find that Bob moves to a new room in every turn. In the
+examples earlier in this chapter, Bob would choose a random direction
+every turn – but if there was no room in that direction, he wouldn’t
+move. The line above, “let next location be a random room which is
+adjacent to the current location;” causes Bob to choose a random room
+that actually exists, and move to it.</p>
+
+<p>We have to move Bob in a tidy way, or “tidily” (an ugly word, but
+useful), so that he’ll keep track of where he was last.</p>
+
+<p>If you comment out the last line in the Check Following rule, the player
+will be able to follow Bob even after several turns have elapsed. The
+result may turn out to be slightly unrealistic, however, because the PC
+won’t necessarily take the route that Bob took. Instead, the PC will
+choose the best route to wherever Bob happens to be <em>now.</em> If Bob has
+traveled around to the other side of the map – if he left heading south
+but is now in a room to the north – this code will cause the PC to go
+north, which is rather odd, and doesn’t accord well with the meaning of
+the word “follow.” That’s probably why the original code in this example
+only allows the follow command to be used immediately after the NPC has
+left the room. Storing an NPC’s entire route, so as to allow the player
+to follow (perhaps by tracking footprints or dropped breadcrumbs) would
+be a lot more work, and would probably be unrealistic unless the NPC is
+leaving a trail of breadcrumbs, so we’ll leave it as a coding challenge
+for advanced Inform authors.</p>
+
+<h3 id="stage-business">Stage Business</h3>
+
+<p>A character will seem more “alive” if she spontaneously does things on
+her own, or seems to. Sometimes the character will do something that
+changes the model world (see “Character Actions,” below). But sometimes
+we just want to print out a reminder to the player – a message that
+doesn’t actually do anything, but that makes the scene seem more lively.
+I call these reminder messages “stage business.”</p>
+
+<p>In this example, Janice is the maid. She will seem to do something
+without really doing anything:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Living Room is a room. &quot;This fussy old-fashioned living room is filled with heavy furniture.&quot;\n\nJanice is a woman in the Living Room. &quot;Janice is busy tidying up.&quot; The description is &quot;Janice is wearing a maid&apos;s uniform. She&apos;s bustling about, doing all sorts of things.&quot;\n\nEvery turn when the player is in the Living Room:\n\tif a random chance of 1 in 3 succeeds:\n\t	say &quot;Janice [one of]flicks dust off of the grand piano[or]runs the vacuum cleaner[or]plumps up the cushions on the sofa[or]straightens a painting[or]polishes the mirror above the mantel[at random].&quot;`)"><span class="sym">⧉</span></button>
+<div class="codeline">The Living Room is a room. &quot;This fussy old-fashioned living room is filled with heavy furniture.&quot;</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Janice is a woman in the Living Room. &quot;Janice is busy tidying up.&quot; The description is &quot;Janice is wearing a maid&apos;s uniform. She&apos;s bustling about, doing all sorts of things.&quot;</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Every turn when the player is in the Living Room:</div>
+<div class="codeline">&ensp;&ensp;&ensp;if a random chance of 1 in 3 succeeds:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;Janice [one of]flicks dust off of the grand piano[or]runs the vacuum cleaner[or]plumps up the cushions on the sofa[or]straightens a painting[or]polishes the mirror above the mantel[at random].&quot;</div>
+</div>
+<p>The Every Turn rule will only run when the player is in the room with
+Janice. (If Janice were moving around the house, we’d need to change
+this rule a bit). About 1/3 of the time, a random message will be
+printed indicating that Janice is busy doing her job.</p>
+
+<h3 id="character-actions">Character Actions</h3>
+
+<p>A good way to make a character seem more alive is for the character to
+react in some way when the player does something. This reaction could
+range from a simple comment to an explosive act.</p>
+
+<p>Let’s suppose that old Alexander Button seems to be asleep in his chair.
+But he isn’t asleep, really. If you pick up the piece of paper on the
+table, he’ll snatch it away from you:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Alexander Button is a man in the Living Room. &quot;Old Alexander [if Alexander carries the will]eyes you keenly[otherwise]seems to be asleep[end if].&quot; The description is &quot;He must be at least 90[if Alexander carries the will]. He&apos;s wide awake, and looking at you in a doubtful way[otherwise]. He seems to be asleep[end if].&quot;\n\nThe end table is a scenery supporter in the Living Room.\n\nThe will is on the end table. The description is &quot;A legal-looking piece of paper. You can&apos;t read what&apos;s on it, because it&apos;s upside down.&quot;\n\nAfter taking the will:\n\tnow Alexander carries the will;\n\tsay &quot;Alexander&apos;s eyes fly open. &apos;So … snooping, eh?&apos; He snatches the will away from you.&quot;`)"><span class="sym">⧉</span></button>
+<div class="codeline">Alexander Button is a man in the Living Room. &quot;Old Alexander [if Alexander carries the will]eyes you keenly[otherwise]seems to be asleep[end if].&quot; The description is &quot;He must be at least 90[if Alexander carries the will]. He&apos;s wide awake, and looking at you in a doubtful way[otherwise]. He seems to be asleep[end if].&quot;</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">The end table is a scenery supporter in the Living Room.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">The will is on the end table. The description is &quot;A legal-looking piece of paper. You can&apos;t read what&apos;s on it, because it&apos;s upside down.&quot;</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">After taking the will:</div>
+<div class="codeline">&ensp;&ensp;&ensp;now Alexander carries the will;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Alexander&apos;s eyes fly open. &apos;So … snooping, eh?&apos; He snatches the will away from you.&quot;</div>
+</div>
+<p>To get Alexander to react, we use an After rule. An After rule is a good
+idea here, because it allows Inform to do its usual processing of the
+TAKE PAPER command. Only if the command succeeds – if it’s possible for
+the player to take the will – will Alexander react.</p>
+
+<p>The NPC action above was triggered by a taking action. Sometimes, we may
+want a character to react to something he or she sees. For instance, the
+character might demand that the player give him an object the player is
+carrying. Here’s a short game that shows how this might work<span id="Ref_wyatt_earp" class="anchor"></span>:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Dusty Street is a room. &quot;The unpaved street of Tombstone, Arizona, runs east and west here. The Red Dog Saloon is to the north.&quot;\n\nThe Red Dog Saloon is north of the Dusty Street. &quot;The sour smell of spilled whiskey permeates this rough-hewn room, which is dim after the sunlit glare of the street.&quot;\n\nSheriff Earp is a man in the Red Dog Saloon. &quot;Wyatt Earp is standing at the bar.&quot; Understand &quot;Wyatt&quot; as Sheriff Earp. The description is &quot;Earp looks lean and mean. He&apos;s wearing a badge.&quot;\n\nThe player carries a six-gun. Understand &quot;gun&quot; and &quot;revolver&quot; as the six-gun.\n\nEvery turn:\n\tif the player carries the six-gun and Sheriff Earp can see the six-gun:\n\t	say &quot;[one of]&apos;I see you&apos;re packin[&apos;] a weapon,&apos; the sheriff says. &apos;Packin[&apos;] a weapon in town is illegal. Best you hand it over.&apos;[or]&apos;Well, are you gonna give me that six-gun, or ain&apos;t you?&apos; Earp stares at you meaningfully.[stopping]&quot;.\n\nInstead of going in the Red Dog Saloon:\n\tif the player carries the six-gun and Sheriff Earp can see the six-gun:\n\t	say &quot;&apos;Best you not be walkin[&apos;] out of here with that firearm,&apos; Earp says. He adjusts his own gunbelt slightly, as if he&apos;s thinking he may have to draw down on you.&quot;;\n\totherwise:\n\t	continue the action.\n\nInstead of giving the six-gun to Sheriff Earp:\n\tnow Sheriff Earp carries the six-gun;\n\tsay &quot;You hand over the gun. &apos;Thanks,&apos; Earp says. &apos;You can go now. But don&apos;t be startin&apos; any trouble, you hear?&apos;&quot;\n\nTest me with &quot;i/ n / s / give gun to Earp / s / i&quot;.`)"><span class="sym">⧉</span></button>
+<div class="codeline">The Dusty Street is a room. &quot;The unpaved street of Tombstone, Arizona, runs east and west here. The Red Dog Saloon is to the north.&quot;</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">The Red Dog Saloon is north of the Dusty Street. &quot;The sour smell of spilled whiskey permeates this rough-hewn room, which is dim after the sunlit glare of the street.&quot;</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Sheriff Earp is a man in the Red Dog Saloon. &quot;Wyatt Earp is standing at the bar.&quot; Understand &quot;Wyatt&quot; as Sheriff Earp. The description is &quot;Earp looks lean and mean. He&apos;s wearing a badge.&quot;</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">The player carries a six-gun. Understand &quot;gun&quot; and &quot;revolver&quot; as the six-gun.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Every turn:</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the player carries the six-gun and Sheriff Earp can see the six-gun:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[one of]&apos;I see you&apos;re packin[&apos;] a weapon,&apos; the sheriff says. &apos;Packin[&apos;] a weapon in town is illegal. Best you hand it over.&apos;[or]&apos;Well, are you gonna give me that six-gun, or ain&apos;t you?&apos; Earp stares at you meaningfully.[stopping]&quot;.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Instead of going in the Red Dog Saloon:</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the player carries the six-gun and Sheriff Earp can see the six-gun:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;&apos;Best you not be walkin[&apos;] out of here with that firearm,&apos; Earp says. He adjusts his own gunbelt slightly, as if he&apos;s thinking he may have to draw down on you.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;continue the action.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Instead of giving the six-gun to Sheriff Earp:</div>
+<div class="codeline">&ensp;&ensp;&ensp;now Sheriff Earp carries the six-gun;</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;You hand over the gun. &apos;Thanks,&apos; Earp says. &apos;You can go now. But don&apos;t be startin&apos; any trouble, you hear?&apos;&quot;</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Test me with &quot;i/ n / s / give gun to Earp / s / i&quot;.</div>
+</div>
+<p>In this example, the work is being done by the Every Turn rule and the
+Instead Of Going rule. The player can do anything in the saloon (in a
+real game, this might include ordering a drink or sitting down to play
+poker, actions that would likely cause the sheriff to become more and
+more insistent), but can’t leave until he has given the gun to the
+sheriff.</p>
+
+<h3 id="combat">Combat</h3>
+
+<p>I’ve never used the extension called Armed by David Ratliff, but a
+couple of my students have found it useful. The version on the Inform 7
+website doesn’t work with current versions of Inform, as it was written
+in 2008. Fixing it is not terribly difficult. The phrase “end the game”
+has to be changed to “end the story”, instances of “change … to” have to
+be changed to “now … is”, and you may want to fix a misspelled word or
+two. The biggest stumbling block is that one of the Check rules in
+Armed, called the can’t take it with you rule, uses the word “ignore”.
+This feature is no longer supported. I was able to work around the
+problem by replacing that rule with this new code:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Check an actor taking (this is the new can&apos;t take people&apos;s possessions rule):\n\tlet the local ceiling be the common ancestor of the actor with the noun;\n\tlet the owner be the not-counting-parts holder of the noun;\n\twhile the owner is not nothing and the owner is not the local ceiling:\n\t	if the owner is a person and the owner is not dead:\n\t		if the actor is the player:\n\t			say &quot;[regarding the noun][Those] [seem] to belong to [the owner].&quot; (A);\n\t		stop the action;\n\t	let the owner be the not-counting-parts holder of the owner;\n\nThe new can&apos;t take people&apos;s possessions rule is listed instead of the can&apos;t take people&apos;s possessions rule in the check taking rulebook.`)"><span class="sym">⧉</span></button>
+<div class="codeline">Check an actor taking (this is the new can&apos;t take people&apos;s possessions rule):</div>
+<div class="codeline">&ensp;&ensp;&ensp;let the local ceiling be the common ancestor of the actor with the noun;</div>
+<div class="codeline">&ensp;&ensp;&ensp;let the owner be the not-counting-parts holder of the noun;</div>
+<div class="codeline">&ensp;&ensp;&ensp;while the owner is not nothing and the owner is not the local ceiling:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the owner is a person and the owner is not dead:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;if the actor is the player:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[regarding the noun][Those] [seem] to belong to [the owner].&quot; (A);</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;stop the action;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;let the owner be the not-counting-parts holder of the owner;</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">The new can&apos;t take people&apos;s possessions rule is listed instead of the can&apos;t take people&apos;s possessions rule in the check taking rulebook.</div>
+</div>
+<p>In case you’re curious, I created this code by copying the original
+can’t take people’s possessions rule in Standard Rules and adding the
+words “and the owner is not dead” to line 5.</p>
+
+<p>Armed creates several kinds of weapons, allows you to set the maximum
+amount of damage that will be inflicted by a weapon, and computes the
+health of each character based on the amount of damage they’ve suffered.
+If you only want to add some weapons to your game, it might be easier to
+do it yourself, because Armed prints out the health of each character
+when the character is examined, and the health of the player character
+when the player takes inventory. If most of your game doesn’t involve
+combat, the printout of characters’ health is likely to be a bit
+distracting.</p>
+
+<p>If all you need to do is set up one encounter in which some combat takes
+place, here’s some code that will get you started. Note that we need to
+create an action called “attacking it with”. Inform’s standard library
+includes attacking, but not attacking it with. In the code below, we’ve
+set it up so that if the player tries ATTACK THE DUKE without naming a
+weapon, we don’t get Inform’s default response, “Violence isn’t the
+answer to this one.” Since violence <em>is</em> the answer to this one, it’s
+important not to confuse the player.</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Drawbridge is a room. &quot;Fortunately for you, brave knight, the drawbridge has not been raised. The castle lies before you to the east.&quot;\n\nThe Castle is east of the Drawbridge.\n\nThe Duke is a man in the Drawbridge. &quot;The evil duke stands before you, blocking your way menacingly with a rapier.&quot; The description of the duke is &quot;He has an evil glint in his eye.&quot;\n\nInstead of going east from the drawbridge when the Duke is in the Drawbridge:\n\tsay &quot;&apos;You shall not pass!&apos; cries the duke.&quot;\n\nThe player carries a sword and a sofa cushion.\n\nThe Duke’s dead body is a thing.\n\nCheck attacking the duke:\n\tsay &quot;With your bare fists? Surely you can think of a better way!&quot; instead.\n\nAttacking it with is an action applying to two things and requiring light. Understand &quot;attack [something] with [something]&quot; and &quot;hit [something] with [something]&quot; as attacking it with.\n\nCheck attacking it with:\n\tif the second noun is the sofa cushion:\n\t	say &quot;&apos;Do not mock me thus, vile varlet!&apos; shouts the duke.&quot; instead;\n\telse if the second noun is not carried by the player:\n\t	say &quot;You&apos;re not holding [the second noun].&quot; instead.\n\nReport attacking it with:\n\tsay &quot;Your aggressive action has no visible result.&quot;\n\nInstead of attacking the duke with the sword:\n\tif a random chance of 1 in 3 succeeds:\n\t	say &quot;You hack the duke to pieces with the sword!&quot;;\n\t	remove the duke from play;\n\t	now the duke’s dead body is in the location;\n\totherwise:\n\t	say &quot;The duke parries your clumsy thrust expertly with his rapier.&quot;`)"><span class="sym">⧉</span></button>
+<div class="codeline">The Drawbridge is a room. &quot;Fortunately for you, brave knight, the drawbridge has not been raised. The castle lies before you to the east.&quot;</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">The Castle is east of the Drawbridge.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">The Duke is a man in the Drawbridge. &quot;The evil duke stands before you, blocking your way menacingly with a rapier.&quot; The description of the duke is &quot;He has an evil glint in his eye.&quot;</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Instead of going east from the drawbridge when the Duke is in the Drawbridge:</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;&apos;You shall not pass!&apos; cries the duke.&quot;</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">The player carries a sword and a sofa cushion.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">The Duke’s dead body is a thing.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Check attacking the duke:</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;With your bare fists? Surely you can think of a better way!&quot; instead.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Attacking it with is an action applying to two things and requiring light. Understand &quot;attack [something] with [something]&quot; and &quot;hit [something] with [something]&quot; as attacking it with.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Check attacking it with:</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the second noun is the sofa cushion:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;&apos;Do not mock me thus, vile varlet!&apos; shouts the duke.&quot; instead;</div>
+<div class="codeline">&ensp;&ensp;&ensp;else if the second noun is not carried by the player:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;You&apos;re not holding [the second noun].&quot; instead.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Report attacking it with:</div>
+<div class="codeline">&ensp;&ensp;&ensp;say &quot;Your aggressive action has no visible result.&quot;</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Instead of attacking the duke with the sword:</div>
+<div class="codeline">&ensp;&ensp;&ensp;if a random chance of 1 in 3 succeeds:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;You hack the duke to pieces with the sword!&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;remove the duke from play;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the duke’s dead body is in the location;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;The duke parries your clumsy thrust expertly with his rapier.&quot;</div>
+</div>
+<p>We’re using randomness in the Instead rule above to allow the attack to
+succeed sometimes and fail other times. In a real game, you might want
+to include a small chance that the duke will kill the player. Since we
+may want to do any of three things in our Instead rule, we can’t use the
+“if a random chance … succeeds” syntax, since that only allows for a
+positive or negative result. Instead, we’ll do it by creating a
+temporary variable, X, and assigning it a random value. Replace the
+Instead rule above with this one:</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Instead of attacking the duke with the sword:\n\tlet X be a random number from 1 to 5;\n\tif X is 1:\n\t	say &quot;You hack the duke to pieces with the sword!&quot;;\n\t	remove the duke from play;\n\t	now the duke’s dead body is in the location;\n\totherwise if X is 2:\n\t	say &quot;The point of the duke&apos;s rapier enters your rib cage.&quot;;\n\t	end the game in death;\n\totherwise:\n\t	say &quot;The duke parries your clumsy thrust expertly with his rapier.&quot;`)"><span class="sym">⧉</span></button>
+<div class="codeline">Instead of attacking the duke with the sword:</div>
+<div class="codeline">&ensp;&ensp;&ensp;let X be a random number from 1 to 5;</div>
+<div class="codeline">&ensp;&ensp;&ensp;if X is 1:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;You hack the duke to pieces with the sword!&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;remove the duke from play;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the duke’s dead body is in the location;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise if X is 2:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;The point of the duke&apos;s rapier enters your rib cage.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;end the game in death;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;The duke parries your clumsy thrust expertly with his rapier.&quot;</div>
+</div>
+<h3 id="moods">Moods</h3>
+
+<p>Real people can get into a variety of moods – friendly, bored, hostile,
+romantic, frightened, twitchy, and so on. The extension Mood Variations
+by Emily Short provides an easy way to switch characters from one mood
+to another in the course of conversation. It’s meant to be used with a
+conversation package such as Eric Eve’s Conversation Framework, but you
+don’t need to actually use the features in Conversation Framework or
+Conversation Responses if you don’t want to; you just need to include
+one of them so that Mood Variations can make use of a variable called
+the current interlocutor. Mood Variations is set up to make it easy to
+switch a character’s mood in the course of conversation, using the
+syntax “[set hostile]” within a quote. This will always set the mood
+of the person the player is currently talking to. To change a
+character’s mood outside of quotes, you need to write something like,
+“now the current mood of Bob is hostile”.</p>
+
+<p>Here’s a short game, which makes not a bit of sense, but may give you a
+quick idea of what’s possible if you include Mood Variations. The
+“asked-or-told about” syntax is defined in Conversation Responses.
+Notice that the first thing we do is define a list of moods. This will
+include all of the moods that <em>any</em> character can get into in the game.
+We don’t create a separate list of moods for each character.</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`Include Conversation Responses by Eric Eve.\nInclude Mood Variations by Emily Short.\n\nThe moods are friendly, neutral, bored, hostile, and frightened. The current mood of a person is usually neutral.\n\nThe Test Lab is a room. &quot;Many devious tests are conducted here.&quot;\n\nThe player carries an apple and a pear.\n\nSusan is a woman in the Lab. Dave is a man in the Lab.\n\nResponse of Susan when asked-or-told about the pear:\n\tif the current mood of Susan is neutral:\n\t	say &quot;[set friendly]&apos;That&apos;s quite a pear, there,&apos; Susan replies.&quot;;\n\t	now the current mood of Dave is hostile;\n\totherwise if the current mood of Susan is friendly:\n\t	say &quot;[set hostile]&apos;I love that you keep asking me that,&apos; she says.&quot;;\n\totherwise if the current mood of Susan is hostile:\n\t	say &quot;&apos;Do shut up,&apos; Susan snaps.&quot;\n\nResponse of Dave when asked-or-told about the apple:\n\tif the current mood of Dave is neutral:\n\t	say &quot;[set bored]&apos;I saw one once, in Eden,&apos; Dave replies.&quot;;\n\totherwise if the current mood of Dave is bored:\n\t	say &quot;[set hostile]Dave yawns ostentatiously.&quot;;\n\totherwise if the current mood of Dave is hostile:\n\t	say &quot;&apos;Are you trying to pick a fight?&apos; Dave asks.&quot;;\n\totherwise:\n\t	say &quot;&apos;Apples, apples…&apos;&quot;`)"><span class="sym">⧉</span></button>
+<div class="codeline">Include Conversation Responses by Eric Eve.</div>
+<div class="codeline">Include Mood Variations by Emily Short.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">The moods are friendly, neutral, bored, hostile, and frightened. The current mood of a person is usually neutral.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">The Test Lab is a room. &quot;Many devious tests are conducted here.&quot;</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">The player carries an apple and a pear.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Susan is a woman in the Lab. Dave is a man in the Lab.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Response of Susan when asked-or-told about the pear:</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the current mood of Susan is neutral:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[set friendly]&apos;That&apos;s quite a pear, there,&apos; Susan replies.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;now the current mood of Dave is hostile;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise if the current mood of Susan is friendly:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[set hostile]&apos;I love that you keep asking me that,&apos; she says.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise if the current mood of Susan is hostile:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;&apos;Do shut up,&apos; Susan snaps.&quot;</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Response of Dave when asked-or-told about the apple:</div>
+<div class="codeline">&ensp;&ensp;&ensp;if the current mood of Dave is neutral:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[set bored]&apos;I saw one once, in Eden,&apos; Dave replies.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise if the current mood of Dave is bored:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[set hostile]Dave yawns ostentatiously.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise if the current mood of Dave is hostile:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;&apos;Are you trying to pick a fight?&apos; Dave asks.&quot;;</div>
+<div class="codeline">&ensp;&ensp;&ensp;otherwise:</div>
+<div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;&apos;Apples, apples…&apos;&quot;</div>
+</div>
+<h3 id="body-parts">Body Parts</h3>
+
+<p>Giving your characters body parts is not always necessary, but if the
+character’s description mentions something prominently (Janet’s blue
+eyes, the duke’s hawklike nose, or whatever), you can easily use
+Inform’s ability to create parts of objects (as discussed in Chapter 3
+of this <em>Handbook</em>) to make the body parts. In some games, you might
+want to give all of your characters body parts. In this case, you would
+make the part a kind of thing, like this:</p>
+
+<p>The Living Room is a room.</p>
+
+<div class="codeblock"><button class="copycode" title="Copy to clipboard" onclick="copyCode(`The Living Room is a room.\n\nA nose is a kind of thing. A nose is part of every person. The description of a nose is usually &quot;Seen one nose, seen [&apos;]em all.&quot;\n\nSusan is a person in the Living Room.\nThe description of Susan&apos;s nose is &quot;It has a cute upward tilt.&quot; Understand &quot;cute&quot; as Susan&apos;s nose.\n\nThe description of your nose is &quot;You can&apos;t see much of it, as you&apos;re behind it.&quot;`)"><span class="sym">⧉</span></button>
+<div class="codeline">The Living Room is a room.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">A nose is a kind of thing. A nose is part of every person. The description of a nose is usually &quot;Seen one nose, seen [&apos;]em all.&quot;</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">Susan is a person in the Living Room.</div>
+<div class="codeline">The description of Susan&apos;s nose is &quot;It has a cute upward tilt.&quot; Understand &quot;cute&quot; as Susan&apos;s nose.</div>
+<div class="codeline">&thinsp;</div>
+<div class="codeline">The description of your nose is &quot;You can&apos;t see much of it, as you&apos;re behind it.&quot;</div>
+</div>
+<p>The only odd thing about this is that you can’t say “The description of
+the player’s nose”. Or rather, you can; it will compile; but it won’t
+work. Instead, you have to say “your nose”. Inform will understand that
+the player can then refer to this object as “my nose”.</p>
+
+
+</main>
+<footer>
+  <p><em>The Inform 7 Handbook</em> is copyright &copy; 2015 by Jim Aikin, and released under a <a href="https://creativecommons.org/licenses/by-nc/1.0/legalcode">CC-BY-NC 1.0 license</a>.</p>
+</footer>
+  </body>
+</html>
+
+
+<!doctype html>
+<title>Inform 7 Handbook</title>
+<script src="../i7doc.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,375;0,400;0,500;0,700;1,375;1,400;1,500;1,700&family=Source+Sans+Pro:ital,wght@0,350;0,400;0,550;0,700;1,350;1,400;1,550;1,700&display=swap" rel="stylesheet"> 
+<link rel="stylesheet" href="../i7doc.css">
+<link rel="stylesheet" href="i7handbook.css">
+  </head>
+  <body>
 <h2 id="chapter-5-creating-characters">Chapter 5: Creating Characters</h2>
 
 <p>Stories are about people. Because interactive fiction is a form of

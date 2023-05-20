@@ -58,7 +58,7 @@
 </div><p>where a novel would usually write:</p>
 <div class="codeblock"><div class="codeline">He saw a grey cat in the basket.</div>
 </div><p>Standard interactive fiction (IF) is second person singular, and present tense; most novels are told in the third person singular, and past tense.</p>
-<p>But these are just conventions &ndash; a few novels, for example, use the so-called present historic (&quot;Napoleon looks up at the sky and sighs. Must Ney always be so doubting?&quot;), and plenty are told in the first person singular (&quot;I always get the shakes before a drop.&quot;). Inform allows some of this flexibility, too. The two values:</p>
+<p>But these are just conventions - a few novels, for example, use the so-called present historic (&quot;Napoleon looks up at the sky and sighs. Must Ney always be so doubting?&quot;), and plenty are told in the first person singular (&quot;I always get the shakes before a drop.&quot;). Inform allows some of this flexibility, too. The two values:</p>
 <div class="codeblock"><div class="codeline">story viewpoint</div>
 <div class="codeline">story tense</div>
 </div><p>control the style of the text produced. The story viewpoint has to be one of the values:</p>
@@ -112,19 +112,19 @@
 </div><p>The result is much better: &quot;The V-ray is pinned down&hellip;&quot;; &quot;You are&hellip;&quot;; &quot;The condensers are&hellip;&quot;. In fact, it&#39;s also convenient because it adapts to the story viewpoint and story tense: &quot;The condensers will be pinned down&hellip;&quot;; &quot;He was pinned down&hellip;&quot;.</p>
 <p>How does Inform do this? The answer is not that &quot;[are]&quot; is a specially-written text substitution. In fact Inform can do this with any verb that it has a definition of. For example,</p>
 <div class="codeblock"><div class="codeline">&quot;[The noun] [carry] too much static charge.&quot;</div>
-</div><p>would also adapt itself &ndash; &quot;The V-ray carries too much static charge&quot;, and so on. There aren&#39;t many verbs built in to Inform, but &quot;[have]&quot; and &quot;[carry]&quot; and &quot;[wear]&quot; and &quot;[can]&quot; may be useful, and &quot;[can see]&quot; and &quot;[can touch]&quot;. Negative forms like &quot;[are not]&quot; are also available:</p>
+</div><p>would also adapt itself - &quot;The V-ray carries too much static charge&quot;, and so on. There aren&#39;t many verbs built in to Inform, but &quot;[have]&quot; and &quot;[carry]&quot; and &quot;[wear]&quot; and &quot;[can]&quot; may be useful, and &quot;[can see]&quot; and &quot;[can touch]&quot;. Negative forms like &quot;[are not]&quot; are also available:</p>
 <div class="codeblock"><div class="codeline">&quot;[The noun] [cannot touch] the ionizer terminal.&quot;</div>
 </div><p>might produce &quot;The V-ray will not be able to touch the ionizer terminal.&quot;, for example.</p>
 <p>As these examples hint, the verb adapts itself to the most recently printed object name. All of this only works if the previous object&#39;s name is printed from a substitution. So:</p>
 <div class="codeblock"><div class="codeline">&quot;[The condensers] [are] working.&quot;</div>
-</div><p>will work &ndash; correctly forming &quot;The condensers are working.&quot;, &quot;The condensers will be working.&quot; or &quot;The condensers were working.&quot;, according to the story tense &ndash; but</p>
+</div><p>will work -- correctly forming &quot;The condensers are working.&quot;, &quot;The condensers will be working.&quot; or &quot;The condensers were working.&quot;, according to the story tense -- but</p>
 <div class="codeblock"><div class="codeline">&quot;The condensers [are] working.&quot;</div>
 </div><p>probably won&#39;t work. Inform doesn&#39;t have any way to understand the raw text outside of the text substitution marks &quot;[&quot; and &quot;]&quot;, and it doesn&#39;t recognise &quot;The condensers&quot; as being something&#39;s name.</p>
 <p>Something else to be careful with is the use of lists. If we write this:</p>
 <div class="codeblock"><div class="codeline">&quot;[The condensers] and [the V-ray] [are] smashed by Voltan&#39;s birdmen.&quot;</div>
 </div><p>then Inform is likely to print:</p>
 <div class="codeblock"><div class="codeline">The condensers and the V-ray is smashed by Voltan&#39;s birdmen.</div>
-</div><p>because it looks at the most recently named object &ndash; the V-ray, singular &ndash; to decide whether to use &quot;is&quot; or &quot;are&quot;. On the other hand, Inform gets this right:</p>
+</div><p>because it looks at the most recently named object - the V-ray, singular - to decide whether to use &quot;is&quot; or &quot;are&quot;. On the other hand, Inform gets this right:</p>
 <div class="codeblock"><div class="codeline">&quot;[The list of things on the bench] [are] smashed by Voltan&#39;s birdmen.&quot;</div>
 </div><p>Because Inform constructs the list itself, it&#39;s able to appreciate that the things listed are jointly the subject of the verb, and it uses that information to decide on &quot;is&quot; or &quot;are&quot;. So:</p>
 <div class="codeblock"><div class="codeline">The condensers and the V-ray are smashed by Voltan&#39;s birdmen.</div>
@@ -171,14 +171,14 @@
 <div class="codeblock"><div class="codeline">&quot;[We] [carry] the Queen&#39;s warrant.&quot;</div>
 <div class="codeline">&quot;The birds drop pebbles on [us]. Right on [our] heads!&quot;</div>
 <div class="codeline">&quot;[Ours] are the burdens of office, which [we] take on [ourselves].&quot;</div>
-</div><p>Notice that all five of these forms are differently worded, in English. That&#39;s the reason why we use the plural to write them &ndash; the traditional second person plural forms would be &quot;you&quot;, &quot;you&quot;, &quot;your&quot;, &quot;yours&quot; and &quot;yourself&quot;, so we wouldn&#39;t know if &quot;[you]&quot; was supposed to be the subject or the object of the verb. So the convention with all of these adaptive forms is that we use &quot;we&quot; and its variations. (That&#39;s also why the verbs are written in the plural &ndash; &quot;[carry]&quot;, not &quot;[carries]&quot;.)</p>
+</div><p>Notice that all five of these forms are differently worded, in English. That&#39;s the reason why we use the plural to write them - the traditional second person plural forms would be &quot;you&quot;, &quot;you&quot;, &quot;your&quot;, &quot;yours&quot; and &quot;yourself&quot;, so we wouldn&#39;t know if &quot;[you]&quot; was supposed to be the subject or the object of the verb. So the convention with all of these adaptive forms is that we use &quot;we&quot; and its variations. (That&#39;s also why the verbs are written in the plural - &quot;[carry]&quot;, not &quot;[carries]&quot;.)</p>
 </article>
 <article><div class="section-title"><div class="section-title-row"><div class="section-title-link"><a class="permalink raw" href="WI_14.html#section_5">&#128279;&ensp;</a></div><h3 class="section-title-header" id="section_5">WI <span class="sect-mark">§</span>14.5 Adapting text referring to other things</h3></div></div>
 <div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="#section_4" title="Adapting text about the player"><div class="nav-arrow"><span class="sym">⬅</span>14.4</div><div class="doc-navbar-text">Adapting text about the player</div></a></div><div class="doc-navbar-center"><a class="raw nav-el" href="#chapter_14"><div class="nav-arrow"><span class="sym">⬆</span>14.</div><div class="doc-navbar-text">Adaptive Text and Responses</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="#section_6"><div class="doc-navbar-text">Adapting demonstratives and possessives</div><div class="nav-arrow">14.6<span class="sym">⮕</span></div></a></div></div></div>
-<p>The family in the previous section &ndash; &quot;[we]&quot;, &quot;[us]&quot;, &quot;[our]&quot;, &quot;[ours]&quot;, &quot;[ourselves]&quot; &ndash; always referred to the player. But we also sometimes want to refer to other things without naming them. For example, how should we adapt this?</p>
+<p>The family in the previous section - &quot;[we]&quot;, &quot;[us]&quot;, &quot;[our]&quot;, &quot;[ours]&quot;, &quot;[ourselves]&quot; - always referred to the player. But we also sometimes want to refer to other things without naming them. For example, how should we adapt this?</p>
 <div class="codeblock"><div class="codeline">&gt; EXAMINE TREE</div>
 <div class="codeline">It has no clear outline in this misty netherworld.</div>
-</div><p>We can easily make the verb adapt &ndash; change the &quot;has&quot; to &quot;[have]&quot; &ndash; but the trick here is to make the &quot;It&quot; adapt to cases where what&#39;s examined is plural, or animate. What we want is:</p>
+</div><p>We can easily make the verb adapt - change the &quot;has&quot; to &quot;[have]&quot; - but the trick here is to make the &quot;It&quot; adapt to cases where what&#39;s examined is plural, or animate. What we want is:</p>
 <div class="codeblock"><div class="codeline">Instead of examining in the Netherworld:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say &quot;[regarding the noun][They] [have] no clear outline in this misty netherworld.&quot;</div>
 </div><p>For example, this produces:</p>
@@ -188,7 +188,7 @@
 <div class="codeline">He has no clear outline in this misty netherworld.</div>
 <div class="codeline">&gt; EXAMINE DRUMS</div>
 <div class="codeline">They have no clear outline in this misty netherworld.</div>
-</div><p>Note that we have to say &quot;[regarding the noun]&quot;, not just start in with &quot;[They]&quot;, because nothing has been named so far in the sentence &ndash; so Inform doesn&#39;t know what object it refers to. &quot;[regarding the noun]&quot; prints nothing, and simply tells the printing part of Inform that the subject has changed.</p>
+</div><p>Note that we have to say &quot;[regarding the noun]&quot;, not just start in with &quot;[They]&quot;, because nothing has been named so far in the sentence - so Inform doesn&#39;t know what object it refers to. &quot;[regarding the noun]&quot; prints nothing, and simply tells the printing part of Inform that the subject has changed.</p>
 <p>This isn&#39;t always needed:</p>
 <div class="codeblock"><div class="codeline">&quot;[We] [have] a look at [the noun], but [they] [are] just too big.&quot;</div>
 </div><p>works fine, because printing &quot;[the noun]&quot; changes the subject to that, and then &quot;[they]&quot; agrees with it automatically. The text might come out, for example, as:</p>
@@ -204,7 +204,7 @@
 </div><p>There&#39;s also the peculiar impersonal non-object for English sentences like &quot;It is raining&quot; or &quot;There are books&quot;:</p>
 <div class="codeblock"><div class="codeline">&quot;[It]&quot; or &quot;[it]&quot;</div>
 <div class="codeline">&quot;[There]&quot; or &quot;[there]&quot;</div>
-</div><p>These look pointless &ndash; but consider the two texts</p>
+</div><p>These look pointless - but consider the two texts</p>
 <div class="codeblock"><div class="codeline">&quot;[We] [take] [the noun]. It [rain] harder.&quot;</div>
 <div class="codeline">&quot;[We] [take] [the noun]. [It] [rain] harder.&quot;</div>
 </div><p>The first one risks printing &quot;We took the scissors. It rain harder.&quot;, because it makes &quot;[rain]&quot; agree with &quot;scissors&quot;, which are plural. But the second text makes &quot;[rain]&quot; agree with &quot;[it]&quot;. And, as a convenience:</p>
@@ -246,7 +246,7 @@
 </div><p>In fact &quot;[Those]&quot; and &quot;[those]&quot; do subtly different things, besides the capital letter, because &quot;[Those]&quot; expects to be the subject of the sentence and &quot;[those]&quot; the object, and this makes a difference if the noun in question is a person. If the noun is an odious person called Tilly then</p>
 <div class="codeblock"><div class="codeline">&quot;[regarding the noun][Those] is unacceptable.&quot;</div>
 <div class="codeline">&quot;You&#39;ve never liked [regarding the noun][those].&quot;</div>
-</div><p>would come out as &quot;She is unacceptable&quot; &ndash; so &quot;[Those]&quot; becomes &quot;She&quot; &ndash; but &quot;You&#39;ve never liked her&quot; &ndash; so &quot;[those]&quot; becomes &quot;her&quot;. If we need these in different cases, we can explicitly ask for that:</p>
+</div><p>would come out as &quot;She is unacceptable&quot; - so &quot;[Those]&quot; becomes &quot;She&quot; - but &quot;You&#39;ve never liked her&quot; - so &quot;[those]&quot; becomes &quot;her&quot;. If we need these in different cases, we can explicitly ask for that:</p>
 <div class="codeblock"><div class="codeline">&quot;[those in the nominative]&quot;</div>
 <div class="codeline">&quot;[Those in the accusative]&quot;</div>
 </div><div class="examples">
@@ -260,7 +260,7 @@
 <p>English uses so-called &quot;modal verbs&quot; to change a sentence so that it talks about something only possibly happening. For example, the sentence &quot;Fred goes to school&quot; can be modified to &quot;Fred must go to school&quot;, &quot;Fred should go to school&quot; or even &quot;Fred might go to school&quot;.</p>
 <p>Inform supports the use of modal verbs in text substitutions. For example,</p>
 <div class="codeblock"><div class="codeline">&quot;[Fred] [might go] to school.&quot;</div>
-</div><p>would in the present tense come out as &quot;Fred might go to school.&quot;, but could alternatively be &quot;Fred might have gone to school.&quot; As this example shows, all that&#39;s needed is to take a verb we&#39;ll call V &ndash; this case, &quot;go&quot; &ndash; and we can write any of these:</p>
+</div><p>would in the present tense come out as &quot;Fred might go to school.&quot;, but could alternatively be &quot;Fred might have gone to school.&quot; As this example shows, all that&#39;s needed is to take a verb we&#39;ll call V - this case, &quot;go&quot; - and we can write any of these:</p>
 <div class="codeblock"><div class="codeline">&quot;[can V]&quot; or &quot;[cannot V]&quot; or &quot;[can&#39;t V]&quot;</div>
 <div class="codeline">&quot;[could V]&quot; or &quot;[could not V]&quot; or &quot;[couldn&#39;t V]&quot;</div>
 <div class="codeline">&quot;[may V]&quot; or &quot;[may not V]&quot; or &quot;[mayn&#39;t V]&quot;</div>
@@ -272,7 +272,7 @@
 <div class="codeblock"><div class="codeline">&quot;You can&#39;t go that way.&quot;</div>
 </div><p>To make this message adaptive, we write:</p>
 <div class="codeblock"><div class="codeline">&quot;[We] [can&#39;t go] that way.&quot;</div>
-</div><p>which can adapt in surprising ways &ndash; &quot;They won&#39;t be able to go that way.&quot;, for example.</p>
+</div><p>which can adapt in surprising ways -- &quot;They won&#39;t be able to go that way.&quot;, for example.</p>
 <p>Note that the verb V has to be one that Inform knows. But that&#39;s easy:</p>
 <div class="codeblock"><div class="codeline">To discombobulate is a verb.</div>
 </div><p>and then</p>
@@ -341,8 +341,8 @@
 <div class="codeblock"><div class="codeline">&quot;my rendering applied to the list of meaningful verbs&quot; = list of texts: {&quot;had not had&quot;, &quot;had not related&quot;, &quot;had not meant&quot;, &quot;had not provided&quot;, &quot;had not contained&quot;, &quot;had not supported&quot;, &quot;had not incorporated&quot;, &quot;had not enclosed&quot;, &quot;had not carried&quot;, &quot;had not held&quot;, &quot;had not worn&quot;, &quot;had not been able to see&quot;, &quot;had not been able to touch&quot;, &quot;had not concealed&quot;, &quot;had not unlocked&quot;}</div>
 </div><p>Lastly, we can get at three other useful parts of a verb, too. These aren&#39;t adaptive, of course: a verb only has one infinitive form.</p>
 <div class="defn" id="phs_infinitive"><div class="defnline"><span class="defn">say "[infinitive of </span><span class="neutral">(verb)</span><span class="defn">]"</span></div><p>Produces the infinitive of the given verb. Note that this is without a &quot;to&quot;: for example, &quot;[infinitive of the verb carry]&quot; is &quot;carry&quot;, not &quot;to carry&quot;.</p>
-</div><div class="defn" id="phs_pastpart"><div class="defnline"><span class="defn">say "[past participle of </span><span class="neutral">(verb)</span><span class="defn">]"</span></div><p>Produces the past participle of the given verb. For example, &quot;[past participle of the verb carry]&quot; is &quot;carried&quot;. Warning: because modal verbs like &quot;should&quot; or &quot;might&quot; are defective in English, this will produce odd results on them &ndash; &quot;shoulded&quot; and &quot;mighted&quot;, for example.</p>
-</div><div class="defn" id="phs_prespart"><div class="defnline"><span class="defn">say "[present participle of </span><span class="neutral">(verb)</span><span class="defn">]"</span></div><p>Produces the present participle of the given verb. For example, &quot;[present participle of the verb carry]&quot; is &quot;carrying&quot;. Warning: because modal verbs like &quot;should&quot; or &quot;might&quot; are defective in English, this will produce odd results on them &ndash; &quot;shoulding&quot; and &quot;mighting&quot;, for example.</p>
+</div><div class="defn" id="phs_pastpart"><div class="defnline"><span class="defn">say "[past participle of </span><span class="neutral">(verb)</span><span class="defn">]"</span></div><p>Produces the past participle of the given verb. For example, &quot;[past participle of the verb carry]&quot; is &quot;carried&quot;. Warning: because modal verbs like &quot;should&quot; or &quot;might&quot; are defective in English, this will produce odd results on them - &quot;shoulded&quot; and &quot;mighted&quot;, for example.</p>
+</div><div class="defn" id="phs_prespart"><div class="defnline"><span class="defn">say "[present participle of </span><span class="neutral">(verb)</span><span class="defn">]"</span></div><p>Produces the present participle of the given verb. For example, &quot;[present participle of the verb carry]&quot; is &quot;carrying&quot;. Warning: because modal verbs like &quot;should&quot; or &quot;might&quot; are defective in English, this will produce odd results on them - &quot;shoulding&quot; and &quot;mighting&quot;, for example.</p>
 </div><div class="examples">
 <h4>Examples</h4>
 <div class="example-short"><div class="example-short-num"><span class="hidden"></span>250.</div><div class="example-short-name"><span class="example-short-name"><a href="examples/history_lab.html">History Lab</a></span> <span class="sym">★★</span></div></div><div class="example-short"><div class="example-short-num"><span class="hidden">000.</span></div><div class="example-short-name">We create phrases such as &quot;the box we took&quot; and &quot;the newspaper Clark looked at&quot; based on what has already happened in the story.</div></div>
@@ -353,13 +353,13 @@
 </article>
 <article><div class="section-title"><div class="section-title-row"><div class="section-title-link"><a class="permalink raw" href="WI_14.html#section_10">&#128279;&ensp;</a></div><h3 class="section-title-header" id="section_10">WI <span class="sect-mark">§</span>14.10 Responses</h3></div></div>
 <div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="#section_9" title="Verbs as values"><div class="nav-arrow"><span class="sym">⬅</span>14.9</div><div class="doc-navbar-text">Verbs as values</div></a></div><div class="doc-navbar-center"><a class="raw nav-el" href="#chapter_14"><div class="nav-arrow"><span class="sym">⬆</span>14.</div><div class="doc-navbar-text">Adaptive Text and Responses</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="#section_11"><div class="doc-navbar-text">Changing the text of responses</div><div class="nav-arrow">14.11<span class="sym">⮕</span></div></a></div></div></div>
-<p>Most of the text which the player sees is drawn from the source, but mixed in with this are messages apparently added by Inform itself &ndash; usually in the form of short sentences saying that something has been done, or that something can&#39;t be done. Such pieces of text are called &quot;responses&quot;, because they are almost always replies to commands. For example:</p>
+<p>Most of the text which the player sees is drawn from the source, but mixed in with this are messages apparently added by Inform itself - usually in the form of short sentences saying that something has been done, or that something can&#39;t be done. Such pieces of text are called &quot;responses&quot;, because they are almost always replies to commands. For example:</p>
 <div class="codeblock"><div class="codeline">&gt; EAST</div>
 <div class="codeline">You can&#39;t go that way.</div>
 <div class="codeline blankline">&thinsp;</div>
 <div class="codeline">&gt; JUMP</div>
 <div class="codeline">You jump on the spot.</div>
-</div><p>Responses like this, which don&#39;t appear anywhere in the source text, come from one of the extensions being used; most often from the Standard Rules, the &quot;extension&quot; which is automatically included in every project. The SR contain many small rules, and almost all of these are capable of producing one or two standard responses. These are labelled with the rule&#39;s name and then a bracketed letter &ndash; (A), (B), (C), &hellip; as needed so that every response has its own unique name. There&#39;s nothing very mysterious about how this is done. For example, here is a rule with one response:</p>
+</div><p>Responses like this, which don&#39;t appear anywhere in the source text, come from one of the extensions being used; most often from the Standard Rules, the &quot;extension&quot; which is automatically included in every project. The SR contain many small rules, and almost all of these are capable of producing one or two standard responses. These are labelled with the rule&#39;s name and then a bracketed letter - (A), (B), (C), &hellip; as needed so that every response has its own unique name. There&#39;s nothing very mysterious about how this is done. For example, here is a rule with one response:</p>
 <div class="codeblock"><div class="codeline">Carry out taking inventory (this is the print empty inventory rule):</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the first thing held by the player is nothing,</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[We] [are] carrying nothing.&quot; (A) instead.</div>

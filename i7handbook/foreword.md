@@ -198,7 +198,7 @@ magazines. His personal website is [JimAikin.net](jimaikin.net).
 
 [1]: http://www.tads.org/
 [2]: https://ifdb.org/viewgame?id=fft6pu91j85y4acv
-[3]: https://undum.com/
+[3]: http://idmillington.github.io/undum/
 [4]: https://twinery.org
 [5]: https://www.choiceofgames.com/make-your-own-games/choicescript-intro/
 [6]: https://intfiction.org

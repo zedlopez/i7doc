@@ -77,7 +77,7 @@
 <div class="codeblock"><div class="codeline">When Train Stop begins:</div>
 <div class="codeline">&ensp;&ensp;&ensp;move the Flying Scotsman to the Station;</div>
 <div class="codeline">&ensp;&ensp;&ensp;say &quot;The Flying Scotsman pulls up at the platform.&quot;</div>
-</div><p>Rules like this begin with a &quot;preamble&quot;, the beginning part which tells Inform when or how they apply, and then follow on with a list of instructions &ndash; here, just two of them. &quot;move &hellip; to &hellip;&quot; and &quot;say &hellip;&quot; are both phrases. Inform provides about 130 of these built-in. It&#39;s actually not quite true that they all do something, because one of them is:</p>
+</div><p>Rules like this begin with a &quot;preamble&quot;, the beginning part which tells Inform when or how they apply, and then follow on with a list of instructions - here, just two of them. &quot;move &hellip; to &hellip;&quot; and &quot;say &hellip;&quot; are both phrases. Inform provides about 130 of these built-in. It&#39;s actually not quite true that they all do something, because one of them is:</p>
 <div class="defn" id="ph_nothing"><div class="defnline"><span class="defn">do nothing</span></div><p>This phrase does nothing at all. It is very occasionally useful to make a rule which does nothing:</p>
 <div class="codeblock"><div class="codeline">This is the largely ineffective rule:</div>
 <div class="codeline">&ensp;&ensp;&ensp;do nothing.</div>
@@ -113,7 +113,7 @@
 <div class="codeblock"><div class="codeline">admire the diamonds;</div>
 <div class="codeline">admire Mr Cogito;</div>
 <div class="codeline">admire the honey sandwich;</div>
-</div><p>and our single definition covers all of these possibilities. The bracketed part of the definition, &quot;(item &ndash; an object)&quot;, tells Inform to expect an object in that position, and Inform enforces this carefully. So this definition might tell Inform what &quot;admire the barricade&quot; means, but not what</p>
+</div><p>and our single definition covers all of these possibilities. The bracketed part of the definition, &quot;(item - an object)&quot;, tells Inform to expect an object in that position, and Inform enforces this carefully. So this definition might tell Inform what &quot;admire the barricade&quot; means, but not what</p>
 <div class="codeblock"><div class="codeline">admire &quot;blue cheese&quot;;</div>
 <div class="codeline">admire 63;</div>
 </div><p>mean. Unless some other definition sorts the matter out, Inform will reply to uses like this with a Problem message:</p>
@@ -123,7 +123,7 @@
 <div class="codeline">&ensp;&ensp;&ensp;admire the noun.</div>
 </div><p>which Inform allows because &quot;noun&quot;, here, is a name for the object which is being acted on.</p>
 <p>Inform decides which definition to apply in a process called &quot;pattern matching&quot;.</p>
-<p>The bracketed part of the example definition has the form &quot;(name &ndash; kind)&quot;. The definition only applies if the text supplied agrees with the &quot;kind&quot; part &ndash; for instance, the diamonds agreed with &quot;object&quot;, but 63 did not. If the definition  does apply, then the Inform works through the rest of the phrase using &quot;name&quot; to mean whatever value matched. For example:</p>
+<p>The bracketed part of the example definition has the form &quot;(name - kind)&quot;. The definition only applies if the text supplied agrees with the &quot;kind&quot; part - for instance, the diamonds agreed with &quot;object&quot;, but 63 did not. If the definition  does apply, then the Inform works through the rest of the phrase using &quot;name&quot; to mean whatever value matched. For example:</p>
 <div class="codeblock"><div class="codeline">To slam shut (box - an open container):</div>
 <div class="codeline">&ensp;&ensp;&ensp;say &quot;With great panache, you slam shut [the box].&quot;;</div>
 <div class="codeline">&ensp;&ensp;&ensp;now the box is closed.</div>
@@ -174,7 +174,7 @@
 <div class="codeblock"><div class="codeline">Every turn: showme the score.</div>
 </div><p>Now, every turn, we get a line in the story&#39;s transcript like so:</p>
 <div class="codeblock"><div class="codeline">&quot;score&quot; = number: 0</div>
-</div><p>Inform uses the quotation marks and equals sign to show that it had to do some work to find the answer. &quot;score&quot; wasn&#39;t a constant value &ndash; it was a variable, and Inform had to look up the current value.</p>
+</div><p>Inform uses the quotation marks and equals sign to show that it had to do some work to find the answer. &quot;score&quot; wasn&#39;t a constant value - it was a variable, and Inform had to look up the current value.</p>
 </div><p>&quot;showme&quot; is a convenient way to see what&#39;s going on inside a phrase which isn&#39;t behaving as expected, or to find out the kind of a value. Here are some trickier examples. Suppose our design includes:</p>
 <div class="codeblock"><div class="codeline">The matching key of the blue door is the brass Yale key.</div>
 </div><p>If we then try this:</p>
@@ -184,9 +184,9 @@
 <div class="codeblock"><div class="codeline">&quot;matching key of the blue door&quot; = object: brass Yale key</div>
 </div><p>Why is this an &quot;object&quot;, when we know that the key is actually a &quot;thing&quot;? After all, if we &quot;showme key&quot; instead, we get:</p>
 <div class="codeblock"><div class="codeline">thing: brass Yale key</div>
-</div><p>The answer is a little technical: it&#39;s because Inform guarantees that the matching key is always an object, but not that it&#39;s always a thing &ndash; it just happens to be a thing at the moment. There&#39;s not really a contradiction, because a &quot;thing&quot; is a kind of &quot;object&quot;, so in fact the key is both. If we try &quot;showme matching key&quot;, we get something like this:</p>
+</div><p>The answer is a little technical: it&#39;s because Inform guarantees that the matching key is always an object, but not that it&#39;s always a thing - it just happens to be a thing at the moment. There&#39;s not really a contradiction, because a &quot;thing&quot; is a kind of &quot;object&quot;, so in fact the key is both. If we try &quot;showme matching key&quot;, we get something like this:</p>
 <div class="codeblock"><div class="codeline">objects valued property: property 23</div>
-</div><p>which is even more technical &ndash; people never need to print the names of abstract property names during play, so Inform doesn&#39;t provide any good way of doing it. It is reduced to printing out an internal ID number (&quot;property 23&quot;) instead of the name (&quot;matching key&quot;). This can&#39;t be helped: &quot;showme&quot; is a way to lift the lid and see what&#39;s going on inside Inform&#39;s machinery, and some of the corners are dark.</p>
+</div><p>which is even more technical - people never need to print the names of abstract property names during play, so Inform doesn&#39;t provide any good way of doing it. It is reduced to printing out an internal ID number (&quot;property 23&quot;) instead of the name (&quot;matching key&quot;). This can&#39;t be helped: &quot;showme&quot; is a way to lift the lid and see what&#39;s going on inside Inform&#39;s machinery, and some of the corners are dark.</p>
 <p>All the same, &quot;showme&quot; can be very useful in tinkering with rules to make them work properly. It prints nothing at all in a Release version of a project, so it&#39;s impossible for these private notes to be shown accidentally to our eventual readers.</p>
 </article>
 <article><div class="section-title"><div class="section-title-row"><div class="section-title-link"><a class="permalink raw" href="WI_11.html#section_5">&#128279;&ensp;</a></div><h3 class="section-title-header" id="section_5">WI <span class="sect-mark">§</span>11.5 Conditions and questions</h3></div></div>
@@ -294,7 +294,7 @@
 <div class="codeline">&ensp;&ensp;&ensp;...</div>
 <div class="codeline">otherwise if N is greater than 4:</div>
 <div class="codeline">&ensp;&ensp;&ensp;...</div>
-</div><p>At most one of the &quot;&hellip;&quot; clauses is ever reached &ndash; the first which works out.</p>
+</div><p>At most one of the &quot;&hellip;&quot; clauses is ever reached - the first which works out.</p>
 </div><p>If the chain of conditions being tried consists of checking the same value over and over, we can use a convenient abbreviated form:</p>
 <div class="defn" id="ph_switch"><div class="defnline"><span class="defn">if </span><span class="neutral">(value)</span><span class="defn"> is:</span></div><p>This phrase switches between a variety of possible blocks of phrases to follow, depending on the value given. Example:</p>
 <div class="codeblock"><div class="codeline">if the dangerous item is:</div>
@@ -342,7 +342,7 @@
 <div class="defn" id="ph_repeat"><div class="defnline"><span class="defn">repeat with </span><span class="neutral">(a name not so far used)</span><span class="defn"> running from </span><span class="neutral">(arithmetic value)</span><span class="defn"> to </span><span class="neutral">(arithmetic value)</span></div><div class="defn-or">or&hellip;</div><div class="defnline"><span class="defn">repeat with </span><span class="neutral">(a name not so far used)</span><span class="defn"> running from </span><span class="neutral">(enumerated value)</span><span class="defn"> to </span><span class="neutral">(enumerated value)</span><span class="defn">:</span></div><p>This phrase causes the block of phrases following it to be repeated once for each value in the given range, storing that value in the named variable. (The variable exists only temporarily, within the repetition.) Example:</p>
 <div class="codeblock"><div class="codeline">repeat with counter running from 1 to 10:</div>
 <div class="codeline">&ensp;&ensp;&ensp;...</div>
-</div><p>This, and runs through the given phrases ten times. Within those phrases, a special value called &quot;counter&quot; has the value 1 the first time through, then the value 2, then 3 and so on up to 10. (It can of course be called whatever we like: this is only an example.) The range can be from any kind where ranges make sense &ndash; anything on which arithmetic can be done, so for instance</p>
+</div><p>This, and runs through the given phrases ten times. Within those phrases, a special value called &quot;counter&quot; has the value 1 the first time through, then the value 2, then 3 and so on up to 10. (It can of course be called whatever we like: this is only an example.) The range can be from any kind where ranges make sense - anything on which arithmetic can be done, so for instance</p>
 <div class="codeblock"><div class="codeline">repeat with moment running from 4 PM to 4:07 PM:</div>
 <div class="codeline">&ensp;&ensp;&ensp;...</div>
 </div><p>and also any enumeration:</p>
@@ -387,7 +387,7 @@
 <div class="codeblock"><div class="codeline">repeat with T running through times:</div>
 <div class="codeline">&ensp;&ensp;&ensp;...</div>
 </div><p>which repeats 1440 times, starting with T at midnight and finishing at 11:59 PM. See the Kinds index for which kinds of value can be repeated through.</p>
-</div><p>As with counting the &quot;number of &hellip;&quot; objects satisfying some property, we can run through a wide variety of possibilities &ndash; any description whose range is possible for Inform to search. For example:</p>
+</div><p>As with counting the &quot;number of &hellip;&quot; objects satisfying some property, we can run through a wide variety of possibilities - any description whose range is possible for Inform to search. For example:</p>
 <div class="codeblock"><div class="codeline">repeat with dinner guest running through the people in the Dining Room:</div>
 <div class="codeline">&ensp;&ensp;&ensp;...</div>
 <div class="codeline blankline">&thinsp;</div>
@@ -415,7 +415,7 @@
 <div class="codeline">&ensp;&ensp;&ensp;if X is 4, next;</div>
 <div class="codeline">&ensp;&ensp;&ensp;say &quot;[X] &quot;.</div>
 </div><p>produces the text &quot;1 2 3 5 6 7 8 9 10 &quot;, with no &quot;4&quot; because the &quot;say&quot; phrase was never reached on the fourth repetition.</p>
-</div><p>In Monopoly terms, &quot;next&quot; is &quot;Advance to Go&quot; rather than &quot;go directly, do not pass Go, do not collect $200&quot; &ndash; the next iteration begins with the variable, if there is one, having cleanly moved on to the next value, just as if the loop had been run through in the normal way. (&quot;Next&quot; is called &quot;continue&quot; in a fair number of programming languages, so Inform issues a specific problem message to help people who forget this.)</p>
+</div><p>In Monopoly terms, &quot;next&quot; is &quot;Advance to Go&quot; rather than &quot;go directly, do not pass Go, do not collect $200&quot; - the next iteration begins with the variable, if there is one, having cleanly moved on to the next value, just as if the loop had been run through in the normal way. (&quot;Next&quot; is called &quot;continue&quot; in a fair number of programming languages, so Inform issues a specific problem message to help people who forget this.)</p>
 <div class="defn" id="ph_break"><div class="defnline"><span class="defn">break</span></div><p>This phrase can only be used inside &quot;repeat&quot;, &quot;while&quot; block, and causes both the current repetition and the entire loop to finish immediately. Example:</p>
 <div class="codeblock"><div class="codeline">repeat with X running from 1 to 10:</div>
 <div class="codeline">&ensp;&ensp;&ensp;if X is 7, break;</div>
@@ -430,7 +430,7 @@
 <div class="codeline">&ensp;&ensp;&ensp;if the score is 0, stop;</div>
 <div class="codeline">&ensp;&ensp;&ensp;say &quot;The score is [score in words] more than it was a half-hour ago.&quot;</div>
 </div><p>In the case when the score is 0, the &quot;stop&quot; ends the phrase immediately, so that the subsequent text is printed only if the score is not 0.</p>
-<p>&quot;Stop&quot; can also be used in action rules, though this is not very good style &ndash; it&#39;s clearer to use &quot;stop the action&quot;, which is exactly equivalent.</p>
+<p>&quot;Stop&quot; can also be used in action rules, though this is not very good style - it&#39;s clearer to use &quot;stop the action&quot;, which is exactly equivalent.</p>
 </div></article>
 <article><div class="section-title"><div class="section-title-row"><div class="section-title-link"><a class="permalink raw" href="WI_11.html#section_14">&#128279;&ensp;</a></div><h3 class="section-title-header" id="section_14">WI <span class="sect-mark">§</span>11.14 Phrase options</h3></div></div>
 <div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="#section_13" title="Stop"><div class="nav-arrow"><span class="sym">⬅</span>11.13</div><div class="doc-navbar-text">Stop</div></a></div><div class="doc-navbar-center"><a class="raw nav-el" href="#chapter_11"><div class="nav-arrow"><span class="sym">⬆</span>11.</div><div class="doc-navbar-text">Phrases</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="#section_15"><div class="doc-navbar-text">Let and temporary variables</div><div class="nav-arrow">11.15<span class="sym">⮕</span></div></a></div></div></div>
@@ -480,7 +480,7 @@
 </div><p>is a legal combination, because the second &quot;let&quot; simply changes the value of the existing &quot;outer bull&quot; variable to a different number.</p>
 </div><div class="defn" id="ph_letdefault"><div class="defnline"><span class="defn">let </span><span class="neutral">(a name not so far used)</span><span class="defn"> be </span><span class="neutral">(name of kind)</span></div><p>This phrase creates a new temporary variable of the given kind. The variable lasts only for the present block of phrases, which certainly means that it lasts only for the current rule. Example:</p>
 <div class="codeblock"><div class="codeline">let inner bull be a number;</div>
-</div><p>The variable created holding the default value for that kind &ndash; in this case, the number 0. A handful of very obscure kinds have no default values, and then a problem message is produced. Inform also disallows:</p>
+</div><p>The variable created holding the default value for that kind - in this case, the number 0. A handful of very obscure kinds have no default values, and then a problem message is produced. Inform also disallows:</p>
 <div class="codeblock"><div class="codeline">let the conveyance be a vehicle;</div>
 </div><p>because temporary variables aren&#39;t allowed to have kinds more specific than &quot;object&quot;. (This is a good thing: suppose there are no vehicles in the world?) It&#39;s quite safe in such cases to use</p>
 <div class="codeblock"><div class="codeline">let the conveyance be an object;</div>
@@ -561,7 +561,7 @@
 <div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="#section_17" title="Phrases to decide other things"><div class="nav-arrow"><span class="sym">⬅</span>11.17</div><div class="doc-navbar-text">Phrases to decide other things</div></a></div><div class="doc-navbar-center"><a class="raw nav-el" href="#chapter_11"><div class="nav-arrow"><span class="sym">⬆</span>11.</div><div class="doc-navbar-text">Phrases</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="WI_12.html" title="Advanced Actions"><div class="doc-navbar-text">Advanced Actions</div><div class="nav-arrow">12.<span class="sym">⮕</span></div></a></div></div></div>
 <p>A point which has come up several times in recent chapters is that enumerated kinds of value have a natural ordering. For example, if we write:</p>
 <div class="codeblock"><div class="codeline">Colour is a kind of value. The colours are red, orange, yellow, green, blue, indigo and violet.</div>
-</div><p>&hellip;then we not only have seven possible values, we have put them into a sequence, in order of their naming. We can&#39;t perform arithmetic on colours, of course, but we can perform comparisons on them. Thus &quot;red &lt; yellow&quot; is true, while &quot;green &gt;= violet&quot; is not. (More on comparisons in the <a href="WI_15.html">chapter on Numbers and Equations</a>, which also covers arithmetic.)</p>
+</div><p>&hellip;then we not only have seven possible values, we have put them into a sequence, in order of their naming. We can&#39;t perform arithmetic on colours, of course, but we can perform comparisons on them. Thus &quot;red &lt; yellow&quot; is true, while &quot;green &gt;= violet&quot; is not. (More on comparisons in the chapter on Numbers and Equations, which also covers arithmetic.)</p>
 <p>It&#39;s also sometimes useful to get at the sequence directly. First, the two ends:</p>
 <div class="defn" id="ph_enumfirst"><div class="defnline"><span class="defn">first value of </span><span class="neutral">(name of kind)</span> &rArr; <em>value</em></div><p>This phrase produces the first-created value of the given kind, which should be an enumeration. Example: if we have</p>
 <div class="codeblock"><div class="codeline">Colour is a kind of value. The colours are red, orange, yellow, green, blue, indigo and violet.</div>

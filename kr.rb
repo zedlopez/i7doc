@@ -76,6 +76,32 @@ module Kramdown
         x
       end
 
+      # def convert_a(el, opts)
+      #   if el.attr['href'].empty?
+      #     "[#{inner(el, opts)}]()"
+      #   elsif el.attr['href'] =~ /^(?:http|ftp)/ || el.attr['href'].count("()") > 0
+      #     index = if (link_el = @linkrefs.find {|c| c.attr['href'] == el.attr['href'] })
+      #               @linkrefs.index(link_el) + 1
+      #             else
+      #               @linkrefs << el
+      #               @linkrefs.size
+      #             end
+      #     "[#{inner(el, opts)}][#{index}]"
+      #   else
+      #     title = parse_title(el.attr['title'])
+      #     "[#{inner(el, opts)}](#{el.attr['href']}#{title})"
+      #   end
+      # end
+
+      
+      def convert_a(el, opts)
+        if el.attr['href'].empty?
+          "[#{inner(el, opts)}]()"
+        else
+          title = parse_title(el.attr['title'])
+          "[#{inner(el, opts)}](#{el.attr['href']}#{title})"
+        end
+      end
       
     
 #    def convert_blockquote(el, arg2)
@@ -89,7 +115,9 @@ end
 
 html_source = File.read(filename, encoding: "UTF-8")
 html_source.gsub!(/\n\n\n+/,"\n\n")
-md = Kramdown::Document.new(html_source, input: 'html', entity_output: :as_char).to_kramdown5(entity_output: :as_char, output: 'gfm') # (output: 'gfm', entity_output: :numeric)
+doc = Kramdown::Document.new(html_source, input: 'html', entity_output: :as_char)
+pp doc.toc
+md = doc.to_kramdown5(entity_output: :as_char, output: 'gfm') # (output: 'gfm', entity_output: :numeric)
 #html = I7::Template[:i7handbook].render(html: html_fragment)
 #File.open(output_filename, 'w', encoding: 'UTF-8') {|f| f.puts(md)}
 puts md

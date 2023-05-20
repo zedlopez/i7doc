@@ -18,7 +18,7 @@
 </header>
 <div class="example-body"><p>Hint systems in IF come in a variety of flavors: some are a static, prewritten set of guidelines (which might exist in a menu or outside the game entirely); others are built in as part of the program, and attempt to adapt to the situation the player currently faces. Adaptive hints have the advantage that they are less likely to reveal information for which the player is not ready, and the disadvantage that they are more work for the author.</p>
 <p>The exercise here is to write an adaptive hint system that will both respond in agile ways to the state of the world model and require a minimum of authorial fussing. We also want the player to be able to ask for a hint about any object he encounters in the game world: this will let him be specific and avoid accidentally receiving hints about the wrong puzzles.</p>
-<p>Our baseline assumption is that a player may find a puzzle unsolvable for one of two reasons: he either hasn&#39;t seen the relevant clue, or he hasn&#39;t got the relevant equipment. If these are true, then he should be given hints about how to find this information, and then once he has it, more specific hints about the puzzle itself &ndash; ending, as a last resort, with the exact command(s) he will need to use in order to bring about the solution.</p>
+<p>Our baseline assumption is that a player may find a puzzle unsolvable for one of two reasons: he either hasn&#39;t seen the relevant clue, or he hasn&#39;t got the relevant equipment. If these are true, then he should be given hints about how to find this information, and then once he has it, more specific hints about the puzzle itself -- ending, as a last resort, with the exact command(s) he will need to use in order to bring about the solution.</p>
 <p>In practice, there are other possibilities, but this will do for an example.</p>
 <p>We begin by defining our relations:</p>
 <div class="play-example borogove"><a class="raw" href="https://snippets.borogove.app/inform7/v10ex230">Play/modify in Borogove</a></div>
@@ -40,7 +40,7 @@
 <div class="codeline">&ensp;&ensp;&ensp;if player consents, try hinting about the implement.</div>
 <div class="codeline blankline">&thinsp;</div>
 <div class="codeline">Hinting about is an action applying to one visible thing. Understand &quot;hint about [any thing]&quot; as hinting about.</div>
-</div><p>This allows us to create the most absolutely generic sort of hint &ndash; boring, perhaps, but in practice the player often just needs a nudge about what part of the game world he should be examining for a solution:</p>
+</div><p>This allows us to create the most absolutely generic sort of hint -- boring, perhaps, but in practice the player often just needs a nudge about what part of the game world he should be examining for a solution:</p>
 <div class="codeblock"><div class="codeline">Carry out hinting about:</div>
 <div class="codeline">&ensp;&ensp;&ensp;if something explains the noun, say &quot;You might want to review [the list of things which explain the noun]. &quot;;</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the noun requires something:</div>

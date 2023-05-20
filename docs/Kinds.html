@@ -1,0 +1,1404 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Kinds</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="i7doc.css">
+<link rel="stylesheet" href="pi.css">
+<script src="i7doc.js"></script>
+</head>
+
+<body>
+<main>
+<nav>
+<a href="Contents.html">Contents</a>
+<a href="Actions.html">Actions</a>
+<a href="Kinds.html">Kinds</a>
+<a href="Phrasebook.html">Phrasebook</a>
+<a href="Rules.html">Rules</a>
+<a href="Scenes.html">Scenes</a>
+<a href="World.html">World</a>
+</nav>
+
+<h1>Kinds</h1>
+
+<div>
+  <a href="#segment1">Chart</a> 
+  <a href="#segment2">Arithmetic</a> 
+  <a href="#segment3">Values</a> 
+</div>
+  <div id="segment1" class="project-index pi-segment kinds">
+        <hr>
+        <div>
+<h2>Chart</h2>
+<strong>A chart of all the kinds</strong><br>
+                    <i><a href="WI_3.html#section_5">About kinds</a><span class="sep"></span> <a href="WI_4.html#section_1">New kinds of object</a><span class="sep"></span> <a href="WI_4.html#section_5">Other new kinds</a></i>
+</div>
+
+        <table border="0" cellspacing="0" cellpadding="0" width="100%">
+            <tr class="tintedrow">
+                <td height="1" colspan="5" cellpadding="0">
+
+                </td>
+            </tr>
+            <tr class="headingrow">
+                <td style="white-space:nowrap;" align="left" valign="top" height="20">
+                    <b>basic kinds</b> 
+                </td>
+                <td style="white-space:nowrap;" align="left" valign="top">
+                    <i>default value</i> <a href="#" onclick="showBasic('default');" class="borderless"><span class="blue-tooltip icon"></span></a> 
+                </td>
+                <td style="white-space:nowrap;" align="left" valign="top">
+                    <i>repeat</i> <a href="#" onclick="showBasic('repeat');" class="borderless"><span class="blue-tooltip icon"></span></a> 
+                </td>
+                <td style="white-space:nowrap;" align="left" valign="top">
+                    <i>props</i> <a href="#" onclick="showBasic('props');" class="borderless"><span class="blue-tooltip icon"></span></a> 
+                </td>
+                <td style="white-space:nowrap;" align="left" valign="top">
+                    <i>under</i> <a href="#" onclick="showBasic('under');" class="borderless"><span class="blue-tooltip icon"></span></a>
+                </td>
+            </tr>
+            <tr class="tintedrow">
+                <td height="1" colspan="5" cellpadding="0">
+
+                </td>
+            </tr>
+            <tr style="display:none" id="default">
+                <td colspan="5">
+                    The <b>default value</b> is used when we make something like 
+                    	a variable but don't tell Inform what its value is. For instance, if 
+                    	we write 'Zero hour is a time that varies', but don't tell Inform 
+                    	anything specific like 'Zero hour is 11:21 PM.', then Inform uses 
+                    	the value in the table above to decide what it will be. 
+                    	The same applies if we create a property (for instance, 'A person 
+                    	has a number called lucky number.'). Kinds of value not included 
+                    	in the table cannot be used in variables and properties.<hr>
+
+                </td>
+            </tr>
+            <tr style="display:none" id="repeat">
+                <td colspan="5">
+                    A tick for <b>repeat</b> means that it's possible to 
+                    	repeat through values of this kind. For instance, 'repeat with T 
+                    	running through times:' is allowed, but 'repeat with N running 
+                    	through numbers:' is not - there are too many numbers for this to 
+                    	make sense. A tick here also means it's possible to form lists such 
+                    	as 'list of rulebooks', or to count the 'number of scenes'.<hr>
+
+                </td>
+            </tr>
+            <tr style="display:none" id="props">
+                <td colspan="5">
+                    A tick for <b>props</b> means that values of this 
+                    	kind can have properties. For instance, 'A scene can be thrilling or 
+                    	dull.' makes an either/or property of a scene, but 'A number can be 
+                    	nice or nasty.' is not allowed because it would cost too much storage 
+                    	space. (Of course 'Definition:' can always be used to make adjectives 
+                    	applying to numbers; it's only properties which have storage 
+                    	worries.)<hr>
+
+                </td>
+            </tr>
+            <tr style="display:none" id="under">
+                <td colspan="5">
+                    A tick for <b>under</b> means that it's possible 
+                    	to understand values of this kind. For instance, 'Understand "award 
+                    	[number]" as awarding.' might be allowed, if awarding were an action 
+                    	applying to a number, but 'Understand "run [rule]" as rule-running.' 
+                    	is not allowed - there are so many rules with such long names that 
+                    	Inform doesn't add them to its vocabulary during play.<hr>
+
+                </td>
+            </tr>
+            <tr class="stripeone">
+                <td style="white-space:nowrap;" align="left" valign="top" height="20">
+<a href="#A235">object [14]</a>    
+                </td>
+                <td align="left" valign="top">
+                    north 
+                </td>
+                <td align="center" valign="top">
+                    <span class="green-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="green-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="red-cross icon"></span>
+                </td>
+            </tr>
+            <tr class="stripetwo">
+                <td style="white-space:nowrap;" align="left" valign="top" height="20">
+<a href="WI_3.html#section_2">room [1]</a> <a href="#K1_room"></a>    
+                </td>
+                <td align="left" valign="top">
+                    Lab 
+                </td>
+                <td align="center" valign="top">
+                    <span class="green-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="green-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="green-check icon"></span>
+                </td>
+            </tr>
+            <tr class="stripeone">
+                <td style="white-space:nowrap;" align="left" valign="top" height="20">
+<a href="#K2_thing">thing [1]</a>    
+                </td>
+                <td align="left" valign="top">
+                    yourself 
+                </td>
+                <td align="center" valign="top">
+                    <span class="green-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="green-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="green-check icon"></span>
+                </td>
+            </tr>
+            <tr class="stripetwo">
+                <td style="white-space:nowrap;" align="left" valign="top" height="20">
+                    <span class="indexgrey">door</span> <a href="WI_3.html#section_12"></a> <a href="#K4_door"></a>    
+                </td>
+                <td align="left" valign="top">
+                    <span class="indexgrey">nothing</span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="gray-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="gray-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="gray-check icon"></span>
+                </td>
+            </tr>
+            <tr class="stripeone">
+                <td style="white-space:nowrap;" align="left" valign="top" height="20">
+                    <span class="indexgrey">container</span> <a href="#K5_container"></a>    
+                </td>
+                <td align="left" valign="top">
+                    <span class="indexgrey">nothing</span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="gray-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="gray-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="gray-check icon"></span>
+                </td>
+            </tr>
+            <tr class="stripetwo">
+                <td style="white-space:nowrap;" align="left" valign="top" height="20">
+                    <span class="indexgrey">vehicle</span><a href="WI_3.html#section_16"></a> <a href="#K14_vehicle"></a>    
+                </td>
+                <td align="left" valign="top">
+                    <span class="indexgrey">nothing</span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="gray-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="gray-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="gray-check icon"></span>
+                </td>
+            </tr>
+            <tr class="stripeone">
+                <td style="white-space:nowrap;" align="left" valign="top" height="20">
+                    <span class="indexgrey">player's holdall</span> <a href="WI_3.html#section_21"></a> <a href="#K15_player_s_holdall"></a>    
+                </td>
+                <td align="left" valign="top">
+                    <span class="indexgrey">nothing</span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="gray-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="gray-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="gray-check icon"></span>
+                </td>
+            </tr>
+            <tr class="stripetwo">
+                <td style="white-space:nowrap;" align="left" valign="top" height="20">
+                    <span class="indexgrey">supporter</span> <a href="#K6_supporter"></a>    
+                </td>
+                <td align="left" valign="top">
+                    <span class="indexgrey">nothing</span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="gray-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="gray-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="gray-check icon"></span>
+                </td>
+            </tr>
+            <tr class="stripeone">
+                <td style="white-space:nowrap;" align="left" valign="top" height="20">
+                    <span class="indexgrey">backdrop</span><a href="WI_3.html#section_9"></a> <a href="#K7_backdrop"></a>    
+                </td>
+                <td align="left" valign="top">
+                    <span class="indexgrey">nothing</span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="gray-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="gray-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="gray-check icon"></span>
+                </td>
+            </tr>
+            <tr class="stripetwo">
+                <td style="white-space:nowrap;" align="left" valign="top" height="20">
+<a href="WI_3.html#section_17">person [1]</a> <a href="#K8_person"></a>    
+                </td>
+                <td align="left" valign="top">
+                    yourself 
+                </td>
+                <td align="center" valign="top">
+                    <span class="green-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="green-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="green-check icon"></span>
+                </td>
+            </tr>
+            <tr class="stripeone">
+                <td style="white-space:nowrap;" align="left" valign="top" height="20">
+                    <span class="indexgrey">man</span> <a href="#K10_man"></a>    
+                </td>
+                <td align="left" valign="top">
+                    <span class="indexgrey">nothing</span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="gray-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="gray-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="gray-check icon"></span>
+                </td>
+            </tr>
+            <tr class="stripetwo">
+                <td style="white-space:nowrap;" align="left" valign="top" height="20">
+                    <span class="indexgrey">woman</span> <a href="#K11_woman"></a>    
+                </td>
+                <td align="left" valign="top">
+                    <span class="indexgrey">nothing</span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="gray-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="gray-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="gray-check icon"></span>
+                </td>
+            </tr>
+            <tr class="stripeone">
+                <td style="white-space:nowrap;" align="left" valign="top" height="20">
+                    <span class="indexgrey">animal</span> <a href="#K12_animal"></a>    
+                </td>
+                <td align="left" valign="top">
+                    <span class="indexgrey">nothing</span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="gray-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="gray-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="gray-check icon"></span>
+                </td>
+            </tr>
+            <tr class="stripetwo">
+                <td style="white-space:nowrap;" align="left" valign="top" height="20">
+                    <span class="indexgrey">device</span><a href="WI_3.html#section_14"></a> <a href="#K13_device"></a>    
+                </td>
+                <td align="left" valign="top">
+                    <span class="indexgrey">nothing</span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="gray-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="gray-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="gray-check icon"></span>
+                </td>
+            </tr>
+            <tr class="stripeone">
+                <td style="white-space:nowrap;" align="left" valign="top" height="20">
+<a href="WI_3.html#section_26">direction [12]</a> <a href="#K3_direction"></a>    
+                </td>
+                <td align="left" valign="top">
+                    north 
+                </td>
+                <td align="center" valign="top">
+                    <span class="green-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="green-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="green-check icon"></span>
+                </td>
+            </tr>
+            <tr class="stripetwo">
+                <td style="white-space:nowrap;" align="left" valign="top" height="20">
+                    <span class="indexgrey">region</span> <a href="WI_3.html#section_4"></a> <a href="#K9_region"></a>    
+                </td>
+                <td align="left" valign="top">
+                    <span class="indexgrey">nothing</span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="gray-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="gray-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="gray-check icon"></span>
+                </td>
+            </tr>
+            <tr class="tintedrow">
+                <td height="1" colspan="5" cellpadding="0">
+
+                </td>
+            </tr>
+            <tr class="stripeone">
+                <td style="white-space:nowrap;" align="left" valign="top" height="20">
+                    number <a href="Kinds.html?segment2" class="borderless"><span class="calc icon"></span></a> <a href="WI_15.html#section_2"></a> <a href="#A1358"></a>    
+                </td>
+                <td align="left" valign="top">
+                    0 
+                </td>
+                <td align="center" valign="top">
+                    <span class="red-cross icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="red-cross icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="green-check icon"></span>
+                </td>
+            </tr>
+            <tr class="stripetwo">
+                <td style="white-space:nowrap;" align="left" valign="top" height="20">
+                    real number <a href="Kinds.html?segment2" class="borderless"><span class="calc icon"></span></a> <a href="WI_15.html#section_2"></a> <a href="#A1359"></a>    
+                </td>
+                <td align="left" valign="top">
+                    0 
+                </td>
+                <td align="center" valign="top">
+                    <span class="red-cross icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="red-cross icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="green-check icon"></span>
+                </td>
+            </tr>
+            <tr class="stripeone">
+                <td style="white-space:nowrap;" align="left" valign="top" height="20">
+                    time <a href="Kinds.html?segment2" class="borderless"><span class="calc icon"></span></a> <a href="WI_9.html#section_6"></a> <a href="#A1374"></a>    
+                </td>
+                <td align="left" valign="top">
+                    9:00 AM 
+                </td>
+                <td align="center" valign="top">
+                    <span class="green-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="red-cross icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="green-check icon"></span>
+                </td>
+            </tr>
+            <tr class="stripetwo">
+                <td style="white-space:nowrap;" align="left" valign="top" height="20">
+<a href="WI_11.html#section_5">truth state</a><a href="#A1360"></a>    
+                </td>
+                <td align="left" valign="top">
+                    false 
+                </td>
+                <td align="center" valign="top">
+                    <span class="green-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="red-cross icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="green-check icon"></span>
+                </td>
+            </tr>
+            <tr class="stripeone">
+                <td style="white-space:nowrap;" align="left" valign="top" height="20">
+<a href="#A1361">text</a>    
+                </td>
+                <td align="left" valign="top">
+                    "" 
+                </td>
+                <td align="center" valign="top">
+                    <span class="red-cross icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="red-cross icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="red-cross icon"></span>
+                </td>
+            </tr>
+            <tr class="stripetwo">
+                <td style="white-space:nowrap;" align="left" valign="top" height="20">
+<a href="WI_18.html#section_33">snippet</a> <a href="#A1362"></a>    
+                </td>
+                <td align="left" valign="top">
+                    <i>word 1 of command</i> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="red-cross icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="red-cross icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="red-cross icon"></span>
+                </td>
+            </tr>
+            <tr class="stripeone">
+                <td style="white-space:nowrap;" align="left" valign="top" height="20">
+<a href="#A1363">unicode character</a>    
+                </td>
+                <td align="left" valign="top">
+                    unicode 32 (<i>a space</i>) 
+                </td>
+                <td align="center" valign="top">
+                    <span class="red-cross icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="red-cross icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="red-cross icon"></span>
+                </td>
+            </tr>
+            <tr class="stripetwo">
+                <td style="white-space:nowrap;" align="left" valign="top" height="20">
+<a href="WI_12.html#section_20">action</a> <a href="#A1372"></a>    
+                </td>
+                <td align="left" valign="top">
+                    waiting 
+                </td>
+                <td align="center" valign="top">
+                    <span class="red-cross icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="red-cross icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="red-cross icon"></span>
+                </td>
+            </tr>
+            <tr class="stripeone">
+                <td style="white-space:nowrap;" align="left" valign="top" height="20">
+<a href="WI_10.html#section_1">scene</a><a href="#A837">[1]</a>    
+                </td>
+                <td align="left" valign="top">
+                    Entire Game 
+                </td>
+                <td align="center" valign="top">
+                    <span class="green-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="green-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="green-check icon"></span>
+                </td>
+            </tr>
+            <tr class="stripetwo">
+                <td style="white-space:nowrap;" align="left" valign="top" height="20">
+<a href="#A1401">command parser error [25]</a>    
+                </td>
+                <td align="left" valign="top">
+                    didn't understand error 
+                </td>
+                <td align="center" valign="top">
+                    <span class="green-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="green-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="green-check icon"></span>
+                </td>
+            </tr>
+            <tr class="stripeone">
+                <td style="white-space:nowrap;" align="left" valign="top" height="20">
+<a href="#A1364">use option</a>    
+                </td>
+                <td align="left" valign="top">
+                    the ineffectual option 
+                </td>
+                <td align="center" valign="top">
+                    <span class="green-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="red-cross icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="red-cross icon"></span>
+                </td>
+            </tr>
+            <tr class="stripetwo">
+                <td style="white-space:nowrap;" align="left" valign="top" height="20">
+<a href="#A1365">response</a>    
+                </td>
+                <td align="left" valign="top">
+                    ? 
+                </td>
+                <td align="center" valign="top">
+                    <span class="green-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="red-cross icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="red-cross icon"></span>
+                </td>
+            </tr>
+            <tr class="stripeone">
+                <td style="white-space:nowrap;" align="left" valign="top" height="20">
+<a href="WI_14.html#section_9">verb</a> <a href="#A1366"></a>    
+                </td>
+                <td align="left" valign="top">
+                    verb be 
+                </td>
+                <td align="center" valign="top">
+                    <span class="green-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="red-cross icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="red-cross icon"></span>
+                </td>
+            </tr>
+            <tr class="stripetwo">
+                <td style="white-space:nowrap;" align="left" valign="top" height="20">
+<a href="WI_16.html#section_15">table name</a><a href="#A1367"></a>    
+                </td>
+                <td align="left" valign="top">
+                    <i>a table with no rows or columns</i> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="green-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="red-cross icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="red-cross icon"></span>
+                </td>
+            </tr>
+            <tr class="stripeone">
+                <td style="white-space:nowrap;" align="left" valign="top" height="20">
+                    <span class="indexgrey"><a href="#A1368">equation name</a></span>    
+                </td>
+                <td align="left" valign="top">
+                    <span class="indexgrey"><i>an equation doing nothing</i></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="red-cross icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="red-cross icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="red-cross icon"></span>
+                </td>
+            </tr>
+            <tr class="stripetwo">
+                <td style="white-space:nowrap;" align="left" valign="top" height="20">
+<a href="#A1369">rulebook outcome</a>    
+                </td>
+                <td align="left" valign="top">
+                    allow access 
+                </td>
+                <td align="center" valign="top">
+                    <span class="red-cross icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="red-cross icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="red-cross icon"></span>
+                </td>
+            </tr>
+            <tr class="stripeone">
+                <td style="white-space:nowrap;" align="left" valign="top" height="20">
+                    <span class="indexgrey"><a href="WI_23.html#section_12">external file</a><a href="#A1370"></a></span>    
+                </td>
+                <td align="left" valign="top">
+                    <span class="indexgrey"><i>a non-file</i></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="gray-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="gray-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="gray-check icon"></span>
+                </td>
+            </tr>
+            <tr class="stripetwo">
+                <td style="white-space:nowrap;" align="left" valign="top" height="20">
+<a href="WI_7.html#section_1">action name</a><a href="#A1373"></a>    
+                </td>
+                <td align="left" valign="top">
+                    waiting action 
+                </td>
+                <td align="center" valign="top">
+                    <span class="green-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="red-cross icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="red-cross icon"></span>
+                </td>
+            </tr>
+            <tr class="stripeone">
+                <td style="white-space:nowrap;" align="left" valign="top" height="20">
+<a href="WI_23.html#section_4">figure name</a><a href="#A1375">[1]</a>    
+                </td>
+                <td align="left" valign="top">
+                    Figure of cover 
+                </td>
+                <td align="center" valign="top">
+                    <span class="green-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="green-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="green-check icon"></span>
+                </td>
+            </tr>
+            <tr class="stripetwo">
+                <td style="white-space:nowrap;" align="left" valign="top" height="20">
+                    <span class="indexgrey"><a href="WI_23.html#section_7">sound name</a><a href="#A1376"></a></span>    
+                </td>
+                <td align="left" valign="top">
+                    <span class="indexgrey"><i>a silent non-sound</i></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="gray-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="gray-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="gray-check icon"></span>
+                </td>
+            </tr>
+            <tr class="tintedrow">
+                <td height="1" colspan="5" cellpadding="0">
+
+                </td>
+            </tr>
+            <tr class="stripeone">
+                <td style="white-space:nowrap;" align="left" valign="top" height="20">
+<a href="#A1379">natural language [6]</a>    
+                </td>
+                <td align="left" valign="top">
+                    English language 
+                </td>
+                <td align="center" valign="top">
+                    <span class="green-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="green-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="green-check icon"></span>
+                </td>
+            </tr>
+            <tr class="stripetwo">
+                <td style="white-space:nowrap;" align="left" valign="top" height="20">
+                    grammatical tense  <a href="#A1381">[5]</a>    
+                </td>
+                <td align="left" valign="top">
+                    present tense 
+                </td>
+                <td align="center" valign="top">
+                    <span class="green-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="green-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="green-check icon"></span>
+                </td>
+            </tr>
+            <tr class="stripeone">
+                <td style="white-space:nowrap;" align="left" valign="top" height="20">
+                    narrative viewpoint  <a href="#A1382">[6]</a>    
+                </td>
+                <td align="left" valign="top">
+                    first person singular 
+                </td>
+                <td align="center" valign="top">
+                    <span class="green-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="green-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="green-check icon"></span>
+                </td>
+            </tr>
+            <tr class="stripetwo">
+                <td style="white-space:nowrap;" align="left" valign="top" height="20">
+                    grammatical case  <a href="#A1383">[2]</a>    
+                </td>
+                <td align="left" valign="top">
+                    nominative 
+                </td>
+                <td align="center" valign="top">
+                    <span class="green-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="green-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="green-check icon"></span>
+                </td>
+            </tr>
+            <tr class="stripeone">
+                <td style="white-space:nowrap;" align="left" valign="top" height="20">
+                    grammatical gender  <a href="#A1384">[3]</a>    
+                </td>
+                <td align="left" valign="top">
+                    neuter gender 
+                </td>
+                <td align="center" valign="top">
+                    <span class="green-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="green-check icon"></span> 
+                </td>
+                <td align="center" valign="top">
+                    <span class="green-check icon"></span>
+                </td>
+            </tr>
+            <tr class="tintedrow">
+                <td height="1" colspan="5" cellpadding="0">
+
+                </td>
+            </tr>
+            <tr class="headingrow">
+                <td style="white-space:nowrap;" align="left" valign="top" height="20">
+                    <b>making new kinds from old</b> 
+                </td>
+                <td style="white-space:nowrap;" align="left" valign="top">
+                    <i>default value</i> <a href="#" onclick="showBasic('default');" class="borderless"><span class="blue-tooltip icon"></span></a> 
+                </td>
+                <td style="white-space:nowrap;" align="left" valign="top">
+                    <i></i>  
+                </td>
+                <td style="white-space:nowrap;" align="left" valign="top">
+                    <i></i>  
+                </td>
+                <td style="white-space:nowrap;" align="left" valign="top">
+                    <i></i> 
+                </td>
+            </tr>
+            <tr class="tintedrow">
+                <td height="1" colspan="5" cellpadding="0">
+
+                </td>
+            </tr>
+            <tr class="stripetwo">
+                <td style="white-space:nowrap;" align="left" valign="top" height="20">
+<a href="WI_21.html#section_1">list of K</a> <a href="#A1421"></a>    
+                </td>
+                <td align="left" valign="top" colspan="4">
+                    { }
+                </td>
+            </tr>
+            <tr class="stripeone">
+                <td style="white-space:nowrap;" align="left" valign="top" height="20">
+<a href="#A2167">phrase K -&gt; L</a>    
+                </td>
+                <td align="left" valign="top" colspan="4">
+                    <i>always the default value of L</i>
+                </td>
+            </tr>
+            <tr class="stripetwo">
+                <td style="white-space:nowrap;" align="left" valign="top" height="20">
+                    <span class="indexgrey"></span>relation<span class="indexgrey"> of K</span> <a href="#A2172"></a>    
+                </td>
+                <td align="left" valign="top" colspan="4">
+                    <i>a relation never holding</i>
+                </td>
+            </tr>
+            <tr class="stripeone">
+                <td style="white-space:nowrap;" align="left" valign="top" height="20">
+                    <span class="indexgrey">K based</span> rule<span class="indexgrey"> producing L</span> <a href="WI_19.html#section_1"></a> <a href="#A2175"></a>    
+                </td>
+                <td align="left" valign="top" colspan="4">
+                    the little-used do nothing rule
+                </td>
+            </tr>
+            <tr class="stripetwo">
+                <td style="white-space:nowrap;" align="left" valign="top" height="20">
+                    <span class="indexgrey">K based</span> rulebook<span class="indexgrey"> producing L</span> <a href="WI_19.html#section_1"></a> <a href="#A2178"></a>    
+                </td>
+                <td align="left" valign="top" colspan="4">
+                    the action-processing rules
+                </td>
+            </tr>
+            <tr class="stripeone">
+                <td style="white-space:nowrap;" align="left" valign="top" height="20">
+                    <span class="indexgrey"></span>activity<span class="indexgrey"> on K</span> <a href="WI_18.html#section_1"></a> <a href="#A2181"></a>    
+                </td>
+                <td align="left" valign="top" colspan="4">
+                    printing the name
+                </td>
+            </tr>
+            <tr class="stripetwo">
+                <td style="white-space:nowrap;" align="left" valign="top" height="20">
+<a href="WI_22.html#section_2">description of K</a> <a href="#A2187"></a>    
+                </td>
+                <td align="left" valign="top" colspan="4">
+                    <i>matching nothing</i>
+                </td>
+            </tr>
+            <tr class="stripeone">
+                <td style="white-space:nowrap;" align="left" valign="top" height="20">
+                    <span class="indexgrey">K valued</span> property<span class="indexgrey"></span> <a href="#A2189"></a>    
+                </td>
+                <td align="left" valign="top" colspan="4">
+                    --
+                </td>
+            </tr>
+            <tr class="stripetwo">
+                <td style="white-space:nowrap;" align="left" valign="top" height="20">
+                    <span class="indexgrey">K valued</span> table<span class="indexgrey"></span> column<span class="indexgrey"></span> <a href="#A2191"></a>    
+                </td>
+                <td align="left" valign="top" colspan="4">
+                    --
+                </td>
+            </tr>
+            <tr class="tintedrow">
+                <td height="1" colspan="5" cellpadding="0">
+
+                </td>
+            </tr>
+        </table>
+        <p class="halftightin1"><a name="A21"></a><b>object</b> (<i>plural</i> objects)</p>
+        <p class="tightin1"><i>Matches:</i> value, sayable value<br>
+        Objects are values intended to simulate physical things: places, people, things, and so on. They come in many kinds. The special value 'nothing' is also allowed, and can be used to mean 'no object at all'.<br>
+        <i>Usually</i> singular-named <i>not</i> plural-named, improper-named <i>not</i> proper-named.<br>
+        <i>Usually not</i> ambiguously plural.<br>
+        <i>Can have</i> printed name (<i>text</i>), printed plural name (<i>text</i>), indefinite article (<i>text</i>), list grouping key (<i>text</i>).<br>
+        </p>
+        <p class="halftightin2"><a name="K1_room"></a><b>room</b> (<i>plural</i> <a href="WI_3.html#section_2">rooms)</a></p>
+        <p class="tightin2">Represents geographical locations, both indoor
+        and outdoor, which are not necessarily areas in a building. A player in one
+        room is mostly unable to sense, or interact with, anything in a different room.
+        Rooms are arranged in a map.<br>
+        <i>Usually</i> lighted <i>not</i> dark, unvisited <i>not</i> visited.<br>
+        <i>Can have</i> description (<i>text</i>), map region (<i>object</i>).<br>
+        </p>
+        <p class="tightin2"><span class="indexgrey">Lab</span> </p>
+        <p class="halftightin2"><a name="K2_thing"></a><b>thing</b> (<i>plural</i> things)</p>
+        <p class="tightin2">Represents anything interactive in the model
+        world that is not a room. People, pieces of scenery, furniture, doors and
+        mislaid umbrellas might all be examples, and so might more surprising things
+        like the sound of birdsong or a shaft of sunlight.<br>
+        <i>Usually</i> unlit <i>not</i> lit, inedible <i>not</i> edible, portable <i>not</i> fixed in place, described <i>not</i> undescribed, unmarked for listing <i>not</i> marked for listing, mentioned <i>not</i> unmentioned.<br>
+        <i>Usually not</i> scenery, wearable, pushable between rooms, handled.<br>
+        <i>Can have</i> description (<i>text</i>), initial appearance (<i>text</i>), matching key (<i>object</i>).<br>
+        </p>
+        <p class="tightin2"></p>
+        <p class="halftightin3"><a name="K4_door"></a><b>door</b> (<i>plural</i> <a href="WI_3.html#section_12">doors)</a></p>
+        <p class="tightin3">Represents a conduit joining two rooms, most
+        often a door or gate but sometimes a plank bridge, a slide or a hatchway.
+        Usually visible and operable from both sides (for instance if you write
+        'The blue door is east of the Ballroom and west of the Garden.'), but
+        sometimes only one-way (for instance if you write 'East of the Ballroom is
+        the long slide. Through the long slide is the cellar.').<br>
+        <i>Always</i> fixed in place <i>not</i> portable.<br>
+        <i>Usually</i> closed <i>not</i> open, openable <i>not</i> unopenable, unlocked <i>not</i> locked.<br>
+        <i>Usually not</i> lockable.<br>
+        <i>Never</i> pushable between rooms.<br>
+        <i>Can have</i> leading-through destination (<i>object</i>).<br>
+        </p>
+        <p class="tightin3"></p>
+        <p class="halftightin3"><a name="K5_container"></a><b>container</b> (<i>plural</i> containers)</p>
+        <p class="tightin3">Represents something into which portable
+        things can be put, such as a teachest or a handbag. Something with a really
+        large immobile interior, such as the Albert Hall, had better be a room
+        instead.<br>
+        <i>Usually</i> opaque <i>not</i> transparent, open <i>not</i> closed, unopenable <i>not</i> openable, unlocked <i>not</i> locked.<br>
+        <i>Usually not</i> enterable, lockable.<br>
+        <i>Can have</i> carrying capacity (<i>number</i>).<br>
+        </p>
+        <p class="tightin3"></p>
+        <p class="halftightin4"><a name="K14_vehicle"></a><b>vehicle</b> (<i>plural</i> <a href="WI_3.html#section_16">vehicles)</a></p>
+        <p class="tightin4">Represents a container large enough for
+        a person to enter, and which can then move between rooms at the driver's
+        instruction. (If a supporter is needed instead, try the extension
+        Rideable Vehicles by Graham Nelson.)<br>
+        <i>Always</i> enterable.<br>
+        <i>Usually</i> fixed in place <i>not</i> portable.<br>
+        </p>
+        <p class="tightin4"></p>
+        <p class="halftightin4"><a name="K15_player_s_holdall"></a><b>player's holdall</b> (<i>plural</i> <a href="WI_3.html#section_21">player's holdalls)</a></p>
+        <p class="tightin4">Represents a container which the
+        player can carry around as a sort of rucksack, into which spare items are
+        automatically stowed away.<br>
+        <i>Always</i> portable <i>not</i> fixed in place.<br>
+        <i>Usually</i> openable <i>not</i> unopenable.<br>
+        </p>
+        <p class="tightin4"></p>
+        <p class="halftightin3"><a name="K6_supporter"></a><b>supporter</b> (<i>plural</i> supporters)</p>
+        <p class="tightin3">Represents a surface on which things can be
+        placed, such as a table.<br>
+        <i>Always</i> transparent <i>not</i> opaque.<br>
+        <i>Usually</i> fixed in place <i>not</i> portable.<br>
+        <i>Usually not</i> enterable.<br>
+        <i>Can have</i> carrying capacity (<i>number</i>).<br>
+        </p>
+        <p class="tightin3"></p>
+        <p class="halftightin3"><a name="K7_backdrop"></a><b>backdrop</b> (<i>plural</i> <a href="WI_3.html#section_9">backdrops)</a></p>
+        <p class="tightin3">Represents an aspect of the landscape
+        or architecture which extends across more than one room: for instance,
+        a stream, the sky or a long carpet.<br>
+        <i>Always</i> fixed in place <i>not</i> portable.<br>
+        <i>Usually</i> scenery.<br>
+        <i>Never</i> pushable between rooms.<br>
+        </p>
+        <p class="tightin3"></p>
+        <p class="halftightin3"><a name="K8_person"></a><b>person</b> (<i>plural</i> <a href="WI_3.html#section_17">people)</a></p>
+        <p class="tightin3">Despite the name, not necessarily a human
+        being, but anything animate enough to envisage having a conversation with, or
+        bartering with.<br>
+        <i>Always</i> transparent <i>not</i> opaque.<br>
+        <i>Usually</i> male <i>not</i> female.<br>
+        <i>Usually not</i> neuter.<br>
+        <i>Can have</i> carrying capacity (<i>number</i>).<br>
+        </p>
+        <p class="tightin3"><span class="indexgrey">yourself</span></p>
+        <p class="halftightin4"><a name="K10_man"></a><b>man</b> (<i>plural</i> men)</p>
+        <p class="tightin4">Represents a man or boy.<br>
+        <i>Always</i> male <i>not</i> female.<br>
+        <i>Never</i> neuter.<br>
+        </p>
+        <p class="tightin4"></p>
+        <p class="halftightin4"><a name="K11_woman"></a><b>woman</b> (<i>plural</i> women)</p>
+        <p class="tightin4">Represents a woman or girl.<br>
+        <i>Always</i> female <i>not</i> male.<br>
+        <i>Never</i> neuter.<br>
+        </p>
+        <p class="tightin4"></p>
+        <p class="halftightin4"><a name="K12_animal"></a><b>animal</b> (<i>plural</i> animals)</p>
+        <p class="tightin4">Represents an animal, or at any rate a
+        non-human living creature reasonably large and possible to interact with: a
+        giant Venus fly-trap might qualify, but not a patch of lichen.<br>
+        </p>
+        <p class="tightin4"></p>
+        <p class="halftightin3"><a name="K13_device"></a><b>device</b> (<i>plural</i> <a href="WI_3.html#section_14">devices)</a></p>
+        <p class="tightin3">Represents a machine or contrivance of some
+        kind which can be switched on or off.<br>
+        <i>Usually</i> switched off <i>not</i> switched on.<br>
+        </p>
+        <p class="tightin3"></p>
+        <p class="halftightin2"><a name="K3_direction"></a><b>direction</b> (<i>plural</i> <a href="WI_3.html#section_26">directions)</a></p>
+        <p class="tightin2">Represents a direction of movement, such
+        as northeast or down. They always occur in opposite, matched pairs: northeast
+        and southwest, for instance; down and up.<br>
+        <i>Always</i> scenery.<br>
+        <i>Usually</i> unmarked for listing <i>not</i> marked for listing.<br>
+        <i>Can have</i> opposite (<i>direction</i>).<br>
+        </p>
+        <details><summary><span class="prime"> <span class="indexgrey">12 directions</span></span></summary></details>
+        <div id="extra1" style="display: none;">
+            <p class="in3"></p>
+<table width="100%" cellpadding="6" cellspacing="0" border="0" class="indexmorebox">
+                <tr>
+                    <td>
+                        <span class="indexgrey">north</span>, <span class="indexgrey">northeast</span>, <span class="indexgrey">northwest</span>, <span class="indexgrey">south</span>, <span class="indexgrey">southeast</span>, <span class="indexgrey">southwest</span>, <span class="indexgrey">east</span>, <span class="indexgrey">west</span>, <span class="indexgrey">up</span>, <span class="indexgrey">down</span>, <span class="indexgrey">inside</span>, <span class="indexgrey">outside</span>
+                    </td>
+                </tr>
+            </table>
+            
+        </div>
+        <p class="halftightin2"><a name="K9_region"></a><b>region</b> (<i>plural</i> <a href="WI_3.html#section_4">regions)</a></p>
+        <p class="tightin2">Represents a broader area than a single
+        room, and allows rules to apply to a whole geographical territory. Each
+        region can contain many rooms, and regions can even be inside each other,
+        though they cannot otherwise overlap. For instance, the room Place d'Italie
+        might be inside the region 13th Arrondissement, which in turn is inside
+        the region Paris. Regions are useful mainly when the world is a large one,
+        and are optional.<br>
+        </p>
+        <p class="tightin2"></p>
+        <hr>
+        <p class="halftightin1"><a name="A23"></a><b>number</b> (<i>plural</i> <a href="WI_15.html#section_2">numbers)</a></p>
+        <p class="tightin1"><i>Matches:</i> value, sayable value, understandable value, arithmetic value<br>
+        Whole number in the range -32768, -32767, ..., -2, -1, 0, 1, 2, 3, ..., 32767: small numbers can be written textually as 'one', 'two', 'three', ..., 'ten', 'eleven', 'twelve'. (A much larger number range is allowed if we compile the source to Glulx rather than the Z-machine: see the Settings panel.)<br>
+        </p>
+        <p class="halftightin1"><a name="A24"></a><b>real number</b> (<i>plural</i> <a href="WI_15.html#section_2">real numbers)</a></p>
+        <p class="tightin1"><i>Matches:</i> value, sayable value, understandable value, arithmetic value, real arithmetic value<br>
+        A real, or 'floating-point' number: the difference between this and ordinary "number" is that real numbers can hold values like 3.141, which aren't whole numbers, and can also hold very large or very small quantities in an approximate way. (Use of real numbers is only allowed if we compile the source to Glulx rather than the Z-machine: see the Settings panel.)<br>
+        </p>
+        <p class="halftightin1"><a name="A39"></a><b>time</b> (<i>plural</i> <a href="WI_9.html#section_6">times)</a></p>
+        <p class="tightin1"><i>Matches:</i> value, sayable value, understandable value, arithmetic value<br>
+        A time of day, written in the form '2:34 AM' or '12:51 PM', or a length of time such as '10 minutes' or '3 hours 31 minutes', which must be between 0 minutes and 23 hours 59 minutes inclusive.<br>
+        </p>
+        <p class="halftightin1"><a name="A25"></a><b>truth state</b> (<i>plural</i> <a href="WI_11.html#section_5">truth states)</a></p>
+        <p class="tightin1"><i>Matches:</i> value, sayable value, understandable value<br>
+        The state of whether something is 'true' or 'false'. (In other computing languages, this might be called 'boolean', after the 19th-century logician George Boole, who first realised this was a kind of value.)<br>
+        </p>
+        <p class="halftightin1"><a name="A26"></a><b>text</b> (<i>plural</i> texts)</p>
+        <p class="tightin1"><i>Matches:</i> value, sayable value<br>
+        Some text in double quotation marks, perhaps with substitutions written in square brackets.<br>
+        </p>
+        <p class="halftightin1"><a name="A27"></a><b>snippet</b> (<i>plural</i> <a href="WI_18.html#section_33">snippets)</a></p>
+        <p class="tightin1"><i>Matches:</i> value, sayable value<br>
+        A fragment of the player's most recent typed command, taking in a run of consecutive words.<br>
+        </p>
+        <p class="halftightin1"><a name="A28"></a><b>unicode character</b> (<i>plural</i> unicode characters)</p>
+        <p class="tightin1"><i>Matches:</i> value, sayable value<br>
+        A single character - a letter or item of punctuation.<br>
+        </p>
+        <p class="halftightin1"><a name="A37"></a><b>action</b> (<i>plural</i> <a href="WI_12.html#section_20">actions)</a></p>
+        <p class="tightin1"><i>Matches:</i> value, sayable value<br>
+        A stored action, which can later be tried.<br>
+        </p>
+        <p class="halftightin1"><a name="A22"></a><b>scene</b> (<i>plural</i> <a href="WI_10.html#section_1">scenes)</a></p>
+        <p class="tightin1"><i>Matches:</i> value, sayable value, understandable value, enumerated value<br>
+        Like a scene in a play: a period of time which is usually tied to events in the plot. Scenes are created by sentences like 'Midnight Arrival is a scene.'<br>
+        <i>Usually</i> non-recurring <i>not</i> recurring.<br>
+        <i>Can have</i> description (<i>text</i>).<br>
+        </p>
+<p class="tightin1"><span class="indexgrey">Entire Game</span></p>
+        
+        <p class="halftightin1"><a name="A16"></a><b>command parser error</b> (<i>plural</i> command parser errors)</p>
+        <p class="tightin1"><i>Matches:</i> value, sayable value, understandable value, enumerated value<br>
+        </p>
+<details><summary><span class="prime"> <span class="indexgrey">25 command parser errors</span></span></summary></details>
+        <div id="extra2" style="display: none;">
+            <p class="in2"></p>
+<table width="100%" cellpadding="6" cellspacing="0" border="0" class="indexmorebox">
+                <tr>
+                    <td>
+                        <span class="indexgrey">didn't understand error</span>, <span class="indexgrey">only understood as far as error</span>, <span class="indexgrey">didn't understand that number error</span>, <span class="indexgrey">can only do that to something animate error</span>, <span class="indexgrey">can't see any such thing error</span>, <span class="indexgrey">said too little error</span>, <span class="indexgrey">aren't holding that error</span>, <span class="indexgrey">can't use multiple objects error</span>, <span class="indexgrey">can only use multiple objects error</span>, <span class="indexgrey">not sure what it refers to error</span>, <span class="indexgrey">excepted something not included error</span>, <span class="indexgrey">not a verb I recognise error</span>, <span class="indexgrey">not something you need to refer to error</span>, <span class="indexgrey">can't see it at the moment error</span>, <span class="indexgrey">didn't understand the way that finished error</span>, <span class="indexgrey">not enough of those available error</span>, <span class="indexgrey">nothing to do error</span>, <span class="indexgrey">referred to a determination of scope error</span>, <span class="indexgrey">noun did not make sense in that context error</span>, <span class="indexgrey">I beg your pardon error</span>, <span class="indexgrey">can't again the addressee error</span>, <span class="indexgrey">comma can't begin error</span>, <span class="indexgrey">can't see whom to talk to error</span>, <span class="indexgrey">can't talk to inanimate things error</span>, <span class="indexgrey">didn't understand addressee's last name error</span>
+                    </td>
+                </tr>
+            </table>
+            
+        </div>
+        
+        <p class="halftightin1"><a name="A29"></a><b>use option</b> (<i>plural</i> use options)</p>
+        <p class="tightin1"><i>Matches:</i> value, sayable value<br>
+        One of the optional ways to configure Inform, such as the 'authorial modesty option'.<br>
+        </p>
+        <p class="halftightin1"><a name="A30"></a><b>response</b> (<i>plural</i> responses)</p>
+        <p class="tightin1"><i>Matches:</i> value, sayable value<br>
+        One of the standard responses issued by the Standard Rules or other extensions.<br>
+        </p>
+        <p class="halftightin1"><a name="A31"></a><b>verb</b> (<i>plural</i> <a href="WI_14.html#section_9">verbs)</a></p>
+        <p class="tightin1"><i>Matches:</i> value, sayable value<br>
+        One of the verbs which Inform knows how to conjugate.<br>
+        </p>
+        <p class="halftightin1"><a name="A32"></a><b>table name</b> (<i>plural</i> <a href="WI_16.html#section_15">table names)</a></p>
+        <p class="tightin1"><i>Matches:</i> value, sayable value<br>
+        Like tables of information in a book or newspaper, tables in Inform hold values which have been organised into rows and columns. A table name is just a single value, identifying which table is meant - say, 'Table of US Presidents' might be a table name value.<br>
+        </p>
+        <p class="halftightin1"><a name="A33"></a><b>equation name</b> (<i>plural</i> equation names)</p>
+        <p class="tightin1"><i>Matches:</i> value<br>
+        Like formulae in a textbook or a scientific paper, equations in Inform are written out in displayed form and given names.<br>
+        </p>
+        <p class="halftightin1"><a name="A34"></a><b>rulebook outcome</b> (<i>plural</i> rulebook outcomes)</p>
+        <p class="tightin1"><i>Matches:</i> value, sayable value<br>
+        </p>
+        <p class="halftightin1"><a name="A35"></a><b>external file</b> (<i>plural</i> <a href="WI_23.html#section_12">external files)</a></p>
+        <p class="tightin1"><i>Matches:</i> value, sayable value, understandable value, enumerated value<br>
+        When made with the Glulx setting, an Inform project can make limited use of files stored on the computer which is operating the story at run-time. An external-file is just the name of one of these files (not the filename in the usual sense, but a name given to it in the Inform source text).<br>
+        </p>
+        <p class="halftightin1"><a name="A38"></a><b>action name</b> (<i>plural</i> <a href="WI_7.html#section_1">action names)</a></p>
+        <p class="tightin1"><i>Matches:</i> value, sayable value<br>
+        An action is what happens when one of the people in the simulated world decides to do something. A full action would be something like 'dropping the box', but an action name is just the choice of which sort of thing is being done: here, it's 'the dropping action'. (Action names are always written with the word 'action' at the end, to make sure they aren't mistaken for full actions.)<br>
+        </p>
+        <p class="halftightin1"><a name="A40"></a><b>figure name</b> (<i>plural</i> <a href="WI_23.html#section_4">figure names)</a></p>
+        <p class="tightin1"><i>Matches:</i> value, sayable value, understandable value, enumerated value<br>
+        When made with the Glulx setting, an Inform project can include images as well as words, and these are called figures. A figure name is just the name of one of the figures in the current project.<br>
+        </p>
+<p class="tightin1"><span class="indexgrey">Figure of cover</span></p>
+        
+        <p class="halftightin1"><a name="A41"></a><b>sound name</b> (<i>plural</i> <a href="WI_23.html#section_7">sound names)</a></p>
+        <p class="tightin1"><i>Matches:</i> value, sayable value, understandable value, enumerated value<br>
+        When made with the Glulx setting, an Inform project can include sound effects or pieces of music. A sound name is just the name of one of these sounds in the current project.<br>
+        </p>
+        <hr>
+        <p class="halftightin1"><a name="A0"></a><b>natural language</b> (<i>plural</i> natural languages)</p>
+        <p class="tightin1"><i>Matches:</i> value, sayable value, understandable value, enumerated value<br>
+        </p>
+<p class="tightin1"><span class="indexgrey">English language</span>, <span class="indexgrey">French language</span>, <span class="indexgrey">German language</span>, <span class="indexgrey">Italian language</span>, <span class="indexgrey">Spanish language</span>, <span class="indexgrey">Swedish language</span></p>
+        
+        <p class="halftightin1"><a name="A17"></a><b>grammatical tense </b> (<i>plural</i> grammatical tenses)</p>
+        <p class="tightin1"><i>Matches:</i> value, sayable value, understandable value, enumerated value<br>
+        </p>
+<p class="tightin1"><span class="indexgrey">present tense</span> , <span class="indexgrey">past tense</span> , <span class="indexgrey">perfect tense</span> , <span class="indexgrey">past perfect tense</span> , <span class="indexgrey">future tense</span> </p>
+        
+        <p class="halftightin1"><a name="A18"></a><b>narrative viewpoint </b> (<i>plural</i> narrative viewpoints)</p>
+        <p class="tightin1"><i>Matches:</i> value, sayable value, understandable value, enumerated value<br>
+        </p>
+<p class="tightin1"><span class="indexgrey">first person singular</span> , <span class="indexgrey">second person singular</span> , <span class="indexgrey">third person singular</span> , <span class="indexgrey">first person plural</span> , <span class="indexgrey">second person plural</span> , <span class="indexgrey">third person plural</span> </p>
+        
+        <p class="halftightin1"><a name="A19"></a><b>grammatical case </b> (<i>plural</i> grammatical cases)</p>
+        <p class="tightin1"><i>Matches:</i> value, sayable value, understandable value, enumerated value<br>
+        </p>
+<p class="tightin1"><span class="indexgrey">nominative</span> , <span class="indexgrey">accusative</span> </p>
+        
+        <p class="halftightin1"><a name="A20"></a><b>grammatical gender </b> (<i>plural</i> grammatical genders)</p>
+        <p class="tightin1"><i>Matches:</i> value, sayable value, understandable value, enumerated value<br>
+        </p>
+<p class="tightin1"><span class="indexgrey">neuter gender</span> , <span class="indexgrey">masculine gender</span> , <span class="indexgrey">feminine gender</span> </p>
+        
+        <hr>
+        <p class="halftightin1"><a name="A43"></a><b>list of K</b> (<i>plural</i> <a href="WI_21.html#section_1">lists of K)</a></p>
+        <p class="tightin1"><i>covariant <a href="#contra" class="borderless">&gt;<span class="blue-tooltip icon"></span></a></i></p>
+        <p class="tightin1"><i>Matches:</i> value, sayable value<br>
+        A flexible-length list of values, where all of the items have to have the same kind of value as each other - for instance, a list of rooms, or a list of lists of numbers. The empty list, with no items yet, is written { }, and a list with items in is written with commas dividing them - say {2, 5, 9}.<br>
+        </p>
+        <p class="halftightin1"><a name="A52"></a><b>phrase K -&gt; L</b> (<i>plural</i> phrases K -&gt; L)</p>
+        <p class="tightin1"><i>contravariant in K, covariant in L <a href="#contra" class="borderless">&gt;<span class="blue-tooltip icon"></span></a></i></p>
+        <p class="tightin1"><i>Matches:</i> value, sayable value<br>
+        </p>
+        <p class="halftightin1"><a name="A54"></a><b><span class="indexgrey"></span>relation<span class="indexgrey"> of K</span></b> (<i>plural</i> <span class="indexgrey"></span>relations<span class="indexgrey"> of K</span>)</p>
+        <p class="tightin1"><i>covariant <a href="#contra" class="borderless">&gt;<span class="blue-tooltip icon"></span></a></i></p>
+        <p class="tightin1"><i>Matches:</i> value, sayable value<br>
+        </p>
+        <p class="halftightin1"><a name="A55"></a><b><span class="indexgrey">K based</span> rule<span class="indexgrey"> producing L</span></b> (<i>plural</i> <span class="indexgrey">K based</span> rules<span class="indexgrey"> producing L</span> <a href="WI_19.html#section_1">)</a></p>
+        <p class="tightin1"><i>contravariant in K, covariant in L <a href="#contra" class="borderless">&gt;<span class="blue-tooltip icon"></span></a></i></p>
+        <p class="tightin1"><i>Matches:</i> value, sayable value<br>
+        One of many, many rules which determine what happens during play. Rules can be triggered by scenes beginning or ending, by certain actions, at certain times, or in the course of carrying out certain activities.<br>
+        </p>
+        <p class="halftightin1"><a name="A56"></a><b><span class="indexgrey">K based</span> rulebook<span class="indexgrey"> producing L</span></b> (<i>plural</i> <span class="indexgrey">K based</span> rulebooks<span class="indexgrey"> producing L</span> <a href="WI_19.html#section_1">)</a></p>
+        <p class="tightin1"><i>contravariant in K, covariant in L <a href="#contra" class="borderless">&gt;<span class="blue-tooltip icon"></span></a></i></p>
+        <p class="tightin1"><i>Matches:</i> value, sayable value<br>
+        A list of rules to follow, in sequence, to get something done. A rulebook is like a ring-binder, with the individual rules as sheets of paper. Inform normally sorts these into their 'natural' order, with the most specific rules first, but it's easy to shuffle the pages if you need to. When some task is carried out during play, Inform is normally working through a rulebook, turning the pages one by one.<br>
+        </p>
+        <p class="halftightin1"><a name="A57"></a><b><span class="indexgrey"></span>activity<span class="indexgrey"> on K</span></b> (<i>plural</i> <span class="indexgrey"></span>activities<span class="indexgrey"> on K</span> <a href="WI_18.html#section_1">)</a></p>
+        <p class="tightin1"><i>contravariant <a href="#contra" class="borderless">&gt;<span class="blue-tooltip icon"></span></a></i></p>
+        <p class="tightin1"><i>Matches:</i> value<br>
+        An activity is something which Inform does as part of the mechanics of play - for instance, printing the name of an object, which Inform often has to do. An activity can happen by itself ('printing the banner text', for instance) or can be applied to an object ('printing the name of something', say).<br>
+        </p>
+        <p class="halftightin1"><a name="A58"></a><b>description of K</b> (<i>plural</i> <a href="WI_22.html#section_2">descriptions of K)</a></p>
+        <p class="tightin1"><i>covariant <a href="#contra" class="borderless">&gt;<span class="blue-tooltip icon"></span></a></i></p>
+        <p class="tightin1"><i>Matches:</i> value<br>
+        A description of a set of values, where all of the items have to have the same kind of value as each other - for instance, 'even numbers' or 'open doors which are in lighted rooms'.<br>
+        </p>
+        <p class="halftightin1"><a name="A59"></a><b><span class="indexgrey">K valued</span> property<span class="indexgrey"></span></b> (<i>plural</i> <span class="indexgrey">K valued</span> properties<span class="indexgrey"></span>)</p>
+        <p class="tightin1"><i>covariant <a href="#contra" class="borderless">&gt;<span class="blue-tooltip icon"></span></a></i></p>
+        <p class="tightin1"><i>Matches:</i> value<br>
+        </p>
+        <p class="halftightin1"><a name="A60"></a><b><span class="indexgrey">K valued</span> table<span class="indexgrey"></span> column<span class="indexgrey"></span></b> (<i>plural</i> <span class="indexgrey">K valued</span> table<span class="indexgrey"></span> columns<span class="indexgrey"></span>)</p>
+        <p class="tightin1"><i>covariant <a href="#contra" class="borderless">&gt;<span class="blue-tooltip icon"></span></a></i></p>
+        <p class="tightin1"><i>Matches:</i> value<br>
+        </p>
+        <p id="contra"><span class="smaller"><b>Covariance</b> means that if K is a kind of L, then something
+        	you make from K can be used as the same thing made from L. For example,
+        	a list of doors can be used as a list of things, because 'list of K' is
+        	covariant. <b>Contravariance</b> means it works the other way round.
+        	For example, an activity on things can be used as an activity on doors,
+        	but not vice versa, because 'activity of K' is contravariant.</span></p>
+    </div>
+  <div id="segment2" class="project-index pi-segment kinds">
+        <hr>
+        <div>
+<h2>Arithmetic</h2>
+<strong>Which values can be added up, multiplied and so on</strong><br>
+                    <i><a href="WI_15.html#section_20">About arithmetic</a></i>
+</div>
+
+        <hr>
+        <p><a calculator></a></p>
+<table border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td align="left" valign="top">
+                    <span class="calc icon"></span> Kinds of value marked with the calculator symbol are numerical -
+                    	these are values we can add, multiply and so on. The range of these
+                    	numbers depends on the Format setting for the project (Glulx format
+                    	supports much higher numbers than Z-code).
+                </td>
+            </tr>
+        </table>
+        
+        <p></p>
+<table border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td align="left" valign="top">
+                    <b>kind of value</b>     
+                </td>
+                <td align="left" valign="top">
+                    <b>minimum</b>     
+                </td>
+                <td align="left" valign="top">
+                    <b>maximum</b>     
+                </td>
+                <td align="left" valign="top">
+                    <b>dimensions</b> 
+                </td>
+            </tr>
+            <tr>
+                <td align="left" valign="top">
+                    number    
+                </td>
+                <td align="left" valign="top">
+                    1    
+                </td>
+                <td align="left" valign="top">
+                    2147483647    
+                </td>
+                <td align="left" valign="top">
+                    <i>dimensionless</i>
+                </td>
+            </tr>
+            <tr>
+                <td align="left" valign="top">
+                    real number    
+                </td>
+                <td align="left" valign="top">
+                    --    
+                </td>
+                <td align="left" valign="top">
+                    --    
+                </td>
+                <td align="left" valign="top">
+                    <i>dimensionless</i>
+                </td>
+            </tr>
+            <tr>
+                <td align="left" valign="top">
+                    time    
+                </td>
+                <td align="left" valign="top">
+                    1 minute    
+                </td>
+                <td align="left" valign="top">
+                    23 hours 59 minutes    
+                </td>
+                <td align="left" valign="top">
+                    (time)
+                </td>
+            </tr>
+        </table>
+        
+    </div>
+  <div id="segment3" class="project-index pi-segment kinds">
+        <hr>
+        <div>
+<h2>Values</h2>
+<strong>Values which vary during play, and equations.</strong><br>
+                    <i><a href="WI_4.html#section_12">About variables</a></i>
+</div>
+
+        <p><a name="NAMES"></a></p>
+        <p><b>Miscellaneous Definitions</b><br>
+        language of play - <i>natural language</i><br>
+        parameter-object - <i>object</i><br>
+        </p>
+        <p><b>Situation</b><br>
+        player - <i>person</i><br> <a href="WI_4.html#section_12">location</a> - <i>object</i><br> <a href="WI_9.html#section_2">score</a> - <i>number</i><br>
+        last notified score - <i>number</i><br>
+        maximum score - <i>number</i><br>
+        turn count - <i>number</i><br> <a href="WI_9.html#section_6">time of day</a> - <i>time</i><br>
+        darkness witnessed - <i>truth state</i><br>
+        </p>
+        <p><b>Current action</b><br> <a href="WI_7.html#section_10">noun</a> - <i>object</i><br>
+        second noun - <i>object</i><br> <a href="WI_12.html#section_3">person asked</a> - <i>object</i><br> <a href="WI_12.html#section_5">reason the action failed</a> - <i>rule</i><br>
+        item described - <i>object</i><br>
+        </p>
+        <p><b>Used when ruling on accessibility</b><br> <a href="WI_12.html#section_18">person reaching</a> - <i>object</i><br>
+        container in question - <i>object</i><br>
+        supporter in question - <i>object</i><br> <a href="WI_18.html#section_9">particular possession</a> - <i>thing</i><br>
+        </p>
+        <p><b>Used when understanding typed commands</b><br> <a href="WI_18.html#section_33">player's command</a> - <i>snippet</i><br>
+        matched text - <i>snippet</i><br>
+        <i>kind</i> understood - <i>value</i><br>
+        current item from the multiple object list - <i>object</i><br>
+        </p>
+        <p><b>Presentation on screen</b><br> <a href="WI_8.html#section_2">command prompt</a> - <i>text</i><br> <a href="WI_8.html#section_3">left hand status line</a> - <i>text</i><br>
+        right hand status line - <i>text</i><br>
+        listing group size - <i>number</i><br>
+        </p>
+        <p><b>Language generation</b><br>
+        prior named object - <i>object</i><br>
+        </p>
+        <p><b>Command parser errors</b><br>
+        latest parser error - <i>command parser error</i><br>
+        </p>
+        <p><b>Grammatical definitions</b><br>
+        story tense  - <i>grammatical tense</i><br>
+        story viewpoint  - <i>narrative viewpoint</i><br>
+        </p>
+        <p><b>List of Named or Numbered Equations</b> (<i><a href="WI_15.html#section_18">About equations</a></i>)</p>
+        <p><i>None</i></p>
+    </div>
+<footer id="credits-footer"'>
+<nav>
+<div class="nav-el">
+<a class="raw nav-el" href="index.html">Contents</a>
+</div>
+<div class="nav-el">
+<a class="raw nav-el" href="examples/index.html">Examples</a>
+</div>
+<div class="nav-el">
+<a class="raw nav-el" href="general_index.html">Index</a>
+</div>
+<div class="nav-el">
+<a class="raw nav-el" href="search.html">Search</a>
+</div>
+</nav>
+
+<div class="footing"><p id="i7credit"><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="license.html">Artistic License 2.0</a>.</p>
+
+<p class="about">
+<a class="raw" href="about.html">About this edition</a>&ensp;&bull;&ensp;
+<a class="raw" href="https://mastodon.gamedev.place/web/@inform7tips">@inform7tips@mastodon.gamedev.place</a></p></div>
+</footer>
+
+</main>
+</body></html>

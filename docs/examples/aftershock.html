@@ -16,7 +16,7 @@
 <div class="example-meta-desc"><p>Modifying the rules for examining a device so that all devices have some specific behavior when switched on, which is described at various times.</p></div>
 <div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="aarpgnosis.html" title="An Encyclopedia set which treats volumes in the same place as a single object, but can also be split up."><div class="nav-arrow">⬅335. </div><div class="doc-navbar-text">AARP-Gnosis</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="crusoe.html" title="Adding a &quot;printing the description of something&quot; activity."><div class="doc-navbar-text">Crusoe</div><div class="nav-arrow">337.⮕</div></a></div></div>
 </header>
-<div class="example-body"><p>The built-in behavior of Inform is to print a line after a device is examined, saying whether the item is on or off. This is often inappropriate, and we could simply turn off that behavior in general by instructing Inform to ignore the &quot;examine described devices rule&quot; (see the <a href="WI_19.html">chapter on rulebooks</a>).</p>
+<div class="example-body"><p>The built-in behavior of Inform is to print a line after a device is examined, saying whether the item is on or off. This is often inappropriate, and we could simply turn off that behavior in general by instructing Inform to ignore the &quot;examine devices rule&quot; (see the chapter on rulebooks).</p>
 <p>Perhaps, though, we would like continue to have a short passage about the action of any switched on device; we&#39;d just like a little more control over what it says from time to time. And in that case, we might change the rule to give a new activity control over that portion of the description:</p>
 <div class="play-example borogove"><a class="raw" href="https://snippets.borogove.app/inform7/v10ex336">Play/modify in Borogove</a></div>
 <div class="play-example quixe"><a class="raw" href="Aftershock/index.html">Play in Quixe</a></div>
@@ -28,7 +28,7 @@
 <div class="codeline">Rule for showing action of something (called item):</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the item is switched on, say &quot;[The item] is switched on.&quot;;</div>
 <div class="codeline">&ensp;&ensp;&ensp;otherwise say &quot;[The item] is switched off.&quot;</div>
-</div><p>Borrowing from the <a href="WI_19.html">rulebooks chapter</a>, we can replace the standard &quot;examine described devices&quot; rule with something that uses this activity.</p>
+</div><p>Borrowing from the rulebooks chapter, we can replace the standard &quot;examine devices&quot; rule with something that uses this activity.</p>
 <div class="codeblock"><div class="codeline">The new described devices rule is listed instead of the examine devices rule in the carry out examining rules.</div>
 <div class="codeline blankline">&thinsp;</div>
 <div class="codeline">This is the new described devices rule:</div>

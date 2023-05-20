@@ -1,0 +1,1212 @@
+        body, p, td {
+            font-family: var(--sans);
+            font-size: 1rem;
+        }
+
+        /* For fixed-point material within text, such as the typing on the Library Card index page */
+
+        span.typewritten {
+        	font-family: var(--mono);
+        }
+
+
+        /* The "heading panel" is the coloured box, high up on the page. The colours
+        vary depending on the page: for example, the style on a report of a translation
+        with no problems is "headingpanelsucceeded", usually green, but if there were
+        problems then "headingpanelfailed" is used, which is usually red. "headingpanel"
+        itself is a more neutral grey by default. "headingpanelDark" is an alternative
+        look to make the extensions index pages have some visual contrast with the others;
+        by default they are a darker grey. */
+
+        .headingpanel {
+        	background: var(--bg-color);
+        }
+        .headingpanelsucceeded {
+        	background: #E6FFE6;
+        }
+        .headingpanelfailed {
+        	background: #f69Ca6;
+        }
+        .headingpanelalt {
+        	background: #808080;
+        }
+
+        /* Heading panels have two lines of text: an upper one in a larger size, and a
+        lower one in a smaller. Again, the alt versions are meant to contrast.
+
+        	Report on Translation: Succeeded                <-- headingpaneltext
+        	Produced by Inform 10.1.0 (build 6U97)          <-- headingpanelrubric
+
+        	Installed Extensions                            <-- headingpaneltextalt
+        	Bundles of extra rules or phrases to...         <-- headingpanelrubricalt
+
+        */
+
+        span.headingpaneltext {
+            color: var(--fg-color);
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 20px;
+        	font-weight: bold;
+        }
+        span.headingpaneltextalt {
+        	color: var(--bg-color);
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 20px;
+        	font-weight: bold;
+        }
+
+        span.headingpanelrubric {
+        	color: var(--fg-color);
+        	-webkit-font-smoothing: antialiased;
+        	font-weight: bold;
+        }
+        span.headingpanelrubricalt {
+        	color: var(--bg-color);
+        	-webkit-font-smoothing: antialiased;
+        	font-weight: bold;
+        }
+
+        /* Horizontal rule styling */
+
+        div.hr {
+        	border: 0;
+/*        	width: 100%;*/
+        	color: #707070;
+        	background-color: #707070;
+        	height: 5px;
+        }
+
+        hr { margin-bottom: 1rem; }
+
+        a > i { font-style: normal; }
+        i > a { font-style: normal; }
+        div + p, div + table { margin-top: 1rem; }
+
+        /* This styles the (usually white) text of the example numbers written inside
+        oval blobs in the extension documentation, which mimic the look of the in-app
+        documentation. */
+
+        .oval, .oval td {
+        	background-image:url('inform:/doc_images/ovoid.png');
+        	color: var(--fg-color);
+        }
+
+        /* Styling used in the extension documentation indexes: */
+
+        /* Used for extension names in the extensions pane of the app */
+
+        span.extensioncensusentry {
+        	color: var(--bg-color);
+        }
+
+        span.extensionindexentry {
+        	color: #404040;
+        }
+
+        span.extensionindexerror {
+        	color: #ff8080;
+        }
+
+        /* This is used in extension documentation, where an example is presented
+        in a slightly tinted box: */
+
+        table.extensionexample {
+            background-color: var(--bg-color);
+        }
+
+        span.extensionexampleletter {
+        	color: #202020;
+        	font-weight: bold;
+        }
+
+        /* Seen in problem messages: */
+
+        span.problemred {
+        	color: #800000;
+        }
+
+        span.problemgreen {
+        	color: #008000;
+        }
+
+        span.phraseword {
+        	color: #808080;
+        }
+
+        span.phrasetokentext {
+        	color: #e00060;
+        }
+
+        span.phrasetokendesctext {
+        	color: #4040ff;
+        }
+
+        span.phrasetokenvaluetext {
+        	color: #ff4040;
+        }
+
+        /* Now we move on to styling used in the Index pages only: */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebarcolour {
+        	background: #888;
+        }
+        div.periodictablesidebar:hover {
+        	background: #222;
+        }
+
+        /* The text of the element-abbreviation, such as "Lx" or "Ph", uses: */
+
+        span.elementtext {
+        	color: var(--bg-color);
+        	font-size: 20px;
+        	font-weight: bold;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        span.elementnumbertext {
+        	color: var(--bg-color);
+        	font-size: 7pt;
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        span.elementtitletext {
+        	color: var(--bg-color);
+        	font-size: 9px;
+        	font-weight: bold;
+        }
+
+        /* The banner at the top of each element: */
+
+        table.elementbanner {
+        	background: var(--bg-color);
+        }
+
+        /* For the typewriting on the Library Card: */
+
+        span.librarycardtitle {
+            color: var(--fg-color);
+            font-weight: var(--bold);
+        }
+
+        span.librarycardother {
+            color: var(--fg-color);
+
+        }
+
+        /* Generically used for "more details" boxes in the index: */
+
+        table.indexmorebox {
+        	background-color: var(--bg-color);
+            border-radius: 8px;
+        }
+
+        /* But not for activity contents: */
+
+        table.indexactivitycontents {
+            background-color: var(--bg-color);
+            border-radius: 8px;
+        }
+
+        /* For responses in index entries about rules: */
+
+        span.indexresponseletter {
+        	color: var(--bg-color);
+        	font-family: var(--mono);
+        	background-color: #8080ff;
+        }
+
+        span.indexresponsetext {
+        	color: #000066;
+        }
+
+        /* Used ubiquitously throughout the index for unemphasised text: */
+
+        span.indexblack {
+        	color: var(--fg-color);
+        }
+
+        span.indexgrey {
+            color: var(--fg-color);
+        }
+
+        span.indexdarkgrey {
+            color: #505050;
+        }
+
+        span.indexdullred {
+        	color: #800000;
+        }
+
+        span.indexdullgreen {
+        	color: #008000;
+        }
+
+        span.indexdullblue {
+            color: var(--fg-blue);
+        }
+
+        /* Used for the room squares in the World map in the Index (which is currently
+        a table with one row of one column) */
+
+        table.indexmaproom {
+        	border-color: #000000;
+        }
+
+        /* Used in the numbering of levels of the World map in the Index */
+
+        span.indexmaplevelnumbers {
+        	color: #c0c0c0;
+        }
+
+        /* Used e.g. for title rows in the Chart of basic kinds in the Index */
+
+        tr.headingrow {
+            background-color: var(--bg-color);
+        }
+
+        /* Standard rows have black text on striped background colours, these being
+        the usual ones seen in Mac OS X applications such as iTunes. */
+
+        tr.stripeone {
+        	background-color: var(--bg-color);
+        }
+
+        tr.stripetwo {
+        	background-color: var(--bg-color); /* TODO */
+        }
+
+        tr.tintedrow {
+        	background-color: var(--bg-color); /* TODO */
+        }
+
+        /* In the Figures index, this is the background colour used behind images
+        (though in fact it will only be visible if the image fails to load, or uses
+        transparency): */
+
+        div.figureindexbox {
+        	background-color: #6495ed;
+        }
+
+        /* To get the book-contents-page style leaders on the Contents element of
+           the index to work, these must use the background colour of the body of
+           the page, whatever that is: */
+
+        ul.leaders li.leaded span:first-child {
+        	background: var(--bg-color);
+        }
+        ul.leaders li.leaded span + span {
+        	background: var(--bg-color);
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttontext {
+        	font-size: 11px;
+        	border-color: #000000;
+        }
+
+        span.registryminibuttontext {
+        	font-size: 10px;
+        	border-color: #000000;
+        }
+
+        span.registrybuttonuninstalled {
+        	color: #000000;
+        	background: #ffffdd;
+        }
+
+        span.registrybuttoninstalled {
+        	color: #000000;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonbuiltin {
+        	color: #888888;
+        	background: #ffffff;
+        	pointer-events: none;
+        }
+
+        span.registrybuttonupdate {
+        	color: #000000;
+        	background: #aaddff;
+        }
+
+        span.registrybuttonrevert {
+        	color: #000000;
+        	background: #ddaaff;
+        }
+
+        span.registrybuttonrevealer {
+        	color: var(--bg-color);
+        	background: #444444;
+        }
+
+        /* Registry index section headings: */
+
+        span.registrysectionname {
+        	font-family: font-family: "Public Sans", Arial, Helvetica, sans-serif; 
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        }
+        span.registrysubsectionname {
+        	font-family: font-family: "Public Sans", Arial, Helvetica, sans-serif; 
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        }
+
+        /* These are for the "mark" for a section, usually a section-symbol and number */
+
+        span.registrysectionmark {
+        	font-family: font-family: "Public Sans", Arial, Helvetica, sans-serif; 
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 16px;
+        	line-height: 18px;
+        	color: #666;
+        }
+        span.registrysubsectionmark {
+        	font-family: font-family: "Public Sans", Arial, Helvetica, sans-serif; 
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 14px;
+        	line-height: 16px;
+        	color: #666;
+        }
+
+        /* Text of an item listed in a registry: */
+
+        span.registryitemtext {
+        	font-family: "Public Sans", Arial, Helvetica, sans-serif; 
+        	-webkit-font-smoothing: antialiased;
+        	font-size: 12px;
+        	line-height: 16px;
+        }
+
+        /* And how the links in a registry index page behave: */
+
+        a.registrysilentlink {
+        	text-decoration: none;
+        	color: #000;
+        }
+        a.registrybuttonlink {
+        	text-decoration: none;
+        }
+        a.registrycontentslink:link {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:visited {
+        	text-decoration: none;
+        	color: #202020;
+        }
+        a.registrycontentslink:hover {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+        a.registrycontentslink:active {
+        	text-decoration: none;
+        	color: #D00000;
+        }
+
+        /* Buttons for use on inbuild results pages */
+
+        button.safebutton {
+        	background-color: #00ff00;
+        	border: none;
+        	color: var(--bg-color);
+        	padding: 15px 32px;
+        	text-align: center;
+        	text-decoration: none;
+        	display: inline-block;
+        	font-size: 16px;
+        	margin: 4px 2px;
+        	cursor: pointer;
+        }
+
+        button.dangerousbutton {
+        	background-color: #ff0000;
+        	border: none;
+        	color: var(--bg-color);
+        	padding: 15px 32px;
+        	text-align: center;
+        	text-decoration: none;
+        	display: inline-block;
+        	font-size: 16px;
+        	margin: 4px 2px;
+        	cursor: pointer;
+        }
+
+        /* (1) General layout material */
+
+        .headingpanellayout {
+        	position: relative;
+        	height: 56px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingpanellayoutdeeper {
+        	position: relative;
+        	height: 117px;
+        	padding: 0px;
+        	white-space:nowrap;
+        }
+        .headingtext {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+/*        	width: 100%;*/
+        	padding: 14px 10px 0px 10px;
+        }
+        .headingrubric {
+        	position: absolute;
+        	top: 36px;
+/*        	width: 100%;*/
+        	padding: 0px 10px 0px 10px;
+        }
+        h3.tighter {
+        	margin-top: 0px;
+        }
+        p.hang {
+        	padding-left: 25px;
+        	text-indent: -25px;
+        	margin-top: 0px;
+        	margin-bottom: 0px;
+        }
+        p.in1 {
+        	padding-left: 0px;
+        }
+        p.tightin1 {
+        	padding-left: 0px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin1 {
+        	padding-left: 0px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin1 {
+        	padding-left: 50px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in2 {
+        	padding-left: 25px;
+        }
+        p.tightin2 {
+        	padding-left: 25px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin2 {
+        	padding-left: 25px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin2 {
+        	padding-left: 75px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in3 {
+        	padding-left: 50px;
+        }
+        p.tightin3 {
+        	padding-left: 50px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin3 {
+        	padding-left: 50px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin3 {
+        	padding-left: 100px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in4 {
+        	padding-left: 75px;
+        }
+        p.tightin4 {
+        	padding-left: 75px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin4 {
+        	padding-left: 75px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin4 {
+        	padding-left: 125px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in5 {
+        	padding-left: 100px;
+        }
+        p.tightin5 {
+        	padding-left: 100px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin5 {
+        	padding-left: 100px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin5 {
+        	padding-left: 150px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in6 {
+        	padding-left: 125px;
+        }
+        p.tightin6 {
+        	padding-left: 125px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin6 {
+        	padding-left: 125px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin6 {
+        	padding-left: 175px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in7 {
+        	padding-left: 150px;
+        }
+        p.tightin7 {
+        	padding-left: 150px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin7 {
+        	padding-left: 150px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin7 {
+        	padding-left: 200px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in8 {
+        	padding-left: 175px;
+        }
+        p.tightin8 {
+        	padding-left: 175px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin8 {
+        	padding-left: 175px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin8 {
+        	padding-left: 225px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+        p.in9 {
+        	padding-left: 200px;
+        }
+        p.tightin9 {
+        	padding-left: 200px;
+        	margin-top: 2px;
+        	margin-bottom: 2px;
+        }
+        p.halftightin9 {
+        	padding-left: 200px;
+        	margin-bottom: 2px;
+        }
+        p.hangingin9 {
+        	padding-left: 250px;
+        	text-indent: -50px;
+        	margin-top: 0px;
+        	margin-bottom: 1px;
+        }
+
+        /* (2) Index page layout material */
+
+        /* The periodic table display has "sidebars", usually grey and taller than they
+        are wide; they contain no text. */
+
+        div.periodictablesidebar {
+        	height: 56px;
+        	width: 16px;
+        }
+        .periodictablesidebar a:link { text-decoration: none; }
+        .periodictablesidebar a:visited { text-decoration: none; }
+        .periodictablesidebar a:active { text-decoration: none; }
+
+        /* The "element boxes" are the cells appearing in the periodic-table display
+        on the welcome page of the index: */
+
+        .elementbox {
+        	position: relative;
+        	height: 56px;
+        	width: 56px;
+        	padding: 0px;
+        }
+
+        .elementbox a:link { text-decoration: none; }
+        .elementbox a:visited { text-decoration: none; }
+        .elementbox a:active { text-decoration: none; }
+        .elementbox a:hover { text-decoration: none; }
+        .elementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* The "small element boxes" look like those, but are smaller, and used on
+        the headings of the content which those original boxes link to: */
+
+        .smallelementbox {
+        	position: relative;
+        	height: 40px;
+        	width: 40px;
+        	padding: 0px;
+        }
+
+        .smallelementbox a:link { text-decoration: none; }
+        .smallelementbox a:visited { text-decoration: none; }
+        .smallelementbox a:active { text-decoration: none; }
+        .smallelementbox a:hover { text-decoration: none; }
+        .smallelementbox:hover {
+        	opacity: 0.6;
+        }
+
+        /* This is a class for the links formed by the element boxes: */
+
+        a.elementlink {
+        	position: absolute;
+        	top: -4px;
+        	left: -1px;
+/*        	width: 100%;*/
+        	padding: 14px 0px 14px 1px;
+        	text-align: center;
+        }
+
+        /* Similarly for the "atomic number" - a single digit - in the top left corner
+        of these boxes: */
+
+        div.elementnumber {
+        	position: absolute;
+        	top: 1px;
+        	left: 3px;
+        	text-align: left;
+        }
+
+        /* For the text of the element title, to the right of the element box: */
+
+        div.elementtitle {
+        	position: absolute;
+        	top: 35px;
+        	width: 100%;
+        	text-align: center;
+        }
+
+        /* Used for the book-contents-page style leaders on the Contents element of
+           the index: */
+
+        ul.leaders {
+        	padding: 0;
+        	margin-top: 1px;
+        	margin-bottom: 0;
+        	overflow-x: hidden;
+        	list-style: none}
+        ul.leaders li.leaded:before {
+        	float: left;
+        	width: 0;
+        	white-space: nowrap;
+        	content:
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "
+        	".  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  .  "}
+        ul.leaders li.leaded span:first-child {
+        	padding-right: 0.33em;
+        }
+        ul.leaders li.leaded span + span {
+        	float: right;
+        	padding-left: 0.33em;
+        }
+        li.indent1 span:first-child {
+        	padding-left: 25px;
+        }
+        li.indent2 span:first-child {
+        	padding-left: 50px;
+        }
+        li.indent3 span:first-child {
+        	padding-left: 75px;
+        }
+        li.indent4 span:first-child {
+        	padding-left: 100px;
+        }
+        li.indent5 span:first-child {
+        	padding-left: 125px;
+        }
+        li.indent6 span:first-child {
+        	padding-left: 150px;
+        }
+        li.indent7 span:first-child {
+        	padding-left: 175px;
+        }
+        li.indent8 span:first-child {
+        	padding-left: 200px;
+        }
+        li.indent9 span:first-child {
+        	padding-left: 225px;
+        }
+
+        li.unleaded:before {
+        	content: "";
+        }
+
+        /* On Registry index pages (such as the Public Library), these are used for
+        download buttons and the like: */
+
+        span.registrybuttons {
+        	height: 20px;
+        	padding: 2px 8px 2px 8px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 5px;
+        }
+
+        span.registryminibuttons {
+        	height: 14px;
+        	padding: 2px 5px 2px 5px;
+        	margin: 2px;
+        	border:1px solid;
+        	border-radius: 4px;
+        }
+
+        /* Used to hide or display sections in the Registry pages: */
+
+        div.registrysectionitemsopen {
+        	display: block;
+        }
+
+        div.registrysectionitemsclosed {
+        	display: none;
+        }
+
+        /* Hanging indentation for Registry item paragraphs: */
+
+        p.registryitem {
+        	padding-left: 80px;
+        	text-indent: -40px;
+        }
+
+        p.registryaddition {
+        	padding-left: 40px;
+        	text-indent: -40px;
+        }
+
+        #box1_1 {
+            background: #cf0a38;
+        }
+        #minibox1_1 {
+            background: #cf0a38;
+        }
+        #box1_2 {
+            background: #cf0a38;
+        }
+        #minibox1_2 {
+            background: #cf0a38;
+        }
+        #box1_3 {
+            background: #cf0a38;
+        }
+        #minibox1_3 {
+            background: #cf0a38;
+        }
+        #box1_4 {
+            background: #cf0a38;
+        }
+        #minibox1_4 {
+            background: #cf0a38;
+        }
+        #box1_5 {
+            background: #cf0a38;
+        }
+        #minibox1_5 {
+            background: #cf0a38;
+        }
+        #box2_1 {
+            background: #ea5b1f;
+        }
+        #minibox2_1 {
+            background: #ea5b1f;
+        }
+        #box2_2 {
+            background: #ea5b1f;
+        }
+        #minibox2_2 {
+            background: #ea5b1f;
+        }
+        #box2_3 {
+            background: #ea5b1f;
+        }
+        #minibox2_3 {
+            background: #ea5b1f;
+        }
+        #box2_4 {
+            background: #ea5b1f;
+        }
+        #minibox2_4 {
+            background: #ea5b1f;
+        }
+        #box2_5 {
+            background: #ea5b1f;
+        }
+        #minibox2_5 {
+            background: #ea5b1f;
+        }
+        #box3_1 {
+            background: #e9cf08;
+        }
+        #minibox3_1 {
+            background: #e9cf08;
+        }
+        #box3_2 {
+            background: #e9cf08;
+        }
+        #minibox3_2 {
+            background: #e9cf08;
+        }
+        #box3_3 {
+            background: #e9cf08;
+        }
+        #minibox3_3 {
+            background: #e9cf08;
+        }
+        #box4_1 {
+            background: #52992f;
+        }
+        #minibox4_1 {
+            background: #52992f;
+        }
+        #box4_2 {
+            background: #52992f;
+        }
+        #minibox4_2 {
+            background: #52992f;
+        }
+        #box4_3 {
+            background: #52992f;
+        }
+        #minibox4_3 {
+            background: #52992f;
+        }
+        #box4_4 {
+            background: #52992f;
+        }
+        #minibox4_4 {
+            background: #52992f;
+        }
+        #box5_1 {
+            background: #1d31b4;
+        }
+        #minibox5_1 {
+            background: #1d31b4;
+        }
+        #box5_2 {
+            background: #1d31b4;
+        }
+        #minibox5_2 {
+            background: #1d31b4;
+        }
+        #box6_1 {
+            background: #001860;
+        }
+        #minibox6_1 {
+            background: #001860;
+        }
+        #box6_2 {
+            background: #001860;
+        }
+        #minibox6_2 {
+            background: #001860;
+        }
+        #box6_3 {
+            background: #001860;
+        }
+        #minibox6_3 {
+            background: #001860;
+        }
+        #box7_1 {
+            background: #8b58bf;
+        }
+        #minibox7_1 {
+            background: #8b58bf;
+        }
+        #box7_2 {
+            background: #8b58bf;
+        }
+        #minibox7_2 {
+            background: #8b58bf;
+        }
+
+.pi-segment + .pi-segment { margin-top: 1.5rem; }
+
+div.box { height: 5rem; width: 5rem; font-family: "Public Sans", Arial, Helvetica, sans-serif; }    
+.headingbox { height: 5rem; margin-top: 0; margin-bottom: 0; }
+.headingtext { font-size: 1.33rem; font-weight: var(--bold-weight); margin-bottom: 0; position: relative; }
+.headingrubric { font-size: 1rem; font-weight: var(--bold-weight); margin-top: 0; }
+font { font-size: 1rem; }
+small { font-size: .9rem; }
+/* a.symbol { position: relative; text-align: center; vertical-align: center; } */
+div.indexno { font-size: .9rem; }
+a.symbol { font-size: 1.76rem; padding: 1rem 0 1rem 0; font-weight: normal; }
+div.rubric { font-size: .9rem; font-weight: var(--bold-weight); margin-top: .75rem; }
+div.sidebar { height: 5rem; }
+p.tightin2 { padding-left: 2rem; margin-top: .25rem; margin-bottom: .25rem; }
+tr#surround0 {display: none; }
+{ color: var(--fg-color); background-color: var(--bg-color); }
+table { margin-left: revert; margin-right: revert; }
+p { font-family: "Public Sans", Arial, Helvetica, sans-serif; font-size: inherit; margin-bottom: .25rem; }
+br { margin-top: .5rem;  margin-bottom: .5rem; padding-bottom: .5rem; padding-top: .5rem; }
+p.in1 { margin-top: .5rem; margin-bottom: .5rem; }
+p.in2 { margin-top: .5rem; margin-bottom: .5rem; }
+div > p.in2 { display: none; }
+p.hang { margin-bottom: 0; } 
+p.tightin1 {margin-top: 0; margin-bottom: 0; }
+p.tightin2 {margin-top: 0; margin-bottom: 0; }
+p.tightin3 {margin-top: 0; margin-bottom: 0; }
+b { line-height: 1.5; }
+i { line-height: 1.5; }
+td > p { height: inherit; }
+div.smallbox { height: 3rem; }
+div.smallbox a.symbol { font-size: 1.33rem; font-weight: var(--bold-weight); }
+/*a font { text-decoration: underline; }*/
+table { width: inherit; }
+
+details td { border: none; }
+
+div.detail-head { font-weight: bold; font-size: 1.5rem; }
+
+
+/* #periodictable { display: none; }*/
+
+:root {
+    --light-red: lightcoral;
+--light-orange: lightsvalmon;
+--light-yellow: lemonchiffon;
+--light-green: lightgreen;
+--light-blue: paleturquoise;
+--light-indigo: thistle;
+--light-violet: plum;
+--light-gray: #BBB;
+--dark-red: maroon; 
+--dark-orange: red; 
+--dark-yellow: DarkGoldenrod;
+--dark-green:  DarkGreen;
+--dark-blue: Navy;
+--dark-indigo: Indigo;
+--dark-violet: RebeccaPurple;
+--dark-gray: #333;
+}
+
+@supports (color-scheme: dark light) {
+@media screen and (prefers-color-scheme: dark) {
+    body {
+--fg-red: var(--light-red);
+--fg-orange:  var(--light-orange);
+--fg-yellow:  var(--light-yellow);
+--fg-green:  var(--light-green);
+--fg-blue:  var(--light-blue);
+--fg-indigo:  var(--light-indigo);
+--fg-violet: var(--light-violet);
+--fg-gray: var(--light-gray);
+--bg-red: var(--dark-red);
+--bg-orange:  var(--dark-orange);
+--bg-yellow:  var(--dark-yellow);
+--bg-green:  var(--dark-green);
+--bg-blue:  var(--dark-blue);
+--bg-indigo:  var(--dark-indigo);
+--bg-violet: var(--dark-violet);
+--bg-gray: var(--dark-gray);
+    }
+}
+}
+    @media not (prefers-color-scheme: dark) {
+    body {
+--bg-red: var(--light-red);
+--bg-orange:  var(--light-orange);
+--bg-yellow:  var(--light-yellow);
+--bg-green:  var(--light-green);
+--bg-blue:  var(--light-blue);
+--bg-indigo:  var(--light-indigo);
+--bg-violet: var(--light-violet);
+--bg-gray: var(--light-gray);
+--fg-red: var(--dark-red);
+--fg-orange:  var(--dark-orange);
+--fg-yellow:  var(--dark-yellow);
+--fg-green:  var(--dark-green);
+--fg-blue:  var(--dark-blue);
+--fg-indigo:  var(--dark-indigo);
+--fg-violet: var(--dark-violet);
+--fg-gray: var(--dark-gray);
+    }
+}
+
+    span.indexdullred { color: var(--fg-color); }
+  #segment4 span.indexdullred::after { content: ' (out of world)'; }
+  span.phrasetokentext,span.phraseword,span.phrasetokendesctext { color: var(--fg-color); font-weight: normal; }
+  span.phrasetokendesctext { font-family: monospace; background-color: #222; border-radius: .25rem; } /*padding-right: .25rem; padding-left: .25rem; }*/
+  span.phrasetokendesctext:before { content: '\27e8\2060'; }
+  span.phrasetokendesctext:after { content: '\2060\27e9'; }
+  
+  /*  span.result { padding-left: .25rem; }*/
+  /* double angle brackets: 300a, 300b */
+  /* guillemet ab, bb */
+  /* presentation double angle bracket fe3d, fe3e */
+  /* 2060 word joiner */
+  /* 200d zero width joiner */
+  /* 003c 003e lt ft */
+  /* fe3f fe40 presentation form for vertical (single) angle bracket */
+  /* 27e8 27e9 mathematical angle bracket */
+ /* 27ea 27eb mathematical double angle bracket */
+  span.result { font-family: monospace; font-weight: normal; border-radius: .25rem; background-color: #303030; }
+  span.result:before { content: '\200d\27ea\200d'; line-height: 0; vertical-align: baseline; position: relative; bottom: -.06rem; font-family: sans-serif; }
+  span.result:after { content: '\200d\27eb'; line-height: 0; vertical-align: baseline; position: relative; bottom: -.06rem; font-family: sans-serif; }}
+  
+  .phrasebook summary { font-weight: bold; }
+
+
+  /*  .elementbanner td p i { font-style: normal; }*/
+  .element-banner { border: .1rem solid currentColor; margin-top: 1rem; margin-bottom: 1rem; padding: 1rem; }
+  
+    .fg-green { color: var(--fg-green); }
+    .fg-gray { color: var(--fg-gray); } 
+    .fg-red { color: var(--fg-red); } 
+    .bg-blue { background-color: var(--bg-blue); }
+    .bg-red { background-color: var(--bg-red); }
+    .bg-gray { background-color: var(--bg-gray); }
+    .bg-green { background-color: var(--bg-green); }
+    .bg-yellow { background-color: var(--bg-yellow); }
+
+    #segment1 { margin-top: 2rem; }
+
+    .prime:after { content: '\A'; white-space: pre; }
+    .alternate:before { content: '\00a0'; }
+    .alternate:after { content: '\A'; white-space: pre; }
+
+    
+    h2 { font-size: 1.75rem; }
+    span.sep:before { content: ' \2022'; }
+/*    span.sep { padding-left: 1rem; padding-right: 1rem; }*/
+    span.sep:after { content: ' '; }
+    
+    table { width: 100%; }
+    tr { width: 100%; }
+    td > p { width: revert; }
+    
+/*    table + p.indentin2 { margin-top: 1rem; }
+    td > p:last-child, td > p:only-child { margin-bottom: 1rem; }*/
+    
+.abs { position: absolute; }
+    .invert { color: var(--bg-color); }
+    
+    .borderless { border: none;  }
+
+/*    table.indexmorebox { background-color: var(--bg-red); border-radius: 1.25rem; }*/
+/*    table.indexmorebox td { border: none; }*/
+
+    /* table.indexmorebox tbody > tr:first-child > td:first-child > table:first-child { border-bottom: .2rem solid currentColor; }*/
+
+.bg-icon { text-align: center; display: inline-block; height: 1.5rem; width: 1.66rem;}
+
+.bg-circle { border-radius: 50%; }
+
+.bg-square { border-radius: 10%; }
+.icon { font-size: 1.1rem; font-weight: bold; color: #D8D8D8; width: 1.33rem; height: 1.33rem; display: inline-block; text-align: center; margin-right: .33rem; }
+
+details { border: .1rem solid transparent; border-radius: .75rem;
+          padding-bottom: 1rem;
+        }
+
+summary + * { margin-top: .75rem; }
+
+details[open] { border-right: .1rem dashed currentColor;
+                border-bottom: .1rem dashed currentColor;
+                border-left: .1rem dashed currentColor;
+                margin-bottom: 1rem; }
+
+span.if { font-family: monospace; background-color: var(--bg-gray); margin-right: .25em; padding-left: .25em; padding-right: .25em; }
+
+
+.green-check { color: var(--green); }
+.green-check::after { content: '\2714';  }
+.gray-check { color: var(--gray); }
+.gray-check::after { content: '\2714';  }
+.joined-squares:before { content: '\29c9'; }
+.blue-question { background-color: blue; border-radius: 50%; }
+.blue-question::before { content: '\2753\fe0e'; line-height: 0; vertical-align: baseline; position: relative; top: -.12rem; }
+.blue-tooltip { background-color: blue; border-radius: 10%; }
+.blue-tooltip::after { content: '\25bc';  }
+.gray-down-arrow { background-color: var(--bg-gray); border-radius: 50%; }
+.gray-down-arrow::after { content: '\2B07'; font-size: 1.1rem; line-height: 0; vertical-align: baseline; position: relative; top: -.08rem; }
+.gray-search { border-radius: 50%; background-color: var(--bg-gray); }
+.gray-search::after { content: '\1F50E';  }
+.reveal-ext { background-color: var(--orange); border-radius: 50%; }
+.reveal-ext::after { content: '\24d4';  }
+.green-square { background-color: green; border-radius: 10%; }
+.green-square::after { content: '\2002'; }
+.green-question { background-color: green; border-radius: 50%; }
+.green-question::before { content: '\2753\fe0e'; line-height: 0; vertical-align: baseline; position: relative; top: -.12rem;   }
+.yellow-play { background-color: goldenrod; border-radius: 10%; color: var(--bg-color); }
+.yellow-play::after { content: '\25B8'; font-size: 1.44rem; line-height: 0; vertical-align: baseline; position: relative; top: -.12rem;   }
+.yellow-plus { background-color: goldenrod; }
+.yellow-plus::after { content: '\2795'; color: var(--bg-color); line-height: 0; vertical-align: baseline; position: relative; top: -.12rem;   }
+.red-cross { background-color: red; }
+.red-cross::after { content: '\2715';  line-height: 0; vertical-align: baseline; position: relative; top: -.12rem;   }
+.red-ellipsis { background-color: red; }
+.red-ellipsis::after { content: '\2026'; line-height: 0; vertical-align: baseline; position: relative; top: -.12rem;   }
+.gray-clockwise-arrow { background-color: var(--bg-gray); border-radius: 50%; }
+.gray-clockwise-arrow::after { content: '\27f3';  font-size: 1.25rem; line-height: 0; vertical-align: baseline; position: relative; top: -.08rem;   }
+.calc { background-color: var(--bg-gray); border-radius: 50%; }
+.calc::after { content: '\1F5A9';  font-size: 1.25rem; line-height: 0; vertical-align: baseline; position: relative; top: -.08rem; }
+
+.kinds#segment1 td:nth-child(n+3) { text-align: center; }
+.world#segment1 table { display: none; }
+
+/*.recorder::after { content: '\2315'; position: relative;  }*/
+/*.recorder:before { content: '\2315'; line-height: .66; font-size: 1.25em; }*/
+
+/*    
+.below { color: var(--bg-color); font-weight: var(--bold-weight); font-style: normal; height: 1.2em; width: 1.2em; display: inline-block; border-radius: 50%; text-align: center; background-color: var(--fg-gray); 
+
+.doclink { color: var(--bg-color); font-weight: var(--bold-weight); font-style: normal; height: 1.2em; width: 1.2em; display: inline-block; border-radius: 50%; text-align: center; background-color: var(--fg-blue);  }
+
+.tooltip { color: var(--bg-color); font-weight: var(--bold-weight); font-style: normal; height: 1.2em; width: 1.2em; display: inline-block; border-radius: 50%; text-align: center; background-color: var(--fg-blue);  } 
+
+
+.reveal-ext { color: var(--bg-color); font-weight: var(--bold-weight); font-style: normal; height: 1.2em;     width: 1.2em; display: inline-block; border-radius: 50%; text-align: center; background-color: var(--fg-orange);  } 
+*/
+
+/* .square::after { content: '\2b1b\fe0e';  } */

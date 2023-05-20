@@ -50,7 +50,7 @@
 @supports (color-scheme: dark light) {
 @media screen and (prefers-color-scheme: dark) {
     :root {
-        --normal-weight: 360;
+        --normal-weight: 400;
         --bold-weight: 600;
         --mono-normal-weight: 325;
         --mono-bold-weight: 500;

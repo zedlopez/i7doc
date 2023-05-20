@@ -816,33 +816,16 @@ map directions in your source (unless the direction is the first word in
 a sentence). Below are three code examples. The first two work, and
 produce exactly the same map; the third is a bug, and won’t compile.
 
-<div class="codeblock">
-<div class="codeline">
+```
 The Lounge is a room.
-</div>
-<div class="codeline">
 The Dining Room is north of the Lounge.
-</div>
-<div class="codeline">
- 
-</div>
-<div class="codeline">
+
 The Lounge is a room.
-</div>
-<div class="codeline">
 North of the Lounge is the Dining Room.
-</div>
-<div class="codeline">
- 
-</div>
-<div class="codeline">
+
 The Lounge is a room.
-</div>
-<div class="codeline">
 The Dining Room is North of the Lounge. [Error!]
-</div>
-</div>
-</div>
+```
 
 ### The Great Outdoors   {#the-great-outdoors}
 

@@ -44,7 +44,7 @@
 <div class="codeline">Before printing the plural name of a glass dish when the player wears the goggles: say &quot;[heat] &quot;</div>
 </div><p>So far, so good. Now, what if the player tries to GET HOT DISH when the goggles are off? &quot;You can&#39;t see any such thing.&quot; doesn&#39;t seem like quite the right response: he can see such a thing. He just doesn&#39;t know which it is.</p>
 <p>We could go on to write a mistake rule that would scold the player for trying &quot;get [heat] [text]&quot; when not wearing the goggles. The problem is that this would not cover any other phrasing of the command, nor would it account for all the many other things the player might try to do with an object specified by heat.</p>
-<p>What we really want is to catch all instances of the player using the property name when not allowed to do so; and for this purpose we can borrow a trick from the <a href="WI_18.html">chapter on Activities</a>:</p>
+<p>What we really want is to catch all instances of the player using the property name when not allowed to do so; and for this purpose we can borrow a trick from the chapter on Activities:</p>
 <div class="codeblock"><div class="codeline">After reading a command:</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the player wears the goggles, make no decision;</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the player&#39;s command includes &quot;[heat]&quot;:</div>

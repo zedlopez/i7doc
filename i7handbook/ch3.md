@@ -288,10 +288,9 @@ that up in [Phrasing and Punctuation](#Ref_privately-named) in Chapter
 
 ### Long Names   {#long-names}
 
-Normally, Inform looks only at the first nine letters in each word. The
-rest of the letters are ignored. This is true both for the names of
-things in your code and for the words in commands that the player types.
-Normally nine letters are plenty. (In the very first text-based games,
+By default, Inform looks only at the first nine letters in each word
+of a player's command and rest of the letters are ignored. Often,
+nine letters are plenty. (In the very first text-based games,
 only the first five or six letters in the player’s commands were read,
 and six letters weren’t really enough.) But as [WI 3.1
 Descriptions](../WI_3.html#section_1) points out, if you happen to put a

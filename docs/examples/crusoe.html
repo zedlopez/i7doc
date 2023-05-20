@@ -26,13 +26,13 @@
 <div class="codeline blankline">&thinsp;</div>
 <div class="codeline i7header">Section 1 - Creating our New Activity</div><div class="codeline blankline">&thinsp;</div>
 <div class="codeline">The fancy examining rule is listed instead of the standard examining rule in the carry out examining rules.</div>
-</div><p>This instruction replaces a normal piece of the examine action, the standard examining rule, with another one of our own devising. (The replacement of the standard examining rule will be explained in more detail in the <a href="WI_19.html">chapter on rulebooks</a>.)</p>
+</div><p>This instruction replaces a normal piece of the examine action, the standard examining rule, with another one of our own devising. (The replacement of the standard examining rule will be explained in more detail in the chapter on rulebooks.)</p>
 <div class="codeblock"><div class="codeline">Printing the description of something is an activity.</div>
 <div class="codeline blankline">&thinsp;</div>
 <div class="codeline">This is the fancy examining rule:</div>
 <div class="codeline">&ensp;&ensp;&ensp;carry out the printing the description activity with the noun;</div>
 <div class="codeline">&ensp;&ensp;&ensp;rule succeeds.</div>
-</div><p>All we have done here is enclose what is usually just a rule inside an activity. This means that we can now write before and after rules for the activity, and also add special instructions like &quot;Rule for printing the name of something while printing the description of something&quot; &ndash; this may not be likely to arise often, but Inform now has the concept of &quot;printing the description of something&quot; as a separate context of action. Next we add the modification that lets us append to the description without a new line:</p>
+</div><p>All we have done here is enclose what is usually just a rule inside an activity. This means that we can now write before and after rules for the activity, and also add special instructions like &quot;Rule for printing the name of something while printing the description of something&quot; -- this may not be likely to arise often, but Inform now has the concept of &quot;printing the description of something&quot; as a separate context of action. Next we add the modification that lets us append to the description without a new line:</p>
 <div class="codeblock"><div class="codeline">Rule for printing the description of something (called item):</div>
 <div class="codeline">&ensp;&ensp;&ensp;if the description of the item is not &quot;&quot;:</div>
 <div class="codeline">&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;say &quot;[description of item] [run paragraph on]&quot;;</div>
@@ -43,7 +43,7 @@
 <div class="codeline">&ensp;&ensp;&ensp;say &quot;It is charred.&quot; instead.</div>
 </div><p>The instead at the end of this line stops Inform for going on with any other &quot;after printing the description of&hellip;&quot; rules.</p>
 <p>The standard library also has rules for printing additional text about containers and supporters with visible contents, and devices that are switched on; with this current system, we could add those as &quot;after printing the description&quot; rules as well, building up a complete paragraph if we wanted. But for simplicity we won&#39;t exemplify all of that here. The effects would be much the same as with the &quot;charred&quot; line.</p>
-<p>Now, because we want to make sure that we always do get a paragraph break after our description, we add this rule last after all the other rules. &quot;Last&quot; and &quot;first&quot; rules are covered in more detail in the <a href="WI_19.html">chapter on rulebooks</a>.</p>
+<p>Now, because we want to make sure that we always do get a paragraph break after our description, we add this rule last after all the other rules. &quot;Last&quot; and &quot;first&quot; rules are covered in more detail in the chapter on rulebooks.</p>
 <div class="codeblock"><div class="codeline">Last after printing the description of something:</div>
 <div class="codeline">&ensp;&ensp;&ensp;say paragraph break.</div>
 <div class="codeline blankline">&thinsp;</div>

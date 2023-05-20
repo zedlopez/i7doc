@@ -80,3 +80,15 @@ navpages:
 output_dir: docs
 xdir: /home/zed/inf7/y
 tmpl: i7/tmpl
+cat_info:
+  phrase:
+    :label: "phrase"
+    :bracketed: true
+    :bracket_class: :phrase
+    :unbracket_class: :neutral
+  "say phrase":
+    :label: "say phrase"
+    :bracketed: true
+    :bracket_class: :sayphrase
+    :unbracket_class: :neutral
+cat_regexp: '([^}\+]+)'

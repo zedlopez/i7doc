@@ -73,17 +73,17 @@
 </div><p>Inform will produce a problem message, because L has kind &quot;list of numbers&quot;, whereas &quot;clock&quot; is text. In this way, Inform ensures that a list always contains values of the same kind throughout. So it&#39;s not possible to construct a list whose entries are:</p>
 <div class="codeblock"><div class="codeline">2, &quot;fish&quot;, 4 and the Entire Game</div>
 </div><p>Such a list would be very hazardous to deal with, in any case. If what we need is a combination of different kinds of values, tables are a better option.</p>
-<p>Finally, note that since &quot;list of numbers&quot; is a kind of value in its own right, so is &quot;list of lists of numbers&quot;, and so on &ndash; though such lists are trickier to deal with, they are sometimes handy.</p>
+<p>Finally, note that since &quot;list of numbers&quot; is a kind of value in its own right, so is &quot;list of lists of numbers&quot;, and so on - though such lists are trickier to deal with, they are sometimes handy.</p>
 </article>
 <article><div class="section-title"><div class="section-title-row"><div class="section-title-link"><a class="permalink raw" href="WI_21.html#section_2">&#128279;&ensp;</a></div><h3 class="section-title-header" id="section_2">WI <span class="sect-mark">§</span>21.2 Constant lists</h3></div></div>
 <div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="#section_1" title="Lists and entries"><div class="nav-arrow"><span class="sym">⬅</span>21.1</div><div class="doc-navbar-text">Lists and entries</div></a></div><div class="doc-navbar-center"><a class="raw nav-el" href="#chapter_21"><div class="nav-arrow"><span class="sym">⬆</span>21.</div><div class="doc-navbar-text">Lists</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="#section_3"><div class="doc-navbar-text">Saying lists of values</div><div class="nav-arrow">21.3<span class="sym">⮕</span></div></a></div></div></div>
 <p>It is convenient to have a concise way to write down a constant list. Just as we could write &quot;231&quot;, say, or &quot;7:01 AM&quot; to refer to particular number and time constants, so we can write list constants:</p>
 <div class="codeblock"><div class="codeline">let L be {1, 2, 3, 4};</div>
-</div><p>Inform recognises that &quot;{1, 2, 3, 4}&quot; is a list because of the braces, and looks at the entries inside, sees that they are numbers, and deduces that it is a constant whose kind of value is &quot;list of numbers&quot;. L is then a temporary list variable and we can add to it, remove things, and so on as we please &ndash; {1, 2, 3, 4} is merely its initial value.</p>
-<p>When constructing lists, it is worth noting that Inform requires spaces after the commas (which seems a little harsh, but is necessary because otherwise many sensible literal specifications for units would be impossible &ndash; anyway, the reason isn&#39;t important here). So</p>
+</div><p>Inform recognises that &quot;{1, 2, 3, 4}&quot; is a list because of the braces, and looks at the entries inside, sees that they are numbers, and deduces that it is a constant whose kind of value is &quot;list of numbers&quot;. L is then a temporary list variable and we can add to it, remove things, and so on as we please - {1, 2, 3, 4} is merely its initial value.</p>
+<p>When constructing lists, it is worth noting that Inform requires spaces after the commas (which seems a little harsh, but is necessary because otherwise many sensible literal specifications for units would be impossible - anyway, the reason isn&#39;t important here). So</p>
 <div class="codeblock"><div class="codeline">let L be {1,2,3,4};</div>
 </div><p>would produce problem messages. But Inform does not require spaces round its braces.</p>
-<p>We call this way of writing a list &quot;brace notation&quot;. In mathematics, braces are usually used for sets, and properly speaking these are sequences not sets &ndash; so that &quot;{1, 2, 3, 4}&quot; is different from &quot;{4, 3, 2, 1}&quot; &ndash; but it is still a familiar notation. Similarly,</p>
+<p>We call this way of writing a list &quot;brace notation&quot;. In mathematics, braces are usually used for sets, and properly speaking these are sequences not sets - so that &quot;{1, 2, 3, 4}&quot; is different from &quot;{4, 3, 2, 1}&quot; - but it is still a familiar notation. Similarly,</p>
 <div class="codeblock"><div class="codeline">let L be {&quot;apple&quot;, &quot;pear&quot;, &quot;loganberry&quot;};</div>
 </div><p>makes L a list of texts; and</p>
 <div class="codeblock"><div class="codeline">The marshmallow, the firework and the stink bomb are in the Scout Hut. The list of prohibited items is a list of objects that varies. The list of prohibited items is {the firework, the stink bomb}.</div>
@@ -95,11 +95,11 @@
 <div class="codeline blankline">&thinsp;</div>
 <div class="codeline tablename">Table of Requirements</div><table>
 <tr><td>recipe</td><td>ingredients</td></tr><tr><td>&quot;duck à l&#39;orange&quot;</td><td>{the duck, the orange}</td></tr><tr><td>&quot;spiced cider&quot;</td><td>{the cider, the cinnamon, the orange}</td></tr></table>
-</div><p>A special word about the constant list &quot;{ }&quot;. This means the list with no entries &ndash; the empty list. If we try to create a new &quot;let&quot; variable M with</p>
+</div><p>A special word about the constant list &quot;{ }&quot;. This means the list with no entries - the empty list. If we try to create a new &quot;let&quot; variable M with</p>
 <div class="codeblock"><div class="codeline">let M be { };</div>
 </div><p>then Inform will produce a problem message, because it cannot tell what sort of list M will be: a list of numbers, or texts, or times, or&hellip;? On the other hand, writing</p>
 <div class="codeblock"><div class="codeline">now M is { };</div>
-</div><p>is fine if M already exists, and then does the obvious thing &ndash; empties M. Similarly, a table column in which every entry is &quot;{ }&quot; produces a problem message unless the heading for that column spells out the kind of value stored within it: for instance, &quot;ingredients (list of texts)&quot;.</p>
+</div><p>is fine if M already exists, and then does the obvious thing - empties M. Similarly, a table column in which every entry is &quot;{ }&quot; produces a problem message unless the heading for that column spells out the kind of value stored within it: for instance, &quot;ingredients (list of texts)&quot;.</p>
 <p>All of this is a notation for constant lists only, not some sort of gluing-things-together operation. So this, for instance:</p>
 <div class="codeblock"><div class="codeline">let L be {100, the turn count};</div>
 </div><p>is not allowed, even though &quot;the turn count&quot; is a number: because it is a number that varies, the braces do not contain constants, and therefore this is not a list constant.</p>
@@ -109,7 +109,7 @@
 <p>Any list L can be said, provided that its contents can be said. For example:</p>
 <div class="codeblock"><div class="codeline">let L1 be {2, 3, 5, 7, 11};</div>
 <div class="codeline">say L1;</div>
-</div><p>produces the text &quot;2, 3, 5, 7 and 11&quot; &ndash; unless we have &quot;Use serial comma.&quot; set, in which case a comma appears after the 7. We also have the option of using the more formal notation:</p>
+</div><p>produces the text &quot;2, 3, 5, 7 and 11&quot; - unless we have &quot;Use serial comma.&quot; set, in which case a comma appears after the 7. We also have the option of using the more formal notation:</p>
 <div class="defn" id="phs_listbraced"><div class="defnline"><span class="defn">say "[</span><span class="neutral">(list of values)</span><span class="defn"> in brace notation]"</span></div><p>This text substitution produces the list in the form of &quot;{&quot;, then a comma-separated list, and then &quot;}&quot;, which looks less like an English sentence but more mathematical. Example:</p>
 <div class="codeblock"><div class="codeline">&quot;[list of people in brace notation]&quot;</div>
 </div><p>might produce &quot;{ yourself, Mr Darcy, Flashman }&quot;.</p>
@@ -147,7 +147,7 @@
 <div class="codeblock"><div class="codeline">let L1 be {1, 2, 3, 4};</div>
 <div class="codeline">repeat with n running through L1:</div>
 <div class="codeline">&ensp;&ensp;&ensp;remove n from L1;</div>
-</div><p>leaves L1 containing {2, 4}, since the removals from the list cause it to shuffle back even while we repeat through it &ndash; a bad, bad idea.</p>
+</div><p>leaves L1 containing {2, 4}, since the removals from the list cause it to shuffle back even while we repeat through it - a bad, bad idea.</p>
 </article>
 <article><div class="section-title"><div class="section-title-row"><div class="section-title-link"><a class="permalink raw" href="WI_21.html#section_5">&#128279;&ensp;</a></div><h3 class="section-title-header" id="section_5">WI <span class="sect-mark">§</span>21.5 Building lists</h3></div></div>
 <div class="doc-navbar"><div class="doc-navbar-left"><a class="raw nav-el" href="#section_4" title="Testing and iterating over lists"><div class="nav-arrow"><span class="sym">⬅</span>21.4</div><div class="doc-navbar-text">Testing and iterating over lists</div></a></div><div class="doc-navbar-center"><a class="raw nav-el" href="#chapter_21"><div class="nav-arrow"><span class="sym">⬆</span>21.</div><div class="doc-navbar-text">Lists</div></a></div><div class="doc-navbar-right"><a class="raw nav-el" href="#section_6"><div class="doc-navbar-text">Lists of objects</div><div class="nav-arrow">21.6<span class="sym">⮕</span></div></a></div></div></div>
@@ -157,7 +157,7 @@
 <div class="codeline">add 360 to L;</div>
 </div><p>results in L being {60, 168, 360}. Note that the value is added even if it already occurs somewhere in L; this can be avoided with &quot;if absent&quot;. So:</p>
 <div class="codeblock"><div class="codeline">add 168 to L, if absent;</div>
-</div><p>would do nothing &ndash; it is already there.</p>
+</div><p>would do nothing - it is already there.</p>
 </div><div class="defn" id="ph_addlisttolist"><div class="defnline"><span class="defn">add </span><span class="neutral">(list of values)</span><span class="defn"> to </span><span class="neutral">(list of values)</span></div><p>This phrase adds the first list to the end of the second. Example:</p>
 <div class="codeblock"><div class="codeline">let L be {2, 3, 5, 7};</div>
 <div class="codeline">add {11, 13, 17, 19} to L;</div>
@@ -175,7 +175,7 @@
 <div class="codeblock"><div class="codeline">let L be {2, 2, 3};</div>
 </div><p>makes L into &quot;2, 2 and 3&quot;. This is a different list to the one made by:</p>
 <div class="codeblock"><div class="codeline">let M be {2, 3, 2};</div>
-</div><p>even though L and M have the same values, repeated the same number of times &ndash; for two lists to be equal, they must have the same kind of entry, the same number of entries, and the same entries in each position.</p>
+</div><p>even though L and M have the same values, repeated the same number of times - for two lists to be equal, they must have the same kind of entry, the same number of entries, and the same entries in each position.</p>
 <p>We can also strike out values:</p>
 <div class="defn" id="ph_remfromlist"><div class="defnline"><span class="defn">remove </span><span class="neutral">(value)</span><span class="defn"> in/from </span><span class="neutral">(list of values)</span></div><p>This phrase removes every instance of the given value from the list. Example:</p>
 <div class="codeblock"><div class="codeline">let L be {3, 1, 4, 1, 5, 9, 2, 6, 5, 3};</div>
@@ -333,7 +333,7 @@
 <div class="codeblock"><div class="codeline">L unrandomised is 1, 2, 3, 4, 5, 6, 7, 8, 9 and 10.</div>
 <div class="codeline">L randomised is 6, 2, 9, 3, 10, 1, 7, 4, 8 and 5.</div>
 <div class="codeline">L in ascending order is 1, 2, 3, 4, 5, 6, 7, 8, 9 and 10.</div>
-</div><p>As with text in the previous chapter, a project which needs really long lists should use the Glulx virtual machine &ndash; &quot;check sorting 10000&quot;, for instance, would break the default memory environment on the Z-machine, which is very tight, but works fine (if not very rapidly) on Glulx.</p>
+</div><p>As with text in the previous chapter, a project which needs really long lists should use the Glulx virtual machine - &quot;check sorting 10000&quot;, for instance, would break the default memory environment on the Z-machine, which is very tight, but works fine (if not very rapidly) on Glulx.</p>
 <div class="examples">
 <h4>Examples</h4>
 <div class="example-short"><div class="example-short-num"><span class="hidden"></span>429.</div><div class="example-short-name"><span class="example-short-name"><a href="examples/leopardskin.html">Leopard-skin</a></span> <span class="sym">★</span></div></div><div class="example-short"><div class="example-short-num"><span class="hidden">000.</span></div><div class="example-short-name">A maze that the player can escape if he performs an exact sequence of actions.</div></div>
@@ -380,7 +380,7 @@
 <div class="codeline">let T be {2, 4, 6, 10};</div>
 </div><p>Here we add an element to T:</p>
 <div class="codeblock"><div class="codeline">add 8 to T, if absent; sort T;</div>
-</div><p>The &quot;if absent&quot; clause ensures that no duplicate can occur, and by sorting T afterwards, we maintain the principle that a set must remain in order &ndash; so T is now {2, 4, 6, 8, 10}, not {2, 4, 6, 10, 8}. (Inform&#39;s sorting algorithm is fast on nearly-sorted lists, so frequent sorting is not as inefficient as it might look.)</p>
+</div><p>The &quot;if absent&quot; clause ensures that no duplicate can occur, and by sorting T afterwards, we maintain the principle that a set must remain in order - so T is now {2, 4, 6, 8, 10}, not {2, 4, 6, 10, 8}. (Inform&#39;s sorting algorithm is fast on nearly-sorted lists, so frequent sorting is not as inefficient as it might look.)</p>
 <p>We next take the union of T and S, that is, the set containing everything which is in either or both:</p>
 <div class="codeblock"><div class="codeline">let U be S; add T to U, if absent; sort U;</div>
 </div><p>This makes U = {2, 4, 6, 8, 10, 16, 32, 64}, and once again no duplicates occur and we preserve the sorting. The intersection of T and S, the set of elements in both of them, is a little trickier:</p>
@@ -391,7 +391,7 @@
 <div class="codeblock"><div class="codeline">let D be S; remove T from D, if present;</div>
 </div><p>Here, as with intersection, since all we do is to strike out unwanted elements, the surviving ones remain in order and there is no need to sort when we are finished. This produces D = {16, 32, 64}.</p>
 <p>6. A <strong>sieve</strong> is used to make a complicated choice where there are many constraints, by ruling out impossible cases to see what is left. The term derives from the kitchen utensil (for sieving fine grains of flour), but via the name of the &quot;sieve of Eratosthenes&quot;, an ancient Greek method for determining the prime numbers.</p>
-<p>Using a sieve is much like using a set, and the difference is mainly one of outlook &ndash; we are interested in what does not belong, rather than what does.</p>
+<p>Using a sieve is much like using a set, and the difference is mainly one of outlook - we are interested in what does not belong, rather than what does.</p>
 <p>7. A <strong>ring</strong> is not so much a row of values, more a circle, with the last and first entries thought of as adjacent. One position is usually thought of as special, and is the place where new items are added: this may as well be entry 1. For instance, to add &quot;new item&quot; to the ring:</p>
 <div class="codeblock"><div class="codeline">add the item at entry 1 in the ring;</div>
 </div><p>To set &quot;item&quot; to the frontmost value and extract it from the ring:</p>
@@ -400,7 +400,7 @@
 </div><p>And we can rotate the ring in either direction, making a different entry the new entry 1 and therefore the new frontmost value:</p>
 <div class="codeblock"><div class="codeline">rotate the ring;</div>
 <div class="codeline">rotate the ring backwards;</div>
-</div><p>A last note to conclude the <a href="WI_21.html">chapter on lists</a>. Lists, like almost all other values in Inform, can be passed to phrases as parameters. However, note that they are genuine values, not what some programming languages call &quot;references&quot; or &quot;pointers&quot;. So the following:</p>
+</div><p>A last note to conclude the chapter on lists. Lists, like almost all other values in Inform, can be passed to phrases as parameters. However, note that they are genuine values, not what some programming languages call &quot;references&quot; or &quot;pointers&quot;. So the following:</p>
 <div class="codeblock"><div class="codeline">To mess with (L - a list of numbers):</div>
 <div class="codeline">&ensp;&ensp;&ensp;add 7 to L, if absent.</div>
 </div><p>does nothing, in practice. If given a list, it adds 7 to the list, but then throws it away again, so the longer list is never seen; it&#39;s exactly like</p>

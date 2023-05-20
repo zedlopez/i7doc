@@ -64,7 +64,7 @@ oddities) it *is* plain English. Having said that, it has to be admitted
 that the I7 application (in which you’ll be writing your game) has a
 number of facets, which can make it seem intimidatingly complex.
 
-Certain features that experienced may expect, such as single-step
+Certain features that experienced programmers may expect, such as single-step
 debugging, are not possible with I7. Even so, I7 includes many “power
 user” features for game design, so it won’t limit you if you want your
 story to include complex things.
@@ -761,7 +761,7 @@ useful results in another. It’s up to the player to discover how exactly
 to use the commands in any given game.
 
 Some of the responses that the game gives when you enter commands may be
-error messages: Maybe you misspelled a word, for instance, so the game
+error messages: maybe you misspelled a word, for instance, so the game
 doesn’t know what you meant. In this case, try typing OOPS followed by
 the correct spelling. The result might look like this:
 
@@ -785,10 +785,8 @@ If you’re playing a game, you don’t often need to pause to think about
 exactly how the game is able to read your commands and respond to them.
 But while writing a game, you’ll need to know more than a few details.
 The software gadget that reads and interprets what the player types is
-called a <span id="Ref_parser" class="anchor" />**parser**{::}*.* Every
-text game that uses a command line interface has a parser (although the
-parser used in games that are written using the ADRIFT programming
-system is so crude as almost not to be worthy of the name). The parser
+called a <span id="Ref_parser" class="anchor" />**parser**{::}*.* Nearly every
+text game that uses a command line interface has a parser. The parser
 that’s built into Inform 7 is very sophisticated. It’s able to
 understand quite a variety of inputs from the player. You can also
 change what it does, if you need to. Many of the techniques for doing
@@ -800,8 +798,7 @@ player typed or can’t do the operation that the player has requested.
 No parser is able to understand the kinds of complex sentences that you
 and I speak and write every day. The parser is designed to process
 simple commands, such as OPEN THE DOOR and PICK UP THE BALL. Most
-commands are of the form <VERB> <NOUN> <MAYBE A PREPOSITION> <MAYBE
-ANOTHER NOUN>.
+commands are of the form <VERB> <NOUN> or <VERB> <NOUN> <PREPOSITION> <ANOTHER NOUN>.
 
 Some verbs (such as WAIT, SLEEP, and JUMP) are followed by no nouns at
 all. Some verbs need one noun – for instance, OPEN THE DOOR and PICK UP
@@ -854,7 +851,7 @@ the location is literally a room.
 If you want to see what’s in the room with you, you can use the command
 LOOK (this can be abbreviated L). When you LOOK, you’ll read a
 description of the room and its contents. In general, you can only see
-what’s in the room with you; you can’t see into any other rooms. Some
+what’s in the room with you -- you can’t see into any other rooms. Some
 games have windows you can look through, but basically windows have to
 be “faked” using some clever programming tricks.
 
@@ -898,8 +895,7 @@ The game may limit, realistically, the number of objects you can carry
 at any given time – after all, the player character probably has only
 two hands! But players tend to find this limitation annoying. A
 compromise solution adopted by many authors is to give the player a
-sack, or something similar, whose capacity is basically unlimited. (See
-learn how to make a [carry-all object for the player.)](#Ref_holdall)
+sack, or something similar, whose capacity is basically unlimited. (See Inventory to learn how to make a [carry-all object for the player](#Ref_holdall).)
 
 Whether or not a game contains a carry-all, from time to time you’ll
 probably find other containers. A container may be permanently open,
@@ -908,17 +904,17 @@ a suitcase. If a container is open, you can try putting things into it
 using a command like PUT BOWLING BALL IN THIMBLE. Some of the things
 that can be opened and closed can also be locked and unlocked.
 
-Note that Inform’s standard locking and unlocking actions require that
-the author create a key that fits the lock. By default, the action
+For Inform’s standard locking and unlocking actions to succeed, 
+the author must have created a key that fits the lock. Inform’s unlocking action always
+takes the form UNLOCK DOOR WITH RUSTY KEY. By default, the action
 UNLOCK DOOR is not defined in Inform, though you can create this type of
-action yourself, for your own game. Inform’s unlocking action always
-takes the form UNLOCK DOOR WITH RUSTY KEY. And of course the player must
+action yourself, for your own game.  And of course the player must
 be holding the correct key for that action to work.
 
 Most games include puzzles. (For more on puzzles, see Chapter 6.) Some
 puzzles are easy, and some are fiendishly difficult. These days, many
 games have built-in hints that will help you if you don’t know how to
-solve a puzzle, but in other games, it’s strictly up to your ingenuity
+solve a given puzzle, but in other games, it’s strictly up to your ingenuity
 to figure out what to do. See [Adding Hints](#adding-hints).
 
 Some games are friendly: You may get stuck for a while before you figure
@@ -965,10 +961,8 @@ stairs.” See [Story Tense and Viewpoint](#story-tense-and-viewpoint).
 
 One of the best ways to learn about game design is to download and play
 a few games. A good place to start looking for games is the [Interactive
-Fiction Database][3]). On this site you can read reviews of games,
-search for games by a particular author, and click links to download the
-games themselves. Some games on this site can be played online, in your
-browser, without downloading.
+Fiction Database][3], where you can read reviews of games, browse categorized lists of games, or search for games by a particular author. For the vast majority of games, there's a "play on-line" button, as well as a link to download a
+game.
 
 Another resource for finding games is the archives of an online magazine
 called [SPAG (the Society for the Promotion of Adventure Games][4]. Some
@@ -989,7 +983,7 @@ using [Parchment][9].
 
 Currently the best interpreter is called [Gargoyle][10]. It’s available
 for Windows, Mac OS, and Linux (as an AppImage). You can [download the
-latest Gargoyle release][11] Gargoyle can play all Z-code (Inform) and
+latest Gargoyle release][11]. Gargoyle can play all Z-code (Inform) and
 Glulx games, as well as TADS games and Hugo games.
 
 <div class="addendum">
@@ -1049,7 +1043,7 @@ programming language that would produce game files that could be loaded
 into the Z-machine. Inform was written in such a way that its compiler
 would create Z-machine-compatible game files. These could then be played
 by anyone who had a Z-machine on a disk. This was one of several factors
-that insured the success of Inform.
+that ensured the success of Inform.
 
 Computers in those days had very little memory compared to computers
 today, so the Z-machine had to be small and efficient. It could load and
@@ -1070,11 +1064,7 @@ words in one of the Zork sequels).
 In order to allow Inform authors to write larger games, Andrew Plotkin
 created the [Glulx][12] game format. Glulx games can be much larger, and
 can include sounds, graphics, and multiple sub-windows within the main
-game window. Glulx games can be played on any modern personal computer,
-since Glulx interpreters exist for Macintosh, Windows, and Linux.
-However, Glulx games are mostly too large to play on cell phones and
-other hand-held devices. Z-machine interpreters are available for some
-popular hand-helds. (Frotz is available for the iPhone, for instance.)
+game window.
 
 ### Writing Your First Game   {#writing-your-first-game}
 
