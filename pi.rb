@@ -239,6 +239,18 @@ def transform(div)
     node.parent['id'] = 'contra'
     node.remove
   end
+
+  div.xpath('//span[@style="white-space:nowrap"]').each do |node|
+    new_div = Conf.doc.create_element('div', clss: 'no-wrap' )
+    node.children.each {|c| c.parent = new_div }
+    if node.next and node.next.text? and node.next.content.match(/,\s+/)
+      node.next.remove
+    end
+    node.replace(new_div)
+#    node.remove_attribute('style')
+#    node.add_class('no-wrap')
+  end
+
   
   div.css('img').each do |img|
     

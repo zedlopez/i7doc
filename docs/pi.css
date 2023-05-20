@@ -1195,6 +1195,9 @@ span.if { font-family: monospace; background-color: var(--bg-gray); margin-right
 .kinds#segment1 td:nth-child(n+3) { text-align: center; }
 .world#segment1 table { display: none; }
 
+.no-wrap + .no-wrap { padding-left: 1rem; }
+
+
 /*.recorder::after { content: '\2315'; position: relative;  }*/
 /*.recorder:before { content: '\2315'; line-height: .66; font-size: 1.25em; }*/
 
