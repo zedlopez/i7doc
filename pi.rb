@@ -247,8 +247,6 @@ def transform(div)
       node.next.remove
     end
     node.replace(new_div)
-#    node.remove_attribute('style')
-#    node.add_class('no-wrap')
   end
 
   

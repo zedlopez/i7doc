@@ -1,0 +1,11 @@
+<nav>
+<% Conf.navpages.each_pair do |k,v| %>
+<% if k == page %>
+<strong><%= v['name'] %></strong>
+<% else %>
+<div class="nav-el">
+<a class="raw nav-el" href="<%= ((['..']*level)+[v["dest"]]).join('/') %>"><%= v["name"] %></a>
+</div>
+<% end %>
+<% end %>
+</nav>
