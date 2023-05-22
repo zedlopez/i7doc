@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>7_A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../i7doc.css">
+<link rel="stylesheet" href="../pi.css">
+<script src="../i7doc.js"></script>
+</head>
+
+<body>
+<main>
+<nav>
+<a href="../Contents.html">Contents</a>
+<a href="../Actions.html">Actions</a>
+<a href="../Kinds.html">Kinds</a>
+<a href="../Phrasebook.html">Phrasebook</a>
+<a href="../Rules.html">Rules</a>
+<a href="../Scenes.html">Scenes</a>
+<a href="../World.html">World</a>
+</nav>
+<div>
+    <!--CONTENT BEGINS-->
+    <div>
+<div class="detail-head">Going</div>
+<p>Standard actions which move the actor</p>
+</div>
+
+    <hr>
+    <p><br><b>going</b><span class="sep"></span><a href="8_A.html">entering</a><span class="sep"></span><a href="9_A.html">exiting</a><span class="sep"></span><a href="10_A.html">getting off</a></p>
+    <hr>
+    <p><b>Going <span class="indexdullblue">something</span> </b> (<i>past tense</i> gone): applying to one visible thing</p>
+    <p>This is the action which allows people
+    to move from one room to another, using whatever map connections and doors are
+    to hand. The Standard Rules are written so that the noun can be either a
+    direction or a door in the location of the actor: while the player's commands
+    only lead to going actions with directions as nouns, going actions can also
+    happen as a result of entering actions, and then the noun can indeed be
+    a door.</p>
+    <hr>
+    <p><b>Typed commands leading to this action</b></p>
+    <p>"go" - <i>going</i><a href="7_A.html"></a><br>
+    "go [direction]" - <i>going</i><a href="7_A.html"></a><br>
+    </p>
+    <p><b>Named values belonging to this action</b></p>
+    <p class="tightin2">room gone from - <i>room</i></p>
+    <p class="tightin2">room gone to - <i>object</i></p>
+    <p class="tightin2">door gone through - <i>object</i></p>
+    <p class="tightin2">vehicle gone by - <i>object</i></p>
+    <p class="tightin2">thing gone with - <i>object</i></p>
+    <p><b>Rules controlling this action</b></p>
+    <p></p>
+<p class="indentin2">set action variables for    <i>going</i>  <span class="indexdullred">standard set going variables rule</span>  <a href="javascript:pasteCode(%60standard%20set%20going%20variables%20rule%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>name</i> <a href="javascript:pasteCode(%60The%20standard%20set%20going%20variables%20rule%20response%20(Setting%20action%20variables%20rulebook)%20is%20&amp;quot;New%20text.&amp;quot;.%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>unlist</i></p>
+    <p class="indentin2">check    <i>an actor going when the actor is on a supporter (called the chaise)</i>  <span class="indexdullred">stand up before going rule</span>  <a href="javascript:pasteCode(%60stand%20up%20before%20going%20rule%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>name</i> <a href="javascript:pasteCode(%60The%20stand%20up%20before%20going%20rule%20response%20(check%20going%20rulebook)%20is%20&amp;quot;New%20text.&amp;quot;.%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>unlist</i><br>check    <i>an actor going</i>  <span class="indexdullred">can't travel in what's not a vehicle rule</span>  <a href="javascript:pasteCode(%60can&amp;apos;t%20travel%20in%20what&amp;apos;s%20not%20a%20vehicle%20rule%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>name</i> <a href="javascript:pasteCode(%60The%20can&amp;apos;t%20travel%20in%20what&amp;apos;s%20not%20a%20vehicle%20rule%20response%20(check%20going%20rulebook)%20is%20&amp;quot;New%20text.&amp;quot;.%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>unlist</i><br>check    <i>an actor going</i>  <span class="indexdullred">can't go through undescribed doors rule</span>  <a href="javascript:pasteCode(%60can&amp;apos;t%20go%20through%20undescribed%20doors%20rule%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>name</i> <a href="javascript:pasteCode(%60The%20can&amp;apos;t%20go%20through%20undescribed%20doors%20rule%20response%20(check%20going%20rulebook)%20is%20&amp;quot;New%20text.&amp;quot;.%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>unlist</i><br>check    <i>an actor going</i>  <span class="indexdullred">can't go through closed doors rule</span>  <a href="javascript:pasteCode(%60can&amp;apos;t%20go%20through%20closed%20doors%20rule%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>name</i> <a href="javascript:pasteCode(%60The%20can&amp;apos;t%20go%20through%20closed%20doors%20rule%20response%20(check%20going%20rulebook)%20is%20&amp;quot;New%20text.&amp;quot;.%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>unlist</i><br>check    <i>an actor going</i>  <span class="indexdullred">determine map connection rule</span>  <a href="javascript:pasteCode(%60determine%20map%20connection%20rule%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>name</i> <a href="javascript:pasteCode(%60The%20determine%20map%20connection%20rule%20response%20(check%20going%20rulebook)%20is%20&amp;quot;New%20text.&amp;quot;.%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>unlist</i><br>check    <i>an actor going</i>  <span class="indexdullred">can't go that way rule</span>  <a href="javascript:pasteCode(%60can&amp;apos;t%20go%20that%20way%20rule%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>name</i> <a href="javascript:pasteCode(%60The%20can&amp;apos;t%20go%20that%20way%20rule%20response%20(check%20going%20rulebook)%20is%20&amp;quot;New%20text.&amp;quot;.%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>unlist</i></p>
+    <p class="indentin2">carry out    <i>an actor going</i>  <span class="indexdullred">move player and vehicle rule</span>  <a href="javascript:pasteCode(%60move%20player%20and%20vehicle%20rule%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>name</i> <a href="javascript:pasteCode(%60The%20move%20player%20and%20vehicle%20rule%20response%20(carry%20out%20going%20rulebook)%20is%20&amp;quot;New%20text.&amp;quot;.%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>unlist</i><br>carry out    <i>an actor going</i>  <span class="indexdullred">move floating objects rule</span>  <a href="javascript:pasteCode(%60move%20floating%20objects%20rule%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>name</i> <a href="javascript:pasteCode(%60The%20move%20floating%20objects%20rule%20response%20(carry%20out%20going%20rulebook)%20is%20&amp;quot;New%20text.&amp;quot;.%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>unlist</i><br>carry out    <i>an actor going</i>  <span class="indexdullred">check light in new location rule</span>  <a href="javascript:pasteCode(%60check%20light%20in%20new%20location%20rule%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>name</i> <a href="javascript:pasteCode(%60The%20check%20light%20in%20new%20location%20rule%20response%20(carry%20out%20going%20rulebook)%20is%20&amp;quot;New%20text.&amp;quot;.%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>unlist</i></p>
+    <p class="indentin2">report    <i>an actor going</i>  <span class="indexdullred">describe room gone into rule</span>  <a href="javascript:pasteCode(%60describe%20room%20gone%20into%20rule%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>name</i> <a href="javascript:pasteCode(%60The%20describe%20room%20gone%20into%20rule%20response%20(report%20going%20rulebook)%20is%20&amp;quot;New%20text.&amp;quot;.%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>unlist</i></p>
+    
+
+    <!--CONTENT ENDS-->
+</div>
+<footer id="credits-footer"'>
+<nav>
+<div class="nav-el">
+<a class="raw nav-el" href="../index.html">Contents</a>
+</div>
+<div class="nav-el">
+<a class="raw nav-el" href="../examples/index.html">Examples</a>
+</div>
+<div class="nav-el">
+<a class="raw nav-el" href="../general_index.html">Index</a>
+</div>
+<div class="nav-el">
+<a class="raw nav-el" href="../search.html">Search</a>
+</div>
+</nav>
+
+<div class="footing"><p id="i7credit"><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p>
+
+<p class="about">
+<a class="raw" href="../about.html">About this edition</a>&ensp;&bull;&ensp;
+<a class="raw" href="https://mastodon.gamedev.place/web/@inform7tips">@inform7tips@mastodon.gamedev.place</a></p></div>
+</footer>
+
+</main>
+</body></html>

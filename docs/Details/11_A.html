@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>11_A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../i7doc.css">
+<link rel="stylesheet" href="../pi.css">
+<script src="../i7doc.js"></script>
+</head>
+
+<body>
+<main>
+<nav>
+<a href="../Contents.html">Contents</a>
+<a href="../Actions.html">Actions</a>
+<a href="../Kinds.html">Kinds</a>
+<a href="../Phrasebook.html">Phrasebook</a>
+<a href="../Rules.html">Rules</a>
+<a href="../Scenes.html">Scenes</a>
+<a href="../World.html">World</a>
+</nav>
+<div>
+    <!--CONTENT BEGINS-->
+    <div>
+<div class="detail-head">Looking</div>
+<p>Standard actions concerning the actor's vision</p>
+</div>
+
+    <hr>
+    <p><br><b>looking</b><span class="sep"></span><a href="12_A.html">examining</a><span class="sep"></span><a href="13_A.html">looking under</a><span class="sep"></span><a href="14_A.html">searching</a><span class="sep"></span><a href="15_A.html">consulting it about</a></p>
+    <hr>
+    <p><b>Looking </b> (<i>past tense</i> looked): applying to nothing</p>
+    <p>The looking action describes the
+    player's current room and any visible items, but is made more complicated
+    by the problem of visibility. Inform calculates this by dividing the room
+    into visibility levels. For an actor on the floor of a room, there is only
+    one such level: the room itself. But an actor sitting on a chair inside
+    a packing case which is itself on a gantry would have four visibility levels:
+    chair, case, gantry, room. The looking rules use a special phrase, 'the
+    visibility-holder of X', to go up from one level to the next: thus the
+    visibility-holder of the case is the gantry.<p>The 'visibility level count' is the number of levels which the player can
+    actually see, and the 'visibility ceiling' is the uppermost visible level.
+    For a player standing on the floor of a lighted room, this will be a count
+    of 1 with the ceiling set to the room. But a player sitting on a chair in
+    a closed opaque packing case would have visibility level count 2, and
+    visibility ceiling equal to the case. Moreover, light has to be available
+    in order to see anything at all: if the player is in darkness, the level
+    count is 0 and the ceiling is nothing.<p>Finally, note that several actions other than looking also produce room
+    descriptions in some cases. The most familiar is going, but exiting a
+    container or getting off a supporter will also generate a room description.
+    (The phrase used by the relevant rules is 'produce a room description with
+    going spacing conventions' and carry out or report rules for newly written
+    actions are welcome to use this too if they would like to. The spacing
+    conventions affect paragraph division, and note that the main description
+    paragraph may be omitted for a place not newly visited, depending on the
+    VERBOSE settings.) Room descriptions like this are produced by running the
+    check, carry out and report rules for looking, but are not subject to
+    before, instead or after rules: so they do not count as a new action. The
+    looking variable 'room-describing action' holds the action name of the
+    reason a room description is currently being made: if the player typed
+    LOOK, this will indeed be set to the looking action, but if we're
+    describing a room just reached by GO EAST, say, it will be set to the going
+    action. This can be used to customise carry out looking rules so that
+    different forms of description are used on going to a room as compared with
+    looking around while already there.</p>
+    <hr>
+    <p><b>Typed commands leading to this action</b></p>
+    <p>"look" - <i>looking</i><a href="11_A.html"></a><br>
+    </p>
+    <p><b>Named values belonging to this action</b></p>
+    <p class="tightin2">room-describing action - <i>action name</i></p>
+    <p class="tightin2">abbreviated form allowed - <i>truth state</i></p>
+    <p class="tightin2">visibility level count - <i>number</i></p>
+    <p class="tightin2">visibility ceiling - <i>object</i></p>
+    <p><b>Rules controlling this action</b></p>
+    <p></p>
+<p class="indentin2">set action variables for    <i>looking</i>  <span class="indexdullred">determine visibility ceiling rule</span>  <a href="javascript:pasteCode(%60determine%20visibility%20ceiling%20rule%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>name</i> <a href="javascript:pasteCode(%60The%20determine%20visibility%20ceiling%20rule%20response%20(Setting%20action%20variables%20rulebook)%20is%20&amp;quot;New%20text.&amp;quot;.%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>unlist</i></p>
+    <p class="indentin2">carry out    <span class="indexdullred">declare everything unmentioned rule</span>  <a href="javascript:pasteCode(%60declare%20everything%20unmentioned%20rule%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>name</i> <a href="javascript:pasteCode(%60The%20declare%20everything%20unmentioned%20rule%20response%20(carry%20out%20looking%20rulebook)%20is%20&amp;quot;New%20text.&amp;quot;.%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>unlist</i><br>carry out    <span class="indexdullred">room description heading rule</span>  <a href="javascript:pasteCode(%60room%20description%20heading%20rule%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>name</i> <a href="javascript:pasteCode(%60The%20room%20description%20heading%20rule%20response%20(carry%20out%20looking%20rulebook)%20is%20&amp;quot;New%20text.&amp;quot;.%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>unlist</i><br>carry out    <span class="indexdullred">room description body text rule</span>  <a href="javascript:pasteCode(%60room%20description%20body%20text%20rule%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>name</i> <a href="javascript:pasteCode(%60The%20room%20description%20body%20text%20rule%20response%20(carry%20out%20looking%20rulebook)%20is%20&amp;quot;New%20text.&amp;quot;.%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>unlist</i><br>carry out    <span class="indexdullred">room description paragraphs about objects rule</span>  <a href="javascript:pasteCode(%60room%20description%20paragraphs%20about%20objects%20rule%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>name</i> <a href="javascript:pasteCode(%60The%20room%20description%20paragraphs%20about%20objects%20rule%20response%20(carry%20out%20looking%20rulebook)%20is%20&amp;quot;New%20text.&amp;quot;.%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>unlist</i><br>carry out    <span class="indexdullred">check new arrival rule</span>  <a href="javascript:pasteCode(%60check%20new%20arrival%20rule%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>name</i> <a href="javascript:pasteCode(%60The%20check%20new%20arrival%20rule%20response%20(carry%20out%20looking%20rulebook)%20is%20&amp;quot;New%20text.&amp;quot;.%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>unlist</i></p>
+    <p class="indentin2">report    <i>an actor looking</i>  <span class="indexdullred">other people looking rule</span>  <a href="javascript:pasteCode(%60other%20people%20looking%20rule%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>name</i> <a href="javascript:pasteCode(%60The%20other%20people%20looking%20rule%20response%20(report%20looking%20rulebook)%20is%20&amp;quot;New%20text.&amp;quot;.%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>unlist</i></p>
+    
+
+    <!--CONTENT ENDS-->
+</div>
+<footer id="credits-footer"'>
+<nav>
+<div class="nav-el">
+<a class="raw nav-el" href="../index.html">Contents</a>
+</div>
+<div class="nav-el">
+<a class="raw nav-el" href="../examples/index.html">Examples</a>
+</div>
+<div class="nav-el">
+<a class="raw nav-el" href="../general_index.html">Index</a>
+</div>
+<div class="nav-el">
+<a class="raw nav-el" href="../search.html">Search</a>
+</div>
+</nav>
+
+<div class="footing"><p id="i7credit"><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p>
+
+<p class="about">
+<a class="raw" href="../about.html">About this edition</a>&ensp;&bull;&ensp;
+<a class="raw" href="https://mastodon.gamedev.place/web/@inform7tips">@inform7tips@mastodon.gamedev.place</a></p></div>
+</footer>
+
+</main>
+</body></html>

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>16_A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../i7doc.css">
+<link rel="stylesheet" href="../pi.css">
+<script src="../i7doc.js"></script>
+</head>
+
+<body>
+<main>
+<nav>
+<a href="../Contents.html">Contents</a>
+<a href="../Actions.html">Actions</a>
+<a href="../Kinds.html">Kinds</a>
+<a href="../Phrasebook.html">Phrasebook</a>
+<a href="../Rules.html">Rules</a>
+<a href="../Scenes.html">Scenes</a>
+<a href="../World.html">World</a>
+</nav>
+<div>
+    <!--CONTENT BEGINS-->
+    <div>
+<div class="detail-head">Locking it with</div>
+<p>Standard actions which change the state of things</p>
+</div>
+
+    <hr>
+    <p><br><b>locking it with</b><span class="sep"></span><a href="17_A.html">unlocking it with</a><span class="sep"></span><a href="18_A.html">switching on</a><span class="sep"></span><a href="19_A.html">switching off</a><span class="sep"></span><a href="20_A.html">opening</a><span class="sep"></span><a href="21_A.html">closing</a><span class="sep"></span><a href="22_A.html">wearing</a><span class="sep"></span><a href="23_A.html">taking off</a></p>
+    <hr>
+    <p><b>Locking <span class="indexdullblue">something</span> with <span class="indexdullblue">something</span> </b> (<i>past tense</i> locked it with): applying to one thing and one carried thing</p>
+    <p>Locking is the act of
+    using an object such as a key to ensure that something such as a door or
+    container cannot be opened unless first unlocked. (Only closed things can be
+    locked.)<p>Locking can be performed on any kind of thing which provides the either/or
+    properties lockable, locked, openable and open. The 'can't lock without a lock
+    rule' tests to see if the noun both provides the lockable property, and if
+    it is in fact lockable: it is then assumed that the other properties can
+    safely be checked. In the Standard Rules, the container and door kinds both
+    satisfy these requirements.<p>We can create a new kind on which opening, closing, locking and unlocking
+    will work thus: 'A briefcase is a kind of thing. A briefcase can be openable.
+    A briefcase can be open. A briefcase can be lockable. A briefcase can be
+    locked. A briefcase is usually openable, lockable, open and unlocked.'<p>Inform checks whether the key fits using the 'can't lock without the correct
+    key rule'. To satisfy this, the actor must be directly holding the second
+    noun, and it must be the current value of the 'matching key' property for
+    the noun. (This property is seldom referred to directly because it is
+    automatically set by assertions like 'The silver key unlocks the wicket
+    gate.')<p>The Standard Rules provide locking and unlocking actions at a fairly basic
+    level: they can be much enhanced using the extension Locksmith by Emily
+    Short, which is included with all distributions of Inform.</p>
+    <hr>
+    <p><b>Typed commands leading to this action</b></p>
+    <p>"lock [something] with [something preferably held]" - <i>locking it with</i><a href="16_A.html"></a><br>
+    </p>
+    <p><b>Rules controlling this action</b></p>
+    <p></p>
+<p class="indentin2">check    <i>an actor locking something with</i>  <span class="indexdullred">can't lock without a lock rule</span>  <a href="javascript:pasteCode(%60can&amp;apos;t%20lock%20without%20a%20lock%20rule%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>name</i> <a href="javascript:pasteCode(%60The%20can&amp;apos;t%20lock%20without%20a%20lock%20rule%20response%20(check%20locking%20it%20with%20rulebook)%20is%20&amp;quot;New%20text.&amp;quot;.%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>unlist</i><br>check    <i>an actor locking something with</i>  <span class="indexdullred">can't lock what's already locked rule</span>  <a href="javascript:pasteCode(%60can&amp;apos;t%20lock%20what&amp;apos;s%20already%20locked%20rule%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>name</i> <a href="javascript:pasteCode(%60The%20can&amp;apos;t%20lock%20what&amp;apos;s%20already%20locked%20rule%20response%20(check%20locking%20it%20with%20rulebook)%20is%20&amp;quot;New%20text.&amp;quot;.%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>unlist</i><br>check    <i>an actor locking something with</i>  <span class="indexdullred">can't lock what's open rule</span>  <a href="javascript:pasteCode(%60can&amp;apos;t%20lock%20what&amp;apos;s%20open%20rule%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>name</i> <a href="javascript:pasteCode(%60The%20can&amp;apos;t%20lock%20what&amp;apos;s%20open%20rule%20response%20(check%20locking%20it%20with%20rulebook)%20is%20&amp;quot;New%20text.&amp;quot;.%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>unlist</i><br>check    <i>an actor locking something with</i>  <span class="indexdullred">can't lock without the correct key rule</span>  <a href="javascript:pasteCode(%60can&amp;apos;t%20lock%20without%20the%20correct%20key%20rule%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>name</i> <a href="javascript:pasteCode(%60The%20can&amp;apos;t%20lock%20without%20the%20correct%20key%20rule%20response%20(check%20locking%20it%20with%20rulebook)%20is%20&amp;quot;New%20text.&amp;quot;.%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>unlist</i></p>
+    <p class="indentin2">carry out    <i>an actor locking something with</i>  <span class="indexdullred">standard locking rule</span>  <a href="javascript:pasteCode(%60standard%20locking%20rule%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>name</i> <a href="javascript:pasteCode(%60The%20standard%20locking%20rule%20response%20(carry%20out%20locking%20it%20with%20rulebook)%20is%20&amp;quot;New%20text.&amp;quot;.%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>unlist</i></p>
+    <p class="indentin2">report    <i>an actor locking something with</i>  <span class="indexdullred">standard report locking rule</span>  <a href="javascript:pasteCode(%60standard%20report%20locking%20rule%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>name</i> <a href="javascript:pasteCode(%60The%20standard%20report%20locking%20rule%20response%20(report%20locking%20it%20with%20rulebook)%20is%20&amp;quot;New%20text.&amp;quot;.%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>unlist</i></p>
+    
+
+    <!--CONTENT ENDS-->
+</div>
+<footer id="credits-footer"'>
+<nav>
+<div class="nav-el">
+<a class="raw nav-el" href="../index.html">Contents</a>
+</div>
+<div class="nav-el">
+<a class="raw nav-el" href="../examples/index.html">Examples</a>
+</div>
+<div class="nav-el">
+<a class="raw nav-el" href="../general_index.html">Index</a>
+</div>
+<div class="nav-el">
+<a class="raw nav-el" href="../search.html">Search</a>
+</div>
+</nav>
+
+<div class="footing"><p id="i7credit"><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p>
+
+<p class="about">
+<a class="raw" href="../about.html">About this edition</a>&ensp;&bull;&ensp;
+<a class="raw" href="https://mastodon.gamedev.place/web/@inform7tips">@inform7tips@mastodon.gamedev.place</a></p></div>
+</footer>
+
+</main>
+</body></html>

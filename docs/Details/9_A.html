@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>9_A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../i7doc.css">
+<link rel="stylesheet" href="../pi.css">
+<script src="../i7doc.js"></script>
+</head>
+
+<body>
+<main>
+<nav>
+<a href="../Contents.html">Contents</a>
+<a href="../Actions.html">Actions</a>
+<a href="../Kinds.html">Kinds</a>
+<a href="../Phrasebook.html">Phrasebook</a>
+<a href="../Rules.html">Rules</a>
+<a href="../Scenes.html">Scenes</a>
+<a href="../World.html">World</a>
+</nav>
+<div>
+    <!--CONTENT BEGINS-->
+    <div>
+<div class="detail-head">Exiting</div>
+<p>Standard actions which move the actor</p>
+</div>
+
+    <hr>
+    <p><br><a href="7_A.html">going</a><span class="sep"></span><a href="8_A.html">entering</a><span class="sep"></span><b>exiting</b><span class="sep"></span><a href="10_A.html">getting off</a></p>
+    <hr>
+    <p><b>Exiting </b> (<i>past tense</i> exited): applying to nothing</p>
+    <p>Whereas the going action allows
+    people to move from one location to another in the model world, and the
+    entering action is for movement deeper inside the objects in a location,
+    the exiting action is for movement back out towards the main floor area.
+    Climbing out of a cupboard, for instance, is an exiting action. Exiting
+    when already in the main floor area of a room with a map connection to
+    the outside is converted to a going action. Finally, note that whereas
+    entering works for either containers or supporters, exiting is purely for
+    getting oneself out of containers: if the actor is on top of a supporter
+    instead, an exiting action is converted to the getting off action.</p>
+    <hr>
+    <p><b>Typed commands leading to this action</b></p>
+    <p>"get out/off/down/up" - <i>exiting</i><a href="9_A.html"></a><br>
+    "stand" - <i>exiting</i><a href="9_A.html"></a><br>
+    "stand up" - <i>exiting</i><a href="9_A.html"></a><br>
+    "exit" - <i>exiting</i><a href="9_A.html"></a><br>
+    </p>
+    <p><b>Named values belonging to this action</b></p>
+    <p class="tightin2">container exited from - <i>object</i></p>
+    <p><b>Rules controlling this action</b></p>
+    <p></p>
+<p class="indentin2">set action variables for    <i>exiting</i>  <span class="indexdullred">standard set exiting variables rule</span>  <a href="javascript:pasteCode(%60standard%20set%20exiting%20variables%20rule%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>name</i> <a href="javascript:pasteCode(%60The%20standard%20set%20exiting%20variables%20rule%20response%20(Setting%20action%20variables%20rulebook)%20is%20&amp;quot;New%20text.&amp;quot;.%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>unlist</i></p>
+    <p class="indentin2">check    <i>an actor exiting</i>  <span class="indexdullred">convert exit into go out rule</span>  <a href="javascript:pasteCode(%60convert%20exit%20into%20go%20out%20rule%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>name</i> <a href="javascript:pasteCode(%60The%20convert%20exit%20into%20go%20out%20rule%20response%20(check%20exiting%20rulebook)%20is%20&amp;quot;New%20text.&amp;quot;.%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>unlist</i><br>check    <i>an actor exiting</i>  <span class="indexdullred">can't exit when not inside anything rule</span>  <a href="javascript:pasteCode(%60can&amp;apos;t%20exit%20when%20not%20inside%20anything%20rule%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>name</i> <a href="javascript:pasteCode(%60The%20can&amp;apos;t%20exit%20when%20not%20inside%20anything%20rule%20response%20(check%20exiting%20rulebook)%20is%20&amp;quot;New%20text.&amp;quot;.%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>unlist</i><br>check    <i>an actor exiting</i>  <span class="indexdullred">can't exit closed containers rule</span>  <a href="javascript:pasteCode(%60can&amp;apos;t%20exit%20closed%20containers%20rule%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>name</i> <a href="javascript:pasteCode(%60The%20can&amp;apos;t%20exit%20closed%20containers%20rule%20response%20(check%20exiting%20rulebook)%20is%20&amp;quot;New%20text.&amp;quot;.%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>unlist</i><br>check    <i>an actor exiting</i>  <span class="indexdullred">convert exit into get off rule</span>  <a href="javascript:pasteCode(%60convert%20exit%20into%20get%20off%20rule%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>name</i> <a href="javascript:pasteCode(%60The%20convert%20exit%20into%20get%20off%20rule%20response%20(check%20exiting%20rulebook)%20is%20&amp;quot;New%20text.&amp;quot;.%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>unlist</i></p>
+    <p class="indentin2">carry out    <i>an actor exiting</i>  <span class="indexdullred">standard exiting rule</span>  <a href="javascript:pasteCode(%60standard%20exiting%20rule%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>name</i> <a href="javascript:pasteCode(%60The%20standard%20exiting%20rule%20response%20(carry%20out%20exiting%20rulebook)%20is%20&amp;quot;New%20text.&amp;quot;.%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>unlist</i></p>
+    <p class="indentin2">report    <i>an actor exiting</i>  <span class="indexdullred">standard report exiting rule</span>  <a href="javascript:pasteCode(%60standard%20report%20exiting%20rule%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>name</i> <a href="javascript:pasteCode(%60The%20standard%20report%20exiting%20rule%20response%20(report%20exiting%20rulebook)%20is%20&amp;quot;New%20text.&amp;quot;.%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>unlist</i><br>report    <i>an actor exiting</i>  <span class="indexdullred">describe room emerged into rule</span>  <a href="javascript:pasteCode(%60describe%20room%20emerged%20into%20rule%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>name</i> <a href="javascript:pasteCode(%60The%20describe%20room%20emerged%20into%20rule%20response%20(report%20exiting%20rulebook)%20is%20&amp;quot;New%20text.&amp;quot;.%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>unlist</i></p>
+    
+
+    <!--CONTENT ENDS-->
+</div>
+<footer id="credits-footer"'>
+<nav>
+<div class="nav-el">
+<a class="raw nav-el" href="../index.html">Contents</a>
+</div>
+<div class="nav-el">
+<a class="raw nav-el" href="../examples/index.html">Examples</a>
+</div>
+<div class="nav-el">
+<a class="raw nav-el" href="../general_index.html">Index</a>
+</div>
+<div class="nav-el">
+<a class="raw nav-el" href="../search.html">Search</a>
+</div>
+</nav>
+
+<div class="footing"><p id="i7credit"><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p>
+
+<p class="about">
+<a class="raw" href="../about.html">About this edition</a>&ensp;&bull;&ensp;
+<a class="raw" href="https://mastodon.gamedev.place/web/@inform7tips">@inform7tips@mastodon.gamedev.place</a></p></div>
+</footer>
+
+</main>
+</body></html>

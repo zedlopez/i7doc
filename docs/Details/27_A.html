@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>27_A</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../i7doc.css">
+<link rel="stylesheet" href="../pi.css">
+<script src="../i7doc.js"></script>
+</head>
+
+<body>
+<main>
+<nav>
+<a href="../Contents.html">Contents</a>
+<a href="../Actions.html">Actions</a>
+<a href="../Kinds.html">Kinds</a>
+<a href="../Phrasebook.html">Phrasebook</a>
+<a href="../Rules.html">Rules</a>
+<a href="../Scenes.html">Scenes</a>
+<a href="../World.html">World</a>
+</nav>
+<div>
+    <!--CONTENT BEGINS-->
+    <div>
+<div class="detail-head">Throwing it at</div>
+<p>Standard actions concerning other people</p>
+</div>
+
+    <hr>
+    <p><br><a href="24_A.html">giving it to</a><span class="sep"></span><a href="25_A.html">showing it to</a><span class="sep"></span><a href="26_A.html">waking</a><span class="sep"></span><b>throwing it at</b><span class="sep"></span><a href="28_A.html">attacking</a><span class="sep"></span><a href="29_A.html">kissing</a><span class="sep"></span><a href="30_A.html">answering it that</a><span class="sep"></span><a href="31_A.html">telling it about</a><span class="sep"></span><a href="32_A.html">asking it about</a><span class="sep"></span><a href="33_A.html">asking it for</a></p>
+    <hr>
+    <p><b>Throwing <span class="indexdullblue">something</span> at <span class="indexdullblue">something</span> </b> (<i>past tense</i> thrown it at): applying to one carried thing and one visible thing</p>
+    <p>Throwing something at
+    someone or something is difficult for Inform to model. So many considerations
+    apply: just because the actor can see the target, does it follow that the
+    target can accurately hit it? What if the projectile is heavy, like an
+    anvil, or something not easily aimable, like a feather? What if there
+    is a barrier in the way, like a cage with bars spaced so that only items
+    of a certain size get through? And then: what should happen as a result?
+    Will the projectile break, or do damage, or fall to the floor, or into
+    a container or onto a supporter? And so on.<p>Because it seems hopeless to try to model this in any general way,
+    Inform instead provides the action for the user to attach specific rules to.
+    The check rules in the Standard Rules simply require that the projectile
+    is not an item of clothing still worn (this will be relevant for women
+    attending a Tom Jones concert) but then, in either the 'futile to throw
+    things at inanimate objects rule' or the 'block throwing at rule', will
+    refuse to carry out the action with a bland message.<p>To make throwing do something, then, we must either write Instead rules
+    for special circumstances, or else unlist these check rules and write
+    suitable carry out and report rules to pick up the thread.</p>
+    <hr>
+    <p><b>Typed commands leading to this action</b></p>
+    <p>"drop [something preferably held] at/against [something]" - <i>throwing it at</i><a href="27_A.html"></a><br>
+    </p>
+    <p><b>Rules controlling this action</b></p>
+    <p></p>
+<p class="indentin2">check    <i>an actor throwing something at</i>  <span class="indexdullred">implicitly remove thrown clothing rule</span>  <a href="javascript:pasteCode(%60implicitly%20remove%20thrown%20clothing%20rule%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>name</i> <a href="javascript:pasteCode(%60The%20implicitly%20remove%20thrown%20clothing%20rule%20response%20(check%20throwing%20it%20at%20rulebook)%20is%20&amp;quot;New%20text.&amp;quot;.%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>unlist</i><br>check    <i>an actor throwing something at</i>  <span class="indexdullred">futile to throw things at inanimate objects rule</span>  <a href="javascript:pasteCode(%60futile%20to%20throw%20things%20at%20inanimate%20objects%20rule%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>name</i> <a href="javascript:pasteCode(%60The%20futile%20to%20throw%20things%20at%20inanimate%20objects%20rule%20response%20(check%20throwing%20it%20at%20rulebook)%20is%20&amp;quot;New%20text.&amp;quot;.%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>unlist</i><br>check    <i>an actor throwing something at</i>  <span class="indexdullred">block throwing at rule</span>  <a href="javascript:pasteCode(%60block%20throwing%20at%20rule%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>name</i> <a href="javascript:pasteCode(%60The%20block%20throwing%20at%20rule%20response%20(check%20throwing%20it%20at%20rulebook)%20is%20&amp;quot;New%20text.&amp;quot;.%60)" class="borderless"><span class="joined-squares icon"></span></a> <i>unlist</i></p>
+    
+
+    <!--CONTENT ENDS-->
+</div>
+<footer id="credits-footer"'>
+<nav>
+<div class="nav-el">
+<a class="raw nav-el" href="../index.html">Contents</a>
+</div>
+<div class="nav-el">
+<a class="raw nav-el" href="../examples/index.html">Examples</a>
+</div>
+<div class="nav-el">
+<a class="raw nav-el" href="../general_index.html">Index</a>
+</div>
+<div class="nav-el">
+<a class="raw nav-el" href="../search.html">Search</a>
+</div>
+</nav>
+
+<div class="footing"><p id="i7credit"><a href="http://inform7.com">Inform 7</a> and its documentation are &copy; 2006-<span id="current_year">2022</span> by Graham Nelson and published under the <a href="../license.html">Artistic License 2.0</a>.</p>
+
+<p class="about">
+<a class="raw" href="../about.html">About this edition</a>&ensp;&bull;&ensp;
+<a class="raw" href="https://mastodon.gamedev.place/web/@inform7tips">@inform7tips@mastodon.gamedev.place</a></p></div>
+</footer>
+
+</main>
+</body></html>
